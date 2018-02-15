@@ -19,4 +19,4 @@ Spikey's Notes for courses at University of Toronto
 ALl **.pdf** files are under [Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en)
 (according to the license) you are free to
 - **Share** copy and redistribute the material in any medium or format
-- **Adapt** remix, transform, and build upon the material. (IMPORTANT: YOU SHOULD NOT REMOVE THE LICENSE INFORMATION FROM ANY FILE.)
+- **Adapt** remix, transform, and build upon the material. (IMPORTANT: YOU MUST **NOT** REMOVE THE LICENSE INFORMATION FROM ANY FILE.)
