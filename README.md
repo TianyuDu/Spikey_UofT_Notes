@@ -12,7 +12,7 @@ Spikey's Notes for courses at University of Toronto
 #### PSY100: Intro Psychology
 - psy100-tophat-1_10: Notes based on tophat text book for PSY100, chapter 1 to chapter 10 included.
 
-#### MAT224 *updating*
+#### MAT224 *Finished*
 - mat224: lecture notes for mat224 lecture section 0101.
 
 ## License
