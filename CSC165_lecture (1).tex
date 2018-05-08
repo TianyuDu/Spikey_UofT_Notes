@@ -1,0 +1,231 @@
+\documentclass{article}
+\author{Tianyu Du}
+\title{CSC165 Lecture notes}
+\date{\today}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{float}
+\pagestyle{fancy}
+\lhead{Notes by T.Du}
+\usepackage[
+	type={CC},
+	modifier={by-nc-sa},
+	version={3.0},
+]
+{doclicense}
+
+\begin{document}
+	\maketitle
+	\paragraph{Info.}\quad
+	\newline
+	\textbf{Created: }January 15, 2018.
+	\newline \textbf{Last modified: } \today
+	\doclicenseThis
+	\tableofcontents
+	\section{Lecture 2 Jan.15 2018}
+	\subsection{Predicate Logic}
+	\paragraph{} \emph{Allow you to have a domain of objects that you want to talk about, we want to be express reason about this domain.}
+	\paragraph{Predicate} Simplest kind of Predicate Logical Formula is called a \textbf{predicate}. A predicate is a \underbar{function} with range $\{0,1\}$.
+	\newline
+	\textbf{Examples}
+	\begin{enumerate}
+		\item \emph{Less-than-or-equal-to:} $\leq : \mathbb{Z} \times \mathbb{Z} \to \{0,1\}$
+		\item \emph{Equality: } $=:\mathbb{Z} \times \mathbb{Z} \to \{0,1\}$
+		\item \emph{Prime: }$Prime: \mathbb{N} \to \{0,1\}$
+		\item Define: $R: \{a,b\} \times \{1,2,3\} \to \{0,1\}$ as $R(a,1) = R(b,1) = R(c,1) = 1, R = 0$ elsewise.
+	\end{enumerate}
+	When you specify/define a predicate you have to specify the \underbar{domain}.
+	\paragraph{Quantifiers} Introduce two quantifiers, \textbf{exists}: $\exists$ and \textbf{for all}: $\forall$, that let us express,
+	\[
+	\exists x \in \mathbb{DOMAIN} \text{: There is at least one element in domain of predicate that is true.}
+	\]
+	equivalently, represent as $\lor$,
+	\[
+	"\exists" \equiv {p(x_0) \lor p(x_1) \lor p(x_2) \dots}
+	\]
+	\[
+	\forall x \in \mathbb{DOMAIN} \text{: All element in domain of predicate satisfy the predicate.}
+	\]
+	equivalently, represented as $\land$,
+	\[
+	"\forall" \equiv {p(x_0) \land p(x_1) \land p(x_2) \dots}
+	\]
+	
+	\paragraph{Negation of quantifier statements}
+	\[
+	\neg (\exists x \in \mathbb{D},\ s.t.\ p(x)) \equiv \forall x \in \mathbb{D}, \neg p(x)
+	\]
+	\[
+	\neg (\forall x \in \mathbb{D},\ s.t.\ p(x)) \equiv \exists x \in \mathbb{D}, \neg p(x)
+	\]
+	\paragraph{Nested quantifier} more than one variable quantified.
+	\newline \textbf{Example}
+	
+	\emph{For every natural number $x$, if $x$ is a power of 2 then $2x$ is a power of 2.}
+	\[
+	\forall x \in \mathbb{N}, (\exists k \in \mathbb{N}\ s.t.\ x = 2^k) \implies (\exists k' \in \mathbb{N}\ s.t.\ 2^{k'} = 2x)
+	\]
+	
+	\section{Lecture 3 Jan.17 2018}
+	\paragraph{Another example} There are infinitely many natural number that are even.
+	\[
+	\text{Even(...): } \exists y \in \mathbb{N},\ x = 2y
+	\]
+	\[
+	\forall x \in \mathbb{N},\ \exists y\ s.t.\ y > x \land Even(y)
+	\]
+	\begin{multline*}
+	\\	
+	Q(x) : \text{ some predicate} \\
+	Q(x): \mathbb{N} \to \{0,1\} \\
+	\forall x \in \mathbb{N} [Q(x) \implies \exists y \in \mathbb{N}[y>x \land Q(y)]]
+	\\
+	\end{multline*}
+	Does this express \emph{there are infinitely many numbers that satisfy Q}?
+	\newline \text{Not}, consider a $Q$ that is false for all $x$, the statement is vacuous truth, but it does not express what we want.
+	\newline Fix it.
+	\[
+	\exists z \in \mathbb{N} [Q(z)] \land \forall x \in \mathbb{N} \exists y \in \mathbb{N} [y > x \land Q(y)]
+	\]
+	\underbar{To ensure that there are some elements satisfy $Q$}
+	\paragraph{Tips}
+	\begin{enumerate}
+		\item Make sure you write down a predicate logic formula with \textbf{correct syntax}.
+		\item Use different variable names for different quantities.
+		\item When you quantify ($\exists x\ or\ \forall y$) you must specify the \textbf{set}. e.g. We want to quantify over all $x \in \mathbb{N}$ such that $x \geq 5$.
+		\begin{enumerate}
+			\item Method 1: Predefine your set.
+				\[
+				\text{Let } S = \{x\ \vert\ x \in \mathbb{N},\ x\geq 5 \}
+				\quad \forall x \in S, x \geq 3
+				\]
+			\item Method 2: By implication.
+				\[
+				\forall x\in \mathbb{N},\quad x \geq 5 \implies x \geq 3
+				\]
+		\end{enumerate}
+	\end{enumerate}
+	\paragraph{Note} We will spend a lot of time defining new predicates using predicate logic and then reasoning about them.
+	\paragraph{Example: Divisibility} Let $n,d\in\mathbb{Z}$, we say that $d$ \textbf{divides} $n$ or $n$ is \textbf{divisible} by $d$ iff
+	\[
+	\exists k \in \mathbb{Z}\ s.t.\ n = d*k
+	\]
+	\[
+	Divides(d,n): \exists k \in \mathbb{Z}\ [n = d*k]
+	\]
+	this formula is a predicate logic, some of variables ($k)$ are quantified and others ($n,d$) are not quantified, called \textbf{free variable}. This formula since it has free variables, it represents a predicate.
+	\newline A formula with no free variable is called a \textbf{sentence}, sentences are true or false.
+	\paragraph{Let's express} \emph{For every integer $x$, if $x$ divides 10 then it also divide 100.}
+	\[
+	\forall x \in \mathbb{Z}\ [Divides(x,10) \implies Divides(x,100)]
+	\]
+	equivalently,
+	\[
+	\forall x \in \mathbb{Z}\ [\exists k \in \mathbb{Z}[10 = k*x] \implies \exists k' \in \mathbb{Z} [100 = k'*x]]
+	\]
+	\paragraph{Note} Proposition is a special type of predicate but it's \textbf{not} a sentence.
+	
+	\section{Lecture 4 Jan.22 2018}
+	\subsection{Introduction to proofs}
+	\paragraph{Proof} A \textbf{proof} is a logical argument that convinces another person that a statement is \underbar{true}. Can also have a \textbf{disproof} showing that a statement if \underbar{false}.
+	\begin{enumerate}
+		\item Write down what we want to prove using language of first order logic.
+		\item Introducing variable(s).
+		\item Write body of proof.
+	\end{enumerate}
+	\paragraph{Example} Prove that every natural number $n$ satisfies the inequality $n^2 + 3n + 7 \geq 4$,
+	
+	\textbf{Statement in first order logic:}
+	\[
+		\forall n \in \mathbb{N}, n^2 + 3n + 7 \geq 4
+	\]
+	\begin{multline*}
+		\emph{proof:} \\
+		\textbf{ Introducing variable(s): } \\
+		\text{Let } n \in \mathbb{N} \\
+		\textbf{Body of proof: } \\
+		\text{Since } n \in \mathbb{N},\ n \geq 0 \\
+		\text{Therefore } n^2 \geq 0 \\
+		\text{Similarly, } since n \in \mathbb{N}, n \geq 0, 3n \geq 0 \\
+		\therefore n^2 + 3n + 7 \geq 0 + 0 + 4 \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Example} Prove that for every natural number $n$ greater than 20, $n$ satisfies $1.5n-4\geq3$.
+	\[
+		\forall n \in \mathbb{N}, [\ n > 20 \implies 1.5n - 4 > 3\ ]
+	\]
+	\begin{multline*}
+		\emph{proof.}\\
+		\text{Let } n \in \mathbb{N}, \text{ assume that } n > 20 \\
+		\text{Since } n > 20,\ 1.5n > 1.5(20) = 30 \\
+		\text{So } 1.5 n > 30 \\
+		\therefore 1.5n - 4 > 26 \\
+		\therefore 1.5n - 4 > 3 \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{(More complex)Example} Define a natural number to be a \textbf{Prime} numbers:
+	\[
+		Divides(x,n): \exists x k = n
+	\]
+	\[
+		Prime(n): (n > 1) \land (\forall x \in \mathbb{N}, ((x\neq1 \land x\neq n) \implies \neg Divides(x,n)))
+	\]
+	Equivalently, take \underbar{contrapositive}
+	\[
+		Prime(n): (n > 1) \land (\forall x \in \mathbb{N}, Divides(x,n) \implies (x = 1 \lor x = n))
+	\]
+	\paragraph{Example} For every integer $x$, $x \vert x + 1$ then $x \vert 5$
+	\[
+		\forall x \in \mathbb{Z}, [\ Divides(x, x+5) \implies Divides(x, 5)\ ]
+	\]
+	\[
+		\forall x \in \mathbb{Z}, [\ (\exists k \in \mathbb{Z}\ s.t.\ xk = x + 5) \implies (\exists k' \in \mathbb{Z}\ s.t.\ xk' = x)\ ]
+	\]
+	\begin{multline*}
+	\emph{proof.}\\
+		\text{Let }x \in \mathbb{Z} \\
+		\text{Assume } k \in \mathbb{Z} \text{ is such that } xk = x + 5 \\
+		\text{Let } k' = k - 1 \\
+		\text{Then, } k'x = (k - 1)x\\
+		= kx - x \\
+		\text{By assumption, } \\
+		= 5 \\
+		\text{Therefore, } \exists k' \in \mathbb{Z},\ s.t.\ k'x = 5 \\
+		\blacksquare
+	\end{multline*}
+	
+	\section{Lecture 5 Jan.24 2018}
+	\paragraph{Generalization}
+	\[
+		\forall x \in \mathbb{Z}, \forall d \in \mathbb{Z} \forall a \in \mathbb{Z}\ [x \vert ax + d \implies x \vert d]
+	\]
+	\paragraph{} In more complicated proofs, a proof body is a sequence of true statements, where each statement follows logically from:
+	\begin{enumerate}
+		\item Definitions.
+		\item Assumptions. (mentioned in proof header)
+		\item Previous statements.
+		\item External facts/claims.
+	\end{enumerate}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

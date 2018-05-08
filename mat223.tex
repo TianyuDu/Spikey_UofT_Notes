@@ -1,0 +1,990 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Notes by Tianyu Du}
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={3.0},
+]{doclicense}
+\author{Tianyu Du}
+\date{\today}
+\title{Notes on MAT223}
+\begin{document}
+	\maketitle
+	\doclicenseThis
+	\tableofcontents
+	\section{Sep. 18. Lecture notes @SS2102}
+	\paragraph{Span} of $v=\{\vec{v_1},...,\vec{v_m}\}$ is the set of all \emph{linear combinations} of vectors in $v$.
+		\[
+		span\{\vec{v_1},...,\vec{v_m}\} = \{\Sigma_{i=1}^m c_i * v_i \vert \forall i, c_i \in \Re\}
+		\]
+		\[
+		\vec{b} \in span\{\vec{v_1},...,\vec{v_m}\} \iff [\vec{v_1}\cdots\vec{v_m}\vec{b}] \text{ is consistent, that's the right most col. of mat. is not \emph{pivot column.}}
+		\]
+	\paragraph{Null Vector $\vec{0}$}
+		\[
+		\vec{0} \in span\{\vec{v_1},...,\vec{v_m}\}
+		\]
+		\begin{itemize}
+			\item $\forall i, c_i = 0$
+			\item $\{\vec{v_i}\}$ is \emph{linearly dependent}.
+		\end{itemize}
+	\paragraph{Examples}
+	\begin{enumerate}
+		\item Let $\vec{u}=\begin{bmatrix} 1\\2 \end{bmatrix}$, then  $span\{\vec{u}\}=\begin{bmatrix} t \\ 2t \end{bmatrix}, t \in \Re$.
+		\item Let vector set $v = \{ \begin{bmatrix} 1\\1\\1 \end{bmatrix}, \begin{bmatrix} 1\\0\\0 \end{bmatrix} \}$
+			, then $span\{v\} = \{\begin{bmatrix} s\\t\\t \end{bmatrix}, s,t \in \Re \}$
+	\end{enumerate}
+	\paragraph{Law of Cosine} Given a triangle with sides a, b, c. $\theta$ is the angle opposite to side c. \[ c^2 = a^2 + b^2 - 2 * a * b * \cos{\theta} \]
+	\paragraph{Theorem($\Re^2$ Case)} Let $\vec{u},\vec{v} \in \Re^2$,\[\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert * \lVert \vec{v} \rVert * \cos{\theta} \]
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}
+		\draw (0,0) node[anchor=north]{$A$}
+		  -- (0,0) node[anchor=south] {$\theta$}
+		  -- (4,0) node[anchor=north]{$C$}
+		  -- (4,4) node[anchor=south]{$B$}
+		  -- cycle;
+		\end{tikzpicture}
+		\caption{\text{Proof of Theorem.}}
+	\end{figure}
+	\newline \textbf{Proof.}
+	\newline \quad Let $AB$ = $\vec{u}$, $AC$ = $\vec{v}$, $CB$ = $\vec{u} - \vec{v}$.
+	\newline \quad \emph{Ref. law of cosine}.
+	\begin{gather}
+		\lVert \vec{u} - \vec{v} \rVert^2 = \lVert \vec{u} \rVert^2 + \lVert \vec{v} \rVert^2 - 2 * \lVert \vec{u} \rVert * \lVert \vec{v} \rVert * \cos{\theta} \\
+		\lVert \vec{u} - \vec{v} \rVert^2 = (\vec{u} - \vec{v}) \cdot (\vec{u} - \vec{v}) \\ 
+		\dots = \vec{u} \cdot \vec{u} + \vec{v} \cdot \vec{v} - 2 * \vec{u} \cdot \vec{v} \\ 
+		\text{so that,} -2 \vec{u} \cdot \vec{v} = -2 * \lVert \vec{u} \rVert * \cos{\theta} \\ 
+		\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert * \lVert \vec{v} \rVert * \cos{\theta}
+	\end{gather}
+	
+	\paragraph{Corollary} For $\lVert \vec{u} \rVert, \lVert \vec{v} \rVert \neq 0$.
+	\[
+		\cos{\theta} = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert * \lVert \vec{v} \rVert}
+	\]
+	\begin{itemize}
+		\item $\vec{u} \cdot \vec{v} = 0 \rightarrow \theta = \frac{\pi}{2}$.
+		\item $\vec{u} \cdot \vec{v} < 0 \rightarrow \theta \in (0,\frac{\pi}{2}) \cup (\frac{3\pi}{2},2\pi)$
+		\item $\vec{u} \cdot \vec{v} > 0 \rightarrow \theta \in (\frac{\pi}{2},\frac{3\pi}{2})$
+	\end{itemize}
+	\paragraph{Theorem $\Re^n$ Case} Let $\vec{u},\vec{v} \in \Re^n$,
+	\[
+		\vec{u} \cdot \vec{v} = \lVert \vec{u} \rVert * \lVert \vec{v} \rVert * \cos{\theta}
+	\]
+	where $\theta$ is the angle between $\vec{u}$ and $\vec{v}$. When $\vec{u}$ and $\vec{v}$ meets at right angle, that is, if $\vec{u} \cdot \vec{v} = 0$, we say $\vec{u}$ and $\vec{v}$ are \textbf{orthogonal}.
+	\paragraph{Cauchy-Schwarz Inequality(CSI)} Let $\vec{u},\vec{v} \in \Re^n$, then
+	\[
+		\lvert \vec{u} \cdot \vec{v} \rvert
+		\leq 
+		\lVert \vec{u} \rVert * \lVert \vec{v} \rVert
+	\]
+	where equality holds when and only when $\vec{u}$ and $\vec{v}$ are \emph{multiples (*linearly dependent)} of each other.
+	\newline \textbf{Proof.}
+		\begin{multline}
+		\\
+			0 \leq \lVert(\vec{u}*\lVert \vec{v} \rVert \pm \vec{v} * \lVert \vec{u} \rVert)\rVert^2 \\
+			= (\vec{u}*\lVert\vec{v}\rVert \pm \vec{v}*\lVert\vec{u}\rVert) \cdot (\vec{u}*\lVert\vec{v}\rVert \pm \vec{v}*\lVert\vec{u}\rVert) \\
+			= \vec{u} \cdot \vec{u} * \lVert\vec{v}\rVert^2 \pm \vec{u}\cdot\vec{v}*\lVert\vec{v}\rVert*\lVert\vec{u}\rVert \pm \vec{u}\cdot\vec{v}*\lVert\vec{v}\rVert * \lVert\vec{u}\rVert + \vec{u}\cdot\vec{v} * \lVert \vec{u} \rVert^2 \\
+			= \lVert\vec{u}\rVert^2*\lVert\vec{v}\rVert^2 + \lVert\vec{u}\rVert^2*\lVert\vec{v}\rVert^2 \pm 2*(\vec{u}\cdot\vec{v}*\lVert\vec{u}\rVert*\lVert\vec{v}\rVert) \\
+			\implies 2*\lVert\vec{u}\rVert^2*\lVert\vec{v}\rVert^2 \pm 2*(\vec{u}\cdot\vec{v}*\lVert\vec{u}\rVert*\lVert\vec{v}\rVert) \\
+			\implies \mp (\vec{u}\cdot\vec{v}*\lVert\vec{u}\rVert*\lVert\vec{v}\rVert) \leq \lVert\vec{u}\rVert^2*\lVert\vec{v}\rVert^2 \\
+			\implies \mp (\vec{u}\cdot\vec{v}) \leq \lVert\vec{u}\rVert * \lVert\vec{v}\rVert \\
+			\text{Notice CSI holds if} \vec{v} = \vec{u} = \vec{0}\text{, so assume} \vec{u},\vec{v} \neq \vec{0}:\\
+			\vec{u} \cdot \vec{v} \leq \lVert\vec{u}\rVert * \lVert\vec{v}\rVert \text{ and}
+			- \vec{u} \cdot \vec{v} \leq \lVert\vec{u}\rVert * \lVert\vec{v}\rVert \\
+			\implies \lvert \vec{u} \cdot \vec{v} \rvert \leq \lVert\vec{u}\rVert * \lVert\vec{v}\rVert \quad \blacksquare
+			\\
+		\end{multline}
+	\section{Sep. 20. Lecture notes @SS2102}
+	\paragraph{Continuous Proof. for CSI}\quad
+	\newline \textbf{proof 1.} multiple of each other $\implies$ equality.
+	\newline Let $\vec{v} = c \vec{u}, \vec{v},\vec{u} \in \Re^n, c \in \Re$
+		\begin{multline}
+			\\
+			\lvert\vec{v} \cdot \vec{u} \rvert = \lvert c \vec{u} \cdot \vec{u} \rvert \\
+			= \lvert c \rvert * \lVert \vec{u} \rVert ^ 2 \\
+			= \lvert c \rvert * \lVert \vec{u} \rVert \cdot \lVert \vec{u} \rVert \\
+			= \lVert \vec{v} \rVert \cdot \lVert \vec{u} \rVert
+			\\
+		\end{multline}
+	\newline \textbf{proof 2.} equality $\implies$ multiple of each other.
+	\paragraph{Distance} between two vectors $\vec{u}$ and $\vec{v}$  $\in \Re^n$is defined as
+		\[ d(\vec{u},\vec{v}) = \lVert \vec{u} - \vec{v} \rVert \]
+	\begin{itemize}
+		\item $d(\vec{u},\vec{v}) = d(\vec{v},\vec{u})$
+		\item $d(\vec{v},\vec{u}) = 0$
+	\end{itemize}
+	\paragraph{Triangle Inequality(1)} Let $\vec{u},\vec{v} \in \Re^n$
+		\[ \lVert \vec{u} + \vec{v} \rVert \leq \lVert \vec{u} \rVert + \lVert \vec{v} \rVert
+		\]		
+	\newline \textbf{proof.}
+	\begin{multline}
+		\\
+		\lVert \vec{u} + \vec{v} \rVert ^ 2 = (\vec{u} + \vec{v}) \cdot (\vec{u} + \vec{v})
+		\\
+		= \lVert \vec{u} \rVert^2 + 2 \vec{u}\cdot\vec{v} + \lVert\vec{v}\rVert^2
+		\\
+		\text{(Ref. CSI)} \lvert \vec{u} \cdot \vec{v} \rvert \leq \lVert\vec{u}\rVert \lVert\vec{v}\rVert
+		\text{So that, } \lVert \vec{u} + \vec{v} \rVert ^ 2 \leq \lVert \vec{u} \rVert ^ 2 + 2 \lVert \vec{u} \rVert \lVert \vec{v} \rVert + \lVert \vec{v}\rVert ^ 2
+		\\
+		\lVert \vec{u} + \vec{v} \rVert ^ 2 \leq (\lVert\vec{u}\rVert + \lVert\vec{v}\rVert) ^ 2
+		\\
+		\text{Since, } \lVert\vec{a}\rVert \geq 0 \forall \vec{a} \in \Re^n
+		\\
+		\lVert \vec{u} + \vec{v} \rVert \leq \lVert \vec{u} \rVert + \lVert \vec{v} \rVert \blacksquare
+		\\
+	\end{multline}
+	\paragraph{Triangle Inequality(2)} for $\vec{u},\vec{v},\vec{w} \in \Re^n$, we have
+	\[
+		d(\vec{v},\vec{u}) \leq d(\vec{v},\vec{u}) + d(\vec{u},\vec{w})
+	\]
+	\newline	 \textbf{proof.}
+	\begin{multline}
+		\\
+		d(\vec{v},\vec{u}) = \lVert \vec{u} - \vec{v} \rVert \\
+		= \lVert \vec{u} - \vec{w} + \vec{w} - \vec{v} \Vert \\
+		\text{Ref. Triangle Inequality(1)} \leq \lVert \vec{u} - \vec{w} \rVert + \lVert \vec{w} - \vec{v} \rVert \\
+		= d(\vec{u},\vec{v}) + d(\vec{w},\vec{v}) \blacksquare \\
+		\\
+	\end{multline}
+	\paragraph{Orthogonal sets} Let set S = $\{\vec{v_1},...,\vec{v_m}\}\in \Re^n$, set s is \textbf{orthogonal} if and only if
+	\[ \vec{v_i} \cdot \vec{v_j} = 0, \forall i \neq j \in \{1,2,...,m\}
+	\]
+	\paragraph{Orthonormal sets} For an \textbf{orthogonal set} s, we say s is \textbf{orthonormal} if and only if
+	\[ \lVert \vec{v_i} \rVert = 1 \forall \vec{v_i} \in s
+	\]
+	\newline \emph{\textbf{Orthonormal $\implies$ Orthogonal}}.
+	\paragraph{Normalize} Given $\vec{v} \in \Re^n$,
+	\[
+	\hat{v} = \frac{\vec{v}}{\lVert \vec{v} \rVert}
+	\]
+	is a \textbf{unit vector} in the same direction.
+	\paragraph{Projection} Let $\vec{v},\vec{d}\neq\vec{0}\in\Re^n$, there is a new vector called $proj_{\vec{d}}\vec{v}$ such that,
+	\begin{itemize}
+		\item $proj_{\vec{d}}\vec{v}$ is \emph{parallel} to $\vec{d}$.
+		\item $proj_{\vec{d}}\vec{v}$ has tip \emph{closest} point to $\vec{v}$ along the line in $\vec{d}$ direction.
+	\end{itemize}
+	$proj_{\vec{d}}\vec{v}$ is called the \textbf{projection} of $\vec{v}$ onto $\vec{d}$.
+	\[
+	proj_{\vec{d}}\vec{v} = \frac{\vec{v}\cdot\vec{d}}{\lVert \vec{d} \rVert ^ 2} \vec{d}
+	\]
+	
+	\section{Sep. 22. Lecture notes @SS2102}
+	\paragraph{Projection} Given $\vec{d} \neq \vec{0} \in \Re^n, \vec{v} \in \Re^n $, the projection of $\vec{v}$ on $\vec{d}$ is 
+	\[ proj_{\vec{d}}\vec{v} = \frac{\vec{d}\cdot\vec{v}}{\lVert\vec{d}\rVert^2} * \vec{d}
+	\]
+	\newline \textbf{Component} of $\vec{v}$ along $\vec{d}$ is
+	\[ c = \frac{\vec{d}\cdot\vec{v}}{\lVert\vec{d}\rVert^2}
+	\]
+	\paragraph{}Consider system of equations:
+	\[
+	(\star)\begin{cases}
+		a*x_1 + b*x_2 + c*x_3 = g  \\
+		d*x_1 + e*x_2 + f*x_3 = h \\
+	\end{cases}
+	\]
+	is equivalent to system:
+	\[
+	x_1 \begin{pmatrix}a\\d\end{pmatrix} + x_2 \begin{pmatrix}b\\e\end{pmatrix} + x_3 \begin{pmatrix}c\\f\end{pmatrix} = \begin{pmatrix}g\\h\end{pmatrix}
+	\]
+	is equivalent to \textbf{Matrix-vector multiplication equation}:
+	\[
+	\begin{bmatrix}
+		a&b&c\\
+		d&e&f
+	\end{bmatrix}
+	\begin{pmatrix}
+		x_1 \\ x_2 \\ x_3
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		g\\h
+	\end{pmatrix}
+	\]
+	in $\textbf{A} \vec{x} = \vec{b}$ form.
+	\paragraph{Solvability} The system $(\star)$ is solvable if and only if $\vec{b}$ is in the \emph{span} of \emph{columns} of $\textbf{A}$, that is:
+	\[
+	\vec{b} \in span\{columns of \textbf{A}\}
+	\]
+	or, $\vec{b}$ is a \textbf{linear combination} of \emph{columns} of $\textbf{A}$.
+	\paragraph{Matrix-vector multiplication} In general, for $\vec{a_1},\vec{a_2},...,\vec{a_n} \in \Re^m$
+	\[
+	\textbf{A} = \begin{bmatrix}\vec{a_1}&\vec{a_2}&...&\vec{a_n}\end{bmatrix}_{m \times n}
+	\]
+	$\textbf{A}\vec{x}$ is a \emph{linear combination} of columns of $\textbf{A}$ with \textbf{weights} the entries at $\vec{x}$.
+	\newline $\textbf{A}\vec{x}$ could be defined if and only if $\vec{x} \in \Re^{\sharp col. of \textbf{A}}$.
+	\newline Generally,
+	\[
+	\textbf{A}\colon \Re^{\sharp col. of \textbf{A}} \rightarrowtail \Re^{\sharp row of \textbf{A}}
+	\]
+	\paragraph{} Every linear system can be written as matrix equation:
+	\[
+	\textbf{A} \vec{x} = \vec{b}
+	\]
+	where size of $\textbf{A}$ is $[\sharp equations \times \sharp unknowns]$.
+	\newline $\textbf{A}\vec{x}=\vec{b}$ is solvable if and only if $\begin{bmatrix}\vec{a_1}&\vec{a_2}&...&\vec{a_n}&\vert&\vec{b}\end{bmatrix}$ is the \textbf{augmented matrix} for a \emph{consistent} system.
+	\paragraph{Theorem} Let $\textbf{A}$ is a $[m \times n]$ matrix, the following are equivalent.
+	\begin{enumerate}
+		\item $\forall \vec{b} \in \Re^m$,$\textbf{A} \vec{x} = \vec{b}$ is solvable.
+		\item $\forall \vec{b} \in \Re^m$,$\vec{b}$ is aa \emph{linear combination} of columns of $\textbf{A}$.
+		\item Columns of $\textbf{A}$ \emph{spans}/\emph{generates} $\Re^m$.
+		\item Every row of $\textbf{A}$ has a \emph{pivot position}.
+	\end{enumerate}
+	\quad \newline
+	\begin{enumerate}
+		\item \textbf{proof.} of (4) $\implies$ (1).
+		\item \quad Suppose (4) holds, let $\vec{b} \in \Re^m$
+		\item \quad Aug mat $\begin{bmatrix}\textbf{A}&\vert&\vec{b}\end{bmatrix}$ has size $[m \times (n+1)]$.
+		\item Since every row of $\textbf{A}$ has pivot position.
+		\item So that, the last column of $\begin{bmatrix}\textbf{A}&\vert&\vec{b}\end{bmatrix}$ could not be a pivot column cause there is no spot.
+		\item So that, the system $\begin{bmatrix}\textbf{A}&\vert&\vec{b}\end{bmatrix}$ is solvable.
+		\item So, (4) $\implies$ (1). $\blacksquare$
+	\end{enumerate}
+	\section{Sep. 25. Lecture notes @SS2102}
+	\paragraph{Identity matrix}For each $n in \in \mathbb{Z}^+$ there is a matrix $\textbf{I}_n$ (\emph{often n is omitted}). So that,
+	\[
+	I_n = 
+	\begin{bmatrix}
+		1 & 0 & 0 & \dots & 0\\
+		0 & 1 & 0 & \dots & 0 \\
+		0 & 0 & 1 & \dots & 0 \\
+		\vdots & & & & \vdots \\
+		0 & 0 & 0 & \dots & 1 \\
+	\end{bmatrix}
+	\]
+	\[
+	\text{ and, }
+	\begin{bmatrix}
+		1 \\
+		0 \\
+		\vdots \\
+		0 \\	
+	\end{bmatrix}
+	\text{is called } \vec{e_1}
+	\text{ and }
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		\vdots \\
+		1 \\	
+	\end{bmatrix} \text{is called }\vec{e_n}
+	\]
+	\[
+	\text{Set of vectors} \{\vec{e_1},\vec{e_2},\dots,\vec{e_n}\} \text{is called \textbf{Standard basis} of } \Re^n
+	\]
+	\newline For an identity matrix, we have:
+	\[
+	I_n \cdot \vec{x} = 
+	I_n \cdot 
+	\begin{bmatrix}
+		x_1 \\
+		x_2 \\
+		\vdots \\
+		x_n \\
+	\end{bmatrix}
+	=\vec{x}
+	\]
+	\paragraph{Dot product rule of matrix} Use dot product to calculate \textbf{A}$\cdot \vec{x}$ We have:
+	\[
+	\text{\textbf{A}} \cdot \vec{x}
+	= 
+	\begin{bmatrix}
+		row_1(A) \cdot \vec{x} \\
+		row_2(A) \cdot \vec{x} \\
+		\vdots \\
+		row_n(A) \cdot \vec{x} \\	
+	\end{bmatrix}
+	\]
+	\paragraph{Rules} Let $A,B \in M_{m \times n}(\Re)$, we have:
+	\[
+	\text{\textbf{A}}(\vec{x} + \vec{y}) = \text{\textbf{A}}\vec{x} + \text{\textbf{A}}\vec{y}, \forall \vec{x},\vec{y} \in \Re^n
+	\]
+	and,
+	\[
+	\text{\textbf{A}} c \vec{x} = c \text{\textbf{A}} \vec{x}, \forall c \in \Re
+	\]
+	\paragraph{Solutions of linear system} A linear system is called \textbf{homogeneous} if it can be write in the form \textbf{A}$\vec{x} = \vec{0}$.
+	\paragraph{Fact} Homogeneous $\implies$ consistency.
+	\paragraph{Explanations}
+	\begin{itemize}
+		\item $\vec{x}=\vec{0}$ solves the system.(Called the \textbf{trivial} solution).
+		\item Last column ($\vec{0}$) could be a pivot column.	
+	\end{itemize}
+	\paragraph{Non-trivial} Non-zero solutions are \textbf{non-trivial}, it is not necessary for a linear system to have non-trivial solution.
+	\paragraph{Theorem} A \emph{homogeneous} system \textbf{A}$\vec{x}=\vec{0}$ has \textbf{non-trivial} solution if and only if there's a free variable.
+	\newline \textbf{Proof:}
+	\begin{enumerate}
+		\item Homogeneous system is consistent.
+		\item So there is one unique solution or infinitely many solutions.
+		\item $\vec{0}$ is always a solution, and a trivial solution.
+		\item If there exist other solution, there are infinitely many solutions.
+		\item There should be at least one free variable to create infinitely many solutions.
+	\end{enumerate}
+	\paragraph{Example:}
+	\begin{multline}
+		\\
+		\text{Let augmented matrix be: }\\
+		AugMat = \begin{bmatrix}
+			1 & -2 & 3 & -2 & 0 \\
+			3 & 6 & 4 & 0 & 0 \\
+			2 & 4 & 4 & -2 & 0 \\
+		\end{bmatrix} \\
+		\text{In the form of } \text{\textbf{A}} \vec{x} = \vec{0} \\
+		\text{Use reduction algorithm: } \text{\textbf{A}} \sim 
+		\begin{bmatrix}
+			1 & -2 & 0 & - \frac{1}{5} \\
+			0 & 0 & 1 & - \frac{3}{5} \\
+			0 & 0 & 0 & 0 \\
+		\end{bmatrix} \\
+		\text{So that: } \\
+		\vec{x} = \begin{bmatrix}x_1\\x_2\\x_3\\x_4\\\end{bmatrix} = \begin{bmatrix}1\\0\\0\\0\\\end{bmatrix} + t \begin{bmatrix}2\\1\\0\\0\end{bmatrix} + \begin{bmatrix}0\\0\\1\\0\end{bmatrix} + s \begin{bmatrix}\frac{1}{5}\\0\\\frac{3}{5}\\1\\\end{bmatrix} \\ = span\{\begin{bmatrix}2\\1\\0\\0\end{bmatrix},\begin{bmatrix}\frac{1}{5}\\0\\\frac{3}{5}\\1\\\end{bmatrix}\}
+		\\
+	\end{multline}
+	\paragraph{Theorem} If a matrix $\text{\textbf{A}}_{m \times n}$ is a \emph{homogeneous} system with more variables than equations, there are infinitely many solutions.
+	\newline
+	\newline \textbf{Proof.}
+	If $n > m$, then not every variable can be basic, since a pivot would have to go in a row and column, but too many columns. So there's at least one free variables.
+	%\[
+	%\Leftarrow \Uparrow \Downarrow \Rightarrow \Leftarrow \Uparrow \Downarrow \Rightarrow \Leftarrow \Uparrow \Downarrow \Rightarrow\Leftarrow \Uparrow \Downarrow \Rightarrow\Leftarrow \Uparrow \Downarrow \Rightarrow\Leftarrow \Uparrow \Downarrow \Rightarrow\Leftarrow \Uparrow \Downarrow \Rightarrow\Leftarrow \Uparrow \Downarrow \Rightarrow\Leftarrow \Uparrow \Downarrow \Rightarrow
+	%\]
+	\section{Sep. 27. Lecture notes @SS2102}
+	\paragraph{Example} A \textbf{conic} is graph of an equation in form
+	\[
+	ax^2 + b x y + c y^2 + d x + e y + f = 0 \text{a,b,c not all zero}
+	\]
+	Show that a conic goes through any 5 \emph{non-colinear} points in plane.
+	\newline \textbf{Proof.}
+	\newline 
+	Consider $p_i,q_i$ where i = 1,2,3,4,5 on the conic curve.
+	\[
+	ap_i^2+bp_iq_i+cq_i^2+dp_i + eq_i + f = 0 \text{ for i = 1,2,3,4,5}
+	\]
+	so there are \textbf{5} equations and \textbf{6} variables (a,b,c,d,e,f) which means there are \emph{more variables than equations}. Refer to theorem above (pervious lecture), three are \textbf{infinitely many} solutions.
+	\newline
+	If a,b,c are all zeros, equations are reduced to:
+	\[
+	dp_i + eq_i + f = 0 \text{ for i = 1,2,3,4,5}
+	\]
+	which contributes a linear, so the solutions for the system when a,b,c are all zeros, are \textbf{co-linear}.\emph{Shown by contradiction}.
+	\subsection{Non-Homogeneous Systems}
+	\paragraph{Example} A non-homogeneous system with like:
+	\[
+	\begin{bmatrix}
+		3 & 5 & -4 \\
+		-3 & -2 & 4 \\
+		6 & 1 & -8 \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		x_1 \\
+		x_2 \\
+		x_3 \\
+	\end{bmatrix}
+	= 
+	\begin{bmatrix}
+		7 \\
+		-1 \\
+		-4 \\
+	\end{bmatrix}
+	\]
+	By reduction algorithm, the reduced echelon form of associated augmented matrix is:
+	\[
+	[\text{\textbf{A}} \vec{b}] \sim 
+	\begin{bmatrix}
+		1 & 0 & -\frac{4}{3} & 1\\
+		0 & 1 & 0 & 2 \\
+		0 & 0 & 0 & 0 \\
+	\end{bmatrix}
+	\]
+	the solution would be 
+	\[
+	\begin{bmatrix}
+		x_1 \\
+		x_2 \\
+		x_3 \\
+	\end{bmatrix}
+	= \begin{bmatrix}
+		-1 \\
+		2 \\
+		0 \\
+	\end{bmatrix}
+	+ x_3 \begin{bmatrix}
+		\frac{4}{3} \\
+		0 \\
+		1 \\
+	\end{bmatrix}
+	\text{, denote: }
+	\begin{bmatrix}
+		-1 \\
+		2 \\
+		0 \\
+	\end{bmatrix} = \vec{p}
+	\text{ and, }
+	\begin{bmatrix}
+		\frac{4}{3} \\
+		0 \\
+		1 \\
+	\end{bmatrix} = \vec{v_h}
+	\]
+	and we find:
+	\[
+	\textbf{A}\vec{p} = \begin{bmatrix}7\\-1\\-4\end{bmatrix}
+	\]
+	$\vec{p}$ solves the non-homogeneous system.
+	and:
+	\[
+	\textbf{A}\vec{v_h} = \vec{0}
+	\]
+	$\vec{v_h}$ solves the corresponding homogeneous system.
+	so that, $\vec{x} = \vec{p} + \vec{v_h}(t),t\in\mathbb{R}$ solves the non-homogeneous system. And the solution is in a \textbf{linear} form.
+	thus, the solution of linear equation above is
+	\[
+	\vec{x} = \{ \vec{p} + \vec{v_h}(t) , t \in \mathbb{R} \}
+	\]
+	this is a line pass through $\vec{p}$ and in direction of $\vec{v_h}$, and is the \emph{shifted version} of $\{t \vec{v_h} \vert t \in \mathbb{R} \}$ = $span\{\vec{v_h}\}$.
+	\paragraph{} $\vec{p}$ is called the \textbf{particular solution} to the system and $\vec{v_h}$ is the solution to the corresponding homogeneous form of the solution. $\vec{x}$ is therefore the \textbf{general solution} to the non-homogeneous system of equations. 
+	\paragraph{Theorem} If $\textbf{A}\vec{x}=\vec{b}$ is consistent for a given $\vec{b}$, the solution to this system is $\vec{x} = \vec{p} + \vec{v_h}(t)$, where 
+	\[
+	\textbf{A}\vec{p} = \vec{b} \text{ and } \textbf{A}\vec{v_h} = \vec{0}
+	\]
+	\newline \textbf{Proof.}
+	\newline Let $\vec{x}$ is a solution to the system and $\vec{p}$ is a \emph{particular} solution solving $\textbf{A}\vec{x}=\vec{b}$, so that we have:
+	\begin{multline}
+	\\ 
+	\begin{cases}
+		\textbf{A}\vec{p} = \vec{b}\\
+		\textbf{A}\vec{x} = \vec{b} \\
+	\end{cases} \\
+	\textbf{A}\vec{x} - \textbf{A}\vec{p} = \vec{b} - \vec{b} = \vec{0} \\
+	\text{So that, } \vec{x} - \vec{p} \text{ solves } \textbf{A}\vec{v} = \vec{0} \\
+	\text{Let }\vec{v_h} = \vec{x} - \vec{p}\text{ for a solution set of } \textbf{A}\vec{v} = \vec{0} \\
+	\text{So that, }\vec{x} = \vec{v_h} + \vec{p} \text{\quad}\blacksquare\\
+	\\
+	\end{multline}
+	\section{Sep. 29. Lecture nots @SS2102}
+	\paragraph{Recall} $\{\vec{v_1},...,.\vec{v_k}\} in \mathbb{R}$, if $\vec{v} \in span(\{\vec{v_1},...,\vec{v_k}\})$, then we write:
+	\[
+	\vec{v} = \sum_{j=1}^k c_j * \vec{v_j}
+	\]
+	\textbf{WTS} if $\{c_i\}$ is \emph{unique}. Equivalently, is there:
+	\[
+	\{d_i\} \neq \{c_i\} s.t. \vec{v} = \sum_{j=1}^k d_j * \vec{v_j}
+	\]
+	Let $\hat{c_i} = c_i - d_i $, want to show:
+	\[
+	\sum_{j=1}^k \hat{c_j} * \vec{v_j} = \vec{0}
+	\]
+	\paragraph{Definition} Let $\{\vec{v_j}\}_{j=1}^k \subseteq \mathbb{R}^n$, if 
+	\[
+	c_1 \vec{v_1} + \dots + c_k \vec{v_k} = \vec{0}
+	\]
+	has only \emph{trivial solution}, that's, $\vec{c_i}=\vec{0}$, the set $\{\vec{v_j}\}_{j=1}^k$ is \emph{linearly independent}, else, it's called \textbf{linearly dependent}.
+	\paragraph{Proposition} Let $\vec{v_1} \& \vec{v_2} \in \mathbb{R}^3$, $\vec{v_1} \& \vec{v_2}$ are \emph{linearly independent} if and only if they are \textbf{not} parallel.
+	\newline
+	\textbf{proof. Part1(Contrapositive):} If they were parallel, then
+	\begin{multline}
+	\\
+	\vec{v_1} = c\vec{v_2}, c \in \mathbb{R} \\
+	\text{If } c = 0, \text{ then, } \vec{v_1} = \vec{0} \\
+	\text{So that, } k \vec{v_1} + 0 \vec{v_2} \neq \vec{0} \implies k \neq 0.\text{ so they are linearly dependent.}\\
+	\text{If } c \neq 0, \text{then} \vec{v_1} - c\vec{v_2} = \vec{0}, \text{there is non-trivial solution. So linearly dependent.}\\
+	\\
+	\end{multline}
+	\textbf{proof. Part2(Contrapositive):} If $\vec{v_1}$ and $\vec{v_2}$ are linearly dependent.
+	\begin{multline}
+	\\
+	\text{When $c_1$ and $c_2$ are not both zero, satisfy that: }\\
+	c_1 \vec{v_1} + c_2 \vec{v_2} = \vec{0} \\
+	\textbf{WLOG,} c_1 \neq 0 \implies \vec{v_1} = - \frac{c_2}{c_1} * \vec{v_2} \implies \vec{v_1} \parallel \vec{v_2} \\
+	\text{So whenever two vectors in $\mathbb{R}^2$ are linearly dependent, they are parallel.}
+	\\
+	\end{multline}
+	\paragraph{Note} is $\vec{0}$ is in a set, vectors in the set are \textbf{linearly dependent}. Since $\vec{0}*c=\vec{0},\forall c\in \mathbb{R}$
+	\paragraph{Theorem} Take non-zero vectors $\vec{u},\vec{v},\vec{w}\in\mathbb{R}^3$ and given that $\{\vec{v},\vec{w}\}$ is linearly independent, then,
+	\[
+	\vec{u} \notin span\{\vec{v},\vec{w}\} \iff \{\vec{u},\vec{v},\vec{w}\} \text{is linearly independent.}
+	\]
+	\newline \textbf{proof.(contrapositive, to prove: linear independency $\implies$ In span)}
+	\begin{multline}
+		\\
+		\text{Suppose } \vec{u} \in span\{\vec{v},\vec{w}\} \\
+		\text{If }\vec{u} = c_1 \vec{v} + c_2 \vec{w} \\
+		\implies 1\vec{u} - c_1 \vec{v} - c_2 \vec{w} = \vec{0} \\
+		\text{There are non-trivial solution, the set is linearly dependent.}
+		\\
+	\end{multline}
+	\newline \textbf{next.(contradiction)}
+	\begin{multline}
+		\\
+		\text{Suppose: }\vec{u} \notin span\{\vec{v},\vec{w}\} \\
+		\text{Consider equation: }\\
+		c_1 \vec{u} + c_2 \vec{v} + c_3 \vec{w} = \vec{0} \\
+		\textbf{Case 1: } c_1 = 0 \implies c_2 \vec{v} + c_3 \vec{w} = \vec{0} \\
+		\implies c_2 = c_3 = 0 \\
+		c_1 = c_2 = c_3 = 0, \text{so that set is linearly independent.}\\
+		\textbf{Case 2: } c_1 \neq 0 \implies \vec{u} = -\frac{c_2}{c_1} \vec{v} - \frac{c_3}{c_1}\vec{w} \\
+		\text{So, }\vec{u} \in span\{\vec{v},\vec{w}\} \\
+		\text{By contradiction, so} \{\vec{u},\vec{v},\vec{w}\} \text{ are linearly independent.} \blacksquare
+		\\
+	\end{multline}
+	\paragraph{Theorem} For $\{\vec{v_1},...,\vec{v_k}\} \in \mathbb{R}^n$, if k > n, then $\{\vec{v_1},...,\vec{v_k}\}$ are linearly dependent.
+	\newline \textbf{proof.} let $\textbf{A}\vec{x}=\vec{0}$, where $\textbf{A} = [\vec{v_1},\dots,\vec{v_k}]$. Size of \textbf{A} and the system is a homogeneous system with more variables than equations. As long as it's consistent, where are free variables, which means the existence of infinitely many solutions and non-trivial solutions.
+	\paragraph{Linear Transformation} Consider "Multiplication of $\vec{x}$ by \textbf{A} and returns $\vec{b}$", and the size of \textbf{A} is $m\times n$.
+	\[
+	\textbf{A}\vec{x} = \vec{b}
+	\]
+	and represent it by:
+	\[
+	T_\textbf{A}(\vec{x}): \mathbb{R}^n \rightarrow \mathbb{R}^m = \textbf{A}\vec{x}
+	\]
+	where $\mathbb{R}^n$ is the \textbf{domain} and $\mathbb{R^n}$ is the \textbf{codomain} of linear transformation $T_A$. \textbf{Range} of this linear transformation is defined as: 
+	\[
+	range(T_\textbf{A}) = \{T(\vec{x}) \vert \vec{x} \in \mathbb{R}^n \} = span\{\text{columns of A}\}
+	\]
+	and \emph{range is always a subset of codomain}.
+	\newpage
+	\section{Oct. 2. Lecture notes @SS2102}
+	\paragraph{}Consider \textbf{transformation}
+	\[
+	T:\mathbb{R}^n \rightarrow \mathbb{R}^m 
+	\]
+	where $\mathbb{R}^n$ is the \textbf{domain} and $\mathbb{R}^m$ is the \textbf{codomain}. The could also be demonstrated as a \emph{matrix multiplication}, where \textbf{A} is a $m \times n$ matrix.
+	\[
+	\textbf{A}\vec{x} = \vec{b}
+	\]
+	We define \textbf{range} of transformation $T$ as 
+	\[
+	Range(T) = \{T(\vec{x})\vert \vec{x} \in \mathbb{R}^n \}
+	\]
+	$T$ could also be written as $T_A(\vec{x})$. Also, range of transformation is the same as the column space of the standards matrix.
+	\[
+	Range(T_A) = span\{cols. of \textbf{A}\} = Col\{\textbf{A}\}
+	\]
+	\paragraph{Definition} When we say a transformation is \textbf{linear} if and only if for $\vec{x},\vec{y} \in \mathbb{R}^n$ the following holds:
+	\begin{enumerate}[label=\roman*. ]
+		\item $T(\vec{x}+\vec{y}) = T(\vec{x}) + T(\vec{y})$
+		\item $T(c\vec{x}) = cT(\vec{x})$ ,\quad $\forall c \in \mathbb{R}$
+	\end{enumerate}
+	\paragraph{}If a linear transformation could be represented by a matrix, then it's linear.
+	\paragraph{Properties} If a transformation is linear.
+	\begin{enumerate}
+		\item $T(\vec{0}) = T(\vec{x}-\vec{x}) = T(\vec{x})-T(\vec{x})=0$
+		\item $T(-\vec{x}) = -T(\vec{x})$, so the transformation is \textbf{odd}.
+	\end{enumerate}
+	\paragraph{Superposition Principle} For all $c_i \in \mathbb{R}$ and $\vec{x_i} \in \mathbb{R}^n$ for $i=1,...,k$:
+	\[
+	T(\sum_{i=1}^{k} c_i\vec{x_i}) = \sum_{i=1}^{k} c_i T(\vec{x_i})
+	\]
+	equivalently, \emph{T(Linear Combination of $\vec{x_i}$) = linear combination of $T(\vec{x_i})$}
+	\paragraph{Theorem} A transformation is linear if and only if it's induced by a matrix, in which:
+	\[
+	\textbf{A} = \begin{bmatrix}T(\vec{e_1}) & \dots & T(\vec{e_n})\end{bmatrix}
+	\]
+	\newline \textbf{Induction} Suppose transformation $T$ is linear, and $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$.
+	\begin{multline}
+		\\
+		T(\vec{x}) = T(I*\vec{x}) \\
+		= T([\vec{e_1},\dots,\vec{e_n}]*\begin{bmatrix}x_1\\ \vdots \\ x_n \end{bmatrix}) \\
+		= T(\sum_{i=1}^k x_i\vec{e_i}) \\
+		= \sum_{i=1}^k x_i T(\vec{e_i}) \\
+		= \begin{bmatrix}T(\vec{e_1}) & \dots & T(\vec{e_n}) \end{bmatrix} 
+		\begin{bmatrix}
+			x_1 \\
+			\vdots \\
+			x_n \\
+		\end{bmatrix} \\
+		\\
+	\end{multline}
+	So that, we could conclude if T is linear, its \textbf{standard matrix} is matrix \textbf{A} = $\begin{bmatrix}T(\vec{e_1}) & \dots & T(\vec{e_n}) \end{bmatrix}$ with size $m \times n$.
+	\section{Oct. 4. Lecture notes @SS2102}
+	\paragraph{Example} Use matrix to represent reflect about $y = m x$.
+	\begin{enumerate}
+		\item $R_{\theta}^{CR}$: Let $\theta = \arctan{m}$, rotate for $\theta$ clockwise.
+		\item $P$: Reflect image about x-axis.
+		\item $R_{\theta}^{CCR}$: Rotate for $\theta$ counter-clockwise.
+	\end{enumerate}
+	\begin{multline}
+		\\
+		Q_m(\vec{x}) = R_\theta^{CCR} ( P (R_\theta^{CR}(\vec{x})) )\\
+		= R_\theta^{CCR}(P(
+		\begin{bmatrix}
+			\cos{\theta} & \sin{\theta} \\
+			-\sin{\theta} & \cos{\theta}\\
+		\end{bmatrix}
+		\begin{bmatrix}
+			x1 \\ x2\\
+		\end{bmatrix}
+		))\\
+		= R_\theta^{CCR}(
+		\begin{bmatrix}
+			1 & 0 \\
+			0 & -1 \\
+		\end{bmatrix}
+		\begin{bmatrix}
+			\cos{\theta} & \sin{\theta} \\
+			-\sin{\theta} & \cos{\theta}\\
+		\end{bmatrix}
+		\begin{bmatrix}
+			x1 \\ x2\\
+		\end{bmatrix}
+		) \\
+		= \begin{bmatrix}
+			\cos{\theta} & - \sin{\theta} \\
+			\sin{\theta} & \cos{\theta} \\
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 & 0 \\
+			0 & -1 \\
+		\end{bmatrix}
+		\begin{bmatrix}
+			\cos{\theta} & \sin{\theta} \\
+			-\sin{\theta} & \cos{\theta}\\
+		\end{bmatrix}
+		\begin{bmatrix}
+			x1 \\ x2\\
+		\end{bmatrix} 
+		\\
+		= \begin{bmatrix}
+			\cos{\theta} & - \sin{\theta} \\
+			\sin{\theta} & \cos{\theta} \\
+		\end{bmatrix}
+		\begin{bmatrix}
+			x_1 \cos{\theta} + x_2 \sin{\theta} \\
+			x_1 \sin{\theta} - x_2 \cos{\theta} \\
+		\end{bmatrix}
+		\\
+		= \frac{1}{1+m^2}
+		\begin{bmatrix}
+			1 - m^2 & 2 m \\
+			2 m & m^2 -1 \\
+		\end{bmatrix}
+		\begin{bmatrix}
+			x_1 \\ x_2 \\
+		\end{bmatrix}
+		\\
+	\end{multline}
+	\paragraph{Definition} Let $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$. T is called \textbf{onto(surjective)} if and only if 
+	\[
+	\forall \vec{b} \in \mathbb{R}^m, \exists \vec{x} \in \mathbb{R}^n s.t. T(\vec{x}) = \vec{b}
+	\]
+	that is, the range of transformation T is 
+	\paragraph{Definition} Let $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$. T is called \textbf{one-to-one(injective)} if and only if $\forall \vec{v} \in \mathbb{R}^m$ is the image of \textbf{at most one} $\vec{x} \in \mathbb{R}^n$. That is,
+	\[
+	\forall \vec{x_1} \neq \vec{x_2} \in \mathbb{R}^n \iff T(\vec{x_1}) \neq T(\vec{x_2})
+	\]
+	\paragraph{Theorem} Let $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$ be \textbf{linear}, the T is \textbf{one-to-one} if and only if $T(\vec{x}) = \vec{0} \implies \vec{x} = \vec{0}$.
+	\newline \quad
+	\newline \textbf{proof.}
+	\newline Suppose T is one to one, then $T(\vec{x}) = \vec{0}$ has at most one \textbf{1} solution. For a linear transformation, $T(\vec{0}) = \vec{0}$. So that the only possible value for $\vec{x}$ is $\vec{0}$.
+	\paragraph{Theorem} Let $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$ be linear and its standard matrix is \textbf{A}.
+	\begin{enumerate}
+		\item $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$ is \textbf{onto} if and only if columns of A spans $\mathbb{R}^m$.
+		\item $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$ is \textbf{one to one} if and only if columns of A is \emph{linearly independent}.
+	\end{enumerate}
+	\section{Oct. 11. Lecture notes @SS2102}
+	\subsection{Matrices}
+	\paragraph{} Let \textbf{A} be a matrix with entires $a_{ij}$ has \textbf{size} $m \times n$
+	\[
+	\textbf{A} = 
+	\begin{bmatrix}
+		a_{11} & a_{12} & \dots & a_{1n} \\
+		a_{21} & a_{22} & \dots & a_{2n} \\
+		\vdots & \vdots & \cdots & \vdots \\
+		a_{m1} & a_{m2} & \dots & a_{mn} \\
+	\end{bmatrix}
+	\] and \textbf{diagonal} of \textbf{A} is defined as
+	\[
+	diag(\textbf{A}) = \begin{bmatrix}
+		a_{11} & a_{22} & \dots & a_{nn} \\
+	\end{bmatrix}
+	\]
+	\paragraph{0 Matrix} is defined as 
+	\[
+	a_{ij} = 0, \forall i \in \{1,...,m\}, \forall j \in \{1,...,n\}
+	\]
+	\paragraph{Examples of diagonal matrices}
+	\[
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 2 \\
+		0 & 0 \\
+	\end{bmatrix}
+	\text{\quad}
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & 0 \\
+	\end{bmatrix}
+	\text{\quad are diagonal matrices.}
+	\]
+	\subsection{Matrix Properties}
+	\paragraph{Matrices} \textbf{A} = $[a_{ij}]$ and \textbf{B} = $[b_{ij}]$ are \emph{equal} if and only if $a_{ij} = b_{ij}$ holds for all i,j.
+	\paragraph{} If sizes of matrices \textbf{A} and \textbf{B} are equal, then we have
+	\[
+	\textbf{A} + \textbf{B} = [a_{ij} + b_{ij}]
+	\]
+	\[
+	\forall c \in \mathbb{R}, c \textbf{A} = [c \times a_{ij}]
+	\]
+	\paragraph{Properties}
+	\begin{enumerate}
+		\item \textbf{A} + \textbf{B} = \textbf{B} + \textbf{A}
+		\item (\textbf{A} + \textbf{B}) + \textbf{C} = \textbf{A} + (\textbf{B} + \textbf{C})
+		\item \textbf{A} + \textbf{0} = \textbf{A}
+		\item \textbf{A} + (-1) \textbf{A} = \textbf{0}
+		\item c(\textbf{A} + \textbf{B}) = c\textbf{A} + c\textbf{B}
+		\item cd\textbf{A} = c(d\textbf{A})
+		\item (r + s)\textbf{A} = r\textbf{A} + s\textbf{A}
+	\end{enumerate}
+	\paragraph{}Suppose, $T:\mathbb{R}^n \rightarrow \mathbb{R}^k$ and $S:\mathbb{R}^k \rightarrow \mathbb{R}^m$, then we have,
+	\[
+	T(\vec{x}) = \textbf{B}\vec{x} \text{ ,and size of \textbf{B} = k * n}
+	\]
+	
+	\[
+	S(\vec{x}) = \textbf{A}\vec{x} \text{ ,and size of \textbf{A} = m * k}
+	\]
+	
+	so that, $(S \cdot T):\mathbb{R}^n \rightarrow \mathbb{R}^m$, is the \textbf{composite} of linear transformations S and T.
+	\[
+	(S \cdot T) \vec{x} = \textbf{A} (\textbf{B} \vec{x}) = \textbf{A} \textbf{B} \vec{x}
+	\]
+	Let $B = [\vec{b_1},\dots,\vec{b_n}]$, 
+	\begin{multline}
+	\\
+	\textbf{A}(\textbf{B}\vec{x}) = \textbf{A}(x_1\vec{b_1} + \dots + x_n\vec{b_n})\\
+	= x_1\textbf{A}\vec{b_1} + \dots + x_n\textbf{A}\vec{b_n}\\
+	= (A\vec{b_1},\dots,A\vec{b_n}) \cdot (x_1,\dots,x_n)^T \\
+	\\
+	\end{multline}
+	\subsection{Matrix Multiplication}
+	\paragraph{Definition} let \textbf{A} has size $m \times k$ and \textbf{B} has size $k \times n$, then \textbf{A}*\textbf{B} is a matrix with size $m \times n$, is given by
+	\[
+	\textbf{A}\textbf{B} = [\textbf{A}\vec{b_1},\dots,\textbf{A}\vec{b_n}]
+	\]
+	\paragraph{Computation} the $(i,j)$ entry of multiplied matrix \textbf{A}\textbf{B} is given by the \textbf{dot product} of $i^{th}$ row of \textbf{A} and $j^{th}$ column of \textbf{B}.
+	\section{Oct. 16. Lecture notes @SS2102}
+	\paragraph{Inverse} $(\star) A^{-1} A = A A^{-1} = I$ and \textbf{A} has to be \emph{square}, any $A^{-1}$ satisfying $(\star)$ is the \textbf{inverse} of \textbf{A}.
+	\paragraph{Determinant(For 2*2 Matrix)} A = $\begin{bmatrix}
+		a & b \\
+		c & d \\
+	\end{bmatrix}$, det(A) or $\lvert A \rvert$ or \textbf{determinant} of A is defined as:
+	\[
+	\lvert A \rvert = ad - bc
+	\]
+	\paragraph{} If A = $\begin{bmatrix}
+		a & b \\
+		c & d \\
+	\end{bmatrix}$, and $\lvert A \rvert \neq 0$, then A is \textbf{invertible}, and the inverse of A is given by:
+	\[
+	A^{-1} = \frac{1}{\lvert A \rvert} * adj(A)
+	\]
+	where $adj(A)$ stands for \textbf{adjugate} of matrix A. And for matrix A above, its adjugate is given by"
+	\[
+	adj(A) = \begin{bmatrix}
+		d & -b \\
+		-c & a \\
+	\end{bmatrix}
+	\]
+	\paragraph{proof.} Since $\lvert A \rvert \neq 0$, so that, $\frac{1}{\lvert A \rvert} * adj(A)$ is defined.
+	\begin{multline}
+	\\
+		\frac{1}{\lvert A \rvert} * adj(A) * A = \frac{1}{ad-bc} * \begin{bmatrix}
+		d & -b \\
+		-c & a \\
+	\end{bmatrix} * 
+	\begin{bmatrix}
+		a & b \\
+		c & d \\
+	\end{bmatrix} \\
+	= \frac{1}{ad-bc} * 
+	\begin{bmatrix}
+		ad-bc & 0 \\
+		0 & ad-bc\\
+	\end{bmatrix} \\
+	= \begin{bmatrix}
+		1 & 0 \\
+		0 & 1 \\
+	\end{bmatrix}
+	\\
+	\end{multline}
+	\begin{multline}
+		\\
+		A * \frac{1}{\lvert A \rvert} * adj(A) = \begin{bmatrix}
+		a & b \\
+		c & d \\
+	\end{bmatrix} * \frac{1}{ad - bc} * \begin{bmatrix}
+		d & -b \\
+		-c & a \\
+	\end{bmatrix} \\
+	= \frac{1}{ad-bc} * 
+	\begin{bmatrix}
+		ad-bc & 0 \\
+		0 & ad-bc\\
+	\end{bmatrix} \\
+	= \begin{bmatrix}
+		1 & 0 \\
+		0 & 1 \\
+	\end{bmatrix}
+		\\
+	\end{multline}
+	\paragraph{Converse is true also}
+	\paragraph{Proof.} WTS: For non-zero matrix A, invertible $ \implies det(A) \neq 0$
+	\begin{multline}
+		\\
+		\text{Proof by contrapositive:}\\
+		\text{WTS: det(A) = 0 $\implies$ A not invertible} \\
+		A * adj(A) = adj(A) * A = \lvert A \rvert * I \\
+		\text{So if det(A) = 0} \\
+		\implies A * adj(A) = \textbf{0} \\
+		\text{Suppose A is invertible} \\
+		A^{-1} * A * adj(A) = A^{-1} * \textbf{0} = \textbf{0} \\
+		\implies adj(A) = \textbf{0}\\
+		\implies A = \textbf{0} \\
+		\text{Contrapositive statement is proven by contradiction\quad}\blacksquare \\
+		\\
+	\end{multline}
+	\paragraph{Theorem} Suppose A = $\begin{bmatrix}
+		a & b \\
+		c & d \\
+	\end{bmatrix}$ then,
+	\[
+	\lvert A \rvert \neq 0 \iff \text{Invertibility}
+	\]
+	and we have:
+	\[
+	A^{-1} = \frac{1}{\lvert A \rvert} adj(A)
+	\]
+	\paragraph{Generally} If A with size $n \times n$ is \textbf{invertible}( or, equivalently, $\lvert A \rvert \neq 0$), then linear system $A \vec{x} = \vec{b}$ could be \textbf{uniquely} solved with solution $\vec{x} = A^{-1}\vec{b}$.
+	\paragraph{Properties}
+	\begin{enumerate}
+		\item If A is invertible, so is $A^{-1}$, and $(A^{-1})^{-1} = A$.
+		\item If A,B are both invertible, and $AB$ is invertible, we have $(AB)^{-1} = B^{-1}A^{-1}$.
+		\item If A is invertible, so is $A^{T}$, and $(A^T)^{-1} = (A^{-1})^T$.
+	\end{enumerate}
+	\quad
+	\newline \textbf{Proof.}
+	\begin{multline}
+	\\
+	\textbf{(1).} \\
+		\text{A is invertible, then } A*A^{-1} = A^{-1}*A = I \\
+		\text{Let C be the inverse of }A^{-1} \\ 
+		C * A^{-1} = A^{-1} * C = I \text{ holds only when C = A}\\
+	\textbf{(2).} \\
+		B^{-1}A^{-1}A B = B^{-1}(A^{-1}A)B = B^{-1}IB = B^{-1}B = I\\
+		\text{So that, }(B^{-1}A^{-1}) = (AB) ^ {-1} \\
+	\textbf{(3).} \\
+	A^T(A^{-1})^T = (A^{-1}A)^T = I^T = I \\
+	\\
+	\end{multline}
+	\paragraph{Symmetric Matrix} A matrix A is said to be \textbf{symmetric} if $A^T = A$.
+	\paragraph{Lemma} Property (b) extends to arbitrary products of matrices. If matrices $A_1, A_2, ... , A_l$ are invertible, then we have:
+	\[
+	(\prod_{i=1}^{l} A_i) ^ {-1} = \prod_{i=l}^{l}(A_i)^{-1}
+	\]
+	\paragraph{Elementary Matrices} An elementary matrix (EM) is a matrix obtained as result of \textbf{AN} elementary row operation (ERO) on an identity matrix.
+	\paragraph{Property} Performing an ERO on a matrix is the same as multiplying the matrix by an EM obtained by performing the same ERO on an identity matrix.
+	\paragraph{}Since ERO(s) are reversible, the corresponding EM(s) are invertible. The inverse matrix would be obtained by performing the reverse ERO(s) on an identity matrix.
+	\paragraph{Examples}
+	\[
+	\begin{bmatrix}
+		1 & 0 \\
+		-17 & 1 \\
+	\end{bmatrix}^{-1} = 
+	\begin{bmatrix}
+		1 & 0 \\
+		17 & 0 \\
+	\end{bmatrix}
+	\]
+	\[
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & 12 & 0 \\
+		0 & 0 & 1 \\
+	\end{bmatrix}^{-1} = 
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & \frac{1}{12} & 0 \\
+		0 & 0 & 1 \\
+	\end{bmatrix}
+	\]
+	\paragraph{Theorem} An matrix with size $n \times n$ is \textbf{invertible} if and only if A is \textbf{row-equivalent} to I, in which case sequence of EROs, taking $A \rightarrow I$, takes $I \rightarrow A^{-1}$.
+	\section{Oct. 23. Lecture notes @SS2102}
+	\paragraph{Recall LU Factorization} Let $\textbf{A} \in \mathbb{M}_{m \times n}$ be a matrix can be reduced with or without interchange. A could be written as
+	\[
+	\textbf{A} = \textbf{L} \textbf{U}
+	\]
+	where \textbf{L} is a lower triangular matrix with size $m \times m$ and diagonal entries as 1. And \textbf{U} is the RREF of matrix \textbf{A} with size $m \times n$.
+	\paragraph{}
+
+	\paragraph{Subspace of $\mathbb{R}^n$} Let $S \in \mathbb{R}^n$ is \textbf{subspace} if $\forall \vec{u},\vec{v} \in S$, then $c_1 \vec{u} + c_2 \vec{v} \in S, \forall c_1, c_2 \in \mathbb{R}$. That's, \emph{subspace is closed under addition and multiplication(vector operation)}.
+	\paragraph{}And we have, take $c_1 = c_2 = 0 \in \mathbb{R}$, we see, $\vec{0} \in S$. So that, zero vectors is in any subspace of $\mathbb{R}^n$.
+	\begin{enumerate}
+		\item \textbf{Trivial Subspace} $\mathbb{R}^n$ is a subspace of $\mathbb{R}^n$.
+		\item \textbf{zero Subspace} $\{\vec{0}\}$ is a subspace of $\mathbb{R}^n$.
+	\end{enumerate}
+	\paragraph{Attention:} $\vec{0}$ is \textbf{not} a subspace of $\mathbb{R}^n$, since it is a single vector instead of a set or space.
+	\paragraph{Theorem} S = $span\{\vec{v_1}\ldots\vec{v_k}\} \subset \mathbb{R}^n$, then
+	\begin{enumerate}
+		\item S is a subspace containing each $\vec{v_j}$.
+		\item If $W \in \mathbb{R}^n$ containing each $\vec{v_j}$, then $S \subset W$.
+	\end{enumerate}
+	And $span\{\vec{v_j}\}$ is the \textbf{smallest} subspace containing $\vec{v_j}$.
+	\newline \textbf{Proof.}
+	\begin{multline}
+		\\
+		\textbf{(1)} \\
+		\text{Obviously,} \vec{v_j} \in span\{\vec{v_i}\}. \\
+		\text{Let,} \vec{u}, \vec{v} \in S \\
+		\text{Then,} \vec{u} = \sum_{i=1}^{k}\hat{c_i}\vec{v_i}, \\
+		\vec{u} = \sum_{i=1}^{k}d_i\vec{v_i} \\
+		\text{Then,} c_1 \vec{u} + c_2 \vec{v} = (c_1\hat{c_1} + c_1 d_1)\vec{v_i} + \ldots + (c2\hat{c_k} + c_2 d_k) \vec{v_k} \\
+		= \sum_{1}^{k}d_i\vec{v_i} \in span\{\vec{v_i}\} \\
+		\textbf{(2)} \\
+		\text{Suppose} w \subset \mathbb{R} ^ n \text{ containing each of }\vec{v_j}. \\
+		\vec{v_j} \in w, \text{then}
+		\sum_{i=1}^{k}c_i \vec{v_i} \in W. \forall \vec{c_i} \in \mathbb{R} \\
+		span\{\vec{v_i}\} \subset span\{\vec{v_i}\} \\
+		\\
+	\end{multline}
+	\subsection{Canonical Subspace attached to A}
+	\paragraph{} Let A be a matrix with size $m \times n$.
+	\begin{enumerate}
+		\item \textbf{Column Space} $Col(A) = span\{cols\} \subset \mathbb{R} ^ m$
+		\item \textbf{Kernal Space / Null Space} $Null(A) = \{\vec{x} \vert \textbf{A}\vec{x} = \vec{0}\} \subset \mathbb{R} ^ n$
+		\item \textbf{Row space} $Row(A) = Col(A^T) \subset \mathbb{R} ^ n$
+		\item \textbf{Eigen Space with eigen value $\lambda$} Applied only if A is square $E_{\lambda}(A) = Ker(A - \lambda I) \text{ with } \lambda \in \mathbb{R}.E_{\lambda}(A) \neq \{\vec{0}\} \subset \mathbb{R} ^ n.$
+	\end{enumerate}
+	\subsection{Dual Role of Null(A) and Row(A)}
+	\paragraph{Basis} A \textbf{Basis} for a subspace S is a set of \textbf{linearly independent} vectors that spanning space S.
+	\newline Like:
+	\[B = \{\vec{\beta_k}\} \subset \mathbb{R} ^ n \text{is a basis for} S \subset \mathbb{R} ^ n.
+	\]
+	B is a basis for S if and only if $span\{\vec{\beta_k}\} = S$ and all vectors in set B are linearly independent.
+	\paragraph{Standard Basis} If $\vec{x} \in \mathbb{R}^n$, then
+	\[
+	\vec{x} = I \vec{x} = [\vec{e_1},\ldots,\vec{e_n}] * [\vec{x_1},\ldots,\vec{x_n}]^T
+	\]
+	So that, $\mathbb{R}^n = span\{\vec{e_1},\ldots,\vec{e_n}\}$, also, all vectors in $\{\vec{e_i}\}$ are linearly independent. So that, $\{\vec{e_i}\}$ is called the \textbf{standard basis} for $\mathbb{R} ^ n$.
+ \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,158 @@
+\documentclass[11pt]{article}
+
+\title{ECO220 Lecture Notes}
+\author{Tianyu Du}
+\date{\today}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Lecture 1 May. 8 2018}
+\paragraph{Content} Chapter 1-4,
+\begin{itemize}
+	\item Statistics
+	\item Data
+	\item Population
+	\item Sample
+\end{itemize}
+
+\subsection{Statistics}
+\paragraph{What is statistics} Quantitive methods.
+\subsubsection{Example 1}
+	\paragraph{Question} This summer, 120 students enrolled in ECO220. Find out the number of courses that students are taking, the average number of courses they take, and the $\%$ of student taking 1 or 2 courses.
+
+	\paragraph{Population} 120 students in ECO220. Noted as $N = 120$
+	
+	\paragraph{Analyze:}
+	\begin{enumerate}
+		\item Number of courses they take.
+		\item Average number of courses they take.
+		\item Percent of students taking 1 or 2 courses.
+	\end{enumerate}
+	
+	\paragraph{Data} information collected from the whole \emph{population} (all individuals). Use data to answer questions above.
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			number of courses & number of students & percent \\
+			\hline \hline
+			1 & 40 & 0.33 \\
+			\hline
+			2 & 30 & 0.25 \\
+			\hline
+			3 & 30 & 0.25 \\
+			\hline
+			4 & 15 & 0.14 \\
+			\hline
+			5 & 5 & 0.03 \\
+			\hline
+			Total & 120 & 1.00 \\
+			\hline
+		\end{tabular}	
+	\end{center}
+	
+	\begin{figure*}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{eco220pic/fig1}
+		\caption{Frequency}
+	\end{figure*}
+	
+	\paragraph{Parameters} Parameters are fixed numbers. They can be calculated once we measure everyone in population.
+	\newline
+	\underbar{Examples of parameters from population} 
+	\begin{itemize}
+		\item \textbf{Average} $\mu = 2.29$
+	\end{itemize}
+
+\subsubsection{Example 2} 
+	\paragraph{Question} Find out the percentage of people in Ontario who are in favour of government policy.
+	
+	\paragraph{Population} People in Ontario.
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			In favour of policy & \# of people in Ontario & \% \\
+			\hline \hline
+			Very much in favour & * & * \\
+			In favour & * & * \\
+			neutral & * & * \\
+			not in favour & * & * \\
+			strongly against & * & * \\
+			\hline
+			Total & $N$ = Population of Ontario & 1.00 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\paragraph{Sample} Since $N$ is too large to handle, we select a sample, which is a subset of population, denoted as $n$, and then analyze the sample.
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			In favour of policy & \# of people in Ontario & \% \\
+			\hline \hline
+			Very much in favour & & \\
+			In favour & &\\
+			neutral & & \\
+			not in favour & & \\
+			strongly against & & \\
+			\hline
+			Total & $n$ = Size of sample & 1.00 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\paragraph{} The above chart based on sample data to \emph{estimate} the chart using population data. 
+	
+	Let $p$ be the \% of people in Ontario(population) who are "very in favour" or "in favour"
+	
+	Let $\hat{p}$ be the \% of people in sample who are "very in favour" or "in favour", can be calculated based on the sample data.
+	
+	\paragraph{}The parameter $p$ has an unknown value. The value of $\hat{p}$ can be calculated from sample data, $\hat{p}$ is an \textbf{estimate} for $p$.
+	
+	\paragraph{Note} $p$ is a fixed value, but $\hat{p}$ will change from sample to sample. We call $\hat{p}$ an \textbf{estimator} (or \textbf{sample statistic}). The value of sample statistic will change from sample to sample, we call $\hat{p}$ a \emph{random value}.
+	\newline \quad
+	\newline
+	\textbf{Parameters} on population
+	\begin{itemize}
+		\item $\mu$: Average
+		\item $p$: Percentage
+	\end{itemize}
+	\textbf{Sample Statistic} on sample
+	\begin{itemize}
+		\item $\overline{x}$: Average
+		\item $\hat{p}$: Percentage
+	\end{itemize}
+	\paragraph{Statistics}
+	\[
+	\text{Statistics}
+		\begin{cases}
+			\text{Descriptive statistics}
+				\begin{cases}
+					\text{Graph} \\
+					\text{Numerical measures} \\
+				\end{cases}
+			\\
+			\text{Inferential statistics: \emph{Draw conclusions on a population based on sample data.}} \\
+		\end{cases}
+	\]
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

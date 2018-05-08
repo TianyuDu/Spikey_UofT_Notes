@@ -1,0 +1,1998 @@
+\documentclass[11pt]{article}
+
+% Libraries.
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{perpage}
+\usepackage{float}
+
+% Property settings.
+\MakePerPage{footnote}
+\pagestyle{fancy}
+\lhead{Notes by T.Du}
+\usepackage[
+	type={CC},
+	modifier={by-sa},
+	version={3.0},
+]
+{doclicense}
+
+% Attr.
+\title{MAT224 Linear Algebra II \\ Lecture Notes}
+\author{Tianyu Du}
+\date{January 2018}
+% Macro
+\newcommand{\trans}[3]{{#1}: {#2} \to {#3}}
+\newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\M}[2]{\mathbb{M}_{{#1} \times {#2}}(\mathbb{R})}
+\newcommand{\coor}[2]{[\vec{{#1}}]_{{#2}}}
+\newcommand{\tmat}[3]{[{#1}]_{{#2}}^{{#3}}}
+\newcommand{\vset}[3]{\{\vec{{#1}_{#2}}, \dots, \vec{{#1}_{#3}}\}}
+\newcommand{\sset}[3]{\{{{#1}_{#2}}, \dots, {{#1}_{#3}}\}}
+\newcommand{\definition}[0]{\paragraph{Definition}}
+\newcommand{\theorem}[0]{\paragraph{Theorem}}
+\newcommand{\C}[0]{\mathbb{C}}
+\newcommand{\restrans}[2]{{#1}\vert_{#2}}
+\newcommand{\tx}[1]{\text{{#1}}}
+
+\begin{document}
+    \maketitle
+    \paragraph{Info.}\quad
+    \newline \textbf{Created: } January. 9 2018
+    \newline \textbf{Last modified: } \today
+    \doclicenseThis
+    \tableofcontents
+    
+    \section{Lecture1 Jan.9 2018}
+    \subsection{Vector spaces}
+    \paragraph{Definition} A \underbar{real} \footnote{A vector space is real if scalar which defines scalar multiplication is real.} \textbf{vector space} is a set $V$ together with two vector operations vector addition and scalar multiplication such that
+    \begin{enumerate}
+        \item \textbf{AC} Additive Closure: $\forall \vec{x}, \vec{y} \in V, \vec{x} + \vec{y} \in V$
+        \item \textbf{C} Commutative: $\forall \vec{v}, \vec{y} \in V, \vec{x} + \vec{y} = \vec{y} + \vec{x}$
+        \item \textbf{AA} Additive Associative: $\forall \vec{x}, \vec{y}, \vec{z} \in V, (\vec{x} + \vec{y}) + \vec{z} = \vec{x} + (\vec{y} + \vec{z})$
+        \item \textbf{Z} Zero Vector: $\exists\  \vec{0} \in V s.t. \forall \vec{x} \in V, \vec{x} + \vec{0} = \vec{x}$
+        \item \textbf{AI} Additive Inverse: $\forall \vec{x} \in V, \exists -\vec{x} \in V s.t. \vec{x} + (-\vec{x}) = \vec{0}$
+        \item \textbf{SC} Scalar Closure: $\forall \vec{x}, c \in \mathbb{R}, c \vec{x} \in V$
+        \item \textbf{DVA} Distributive Vector Additions: $\forall \vec{x}, \vec{y} \in V, c \in \mathbb{R}, c(\vec{x} + \vec{y}) = c\vec{x} + c\vec{y}$`
+        \item \textbf{DSA} Distributive Scalar Additions: $\forall \vec{x} \in V, c,d \in \mathbb{R}, (c + d)\vec{x} = c\vec{x} + d\vec{x}$
+        \item \textbf{SMA} Scalar Multiplication Associative: $\forall \vec{x} \in V, c,d \in \mathbb{R}, (cd)\vec{x} = c(d\vec{x})$
+        \item \textbf{O} One: $\forall \vec{x} \in V, 1\vec{x} = \vec{x}$
+    \end{enumerate}
+    \paragraph{Note} For $V$ to be a vector space, need to know or be given operations of vector additions multiplication and check \underbar{all} 10 properties hold.
+    \subsection{Examples of vector spaces}
+    \paragraph{Example 1} $\mathbb{R}^n$ w.r.t.\footnote{w.r.t. is the abbreviation of "with respect to".} usual component-wise addition and scalar multiplication.
+    \paragraph{Example 2} $\mathbb{M}_{m \times n}(\mathbb{R})$ set of all $m \times n$ matrices with real entry. w.r.t. usual entry-wise addition and scalar multiplication.
+    \paragraph{Example 3} $\mathbb{P}_n(\mathbb{R})$ set of polynomials with real coefficients, of degree \underbar{less or equal} to n, w.r.t. usual degree-wise polynomial addition and scalar multiplication.
+    \paragraph{Note} If define $\mathbb{P}^\star_n (\mathbb{R})$ as set of all polynomials of degree \underbar{exactly equal} to n w.r.t. normal degree-wise multiplication and addition.
+    
+    Then it is \textbf{NOT} a vector space.
+    
+    \textbf{Explanation}: $(1 + x^n), (1 - x^n) \in \mathbb{P}^\star_n (\mathbb{R})$ but $(1 + x^n) + (1 - x^n) = 2 \notin \mathbb{P}^\star_n (\mathbb{R}) $
+    \paragraph{Example 4} Something unusual, define $V$ as
+    \[
+    V = \{(x_1, x_2)\vert x_1, x_2 \in \mathbb{R}\}
+    \] with vector addition
+    \[
+    (x_1, x_2) + (y_1, y_2) = (x_1 + y_1 + 1, x_2 + y_2 + 1)
+    \]
+    and scalar multiplication
+    \[
+    c (x_1, x_2) = (c x_1 + c - 1, c x_2 + c -1)
+    \]
+    
+    \underbar{This is a vector space.}
+    \subsection{Some properties of vector spaces}
+    \paragraph{} Suppose $V$ is a vector space, then it has the following properties.
+    \paragraph{Property 1} The zero vector is unique.
+    \newline
+    \emph{proof.}
+    \begin{multline*}
+        \\
+        \text{Assume }\vec{0}, \vec{0^\star} \text{ are two zero vectors in }V \\
+        \text{WTS: }\vec{0} = \vec{0^\star} \\
+        \text{Since $\vec{0}$ is the zero vector, by Z } \vec{0^\star} + \vec{0} = \vec{0^\star} \\
+        \text{Similarly, }\vec{0} + \vec{0^\star} = \vec{0} \\
+        \text{Also, } \vec{0} + \vec{0^\star} = \vec{0^\star} + \vec{0} \text{ by commutative vector addition.} \\
+        \text{So, } \vec{0^\star} = \vec{0} \\
+        \blacksquare
+    \end{multline*}
+    \paragraph{Property 2} $\forall \vec{x} \in V$, the additive inverse $-\vec{x}$ is unique.
+    \newline
+    \emph{proof.}
+    
+    \underbar{Exercise. (By Cancellation Law)}
+    
+    \paragraph{Property 3} $\forall \vec{x} \in V, 0\vec{x} = \vec{0}$.
+    \newline
+    \emph{proof.}
+    \begin{multline*}
+        \\
+        \text{By property of number 0: } 0 \vec{x} = (0 + 0) \vec{x}\\
+        \text{By DSA: } 0\vec{x} = 0\vec{x} + 0 \vec{x} \\
+        \text{By AI, } \exists (-0\vec{x}) s.t. \\
+        0\vec{x} + (-0\vec{x}) = 0\vec{x} + 0 \vec{x} + (-0\vec{x}) \\
+        \text{By AA} \\
+        \implies 0 \vec{x} = \vec{0} \\
+    \end{multline*}
+    
+    \paragraph{Property 4} $\forall c \in \mathbb{R}, c \vec{0} = \vec{0}$
+    \newline
+    \emph{proof.}
+    \[
+    c \vec{0} = c(\vec{0} + \vec{0}) = c\vec{0} + c\vec{0}
+    \]
+    \section{Lecture2 Jan.10 2018}
+    \subsection{Some properties of vector spaces-Cont'd}
+    \paragraph{Property 5} For a vector space $V$, $\forall \vec{x} \in V,\ (-1)\vec{x} = (-\vec{x})$. (\emph{we could use this property to find the \underbar{additive inverse} with scalar multiplication with (-1)})\footnote{The scalar multiplication here is the one defined in vector space $V$.}.
+    \newline
+    \emph{proof.}
+    \begin{align*}
+    (-\vec{x}) &= (-\vec{x}) + \vec{0} \quad \text{By property of zero vector}\\
+    &= (-\vec{x}) + 0\vec{x} \quad \text{By property3}\\
+    &= (-\vec{x}) + (1 + (-1))\vec{x} \quad \text{By property of zero as real number} \\
+    &= (-\vec{x}) + 1\vec{x} + (-1)\vec{x} \\
+    &= \vec{0} + (-1)\vec{x} \\
+    &= (-1)\vec{x} \\
+    &\qquad \qquad \blacksquare	
+    \end{align*}
+
+	\paragraph{Property 6} For a vector space $V$, let $\vec{x} \in V$ and $c \in \mathbb{R}$, then,
+	\[
+	c\vec{x} = \vec{0} \implies c = 0 \lor \vec{x} = \vec{0}
+	\]
+	\newline
+	\emph{proof.}
+	
+	\begin{multline*}
+		\\
+		\text{if } c = 0 \implies True \\
+		\text{else } c^{-1}c\vec{x} = c^{-1} = \vec{0} \\
+		\implies (c^{-1}c)\vec{x}  = \vec{0} \\
+		\implies 1\vec{x} = \vec{0} \\
+		\implies \vec{x} = \vec{0} \\
+		\implies True \\
+		\blacksquare
+	\end{multline*}
+	
+	
+	\subsection{Subspaces}
+	\paragraph{Loosely} A subspace is a space contained within a vector space.
+	\paragraph{Definition} Let $V$ be a vector space and $W \subseteq V $, $W$ is a \textbf{subspace} of $V$ if $W$ is itself a vector space w.r.t. operations of vector addition and scalar multiplication from $V$.
+	\paragraph{Theorem} Let $V$ be a vector space, and $W \subseteq V$, $W$ has the \underbar{same}\footnote{Other properties of vector spaces related to vector addition and scalar multiplication are immediately inherited from the parent vector space.} operations of vector addition and scalar multiplication as in $V$. Then, $W$ is a subspace of $V$ \underbar{iff}:
+	\begin{enumerate}
+		\item $W$ is non-empty. $W \neq \emptyset$.
+		\item $W$ is closed under addition. $\forall \vec{x}, \vec{y} \in W,\ \vec{x} + \vec{y} \in W$.
+		\item $W$ us closed under scalar multiplication. $\forall \vec{x} \in W, c \in \mathbb{R}, c\vec{x} \in W$.
+	\end{enumerate}
+	\emph{Proof.}
+	
+	Forward:
+	\begin{align*}
+		&\text{If $W$ is a subspace} \\
+		&\implies \vec{0} \in W \\
+		&\implies W \neq \emptyset \\
+		&\text{Also, additive and scalar multiplication closures} \implies (ii), (iii) \\	
+	\end{align*}
+	Backward:
+	\begin{align*}
+		&\text{Let } W \neq \emptyset \land (ii) \land (iii) \\
+		&\text{WTS. 10 axioms in definition of vector space hold} \\
+		&(ii) \implies \text{Additive Closure} \\
+		&(iii) \implies \text{Scalar Multiplication Clousure} \\
+		&\text{Because $W \subseteq V$, and $V$ is a vector space, so properties hold $\forall \vec{w} \in W$.} \\
+		&\text{Additive inverse: by property 5 and scalar multiplication closure, }\\
+		&\forall \vec{x} \in W, -\vec{x} = (-1)\vec{x} \in W. \\
+		&\text{Also, existence of additive identity: } (-\vec{x}) + \vec{x} = \vec{0} \in W. \\
+	\end{align*}
+	\subsection{Examples of subspaces}
+	\paragraph{Example 1} Let $V = \mathbb{M}_{n \times n} (\mathbb{R})$, $V$ is a subspace.
+	\paragraph{Example 2} Define $W$ as
+	\[
+	W = \{A \in \mathbb{M}_{n \times n} (\mathbb{R}) \vert \text{$A$ is \underbar{not} symmetric} \}
+	\]
+	
+	\emph{Explanation:} Let $A_1 = \begin{bmatrix}0 & -2 \\ -1 & 0 \end{bmatrix}$ and $A_2 = \begin{bmatrix} 0 & 2 \\ 1 & 0 \end{bmatrix}$ $A_1, A_2 \in W$ but $A_1 + A_2 = \begin{bmatrix} 0&0\\0&0 \end{bmatrix} \notin W$.
+	\newline
+	Since there's no additive identity in set $W$, so $W$ failed to be a vector space, therefore $W$ is not a subspace.
+	\paragraph{Example 3} Let $V = \mathbb{P}_2(\mathbb{R})$, is $W$ defined as following,
+	\[
+	W = \{p(x) \in V \vert p(1) = 0\}
+	\]
+	a subspace of $V$ ?
+	\newline
+	\emph{proof.}
+	
+	WTS: (i)
+	
+	Let $z(x) = 0$ or $z(x) = x^2 - 1, \forall x \in \mathbb{R}$
+	
+	$\implies W \neq \emptyset$
+	
+	WTS: (ii)
+	
+	Let $p_1, p_2 \in W$, which means $p_1(1) = p_2(1) = 0$
+	
+	$(p_1 + p_2)(1) = p_1(1) + p_2(1) = 0 + 0 = 0$
+	
+	$\implies p_1+p_2 \in W$
+	
+	$\implies W$ is closed under addition.
+	
+	WTS: (iii)
+	Let $p \in W$ and $c \in \mathbb{R}$
+	
+	$\implies p(1) = 0$ 
+	
+	Since $(c*p)(x) = c*p(x)$, we have $(c*p)(1) = c*p(1) = c*0 = 0$ 
+	
+	$\implies cp \in W$.
+	
+	So $W$ is a subspace of $V$.
+	
+	$\qquad \qquad \blacksquare$
+	
+	\subsection{Recall from MAT223}
+	\paragraph{} Let $A \in \mathbb{M}_{m \times n}(\mathbb{R})$, then $Nul(A)$ is a subspace of $\mathbb{R}^n$ and $Col(A)$ is a subspace of $\mathbb{R}^m$.
+	
+	\section{Lecture3 Jan.16 2018}
+	\subsection{Linear Combination}
+	\paragraph{Definition} Let $V$ be a vector space, $\vec{v_1},\dots,\vec{v_n} \in V$, $a_1,\dots,a_n \in \mathbb{R}$ the expression
+	\[
+	c_1 \vec{v_1} + \dots + c_n \vec{v_n}
+	\]
+	is called a \textbf{linear combination} of $\vec{v_1},\dots,\vec{v_n}$.
+	
+	\paragraph{Theorem} Let $V$ be a vector space, $W$ is a subspace of $V$, $\forall \vec{w_1},\dots\vec{w_k}\in W, c_1,\dots,c_k \in \mathbb{R}$, we have 
+	\[
+	c_1 \vec{w_1} + \dots + c_k \vec{w_k} \in W
+	\]
+	\emph{Subspaces are \underbar{closed under linear combinations}, since subspaces are closed under scalar multiplication and vector addition.}
+	
+	\paragraph{Theorem} Let $V$ be a vector space, let $\vec{v_1},\dots,\vec{v_k}\in V$ then the set of all linear combination of $\vec{v_1},\dots,\vec{v_k}$
+	\[
+	W = \{\sum_{i=1}^k{c_i \vec{v_i}} \vert c_i \in \mathbb{R} \forall \ i\}
+	\]
+	is a subspace of $V$.
+	\newline \emph{proof.}
+	\begin{multline*}
+		\\
+		\text{Consider }\vec{0} \in W \\
+		\text{So, } W \neq \emptyset \\
+		\text{Let } c \in \mathbb{R} \text{, Let } \vec{x} \in W \land \vec{y} \in W \\
+		\text{By definition of span, we have, }\\
+		\vec{x} = \sum_{i=1}^k{a_i \vec{v_i}},\quad \vec{y} = \sum_{i=1}^k{b_i \vec{v_i}} \\
+		\text{Consider, } \vec{x} + c \vec{y} \\
+		\vec{x} + c \vec{y} = \sum_{i=1}^k{a_i \vec{v_i}} + c \sum_{i=1}^k{b_i \vec{v_i}} = \sum_{i=1}^k{(a_i + c b_i) \vec{v_i}} \in W\\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Definition} Let $V$ be a vector space, $\vec{v_1},\dots,\vec{v_k} \in V$, \textbf{span} of the set of vectors $\{\vec{v}_i\}_{i=1}^k$ is defined as the collection of all possible linear combinations of $\{\vec{v}_i\}_{i=1}^k$. By pervious theorem, span is a subspace.
+	
+	\subsection{Combination of subspaces}
+	\paragraph{Definition} Let $W_1, W_2$ be two sets, then the \textbf{union} of $W_1, W_2$ is defined as:
+	\[
+	W_1 \cup W_2 = \{\vec{w}\ \vert \ \vec{w} \in W_1 \lor \vec{w} \in W_2\}
+	\]
+	the \textbf{intersection} of $W_1,W_2$ is defined as:
+	\[
+	W_1 \cap W_2 = \{\vec{w}\ \vert \ \vec{w} \in W_1 \land \vec{w} \in W_2\}
+	\]
+	Now consider $W_1,W_2$ to be two subspaces of vector space $V$, then we have,
+	\begin{enumerate}
+		\item $W_1 \cup W_2$ is \textbf{not} a subspace.
+		\item $W_1 \cap W_2$ is a subspace.
+	\end{enumerate}
+	\emph{proof.}
+	\begin{multline*}
+		\\
+		\text{Falsify the statement by providing counter-example: }\\
+		\text{Consider, }\\
+		W_1=\{(x_1,x_2)\ \vert\ x_1 \in \mathbb{R}, x_2 = 0\} \\
+		W_2=\{(x_1,x_2)\ \vert\ x_2 \in \mathbb{R}, x_1 = 0\} \\
+		\begin{pmatrix}
+			0 \\
+			1 \\
+		\end{pmatrix} \in W_1 \cup W_2
+		\quad
+		\begin{pmatrix}
+			1 \\
+			0 \\
+		\end{pmatrix} \in W_1 \cup W_2 \\
+		\text{But, }
+		\begin{pmatrix}
+			0 \\
+			1 \\
+		\end{pmatrix} + 
+		\begin{pmatrix}
+			1 \\
+			0 \\
+		\end{pmatrix} = 
+		\begin{pmatrix}
+			1 \\
+			1 \\
+		\end{pmatrix}
+		\notin W_1 \cup W_2 \\
+		\blacksquare
+	\end{multline*}
+	\emph{proof.}
+	\begin{multline*}
+		\\
+		\text{Because $W_1$ and $W_2$ are both subspaces, so } \\
+		\vec{0} \in W_1 \cap W_2 \implies W_1 \cap W_2 \neq \emptyset \\
+		\text{Let } \vec{x}, \vec{y} \in W_1 \cap W_2, c \in \mathbb{R} \\
+		\text{Consider, } \vec{x} + c\vec{y} \\
+		\text{Sine $W_1, W_2$ are subspaces, } \\
+		\vec{x} + c\vec{y} \in W_1 \land \vec{x} + c\vec{y} \in W_2 \\
+		\implies \vec{x} + c\vec{y} \in W_1 \cap W_2 \\
+		\text{So, }W_1 \cap W_2\text{ is a subspace.} \\
+		\blacksquare
+	\end{multline*}
+	\paragraph{Definition} Let $W_1,W_2$ be subspaces of vector space $V$, define the \textbf{sum} of two subspaces as:
+	\[
+	W_1 + W_2 = \{\vec{x} + \vec{y}\ \vert\ \vec{x} \in W_1 \land \vec{y} \in W_2\}
+	\]
+	\paragraph{Note} Let $\vec{x} = \vec{0} \in W_1$, $\forall \vec{y} \in W_2,\ \vec{y} \in W_1 + W_2$ so that, $W_2 \subseteq W_1 + W_2$. Similarly, let $\vec{y} = 0 \in W_2$, $\forall \vec{x} \in W_1,\ \vec{x} \in W_1 + W_2$. so that, $W_1 \subseteq W_1 + W_2$. So we have $\forall \vec{v} \in W_1 \cap W_2,\ \vec{v} \in W_1 + W_2$. So that, 
+		\[
+		W_1 \cap W_2 \subseteq W_1 + W_2
+		\]
+	\paragraph{Note} $W_1 + W_2$ is a subspace of $V$.
+	\newline
+	\emph{proof.}
+	\begin{multline*}
+		\\
+		\text{Let } \vec{x_1}, \vec{x_2} \in W_1, \vec{y_1}, \vec{y_2} \in W_2 \\
+		\text{By properties of subspaces, }\\
+		\forall c \in \mathbb{R}, \vec{x_1} + c\vec{x_1} \in W_1 \land \vec{y_2} + c\vec{y_2} \in W_2 \\
+		\text{Consider, } \vec{x_1} + \vec{y_1} \in W_1 + W_2, \vec{x_2} + \vec{y_2} \in W_1 + W_2 \\
+		(\vec{x_1} + \vec{y_1}) + c(\vec{x_2} + \vec{y_2}) \\
+		= (\vec{x_1} + c\vec{x_2}) + (\vec{y_1} + c\vec{y_2}) \in W_1 + W_2\\
+		\blacksquare
+	\end{multline*}
+	\paragraph{Definition(Unique Representation)} Let $W_1, W_2$ be subspaces of vector space $V$, say $V$ is \textbf{direct sum} of $W_1$ and $W_2$, written as $V = W_1 \oplus W_2$, if every $\vec{x} \in V$ can be written \underbar{uniquely} as $\vec{x} = \vec{w_1} + \vec{w_2}$ where $\vec{w_1} \in W_1$ and $\vec{w_2} \in W_2$.
+	\newline
+	\textbf{Equivalently} Let $W_1$ and $W_2$ be subspaces of $V$, $V = W_1 \oplus W_2 \iff V = W_1 + W_2 \land W_1 \cap W_2 = \{\vec{0}\}$.
+	
+	\section{Lecture4 Jan.17 2018}
+	\subsection{Cont'd}
+	\paragraph{Cont'd Proof of Theorem} \quad
+	\newline 
+	\emph{proof.}
+	\begin{multline*}
+		\\
+		\text{(Forward direction) Suppose } V = W_1 \oplus W_2 \\
+		\text{WTS. } V = W_1 + W_2 \land W_1 \cap W_2 = \{\vec{0}\} \\
+		\text{Let } V = W_1 \oplus W_2 \\
+		\implies \forall \vec{x} \in V, \text{ can be written uniquely as } \\
+		\vec{x} = \vec{w_1} + \vec{w_2},\ \vec{w_1} \in W_1,\ \vec{w_2} \in W_2 \\
+		\implies V = W_1 + W_2 \text{ by definition of \emph{sum}.} \\
+		\text{Let } \vec{x} \in W_1 \cap W_2 \\
+		\text{Decomposition, let } \vec{z} \in W_1 \cap W_2 \subseteq V\\
+		\vec{z} = \vec{z} + \vec{0},\ \vec{z} \in W_1, \vec{0} \in W_2 \\
+		\vec{z} = \vec{0} + \vec{z},\ \vec{0} \in W_1, \vec{z} \in W_2 \\
+		\text{Since decomposition is unique, }\vec{z} = \vec{0} \\
+		\text{So, } W_1 \cap W_2 = \{\vec{0}\} \\
+		\text{(Backward direction) Suppose } V = W_1 + W_2 \land W_1 \cap W_2 = \{\vec{0}\} \\
+		\text{WTS. } V = W_1 \oplus W_2 \\
+		\text{Assume } \vec{x} = \vec{w_1} + \vec{w_2},\ \vec{w_1} \in W_1,\vec{w_2} \in W_2 \\
+		\vec{x} = \vec{w_1'} + \vec{w_2'},\ \vec{w_1'} \in W_1,\vec{w_2'} \in W_2 \\
+		\implies \vec{w_1} + \vec{w_2} = \vec{w_1'} + \vec{w_2'} \\
+		\implies \vec{w_1} - \vec{w_1'} = \vec{w_2'} - \vec{w_2} \\
+		\text{Where, by definition of subspace, } \vec{w_1} - \vec{w_1'} \in W_1 \land \vec{w_2'} - \vec{w_2} \in W_2 \\
+		\text{So, }\vec{w_1} - \vec{w_1'} = \vec{w_2'} - \vec{w_2} \in W_1 \cap W_2 \\
+		\text{Since } W_1 \cap W_2 = \{\vec{0}\} \\
+		\implies \vec{w_1} = \vec{w_1'} \land \vec{w_2} = \vec{w_2'} \\
+		\text{So the decomposition is unique.} \\
+		\blacksquare
+	\end{multline*}
+	
+	\subsection{Linear Independence}
+	\paragraph{Theorem (Redundancy theorem)} Let $V$ be a vector space, $\{\vec{x_1},\dots\vec{x_n}\}$, let $\vec{x} \in \{\vec{x_1},\dots\vec{x_n}\}$, then
+	\[
+	span\{\vec{x_1},\dots\vec{x_n},\vec{x}\} = span\{\vec{x_1},\dots\vec{x_n}\}
+	\]
+	we say \emph{$\vec{x}$ is the \textbf{redundant} vector that contributes nothing to the span}.
+	\newline
+	\emph{proof.}
+	\begin{multline*}
+		\\
+		\text{let } \vec{x} \in span\{\vec{x}, \dots, \vec{x_n}\}\\
+		\vec{x} = \sum_{i=1}^n{c_i \vec{x_i}} \text{ for }c_i \in \mathbb{R}\ \forall i\\
+		\text{So, } span\{\vec{x_1},\dots,\vec{x_n},\vec{x}\} = \{\sum_{i=1}^n{a_i \vec{x_i}} + z \vec{x}\ \vert\ a_i,z \in \mathbb{R} \forall i\} \\
+		= \{\sum_{i=1}^n{a_i \vec{x_i}} + z\sum_{i=1}^n{c_i \vec{x_i}}\ \vert\ a_i,c_i \in \mathbb{R} \forall i\} \\
+		= \{\sum_{i=1}^n{(a_i + zc_i) \vec{x_i}}\ \vert\ a_i,c_i \in \mathbb{R} \forall i\} \\
+		\text{Let } d_i = a_i + zc_i \in \mathbb{R} \\
+		= \{\sum_{i=1}^n{d_i \vec{x_i}}\ \vert\ d_i \in \mathbb{R} \forall i\} \\
+		= span\{\vec{x_1},\dots\vec{x_n}\} \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Definition} Let $V$ be a vector space, let $\{\vec{x_1},\dots,\vec{x_n}\} \in V$, we say $\{v_i\}_{i=1}^n$ is \textbf{linearly independent} if the only set of scalars $\{c_1,\cdots, c_n \} $ that satisfies,
+		\[
+			\sum_{i=1}^n{c_i \vec{x_i}} = 0
+		\]
+		is $\{0,\dots,0\}$.
+		
+	\paragraph{Definition} In contrast, we say a set of vector, with size $n$, is \textbf{linearly dependent} if 
+	\[
+	\exists \vec{c} \neq \vec{0} \in \mathbb{R}^n,\ s.t.\ \sum_{i=1}^n{c_i\vec{v_i}} = 0
+	\]
+	\paragraph{Theorem} Let $V$ be a vector space, $\{\vec{v_i}\}_{i=1}^n \in V$ is \emph{linearly dependent} if and only if,
+	\[
+	\exists \vec{x} \in \{\vec{v_i}\}_{i=1}^n\ s.t.\  \vec{x_j} \in span\{\{\vec{v_i}\}_{i=1}^n \backslash \{\vec{x}\}\}
+	\]
+	\paragraph{Theorem} Let $V$ be a vector space, $\{\vec{v_i}\}_{i=1}^n \in V$ is \emph{linearly independent} if and only if,
+	\[
+	\forall \vec{x} \in \{\vec{v_i}\}_{i=1}^n,\ \vec{x_j} \notin span\{\{\vec{v_i}\}_{i=1}^n \backslash \{\vec{x}\}\} 
+	\]
+	
+	\section{Lecture5 Jan.23 2018}
+	\subsection{Linear independence, recall definitions}
+	\emph{Acknowledgement: special thanks to Frank Zhao.}
+	\paragraph{Definition} Let $\{\vec{x_1}, \dots \vec{x_k}\}$ is \textbf{linearly independent} if only scalars $c_1 \dots c_k$ s.t.
+		\[
+			\sum_{i=1}^k {c_1\vec{x_k}} = 0 (\star)
+		\]
+		are $c_1 = \dots = c_k = 0$ 
+		\newline
+		\textbf{linearly dependent} means \underbar{at least one} $c_i \neq 0$, $(\star)$ still holds.
+	\subsubsection{Alternative definitions of linear independency}
+	\paragraph{Definition(Alternative.1)} $\{\vec{x_1}\dots\vec{x_k}\}$ is \textbf{linearly independent} \underbar{iff} none of them can be written as a linear combination of the remaining $k-1$ vectors.\footnote{See theorem from the pervious lecture.}
+	\paragraph{Definition(Alternative.2)} $\{\vec{x_1}\dots\vec{x_k}\}$ is \textbf{linearly dependent} \underbar{iff} at least one of them can be written as a linear combination of the remaining $k-1$ vectors. \footnote{See theorem from the pervious lecture.}
+	
+	\subsection{Basis}
+	\paragraph{Definition} Let $V$ be a vector space, a non-empty\footnote{Specially, for an empty set, we define span $\emptyset = \{\vec{0}\}$} set $S$ of vectors from $V$ is a \textbf{basis} for $V$ if 
+		\begin{enumerate}
+			\item $V = span\{S\}$
+			\item $S$ is linearly independent.
+		\end{enumerate}
+	\paragraph{Theorem (characterization of basis)}A non-empty subset $S = \{\vec{x_i}\}_{i=1}^n$ of vector space $V$ is basis for $V$ iff every $\vec{x} \in V$ can be written 
+	\underbar{uniquely} as linear combination for vectors in $S$.
+	\newpage 
+	\begin{multline*}
+		\emph{proof.}
+		\\
+		\textbf{Forwards} \\
+		\text{Suppose $S$ is a basis for $V$}\\
+		\text{So every $\vec{x} \in V$ can be written as a linear combination of vectors in $S$}\\
+		\text{To prove the uniqueness, assume two expressions of $\vec{x} \in V$}\\
+		\vec{x} = \begin{cases}
+			c_1\vec{x_1} + \dots + c_k\vec{x_k} \\
+			b_1\vec{x_1} + \dots + d_k\vec{x_k} \\
+		\end{cases} \\
+		\text{Consider, } \\
+		c_1\vec{x_1} + \dots + c_k\vec{x_k} - (b_1\vec{x_1} + \dots + d_k\vec{x_k}) = \vec{0} \\
+		\iff \sum_{i=1}^k{(c_i - b_i)\vec{x_1}} = \vec{0} \\
+		\text{Since vectors in basis $S$ are linear independent, }\\
+		c_i = b_i \forall i \in \mathbb{Z} \cap [1,k] \\
+		\text{So the representation is unique.}\\
+		\textbf{Backwards} \\
+		\text{Suppose every $\vec{x} \in V$ can be written uniquely as linear combination of vectors in $S$.} \\
+		\text{WTS: } V = span\{S\} \land S \text{ is linearly independent} \\
+		\text{By the assumption, spanning set is shown.} \\
+		\text{All we need to show is linear independence.} \\
+		\text{Consider, } \\
+		\sum_{i=1}^n{c_i\vec{x}_i} = \vec{0} \\
+		\text{Also, we know }\\
+		\sum_{i=1}^n{0 \vec{x_i}} = \vec{0} \\
+		\text{By the uniqueness of representation} \\
+		\text{We have identical expression } \sum_{i=1}^n{c_i\vec{x}_i} = \sum_{i=1}^n{0\vec{x}_i} \\
+		\therefore c_i = 0\ \forall i \in \mathbb{Z} \cap [1,n] \\
+		\blacksquare
+	\end{multline*}
+	\paragraph{Example}
+	\[
+		V = \{(x_1,x_2)\ \vert\ x_1, x_2 \in \mathbb{R}\}
+	\]
+	\[
+		(x_1,x_2) + (y_1,y_2) = (x_1+y_1+1, x_2+y_2+1)
+	\]
+	\[
+		c(x_1,x_2) = (cx_1+c-1, cx_2+c-1)
+	\]
+	Show that $\{(1,0),(6,3)\}$ is a basis of $V$.
+	
+	By theorem, $\{(1,0),(6,3)\}$ is basis if every $(a,b) \in V$ can be written uniquely as linear combination of $\{(1,0),(6,3)\}$.
+	\[
+		\exists\ \text{unique scalars}\ c_1, c_2 \in \mathbb{R}\ s.t.\ c_1(1,0) + c_2(6,3) = (a, b)
+	\]
+	\begin{multline*}
+		\emph{proof.}\\
+		\text{By definition of scalar multiplication and vector addition in this space, }\\
+		\text{Consider} (a, b) = c_1(1,0) + c_2(6,3) = (2c_1 - 1, c_1 - 1) + (7c_2 -1, 4c_2 - 1)\\
+		= (2c_1 + 7c_2 - 1, c_1 + 4c_2 - 1)\\
+		\text{Consider the coefficients of variables}\\
+		\begin{cases}
+			2c_1 + 7c_2 - 1 = a \\
+			c_1 + 4c_2 - 1 = b \\
+		\end{cases}\\
+		\text{WTS, the above system of linear equations has unique solution for all $a, b$} \\
+		\text{The system has a unique solution $\forall a,b \in \mathbb{R}$} \\
+		\text{Since the coefficient matrix has rank 2}\\
+		rank(\begin{pmatrix}
+			2 & 7 \\
+			1 & 4 \\
+		\end{pmatrix}) = 2 \\
+		\text{Since obviously the columns are linearly independent.} \\
+		\blacksquare
+	\end{multline*}
+	
+	\subsection{Dimensions}
+	\paragraph{Definition} For a vector space $V$, the \textbf{dimension} of $V$ is the minimum number of vectors required to span $V$.
+	
+	\paragraph{Fundamental Theorem} if $V$ vector space is spanned by $m$ vectors, then any set of more than $m$ vectors from $V$ must be \underbar{linearly dependent}.
+	
+	\paragraph{Fundamental Theorem (Alternative)} If $V$ is vector space spanned by $m$ vectors, then any \underbar{linearly independent} set in $V$ must contain less or equal to $m$ vectors.
+	
+	\subsubsection{Consequences of fundamental theorem}
+	
+	\paragraph{Theorem} if $S = \{\vec{v}_i\}_{i=1}^k$ and $T = \{\vec{w}_i\}_{i=1}^l$ are two bases of vector space $V$ then $l = k$.
+	\emph{Bases have the same size.}
+	\begin{multline*}
+	\emph{proof.}\\
+		\text{Since $S$ spans $V$ and $T$ is linearly independent} \\
+		\therefore l \leq k \\
+		\text{(flip) Since $T$ spans $V$ and $S$ is linearly independent} \\
+		\therefore k \leq l \\
+		\implies l \leq k \land k \leq l \\
+		\implies k = l \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Definition} So we can define the \textbf{dimension} of $V$, as $dim(V)$ as the number vectors in \underbar{any} basis for $V$. For special case $V = \{\vec{0}\}$, $dim(V) = 0$.
+	\paragraph{Example}
+	\begin{itemize}
+		\item $dim(\mathbb{R}^n) = n$
+		\item $dim(\mathbb{P}_n(\mathbb{R})) = n + 1$
+		\item $dim(\mathbb{M}_{m \times n}(\mathbb{R})) = m\times n$
+	\end{itemize}
+	
+	\subsubsection{Use dimension to prove facts about linearly (in)dependent sets and subspaces}
+	\paragraph{Theorem} If $V$ is a vector space, $dim(V)=n$, $S = \{\vec{x_k}\}_{i=1}^k$ is subset of $V$, if $k > n$ then $S$ is \underbar{linearly dependent}.
+	\paragraph{Note} $k \leq n \nRightarrow S$ is linear dependent.
+	
+	\paragraph{Theorem} If $W$ is subspace of vector space $V$, then
+		\begin{enumerate}
+			\item $dim(W) \leq dim(V)$
+			\item $dim(W) = dim(V) \iff W = V$
+		\end{enumerate}
+	\begin{multline*}
+		\emph{proof.} \\
+			\text{(1) Suppose } dim(V) = n, dim(W) = k \\
+			\text{WTS, } k \leq n \\
+			\text{Any basis for $W$ is a linearly independent set of $k$ vectors from $V$.}\\
+			\text{Since $V$ is spanned by $n$ vectors, since $dim(V) = n$} \\ 
+			\text{By fundamental theorem, } k \leq n \\
+			\iff dim(W) \leq dim(V)\\
+			\text{(2) By contradiction, assume } dim(V) = dim(W) = n \text{ but } V \neq W \\
+			\text{Then }\exists \vec{x} \in V \land \vec{x} \notin W \\
+			\text{Take $S$ as a basis of $W$, then }\vec{x} \notin span\{S\} \\
+			\text{Then } S \cup \vec{x} \text{ is linearly independent} \\
+			\implies S \cup \{\vec{x}\} \text{ is linearly independent in $V$ containing $n + 1$ vectors} \\
+			\text{This contradicts the assumption by fundamental theorem since }\\
+			dim(V) = n \text{ so it could not contain more than $n$ linearly independent vectors}\\
+			\blacksquare
+	\end{multline*}
+	
+	\section{Lecture6 Jan.24 2018}
+	\subsection{Basis and Dimension}
+	\paragraph{Theorem} Let $V$ be a vector space , $S$ is a spanning set of $V$, and $I$ is a linearly independent subset of $V$, s.t. $I \subseteq S$, then $\exists$ basis $B$ for $V$ s.t. $I \subseteq B \subseteq S$.
+	\paragraph{Explaining}
+	\begin{enumerate}
+		\item \emph{Any spanning set for $V$ cab be \textbf{reduced} to basis for $V$ by removing the linearly dependent(redundant) vector in the spanning set, using \underbar{redundancy theorem} to get a linearly independent spanning set.}
+		\item \emph{Linear independent set can be \textbf{enlarged} to a basis for $V$.}
+	\end{enumerate}
+	\begin{multline*}
+		\emph{proof.}\\
+		\underbar{omitted.}\\
+		\blacksquare
+	\end{multline*}
+	\paragraph{Corollary} Let $V$ be a vector space and $dim(V)=n$, any set of $n$ linearly independent vectors from $V$ is a basis for $V$.
+	\newline \quad
+	
+	
+	\emph{proof.} If $n$ linearly independent vectors did not span V, then could be enlarged to a basis of $V$ by pervious theorem, but then have a basis containing more than $n$ vectors from $V$, which is impossible by the fundamental theorem since we given the $dim(V) = n$, proven by contradiction.
+	
+	\paragraph{Example} Let $V = P_2(\mathbb{R})$, $p_1(x) = 2-5x$, $p_2(x) = 2 - 5x + 4x^2$, find $p_3 \in P_2(\mathbb{R})$ s.t. $\{p_1(x), p_2(x), p_3(x)\}$ is basis for $P_2(\mathbb{R})$
+	\newline \quad
+	\newline
+	\textbf{Note} Since $dim(P_2(\mathbb{R})) = 3$ so any 3 linearly independent vectors from $P_2(\mathbb{R})$ will be a basis for $P_2(\mathbb{R})$.
+	\newline \quad
+	\newline
+	\textbf{Solutions} e.g. constant function $p_3(x) = 1$, since $1 \notin span\{p_1(x), p_2(x)\}$, so $\{p_1(x), p_2(x), p_3(x)\}$ is a basis of $P_2(\mathbb{R})$. e.g. $p_3(x) = x$, since $x \notin span\{p_1(x), p_2(x)\}$
+	
+	\paragraph{Theorem} Let $U$ and $W$ be subspaces of vector space $V$, then we have
+	\[
+		dim(U + W) = dim(U) + dim(W) - dim(U \cap W)
+	\]
+	\begin{multline*}
+		\emph{proof.}\\
+		\text{Let } \{\vec{v_i}\}_1^k \text{ be basis for } U \cap W \\
+		\implies dim(U \cap W) = k \\
+		\text{Since }\{\vec{v_i}\}_1^k \text{ is basis for } U \cap W \text{ then it's a linearly independent subset of U} \\
+		\text{So it could be enlarged ti basis for } U,\ \{\vec{v_1},\dots,\vec{v_k}, \vec{y_1},\dots,\vec{y_r}\} \\
+		\text{So } dim(U) = k + r \\
+		\text{We also could enlarge a basis for }W\ \{\vec{v_1},\dots,\vec{v_k}, \vec{z_1},\dots,\vec{z_s}\} \\
+		\implies dim(V) = k + s \\
+		\text{WTS. } \{\vec{v_1},\dots,\vec{v_k},\dots,\vec{y_1},\dots,\vec{y_r},\vec{z_1},\dots,\vec{z_s}\} \text{ is a basis for } U + W \\
+		\text{(If we could show this) }dim(U+W) = k + r + s = (k + r) + (k + s) - k \\
+		= dim(U) + dim(W) - dim(U\cap W)\\
+		\text{Obviously, the above set spans } U + W \\
+		\text{WTS. } \{\vec{v_1},\dots,\vec{v_k},\dots,\vec{y_1},\dots,\vec{y_r},\vec{z_1},\dots,\vec{z_s}\} \text{ is linearly independent} \\
+		\text{Consider }a_1\vec{v_1} + \dots + a_k\vec{v_k} + b_1\vec{y_1} + \dots b_r\vec{y_r} + c_1\vec{z_1} + \dots + c_s \vec{z_s} = \vec{0}\ (\star)\\
+		\text{From }(\star) \implies \sum(c_i\vec{z_i}) = - \sum(a_i\vec{v_i}) - \sum{b_i\vec{y_i}} \\
+		\implies \sum(c_i\vec{z_i}) \in U \land \sum(c_i\vec{z_i}) \in W \\
+		\iff \sum(c_i\vec{z_i}) \in U \cap W \\
+		\text{Since } \{\vec{v_i}\} \text{ is a basis for } U \cap W \\
+		\implies \sum(c_i\vec{z_i}) = \sum(d_i\vec{v_i}) \\
+		\iff \sum(c_i\vec{z_i}) - \sum(d_i\vec{v_i}) = \vec{0} \in W \\
+		\implies c_i = d_i = 0 \text{ since } \{\vec{z_i},\vec{v_i}\} \text{ is a basis}\\
+		\text{Rewrite }(\star) \\
+		\sum(a_i\vec{v_i}) + \sum{b_i\vec{y_i}} = 0 \in U \\
+		\implies a_i = b_i = 0 \text{ since } \{\vec{v_i},\vec{y_i}\} \text{ is a basis for } U \\
+		\blacksquare
+	\end{multline*}
+	\paragraph{Corollary} For direct sum, since the intersection is $\{\vec{0}\}$
+	\[
+		dim(U \oplus W) = dim(U) + dim(W)
+	\]
+	\paragraph{Example} Let $U,W$ are subspaces of $\mathbb{R}^3$ such shat $dim(U)= dim(W) = 2$, why is $U \cap W \neq \{\vec{0}\}$
+	\newline \quad
+	\newline \textbf{Solutions} Geometrically, $U$ and $W$ are planes through origin then the intersection would be a line through origin($U \neq W$) or a plane through origin.($U = W$), so shown.
+	\paragraph{Question} $V$ is a vector space, $dim(V) = n$, $U \neq W$ are subspaces of $V$ but $dim(U) = dim(V) = (n - 1)$, proof:
+	\begin{enumerate}
+		\item $V = U + W$
+		\item $dim(U \cap W) = (n - z)$
+	\end{enumerate}
+	
+	\section{Lecture7 Jan.30. 2018}
+	\subsection{Linear Transformations}
+	\paragraph{Definition} Let $V, W$ be vector spaces, a function $T: V \to W$ is a \textbf{linear transformation}\footnote{In some textbooks, this is annotated as \textbf{linear mapping}.} if 
+	\begin{enumerate}
+		\item $T(\vec{x} + \vec{y}) = T(\vec{x}) + T(\vec{y})\ \forall \vec{x}, \vec{y} \in V$\footnote{Notice that the vector additions on the left and right sides of the equation are defined in different vector spaces, in $V$ and $W$ respectively.}
+		\item $T(c\vec{x}) = cT(\vec{x})\ \forall \vec{x} \in V,\ c \in \mathbb{R}$\footnote{Notice that the scalar multiplication on the left and right sides of the equation are defined in different vector spaces, in $V$ and $W$ respectively.}
+	\end{enumerate}
+	\emph{Linear transformation preserves \underbar{vector additions ans saclar multiplications} on vector spaces.}
+	
+	\paragraph{Theorem(Alternative definition)} Transformation $T: V \to W$ is linear if and only if 
+	\[
+		T(c\vec{x} + d\vec{y}) = cT(\vec{x}) + dT(\vec{y}),\ \forall \vec{x},\vec{y} \in V, c,d \in \mathbb{R} 
+	\]
+	\emph{Linear transformations preserves \underbar{linear combinations}.}
+	
+	\paragraph{Example}(form 223) \underbar{Rotation} through angle $\theta$ about the origin in $\mathbb{R}^2$.
+	\paragraph{Example}(from 223) \underbar{Matrix transformation}, let $A \in M_{m \times n}(\mathbb{R})$, transformation $T: \mathbb{R}^n \to \mathbb{R}^m$ defined as 
+	\[
+		T(\vec{x}) = A \vec{x}
+	\]
+	is linear.
+	\paragraph{Example} \underbar{Derivative} $T: P_n(\mathbb{R}) \to P_{n-1}(\mathbb{R})$ defined by
+	\[
+		T(\vec{p}(x)) = \vec{p}\ '(x)
+	\]
+	\paragraph{Example} \underbar{Matrix transpose} $T:M_{m \times n}(\mathbb{R}) \to M_{n \times m}(\mathbb{R})$ defined by
+	\[
+		T(A) = A^T
+	\]
+	\subsection{Properties of linear transformations}
+	\paragraph{Property(i)} Linear transformation $T: V \to W$ are \underbar{uniquely} defined by their values on \underbar{any} basis for $V$.
+	\begin{multline*}
+	\emph{proof.}\\
+		\text{Let} \{\vec{v_1},\dots,\vec{v_k}\} \text{ be any basis for }V\\
+		\text{Every vector } \vec{x} \in V \text{ can be uniquely written as some linear combination of the }\{\vec{v_i}\}_{i=1}^k\\
+		\vec{x} = \sum_{i=1}^k{c_i\vec{v_i}},\ c_i \in \mathbb{R}, \text{ and $c_i$ are uniquely determined } \forall \vec{x} \in V \\
+		\implies T(\vec{x}) = T(\sum_{i=1}^k{c_i\vec{v_i}}) \\
+		= \sum_{i=1}^k{c_i T(\vec{v_i})} \text{ since the transformation $T$ is linear.}\\
+		\text{Since $c_i$s are uniquely determined by }\{\vec{v_i}\}_{i=1}^k \\
+		\text{so the value of $T(\vec{x})$ is uniquely determined by its value on basis vectors $\{\vec{v_i}\}_{i=1}^k$.} \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Property(ii)} Let $T: V \to W$ be a linear transformation, let $A$ be a subspace of vector space $V$, then the \textbf{image} $T(A)$ defined as 
+	\[
+		T(A) = \{T(\vec{x})\ \vert\ \vec{x} \in A\}
+	\]
+	called \underbar{the image of $A$ under linear transformation $T$} is a subspace of $W$.
+	\emph{Linear transformation maps subspaces of $V$ to subspaces of $W$.}
+	\newpage
+	\begin{multline*}
+	\emph{proof.} \\
+		\text{Since $A$ is a subspace so it's non-empty, therefore } \exists T(\vec{x}),\ \vec{x} \in A \\
+		\text{So } $T(A)$ \neq \emptyset \\
+		\text{Let } \vec{w_1}, \vec{w_2} \in T(A)\\
+		\implies \vec{w_1} = T(\vec{x_1}), \vec{w_2} = T(\vec{x_2}),\ \vec{x_1}, \vec{x_2} \in A \\
+		\implies \vec{w_1} + \vec{w_2} = T(\vec{x_1}) + T(\vec{x_2}) = T(\vec{x_1} + \vec{x_2}) \text{ since $T$ is linear.} \\
+		\text{Since } \vec{x_1} + \vec{x_2} \in A \text{ by the definition of subspaces.} \\
+		\implies \vec{w_1} + \vec{w_2} \in T(A) \\
+		\text{So $T(A)$ is closed under vector addition.} \\
+		\text{Let } \vec{w} \in T(A) \\
+		\implies \vec{w} = T(\vec{x}), \vec{x} \in A \\
+		\text{Let } c \in \mathbb{R} \\
+		\text{Consider } c\vec{w} = cT(\vec{x}) = T(c\vec{x}) \\
+		\text{Since } c\vec{x} \in A \\
+		\text{So } c\vec{w} \in T(A) \\
+		\text{So $T(A)$ is closed under scalar multiplication.} \\
+		\blacksquare
+	\end{multline*}
+	
+	
+	\paragraph{Property(derived from the definition)} For all linear transformation $T:V \to W$, we have \footnote{In the equation, clearly, the zero vector on the left side of the equation is in space $V$ and the zero vector on the right side is in space $W$.}
+	\[
+		T(\vec{0}) = \vec{0}
+	\]
+	
+	\paragraph{Property(iii)} Let transformation $T:V \to W$ be linear, let $B$ be a subspace of $W$, then its \textbf{pre-image} defined as
+	\[
+		T^{-1}(B) = \{\vec{x} \in V\ \vert\ T(x) \in B\}
+	\]
+	is a subspace of $V$. \footnote{The pre-image and inverse share the same notation, but in this case, transformation $T$ is not necessarily invertible.}
+	\newpage
+	\begin{multline*}
+	\emph{proof.}\\
+		\text{Let } \vec{w_1}, \vec{w_2} \in T^{-1}(B) \\
+		\implies T(\vec{w_1}), T(\vec{w_2}) \in B \\
+		\implies aT(\vec{w_1}) + b(\vec{w_2}) \in B,\ \forall a,b \in \mathbb{R} \text{ since $B$ is a subspace.} \\
+		\implies T(a\vec{w_1} + b\vec{w_2}) \in B \\
+		\implies a\vec{w_1} + b\vec{w_2} \in T^{-1}(B) \\
+		\text{So $T^{-1}(B)$ is closed under both vector addition and scalar multiplication,} \\
+		\text{So $T^{-1}(B)$ is a subspace.} \\
+		\blacksquare
+	\end{multline*}
+	
+	\subsection{Definitions}
+	\paragraph{} Let $T: V \to W$ to be a linear transformation, 
+	\paragraph{Definition} the \textbf{Image} of transformation $T$ is defined as
+	\[
+		Im(T) = T(V) = \{T(\vec{x})\ \vert\ \vec{x} \in V\}
+	\]
+	\paragraph{Definition} the \textbf{Rank} of transformation $T$ is defined as
+	\[
+		Rank(T) = dim(Im(T))
+	\]
+	\paragraph{Definition} the \textbf{Kernel} of transformation $T$ is defined as 
+	\[
+		Ker(T) = T^{-1}(\{\vec{0}\}) = \{\vec{x} \in V\ \vert\ T(\vec{x}) = \vec{0}\}
+	\]
+	\paragraph{Definition} the \textbf{Nullity} of transformation $T$ is defined as
+	\[
+		Nullity(T) = dim(ker(T))
+	\]
+	\paragraph{Example} $T:P_3(\mathbb{R})\to P_3(\mathbb{R})$ is \underbar{linear} defined by
+	\[
+		T(\vec{p}(x)) = \vec{p}(2x+1) - 8\vec{p}(x)
+	\] find $Ker(T)$.
+	
+	\paragraph{Theorem} Let $T: V \to W$ be a linear transformation, let $\{\vec{v_1}, \dots, \vec{v_k}\}$ be the \underbar{spanning set} of $V$ \footnote{The set is only the spanning set of $V$, it's not necessarily to be a basis of $V$.}, then $\{T(\vec{v_1}), \dots, T(\vec{v_k})\}$ spans $Im(T)$
+	\begin{multline*}
+	\emph{proof.} \\
+	\text{Let } \vec{w} \in Im(T) \\
+	\text{Since } V = span\{\vec{v_1}, \dots, \vec{v_k}\} \\
+	\text{For any } \vec{x} \in V \text{ can be written as }\\
+	\vec{x} = \sum_{i=1}^k{c_i\vec{v_i}},\ c_i \in \mathbb{R}\\
+	\implies \vec{w} = T(\vec{x}) = T(\sum_{i=1}^k{c_i\vec{v_i}}) \\
+	= \sum_{i=1}^k{c_iT(\vec{v_i})} \\
+	\text{as a linear combination of } \{T(\vec{v_1}), \dots, T(\vec{v_k})\} \\
+	\text{So } Im(T) = span\{T(\vec{v_1}), \dots, T(\vec{v_k})\} \\
+	\blacksquare
+	\end{multline*}
+	
+	\section{Lecture8 Jan.31 2018}
+	\subsection{Linear Transformations}
+	\paragraph{Example} $T: P_3(\mathbb{R}) \to P_3(\mathbb{R})$
+	\[
+		T(p(x)) = p(2x+1) - 8p(x)
+	\] Find the image of $T$.
+	\newline We know $B = \{1,x,x^2,x^3\}$ is the standard basis for $P_3(\mathbb{R})$, consider the set $P(B)$
+	\[
+		P(B) = \{-7, 1-6x, 1 + 4x - 4x^2, 1 + 6x + 12 x^2\}
+	\]
+	spans $Im(T)$. Notice the first three vectors in the set is linearly independent, the last vector is clearly dependent to the pervious three.\footnote{Notice that the first three vectors is a basis of $P_2(\mathbb{R})$.}. So by the \underbar{redundancy theorem} we could remove the last vector. There we have
+	\[
+		Im(T) = span\{-7, 1-6x, 1 + 4x - 4x^2\}
+	\]
+	as basis.
+	\newline In this example, the dimension of $Ker(T)$ is 1 and the dimension of $Im(T)$ is 3, and dimension of $P_3(\mathbb{R})$ is 4. We have, $dim(P_3(\mathbb{R})) = Nullity(T)\ +\ Rank(T)$
+	
+	\paragraph{Theorem(Dimension Theorem)} Let $T: V \to W$ be a linear transformation, 
+	\[
+		dim(V) = Nullity(T) + Rank(T)
+	\]
+	\begin{multline*}
+		\emph{Proof.} \\
+		\text{Say } dim(V) = n \\
+		\text{Let } \{\vec{v_1},\dots,\vec{v_k}\} \text{ be a basis for } Ker(T) \\
+		\text{Since $Ker(T)$ is a subspace of $V$, the set } \{\vec{v_i}\}_1^k \text{ is a subset of $V$,} \\
+		\text{It can be extended to a basis } \{\vec{v_i}\}_1^k \cup \{\vec{v_i}\}_{k+1}^n \text{ for } $V$. \\
+		\text{Claim: } \{T(\vec{v_{k+1}}),\dots,T(\vec{v_n})\} \text{ is basis for } Im(T) \\
+		\text{If the claim is true, this prove the theorem since } \\
+		dim(Ker(T)) + dim(Im(T)) = k + n - k = n = dim(V) \\
+		\because T(\vec{v_i}) = \vec{0},\ \forall i \in \mathbb{Z}_1^k \\
+		\text{and by the definition of kernel of linear transformation, }\\
+		\therefore \{T(\vec{v_i})\}_{k+1}^n \text{ spans } Im(T) \\
+		\text{Show if } \sum_{i=k+1}^n{c_iT(\vec{v_i})} = \vec{0} \implies c_i = 0 \\
+		\implies T(\sum_{i=k+1}^n{c_i\vec{v_i}}) = \vec{0} \\
+		\implies \sum_{i=k+1}^n{c_i\vec{v_i}} \in Ker(T) \\
+		\implies \sum_{i=k+1}^n{c_i\vec{v_i}} = \sum_{i=1}^k {c_i \vec{v_i}} \\
+		\implies c_1\vec{v_1} + \dots + c_k\vec{v_k} - c_{k+1}\vec{v_{k+1}} - \dots - c_{n}\vec{v_n} = \vec{0} \\
+		\text{Since } \{\vec{v_i}\}_i^n \text{ is a basis for $V$.} \\
+		\implies c_i = 0\ \forall i \\
+ 	\end{multline*}
+ 	
+ 	\subsection{Applications of dimension theorem}
+ 	\paragraph{Definition} A linear transformation $T: V \to W$ is called \textbf{injective}(one-to-one) if and only if
+ 	\[
+ 		T(\vec{v_1}) = T(\vec{v_2}) \implies \vec{v_1} = \vec{v_2}
+ 	\]
+ 	\paragraph{Definition} A linear transformation $T: V \to W$ is called \textbf{surjective}(onto) if and only if
+ 	\[
+ 		Im(T) = W
+ 	\]
+ 	\emph{Every vector in $W$ has a pre-image in $V$.}
+ 	
+ 	\paragraph{Definition} A linear transformation $T: V \to W$ is called \textbf{bijective} if it's both injective and surjective.
+ 	
+ 	\paragraph{Theorem } Let transformation $T: V \to W$ is linear, $T$ is injective if and only if $dim(Ker(T)) = 0$.
+ 	\begin{multline*}
+ 		\emph{Proof.} \\
+ 		\underbar{Exercise} \\
+ 		\blacksquare
+ 	\end{multline*}
+ 	
+ 	\paragraph{Theorem} $T$ is surjective if and only if $dim(Im(T)) = dim(W)$.
+ 	\paragraph{Example}$T: P_2(\mathbb{R}) \to \mathbb{R}^2$ defined by 
+ 	\[
+ 		T(p(x)) = \begin{pmatrix}
+ 			p(1) \\
+ 			p(2) \\
+ 		\end{pmatrix}
+ 	\] is $T$ injective? surjective?
+ 	\newline \underbar{Not injective but surjective.}
+ 	\newline
+ 	\textbf{Solution}
+ 	\[
+ 		Ker(T) = span\{(x-1)(x-2)\}
+ 	\]
+ 	So T has nullity of 1 and since $dim(P_2(\mathbb{R})) = 3$, by the \underbar{dimension theorem} we have $Rank(T) = 2$ and since $Im(T)$ is a subspace of $\mathbb{R}^2$ which has dimension of 2, we could conclude that $Im(T) = \mathbb{R}^2$.
+ 	
+ 	
+ 	\section{Lecture9 Feb.6 2018}
+ 	\subsection{Applications of dimension theorem}
+ 	\paragraph{Example} $T: P_2(\mathbb{R}) \to \mathbb{R}^3$ defined by 
+ 	\[
+ 		T(p(x)) = (p(1), p(2), p(3))
+ 	\]
+ 	Take $p(x) = a + bx + cx^2 \in P_2(\mathbb{R})$, $p(x) \in Ker(T)$ iff $T(p(x)) = \vec{0}$.
+ 	\newline Let $p(x) \in Ker(T)$,
+ 	\newline Obviously the only solution for the system
+ 	\[
+ 		\begin{cases}
+ 			a + b + c = 0\\
+ 			a + 2b + 4c = 0\\
+ 			a + 3b + 9c = 0\\
+ 		\end{cases}
+ 	\]  is $a=b=c=0$, i.e. $p = \vec{0} \in P_2(\R)$. So $dim(Ker(T)) = 0$. Therefore, $T$ is \textbf{injective}.
+ 	\newline By \emph{dimension theorem},
+ 	\[dim(P_2(\R)) = 3 = 0 + dim(Im(T)) \implies dim(Im(T)) =  3 = dim(\mathbb{R}^3)\]
+ 	therefore $T$ is \textbf{surjective}. Therefore, $T$ is \textbf{bijective}.
+ 	
+ 	\paragraph{Question} $T: P_n(\mathbb{R}) \to P_n(\mathbb{R})$
+ 	\[
+ 		T(p(x)) = x p'(x)
+ 	\]
+ 	\quad \textbf{Solution} \underbar{Not injective} because any \emph{constant function} in $P_n(\mathbb{R})$ is mapped to $\vec{0} \in P_n(\mathbb{R})$, therefore $Ker(T) \neq \{\vec{0}\}$. Also \underbar{not surjective} by the dimension theorem.
+ 	
+ 	\paragraph{Theorem} Let $T: V \to W$ be an \underbar{injective} linear transformation, if 
+ 	$\{\vec{v_i}\}_{i=1}^k$ is linearly independent in $V$, then the set $\{T(\vec{v_i})\}_{i=1}^k$ is linearly independent in $W$. \emph{Injective transformation maps linearly independent set to linear independent set.}
+ 	\newline \quad
+ 	\newline \emph{Proof.}
+ 	Consider $\sum_{i}{c_iT(\vec{v_i})} = \vec{0}$, then we have $T(\sum_{i}{\vec{c_i v_i}}) = \vec{0}$, which implies $\sum_{i}{c_i v_i} \in Ker(T)$. By definition of injective transformation, $\sum_{i}{c_i v_i} = \vec{0}$. Since $\{\vec{v_i}\}_{i=1}^k$ is linearly independent, so $c_i = 0,\ \forall i$ Therefore $\{T(\vec{v_i})\}_{i=1}^k$ is linearly independent. \hfill $\blacksquare$
+ 	
+ 	\theorem Let $T: V \to W$ be a linearly transformation, $\{\vec{v_i}\}_{i=1}^n$ is a basis for $V$, then if $\{T(\vec{v_i})\}_{i=1}^n$ is linear independent, then $T$ is \underbar{injective}.
+ 	\newline \emph{A criteria for T to be injective baed on image of a basis.}
+ 	\begin{multline*}
+ 	\emph{Proof.} \\
+ 		\text{Let } \{\vec{v_i}\}_{i=1}^n \text{ be a basis of $V$} \\
+ 		\text{Consider } T(\vec{x}) = \vec{0} \\
+ 		\text{Since }  \{\vec{v_i}\}_{i=1}^n \text{ is a basis} \\
+ 		\text{Let } \vec{x} = \sum{c_i\vec{v_i}} \\
+ 		\tx{Assume } \vec{x} \in Ker(T) \\
+ 		T(\vec{x}) = \vec{0} \iff T(\sum{c_i\vec{v_i}}) = \vec{0} \\
+ 		\implies \sum{c_iT(\vec{v_i})} = \vec{0} \\
+ 		\tx{Since }\{T(\vec{v_i})\}_{i=1}^n \tx{ are linearly independent.}\\
+ 		\implies c_i = 0 \\
+ 		\tx{Therefore } \vec{x} = \sum{0\vec{v_i}} = \vec{0} \\
+ 		\text{Therefore } Ker(T) = \{\vec{0}\} \\
+ 		\text{Therefore } dim(Ker(T)) = 0\\
+ 		\implies \text{injective} \\
+ 		\blacksquare
+ 	\end{multline*}
+
+	\paragraph{Theorem} Let $T: V \to W$ be a linear transformation, \footnote{Consider the contrapositive predicates of this theorem.}
+	\begin{enumerate}
+		\item If $dim(V) > dim(W)$, then $T$ \underbar{cannot} be injective.
+		\item If $dim(V) < dim(W)$, then $T$ \underbar{cannot} be surjective.
+	\end{enumerate}
+	\paragraph{Lemma} For a linear transformation between spaces with different dimensions, it could not be bijective.
+	\begin{multline*}
+		\emph{Proof.} \\
+		dim(V) = dim(Ker(T)) + dim(Im(T)) \\
+		\because dim(Im(T)) \leq dim(W) \\
+		\therefore dim(V) \leq dim(Ker(T) + dim(W) \\
+		\implies dim(Ker(T)) \geq dim(V) - dim(W) \\
+		\implies dim(Ker(T)) > 0 \\
+		\text{So $T$ could not be injective} \\
+		dim(V) = dim(Ker(T)) + dim(Im(T)) \\
+		\because dim(Ker(T)) \geq 0 \\
+		\therefore dim(V) \geq dim(Im(T)) \\
+		\implies dim(Im(T)) < dim(W) \\
+		\text{So $T$ could not be surjective}\\
+		\blacksquare
+	\end{multline*}
+	\begin{multline*}
+		\emph{Proof 2.} \\
+		\tx{Consider a transformation } \trans{T}{V}{W} \tx{ is bijective.} \\
+		\tx{By the contrapositive form of above theorem, } \\
+		\tx{Injective } \implies dim(V) \leq dim(W) \\
+		\tx{Surjective } \implies dim(V) \geq dim(W) \\
+		\tx{Therefore bijective }\\
+		\implies dim(V) \leq dim(W) \land dim(V) \geq dim(W) \iff dim(V) = dim(W) \\
+		\tx{Therefore bijective } \implies dim(V) = dim(W) \\
+		\tx{So, take contrapositive, } dim(V) \neq dim(W) \implies \tx{ not bijective. }\\ 
+		\blacksquare
+	\end{multline*}
+	\theorem \emph{(Half is good enough)} Let $T: V \to W$ is linear, and $dim(V) = dim(W)$. Then $T$ is injective \underbar{if and only if} surjective.
+	\begin{multline*}
+		\emph{Proof.} \\
+		\text{By dimension theorem} \\
+		dim(V) = dim(Ker(T)) + dim(Im(T)) = dim(W) \\
+		\text{If injective } dim(Ker(T)) = 0 \\
+		\implies dim(Im(T)) = dim(W) \\
+		\text{So surjective} \\
+		\text{If surjective } dim(Im(T)) = dim(W) = dim(V) \\
+		\implies dim(Ker(T)) = 0 \\
+		\text{So injective} \\
+		\blacksquare
+	\end{multline*}
+	
+	\subsection{Isomorphisms}
+	
+	\paragraph{Definition} If $T: V \to W$ is \underbar{bijective}, we call $T$ an \textbf{isomorphism}. If there exists an isomorphism $T: V \to W$ say $V$ and $W$ are \textbf{isomorphic} vector spaces.
+	
+	\paragraph{Theorem} $V,W$ are isomorphic \underbar{iff} $dim(V) = dim(W)$.
+	
+	\begin{multline*}
+		\emph{Proof.} \\
+		\rightarrow\ V,W \text{ isomorphic } \implies dim(V) = dim(W) \\
+		\text{Isomorphic means there exists a bijective transformation $T$} \\
+		\text{By dimension theorem } dim(V) = dim(Ker(T)) + dim(Im(T)) \\
+		= 0 + dim(W) \\
+		\leftarrow\ dim(V) = dim(W) \implies V,W \text{ isomorphic } \\
+		\text{Equivalently, find a isomorphism(bijective) transformation} \\
+		\text{Let } \{\vec{v_i}\}_{i=1}^n \text{ be basis for } V \\
+		\text{Let } \{\vec{w_i}\}_{i=1}^n \text{ be basis for } W \\
+		\text{Claim } T: V \to W \text{ defined by } \\
+		T(\vec{v_i}) = \vec{w_i} \text{ is an isomorphism.}\\
+		\text{If } \vec{x} \in Ker(T) \subseteq V \\
+		\vec{x} = \sum{c_i\vec{v_i}} \\
+		\vec{0} = T(\vec{x}) \\
+		= \sum{c_iT(\vec{v_i})} \\
+		= \sum(c_i \vec{w_i}) \\
+		\implies c_i = 0 \text{ since } \vec{w_i} \text{ are basis.} \\
+		\implies \vec{x} = \vec{0} \\
+		\implies dim(Ker(T)) = 0 \\
+		\implies \text{injective} \iff \text{surjective} \\
+		\tx{Therefore $V$ and $W$ are isomorphic vector spaces.} \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Note} if $T: V \to W$ is an isomorphism, then $T$ maps a basis for $V$ to a basis for $W$.
+	
+	\paragraph{Example} $T: P_2(\mathbb{R}) \to \mathbb{R}^3$, 
+	\[
+		T(p(x)) = (p(1), p(2), p(3))
+	\]
+	is an isomorphism. And $P_2(\mathbb{R})$ and $\mathbb{R}^3$ are isomorphic.
+	
+	\paragraph{Example} $T: P_2(\mathbb{R}) \to \mathbb{R}^3$, 
+	\[
+		T(1) = \begin{pmatrix}
+			1 \\
+			0 \\
+			0 \\
+		\end{pmatrix},\ T(x) = \begin{pmatrix}
+			0 \\
+			1 \\
+			0 \\
+		\end{pmatrix},\ T(x^2) = \begin{pmatrix}
+			0 \\
+			0 \\
+			1 \\
+		\end{pmatrix}
+	\] is an isomorphism.
+	\paragraph{Example} $M_{2 \times 2}(\mathbb{R})$, $P_3(\mathbb{R})$ and $\mathbb{R}^4$ are isomorphic.
+	
+	\paragraph{Theorem} Any n-dim vector space $V$ is isomorphic to $\mathbb{R}^n$.
+	What is an isomorphism $T: V \to \mathbb{R}^n$
+	\begin{multline*}
+		\emph{Procedure:} \\
+		\text{Let } \{\vec{v_i}\}_{i=1}^n \text{ be \underbar{any} basis for } $V$ \\
+		\text{We know that } \forall \vec{x} \in V, \\
+		\text{By property of basis, } \\
+		\vec{x} = \sum{c_i \vec{v_i}} \\
+		\text{Then transformation $T$ defined by }\\
+		T(\vec{x}) = \begin{pmatrix}
+			c_1 \\
+			\vdots \\
+			c_n \\
+		\end{pmatrix} \in \mathbb{R}^n \text{ is an isomorphism.}\\
+		\\
+	\end{multline*}
+	
+	\subsection{Coordinates}
+	\paragraph{Definition} Let $V$ be a vector space, $\alpha = \{\vec{v_1}, \dots, \vec{v_n}\}$ be nay basis for $V$, $\forall \vec{x} \in V$ can be written uniquely as 
+	\[
+		\vec{x} = c_1 \vec{v_1} + \dots + c_n \vec{v_n}
+	\]
+	then $c_1,\dots,c_n$ is called the 
+	\underbar{\textbf{coordinates} for $\vec{x}$ relative to basis $\alpha$}, with notation
+	\[
+	[\vec{x}]_{\alpha} = \begin{pmatrix}
+		c_1 \\
+		\vdots \\
+		c_n
+	\end{pmatrix} \iff \vec{x} = \sum{c_i\vec{v_i}}
+	\]
+	\paragraph{Claim} $[\vec{x} + c\vec{y}]_{\alpha} = [\vec{x}]_{\alpha} + c[\vec{y}]_{\alpha}\quad \forall \vec{x},\vec{y} \in V,\ c \in \mathbb{R}$.
+	
+	\paragraph{Remark} if $\alpha, \alpha'$ are any two bases for $V$ then \emph{generally} $[\vec{x}]_\alpha \neq [\vec{x}]_{\alpha'}$ (except $\vec{0}$)\footnote{$\coor{0}{\beta} = \vec{0} \in \R^n,\ \forall \beta$ as basis for $V$.}.
+	
+	\section{Lecture10 Feb.7 2018}
+	\subsection{Matrix of linear transformation}
+	\paragraph{Recall} Let $V$ be a vector space, let $\alpha$ be any basis for $V$.
+	\[
+		\forall \vec{x} \in V, x = \sum{c_i\vec{v_i}}
+	\]
+	\[
+		[\vec{x}]_{\alpha} = \begin{pmatrix}
+			c_1 \\
+			\vdots \\
+			c_n
+		\end{pmatrix}
+	\]
+	So transformation $\vec{x} \to [\vec{x}]_{\alpha}$ is an isomorphism that $V \to \mathbb{R}^n$.
+	
+	\definition Let $W$ be a vector space and let $\beta = \{\vec{w_i}\}_{i=1}^m$ be any basis of $W$, let $T: V \to W$ be a linear operator.
+	\[
+		T(\vec{x}) = \sum{c_iT(\vec{v_i})}
+	\] So that
+	\[
+		[T(\vec{x})]_{\beta} = [\sum{c_iT(\vec{v_i})}]_{\beta} = \sum{c_i[T(\vec{v_i})]_{\beta}}
+	\]
+	\[
+		= \begin{bmatrix}
+			[T(\vec{v_1})]_\beta & \dots & [T(\vec{v_n})]_\beta \\ 
+		\end{bmatrix}
+		\begin{pmatrix}
+ 			c_1 \\
+ 			\vdots \\
+ 			c_n	\\
+ 		\end{pmatrix}
+	\]
+	$\begin{bmatrix}[T(\vec{v_1})]_\beta & \dots & [T(\vec{v_n})]_\beta \end{bmatrix}$ is called the \underbar{the \textbf{matrix of $T$} w.r.t. bases $\alpha, \beta$.} Denoted as $[T]_{\alpha}^{\beta}$, and by definition we have
+	\[	
+		[T(\vec{x})]_{\beta} = [T]_{\alpha}^{\beta} [\vec{x}]_{\alpha}
+	\]
+	
+	\paragraph{Example} $T:P_2(\mathbb{R}) \to P_3(\mathbb{R})$ 
+	\[
+		T(p(x)) = xp(x) 
+	\]
+	\[
+	\alpha = \{1-x, 1-x^2, x\},\ \beta = \{1, 1+x, 1+x+x^2, 1-x^3\}
+	\]
+	Find $[T]_{\alpha}^{\beta}$.
+	\begin{multline*}
+		\\
+		T(1-x) = x(1-x) = x - x^2 \\
+		x - x^2 = (-1)(1) + 2(1+x) + (-1)(1+x+x^2) + 0(1-x^3) \\
+		[T(1-x)]_{\beta} = (-1,2,-1,0) \\
+		T(1-x^2) = x - x^3\\
+		[T(1-x^2)]_{\beta} = (-2, 1, 0, 1)\\
+		[T(x)] = x^2 \\
+		[T(x)]_{\beta} = (0,-1,1,0)\\
+		[T]_{\alpha}^{\beta} = \begin{bmatrix}
+			-1 & -2 & 0 \\
+			2 & 1 & -1 \\
+			-1 & 0 & 1 \\
+			0 & 1 & 0\\
+		\end{bmatrix}
+		\\
+	\end{multline*}
+	
+	\paragraph{Picture}Let $V,\ W$ be two vectors spaces, $\alpha = \{ \vec{v_1}, \dots, 
+	\vec{v_n} \}$ is a basis for $V$ and $\beta = \{ \vec{w_1}, \dots, 
+	\vec{w_m} \}$ is a basis for $W$.
+	\begin{multline*}
+	\\
+		V \quad \longrightarrow^{T} \longrightarrow \quad W \\
+		\downarrow^{[\ ]_{\alpha}} \quad \quad \quad \quad \quad \downarrow^{[\ ]_{\beta}} \\
+		\mathbb{R}^n \longrightarrow^{[T]_{\alpha}^{\beta}}\longrightarrow \mathbb{R}^m \\
+	\end{multline*}
+	
+	\paragraph{Remark}
+	\begin{enumerate}
+		\item $\vec{x} \in Ker(T) \iff T(\vec{x}) = \vec{0} \iff [T(x)]_{\beta} = [\vec{0}]_{\beta} \in \mathbb{R}^m \iff [T]_{\alpha}^{\beta} [\vec{x}]_{\alpha} = 0 \iff [\vec{x}]_{\alpha} \in Ker([T]_{\alpha}^{\beta})$
+		\item $\vec{w} \in Im(T) \iff [\vec{w}]_{\beta} \in Col([T]_{\alpha}^{\beta})$
+	\end{enumerate}
+	\paragraph{Theorem} \underbar{Rank nullity for transformation matrix} Let $\trans{T}{V}{W}$ be a linear operator and $dim(V) = n$, then
+	\[
+		dim(Ker([T]_{\alpha}^{\beta})) + dim(Col([T]_{\alpha}^{\beta})) = n
+	\]
+	
+	\paragraph{Example} $T: P_2(\mathbb{R}) \to M_{2 \times 2}(\mathbb{R})$
+	\[
+	T(a+bx+c^2) = \begin{bmatrix}
+		c & -c \\
+		a-c & a+c \\
+	\end{bmatrix}
+	\] And given bases $\alpha = \{x^2-x, x-1, x^2 + 1\}$ and $\beta = \{
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 1 \\
+	\end{bmatrix},
+	\begin{bmatrix}
+		0 & 1 \\
+		1 & 0 \\
+	\end{bmatrix},
+	\begin{bmatrix}
+		0 & 0 \\
+		1 & 1 \\
+	\end{bmatrix},
+	\begin{bmatrix}
+		-1 & 1 \\
+		0 & 0 \\
+	\end{bmatrix}
+	\}$
+	\textbf{Solution}
+	\[
+		[T]_{\alpha}^{\beta} = \begin{bmatrix}
+			1 & 0 & 1 \\
+			-1 & 0 & -1 \\
+			0 & -1 & 1 \\
+			0 & 0 & 0 \\
+		\end{bmatrix}
+	\]
+	\[
+		Nul([T]_{\alpha}^{\beta}) = span\{\begin{pmatrix}
+		-1 \\
+		1 \\ 
+		1 \\	
+		\end{pmatrix}
+		\}
+	\]
+	\[
+		Nul(T) = span\{2x\}
+	\]
+	\[
+		Col([T]_{\alpha}^{\beta}) = span\{\begin{pmatrix}
+		-1 \\
+		1 \\
+		0 \\
+		0 \\	
+		\end{pmatrix}, \begin{pmatrix}
+			0 \\
+			0 \\
+			-1 \\
+			0 \\
+		\end{pmatrix}
+		\}
+	\]
+	\[
+		Col(T) = span \{
+		\begin{bmatrix}
+			-1 & 1 \\
+			1 & -1 \\
+		\end{bmatrix},
+		\begin{bmatrix}
+			0 & 0 \\
+			-1 & -1 \\
+		\end{bmatrix} \}
+	\]
+	
+	\section{lecture11 Feb.13 2018}
+	\subsection{Algebra of Transformation}
+	\theorem Let $\trans{T}{V}{W}$ be a linear transformation, where $\alpha = \vset{v}{1}{n}$ and $\beta = \vset{w}{1}{m}$ are bases for $V, W$ respectively.
+	\[
+		\vec{x} \in Ker(T) \iff \coor{x}{\alpha} \in Ker(\tmat{T}{\alpha}{\beta})
+	\]
+	\[
+		\vec{x} \in Im(T) \iff \coor{x}{\beta} \in Col(\tmat{T}{\alpha}{\beta})
+	\]
+	
+	\definition $\trans{T_1, T_2}{V}{W}$ are linear transformations, define \textbf{addition} and \textbf{scalar multiplication} of transformation as
+	\[
+		(T_1 + T_2)(\vec{x}) = T_1(\vec{x}) + T_2(\vec{x})\ \forall \vec{x} \in V
+	\]
+	\[
+		(cT_1)(\vec{x}) =c(T_1(\vec{x})) \forall \vec{x} \in V,\ c \in \R
+	\]
+	
+	\theorem And, let $\alpha$ and $\beta$ be bases for $V, W$ respectively,
+	then,
+	\[
+		\tmat{T_1}{\alpha}{\beta} + \tmat{T_2}{\alpha}{\beta} = \tmat{T_1 + T_2}{\alpha}{\beta}
+	\]
+	\[
+		c\tmat{T_1}{\alpha}{\beta} = \tmat{cT_1}{\alpha}{\beta}
+	\]
+	
+	\definition Let $\trans{T}{V}{W}$ and $\trans{S}{W}{U}$ be two linear transformations, then the \textbf{composition} $\trans{ST}{V}{U}$ is defined as
+	\[
+		(ST)(\vec{x}) = S(T(\vec{x}))\quad \forall \vec{x} \in V
+	\]
+	
+	\paragraph{Remark} If $S, T$ are \emph{linear} then the composition $ST$ is also \emph{linear}.
+	\begin{multline*}
+		\emph{Proof.} \\
+		\text{Let } a,b \in \R,\ \vec{x},\vec{y} \in V \\
+		ST(a\vec{x} + b\vec{y}) \\
+		= S(T(a\vec{x} + b\vec{y})) \\
+		= S(aT(\vec{x}) + bT(\vec{y})) \\
+		= a(ST(\vec{x})) + b(ST(\vec{y})) \\
+		\blacksquare
+	\end{multline*}
+	
+	\subsection{Matrix of composition of transformations}
+	\paragraph{} Consider $\trans{T}{V}{W}$ and $\trans{S}{W}{U}$ as linear transformations, let $\alpha,\ \beta,\ \gamma$ be bases of $V,\ W,\ U$ respectively.
+	\newline We know how to compute $\tmat{T}{\alpha}{\beta}$ and $\tmat{S}{\beta}{\gamma}$. Now want to find $\tmat{ST}{\alpha}{\gamma}$.
+	\begin{multline*}
+	\\
+	\forall \vec{x} \in V, \tmat{ST}{\alpha}{\gamma} \coor{x}{\alpha} \\
+	= [(ST)(\vec{x})]_{\gamma} \\
+	= [S(T(\vec{x}))]_{\gamma} \\
+	= \tmat{S}{\beta}{\gamma} [T(\vec{x})]_\beta \\
+	= \tmat{S}{\beta}{\gamma} \tmat{T}{\alpha}{\beta} \coor{x}{\alpha} \\
+	\text{This holds true for all }\vec{x} \in V \\
+	\therefore \tmat{ST}{\alpha}{\gamma} = \tmat{S}{\beta}{\gamma} \tmat{T}{\alpha}{\beta} \\
+	\\
+	\end{multline*}
+	\textbf{Conclusion} the matrix of $ST$ = matrix of $S$ $\times$ matrix of $T$.
+	
+	\subsection{Inverse transformations}
+	\theorem $\trans{T}{V}{W}$ is \emph{isomorphism}\footnote{Recall that isomorphism is equivalent to bijective.} \underbar{if and only if} there exists function $\trans{S}{W}{V}$ such that
+	\[
+		(ST)(\vec{v}) = \vec{v}\ \forall \vec{v} \in V \land (TS)(\vec{w}) = \vec{w}\ \forall \vec{w} \in W
+	\]
+	\definition And the above-mentioned linear operator $S$ is called the \textbf{inverse} of $T$, written as $T^{-1}$.
+	\newline \quad
+	\newline \emph{proof.}($\rightarrow$) $T$ is an isomorphism means every vector in $W$ has an unique pre-image in $V$ the function $\trans{S}{W}{V}$ maps \emph{every} vector in $W$ to its \emph{unique} pre-image in $V$, so $S$ is the inverse of $T$.
+	\newline \quad
+	\newline \emph{proof.}($\leftarrow$) Assume $\trans{S}{W}{V}$ is the inverse of $\trans{T}{V}{W}$ then $T(S(\vec{y})) = \vec{y},\ \forall \vec{y} \in V$, this means $T$ is \underbar{surjective} since every $\vec{y} \in W$ has pre-image under $T$, which is $S(\vec{y}) \in V$. Now suppose $T(\vec{x_1}) = T(\vec{x_2})$, apply transformation $S$ on both sides of the equation, $S(T(\vec{x_1})) = S(T(\vec{x_2	}))$ we have $\vec{x_1} = \vec{x_2}$. This implies the transformation is \underbar{injective}. Therefore, transformation $T$ is bijective, that's isomorphism.	\hfill$\blacksquare$
+	\paragraph{Note} $T^{-1}(\vec{y})$ is the \underbar{unique} vector $\vec{x}$, s.t.$T(\vec{x}) = \vec{y}$. That's
+	\[
+		T(\vec{x}) = \vec{y} \iff T^{-1}(\vec{y}) = \vec{x}
+	\]
+	\theorem If $\trans{T}{V}{W}$ is an isomorphism then the inverse of $T$, $\trans{T^{-1}}{W}{V}$ is linear.\footnote{Note: the conclusion could be changed into isomorphism.}
+	\begin{multline*}
+		\emph{Proof.} \\
+		\text{WTS } T^{-1}(a\vec{w_1} + b\vec{w_2}) = aT^{-1}(\vec{w_1}) + bT^{-1}(\vec{w_2}) \forall a,b \in \R, \forall \vec{w_1}, \vec{w_2} \in W \\
+		T^{-1}(\vec{w_1}) \text{ is the unique }\vec{x_1}\ s.t.\ T(\vec{x_1}) = \vec{w_1} \\
+		T^{-1}(\vec{w_2}) \text{ is the unique }\vec{x_2}\ s.t.\ T(\vec{x_2}) = \vec{w_2} \\
+		T^{-1}(a\vec{w_1} + b\vec{w_2}) \text{ is the unique } \vec{x}\ s.t.\ T(\vec{x}) = a\vec{w_1} + b\vec{w_2} \\
+		\because T(\vec{x}) = a\vec{w_1} + b\vec{w_2} \\
+		= aT(\vec{x_1}) + bT(\vec{x_2}) \\
+		= T(a\vec{x_1} + b\vec{x_2}) \\
+		\therefore \vec{x} = a\vec{x_1} + b\vec{x_2} \\
+		\text{Also } T(\vec{x}) = a\vec{w_1} + b\vec{w_2} \\
+		\therefore \vec{x} = T^{-1}(a \vec{w_1} + b \vec{w_2}) = a\vec{x_1} + b\vec{x_2} \\
+		= aT^{-1}(\vec{w_1}) + b T^{-1}(\vec{w_2}) \\
+		\blacksquare
+	\end{multline*}
+	\theorem $\trans{T}{V}{W}$ is \underbar{isomorphism}, then let $\alpha$ and $\beta$ are bases of $V$ and $W$ representing then $\tmat{T}{\alpha}{\beta}$ is \underbar{invertible}, and 
+	\[
+		(\tmat{T}{\alpha}{\beta})^{-1} = \tmat{T^{-1}}{\alpha}{\beta}
+	\]
+	\newline \emph{Proof.}
+	\newline \underbar{omitted}
+	
+	\subsection{Change of basis}
+	\emph{What's the effect of a change of basis on coordinate of a vector and matrix of transformation.}
+	\theorem Let $\alpha$ and $\alpha '$ be two bases of $V$, and $\vec{x} \in V$, then
+	\[
+		\tmat{I}{\alpha}{\alpha '} \coor{x}{\alpha} = \coor{x}{\alpha '}
+	\]
+	\begin{multline*}
+		\emph{Proof.} \\
+		\text{Let } \vec{x} \in V \\
+		I(\vec{x}) = \vec{x} \\
+		[I(\vec{x})]_{\alpha '} = \coor{x}{\alpha '} \\
+		\tmat{I}{\alpha}{\alpha '} \coor{x}{\alpha} = \coor{x}{\alpha '} \\
+		\blacksquare
+	\end{multline*}
+	\definition The above-mentioned $\tmat{I}{\alpha}{\alpha '}$ is called the \textbf{change of basis matrix} from $\alpha$ to $\alpha '$.
+	\paragraph{Computation} Let $\alpha = \vset{a}{1}{n}$, then\footnote{Construct column by column.}
+	\[
+		\tmat{I}{\alpha}{\alpha '} = [\coor{a_1}{\alpha '}\ \vert \cdots \vert \ \coor{a_n}{\alpha '}]
+	\]
+	
+	\section{Lecture12 Feb.14 2018}
+	\paragraph{Recall} Let $\alpha$ and $\beta$ be bases for $V$ and $\trans{I}{V}{V}$ is the identity transformation, then
+	\[
+		\tmat{I}{\alpha}{\beta}\coor{x}{\alpha} = \coor{x}{\beta}
+	\]
+	Also,
+	\[
+		\tmat{I}{\beta}{\alpha}\coor{x}{\beta} = \coor{x}{\alpha}
+	\]
+	\paragraph{Example} Let $\alpha = \{x^2, 1+x, x+x^2\}$ and $\beta$ be a basis for $P_2(\R)$ and
+	\[
+		\tmat{I}{\alpha}{\beta} = \begin{pmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 1 \\
+			-1 & 0 & 1 \\
+		\end{pmatrix} \text{ and } \coor{p(x)}{\beta} = \begin{pmatrix}
+			1 \\
+			1 \\
+			1 \\
+		\end{pmatrix}
+	\]
+	find the basis $\beta$.
+	\newline
+	\textbf{Solution} \underbar{omitted}
+	
+	\theorem Suppose $\trans{T}{V}{W}$ is linear, $\alpha$ and $\alpha'$ are any two bases for $V$ and $\beta$ and $\beta'$ are any two bases of $W$, then,
+	\[
+		\tmat{T}{\alpha'}{\beta'} = \tmat{I}{\beta}{\beta'}\tmat{T}{\alpha}{\beta}\tmat{I}{\alpha'}{\alpha}
+	\]
+	\begin{multline*}
+		\emph{Proof.} \\
+		\textbf{Recall } T=ITI \\
+		\text{Consider let } \vec{x} \in V \\
+		\tmat{I}{\beta}{\beta'}\tmat{T}{\alpha}{\beta}\tmat{I}{\alpha'}{\alpha}\coor{x}{\alpha'} \\
+		= \tmat{I}{\beta}{\beta'}\tmat{T}{\alpha}{\beta}\coor{x}{\alpha} \\
+		= \tmat{I}{\beta}{\beta'}[T(\vec{x})]_\beta \\
+		= [T(\vec{x})]_{\beta'} \\
+		= \tmat{T}{\beta'}{\alpha'}\coor{x}{\alpha'} \\
+		\implies \tmat{T}{\beta'}{\alpha'} = \tmat{I}{\beta}{\beta'}\tmat{T}{\alpha}{\beta}\tmat{I}{\alpha'}{\alpha} \\
+		\blacksquare
+	\end{multline*}
+	Also,
+	\[
+		\tmat{T}{\alpha}{\beta} = \tmat{I}{\beta'}{\beta}\tmat{T}{\alpha'}{\beta'}\tmat{I}{\alpha}{\alpha'}
+	\]
+	\paragraph{Special Case} Consider when $V = W$, $\alpha = \beta$ and $\alpha' = \beta'$. we have
+	\[
+		\tmat{T}{\alpha'}{\alpha'} = \tmat{I}{\alpha}{\alpha'}
+		\tmat{T}{\alpha}{\alpha} \tmat{I}{\alpha'}{\alpha} 
+	\] where
+	\[
+	(\tmat{I}{\alpha}{\alpha'})^{-1} = \tmat{I}{\alpha'}{\alpha}
+	\] the equation becomes
+	\[
+		\tmat{T}{\alpha'}{\alpha'} = (\tmat{I}{\alpha}{\alpha'})^{-1}
+		\tmat{T}{\alpha}{\alpha} \tmat{I}{\alpha'}{\alpha} 
+	\] and can be written in the form of 
+	\[
+		B = P^{-1}AP
+	\]
+	\definition Two matrices $A$ and $B$ are \textbf{similar} if there exists an \underbar{invertible} matrix $P$ s.t.
+	\[
+		B = P^{-1}AP
+	\]
+	\paragraph{Interpretation}\footnote{Could be used as alternative definition for similarity between matrices.} Linear operators $A$ and $B$ are \textbf{similar} if and only if $A$ and $B$ representing the same transformation relative to different bases and $P$ is the change of basis matrix.
+
+	\section{Lecture13 Feb.27 2018}
+	\subsection{Diagonalization}
+	\definition Consider a linear operator $\trans{T}{V}{V}$ is \textbf{diagonalizable} if and only $\exists$ a basis $\beta$ for $V$ s.t.
+	\[
+		\tmat{T}{\beta}{\beta}
+	\] is diagonal.
+	\paragraph{Note} Let $\beta = \vset{v}{1}{n}$ be a basis, $\trans{T}{V}{V}$ is diagonalizable if and only if $\tmat{T}{\beta}{\beta}$ is in form $\begin{bmatrix}
+		\lambda_1 & ... & 0 \\
+		... & ... & ... \\
+		0 & ... & \lambda_n \\
+	\end{bmatrix}$
+	\definition $\trans{T}{V}{V}$ is a linear operator on $V$, a \emph{non-zero} vector $\vec{x} \in V$ is an \textbf{eigenvector} of $T$ if and only if $T(\vec{x}) = \lambda \vec{x}$ for some $\lambda \in \R$. $\lambda$ is called the \textbf{eigenvalue} of $T$ corresponding to vector $\vec{x}$.
+	
+	\theorem Linear operator $\trans{T}{V}{V}$ is \emph{diagonalizable} if and only exist a basis of $V$ consisting of \emph{eigenvectors} of $T$. If $T$ is diagonalizable, the diagonal entries of $\tmat{T}{\beta}{\beta}$ are corresponding eigenvalues of $T$, \underbar{in the same order}.
+	
+	\subsection{How to find eigenvalues and eigenvectors of $T$}
+	\definition The \textbf{determinant} of $T$ is defined as $det(\tmat{T}{\alpha}{\alpha})$ for \underbar{any} basis $\alpha$ for $V$.
+	\paragraph{Remark} The determinant of linear operator $T$ does \underbar{not} depends on the choice of basis of $\alpha$ for $V$, \emph{since similar matrices have the same determinant}.
+	\theorem $\lambda \in \R$ is an eigenvalue of $T$ if and only if
+	\[
+		det(T - \lambda I) = 0
+	\] 
+	\begin{multline*}
+		\emph{Proof.} \\
+		\text{Let $\lambda$ be an eigenvalue of $T$,} \\
+		\tx{Let $\alpha$ be any basis for $V$, } \\
+		\iff \exists \vec{x} \in V,\ \vec{x} \neq \vec{0},\ s.t.\ T(\vec{x}) = \lambda \vec{x} \\
+		\iff T(\vec{x}) - \lambda \vec{x} = \vec{0} \\
+		\iff (T - \lambda I)(\vec{x}) = \vec{0} \\
+		\iff \vec{x} \in Ker(T - \lambda I) \\
+		\therefore Ker(T - \lambda I) \neq \{\vec{0}\} \\
+		\iff (T-\lambda I) \text{ is not injective} \\
+		\iff \tmat{T - \lambda I}{\alpha}{\alpha} \text{ is not injective and not invertible} \\
+		\iff det(\tmat{T - \lambda I}{\alpha}{\alpha}) = det(T - \lambda I) = 0 \\
+		\blacksquare
+	\end{multline*}
+	\definition $det(T - \lambda I) = 0$ is called the \textbf{characteristic polynomial} of $T$, written as $P_T(\lambda) := det(T - \lambda I)$, the degree of $P_T(\lambda)$ is the dimension of $V$.
+	\paragraph{Note} $\lambda$ is an eigenvalue $\iff$ $\lambda$ is a root of $P_T(\lambda)$.
+	
+	\theorem $\trans{T}{V}{V}$ is a linear operator and $\lambda$ is an eigenvalue of $T$, $\vec{x}$ is an eigenvector of $T$ corresponding to eigenvalue $\lambda$, if and only if
+	\[
+		\vec{x} \neq \vec{0} \land \vec{x} \in Ker(T - \lambda I)
+	\]
+	\begin{multline*}
+		\emph{Proof.} \\
+		\underbar{By definition} \\
+		\blacksquare
+	\end{multline*}
+	\definition $Ker(T - \lambda I)$ is called the \textbf{eigenspace} of $T$ corresponding to eigenvalue $\lambda$, noted as $E_\lambda(T)$, and it is a subspace of $V$.
+	\paragraph{Note} To find eigenvalues and eigenvectors of $\trans{T}{V}{V}$, choose any basis $\beta$ for $V$, $\vec{x}$ is an eigenvector with corresponding eigenvalue $\lambda$ if and only if $\coor{x}{\beta}$ is an eigenvector of $\tmat{T}{\beta}{\beta}$ with corresponding eigenvalue $\lambda$.
+	\newline That's
+	\begin{multline*}
+		\\
+		T(\vec{x}) = \lambda \vec{x} \\
+		\implies [T(\vec{x})]_{\beta} = [\lambda\vec{x}]_{\beta} \\
+		\iff \tmat{T}{\beta}{\beta} \coor{x}{\beta} = \lambda \coor{x}{\beta} \\
+	\end{multline*}
+	\paragraph{Note} Consider diagonalization in MAT223, 
+	\[
+	D = P^{-1}AP
+	\]
+	Let $D$ and $A$ representing the same linear operator $\tmat{T}{V}{V}$ and let $\beta$ be a basis of $V$ consisting of eigenvectors of $T$ and $\alpha$ is another basis of $V$.
+	Then, the above equation is 
+	\[
+	\tmat{T}{\beta}{\beta} = (\tmat{I}{\beta}{\alpha})^{-1} \tmat{T}{\alpha}{\alpha} \tmat{I}{\beta}{\alpha}
+	\]
+	
+	\section{Lecture14 Feb.28 2018}
+	\theorem Suppose $\lambda_0$ is an eigenvalue of linear operator $\trans{T}{V}{V}$, let $dim(E_{\lambda0})=k$, then $(\lambda - \lambda_0)^k$ divides $P_T(\lambda)$
+	\begin{multline*}
+		\emph{Proof.} \\
+		\text{Let} \vset{v}{1}{k} \text{ be basis for } E_{\lambda_0}\\
+		\tx{Since } E_{\lambda_0} \subset V \\
+		\text{Let } dim(V) = n \\
+		\text{Extend basis of $E_{\lambda_0}$ to basis of $V$.} \\
+		\alpha = \vset{v}{1}{k} \cup \vset{v}{k+1}{n} \\
+		\text{Since } \vec{v_i} \in E_{\lambda0}, \\
+		\text{Therefore } T(\vec{v_i}) = \lambda_0 \vec{v_i} \\
+		\tmat{T}{\alpha}{\alpha} = \begin{bmatrix}
+			A & B \\
+			0 & D \\
+		\end{bmatrix} \\
+		\text{Where } A = diag(\lambda_0, \dots, \lambda_0) \in \M{k}{k} \\
+		\text{And } B \in \M{k}{n-k}, D \in \M{n-k}{n-k} \\
+		P_T(\lambda) = det(A - \lambda I) * det(D - \lambda I) \\
+		= (\lambda_0 - \lambda)^k *  det(D - \lambda I) \\
+		\text{Therefore} (\lambda - \lambda_0)^k\ \vert \ P_T(\lambda) \\
+		\blacksquare
+	\end{multline*}
+	\definition The \textbf{multiplicity} of eigenvalue $\lambda_0$ is the number of times $(\lambda - \lambda_0)$ appears as a factor in $P_T(\lambda)$.
+	\paragraph{Note} If eigenvalue $\lambda$ has multiplicity $m$, the above theorem says
+	\[
+		1 \leq dim(E_{\lambda}) \leq m
+	\]
+	if $m=1$, then $ dim(E_{\lambda}) = 1$.
+	\theorem If $\lambda_1, \dots, \lambda_k$ are \emph{distinct} eigenvalues of $\trans{T}{V}{V}$ and $\alpha = \vset{x}{1}{k}$ are corresponding eigenvectors, then the set $\alpha$ is \emph{linearly independent}.
+	\begin{multline*}
+		\emph{Proof.} \\
+		\underbar{Exercise} \\
+		\blacksquare
+	\end{multline*}
+	\paragraph{($\star$)Theorem} \underline{Sufficient condition for diagonalizability} Let $\lambda_1, \dots, \lambda_k$ be distinct eigenvalues of $T$, suppose the characteristic polynomial is in form 
+	\[
+		P_T(\lambda) = \prod_{i=1}^k {(\lambda - \lambda_i)^{m_i}}
+	\]
+	and $T$ is diagonalizable if and only if 
+	\[
+		dim(E_{\lambda_i}) = m_i,\ \forall i
+	\]
+	\paragraph{Note} Also, $\sum_{i=1}^k{m_i} = dim(V) = n$
+	
+	\begin{multline*}
+		\emph{Proof.} \\
+		\leftarrow \\
+		\text{Assume } dim(E_{\lambda_i}) = m_i\ \forall i \\
+		\text{Consider } E_{\lambda_i} \\
+		\text{Take basis for }E_{\lambda_i}, \text{ note as } 
+		\{ \vec{v}_1^i, \dots, \vec{v}_{m_i}^i
+		\}\\
+		\text{Claim: the union of bases of $E_{\lambda_i}\ \forall i$ gives a basis consisting of eigenvectors of $T$.} \\
+		\text{Note} \vert \cup_{i=1}^k {\vset{v^i}{1}{m_i}} \vert = \sum_{i=1}^k{m_i} = dim(V) \\
+		\text{All we need to show is linear independence.} \\
+		\text{Consider}
+		\sum_{i=1}^k{\sum_{j=1}^{m_i}{c_{ij}\vec{v_j^i}}} = \vec{0} (\star) \\
+		\text{Consider } \sum_{j=1}^{m_i}{c_{ij}\vec{v_j^i}} \in E_{\lambda_i} = \vec{x_i}\\
+		\text{So $(\star)$ becomes } \sum_{i=1}^k{\vec{x_i}} = \vec{0} \text{where } \vec{x_i} \in E_{\lambda_i},\ \forall i \\ 
+		\text{Since $\vec{x_i}$ is eigenvectors for $T$, corresponding to different eigenvalues, } \\
+		\text{Therefore, } \vset{x_i}{1}{k} \text{ is linearly independent} \\
+		\text{So } \vec{x_i} = \vec{0}\ \forall i \\
+		\text{That's } \sum_{j=1}^{m_i}{c_{ij}\vec{v_j^i}} = \vec{x} = \vec{0}\ \forall i\\
+		\implies c_{ij} = 0\ \forall i,j\\
+		\text{Therefore linearly independent, so exists basis for $V$ consisting of eigenvectors,}\\
+		\text{Therefore $T$ is diagonalizable.} \\
+		\rightarrow \\
+		\text{Suppose $T$ is diagonalizable, }\\
+		\text{Since $T$ is diagonalizable, then exists basis for $V$ consisting of eigenvectors, say }\alpha \\
+	\end{multline*}
+	\begin{multline*}
+		\\
+		\text{Consider } \tmat{T}{\alpha}{\alpha} = \begin{bmatrix}
+			\lambda_1 & 0 & \dots & \dots & 0 \\
+			0 & \lambda_1 & \dots & \dots & 0 \\
+			0 & \dots & \lambda_2 & \ddots & 0 \\
+			\dots & \dots & \dots & \dots & \dots \\
+		\end{bmatrix} \\
+		\text{Where $\lambda_1$ takes first $m_1$ rows, $\lambda_2$ takes the next $m_2$ rows, etc.}\\
+		P_T(\lambda) = det(\tmat{T}{\alpha}{\alpha} - \lambda I) \\
+		= \prod_{i=1}^k {(\lambda_i - \lambda)^{m_i}} \\
+		\text{Since } 1 \leq dim(E_{\lambda_i}) \leq m_i\ \forall i \\
+		\implies dim(E_{\lambda_i}) = m_i\ \forall i \\
+		\blacksquare
+	\end{multline*}
+	
+	\section{Lecture15 Mar.6 2018}
+	\subsection{Fields}
+	\definition A \textbf{field} is a set $F$ together with two operations, \emph{addition} and \emph{multiplication} that satisfies the following properties.
+	\begin{enumerate}
+		\item $\forall x, y \in F, x + y = y + x$
+		\item $\forall x, y, z \in F, (x + y) + z = x + (y + z)$
+		\item \emph{Additive identity} $\exists 0 \in F,\ s.t.\ \forall x \in F, 0+x=x$
+		\item \emph{Additive inverse} $\forall x \in F, \exists (-x) \in F\ s.t.\ x + (-x) = 0$
+		\item $\forall x,y \in F, xy=yx$
+		\item $\forall x,y,z \in F, (xy)z = x(yz)$
+		\item \emph{Multiplicative identity} $\exists 1 \in F,\ s.t.\ \forall x \in F, 1\times x = x$
+		\item \emph{Multiplicative inverse} $\forall x \in F,\ x \neq 0, \exists x^{-1}\ s.t.\ x\times x^{-1} =1$
+	\end{enumerate}
+	
+	\paragraph{Note} Every field has at least $2$ elements: $0$, the \emph{additive identity} and $1$, the \emph{multiplicative identity}.
+	
+	\paragraph{Examples}
+	\begin{enumerate}
+		\item $\R$ is a field.
+		\item $\mathbb{Z}$ is not a field.
+		\item $\mathbb{N}$ is not a field.
+		\item $\mathbb{Q}$ is a field.
+		\item Irrational numbers is not a field.
+	\end{enumerate}
+	
+	\subsection{Complex Numbers}
+	\definition The set of \textbf{complex number }$\C$ is the set of \underbar{ordered pair} of real numbers together with the following rules on basic operations.
+	\begin{enumerate}
+		\item Addition: $(a, b) + (c, d) = (a + c, b + d)$
+		\item Multiplication: $(a, b) + (c, d) = (ac - bd, ad + bc)$
+	\end{enumerate}
+	With set notation we define complex numbers as 
+	\begin{multline*}
+		\C = \{(a, b)\ \vert\ a, b \in \R\} \\ 
+		\tx{* altogether with operations of addition and multiplication defined above.}
+	\end{multline*}
+	\paragraph{Note} (\emph{Connection to $\R$}) Any complex number with second component as $0$, $(a, 0)$ is identified as $a \in \R$, i.e. $\R \subsetneq \C$
+	\paragraph{Alt. notation} $\C = \{a + ib\ \vert\ a, b \in \R \land i^2 = -1 \}$
+	
+	\definition Let $w, z \in \C$, we define $w$ \textbf{equals} $z$ as, 
+	\[
+		w = z \iff (\Re(z) = \Re(w)) \land (\Im(z) = \Im(w))
+	\]
+	
+	\definition Let $z = a + ib \in \C$ then the \textbf{conjugate} of $z$ is $\overline{z} = a + i(-b) $, and if $z \neq 0$, then the \textbf{inverse} of $z$ could be computed as
+	\[
+	z^{-1} = \frac{\overline{z}}{z \overline{z}}
+	\]
+	
+	\definition A field $F$ is \textbf{algebraically closed} is every polynomial of degree $n$ in $F$ has $n$ roots in $F$. (Counting multiplicities)
+	
+	\paragraph{Examples} $\C$ is algebraically closed and $\R$ is not. 
+	
+	\section{Lecture16 Mar.7 2018}
+	\subsection{Vector space over a field}
+	\definition A vector space over field $F$ is a set $V$ together with two operations, addition and scalar multiplication s.t. [Very similar to those those defining properties for real vector space.]
+	\subsection{Complex vector space} Complex vector space $\C^n = \{(z_1,\dots,z_n)\vert z_1,\dots,z_n\in\C\}$ is a vector space over $\C$, with dimension $n$ and standard basis $\vset{e}{1}{n}$
+	\definition Let $F$ be a field, then 
+	\[
+		F^n = \{(x_1,\dots,x_n)\vert x_1,\dots,x_n \in F\}
+	\] and 
+	\[
+		dim(F^n) = n
+	\] $F^n$ is a \emph{vector space over field $F$ w.r.t. usual coordinate wise addition and scalar multiplication}.
+	\definition Let $V$ vector space over field $F$, then $\vset{x}{1}{n}$ is \textbf{linearly independent} if and only if 
+	\[
+		\sum_{i=1}^{i}{c_i \vec{x_i}} = \vec{0},\ c_1, \dots, c_n \in F \implies c_1=\dots = c_2 = 0 \in F
+	\]
+	\definition \textbf{span}$\vset{x}{1}{n}$ is defined as 
+	\[
+		\{\sum_{i=1}^n{c_i\vec{x_i}}\vert c_1,\dots,c_n \in F\}
+	\]
+	\definition Consider $V,\ W$ as two vector spaces over fields $F$ then transformation $\trans{T}{V(F)}{W(F)}$ is \textbf{linear} if and only if 
+	\[
+	\forall \vec{v_1},\vec{v_2} \in V, c,d \in F,\ T(c\vec{v_1} + d\vec{v_2}) = cT(\vec{v_1}) + dT(\vec{v_2})
+	\]
+	
+	
+	\section{Lecture 17 Mar.13 2018}
+	\theorem Let $\trans{T}{V}{V}$ be a linear operator, and $\beta$ is a basis for vector space $V$. Let $W_i$ be the span of first $i$ vectors in $\beta$, then $\tmat{T}{\beta}{\beta}$ is \emph{upper-triangular} if and only if 
+	\[
+		T(W_i) \subset W_i,\ \forall i 
+	\]
+	\definition Let $\trans{T}{V}{V}$ be a linear operator, a subspace $W$ of $V$ is called \textbf{invariant} under T (\emph{T-invariant}) if and only if 
+	\[
+	T(W) \subset W
+	\]
+	\paragraph{Examples} For linear operator $\trans{T}{V}{V}$,\footnote{Proofs are omitted.}
+	\begin{enumerate}
+		\item $V$
+		\item $\{\vec{0}\}$
+		\item $Ker(T)$
+		\item $Im(T)$
+		\item $E_{\lambda}(T)$ for any eigenvalue $\lambda$ of $T$ \footnote{As eigenspace is defined as kernel.}
+		\item $\trans{T}{\R^3}{\R^3}$ defined as 
+		\[
+			T((x,y,z)) = (3x+2y, y-z, 4x+2y-z)
+		\] Then subspace of $\R^3$: $W = \{(x,y,x)\ \vert\ x,y \in \R\}$ is T-invariant.
+	\end{enumerate}
+	\theorem Let $\trans{T}{V}{V}$ be a linear operator, $\beta=\vset{x}{1}{k}$ is a basis for $V$, then $\tmat{T}{\beta}{\beta}$ is upper-triangular if and only if $W_i$, defined as the span of first $i$ vectors in $\beta$, is T-invariant for all $i \leq k$.
+	\paragraph{Note} $\{\vec{0}\}\subset W_1 \subset W_2 \subset W_3 \dots \subset W_k = V$
+	\definition Linear operator $\trans{T}{V}{V}$ is said to be \textbf{triangularizable} if there  exists a basis $\beta$ for $V$ such that $\tmat{T}{\beta}{\beta}$ is upper-triangular.
+	\paragraph{Remark} (Consider property of determinant of triangular form matrix) If $\tmat{T}{\beta}{\beta}$ is upper-triangular, the characteristic polynomial $P_T(\lambda) = (\lambda - \lambda_1)(\lambda - \lambda_2)\dots(\lambda - \lambda_n)$ where $\lambda_i$ are entries on the main diagonal.
+	\paragraph{Remark} Entries above main diagonal are \textbf{not} uniquely determined by $T$, it's also depends on the choice of basis $\beta$.
+	
+	
+	\section{Lecture 18 Mar.14 2018}
+	\subsection{Triangular form}
+	
+	\theorem Let $V$ be a vector space over field $F$, let $\trans{T}{V}{V}$ be a linear operator, suppose the characteristic polynomial has $dim(V)$ roots in $F$,\footnote{i.e. field $F$ is algebraically closed, e.g. $F = \C$} then there exists $\beta$ as a basis of $V$ such that $\tmat{T}{\beta}{\beta}$ is upper-triangular.
+	
+	\paragraph{Fact} Any transformation $\trans{T}{V}{V}$ whose eigenvalues all have multiplicity of 1, then $T$ is diagonalizable. (Since there would be $dim(V)$ unique eigenvalues.)
+	\paragraph{Contra-positive of above fact} non-diagonalizable $\implies $ $\exists\ \lambda_i$ with multiplicity greater than 1.
+	
+	\paragraph{Consider} \emph{Break down the problem} Linear operator $\trans{T}{V}{V}$ 
+	\begin{enumerate}
+		\item \textbf{Case 1} $T$ has only eigenvalue 0 with multiplicity of $dim(V)$.
+		\item \textbf{Case 2} $T$ has only eigenvalue $\lambda$ with multiplicity of $dim(V)$. If $T$ has only eigenvalue $\lambda$ then $S = (T - \lambda I)$ has eigenvalue 0 only, as in case 1.
+		\item \textbf{Case 3} $T$ has multiple eigenvalues.\emph{ the direct sum of single eigenvalue case.}
+	\end{enumerate} 
+	
+	\subsection{Nilpotent transformation}
+	\theorem Let $V$ be a vector space over $\C$ and linear operator $\trans{T}{V}{V}$ has only eigenvalue 0 if and only if $T^k = \textbf{0}$ \footnote{The $0$ here stands for zero transformation.} for some $k \in \mathbb{Z}^+$.
+	\begin{multline*}
+		\emph{Proof.} \\
+		\leftarrow \text{Suppose } T^k = 0 \text{ for some } k \in \mathbb{Z}^+ \\
+		\tx{Let } \vec{x} \neq \vec{0} \tx{ be an eigenvector for $T$, }\\
+		\tx{And } \lambda \tx{ is the corresponding eigenvalue, }\\
+		\tx{Then } T(\vec{x}) = \lambda \vec{x} \\
+		\tx{(Inductively) } T^k(\vec{x}) = \lambda^k \vec{x}\\
+		\tx{Since } \vec{x} \neq \vec{0} \land T^k(\vec{x}) = \vec{0} \\
+		\implies \lambda^k = 0 \\
+		\implies \lambda = 0 \\
+		\\
+		\rightarrow \tx{Suppose only eigenvalue of $T$ is $0$.}\\
+		\tx{We know there exists basis for $V$...}\\
+		\tx{so the matrix of $T$ relative to this basis is upper-triangular...} \\
+		\tx{with $0$ along diagonal.} \\
+		\tx{And matrix of $T^2$ relative to this basis has $0$ on the super diagonal} \\
+		\tx{And with every composition of additional $T$,...}\\
+		\tx{the zero diagonal is pushed up for at least one step higher.} \\
+		\tx{Eventually, for the worst case we could guarantee }T^{dim(V)} = 0 \\
+		\tx{\textbf{Note}: the actual value of $k$ might be smaller than $dim(V)$,...} \\
+		\tx{and $k$ is bounded above by $dim(V)$.} \\
+		\tx{As composition of zero transformations is zero, } \\
+		\tx{There must exist } k \leq dim(V)\ s.t.\ T^k = 0 \\
+		\blacksquare
+	\end{multline*}
+	
+	\definition A linear operator $\trans{T}{V}{V}$ is called \textbf{nilpotent} if 
+	\[
+		\exists k \in \mathbb{Z}^+\ s.t.\ T^k = 0
+	\] the \emph{smallest} possible $k$ that $T^k = 0$ is called the \textbf{order/index} of $T$.
+	
+	\theorem(Same as above theorem) A linear operator $\trans{T}{V}{V}$ is nilpotent if and only if $T$ has only eigenvalue $0$.
+	
+	\paragraph{Example 1} Let $\trans{T}{P_n(\C)}{P_n(\C)}$ and $T(p(x)) = p'(x)$, $T$ is nilpotent with order $n+1$.
+	
+	\paragraph{Example 2} Let $\trans{T}{P_4(\C)}{P_4(\C)}$ and $T(p(x)) = p''(x) + p'''(x)$, $T$ is nilpotent with order $3$.
+	
+	\paragraph{Example 3/Theorem} If $T^{k-1}(\vec{x}) \neq \vec{0}$ for non-zero $\vec{x}$, and $T^k(\vec{x}) = \vec{0}$,i.e. $T$ is a nilpotent transformation with degree $k$. Then $\beta = \{T^{k-1}(\vec{x}), \dots, T(\vec{x}), \vec{x}\}$ is linearly independent. And $\beta$ is called a \textbf{cycle} of $T$ generated by initial vector $\vec{x}$.
+	
+	\begin{multline*}
+		\emph{Proof.} \\
+		\tx{If } (\star) = c_{k-1}T^{k-1}(\vec{x}) + \dots + c_1T(\vec{x}) + c_0\vec{x} = \vec{0} \\
+		\tx{Apply $T^{k-1}$ on both sides of above equation, } \\
+		\tx{That's } T^{k-1}(\star) = T^{k-1}(\vec{0}) = \vec{0} \\
+		\implies c_0 T^{k-1}(\vec{0}) = \vec{0} \\
+		\implies c_0 = 0 \\
+		\tx{Recursively, } c_i = 0\ \forall i \in \mathbb{Z}_0^{k-1} \\
+		\tx{Therefore $\beta$ is linearly independent.} \\ 
+ 		\blacksquare
+	\end{multline*}
+	
+	\theorem Let $\trans{T}{V}{V}$ be a nilpotent with degree $n = dim(V)$, then there exists $\vec{x} \in V$\emph{(not necessarily unique)} such that 
+	\[
+		\beta = \{T^{n-1}(\vec{x}),\dots,T(\vec{x}),\vec{x}\}
+	\]
+	is a basis for $V$. And $\tmat{T}{\beta}{\beta}$ is upper-triangular with zero on main diagonal and one on super-diagonal, and zero elsewhere, like,
+	\[
+		\tmat{T}{\beta}{\beta} = 
+		\begin{pmatrix}
+			0 & 1 & 0 & \dots & 0 \\
+			0 & 0 & 1 & \dots & 0 \\
+			0 & 0 & 0 & \dots & 0 \\
+			\vdots & \vdots & \vdots & \ddots & 1 \\
+			0 & 0 & 0 & 0 & 0 \\
+		\end{pmatrix}
+	\]
+	\begin{multline*}
+		\emph{Proof.} \\
+		\tx{Since } T^n = 0 \land T^{n-1} \neq 0 \\
+		\tx{Therefore } \beta \tx{ is linearly independent by result from example 3} \\
+		\tx{And $\beta$ contains $n$ vectors, so $\beta$ is a basis for $V$.} \\
+		\blacksquare
+	\end{multline*}
+
+	\section{Lecture 19 Mar.20 2018}
+	\paragraph{Next Goal} If $\trans{T}{V}{V}$ is nilpotent in order between $1$ and $dim(V)$, then the matrix of $T$ relative to some basis is in the form of
+	\[
+		\begin{pmatrix}
+			J_{m_1} & 0 & \dots & 0 \\
+			0 & J_{m_2} & \dots & 0 \\
+			0 & 0 & \ddots & 0 \\
+			0 & 0 & 0 & J_{m_k} \\
+		\end{pmatrix}
+	\]
+	where $J_{m_i} \in \mathbb{M}_{m_i \times m_i}(F)$  in the form with ones on super-diagonal and zeros elsewhere.
+	\paragraph{Essential procedures} Identify vectors
+	\begin{enumerate}
+		\item in $Ker(T)$
+		\item in $Ker(T^2) \backslash Ker(T)$
+		\item in $Ker(T^3) \backslash Ker(T^2)$
+		\item $\dots$
+	\end{enumerate}
+	
+	\paragraph{Claim} 
+	\[
+		\{\vec{0}\} \subseteq Ker(T) \subseteq (T^2) \subseteq \dots \subseteq Ker(T^k) = V
+	\]
+	
+	\theorem Let $\trans{T}{V}{V}$ is nilpotent of order $k$, let $W$ be a subspace of $Ker(T^k)\ s.t.\ W \cap Ker(T^{k-1}) = \{\vec{0}\}$, then
+	\[
+		dim(T^i(W)) = dim(W),\ \forall i < k
+	\]
+	\begin{multline*}
+		\emph{Proof.} \\ 
+		\tx{Let } \vset{w}{1}{s} \tx{ be a basis for subspace }W \\
+		\tx{So } dim(W) = s \\
+		\tx{Let } i < k, \tx{ know } \{T^i(\vec{w_1}),\dots,T^i(\vec{w_s})\} \tx{ spans }T^i(W) \\
+		\tx{WTS linear independency, so that } \{T^i(\vec{w_j})\}\tx{ is a basis for }T^i(W) \\
+		\tx{So that we could show they have same dimension by checking the sizes of their bases. }\\
+		\tx{Consider } \sum_{j=1}^{s}{c_j T^i(\vec{w_j})} = \vec{0} \\
+		\tx{That's } T^i(\sum_{j=1}^{s}{c_j \vec{w_j}}) = \vec{0} \\
+		\tx{Applying } T^{k-i-1} \tx{ on both side of above equation} \\
+		T^{k-1}(\sum_{j=1}^{s}{c_j \vec{w_j}}) = \vec{0} \\
+		\tx{So } \sum_{j=1}^{s}{c_j \vec{w_j}} \in W \cap Ker(T^{k-1}) \\
+		\tx{Therefore } \sum_{j=1}^{s}{c_j \vec{w_j}} = \vec{0} \in W\\
+		\tx{Since } \vset{w}{1}{s} \tx{ is a basis for } W \\
+		\tx{So } c_1 = c_2 = \dots = c_s = 0 \\
+		\tx{So } \vset{w}{1}{s} \tx{ is a basis for }T^i(W) \\
+		\tx{So } dim(T^i(W)) = dim(W) = s \\
+		\blacksquare
+	\end{multline*}
+	
+	\section{Lecture 20 Mar.21 2018}
+	\subsection{Nilpotent Transformations}
+	\paragraph{Goal} Show that every nilpotent $\trans{T}{V}{V}$ can be brought into canonical form (in some basis).
+	
+	\theorem Two nilpotent transformations are \underbar{similar} (i.e. they represents the same transformations relative to different bases) \underbar{if and only if} they have the \underbar{same canonical form}.
+	
+	\subsection{Canonical Forms for Transformations $\trans{T}{V}{V}$ with Single Eigenvalue $\lambda$}
+	\paragraph{} If linear operator $T$ has only eigenvalue $\lambda$ the linear operator $(T - \lambda I)$(\emph{nilpotent}) has eigenvalue $0$ only. Therefore, linear operator $\trans{T}{V}{V}$ has only eigenvalue $\lambda$ means operator $(T - \lambda I)$ is nilpotent, so for some bases $\beta$ of $V$, $\tmat{T-\lambda I}{\beta}{\beta}$ could be in canonical form.
+	\[
+		\tmat{T - \lambda I}{\beta}{\beta} = J = \begin{pmatrix}
+			J_{m_1} & 0 & 0 & 0 \\
+			0 & J_{m_2} & 0 & 0\\
+			0 & 0 & \ddots & 0 \\
+			0 & 0 & 0 & J{m_k} \\
+		\end{pmatrix}
+	\]
+	and for the matrix of original transformation, 
+	\[
+		\tmat{T}{\beta}{\beta} = J + \lambda I
+	\]
+	
+	\subsection{Graph(Computational aspect)}
+	\paragraph{}\underbar{omitted}
+	
+	\section{Lecture21 Mar.27 2018}
+	\subsection{Goal} 
+	\paragraph{Goal} Prove for all $\trans{T}{V}{V}$ can decompose $V$ into direct sum of two invariant subspaces s.t. on one subspace,\footnote{Transformation $T$ restricted to this particular subspace.} $T$ has only single eigenvalue $\lambda$ and on other no eigenvalue of $T$ is $\lambda$.
+	\definition Let $\lambda$ be an eigenvalue of $\trans{T}{V}{V}$, the \textbf{generalized eigenspace} corresponding to eigenvalue $\lambda$ is 
+	\[
+	K_{\lambda} = \{\vec{x} \in V\ \vert\ (T-\lambda I)^i (\vec{x}) = \vec{0}\text{ for some } i \in \mathbb{Z}^+\}
+	\]
+	\emph{In the definition, $i$ might be different for different $\vec{x}$.}
+	
+	\paragraph{Note 1} $K_{\lambda} = Ker(T - \lambda I)^k$ for some $k$. Since 
+	\[
+	\{\vec{0}\} \subset Ker(T - \lambda I) \subset Ker(T - \lambda I)^2 \dots
+	\] the chain cannot grow forever must eventually stabilize.\footnote{As kernel is a subspace of $V$, its dimension could not exceed $dim(V)$.} That's, there exists a (smallest) $k$ s.t. $Ker(T - \lambda I)^k = Ker(T - \lambda I)^{k+1}$, more generally the $Ker(T - \lambda I)^{l} = Ker(T - \lambda I)^{k},\ \forall l > k$. \emph{$k$ is the degree where kernel gets stabilized.}
+	
+	\paragraph{Note 2} $K_{\lambda}$ is $T$ invariant.
+	$\iff$ ($ \vec{v} \in K_{\lambda} \implies T(\vec{v}) \in K_{\lambda}$)
+	\begin{multline*}
+		\emph{Proof.} \\
+		\tx{Let } \vec{v} \in K_{\lambda} \\
+		\tx{i.e. } (T - \lambda I)^i (\vec{v}) = \vec{0},\ \forall i \geq k \\
+		\text{Consider } (T - \lambda I)^{k+1}(\vec{v}) = \vec{0}\\
+		\implies (T - \lambda I)^k (T - \lambda I)(\vec{0}) = \vec{0}\\
+		\implies (T - \lambda I)^k T(\vec{v}) - \lambda (T - \lambda I)^k (\vec{v}) = \vec{0} \\
+		\implies (T - \lambda I)^k T(\vec{v}) - \vec{0} = \vec{0}\\
+		\implies (T - \lambda I)^k T(\vec{v}) = \vec{0}\\
+		\tx{We have shown that operator $(T - \lambda I)^k$ maps $T(\vec{v})$ to }\vec{0} \\
+		\implies T(\vec{v}) \in K_{\lambda} \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Note 3} The only eigenvalue of $T$ on $K_{\lambda}$ is $\lambda$. Equivalently, 
+	\[
+	T(\vec{v}) = \mu \vec{v} \implies \mu = \lambda
+	\]
+	\begin{multline*}
+		\emph{Proof. }\\
+		\text{Consider }(T - \lambda I)^i (\vec{v}) = (\mu - \lambda)^i (\vec{v}) = \vec{0} \text{ by definition of generalized eigenspace.}\\
+		\text{Since } \vec{v} \neq \vec{0} \tx{ by definition of eigenvector.}\\
+		\tx{So } \mu = \lambda \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Note 4} $V = Ker(T - \lambda I)^k \oplus Im(T - \lambda I)^k$
+	\newline
+	\emph{Check: $Im(T - \lambda I)^k$ is T-invariant}
+	\begin{multline*}
+		\emph{Proof.}\\
+		\text{By dimension theorem, } \\
+		dim(V) = dim(Ker(T - \lambda I)^k) + dim(Im(T - \lambda I)^k) \\
+		\text{So to prove direct sum only need to show }\\
+		Ker(T - \lambda I)^k \cap Im(T - \lambda I)^k = \{\vec{0}\} \\
+		\text{Let } \vec{v} \in Ker(T - \lambda I)^k \cap Im(T - \lambda I)^k\\
+		\tx{Since $\vec{v}$ is in the image, there exits $\vec{w} \in V$ } \\
+		s.t.\ \vec{v} = (T - \lambda I)^k(\vec{w}) \in Ker(T - \lambda I)^k\\
+		\tx{Therefore } (T - \lambda I)^k(\vec{v}) = (T - \lambda I)^k((T - \lambda I)^k(\vec{w})) \\
+		= (T - \lambda I)^{2k}(\vec{w}) = \vec{0} \text{ since } 2k > k\\
+		\implies \vec{w} \in Ker(T - \lambda I)^{2k} = Ker(T - \lambda I)^k \\
+		\implies \vec{v} = (T - \lambda I)^k (\vec{w}) = \vec{0} \\
+		\implies Ker(T - \lambda I)^k \cap Im(T - \lambda I)^k = \{\vec{0}\} \\
+		\tx{Therefore } V =  Ker(T - \lambda I)^k \oplus Im(T - \lambda I) ^ k \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Note 5} $\trans{T}{V}{V}$ is a linear operator and $\lambda$ is an eigenvalue of $T$ with multiplicity $m$, then 
+	\[
+		dim(K_{\lambda}) = m
+	\]
+	\emph{In generally, the dimension of generalized eigenspace is equal to the multiplicity of $\lambda$}
+	\begin{multline*}
+		\emph{Proof.} \\
+		\text{By Note 4, }V = Ker(T - \lambda I)^k \oplus Im(T - \lambda I)^k \\
+		\text{Let } \alpha, \beta \text{ be respective bases for } Ker(T - \lambda I)^k,\ Im(T - \lambda I)^k \\
+		\implies \gamma = \alpha \cup \beta \text{ is a basis for } V \\
+		\tx{Let } Ker \tx{ denote } Ker(T - \lambda I)^k \\
+		\tx{Let } Im \tx{ denote } Im(T - \lambda I)^k \\ 
+		\tmat{T}{\gamma}{\gamma} = 
+		\begin{bmatrix}
+			\tmat{T\vert_{Ker}}{\alpha}{\alpha} && 0 \\
+			0 && \tmat{T\vert_{Im}}{\beta}{\beta} \\
+		\end{bmatrix} \\
+		\implies P_{T}(x) = P_{T\vert_{Ker}}(x) \times P_{T \vert_{Im}}(x)\\
+		\text{Since multiplicity of eigenvalue $\lambda$ is $m$, factoring out, }\\
+		\implies P_T(x) = (x-\lambda)^m q(x),\ q(x)\neq 0\\
+		\text{Since $\lambda$ is the only eigenvalue for } T\vert_{Ker} \\
+		P_{T\vert_{Ker}}(x) = (x-\lambda)^l \\
+		\text{Now WTS } m = l\\
+		\text{For } T\vert_{Im} \text{, it has no eigenvalue equals $\lambda$} \\
+		\text{Let } \vec{v} \in Im(T - \lambda I)^k \text{ and } T(\vec{v}) = \lambda \vec{v} \\
+		\vec{v} = (T - \lambda I)^k(\vec{w})\text{ for some } \vec{w} \\
+		\implies T(\vec{v}) = T(T - \lambda I)^k (\vec{w}) = \lambda (T - \lambda I)^k(\vec{w}) \\
+		\implies (T - \lambda I)^k(\vec{w}) \in E_{\lambda} \subset Ker(T - \lambda I)^k \\
+		\implies (T - \lambda I)^k(\vec{w}) \in Ker(T - \lambda I)^k \cap Im(T - \lambda I)^k = \{\vec{0}\} \\
+		\text{Contradict the fact that eigenvector cannot be zero vector, } \\
+		\text{Therefore $\lambda$ cannot be an eigenvalue of } T\vert_{Im} \\
+		\implies P_{T\vert_{Im}} (\lambda) \neq 0 \\
+		\text{So } (x - \lambda)^m q(x) = (x - \lambda)^l  P_{T\vert_{Im}} \\
+		\text{Where } q(x) \neq 0 \land  P_{T\vert_{Im}}(x) \neq 0 \\
+		\implies l = m \\
+		\blacksquare
+	\end{multline*}
+	\paragraph{Goal / crucial idea} $\trans{T}{V}{V}$ is a linear operator with $\lambda$ as an eigenvalue with multiplicity $m$, then 
+	\[
+		V = Ker(T - \lambda I)^k \oplus Im(T - \lambda I)^k = K_{\lambda} \oplus Im(T - \lambda I)^k\\
+	\] and both $Ker(T - \lambda I)^k$ and $Im(T - \lambda I)^k$ are invariant under $T$, the only eigenvalue of $\restrans{T}{Ker(T - \lambda I)^k}$ is $\lambda$ and no eigenvalue of $\restrans{T}{Im(T - \lambda I)^k}$ is equal to $\lambda$. Also $dim(K_\lambda) = m$.
+	\paragraph{Implication} Let $V$ be a vector space over $\C$, and $\trans{T}{V}{V}$ be a linear operator with \underbar{distinct} eigenvalues $\sset{\lambda}{1}{l}$ then 
+	\[
+		V = \bigoplus_{i=1,\dots,l} K_{\lambda_i}
+	\]
+	\begin{multline*}
+		\emph{Proof(Sketch).} \\
+		V = K_{\lambda_1} \oplus Im(T - \lambda_1 I)^k \\
+		\text{Apply induction on $dim(V)$ } \\
+		\text{Keep splitting, one-by-one, until there are no more eigenvalues left.} \\
+		\blacksquare
+	\end{multline*}
+	\text{So $V$ is a vector space over $\C$, $\trans{T}{V}{V}$ has matrix (in some basis)} 
+	\[
+		\begin{pmatrix}
+			B_{\lambda_1} && 0 && 0 && 0 \\
+			0 && B_{\lambda_2} && 0 && 0 \\
+			0 && 0 && \ddots && 0 \\
+			0 && 0 && 0 && B_{\lambda_i} \
+		\end{pmatrix}
+	\] where $B_{\lambda_i}$ is a Jordan block. And the matrix is called \textbf{Jordan canonical form} of $T$, and is unique \emph{up to ordering of Jordan blocks}.
+	\theorem Two matrices are similar (i.e. representing same transformation relative to different bases) if and only if they have same JCF.
+	\paragraph{Note} If $T$ is diagonalizable, then 
+	\[
+		V = E_{\lambda_1} \oplus E_{\lambda_2} \oplus \dots \oplus E_{\lambda_l}
+	\]
+	\emph{Diagonal form is one of Jordan canonical form}.
+	
+	\section{Lecture22 Mar.28 2018}
+	\subsection{Examples on finding JCF.}
+	\paragraph{Example 1} Let $\trans{T}{\R^4}{\R^4}$ be a linear transformation and $T$ has matrix $A$ relative to standard basis of $\R^4$,
+	\[
+	A =
+	\begin{pmatrix}
+		2 & -2 & 1 & 1 \\
+		0 & 1 & 1 & 1 \\
+		0 & 0 & 2 & 2 \\
+		0 & 0 & 0 & 2 \\
+	\end{pmatrix}
+	\]
+	Find Jordan canonical form for $T$ and a canonical basis.
+	\begin{multline*}
+		\emph{Solution:}\\
+		\underbar{Omitted} \\
+		\blacksquare
+	\end{multline*}
+	
+	\paragraph{Example 2} Let $\trans{T}{\R^6}{\R^6}$ has matrix
+	\[
+		A = 
+		\begin{pmatrix}
+			2 & 0 & 0 & 0 & 0 & 0 \\
+			1 & 2 & 0 & 0 & 0 & 0 \\
+			1 & 0 & 2 & 0 & 0 & 0 \\
+			1 & 1 & 1 & 2 & 0 & 0 \\
+			1 & 1 & 1 & 1 & 3 & 0 \\
+			1 & 1 & 1 & 1 & 1 & 3 \\
+		\end{pmatrix}
+	\] Find the Jordan Canonical Form of $T$.
+	\begin{multline*}
+		\emph{Solution:}\\
+		\underbar{Omitted} \\
+		\blacksquare
+	\end{multline*}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1541 @@
+\documentclass{article}
+\author{Tianyu Du}
+\title{Notes on MAT137 Video Playlist 3}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{datetime}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{float}
+\pagestyle{fancy}
+\lhead{Notes by T.Du}
+\usepackage[
+	type={CC},
+	modifier={by-nc-sa},
+	version={3.0},
+]
+{doclicense}
+
+\newcommand{\trans}[3]{{#1}: {#2} \to {#3}}
+\newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\coor}[2]{[\vec{{#1}}]_{{#2}}}
+\newcommand{\tmat}[3]{[{#1}]_{{#2}}^{{#3}}}
+\newcommand{\vset}[3]{\{\vec{{#1}_{#2}}, \dots, \vec{{#1}_{#3}}\}}
+\newcommand{\definition}[0]{\paragraph{Definition}}
+\newcommand{\theorem}[0]{\paragraph{Theorem}}
+\newcommand{\sequence}[3]{\{#1_{n}\}_{n={#2}}^{#3}}
+\newcommand{\N}[0]{\mathbb{N}}
+\newcommand{\series}[2]{\sum_{#1}^{\infty}{#2}}
+
+
+\begin{document}
+	\maketitle
+	\paragraph{Info.}\quad
+	\newline \textbf{Created: } September, 2017
+	\newline \textbf{Last modified: } \today
+	\newline \textbf{Revision: } \currenttime \quad \today
+	
+	\doclicenseThis
+	\tableofcontents
+	
+	\section{Video Playlist 1}
+	\section{Video Playlist 2}
+	
+	\section{Video Playlist 3}
+	\subsection{Define Derivate As Slope}
+	\paragraph{Definition} Let $a \in \mathbb{R}$, and f(x) is defined on $(a - \delta , a + \delta )$, then the \textbf{derivative} of f(x) at a is,
+	\[
+		f'(a) = \lim_{x\to a}\frac{f(x) - f(a)}{x - a} = \lim_{h \to 0}\frac{f(a+h) - f(a)}{h}
+	\]
+	\paragraph{Definition} If function is \textbf{differentiable} at point x = a, if and only if, there exists,
+	\[
+		f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
+	\]
+	\paragraph{Interpretation} $f'(a)$ is the slope of tangent line a x = a.
+	\subsection{Calculate f'(x) by definition}
+	\paragraph{Example} $f(x) = 4x - x^2$, find $f'(1)$:
+	\begin{align*}
+		f'(1) = \lim_{h \to 0}\frac{f(1 + h) - f(1)}{h} = \lim_{h \to 0}\frac{4(h+1) - (h+1)^2 - 3}{h}\\
+		= \lim_{h \to 0}\frac{4h+4-3-h^2-2h-1}{h} = \lim_{h \to 0}\frac{-h^2 + 2h}{h} \\
+		= \lim_{h \to 0}{-h + 2} = 2 \\
+	\end{align*}
+	\subsection{Rate of Change}
+	\paragraph{Definition} Define derivative as rate of change. Let $x=f(t)$, then $f'(x)$ can be represented as,
+	\[
+	\lim_{\Delta t \to 0}\frac{\Delta x}{\Delta t} = f'(t) = \frac{dx}{dt}
+	\]
+	\subsection{The Product Rule (Formal Version)}
+	\paragraph{} Let $a \in \mathbb{R}$, f and g are functions defined at $(a - \delta,a+\delta)$, let $h(x) = f(x)g(x)$. Then, if $f(x),g(x)$ are differentiable at a, we have,
+	\[
+	h'(a) = f'(a)g(a) + f(a)g'(a)
+	\]
+	\subsection{Differentiable $\implies$ Continuous}
+	\paragraph{Recall} f(x) is \textbf{differentiable} at a:
+	\begin{equation}
+		\exists \lim_{x \to a}\frac{f(x) - f(a)}{x - a}
+	\end{equation}
+	\paragraph{Recall} f(x) is \textbf{continuous} at a:
+	\begin{equation}
+		\lim_{x \to a}f(x) = f(a)
+	\end{equation}
+	\paragraph{Proof.}
+	\begin{align*}
+		\text{Since f(x) is differentiable at a} \\
+		(1) \iff \exists \lim_{x \to a}\frac{f(x) - f(a)}{x - a} \\
+		\text{And } \lim_{x \to a}({x - a}) = 0\\
+		\implies \lim_{x \to a}\frac{f(x) - f(a)}{x - a} \lim_{x \to a}{x - a} = 0 \\
+		\implies \lim_{x \to a}{\frac{f(x) - f(a)}{x - a} {x - a}} = 0 \\
+		\implies \lim_{x \to a}{f(x) - f(a)} = 0 \\
+		\implies \lim_{x \to a}f(x) = f(a)\\
+		\blacksquare
+	\end{align*}
+	\subsection{Proof of product rule for derivative.}
+	\paragraph{} $(fg)' = f'g + fg'$, see above for a formal definition.
+	\begin{align*}
+		\text{Let } h = fg \\
+		h'(a) = \lim_{x \to a}\frac{h(x) - h(a)}{x-a} \\
+		= \lim_{x \to a}\frac{f(x)g(x) - f(a)g(a)}{x-a} \\
+		= \lim_{x \to a}\frac{f(x)g(x) + f(a)g(x) - f(a)g(x) - f(a)g(a)}{x-a} \\
+		= \lim_{x \to a}\frac{g(x)(f(x) - f(a)) + f(a)(g(x) -g(a))}{x-a} \\
+		= \lim_{x \to a}g(x)\frac{f(x) - f(a)}{x-a} + \lim_{x \to a}f(a)\frac{g(x) - g(a)}{x-a} \\
+		= g(a) \lim_{x \to a} \frac{f(x) - f(a)}{x-a} + f(a) \lim_{x \to a}\frac{g(x) g(a)}{x-a} \\
+		= g(a)f'(a) + f(a)g'(a) \\
+		\blacksquare
+	\end{align*}
+	\subsection{Partial proof of differentiation rule}
+	\paragraph{WTS}$\frac{d}{dx}x^c = cx^{c-1}$, $\forall c \in \mathbb{R}$
+	\paragraph{} Here we only prove statements is true $\forall c \in \mathbb{Z}^{+}$
+	\paragraph{Proof.}
+	\begin{align*}
+		\textbf{Base: c = 1} \\
+		f(x) = x \\
+		f'(x) = \lim_{x \to a}\frac{f(x) - f(a)}{x - a} \\
+		= \lim_{x \to a}1 = 1\\
+		\textbf{Induction step} \\
+		\text{Assume } \frac{d}{dx}[x^k] = kx^{k-1} \vert_{x = a} \\
+		\text{For } f(x) = x^{k+1} \\
+		f'(x) = \frac{d}{dx}[x * x^k] \\
+		= x ^ k + x k x^{k-1} \\
+		= (k+1)x^k\\
+		\blacksquare
+	\end{align*}
+	\subsection{Higher Order Derivatives: Notations}
+	\paragraph{} Original function: $f(x)$
+	\begin{itemize}
+		\item \textbf{Lagrange} notation: $f^{(n)}$
+		\item \textbf{Leibnitz} notation: $\frac{d^n f}{dx^n}$
+	\end{itemize}
+	\subsection{Continuous But Not differentiable}
+	\paragraph{Definition} Function $f(x)$ is \textbf{non-differentiable} at a.
+	\[
+		\lim_{x \to a}\frac{f(x) - f(a)}{x - a} \textbf{ DNE}
+	\]
+	\paragraph{Example 1} \textbf{Corner/Kink} $f(x) = \lvert x \rvert$ at 0.
+	\begin{align*}
+		\lim_{x \to 0^-}\frac{f(x) - f(0)}{x} = \lim_{x \to 0^-}\frac{\lvert x \rvert}{x} = -1 \\
+		\lim_{x \to 0^+}\frac{f(x) - f(0)}{x} = \lim_{x \to 0^+}\frac{\lvert x \rvert}{x} = 1\\
+		\lim_{x \to 0^-} \neq \lim_{x \to 0^+} \\
+		\implies \lim_{x \to 0}\frac{f(x) - f(0)}{x} \textbf{ DNE} \\
+	\end{align*}
+		
+	\paragraph{Example 2} \textbf{Vertical Tangent Line} $g(x) = x ^ {\frac{1}{3}}$ at 0,
+	\[
+		g'(0) = \lim_{x \to 0}\frac{x^{\frac{1}{3}}}{x} \\
+		= \lim_{x \to 0} \frac{1}{x^{\frac{2}{3}}} = \infty \textbf{(DNE)}\\
+	\]
+	\paragraph{Caution} Difference between \textbf{vertical asymptote} and \textbf{vertical tangent line}
+	\begin{itemize}
+		\item Vertical asymptote: $f(a) = \infty$ (f(a) is not defined)
+		\item Vertical tangent line: $f(a)$ is defined, $f'(a)$ is undefined.
+	\end{itemize}
+	\subsection{Chain Rule}
+	\paragraph{Derivation}
+	\begin{align*}
+		(g \circ f)'(a) = \lim_{x \to a}\frac{g(f(x)) - g(f(a))}{x-a} \\
+		= \lim_{x \to a}\frac{g(f(x)) - g(f(a))}{f(x) - f(a)} \frac{f(x) - f(a)}{x-a} \\
+		\text{\textbf{Attention:} we could only apply the operation above if $f(x) \neq f(a)$ during the process of $x \to a$.} \\
+		\text{This holds for majority of functions we operate in calculus.} \\
+		= \lim_{f(x) \to f(a)}\frac{g(f(x)) - g(f(a))}{x-a} f'(a) \\
+		= g'(f(a)) \cdot f'(a) \\
+		\blacksquare
+	\end{align*}
+	\paragraph{Formal Theorem of Chain Rule} Let $a \in \mathbb{R}$, let $f$ and $g$ be functions. If $f$ is differentiable at $a$ and $g$ is differentiable at $f(a)$, then, $(g \circ f)$ is differentiable at a,
+	\[
+	(g \circ f)'(a) = g'(f(a)) \cdot f'(a)
+	\]
+	\subsection{Derivatives of Trig Functions}
+	\paragraph{Basic 6 results}
+	\begin{enumerate}
+		\item $\frac{d}{dx} sin(x) = cos(x)$
+		\item $\frac{d}{dx} cos(x) = -sin(x)$
+		\item $\frac{d}{dx} tan(x) = sec^2(x)$
+		\item $\frac{d}{dx} cot(x) = -csc^2(x)$
+		\item $\frac{d}{dx} sec(x) = sec(x)tan(x)$
+		\item $\frac{d}{dx} csc(x) = -csc(x)cot(x)$
+	\end{enumerate}
+	\paragraph{Proof.} Prove (i) and (ii) and use (i), (ii) and quotient rule to derive (iii), (iv), (v) and (vi).
+	\paragraph{Proof. (i)} \textbf{WTS} $f(x) = sin(x)$, then $f'(x) = cos(x)$
+	\begin{multline}
+		\\
+		f'(x) = \lim_{h \to 0}\frac{sin(x + h) - sin(x)}{h} \\
+		= \lim_{h \to 0}\frac{sin(x)cos(h) + cos(x)sin(h) - sin(x)}{h} \\
+		= \lim_{h \to 0}\frac{sin(x)(cos(h) - 1) + cos(x)sin(x)}{h} \\
+		= \lim_{h \to 0}cos(x)\frac{sin(h)}{h} \\
+		= cos(x) \\
+		\blacksquare
+	\end{multline}
+	\paragraph{Proof. (ii)} \textbf{WTS} $f(x) = cos(x)$, then $f'(x) = -sin(x)$
+	\begin{multline}
+		\\
+		f'(x) = \lim_{h \to 0}\frac{cos(x + h) - cos(x)}{h} \\
+		= \lim_{h \to 0} \frac{cos(x)cos(h) - sin(h)sin(x) -cos(x)}{h} \\
+		= \lim_{h \to 0} \frac{(cos(h) - 1)cos(x) - sin(h)sin(x)}{h} \\
+		= \lim_{h \to 0} - \frac{sin(h)}{h}sin(x) \\
+		= -sin(x) \\
+		\blacksquare
+	\end{multline}
+	\paragraph{Recall} Compound angle formula:
+	\begin{enumerate}
+		\item $sin(\alpha + \beta) = sin(\alpha)cos(\beta) + sin(\beta)cos(\alpha)$
+		\item $sin(\alpha - \beta) = sin(\alpha)cos(\beta) - sin(\beta)cos(\alpha)$
+		\item $cos(\alpha + \beta) = cos(\alpha)cos(\beta) - sin(\alpha)sin(\beta)$
+		\item $cos(\alpha - \beta) = cos(\alpha)cos(\beta) + sin(\alpha)sin(\beta)$
+	\end{enumerate}
+	\subsection{Implicit Differentiation}
+	\paragraph{Key} Use chain rule.
+	\subsection{Derivative of Exponential Functions}
+	\paragraph{} Let $f(x) = a^x$ $(a > 0)$, find $f'(x)$, by definition,
+	\begin{multline}
+		\\
+		f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} \\
+		= \lim_{h \to 0} \frac{a^{x+h} - a^x}{h} \\
+		= \lim_{h \to 0} \frac{a^x a^h - a^x}{h} \\
+		= \lim_{h \to 0} \frac{(a^n - 1)a^x}{h} \\
+		\text{By property of limit, h is the only variable, so that $a^x$ is a constant} \\
+		= a^x \lim_{h \to 0} \frac{a^h - 1}{h} \\ 
+		\\
+	\end{multline}
+	\paragraph{} Equivalently, $\frac{d}{dx}a^x = L_a a^x$
+	\paragraph{Definition} $e$ is the only positive number, such that,
+	\[
+	\lim_{h \to 0}\frac{e^h - 1}{h} = 1 
+	\]
+	So that, $\frac{d}{dx} e^x = e^x$
+	\subsection{Properties of logarithms}
+	\paragraph{Definition} Let $a > 0, a\neq 1, x >0,y \in \mathbb{R}$,
+	\[
+	\log_{a}x = y \iff a^y = x
+	\]
+	\paragraph{Properties}
+	\begin{enumerate}
+		\item $\log_{a}1 = 0$
+		\item $\log_{a}a = 1$
+		\item $\log_{a}x = \frac{\log_{b}x}{\log{b}a}$
+		\item $\log_{a}{xy} = \log_{a}x + \log_{a}y$
+		\item $\log_{a}{\frac{x}{y}} = \log_{a}x - \log_{a}y$
+		\item $\log_{a}x^r = r \log_{a}x$
+	\end{enumerate}
+	\paragraph{Proof. (i)} let $a>0, a \neq 1, let x,y > 0$, \textbf{WTS} $\log_{a}{xy} = \log_{a}x + \log_{a}y$
+	\begin{align*}
+		\text{Let } p = \log_{a}x \iff a^p = x \\
+		\text{Let } q = \log_{a}y \iff a^q = y \\
+		\text{We have } a^p a^q = xy \\
+		\iff a^{p+q} = xy \\
+		\iff \log_{a}{xy} = p+q = \log_{a}x + \log_{a}y \\
+		\blacksquare
+	\end{align*}
+	\subsection{The derivatives of logarithm functions}
+	\paragraph{For $\ln{x}$} $\frac{d}{dx}\ln{x} = \frac{1}{x}$
+	\begin{align*}
+		e^{\ln{x}} = x \\
+		\frac{d}{dx} e^{\ln{x}} = \frac{d}{dx} x \\
+		\frac{d}{d\ln{x}}e^{ln{x}} \cdot \frac{d}{dx}\ln{x} = 1 \\
+		x \frac{d\ln{x}}{dx} = 1 \\
+		\frac{d}{dx}\ln{x} = \frac{1}{x} \\
+		\blacksquare
+	\end{align*}
+	\subsection{Derivative of other exponentials}
+	\paragraph{WTS} $\frac{d}{dx}a^x = \ln{a} \cdot a^x$,
+	\begin{align*}
+		a^x = (e^{\ln{a}})^x = e^{x\ln{a}} \\
+		\frac{d}{dx}a^x = \frac{d}{dx} e^{x\ln{a}} \\
+		= \frac{d}{dx} e^{x\ln{a}} \cdot \frac{d}{dx} \ln{a} \\
+		= e^{x\ln{a}} \ln{a} \\
+		= \ln{a} \cdot a^x \\
+		\blacksquare
+	\end{align*}
+	\subsection{The power rule, complete proof}
+	\paragraph{WTS} $x^c = c x^{c-1}$ \\
+	\begin{align*}
+		x^c = (e^{\ln{x}})^c = e^{c\ln{x}} \\
+		\text{So that }\frac{d}{dx}x^c = \frac{d}{dx}e^{c\ln{x}} \\
+		= \frac{de^{c\ln{x}}}{d\ln{x}c} \cdot \frac{\ln{x}c}{d\ln{x}} \cdot \frac{d\ln{x}}{dx}\\
+		= e^{c\ln{x}} \cdot c \cdot \frac{1}{x} \\
+		= c \cdot x^c \cdot \frac{1}{x} \\
+		= c x^{c-1} \\
+		\blacksquare
+	\end{align*}
+	\subsection{Logarithmic Differentiation}
+	\paragraph{Example} $f(x) = cos(x)^{sin(x)} (\star)$, find $f'(x)$
+	
+	\textbf{Step1.} Take $ln$ on both sides of $(\star)$
+	\[ \ln{f(x)} = \ln{cos(x)^{sin(x)}} = sin(x) \ln{cos(x)}
+	\]
+	\textbf{Step2.} Take derivative.
+	\[
+	\frac{f'(x)}{f(x)} = cos(x) \ln{cos(x)} - sin^2(x)\frac{1}{cos(x)}
+	\]
+	
+	\textbf{Step3.} Solve for $f'(x)$
+	\[
+	f'(x) = cos(x)^{sin(x)} (cos(x) \ln{cos(x)} - sin^2(x)\frac{1}{cos(x)})
+	\]
+
+	\section{Video Playlist 4}
+	\subsection{Functions}
+	\paragraph{In calculus} We assume the domain is the largest subset of $\mathbb{R}$ that makes sense. And assume the codomain is always $\mathbb{R}$.
+	\paragraph{Notations}
+	\begin{tabular}{c|c}
+		\hline
+		Math & Computer Science \\
+		\hline
+		Domain & Domain \\
+		\hline
+		Codomain & Range \\
+		\hline
+		Range & Image \\
+		\hline
+	\end{tabular}
+	\subsection{Inverse Functions}
+	\paragraph{Definition} Let $f: A \to B$ be a function. Function $f^{-1}:B \to A$ is the \textbf{inverse function} is and only if 
+	\[
+	\forall x \in A, \forall y \in B, x = f^{-1}(y) \iff y = f(x)
+	\]
+	\paragraph{Properties}
+	\begin{itemize}
+		\item $\forall x \in A, f^{-1}(f(x)) = x$
+		\item $\forall y \in B, f(f^{-1}(y)) = y$
+	\end{itemize}
+	\paragraph{Pre-condition} Function $f$ has inverse function $f^{-1}$ if and only if $f$ is \textbf{injective/one-to-one} function.
+	\subsection{Surjective Functions}
+	\paragraph{Why function don't have an inverse: Part 1.}
+	\paragraph{Definition} Function $f(x)$ is \textbf{surjective/onto} if $codomain(f(x))=range(f(x))$.
+	\paragraph{Problem} If $f(x)$ is not surjective, then some points in codomain has no corresponding point in domain, then $f^{-1}$ is not a function.
+	\paragraph{Solution} \textbf{Shrink} the codomain to range.
+	\paragraph{Example} Let $f(x) = e^x$, $g(x) = \ln{x}$, then we have,
+	\begin{itemize}
+		\item 
+			\begin{itemize}
+				\item $Domain(f(x)) = \mathbb{R}$
+				\item $Codomain(f(x)) = \mathbb{R}$
+				\item $Range(f(x)) = (0, \infty)$
+			\end{itemize}
+		\item
+			\begin{itemize}
+				\item $Domain g(x) = (0, \infty)$
+				\item $Codomain g(x) = \mathbb{R}$
+				\item $Range g(x) = \mathbb{R}$
+			\end{itemize}
+	\end{itemize}
+	\paragraph{Definition} Definition of inverse in calculus (\emph{simplified, we don't consider codomain here.})
+
+	Let $f(x)$ be a function, and $f^{-1}(x)$ be the \textbf{inverse} of it. Then,
+	\begin{itemize}
+		\item $Domain(f^{-1}(x)) = Range(f(x))$
+		\item $Range(f^{-1}(x)) = Domain(f(x))$
+	\end{itemize}
+	also,
+	\[
+	\forall x \in Domain(f(x)), \forall y \in Range(f(x)),
+	x = f^{-1}(y) \iff y = f(x)
+	\]
+	and,
+	\[
+	\forall x \in Domain(f(x)), f^{-1}(f(x)) = x
+	\]
+	\[
+	\forall y \in Range(f(x)), f(f^{-1}(y)) = y
+	\]
+	\subsection{Injective function}
+	\paragraph{Definition} Let $f(x)$ be a function, with $Domain(f(x))=A$, we say $f(x)$ is \textbf{injective/one-to-one} when,
+	\[
+	\forall x_1, x_2 \in A, x_1 \neq x_2 \implies f(x_1) \neq f(x_2)
+	\]
+	equivalently (contrapositive)
+	\[
+	f(x_1) = f(x_2) \implies x_1 = x_2
+	\]
+	\paragraph{Theorem} Function $f$ has an inverse if and only if $f$ is \textbf{injective}.
+	\paragraph{Example} $f(x)=x^2$ has no inverse, but we could take it's inverse by \underbar{shrinking the domain}.
+	\begin{itemize}
+		\item Take domain = $[0, \infty)$, $f^{-1}(x) = \sqrt{x}$
+		\item Take domain = $(-\infty, 0]$, $f^{-1}(x) = - \sqrt{x}$
+	\end{itemize}
+	\subsection{Some theorems}
+	\paragraph{} Let $f(x)$ be a function with domain $I$.
+	\paragraph{Theorem 1} Function $f$ has an inverse function $f^{-1}$ if and only if $f$ is injective.
+	\paragraph{Theorem 2} For function $f$, if 
+		\begin{enumerate}
+			\item $f$ is \textbf{continuous} (\emph{This means, f is continuous on its domain.}).
+			\item $I$ is an \textbf{interval}.
+		\end{enumerate}
+		then, $f^{-1}(x)$ is continuous.
+	\paragraph{Theorem 3} If
+		\begin{enumerate}
+			\item $f$ is \textbf{differentiable}.
+			\item $\forall x \in I, f'(x) \neq 0$ (\emph{This ensures the inverse function does not have a vertical tangent line, which causes non-differentiability}).
+		\end{enumerate}
+		then, $f^{-1}(x)$ is differentiable.
+	\paragraph{Theorem 4} $\forall x \in I$ with $y=f(x)$, we have
+	\[
+	(f^{-1})'(y) = \frac{1}{f'(x)}
+	\]
+
+	\textbf{Proof.}
+	\begin{align*}
+		f(f^{-1}(y)) = y \\
+		\frac{d}{dy} f(f^{-1}(y)) = \frac{d}{dy} y \\
+		\frac{d}{dy} f(f^{-1}(y)) = 1 \\
+		f'(f^{-1}(y)) \cdot (f^{-1})'(y) = 1 \\
+		f'(x) \cdot (f^{-1})'(y) = 1 \\
+		(f^{-1})'(y) = \frac{1}{f'(x)} \\
+	\blacksquare
+	\end{align*}
+	\subsection{ArcSin}
+	\paragraph{Note} $ArcSin$ is \textbf{NOT} the inverse of Sin. $y = sin(x)$ has $domain=\mathbb{R}$ and $range=[-1,1]$, so that, it is \textbf{not injective}.
+	\paragraph{Definition} $ArcSin$ is the inverse function to the \textbf{restriction} of $sin$ to $[-\frac{\pi}{2} , \frac{\pi}{2}]$. So that, $Domain(ArcSin) = Range(Sin) = [-1,1]$, and, $Range(ArcSin) = Domain(Sin) = [-\frac{\pi}{2},\frac{\pi}{2}]$.
+	\paragraph{Meaning} $ArcSin(\frac{1}{2}) = t$ means:
+	\[
+	\begin{cases}
+		sin(t) = \frac{1}{2} \\
+		-\frac{\pi}{2} \leq t \leq \frac{\pi}{2} \\
+	\end{cases}
+	\]
+	\paragraph{Composite}
+	\[
+		\forall x \in [-\frac{\pi}{2},\frac{\pi}{2}], ArcSin(Sin(x)) = x
+	\]
+	\[
+		\forall y \in [-1, 1], Sin(ArcSin(y)) = y
+	\]
+	\subsection{Derivative of ArcSin}
+	\paragraph{Result}
+	\[
+		\frac{dArcSin(x)}{dx} = \frac{1}{\sqrt{1-x^2}}
+	\]
+
+	\textbf{Derive.}
+	\begin{align*}
+		\forall x \in [-1,1] \\
+		Sin(ArcSin(x)) = x \\
+		\frac{d}{dx} Sin(ArcSin(x)) = \frac{d}{dx} x \\
+		Cos(ArcSin(x)) \cdot \frac{d}{dx} ArcSin(x) = 1 \\
+		\frac{d}{dx} ArcSin(x) = \frac{1}{Cos(ArcSin(x))} \\
+		\text{Let }\theta = ArcSin(x) \\
+		Cos^2(\theta ) = 1 - Sin^2(\theta) \\
+		Cos(\theta) = \pm \sqrt(1 - x^2) \\
+		\text{Since } \forall \theta \in [-\frac{\pi}{2}, \frac{\pi}{2}], Sin(\theta) \geq 0\\
+		\implies Cos(\theta) = + \sqrt{1 - x^2} \\
+		\implies \frac{d}{dx} ArcSin(x) = \frac{1}{\sqrt{1 - x^2}} \\
+		\blacksquare
+	\end{align*}
+	\subsection{Other inverse trig functions}
+	\subsubsection{$y = Cos(x)$}
+	\paragraph{Definition} $ArcCos$ is the inverse function to the restriction of $Cos(x)$ to $[0,\pi]$, and, 
+	\[
+		\forall x \in [-1,1], \forall y \in [0,\pi], x = ArcCos(y) \iff Cos(y) = x
+	\]
+	\paragraph{Result}
+	\[
+		\frac{d}{dx}ArcCos(x) = -\frac{1}{\sqrt{1 - x^2}}
+	\]
+
+	\subsubsection{$y = Tan(x)$}
+	\paragraph{Definition} $ArcTan(x)$ is the inverse function to the restriction of $Tan(x)$ to $[-\frac{\pi}{2}, \frac{\pi}{2}]$, and, 
+	\[
+		\forall y \in \mathbb{R}, \forall x \in [-\frac{\pi}{2}, \frac{\pi}{2}], x = ArcTan(y) \iff Tan(x) = y
+	\]
+
+	\section{Video Playlist 5}
+	\subsection{Usage of MVT}
+	\paragraph{Theorem} Let $I$ be an open interval. Let $f$ be a function defined on $I$. If $\forall x \in I, f'(x) = 0$ then $f$ is a constant function.
+
+	\emph{If we want to prove this theorem, we need mean value theorem}
+	\subsection{Local Extreme Theorem}
+	\paragraph{Definition} Let $f$ be a function with domain $I$, let $c \in I$.
+	\begin{itemize}
+		\item $f$ takes \textbf{maximum} at c if $\forall x \in I, f(x) \leq f(c)$.
+		\item $f$ takes \textbf{local maximum} at c if $\exists \delta > 0, s.t. \lvert x - c \rvert < \delta \implies f(x) \leq f(c)$.
+	\end{itemize}
+
+	\paragraph{Definition} Let $f$ be a function with domain $I$, let $c \in I$.
+	\begin{itemize}
+		\item $f$ takes \textbf{minimum} at c if $\forall x \in I, f(x) \geq f(c)$.
+		\item $f$ takes \textbf{local minimum} at c if $\exists \delta > 0, s.t. \lvert x - c \rvert < \delta \implies f(x) \geq f(c)$.
+	\end{itemize}
+
+	\emph{End-point cannot be a local extremum since the definition of local extremum requires a open interval at both left and right sides around point c.}
+
+	\paragraph{Theorem (Local EVT)} Let $f$ be a function with domain $I$ as an interval. Let $c \in I$, then if,
+	\begin{enumerate}
+		\item $f(c)$ is an extremum.
+		\item c is an interior point.
+	\end{enumerate}
+	then, $f'(c) = 0$ or DNE.
+
+	\paragraph{Definition} Point $c \in I$ for function $f$ is a \textbf{critical point} if $f'(c) = 0$ or it does not exist.
+	\paragraph{Proof. (Local EVT)} Proof is in two parts: (1) $f$ has maximum at c, (2) $f$ has minimum at c.
+	\begin{align*}
+		\text{Part1: $f(c)$ is a maximum} \\
+		\text{Take left and right side limits} \\
+		\text{As} x \to c^+, x - c > 0 \\
+		\text{As} x \to c^-, x - c < 0 \\
+		\text{By definition of maximum} f(x) - f(c) \leq 0 \\
+		\text{Left limit } \\
+		x - c < 0 \land f(x) - f(c) \leq 0 \\
+		\implies \lim{x \to c^-} \frac{f(x) - f(c)}{x - c} \geq 0 \\
+		\text{Right limit } \\
+		x - c > 0 \land f(x) - f(c) \leq 0 \\
+		\implies \lim{x \to c^+} \frac{f(x) - f(c)}{x - c} \leq 0 \\ 
+		\text{For limit to exist} \\
+		\lim{x \to c^+} \frac{f(x) - f(c)}{x - c} \leq 0 \land \lim{x \to c^-} \frac{f(x) - f(c)}{x - c} \geq 0 \\
+		\implies \lim_{x \to c} \frac{f(x) - f(c)}{x - c} = 0 \\
+		\iff f'(c) = 0 \\
+		\text{Part2: $f(c)$ is a minimum} \\
+		\text{Take left and right side limits} \\
+		\text{As} x \to c^+, x - c > 0 \\
+		\text{As} x \to c^-, x - c < 0 \\
+		\text{By definition of maximum} f(x) - f(c) \geq 0 \\
+		\text{Left limit } \\
+		x - c < 0 \land f(x) - f(c) \geq 0 \\
+		\implies \lim{x \to c^-} \frac{f(x) - f(c)}{x - c} \leq 0 \\
+		\text{Right limit } \\
+		x - c > 0 \land f(x) - f(c) \geq 0 \\
+		\implies \lim{x \to c^+} \frac{f(x) - f(c)}{x - c} \geq 0 \\ 
+		\text{For limit to exist} \\
+		\lim{x \to c^+} \frac{f(x) - f(c)}{x - c} \geq 0 \land \lim{x \to c^-} \frac{f(x) - f(c)}{x - c} \leq 0 \\
+		\implies \lim_{x \to c} \frac{f(x) - f(c)}{x - c} = 0 \\
+		\iff f'(c) = 0 \\
+		\blacksquare
+	\end{align*}
+	\subsection{Find Extremum}
+	\paragraph{Example} find extremum of function $f(x) = x^3 - 3x^2 - 9x + 3$ for $I = [-4, 4]$
+
+	\textbf{Steps}
+	\begin{enumerate}
+		\item Ensure existence of extremum. $f$ is polynomial and therefore continuous, and $[-4, 4]$ is a compact set. By EVT, extremum exist.
+		\item Find all \emph{critical points} and \emph{end-points}.
+		\item Compare values at candidate points.
+	\end{enumerate}
+	\subsection{Rolle's Theorem}
+	\paragraph{Theorem} let $a < b$, let $f$ be a function defined on a closed interval $[a, b]$ (Compact set). Then, if, 
+	\begin{enumerate}
+		\item $f(x)$ is continuous on $[a, b]$.
+		\item $(\land)$ $f(x)$ is differentiable on $(a, b)$.
+		\item $(\land)$ $f(a) = f(b)$.
+	\end{enumerate}
+	then, 
+	\[
+	\exists c \in (a,b) s.t. f'(c) = 0
+	\]
+
+	\textbf{Proof.}
+	\begin{align*}
+		\text{By EVT, $f(x)$ has extremum in } [a,b]. \\
+		\textbf{Case1} \text{Interior Extremum Point}. (c \in (a,b)) \\
+		\text{By Local EVT, } f'(c) = 0 \lor f'(c) DNE \\
+		\text{By (ii)} f'(c) = 0 \\
+		\textbf{Case2} \text{End-point Extremum} \\
+		\text{Since (iii)} f(a) = f(b) \\
+		\forall x \in (a,b) \\
+		f(x) \leq max(f(a),f(b)) \\
+		f(x) \geq min(f(a),f(b)) \\
+		\implies f(x) \text{ is constant.} \\
+		\implies \forall c \in (a,b), f(c) = 0 \\
+		\blacksquare
+	\end{align*}
+	\subsection{Application of Rolle's Theorem}
+	\paragraph{Application} How many zeros does a function have.
+	\paragraph{Step 1} Use IVT to prove it has \emph{at least} n zeros.
+	\paragraph{Step 2} Use Rolle's theorem to prove it has \emph{at most} n zeros.
+	\paragraph{Example}
+	\[
+	g(x) = x^6 + x^2 + x - 2
+	\]
+	\paragraph{IVT Applied}
+	\begin{align*}
+		g(-2) = 64 \\
+		g(0) = -2 \\
+		g(1) = 1\\
+	\end{align*}
+	So that, $g(x)$ has at least 2 zeros.
+	
+	\paragraph{Rolle's theorem applied}
+	Assume $f(x_1) = f(x_2) = 0$, by Rolle's theorem, there must exits a $a \in (x_1, x_2)$ such that $f'(a) = 0$
+	
+	\textbf{Conclusion 1} Between any two zeros of f there must be \emph{at least} one zero of $f'$.	
+	
+	\textbf{Conclusion 2} $\sharp$ of zeros of $f'$ $\geq$ $\sharp$ of zeros of f - 1
+	
+	\textbf{Conclusion 2'} $\sharp$ of zeros of f $\leq$ $\sharp$ of zeros of $f'$ + 1
+	\begin{align*}
+		g'(x) = 6x^5 + 2x + 1\\
+		g''(x) = 30x^4 + 2 \\
+		g''(x) \text{ has no zeros}
+	\end{align*}
+	
+	\subsection{(Lagrange)Mean Value Theorem}
+	\paragraph{Theorem} Let $a < b$, let $f$ be a function defined on $[a,b]$, if,
+	\begin{enumerate}
+		\item $f$ is continuous on $[a,b]$.
+		\item $f$ is differentiable on $(a,b)$.
+	\end{enumerate}
+	then, 
+	\[
+	\exists c \in (a,b) s.t. f'(c) = \frac{f(b) - f(a)}{b - a}
+	\]
+	\subsection{Proof. of MVT}
+	\begin{align*}
+		\text{Let } m = \frac{f(b) - f(a)}{b - a} \\
+		\text{Let } g(x) = f(x) - f(a) - m(x-a) \\
+		\text{Satisfies } g(a) = f(a) - f(a) - m(a - a) = 0 \\
+		\land g(b) = f(b) - f(a) - m(b-a) = 0 \\
+		\text{By Rolle's Theorem} \\
+		g(a) = g(b) = 0 \\
+		\exists c \in (a,b) s.t. g'(c) = 0 \\
+		\implies \frac{d}{x}[f(x) - f(a) - m(x-a)] = 0 \\
+		\implies f'(c) = \frac{f(b) - f(a)}{b - a} \\
+		\blacksquare
+	\end{align*}
+	\subsection{Zero-derivative implies constant}
+	\paragraph{Theorem} Let $a < b$. Let $f$ be a function defined on $[a,b]$, then,
+	\[
+	\forall x \in (a,b), f'(x) = 0 \land \text{ $f$ is continuous on }[a,b] \implies \text{ $f$ is constant on [a,b].}
+	\]
+	
+	\textbf{proof.}
+	\begin{align*}
+		\text{Let }x_1, x_2 \in [a,b] \land x_1 < x_2 \\
+		\text{By MVT, }\exists c \in (x_1, x_2), s.t. \\
+		f'(c) = \frac{f(x_2) - f(x_1)}{x_2 - x_1} \\
+		\because f'(c) = 0 \\
+		\therefore f(x_1) = f(x_2) \\	
+	\end{align*}
+	\subsection{Monotonicity of functions}
+	\paragraph{Definition} Let $f$ be a function defined on an interval $I$.
+	\begin{itemize}
+		\item $f$ is \textbf{increasing on I} when
+			\[
+			\forall x_1, x_2 \in I, x_1 < x_2 \implies f(x_1) < f(x_2)
+			\]
+		\item $f$ is \textbf{non-decreasing on I} when
+			\[
+			\forall x_1, x_2 \in I, x_1 < x_2 \implies f(x_1) \leq f(x_2)
+			\]
+	\end{itemize}
+	\paragraph{Theorem} Let $a < b$. Let $f$ be a function defined on $(a,b)$. Then,
+	\[
+		\forall x \in (a,b), f'(x) > 0 \implies f \text{ is increasing on (a,b)}
+	\]
+	\paragraph{Theorem} Let $a < b$. Let $f$ be a function defined on $[a,b]$. Then,
+	\[
+		\forall x \in (a,b), f'(x) > 0 \land f \text{ is continuous on }[a,b] \implies f \text{ is increasing on }[a,b]
+	\]
+	\paragraph{Short summary} On an \underbar{open interval}
+	\begin{itemize}
+		\item $f' = 0 \implies f$ constant.
+		\item $f' > 0 \implies f$ increasing.
+		\item $f' < 0 \implies f$ decreasing.
+	\end{itemize}
+	
+	\section{Video Playlist 6}
+	\paragraph{Note} This chapter focus on \emph{optimization applications}, and there's no video for this topic.
+	\section{Video Playlist 7}
+	\subsection{Integral}
+	\paragraph{Integral} Let $a < b$, let $f$ be a \underbar{positive} function, then \emph{integral of f from a to b} is denoted as:
+	\[
+	\int_{a}^{b} f(x)\  dx
+	\]
+	this is represented as the area of region under function $f$ from $x=a$ to $x=b$.
+	\subsection{Sigma Notation}
+	\paragraph{Sigma Notation} The sigma notation, with \textbf{index} $i$, could be represented in the following form:
+	\[
+	\sum_{i=1}^{N}a_i = a_1 + a_2 + \dots + a_N
+	\]
+	\subsection{Supremum and Infimum}
+	\paragraph{Definitions} Let $A \subseteq \mathbb{R}$, let $a \in \mathbb{R}$:
+	\begin{itemize}
+		\item \textbf{Upper bound}: $a$ is a \underbar{upper bound} of $A$ means $\forall x \in A,\ x \leq a$.
+		\item \textbf{Least upper bound(l.u.b) / Supremum}: $a$ is the \underbar{least upper bound} or \underbar{supremum(sup)} of $A$ iff $a$ is an upper bound of $A$ and $\forall b \in \{\text{upper bound of A}\},\  a \leq b$.
+		\item \textbf{Maximum}: if supremum of $A$ $\in A$, it's \underbar{maximum} of $A$.
+		\item \textbf{Bounded above}: $A$ is \underbar{bounded above} if $A$ has (at least) one upper bound.
+	\end{itemize}
+	\paragraph{Definitions (counter-part)} Let $A \subseteq \mathbb{R}$, let $a \in \mathbb{R}$:
+	\begin{itemize}
+		\item \textbf{Lower bound}: $a$ is a \underbar{lower bound} of $A$ means $\forall x \in A,\  x \geq a$.
+		\item \textbf{Greatest lower bound(g.l.b) / Infimum}: $a$ is the \underbar{greatest lower bound (g.l.b)} or \underbar{infimum(inf)} of $A$ iff $a$ is a lower bound of A and $\forall b \in \{\text{Lower bound of A}\},\ a \geq b$.
+		\item \textbf{Minimum}: if infimum of $A$ $\in A$, it's the \underbar{minimum} of $A$.
+		\item \textbf{Bounded below}: $A$ is \underbar{bounded below} if $A$ has (at least) one lower bound.
+	\end{itemize}
+	\paragraph{Theorem: The l.u.b. principle} Let $A \subseteq \mathbb{R}$, if $A$ is \underbar{bounded above} and $A \neq \emptyset$, then, $A$ has a least upper bound(supremum).
+	\paragraph{Theorem: The g.l.b principle} Let $A \subseteq \mathbb{R}$, if $A$ is \underbar{bounded below} and $A \neq \emptyset$, then, $A$ has a greatest lower bound(infimum).
+	\subsection{Supremum and Infimum of a function}
+	\paragraph{Definition} Supremum of a function $f$ on a domain $I$ is defined as:
+	\[
+	\sup_{x \in I} f(x) =  \sup\{f(x) \ \vert\  x \in I\}
+	\]
+	\paragraph{Theorem} Let $f$ be a function defined on domain $I \neq \emptyset$, if $f$ is \underbar{bounded above}, then $\exists \sup_{x \in I}f(x)$. Similarly, if $f$ is \underbar{bounded below}, then $\exists \inf_{x \in I}f(x)$.
+	\paragraph{Theorem(EVT)} Let $a < b$, let $f$ defined on $[a,b]$, if $f$ is \underbar{continuous} on $[a,b]$, then $f$ has a maximum and a minimum on $[a,b]$.
+	\subsection{Definition of Integral (i)}
+	\paragraph{Definition} A \textbf{partition} of the interval $[a,b]$ is a finite set $P$, s.t. $\{a,b\} \subseteq P$.
+	\paragraph{Notation} $P = \{x_0, x_1, \dots x_N\}$ on $[a,b]$. Implicitly, $x_i$ are \underbar{ordered}, such that, $a = x_0 < x_1 < \dots < x_N = b$.
+	\paragraph{} Let $f$ be bounded on $[a,b]$, let $P = \{x_0, x_1, \dots , x_N\}$, let $m_i = \inf_{x \in [x_{i-1}, x_i]} f(x)$, and $M_i = \sup_{x \in [x_{i-1}, x_i]} f(x)$, and $\Delta x_i = x_i - x_{i-1}$.
+	\paragraph{Definition} P-Lower sum of $f$ is defined as:
+	\[
+	L_P (f) = \sum_{i=1}^N (m_i \Delta x_i)
+	\]
+	\paragraph{Definition} P-Upper sum of $f$ is defined as:
+	\[
+	U_P (f) = \sum_{i=1}^N (M_i \Delta x_i)
+	\]
+	\paragraph{Property} For all partition $P$ on interval $[a,b]$, the lower sum and upper sum satisfy the following inequality,
+	\[
+	L_P (f) \leq \int_a^bf(x)\ dx \leq U_P (f)
+	\]
+	\subsection{Definition of Integral (ii): Properties of $U_P (f)$ and $L_P (f)$}
+	\paragraph{} Let $f$ be a \underbar{bounded} function on $[a,b]$, let $P$ and $Q$ be partitions of $[a,b]$, the lower sums and upper sums have the following properties.
+	\begin{enumerate}
+		\item (Always) $L_P (f) \leq U_P (f)$.
+		\item If $P \subseteq Q$ (\underbar{Q is a \emph{finer} partition}), then $L_P (f) \leq L_Q (f) \land U_P (f) \geq U_Q (f)$.
+		\item (Always) $L_P (f) \leq U_Q (f)$
+		\begin{multline*}
+		\emph{Proof} \\
+		\text{Let } R = P \cup Q,\\
+		\text{so that, } P \subseteq R \land Q \subseteq R. \emph{ (R is finer than both P and Q)}\\
+		L_P (f) \leq L_R (f) \leq U_R (f) \leq U_Q (f) \\
+		\implies L_P (f) \leq U_Q (f)\\
+		\blacksquare
+		\end{multline*}
+	\end{enumerate}
+	\subsection{Definition of Integral (iii): Upper Integral and Lower Integral}
+	\paragraph{Definition} Let $f$ be a \underbar{bounded} function on $[a,b]$, then, \underbar{lower integral of $f$ from $a$ to $b$} is defined as,
+	\[
+	\underline{I_a^b (f)} = \sup\{\text{lower sums of }f\}
+	\]
+	and the \underbar{upper integral of $f$ from $a$ to $b$} is defined as, 
+	\[
+	\overline{I_a^b (f)} = \inf\{\text{upper sums of }f\}
+	\] Then if $\underline{I_a^b (f)} < \overline{I_a^b (f)}$, then $f$ is \textbf{non-integrable} on $[a,b]$.
+	\subsection{An example of integrable function}
+	\paragraph{}
+	\[
+	f(x) = \begin{cases}
+		1 \text{ if } x = 0 \\
+		0 \text{ if } x \neq 0 \\
+	\end{cases} \text{on } [-1, 1]
+	\]
+	\subsection{An example of non-integrable function}
+	\paragraph{}
+	\[
+	g(x) = \begin{cases}
+		1 \text{ if } x \in \mathbb{Q} \\
+		0 \text{ if } x \notin \mathbb{Q} \\
+	\end{cases} \text{on } [-1, 1]
+	\]
+	\subsection{Integrals as limits}
+	\paragraph{Definition} Let $P = \{x_0, x_1, \dots , x_N\}$ be a partition of $[a,b]$, the \textbf{norm} of $P$ is defined as:
+	\[
+	\lVert P \rVert = \max\{\Delta x_1, \Delta x_2, \dots, \Delta x_N\}
+	\]
+	\paragraph{Theorem - Lower Integrals} For lower integrals, we have, 
+	\[
+	\underline{I_a^b (f)} = \lim_{\lVert P \rVert \to 0} L_P (f) = \sup\{\text{lower sums of } f\}
+	\]
+	alternatively, using $\delta - \epsilon$ expression,
+	\[
+	\forall \epsilon > 0, \exists \delta > 0 \text{ s.t. } \forall P \text{ over } [a,b], \lVert P \rVert < \delta \implies \lvert L_P (f) - \underline{I_a^b (f)} \rvert < \epsilon
+	\]
+	\paragraph{theorem - Upper Integrals} For upper integrals, we have,
+	\[
+	\overline{I_a^b (f)} = \lim_{\lVert P \rVert \to 0}U_P (f)
+	\]
+	\subsection{Riemann Sums}
+	\paragraph{Definition} Fix a partition $P$ on $[a,b]$, $m_i = \inf_{x \in [x_{i-1}, x_i]} f(x)$, $M_i = \sup_{x \in [x_{i-1}, x_i]} f(x)$, pick $x_i^\star \in [x_{i-1}, x_i]$, so that,
+	\begin{multline*}
+	\\
+	m_i \leq f(x_i^\star) \leq M_i \\
+	\implies m_i \Delta x_i \leq f(x_i^\star) \Delta x_i \leq M_i \Delta x_i \\
+	\implies L_P (f) = \sum_{i=1}^{N}(m_i \Delta x_i) \leq \sum_{i=1}^{N}(f(x_i^\star) * \Delta x_i) \leq \sum_{i=1}^{N}(M_i \Delta x_i) = U_P (f)
+	\\
+	\end{multline*}
+	where the term $\sum_{i=1}^{N}(f(x_i^\star) \Delta x_i)$ is called a \textbf{Riemann sum}.
+	\paragraph{Definition} Let $f$ be a \underbar{bounded} function on $[a,b]$, let $P = \{x_0, x_1, \dots, x_N \}$ be a partition on $[a,b]$, for each $i$, pick \textbf{any} point $x_i^\star \in [x_{i-1}, x_i]$. then, 
+	\[
+	S_P^\star (f) = \sum_{i=1}^{N}(f(x_i^\star) * \Delta x_i)
+	\]
+	is \underbar{a} \textbf{Riemann sum} for $f$ and $P$. \emph{(There are infinitely many Riemann sum)}.
+	\paragraph{}In general, we have,
+	\[
+	L_P (f) \leq S_P^\star (f) \leq U_P (f)
+	\] and also,
+	\[
+	\lim_{\lVert P \rVert \to 0} L_P (f) = \underline{I_a^b(f)}
+	\]
+	\[
+	\lim_{\lVert P \rVert \to 0} U_P (f) = \overline{I_a^b(f)}
+	\]
+	and if $f$ is \textbf{integrable}, then
+	\[
+	\lim_{\lVert P \rVert \to 0} L_P(f) = \lim_{\lVert P \rVert \to 0} U_P(f) = \int_a^b f(x)\ dx
+	\] By \underbar{Squeeze Theorem},
+	\[
+	\lim_{\lVert P \rVert \to 0} S_P^\star (f) = \int_a^b f(x)\ dx
+	\]
+	\subsection{Properties of the integral}
+	\paragraph{Property 1}
+	\[
+	\int_a^b [f(x) + g(x)]\ dx = \int_a^b f(x)\ dx + \int_a^b g(x)\ dx
+	\]
+	\paragraph{Property 2}
+	\[
+	\int_a^b[c f(x)]\ dx = c \int_a^b f(x)\ dx
+	\]
+	\paragraph{Property 3} If $f$ is bounded on $[a,c]$, and $f$ is integrable on $[a,b]$ and integrable on $[b,c]$, then,
+	\[
+	\int_a^c f(x)\ dx = \int_a^b f(x)\ dx + \int_b^c f(x)\ dx
+	\]
+	\paragraph{Property 4: Backward Integrals}
+	\[
+	\int_b^a f(x)\ dx = - \int_a^b f(x)\ dx
+	\]
+	\paragraph{Negative function $f$} Integral for negative function is the negative area.
+	\[
+	\int_a^b f(x)\ dx
+	\]
+	
+	\section{Video Playlist 8}
+	\subsection{Anti-dervatives}
+	\paragraph{Notations}
+	\begin{itemize}
+		\item \textbf{Definite integral} $\int_a^b{f(x)}\ dx$
+		\item \textbf{Indefinite integral} $\int{f(x)}\ dx$
+	\end{itemize}
+	\paragraph{Definition} Let $f$ be a function defined on an interval, \emph{an} \textbf{anti-dervative} of $f$ is any function $F$ that
+	\[
+	F' = f
+	\]
+	\paragraph{Note} As a consequence of MVT, if two functions have same dervative on an interval, then they \underbar{differ by a constant}.
+	
+	\subsection{Functions Defined as Integrals}
+	\paragraph{} Consider integrable function $f$, define function $F$ as the definite integral from $a$, a fixed point in domain of $f$, to another point $x$ in domain of $f$, that's,
+	\[
+	F(x) = \int_a^x{f(t)\ dt}
+	\]
+	\paragraph{Methodology} Let $I$ be an interval, let $a \in I$ and let $f$ be a function integrable on $I$, then for each $x \in I$, compute $F(x) = \int_a^x{f(t)\ dt}$ as a \underbar{number}.
+	
+	\subsection{The Fundamental Theorem of Calculus: Part 1}
+	\paragraph{}\emph{This provides connections between definite integrals and anti-dervatives}
+	\paragraph{Theorem: FTC(part 1)}
+	\begin{itemize}
+		\item Let $I$ be an interval,
+		\item Let $a \in I$,
+		\item Let $f$ be a function on $I$.
+	\end{itemize}
+	Define $F(x)$ as 
+	\[
+	F(x) = \int_a^x{f(t)\ dt}
+	\]
+	If $f$ is continuous, then $F$ is differentiable and $F' = f$, that's,
+	\[
+	F'(x) = f(x) \quad \forall x \in I
+	\]
+	
+	\subsection{A Proof of Part 1 of the FTC}
+	\paragraph{Proof.}
+	\begin{multline*}
+		\\
+		\text{Let(fix) } x \in I \\
+		\text{WTS. } F'(x) = f(x) \\
+		F'(x) = \lim_{h \to 0}\frac{F(x+h) - F(x)}{h} \\
+		= \lim_{h \to 0}[\frac{1}{h}(F(x+h) - F(x))] \\
+		= \lim_{h \to 0}[\frac{1}{h} (\int_a^{x+h}{f(t)\ dt} - \int_a^{x}{f(t)\ dt})]\\
+		= \lim_{h \to 0}[\frac{1}{h} \int_x^{x+h}{f(t)\ dt}] \\
+		\text{Consider } h > 0 \text{ (for negative $h$, the proof would be similar)}\\
+		\text{Let }M_h = \sup_{[x,x+h]}(f) \\
+		\text{Let }m_h = \inf_{[x,x+h]}(f) \\
+		\text{Then we have, by definition of infimum and supremum, }\\
+		m_h \leq \frac{1}{h}\int_x^{x+h}{f(t)\ dt} \leq M_h \\
+		\text{Since $f$ is continuous on $[x, x+h]$, by EVT, it has maximum and minimum on this interval.} \\
+		\exists c_h \in [x, x+h]\ s.t.\ M_h = f(c_h) \\
+		\exists d_h \in [x, x+h]\ s.t.\ m_h = f(d_h) \\
+		\because \lim_{h \to 0}{c_h} = x \land \lim_{h \to 0}{d_h} = x \\
+		\therefore \lim_{h\to0}M_h = \lim_{h\to0,c_h\to x}f(c_h) = f(x) \text{ (since $f$ is continuous.)}\\
+		\text{Similarly, } \lim_{h\to0}m_h = \lim_{h\to0,d_h\to x}f(d_h) = f(x) \\
+		\text{By Squeeze Theorem, } \lim_{h\to0}[\frac{1}{h}\int_x^{x+h}{f(t)\ dt}] = f(x) \\
+		\therefore F'(x) = f(x)\ \forall x \in I \\
+		\blacksquare
+	\end{multline*}
+	
+	\subsection{The Fundamental Theorem of Calculus: Part 2}
+	\emph{This provides a quick way to compute definite integrals.}
+	\paragraph{Theorem: FTC(part 2)}
+	\begin{itemize}
+		\item Let $a < b \in \mathbb{R}$,
+		\item let $f$ be continuous on $[a,b]$,
+	\end{itemize}
+	then,
+	\[
+	\int_a^b{f(x)\ dx} = G(b) - G(a)
+	\]
+	where $G$ is any anti-dervative of $f$.
+	\paragraph{Notation}
+	\[
+	G(b) - G(a) = G(x) \rvert _{x=a}^{x=b} = G(x) \rvert _a^b
+	\]
+	
+	\subsection{A Proof of Part 2 of the FTC}
+	\paragraph{Proof.}
+	\begin{multline*}
+	\\
+		\text{We know that, from the first part of FTC, $G' = f$,}\\
+		\text{WTS. } \int_a^b{f(x)} = G(b) - G(a) \\
+		\text{Define } F(x) = \int_a^x{f(t)\ dt} \\
+		\text{WTS. }F(b) = G(b) - G(a) \\
+		\text{Since $f$ is continuous,} F' = f \\
+		\text{By the consequence of MVT,} \\
+		F' = G' \implies \exists C \in \mathbb{R} s.t. F - G = C \forall x \in [a,b] \\
+		\text{at } x = a, F(a) = 0 \implies C = -G(a)\\
+		\implies \forall x \in [a,b] F(x) = G(x) - G(a) \\
+		\text{at } x = b, F(b) = G(b) - G(a) \\
+		\blacksquare
+	\end{multline*}
+	
+	\subsection{Summary: Definite and indefinite integrals, notation, definitions and theorems.}
+	\subsubsection{Definite Integral.}
+	\[
+	\int_a^b{f(x)\ dx}
+	\]
+	\paragraph{Theorem (Formal definite)} if $\overline{I_a^b}(f) = \underline{I_a^b}(f)$ then $\int_a^b{f(x)\ dx} = \overline{I_a^b}(f) = \underline{I_a^b}(f)$.
+	\paragraph{Theorem (FTC: part 2)} Choose \underbar{one} anti-dervative $G(x)$ of $f(x)$, then compute the definite integral as $\int_a^b{f(x)\ dx} = G(b) - G(a)$.
+	\subsubsection{Indefinite Integral}
+	\[
+	\int{f(x)\ dx}\ \text{A \underbar{collection} of functions.}
+	\]
+	\paragraph{Find indefinite integral} Find $G(x)$ as \underbar{one} anti-dervative, by the consequence of MVT, then the indefinite integral of $f$ could be constructed as, 
+	\[
+	F(x) = \{G(x) + C \ \vert\ C \in \mathbb{R} \}
+	\]
+	\subsubsection{Function Defined by an Integral.}
+	\[
+	F(x) = \int_a^x{f(t)\ dt} \ \text{This is \underbar{one} function with fixed value of $a$.}
+	\]
+	\paragraph{Theorem (FTC: part 1)} if $f$ is continuous, then $F'(x) = f(x)$
+	
+	\section{Video Playlist 9}
+	\subsection{Integration By Substitution: derivation of the formula}
+	\emph{Backwards usage of chain rule.}
+	\paragraph{} If $\int{f(x)\ dx} = F(x)$ is the anti-derivative of $f(x)$, then
+	\[
+	F(g(x)) = \int{f(g(x))g'(x)\ dx} = F(g(x))
+	\]
+	\subsection{Example 2}
+	\subsection{Example 3}
+	\subsection{Example 4}
+	\paragraph{Theorem} Let $a < b$, let $f$ be a continuous function, let $g$ be a function with \underbar{continuous derivative} in $[a,b]$, assume the range of $g$ on $[a,b]$ is contained in the domain of $f$. Then,
+	\[
+		\int_a^{b}{f(g(x))g'(x)\ dx} = \int_{g(a)}^{g(b)}{f(u)\ du}
+	\]
+	\subsection{Integration by parts}
+	\emph{Backwards product rule}
+	\paragraph{} Let $f$ and $g$ be two differentiable function, by product rule of differentiation, we have,
+	\begin{multline*}
+	\\
+		f'(x)g(x) + f(x)g'(x) = \frac{d}{dx}{f(x)g(x)} \\
+		\implies \int{f'(x)g(x) + f(x)g'(x)\ dx} = f(x)g(x) + C \\
+		\implies \int{f'(x)g(x)\ dx} + \int{f(x)g'(x)\ dx} = f(x) + g(x) + C \\
+		\implies \int{f'(x)g(x)\ dx} = f(x) + g(x) - \int{f(x)g'(x)\ dx} \\
+		\emph{The integral constant is implicitly contained in the integral term.} \\
+	\\
+	\end{multline*}
+	
+	\subsection{Examples}
+	\paragraph{Example 1}
+	\[
+		\int{x^2 e^2\ dx}
+	\]
+	\paragraph{Example 2}
+	\[
+		\int{e^2 \sin{x}\ dx}
+	\]
+	\underbar{Use integration by parts twice.}
+	
+	\paragraph{Example 3}
+	\[
+		\int{\arctan{x}\ dx}
+	\]
+	\underbar{Consider the form $1 \times f(x)$ as partition method.}
+	
+	\subsection{Integration of products of trigonometric functions}
+	\paragraph{Types}
+	\[
+		\int {sin^n x\ cos^m x \ dx}
+	\]
+	\[
+		\int {sec^n x\ tan^m x \ dx}
+	\]
+	\paragraph{Keys}
+	\[
+		sin^2(x) + cos^2(x) = 1
+	\]
+	\[
+		sec^2(x) = 1 + tan^2(x)
+	\]
+	\paragraph{Summary I}
+	Consider the integral in the following form
+	\[
+		\int {sin^n x\ cos^m x \ dx}
+	\]
+	\begin{itemize}
+		\item If \textbf{m is odd} then try $u = sin(x)$, then $du = cos(x)dx$
+		\item If \textbf{n is odd} then try $u = cos(x)$, then $du = -sin(x)dx$
+	\end{itemize}
+
+\section{Video Playlist 10}
+	\paragraph{Note} This chapter focus on \emph{volumes}, and there's no video for this topic.
+
+\section{Video Playlist 11}
+
+\subsection{What Is a Sequence}
+
+\paragraph{Definition} A \textbf{sequence} is a \underbar{function} with domain $\mathbb{N}$.
+
+\subsubsection{Conventions}
+\paragraph{Functions} function with domain \underbar{interval}.
+\begin{itemize}
+	\item $x$ as variable.
+	\item $f(x)$ as value at $x$.
+\end{itemize}
+\paragraph{Sequence} function with domain $\mathbb{N}$.
+\begin{itemize}
+	\item $n$ as variable.
+	\item $a_n$ as value at $n$.
+\end{itemize}
+
+\emph{A sequence is not a set.}
+
+\subsubsection{Describe sequences}
+\paragraph{Equation} $a_n = \frac{2^n n!}{n+1}$
+\paragraph{First few values} $\{1,2,4,8,16,\dots\}$
+\paragraph{Words} $p_n=$ n-th prime.
+\paragraph{Recurrence relation} e.g. Fibonacci Sequence.
+\[
+	\{F_n\}_{n=0}^{\infty}: F_0 = F_1 = 1,\ F_n = F_{n-1} + F_{n-2}\ \forall n \geq 2
+\]
+
+\paragraph{A general definition} A sequence is a function with domain $\{n \in \mathbb{Z}\ \vert\ n \geq n _0\}$ for some fixed $n_0 \in \mathbb{Z}$.
+
+\subsection{The Limit of a Sequence}
+
+\paragraph{Example}
+\[
+	\{\frac{n}{n+1}\}_{n=0}^{\infty}\quad \lim_{n\to\infty}{\frac{n}{n+1}} = 1
+\]
+
+\paragraph{Definition(Limit)} We say that the sequence $\{a_n\}_{n=0}^{\infty}$ converges to the number $L \in \mathbb{R}$ when
+\[
+	\forall \epsilon > 0,\ \exists n_0 \in \mathbb{N}s.t.\ \forall n \in \mathbb{N},\ n \geq n_0 \implies \vert L - a_n\vert < \epsilon
+\]
+denoted as 
+\[
+	\lim_{n\to\infty}{a_n} = L \text{ or } a_n \to L
+\]
+\emph{Tail: all terms of the sequence after the first few terms.}
+\newline
+\emph{Every interval centred at L contains a tail of the sequence.}
+
+\paragraph{Definition} A sequence is \textbf{convergent} if it has a limit. This sequence is \textbf{divergent} if it does not have a limit.
+
+\subsection{Properties of Limits of Sequences}
+
+\paragraph{Properties from the limit of functions}
+\begin{itemize}
+	\item Limit laws: Yes
+	\item Squeeze theorem: Yes
+	\item $L' H\hat{o}pital's\ Rule$: No
+\end{itemize}
+
+\subsubsection{Sequence from a function}
+\paragraph{} Let $c \in \mathbb{Z}$ and function $f$ defined on $[c,\infty)$, and define the seuqnce $\{a_n\}_{n=c}^{\infty}$ as
+\[
+	a_n = f(n)
+\]
+We have if $\lim_{n \to \infty}f(n) = L$ then $\lim_{n \to \infty}a_n = L$. If $\lim_{n \to \infty}f(n)$ DNE, then $\lim_{n \to \infty}a_n$ \underbar{may or may not exist}.
+
+\subsubsection{Composite of sequence and function}
+\paragraph{Theorem} If $a_n \to L$ and $f$ is continuous at $L$ then 
+\[
+	f(a_n) \to f(L)
+\]
+
+\subsection{Monotonic and Bounded Sequences}
+\subsubsection{Monotonic Sequences}
+\paragraph{Definition} We say $\{a_n\}_{n=0}^{\infty}$ is \textbf{increasing} if 
+\[
+	\forall n,m \in \mathbb{N},\ n<m \implies a_n < a_m
+\]
+Also, we say this sequence is \textbf{non-decreasing} if the inequality is in the weak form as
+\[
+	\forall n,m \in \mathbb{N},\ n<m \implies a_n \leq a_m
+\]
+
+\paragraph{Definition} We say $\{a_n\}_{n=0}^{\infty}$ is \textbf{decreasing} if 
+\[
+	\forall n,m \in \mathbb{N},\ n<m \implies a_n > a_m
+\]
+Also, if the inequality is in the weak form as
+\[
+	\forall n,m \in \mathbb{N},\ n<m \implies a_n \geq a_m
+\]
+we say this sequence is \textbf{non-increasing}.
+
+\paragraph{Definition} We say a sequence $\{a_n\}_{n=0}^{\infty}$ is \textbf{monotonic} is if is has any of the four properties above.
+
+\paragraph{Definition} $\{a_n\}_{n=0}^{\infty}$ is \textbf{eventually decreasing} if 
+\[
+	\exists n_0 \in \mathbb{N},\ s.t. \forall n\in \mathbb{N}, n \geq n_0 \implies a_n > a_{n+1}
+\]
+
+\subsubsection{Bounded Sequences}
+\paragraph{Definition} We say a sequence $\{a_n\}_{n=0}^{\infty}$ is \textbf{bounded below} if 
+\[
+	\exists A \in \mathbb{R} s.t. \forall n \in \mathbb{N},\ A \leq a_n
+\]
+Similarly, the sequence is \textbf{bounded above} if
+\[
+	\exists B \in \mathbb{R}. s.t. \forall n \in \mathbb{N},\ B \geq a_n
+\]
+
+\paragraph{Definition} We say a sequence is \textbf{bounded} if and only if it is \underbar{both} bounded above and below.
+
+\paragraph{Theorem} If a sequence is \underbar{convergent} then it is \underbar{bounded}.
+
+\paragraph{Theorem 2A(The monotone convergence theorem for sequence)} If a sequence is \underbar{eventually increasing} and \underbar{bounded above}, then it is \underbar{convergent}
+
+\paragraph{Theorem} If a sequence is \underbar{eventually increasing} and \underbar{not bounded above} then it \underbar{divergent to $\infty$}.
+
+\paragraph{Remark} for a sequence: 
+\[
+\text{Sequence} \begin{cases}
+	\text{Convergent} \\
+	\text{Divergent}
+	\begin{cases}
+		\text{to } \infty \\
+		\text{to } -\infty \\
+		\emph{Oscillating} \\
+	\end{cases} \\
+\end{cases}
+\]
+
+\subsection{Proof: Every convergent sequence is bounded}
+\theorem Let $\sequence{a}{0}{\infty}$ be a sequence, if $\sequence{a}{0}{\infty}$ is \underbar{convergent} then the sequence is \underbar{bounded}. Equivalently,
+\begin{multline*}
+	\emph{Proof.} \\
+	\text{Assume sequence } \sequence{a}{0}{\infty} \text{ is convergent.} \\
+	\text{Let $L$ be the limit.} \\
+	\text{By the definition of limit, choose } \epsilon = 10 \\
+	\text{So that, }\exists n_0 \in \N s.t. \forall n \in \N, n \geq n_0 \implies L-10 \leq a_n \leq L + 10 \\
+	\text{Take } A = min\{a_0,\dots,a_{n_0 - 1}, L - 10\} \\
+	\text{Take } B = max\{a_0,\dots,a_{n_0 - 1}, L + 10\} \\
+	\text{By definition of max and min, let }n \in \N \\
+	\text{case 1} n > n_0 \implies A \leq a_n \leq B \\
+	\text{case 2} n \geq n_0 \implies L-10 \leq a_n \leq L + 10 \\
+	\text{Since } A \leq L-10 \land B \geq L + 10 \\
+	\implies A \leq a_n \leq B \forall n \in \N \\
+	\therefore \sequence{a}{0}{\infty} \text{ is bounded.} \\
+	\blacksquare
+\end{multline*}
+
+\subsection{The monotone convergence theorem of sequences}
+	\paragraph{(General) Theorem} If a sequence is (eventually) \underbar{monotonic} and \underbar{bounded} then it is \underbar{convergent}.
+	
+	\paragraph{(Particular Case) Theorem 1} If a sequence is \underbar{increasing} and \underbar{bounded above} the it's \underbar{convergent}.
+\begin{multline*}
+	\emph{Proof.} \\
+	\text{Let } \sequence{a}{0}{\infty} \text{ be a sequence that's increasing and bounded above.} \\
+	\text{Consider } A = \{a_n\ \vert\ n \in \N\} \neq \emptyset \\
+	\text{By least upper bound principle, there exists a supremum of set $A$} \\
+	\text{Take } L = sup\{A\} \\
+	\text{Let } \epsilon > 0 \\
+	\text{By definition of supremum, } \\
+	\exists a_{n0} \in A\ s.t.\ a_{n0} > L - \epsilon \\ 
+	\text{Take this value }n_0 \\
+	\text{Since sequence is increasing, } \\
+	\forall n \geq n_0\ a_n > L - \epsilon \\
+	\text{Also, by definition of supremum, } a_n \leq L \\
+	\implies a_n \leq L + \epsilon \\
+	\text{Therefore, } \forall n \in \N, n \geq n_0 \implies L - \epsilon < a_n < L + \epsilon \\
+	\text{Therefore, } \lim_{n \to \infty}\sequence{a}{0}{\infty} = L \\
+	\text{Therefore, } \sequence{a}{0}{\infty} \text{ is convergent.} \\
+	\blacksquare
+\end{multline*}
+
+\subsection{the Big theorem of sequences}
+\paragraph{Definition} (for positive sequences only) Let $\sequence{a}{1}{\infty}$ and $\sequence{b}{1}{\infty}$ be positive sequences.
+\[
+	a_n << b_n \iff \lim_{n \to \infty}\frac{a_n}{b_n} = 0
+\]
+	say $\{a_n\}$ is \textbf{much smaller than} $\{b_n\}$.
+
+\paragraph{Theorem} for every $a > 0$ and $c > 1$
+\[
+	\ln{n} << n^a << c^n << n! << n^n
+\]
+
+\section{Video Playlist 12}
+\subsection{Improper Integral}
+\subsubsection{Improper integral "type 1" (Unbounded domain)}
+\definition Let $a \in \R$ and $f$ continuous on $[a,\ \infty]$ the integral of $f$ from $a$ to $\infty$, denoted as 
+\[
+	\int_a^{\infty}{f(x)\ dx} = \lim_{b \to \infty}\int_a^b{f(x)\ dx}
+\] assuming the limit exists. If the limit exists, the integral is called \textbf{convergent}, otherwise, it's called \textbf{divergent}.
+
+\subsection{The most important family if the improper integrals}
+\paragraph{} Let $p \in \R$ consider
+\[
+	\int_1^{\infty}{\frac{1}{x^p}\ dx}
+\]
+\paragraph{Summary}
+\[
+	\int_1^{\infty}{\frac{1}{x^p}\ dx} \text{ is } \begin{cases}
+		\textbf{convergent} \text{ if } p > 1 \\
+		\textbf{divergent to } \infty \text{ if } p \leq 1 \\
+	\end{cases}
+\]
+
+\subsection{Example}
+\[
+	\int_0^{\infty} sin(x)\ dx
+\]
+
+\subsection{The most important family of improper integral}
+\paragraph{Consider}
+\[
+	I = \int_{1}^{\infty} \frac{1}{x^p}\ dx
+\]
+\paragraph{Summary}
+\begin{enumerate}
+	\item $p > 1$ $\iff$ $I$ converges.
+	\item $p \leq 1 $ $\iff$ $I$ diverges to $\infty$.
+\end{enumerate}
+
+\subsection{Example}
+\paragraph{}Vertical asymptote improper.
+\[
+\int_0^1 {ln(x)}\ dx
+\]
+
+\subsection{Doubly improper integrals}
+\paragraph{General Strategy} Assume $A$ has \textbf{multiple} improper.
+\begin{enumerate}
+	\item Break $A$ into pieces with \textbf{single} improper at their endpoints.
+	\item If each piece convergent \textbf{seperately}, then $A$ converges.
+	\item Else, $A$ diverges, it's \emph{not a number}.
+\end{enumerate}
+
+\subsection{Basic Comparison Test}
+\theorem Let $a \in \R$,
+\newline Let $f$ and $g$ be \emph{continuous} functions one $[a,\infty)$, and 
+\[
+	\forall x \geq a, 0 \leq f(x) \leq g(x)
+\]
+we have,
+\begin{enumerate}
+	\item $\int_a^{\infty}g(x)\ dx < \infty \implies \int_a^{\infty}f(x)\ dx < 0$
+	\item $\int_a^{\infty}f(x)\ dx = \infty \implies \int_a^{\infty}g(x)\ dx = \infty$
+\end{enumerate}
+
+\subsection{Examples}
+
+\subsection{Limit Comparison Test}
+\theorem Let $a \in \R$, $f$ and $g$ are \emph{positive} and \emph{continuous} functions on $[a, \infty)$. And the following limit exists,
+\[
+	L = \lim_{x \to \infty}\frac{f(x)}{g(x)} \in \R
+\]
+Then, $\int_a^{\infty}f(x)\ dx$ and $\int_a^{\infty}g(x)\ dx$ are \textbf{both} convergent or \textbf{both} divergent.
+
+\subsection{Proof of LCT}
+\underbar{Omitted}
+%\begin{multline*}
+%	\emph{Proof.} \\
+%	\text{Since $f$ and $g$ are positive,} \\
+%	\int_a^{\infty}f(x)\ dx \text{ and } \int_a^{\infty}g(x)\ dx\\
+%	\text{ are each convergent or divergent to $\infty$.} \\
+%	\because L = \lim_{x \to \infty}\frac{f(x)}{g(x)} \\
+%	\text{Take } \epsilon = \frac{L}{2} \\
+%	\text{That's } \exists M \in \R \\
+%	s.t.\ \forall x \in \R, x \geq M \miplies \vert \frac{f(x)}{g(x)} - L \vert < \epsilon = \frac{L}{2} \\
+%	\text{That's } \\
+%	\forall x \geq M, \\
+%	\frac{L}{2} < \frac{f(x)}{g(x)} < \frac{3L}{2} \\
+%	\text{Assume } \int_a^{\infty}g(x)\ dx \text{ is convergent. } \\
+%	\text{By BCT, } \int_a^{\infty}f(x)\ dx \text{ is convergent. } \\
+%	\text{Assume } \int_a^{\infty}f(x)\ dx \text{ is divergent. } \\
+%	\text{By BCT, } \int_a^{\infty}g(x)\ dx \text{ is divergent. } \\
+%	\blacksquare
+%\end{multline*}
+
+\section{Video Playlist 13}
+\subsection{Infinite Sums}
+\paragraph{} Nothing.
+\subsection{Definition of series}
+\definition Series $\sum_{n=1}^{\infty}a_n$ is defined as 
+\[
+	\lim_{k\to\infty}S_k
+\]
+where $S_k = \sum_{n=1}^{k}a_n$ as finite sum. If the above limit exist, we say series $\sum_{n=1}^{\infty}a_n$ is convergent (it's a \emph{number}), else series is divergent and it's not a number.
+
+\subsection{Example}
+\[
+	\sum_{n=1}^{\infty}{\frac{1}{n^2+n}} = \sum_{n=1}^{\infty}{\frac{1}{n} - \frac{1}{n+1}} = \lim_{k\to\infty}{1-\frac{1}{k+1}} = 1
+\]
+
+\subsection{Divergent Series Examples}
+\[
+	S = \sum_{n=1}^{\infty}1 = \lim_{k\to\infty}k = \infty
+\]
+\[
+	S = \sum_{n=1}^{\infty}(-1)^n = \begin{cases}
+		0 \text{ if k is odd} \\
+		1 \text{ if k is even} \\
+	\end{cases} \text{ divergent due to osciallation.}
+\]
+
+\subsection{Geometric Series}
+\paragraph{} Let $x \in \R$
+\[
+	S = \sum_{n=0}^{\infty}x^n = \lim_{k\to\infty}S_k = \lim_{k\to\infty}\sum_{n=0}^{\infty}x^n
+\]
+\paragraph{} Consider
+\[
+	S_k = 1 + x + x^2 + \dots + x^k
+\]
+\[
+	x S_k = x + x^2 + x^3 + \dots + x^{k+1}
+\]
+\[
+	S_k - x S_k = 1 - x^{k+1}
+\] If x = 1, the series is simply divergent to $\infty$.
+\[
+	S_k = \frac{1-x^{k+1}}{1-x},\ x \neq 1
+\]
+\[
+	S = \lim_{k\to\infty}{1 - x^{k+1}} = 
+	\frac{1 - \lim_{k\to\infty}(x^(k+1))}{1-x} = 
+	\begin{cases}
+		\frac{1}{1-x} \iff x \in (-1, 1) \\
+		\text{Divergent } \begin{cases}
+			\infty \impliedby x > 1 \\
+			\text{Oscillating} \impliedby x \leq -1 \\
+		\end{cases}
+	\end{cases}
+\]
+
+\subsection{Linearity of series}
+\paragraph{Simple form of fact}
+\[
+	\sum_{n=0}^{\infty}a_n + \sum_{n=0}^{\infty}{c\ b_n} = \sum_{n=0}^{\infty}{a_n + c\ b_n},\ \forall c \in \R
+\]
+\theorem If series $\sum_{n=0}^{\infty}a_n$ and $\sum_{n=0}^{\infty}b_n$ are both convergent, then $\sum_{n=0}^{\infty}{a_n + b_n}$ is also convergent and 
+\[
+	\sum_{n=0}^{\infty}{a_n + b_n} = \sum_{n=0}^{\infty}a_n + \sum_{n=0}^{\infty}b_n
+\]
+\begin{multline*}
+	\emph{Proof.} \\
+	\text{Let } \sum_{n=0}^{\infty}a_n = \lim_{k\to\infty}S_k \\
+	\text{Let } \sum_{n=0}^{\infty}b_n = \lim_{k\to\infty}T_k \\
+	\text{Let } \sum_{n=0}^{\infty}{a_n + b_n} = \lim_{k\to\infty}R_k \\
+	\text{Where } S_k = \sum_{n=0}^k{a_n} \\
+	T_k = \sum_{n=0}^k{b_n} \\
+	R_k = \sum_{n=0}^k{a_n + b_n} \\
+	\text{Since } R_k = S_k + T_k,\ \forall k \in \N \\
+	\text{By limit laws, } \lim_{k\to\infty}S_k + \lim_{k\to\infty}T_k = \lim_{k\to\infty}R_k \\
+	\implies \sum_{n=0}^{\infty}a_n + \sum_{n=0}^{\infty}b_n = \sum_{n=0}^{\infty}{a_n + b_n} \\
+	\blacksquare
+\end{multline*}
+
+\theorem If series $\sum_{n=0}^{\infty}a_n$ is convergent, then for any $c \in \R$, series $\sum_{n=0}^{\infty}{c\ a_n}$ is also convergent and 
+\[
+	\sum_{n=0}^{\infty}{c\ a_n} = c \sum_{n=0}^{\infty}a_n
+\]
+\paragraph{General proof procedure}
+\begin{enumerate}
+	\item Write series as limit of partial sums.
+	\item Manipulate partial sums (finite).
+	\item Manipulate limits.
+\end{enumerate}
+
+\subsection{the Tail of a series}
+\paragraph{Fact} Consider two series
+\[
+	\series{n=0}{a_n}\text{ convergent} \iff \series{n=1}{a_n} \text{ convergent}
+\]
+And $\series{n=1}{a_n}$ is a tail of series $\series{n=0}{a_n}$.
+\paragraph{Notation} We say $\series{n}{a_n}$ is convergent or divergent without specifying the starting index of the series.
+\paragraph{Specific form of theorem} If $\forall n \in \N$ [Condition(s)] then $\series{n}{a_n}$ is convergent or divergent.
+\paragraph{General form of theorem} If $\exists\ n_0 \in \N\ s.t.\ \forall n \in N,\ n \geq n_0 \implies $[Condition(s)] then $\series{n}{a_n}$ is convergent.
+
+\subsection{A necessary condition for convergence of series}
+\paragraph{Fact} Series $\series{n=0}{a_n}$ is convergent if and only if the sequence of its partial sums $\sequence{S}{0}{k}$ is convergent.
+
+\theorem If $\series{n=0}{a_n}$ is convergent then
+\[
+	\lim_{n\to\infty}{a_n} = 0
+\]
+\paragraph{Note} The above theorem is often used as it's contrapositive form
+\[
+	\lim_{n\to\infty}{a_n} \neq 0 \implies \series{n=0}{a_n} \text{ is divergent}
+\]
+\begin{multline*}
+	\emph{Proof.} \\
+	\text{Let } S = \series{n=0}{a_n} \text{ be convergent} \\
+	S = \lim_{k\to\infty}{S_k},\ S_k = \sum_{n=0}^{k}{a_n} \\
+	S = \lim_{k - 1 \to \infty}{S_{k-1}} \\
+	\implies \lim_{k\to\infty}{S_k} - \lim_{k - 1 \to \infty}{S_{k-1}} = 0 \\
+	\text{By the convergence assumption, those two limits above exist. } \\
+	\implies \lim_{k\to\infty}{S_k - S_{k-1}} = 0\\
+	\implies \lim_{k\to\infty}{a_k} = 0\\
+	\implies \sequence{a}{1}{\infty} \to 0 \\
+	\blacksquare
+\end{multline*}
+
+\subsection{Positive series}
+\definition A series $\series{n=0}{a_n}$ is positive when $\forall n \in \N,\ a_n > 0$. And a series is positive means it could never diverge to $-\infty$ or \emph{oscillating}.
+
+\paragraph{Notation} (For positive series only)
+\begin{enumerate}
+	\item $\series{n}{a_n} = \infty \iff$ divergent.
+	\item $\series{n}{a_n} < \infty \iff$ convergent.
+\end{enumerate}
+
+\subsection{The Integral Test}
+\theorem Let $a \in \R$, let $f$ be a continuous, positive and decreasing function on $[a, \infty)$, then 
+\[
+	\int_{a}^{\infty}{f(x)\ dx} < \infty \iff \series{n}{f(n)} < \infty
+\]
+That's the improper integral and series have the same convergence/divergence feature.
+Note as 
+\[
+	\int_{a}^{\infty}{f(x)\ dx} \sim \series{n}{f(n)}
+\]
+
+\subsection{Examples}
+\paragraph{p-series} consider for what values of $p$ the following series is convergent.
+\[
+	\series{n=1}{\frac{1}{n^p}}
+\]
+\paragraph{Example2}
+\[
+	\series{n=2}{\frac{1}{n\ln{n}}}
+\]
+
+\subsection{Comparison Tests for Series}
+\paragraph{}\emph{Works exactly the same as basic and limit comparison tests for improper integrals.}
+\paragraph{Basic Comparison Test} Consider series $\series{n=1}{a_n}$ and $\series{n=1}{b_n}$, assume\footnote{Notice that \emph{for large natural number n} would be sufficient here also.}
+\[
+	\forall n \in \N,\ 0 \leq a_n \leq b_n
+\]
+then 
+\[
+	\series{n=1}{b_n} < \infty \implies \series{n=1}{c_n} < \infty
+\]
+\[
+	\series{n=1}{a_n} = \infty \implies \series{n=1}{b_n} = \infty
+\]
+\paragraph{Limit Comparison Test} Consider series $\series{n=1}{a_n}$ and $\series{n=1}{b_n}$, assume existing limit 
+\[
+	L = \lim_{n\to\infty}\frac{a_n}{b_n} > 0 
+\] Then both series convergent or both of them divergent.
+
+\section{Video Playlist 14}
+\subsection{Power Series: Example}
+\[
+	g(x) = \series{n=1}{\frac{x^n}{n3^n}}
+\]
+\paragraph{} \textbf{Domain} of $g(x)$ is defined as 
+\[
+	\{x \in \R\ \vert\ g(x) \text{ is convergent}\}
+\]
+
+\paragraph{} The above series convergent when $x \in [-3,3)$, and $[-3,3)$ is the \textbf{interval of convergence} and $3$ is the \textbf{radius of convergent}.
+
+\subsection{Main Theorem}
+\definition Let $a \in \R$, a power series centred at $a$ is a function $f$ defined by a equation like 
+\[
+	f(x) = \series{n=0}{c_n(x-a)^n}
+\]
+
+\paragraph{Main Theorem} Let $f(x)$ be a power series, then
+\begin{enumerate}
+	\item Domain of $f$ is an interval centred at $a$, with radius of convergence R, $0\leq\R\leq\infty$
+	\item In the \emph{interior} of the interval of convergence, the series is \emph{absolutely convergent}, in the \emph{exterior} of IC, the series is \emph{divergent}, and at the boundaries this theorem is \emph{inconclusive}.
+	\item In the \emph{interior} of the IC, power series can be treated like polynomial, \underbar{without change of radius of convergence}.
+\end{enumerate}
+
+\subsection{Taylor Polynomial Definition 1}
+\definition Let $f(x)$ and $g(x)$ be two functions that are continuous at $a$, let $n>0$ and \underbar{$g$ is a approximation for $f$ near $a$ of order $n$} when 
+\[
+	\lim_{x\to a}\frac{f(x) - g(x)}{(x-a)^n} = 0
+\]
+
+\definition Let $a \in \R$, let $f$ be a continuous function defined at $a$, let $n\in \N$ then the \textbf{$n^{th}$ Taylor Polynomial} for $f$ at $a$ is the polynomial $P_n$ of \emph{smallest} possible degree is an approximating for $f$ near $a$ of order $n$, that's,
+\[
+	\lim_{x\to a}\frac{f(x) - P_n(x)}{(x-a)^n} = 0
+\]
+
+\subsection{Taylor Polynomial Definition 2}
+\definition Let $a \in \R$, $n \in \N$ and let $f$ be a $C^n$ function at $a$, the \textbf{$n^{th}$ Taylor Polynomial} for $f$ at $a$ is a polynomial $P_n$ s.t.
+\[
+	P_n(a)=f(a),\ P'_n(a)=f'(a),\ \dots P^{(n)}_n(a) = f^{(n)}(a)
+\]
+with smallest possible degree.
+
+\subsection{Taylor Polynomial Definition 3}
+\definition Let $a \in \R$, let $f$ be a $C^{\infty}$ function at $a$, the \textbf{Taylor's series} for $f$ at $a$ is the power series 
+\[
+	S(x) = \series{k=0}{\frac{f^{(k)}(a)}{k!}} (x-a)^k
+\]
+with the fact that 
+\[
+	\forall k \in \N, S^{(k)}(a) = f^{(k)}(a)
+\]
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

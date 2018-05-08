@@ -1,0 +1,177 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{float}
+\pagestyle{fancy}
+\lhead{Notes by T.Du}
+\usepackage[
+	type={CC},
+	modifier={by-nc-sa},
+	version={3.0},
+]
+{doclicense}
+\title{CSC148 Notes}
+\author{Tianyu Du}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\doclicenseThis
+	\tableofcontents
+	\section{Lecture 1. Jan. 10 2017}
+	\paragraph{Outlines}
+	\begin{enumerate}
+		\item Construct solutions to real world problems.
+		\item Abstract data types.
+		\item Recursion.
+		\item Exceptions.
+		\item Design.
+		\item Efficiency.
+	\end{enumerate}
+	\subsection{Object}
+	\begin{verbatim}
+	>>> s1 = 'word'
+	>>> s2 = 'sword'[1:]
+	>>> s1 == s2
+	True
+	>>> s1 is s2 # s1 and s2 are different objects.
+	False
+	>>> n1 = 255
+	>>> n2 = 255
+	>>> n1 == n2
+	True
+	>>> n1 is n2
+	True
+	>>> n3 = 257
+	>>> n4 = 257
+	>>> n3 is n4
+	False
+	\end{verbatim}
+	\paragraph{Object} Components of object:
+	\begin{itemize}
+		\item Identifier.
+		\item Type.
+		\item Value. 
+	\end{itemize}
+	
+	\subsection{Review function design recipe}
+	\paragraph{\emph{Repeated} function}
+
+	\underbar{Check list:}
+	\begin{enumerate}
+		\item Header.
+		\item Type contract.
+		\item Doc string.
+		\item Function body.
+		\item Test.
+	\end{enumerate}
+	\paragraph{Design recipe}
+	\begin{verbatim}
+	from typing import List
+
+	def repeated(word: str, n: int) -> List[str]:
+		'''
+		Repeated - return a list of word n times.
+
+		>>> repeated('a', 2)
+		['a', 'a']
+
+		>>> repeated('a', 0)
+		[]
+		'''
+		return [word] * n
+	\end{verbatim}
+	\subsection{Point}
+	\begin{verbatim}
+	class Point:
+		'''
+		Represent a two-dimensional point.
+
+		x - horizontal position.
+		y - vertical position.
+		'''
+
+		x: float
+		y: float
+
+		def __init__(self, x, y) -> None:
+			'''
+
+			'''
+			self.x, self.y = x, y
+
+		def distance_to_origin(self):
+			return (self.x **2 + self.y ** 2) ** .5
+
+		def __eq__(self, other: Any) -> bool:
+			'''
+			Return whether self is equivalent to other
+			>>> Point(3, 5) == Point(3.0, 5.0)
+			True
+			>>> Point(3, 5) == Point(5, 3)
+			False
+			>>> Point(3, 5) == 7
+			False
+			'''
+			return (type(self) == type(other)
+					and self.x == other.x
+					and self.y == other.y)
+
+		def __str__(self) -> str:
+			'''
+			Return a string representing this point itself.
+
+			>>> print(Point(3, 5))
+			(3.0, 5.0)
+			'''
+			return ''({}, {})''.format(self.x, self.y)
+
+	\end{verbatim}
+	\subsection{Build API}
+	\paragraph{Define a class API:}
+	\begin{enumerate}
+		\item Choose a class name and write a brief description in the class doc string.
+		\begin{verbatim}
+			Point
+		\end{verbatim}
+		\item Write some examples of client code that uses you class.
+		\begin{verbatim}
+			p = Point(3, 4)
+			p.distance_to_origin()
+		\end{verbatim}
+	\end{enumerate}
+
+	\section{Lecture 2. Jan. 17 2017}
+	\paragraph{Rational numbers Class}
+	\paragraph{Module} A name space contain names. \begin{verbatim} module.name \end{verbatim} 
+	
+
+	\section{Lecture Fri Jan. 19 2018}
+	\paragraph{}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
