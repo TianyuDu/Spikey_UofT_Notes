@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Lecture 1 May. 8 2018}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Budget Constraint}{1}{subsection.1.1}
+\contentsline {paragraph}{Bundle}{1}{section*.2}
+\contentsline {subsubsection}{\numberline {1.1.1}Types of Income}{1}{subsubsection.1.1.1}
+\contentsline {paragraph}{Exogenous income}{1}{section*.3}
+\contentsline {paragraph}{Endogenous income}{1}{section*.4}
+\contentsline {subsubsection}{\numberline {1.1.2}Exogenous Income}{2}{subsubsection.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.3}Endogenous Income}{2}{subsubsection.1.1.3}
+\contentsline {paragraph}{Framework}{2}{section*.5}
+\contentsline {paragraph}{Hypothetical income}{2}{section*.6}
+\contentsline {paragraph}{Budget Constraint equation}{2}{section*.7}
+\contentsline {paragraph}{Assumption}{3}{section*.8}
+\contentsline {paragraph}{Affordable}{3}{section*.9}
+\contentsline {subsection}{\numberline {1.2}Opportunity Cost}{3}{subsection.1.2}
+\contentsline {paragraph}{OC/MRT}{3}{section*.10}
+\contentsline {subsection}{\numberline {1.3}Changes that affect the budget constraint}{3}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Pure income change}{3}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Price change}{3}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3}Endogenous income price change}{3}{subsubsection.1.3.3}
+\contentsline {paragraph}{Graph}{3}{section*.11}
