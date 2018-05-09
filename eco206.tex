@@ -9,7 +9,6 @@
 \usepackage{pgfplots}
 \usepackage{graphicx}
 \usepackage{enumitem}
-\usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{perpage}
 \usepackage{float}
@@ -122,12 +121,88 @@
 	\end{figure*}
 	
 	\subsubsection{Endogenous income price change}
-	\paragraph{Graph} The price of meat increases.
+	\paragraph{Intuition} \textbf{Rotation} about the endowment.
 	\begin{figure*}[h]
 		\centering
 		\includegraphics[width=0.5\linewidth]{eco206pic/End_price_change}
 		\caption{Endogenous income price change}
 	\end{figure*}
+	
+
+\section{Lecture 2 May. 9 2018}
+\paragraph{Tophat} Assume endogenous income and 2 goods - meat and vegetables. When the price of meat goes up, can you afford more bundles? Explain your reasoning briefly.
+
+\textbf{Key points}
+\begin{enumerate}
+	\item Relative price $\rightarrow$ Exchange rate.
+	\item Holding fixed amount of meat, consider the quantity of veg could be consumed.
+	\item Endowment point.
+\end{enumerate}
+
+\subsection{Tastes as Binary Relations}
+\paragraph{Strictly preferred} Consider bundles $A=(x_1^A, x_2^A)$ and $B=(x_1^B, x_2^B)$, we denote \underbar{Bundle $A$ is strictly preferred as $B$} as,
+\[
+	(x_1^A, x_2^A) \succ (x_1^B, x_2^B)
+\]
+
+\paragraph{At least as good as} Consider bundles $A=(x_1^A, x_2^A)$ and $B=(x_1^B, x_2^B)$, we denote \underbar{Bundle $A$ is at least as good as $B$} as,
+\[
+	(x_1^A, x_2^A) \succcurlyeq (x_1^B, x_2^B)
+\]
+\paragraph{Indifference} Consider bundles $A=(x_1^A, x_2^A)$ and $B=(x_1^B, x_2^B)$, we denote \underbar{Bundle $A$ is indifferent to $B$} as,
+\[
+	(x_1^A, x_2^A) \sim (x_1^B, x_2^B)
+\]
+
+\subsection{Rationality Assumptions on Preference Relation}
+
+\paragraph{Completeness} Let $X$ denote the consumption set, then we say a preference relation $\succcurlyeq$ satisfies \underbar{completeness} if and only if
+\[
+	\forall \vec{x_1}, \vec{x_2} \in X,\ \vec{x_1} \succcurlyeq \vec{x_2} \lor \vec{x_1} \preccurlyeq \vec{x_2}
+\]
+
+\paragraph{Transitivity} Let $X$ denote the consumption set, then we say a preference relation $\succcurlyeq$ satisfies \underbar{transitivity} if and only if
+\[
+	\forall \vec{x_1}, \vec{x_2}, \vec{x_3} \in X,\ (\vec{x_1} \succcurlyeq \vec{x_2} \land \vec{x_2} \succcurlyeq \vec{x_3}) \implies \vec{x_1} \succcurlyeq \vec{x_3}
+\]
+
+\paragraph{Rational tastes} If those two assumption hold, we say the individual has \underbar{rational tastes}.
+
+\subsection{Convenience Assumptions}
+\paragraph{(Strict) Monotonicity} Let $X$ denote the consumption set, a preference relation $\succcurlyeq$ satisfies \underbar{monotonicity} if and only if
+\[
+	\forall \vec{x_1}, \vec{x_2} \in X,\ (\vec{x_1} \geq \vec{x_2} \implies \vec{x_1} \succcurlyeq \vec{x_2}) \land (\vec{x_1} \gg \vec{x_2} \implies \vec{x_1} \succ \vec{x_2})
+\]
+
+\paragraph{(Weak) Convexity} \emph{Intuitively, Averages are better than extremes, or at leastno worse.} Let $X$ denote the consumption set, a preference relation $\succcurlyeq$ satisfies
+\underbar{(weak) convexity} if and only if
+\[
+	\forall \vec{x_1}, \vec{x_2} \in X,\ \vec{x_1} \sim \vec{x_2} \implies \lambda \vec{x_1} + (1 - \lambda) \vec{x_2} \succcurlyeq \vec{x_1},\ \forall \lambda \in [0, 1]
+\]
+
+\paragraph{Continuity} \emph{Intuitively, no sudden preference switching},  mathematically, let consumption set $X \subseteq \mathbb{R}^n_{+}$, $\forall \vec{x} \in X,$ the "no better than" set, $\preccurlyeq(\vec{x})$ and the "no worse than" set, $\succcurlyeq(\vec{x})$ are closed in $\mathbb{R}^n_{+}$. \footnote{The mathematical definition is not required in ECO206.}
+
+\subsection{Indifference Curve}
+\paragraph{Definition} Let consumption bundle $A \in X \subseteq \mathbb{R}^n_{+}$, the \underbar{indifference curve corresponding to consumption bundle $A$} is defined as
+\[
+	\sim(A) = \{\vec{x} \in X\ \vert\ \vec{x} \sim A\}
+\]
+
+\paragraph{Properties}
+\begin{enumerate}
+	\item IC slopes downwards $\impliedby$ monotonicity.
+	\item ICs does not cross (for individual preference).
+	\item Direction of increasing preference.
+\end{enumerate}
+
+\subsection{Utility Function}
+\paragraph{Definition} A \underbar{real-valued function} $u: \mathbb{R}^n_{+} \to \mathbb{R}$ is called a \textbf{utility function} representing the preference relation $\succcurlyeq$, if for all $\vec{x_0}, \vec{x_1} \in \mathbb{R}^n_{+}$, $u(\vec{x_0}) \geq u(\vec{x_1}) \iff \vec{x_0} \succcurlyeq \vec{x_1}$.
+
+\paragraph{Marginal Rate of Substitution (MRS)} Consider the scenario with two commodities, intuitively, MRS could be interpreted as the quantity of one commodity must be forgone for one unit increment in the other commodity, holding the utility value constant. Graphically, MRS is the (absolute value of) slope of indifference curve. Mathematically, MRS can be computed as \footnote{The negative sign indicates \emph{forgoing}.}
+\[
+	\frac{dy}{dx} = - \frac{\frac{\partial u(\cdot)}{\partial x}}{\frac{\partial u(\cdot)}{\partial y}}
+\]
+
 \end{document}
 
 
