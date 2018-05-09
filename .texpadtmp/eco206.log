@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  9 MAY 2018 15:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  9 MAY 2018 15:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -679,12 +679,7 @@ l.155 \]
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
 l.179 \]
-         <./eco206pic/End_price_change.png>]
-Overfull \hbox (153.99335pt too wide) in paragraph at lines 191--192
- []\OT1/cmr/bx/n/10 Definition[] \OT1/cmr/m/n/10 Let con-sump-tion bun-dle $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^R \U/msb/m/n/10 R[]$\OT1/cmr/m/n/10 , the $[]$
- []
-
-[6]
+         <./eco206pic/End_price_change.png>] [6]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 211.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 211.
  (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco206.aux)
@@ -703,7 +698,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  62i,12n,77p,911b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco206.pdf (6 pages, 361398 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco206.pdf (6 pages, 361451 bytes).
 PDF statistics:
  266 PDF objects out of 1000 (max. 8388607)
  225 compressed objects within 3 object streams
