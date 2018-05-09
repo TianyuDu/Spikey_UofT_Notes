@@ -3,14 +3,14 @@ entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**eco206.tex
-(./eco206.tex
+**eco220.tex
+(./eco220.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -470,23 +470,21 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box41
 \@float@everytoks=\toks38
 \@floatcapt=\box42
-)
-\c@pp@a@footnote=\count140
- (/usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/doclicense.sty
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/doclicense.sty
 Package: doclicense 2016/04/24 v1.5.0 Support for putting documents under a license
  (/usr/local/texlive/2016/texmf-dist/tex/latex/xifthen/xifthen.sty
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
  (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count141
-\calc@Bcount=\count142
+\calc@Acount=\count140
+\calc@Bcount=\count141
 \calc@Adimen=\dimen179
 \calc@Bdimen=\dimen180
 \calc@Askip=\skip57
 \calc@Bskip=\skip58
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count143
+\calc@Ccount=\count142
 \calc@Cskip=\skip59
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -494,7 +492,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
 )) (/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count144
+\etb@tempcnta=\count143
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/verbatim.sty
@@ -508,12 +506,12 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 File: doclicense-english.ldf 
 )) (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
-\csq@reset=\count145
-\csq@gtype=\count146
-\csq@glevel=\count147
-\csq@qlevel=\count148
-\csq@maxlvl=\count149
-\csq@tshold=\count150
+\csq@reset=\count144
+\csq@gtype=\count145
+\csq@glevel=\count146
+\csq@qlevel=\count147
+\csq@maxlvl=\count148
+\csq@tshold=\count149
 \csq@ltx@everypar=\toks41
  (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
@@ -530,37 +528,37 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks42
 \XKV@tempa@toks=\toks43
 )
-\XKV@depth=\count151
+\XKV@depth=\count150
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))) (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco206.aux)
-\openout1 = `eco206.aux'.
+))) (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco220.aux)
+\openout1 = `eco220.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
  ABD: EveryShipout initializing macros (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count152
+\scratchcounter=\count151
 \scratchdimen=\dimen181
 \scratchbox=\box43
-\nofMPsegments=\count153
-\nofMParguments=\count154
+\nofMPsegments=\count152
+\nofMParguments=\count153
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count155
+\MPscratchCnt=\count154
 \MPscratchDim=\dimen182
-\MPnumerator=\count156
-\makeMPintoPDFobject=\count157
+\MPnumerator=\count155
+\makeMPintoPDFobject=\count156
 \everyMPtoPDFconversion=\toks45
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -575,138 +573,100 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.13} into your preamble.
- on input line 47.
+ on input line 27.
 
 \AtBeginShipoutBox=\box44
-Package hyperref Info: Link coloring OFF on input line 47.
+Package hyperref Info: Link coloring OFF on input line 27.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count158
+\c@section@level=\count157
 )
-LaTeX Info: Redefining \ref on input line 47.
-LaTeX Info: Redefining \pageref on input line 47.
-LaTeX Info: Redefining \nameref on input line 47.
- (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco206.out) (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco206.out)
+LaTeX Info: Redefining \ref on input line 27.
+LaTeX Info: Redefining \pageref on input line 27.
+LaTeX Info: Redefining \nameref on input line 27.
+ (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco220.out) (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco220.out)
 \@outlinefile=\write4
-\openout4 = `eco206.out'.
+\openout4 = `eco220.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 49.
+LaTeX Font Info:    Try loading font information for U+msa on input line 29.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 49.
+LaTeX Font Info:    Try loading font information for U+msb on input line 29.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) <doclicense-CC-by-sa.pdf, id=73, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-sa.pdf, id=49, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-sa.pdf Graphic file (type pdf)
  <use doclicense-CC-by-sa.pdf>
-Package pdftex.def Info: doclicense-CC-by-sa.pdf used on input line 49.
-(pdftex.def)             Requested size: 100.00015pt x 35.53667pt.
- (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco206.toc)
+Package pdftex.def Info: doclicense-CC-by-sa.pdf used on input line 29.
+(pdftex.def)             Requested size: 109.50027pt x 38.91324pt.
+ (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco220.toc)
 \tf@toc=\write5
-\openout5 = `eco206.toc'.
+\openout5 = `eco220.toc'.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 56.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 35.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 56.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 35.
  [1
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-sa.pdf>] <eco206pic/bundle.png, id=106, 346.29375pt x 307.1475pt>
-File: eco206pic/bundle.png Graphic file (type png)
- <use eco206pic/bundle.png>
-Package pdftex.def Info: eco206pic/bundle.png used on input line 66.
-(pdftex.def)             Requested size: 103.50105pt x 91.79814pt.
- <eco206pic/budget.png, id=108, 518.93875pt x 460.72125pt>
-File: eco206pic/budget.png Graphic file (type png)
- <use eco206pic/budget.png>
-Package pdftex.def Info: eco206pic/budget.png used on input line 79.
-(pdftex.def)             Requested size: 103.50105pt x 91.88953pt.
- [2pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.87 	\]
-        pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.87 	\]
-         <./eco206pic/bundle.png> <./eco206pic/budget.png>] <eco206pic/income_change.png, id=125, 804.00375pt x 425.59pt>
-File: eco206pic/income_change.png Graphic file (type png)
- <use eco206pic/income_change.png>
-Package pdftex.def Info: eco206pic/income_change.png used on input line 111.
-(pdftex.def)             Requested size: 172.5pt x 91.30524pt.
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-sa.pdf>] <eco220pic/fig1.png, id=77, 361.35pt x 225.84375pt>
+File: eco220pic/fig1.png Graphic file (type png)
+ <use eco220pic/fig1.png>
+Package pdftex.def Info: eco220pic/fig1.png used on input line 79.
+(pdftex.def)             Requested size: 251.9989pt x 157.50024pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<eco206pic/relative_price_change.png, id=126, 484.81125pt x 414.54875pt>
-File: eco206pic/relative_price_change.png Graphic file (type png)
- <use eco206pic/relative_price_change.png>
-Package pdftex.def Info: eco206pic/relative_price_change.png used on input line 123.
-(pdftex.def)             Requested size: 172.5pt x 147.49791pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<eco206pic/End_price_change.png, id=127, 481.8pt x 486.81876pt>
-File: eco206pic/End_price_change.png Graphic file (type png)
- <use eco206pic/End_price_change.png>
-Package pdftex.def Info: eco206pic/End_price_change.png used on input line 131.
-(pdftex.def)             Requested size: 172.5pt x 174.29637pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[3] [4pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+[2] [3pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.155 \]
-        pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
+l.131 
+       <./eco220pic/fig1.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 134--139
 
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.155 \]
-         <./eco206pic/income_change.png> <./eco206pic/relative_price_change.png>] [5pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
-
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.179 \]
-         <./eco206pic/End_price_change.png>]
-Overfull \hbox (153.99335pt too wide) in paragraph at lines 191--192
- []\OT1/cmr/bx/n/10 Definition[] \OT1/cmr/m/n/10 Let con-sump-tion bun-dle $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ^^R \U/msb/m/n/10 R[]$\OT1/cmr/m/n/10 , the $[]$
  []
 
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 211.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 211.
- (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco206.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 211.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 211.
-Package rerunfilecheck Info: File `eco206.out' has not changed.
+
+Overfull \hbox (80.11688pt too wide) detected at line 159
+[] []
+ []
+
+[4]
+Overfull \hbox (22.54045pt too wide) in paragraph at lines 191--192
+\OT1/cmr/m/n/10.95 Let $\OML/cmm/m/it/10.95 x[]; x[]; [] ; x[]$ \OT1/cmr/m/n/10.95 be mea-sure-ments for the sam-ple of size $\OML/cmm/m/it/10.95 n$\OT1/cmr/m/n/10.95 , then the $[]$
+ []
+
+[5] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 201.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 201.
+ (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco220.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 201.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 201.
+Package rerunfilecheck Info: File `eco220.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 211.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 201.
  ) 
 Here is how much of TeX's memory you used:
- 27050 strings out of 493014
- 640858 string characters out of 6133351
- 798311 words of memory out of 5000000
- 30050 multiletter control sequences out of 15000+600000
- 12554 words of font info for 48 fonts, out of 8000000 for 9000
+ 26993 strings out of 493014
+ 639834 string characters out of 6133351
+ 797065 words of memory out of 5000000
+ 30010 multiletter control sequences out of 15000+600000
+ 12399 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,77p,911b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco206.pdf (6 pages, 361398 bytes).
+ 62i,15n,77p,911b,612s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on /Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/.texpadtmp/eco220.pdf (6 pages, 144222 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 184 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
