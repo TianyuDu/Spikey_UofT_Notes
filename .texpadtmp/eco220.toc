@@ -32,3 +32,4 @@
 \contentsline {subsubsection}{\numberline {2.4.1}Measures of centre (location)}{5}{subsubsection.2.4.1}
 \contentsline {paragraph}{Mean}{5}{section*.24}
 \contentsline {paragraph}{Median}{6}{section*.25}
+\contentsline {paragraph}{Mode}{6}{section*.26}
