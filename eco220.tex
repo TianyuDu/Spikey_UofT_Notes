@@ -216,6 +216,84 @@
 		\item \underbar{$75^{th}$ percentile}, also called $3^{rd}$ quartile, denoted as $Q3$.
 		\item \underbar{Interquartile} is defined as $Q3 - Q1$.
 	\end{itemize}
+	
+\section{Lecture 4 May. 17 2018}
+\paragraph{Notations}
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Variable & Population & Sample \\
+		\hline
+		\hline
+		size & $N$ & $n$ \\
+		\hline
+		mean & $\mu$ & $\overline{x}$ \\
+		\hline
+		variance & $\sigma^2$ & $s^2$ \\
+		\hline
+		std dev & $\sigma$ & $s$ \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\paragraph{Definition} \underbar{Coefficient of variation} of a set of data is defined as $cv = \frac{std}{mean}$. Therefore, CV in population is defined as
+	\[
+		CV_{population} = \frac{\sigma}{\mu}
+	\]
+	And CV in sample is defined as
+	\[
+		CV_{sample} = \frac{s}{\overline{x}}
+	\]
+
+\subsection{Chapter 6. Covariance and Correlation}
+\paragraph{Data(Population)} consider two sets(population) of data, $X = \{x_1,\dots, x_N\}$ and $Y = \{y_1, \dots, y_N\}$ with size $N$. And let $\mu_X$ and $\mu_Y$ denote the means of population $X$ and $Y$, let $\sigma_X$ and $\sigma_Y$ denote the standard deviation of two sets of data.
+
+\paragraph{Definition} The \underbar{covariance} of two data sets, $X$ and $Y$ is defined as
+\[
+	Cov(X,Y) = \frac{1}{N} \sum_{i=1}^N {(x_i - \mu_X)(y_i - \mu_Y)}
+\]
+
+\paragraph{Definition} The \underbar{correlation coefficient} between $X$ and $Y$ is defined as
+\[
+	\rho = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}
+\]
+
+\paragraph{Data(Sample)} Consider two samples from data sets. $X = \{x_1, \dots, x_n\}$ and $Y = \{y_1, \dots, y_n\}$ with size $n$.
+
+\paragraph{Definition} The \underbar{covariance on sample} is defined as
+\[
+	Cov(X,Y) = \frac{1}{n-1} \sum_{i=1}^N {(x_i - \overline{x})(y_i - \overline{y})}
+\]
+
+\paragraph{Definition} The \underbar{sample correlation coefficient} is defined as 
+\[
+	r = \frac{Cov(X,Y)}{s_X s_Y}
+\]
+
+\subsection{Interpretation}
+\paragraph{Example} Consider two sets of data with $Cov(X,Y) = -25.3$.
+\begin{enumerate}
+	\item The negative \textbf{sign} means $X$ and $Y$ have a \underbar{negative relationship} (\emph{linear relationship}).
+	\item The \textbf{magnitude} has \underbar{no meaning}.
+\end{enumerate}
+
+To have a measure that both the sign and magnitude of it have meaning, consider the correlation coefficient. If $r = -0.94$
+
+\begin{enumerate}
+	\item The negative \textbf{sign} implies $X$ and $Y$ have a \underbar{negative relationship}.
+	\item The \textbf{magnitude} 0.94 means the relationship between $X$ and $Y$ is \underbar{strong}.
+\end{enumerate}
+
+\paragraph{General Interpretation} By definition of correlation coefficients on population and sample, we have 
+\[
+	\rho \in [-1,1]
+\]
+and 
+\[
+	r \in [-1,1]
+\]
+The sign suggests the direction of correlation, and the magnitude(absolute value) of coefficient shows the strength of correlation.
+
 \end{document}
 
 

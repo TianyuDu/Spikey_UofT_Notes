@@ -1,0 +1,40 @@
+\contentsline {section}{\numberline {1}Lecture 1 May. 8 2018}{1}{section.1}
+\contentsline {paragraph}{Note}{1}{section*.2}
+\contentsline {section}{\numberline {2}Lecture 2 May. 9 2018}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Measuring GDP, three measures}{2}{subsection.2.1}
+\contentsline {paragraph}{Gross Domestic Product (GDP)}{2}{section*.3}
+\contentsline {paragraph}{Product/Value-added approach}{2}{section*.4}
+\contentsline {paragraph}{Expenditure approach}{2}{section*.5}
+\contentsline {paragraph}{Income approach}{2}{section*.6}
+\contentsline {paragraph}{Note}{2}{section*.7}
+\contentsline {subsection}{\numberline {2.2}Other measures}{2}{subsection.2.2}
+\contentsline {paragraph}{Gross National Product (GNP)}{2}{section*.8}
+\contentsline {paragraph}{Net Factor Payments (NFP)}{2}{section*.9}
+\contentsline {subsection}{\numberline {2.3}Problems with Measures of GDP}{2}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Nominal GDP and Real GDP}{3}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Real GDP at Constant Price}{3}{subsubsection.2.4.1}
+\contentsline {paragraph}{Computation}{3}{section*.10}
+\contentsline {subsubsection}{\numberline {2.4.2}Chain-weighted Real GDP}{3}{subsubsection.2.4.2}
+\contentsline {paragraph}{Definition}{3}{section*.11}
+\contentsline {subsection}{\numberline {2.5}Price Level}{3}{subsection.2.5}
+\contentsline {paragraph}{(General) Price level}{3}{section*.12}
+\contentsline {paragraph}{Consumer Price Index (CPI)}{3}{section*.13}
+\contentsline {subsection}{\numberline {2.6}Saving, Wealth and Capital}{3}{subsection.2.6}
+\contentsline {paragraph}{Flow}{3}{section*.14}
+\contentsline {paragraph}{Stock}{4}{section*.15}
+\contentsline {paragraph}{Private disposable income}{4}{section*.16}
+\contentsline {paragraph}{Private sector saving}{4}{section*.17}
+\contentsline {paragraph}{Government saving}{4}{section*.18}
+\contentsline {paragraph}{National Saving}{4}{section*.19}
+\contentsline {subsection}{\numberline {2.7}Labour Market Measurement}{4}{subsection.2.7}
+\contentsline {paragraph}{Employed}{4}{section*.20}
+\contentsline {paragraph}{Unemployed}{4}{section*.21}
+\contentsline {paragraph}{Out of the labour force}{4}{section*.22}
+\contentsline {section}{\numberline {3}Lecture 3 May. 10 2018}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Representative Consumer: Preference}{4}{subsection.3.1}
+\contentsline {paragraph}{Good 1: Physical good}{4}{section*.23}
+\contentsline {paragraph}{Good 2: Leisure}{4}{section*.24}
+\contentsline {paragraph}{Indifference curve}{4}{section*.25}
+\contentsline {paragraph}{Utility function}{4}{section*.26}
+\contentsline {subsection}{\numberline {3.2}Budget constraint}{5}{subsection.3.2}
+\contentsline {paragraph}{Constraint}{5}{section*.27}

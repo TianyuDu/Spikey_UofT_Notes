@@ -8,11 +8,11 @@
 \contentsline {paragraph}{Analyze:}{2}{section*.6}
 \contentsline {paragraph}{Data}{2}{section*.7}
 \contentsline {paragraph}{Parameters}{2}{section*.8}
-\contentsline {subsubsection}{\numberline {1.1.2}Example 2}{2}{subsubsection.1.1.2}
-\contentsline {paragraph}{Question}{2}{section*.9}
+\contentsline {subsubsection}{\numberline {1.1.2}Example 2}{3}{subsubsection.1.1.2}
+\contentsline {paragraph}{Question}{3}{section*.9}
 \contentsline {paragraph}{Population}{3}{section*.10}
 \contentsline {paragraph}{Sample}{3}{section*.11}
-\contentsline {paragraph}{}{3}{section*.12}
+\contentsline {paragraph}{}{4}{section*.12}
 \contentsline {paragraph}{}{4}{section*.13}
 \contentsline {paragraph}{Note}{4}{section*.14}
 \contentsline {paragraph}{Statistics}{4}{section*.15}
@@ -34,3 +34,16 @@
 \contentsline {paragraph}{Median}{6}{section*.25}
 \contentsline {paragraph}{Mode}{6}{section*.26}
 \contentsline {paragraph}{Percentile}{6}{section*.27}
+\contentsline {section}{\numberline {3}Lecture 4 May. 17 2018}{6}{section.3}
+\contentsline {paragraph}{Notations}{6}{section*.28}
+\contentsline {paragraph}{Definition}{7}{section*.29}
+\contentsline {subsection}{\numberline {3.1}Chapter 6. Covariance and Correlation}{7}{subsection.3.1}
+\contentsline {paragraph}{Data(Population)}{7}{section*.30}
+\contentsline {paragraph}{Definition}{7}{section*.31}
+\contentsline {paragraph}{Definition}{7}{section*.32}
+\contentsline {paragraph}{Data(Sample)}{7}{section*.33}
+\contentsline {paragraph}{Definition}{7}{section*.34}
+\contentsline {paragraph}{Definition}{8}{section*.35}
+\contentsline {subsection}{\numberline {3.2}Interpretation}{8}{subsection.3.2}
+\contentsline {paragraph}{Example}{8}{section*.36}
+\contentsline {paragraph}{General Interpretation}{8}{section*.37}
