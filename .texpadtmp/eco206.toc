@@ -1,0 +1,55 @@
+\contentsline {section}{\numberline {1}Lecture 1 May. 8 2018}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Budget Constraint}{2}{subsection.1.1}
+\contentsline {paragraph}{Bundle}{2}{section*.2}
+\contentsline {subsubsection}{\numberline {1.1.1}Types of Income}{2}{subsubsection.1.1.1}
+\contentsline {paragraph}{Exogenous income}{2}{section*.3}
+\contentsline {paragraph}{Endogenous income}{2}{section*.4}
+\contentsline {subsubsection}{\numberline {1.1.2}Exogenous Income}{2}{subsubsection.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.3}Endogenous Income}{2}{subsubsection.1.1.3}
+\contentsline {paragraph}{Framework}{2}{section*.5}
+\contentsline {paragraph}{Hypothetical income}{2}{section*.6}
+\contentsline {paragraph}{Budget Constraint equation}{3}{section*.7}
+\contentsline {paragraph}{Assumption}{3}{section*.8}
+\contentsline {paragraph}{Affordable}{3}{section*.9}
+\contentsline {subsection}{\numberline {1.2}Opportunity Cost}{3}{subsection.1.2}
+\contentsline {paragraph}{OC/MRT}{3}{section*.10}
+\contentsline {subsection}{\numberline {1.3}Changes that affect the budget constraint}{3}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Pure income change}{3}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Price change}{4}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3}Endogenous income price change}{4}{subsubsection.1.3.3}
+\contentsline {paragraph}{Intuition}{4}{section*.11}
+\contentsline {section}{\numberline {2}Lecture 2 May. 9 2018}{4}{section.2}
+\contentsline {paragraph}{Tophat}{4}{section*.12}
+\contentsline {subsection}{\numberline {2.1}Tastes as Binary Relations}{5}{subsection.2.1}
+\contentsline {paragraph}{Strictly preferred}{5}{section*.13}
+\contentsline {paragraph}{At least as good as}{5}{section*.14}
+\contentsline {paragraph}{Indifference}{5}{section*.15}
+\contentsline {subsection}{\numberline {2.2}Rationality Assumptions on Preference Relation}{5}{subsection.2.2}
+\contentsline {paragraph}{Completeness}{5}{section*.16}
+\contentsline {paragraph}{Transitivity}{5}{section*.17}
+\contentsline {paragraph}{Rational tastes}{6}{section*.18}
+\contentsline {subsection}{\numberline {2.3}Convenience Assumptions}{6}{subsection.2.3}
+\contentsline {paragraph}{(Strict) Monotonicity}{6}{section*.19}
+\contentsline {paragraph}{(Weak) Convexity}{6}{section*.20}
+\contentsline {paragraph}{Continuity}{6}{section*.21}
+\contentsline {subsection}{\numberline {2.4}Indifference Curve}{6}{subsection.2.4}
+\contentsline {paragraph}{Definition}{6}{section*.22}
+\contentsline {paragraph}{Properties}{6}{section*.23}
+\contentsline {subsection}{\numberline {2.5}Utility Function}{6}{subsection.2.5}
+\contentsline {paragraph}{Definition}{6}{section*.24}
+\contentsline {paragraph}{Marginal Rate of Substitution (MRS)}{7}{section*.25}
+\contentsline {section}{\numberline {3}Lecture 3 May. 15 2018}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Different Types of Tastes}{7}{subsection.3.1}
+\contentsline {paragraph}{Questions}{7}{section*.26}
+\contentsline {subsubsection}{\numberline {3.1.1}Shape and Substitutability Along IC}{7}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Diminishing MRS}{7}{subsubsection.3.1.2}
+\contentsline {section}{\numberline {4}Tutorial 2 May. 17 2018}{7}{section.4}
+\contentsline {paragraph}{MRS}{7}{section*.27}
+\contentsline {subsection}{\numberline {4.1}Different types of utility functions}{7}{subsection.4.1}
+\contentsline {paragraph}{Exercise1 (perfect complement)}{7}{section*.28}
+\contentsline {paragraph}{Exercise2 (homothetic)}{8}{section*.29}
+\contentsline {paragraph}{Exercise 3 (quasi-linear)}{9}{section*.30}
+\contentsline {paragraph}{Exercise 4 (perfect substitute)}{9}{section*.31}
+\contentsline {paragraph}{Exercise (linear, corner solution)}{9}{section*.32}
+\contentsline {paragraph}{Exercise (Concave, corner solution)}{10}{section*.33}
+\contentsline {paragraph}{Exercise}{10}{section*.34}

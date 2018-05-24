@@ -1,0 +1,55 @@
+\contentsline {section}{\numberline {1}Chapter 2: Measurements}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Measuring GDP}{2}{subsection.1.1}
+\contentsline {paragraph}{Three approaches}{2}{section*.2}
+\contentsline {paragraph}{Net Factor Payment(NFP)}{2}{section*.3}
+\contentsline {paragraph}{Problem with GDP}{2}{section*.4}
+\contentsline {subsection}{\numberline {1.2}Measuring Changes over Time}{2}{subsection.1.2}
+\contentsline {paragraph}{Calculation}{2}{section*.5}
+\contentsline {paragraph}{GDP Price Deflator}{3}{section*.6}
+\contentsline {subsection}{\numberline {1.3}Saving and Investment}{3}{subsection.1.3}
+\contentsline {paragraph}{Private Disposable Income}{3}{section*.7}
+\contentsline {paragraph}{Private Saving}{3}{section*.8}
+\contentsline {paragraph}{Public(Government Saving)}{3}{section*.9}
+\contentsline {paragraph}{Total Saving}{3}{section*.10}
+\contentsline {subsection}{\numberline {1.4}Labor Market Measurement}{4}{subsection.1.4}
+\contentsline {paragraph}{Measurements}{4}{section*.11}
+\contentsline {section}{\numberline {2}Chapter 4: Consumer and Firm Behaviour in a One-period Model}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Representative Agent: Consumer}{4}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Controls}{4}{subsubsection.2.1.1}
+\contentsline {paragraph}{Physical Goods ($C$)}{4}{section*.12}
+\contentsline {paragraph}{Leisure ($\ell $)}{4}{section*.13}
+\contentsline {subsubsection}{\numberline {2.1.2}Assumptions}{4}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Constraints}{4}{subsubsection.2.1.3}
+\contentsline {paragraph}{Budget Constraint}{4}{section*.14}
+\contentsline {paragraph}{Time Constraint}{4}{section*.15}
+\contentsline {paragraph}{Other (implicit) Constraints}{5}{section*.16}
+\contentsline {subsubsection}{\numberline {2.1.4}Experiments}{5}{subsubsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.5}Constructing Labor Supply}{5}{subsubsection.2.1.5}
+\contentsline {paragraph}{Labor Supply}{5}{section*.17}
+\contentsline {subsubsection}{\numberline {2.1.6}Formalizing Consumer's Optimization Problem}{5}{subsubsection.2.1.6}
+\contentsline {paragraph}{Utility}{5}{section*.18}
+\contentsline {paragraph}{Optimization}{5}{section*.19}
+\contentsline {paragraph}{Solution}{6}{section*.20}
+\contentsline {subsubsection}{\numberline {2.1.7}Comparative Statistics}{6}{subsubsection.2.1.7}
+\contentsline {paragraph}{Lump Sum Tax ($T$)}{6}{section*.21}
+\contentsline {paragraph}{Real Wage Rate ($w$)}{6}{section*.22}
+\contentsline {subsection}{\numberline {2.2}Representative Agent: Firm}{6}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Production Function}{6}{subsubsection.2.2.1}
+\contentsline {paragraph}{Production Function}{6}{section*.23}
+\contentsline {subsubsection}{\numberline {2.2.2}Assumptions}{7}{subsubsection.2.2.2}
+\contentsline {paragraph}{Constant Return to Scale (CRS)}{7}{section*.24}
+\contentsline {paragraph}{Increasing Return in Input}{7}{section*.25}
+\contentsline {paragraph}{Diminishing in Marginal Return}{7}{section*.26}
+\contentsline {paragraph}{Marginal Product Increases in other Inputs}{7}{section*.27}
+\contentsline {subsubsection}{\numberline {2.2.3}Optimization Problem}{7}{subsubsection.2.2.3}
+\contentsline {paragraph}{Intuition}{7}{section*.28}
+\contentsline {subsubsection}{\numberline {2.2.4}Formalizing Firm's Optimization Problem}{7}{subsubsection.2.2.4}
+\contentsline {paragraph}{Production Function}{7}{section*.29}
+\contentsline {paragraph}{Solution}{7}{section*.30}
+\contentsline {subsubsection}{\numberline {2.2.5}Comparative Statistics}{8}{subsubsection.2.2.5}
+\contentsline {paragraph}{Total Factor Productivity ($z$)}{8}{section*.31}
+\contentsline {paragraph}{Capital $K$}{8}{section*.32}
+\contentsline {paragraph}{Wage ($w$)}{8}{section*.33}
+\contentsline {subsubsection}{\numberline {2.2.6}Adding Taxes}{8}{subsubsection.2.2.6}
+\contentsline {paragraph}{Tax on output ($\tau $)}{8}{section*.34}
+\contentsline {paragraph}{Tax on labor hired ($\tau _N$)}{8}{section*.35}

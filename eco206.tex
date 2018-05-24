@@ -42,6 +42,7 @@
 \newcommand{\C}[0]{\mathbb{C}}
 \newcommand{\restrans}[2]{{#1}\vert_{#2}}
 \newcommand{\tx}[1]{\text{{#1}}}
+\newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}}
 
 
 \begin{document}
@@ -230,6 +231,107 @@
 \end{center}
 
 \subsubsection{Diminishing MRS}
+
+
+\section{Tutorial 2 May. 17 2018}
+
+\paragraph{MRS} In this course, defined \underbar{with} the minus sign.
+
+\[
+	MRS = \frac{dy}{dx}\vert_{u(x,y) = \overline{u}} = - \frac{\frac{\partial u}{\partial x}}{\frac{\partial u}{\partial y}}
+\]
+
+\subsection{Different types of utility functions}
+
+\paragraph{Exercise1 (perfect complement)} Preference over violins (v) and strings (s). Consume 4 strings with every violin. Any extras are discarded and cannot be used.
+\newline
+(a) utility function.
+\[
+	u(v, s) = min\{4v, s\}
+\]
+\newline
+(b) Graph an indifference curve
+\begin{figure*}[!htb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{eco206pic/perf_comp.jpg}
+\end{figure*}
+\newline
+(c) What's the MRS
+\begin{enumerate}
+	\item 0 if $4v>s$ (flat part)
+	\item $\infty$ if $4v < s$ (vertical part)
+	\item \emph{undefined} on kink point
+\end{enumerate}
+
+\paragraph{Exercise2 (homothetic)} Calculate MRS when $u(x_1, x_2) = x_1 ^ \alpha x_2 ^ \beta$
+\begin{multline*}
+	\emph{Solution.} \\
+	\pd{u}{x_1} = \alpha x_1 ^ {\alpha - 1} x_2 ^ \beta \\
+	\pd{u}{x_2} = \beta x_1 ^ \alpha x_2 ^ {\beta - 1} \\
+	MRS = -\frac{\pd{u}{x_1}}{\pd{u}{x_2}} = - \frac{\alpha x_2}{\beta x_1} \\
+	\tx{Check convexity holds:} \\
+	\tx{Method 1: Check convexity.} \\
+	\tx{Method 2: Quasi-concave utility function.} \\
+	\blacksquare
+\end{multline*}
+
+\paragraph{Exercise 3 (quasi-linear)} Calculate MRS if $u(x_1, x_2) = \sqrt{x_1} + x_2$
+\begin{multline*}
+	\emph{Solution.} \\
+	MRS = - \frac{\pd{u}{x}}{\pd{u}{y}} = -\frac{0.5}{\sqrt{x_1}} \\
+	\tx{Check convexity: check if absolute value of MRS diminish} \\
+	\vert MRS \vert = \frac{0.5}{\sqrt{x_1}} \\
+	\frac{d \vert MRS \vert}{d x_1} < 0 \tx{ for } x_1 > 0 \\
+	\blacksquare
+\end{multline*}
+
+\paragraph{Exercise 4 (perfect substitute)} A consumer considers pepsi(p) and cocacola(c) as perfect substitute and is willing to exchange 0.5 can of p for 1 can of c. What is a utility function for her preference?
+
+\begin{multline*}
+	\emph{Solution.} \\
+	MRS = -0.5 = - \frac{dp}{dc} = - \frac{\pd{u}{c}}{\pd{u}{p}}\\
+	\implies 0.5 \pd{u}{p} = \pd{u}{c} \\
+	\implies \pd{u}{p} = 2 \pd{u}{c} \\
+	u(c, p) = 2 p + c \tx{ (not unique)}\\
+	\blacksquare
+\end{multline*}
+
+\paragraph{Exercise (linear, corner solution)} Consider optimization problem 
+\begin{multline*}
+	\\
+	\max_{x,y} u(x,y) = 3x+2y \\
+	s.t.\ 2x + 5y = 100 \\
+\end{multline*}
+Solution $(x^*, y^*) = (50, 0)$
+
+\paragraph{Exercise (Concave, corner solution)}
+\begin{multline*}
+	\\
+	\max_{x, y} u(x,y) = x^2 + y^2 \\
+	s.t.\ x + y = 100 \\
+\end{multline*}
+\begin{multline*}
+	\emph{Solution.} \\
+	\tx{Check MRS} \vert MRS \vert = \frac{dy}{dx} = \frac{x}{y} \\
+	\tx{Thus increasing MRS.} \\
+	\tx{Lagrange provides a minimum.} \\
+	\tx{Corner solutions.} (x^*, y^*) = (0, 1000), (x^*, y^*) = (1000, 0)\\
+	\blacksquare
+\end{multline*}
+
+\paragraph{Exercise (kinked budget constraint)} Suppose $u(x_1, x_2) = x_1^2 x_2^2$ and the budget constraint is defined as 
+\[
+	\begin{cases}
+		2x_1 + x_2 = 80 \tx{ if } x_1 \leq 20 \\
+		x_1 + x_2 = 60 \tx{ if } x_1 \geq 20 \\
+	\end{cases}
+\]
+How does the optimal x_1 compare to 20?
+\begin{multline*}
+	\emph{Soluti on.} \\
+	\textbf{Method 1} \\
+\end{multline*}
+
 
 \end{document}
 
