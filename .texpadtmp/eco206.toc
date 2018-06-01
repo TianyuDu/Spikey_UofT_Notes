@@ -52,4 +52,4 @@
 \contentsline {paragraph}{Exercise 4 (perfect substitute)}{9}{section*.31}
 \contentsline {paragraph}{Exercise (linear, corner solution)}{9}{section*.32}
 \contentsline {paragraph}{Exercise (Concave, corner solution)}{10}{section*.33}
-\contentsline {paragraph}{Exercise}{10}{section*.34}
+\contentsline {paragraph}{Exercise (kinked budget constraint)}{10}{section*.34}

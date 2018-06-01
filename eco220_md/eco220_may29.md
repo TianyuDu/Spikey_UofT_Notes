@@ -5,7 +5,7 @@ Let $S$ be the event space.
 - $0 \leq P(A) \leq 1$
 - $P(S) = 1$
 - $P(A^c)  = 1 - P(A)$
-- **Addition rule** $P(A\cup B) = P(A) + P(B) - P(A \cap B)$
+- **Addition rule:** $P(A\cup B) = P(A) + P(B) - P(A \cap B)$
 
 
 
@@ -43,4 +43,57 @@ And **marginal probability** $P(G) = P(G \cap D_1) +  P(G \cap D_2) +  P(G \cap 
 
 $P(D_2 \vert G) = \frac{P(D_2 \cap G)}{P(G)} = \frac{.3}{.8} = .375$
 
-*The probability of $D_2​$ conditioning $G​$. Given $G​$ happens, what's the probability of $D_2​$?*
+*The probability of $D_2$ conditioning $G$. Given $G$ happens, what's the probability of $D_2$?*
+
+In general, if $A$ and $B$ are events in sample space $S$, define **conditional probability** of $A$ given $B$ as $P(A \vert B) = \frac{P(A \cap B)}{P(B)}$
+
+Similarly, $P(B \vert A) = \frac{P(A \cap B)}{P(A)}$
+
+**Multiplication Rule:**
+
+$P(A \cap B) = P(A \vert B) \times P(B) = P(B \vert A) \times P(A)$
+
+##### Example
+
+> $P(A) = .3$ , $P(B) = .4$
+
+a) $P(A \cup B) = P(A) + P(B) - P(A \cap B) = .7 - P(A \cap B)$
+
+b) *If A and B are disjoint* $P(A \cup B) = P(A) + P(B) - P(A \cap B) = .3 + .4 - .0 = .7$
+
+c) If $P(B \vert A) = .2$, $P(A \cup B) = P(A) + P(B) - P(A \cap B) = .7 - (P(B\vert A) \times P(A)) = .7 - .2 * .3 = .64$
+
+d) If $A, B$ are disjoint, then $P(B \vert A) = 0$
+
+
+
+## Independent Event
+
+##### Example
+
+> Let $A$ be the event that student $A$ passes, $B$ be the event that student $B$ passes.
+
+a) Events $A$ and $B$ **independent** means $A$ has <u>no</u> impact on prob of $B$. That's
+
+$P(A \vert B) = P(A)$, or $P(B \vert A) = P(B)$
+
+Or $P(A \cap B) = P(A \vert B) P(B) = P(A) P(B)$
+
+b) If $A$ and $B$ are mutually exclusive
+
+When $A$ occurs, $B$ will not occur, and vice versa.
+
+Therefore $P(A\vert B) = P(B \vert A) = P(A \cap B) = 0$
+
+Therefore **If two events are independent, they could not be mutually exclusive.**
+
+**If two events are mutually, they could not be independent**
+
+##### Definition of independence (three equivalent definitions)
+
+1) $P(A \vert B) = P(A)$ or
+
+2) $P(B \vert A) = P(B)$ or 
+
+3) $P(A \cap B) = P(A)P(B)$
+
