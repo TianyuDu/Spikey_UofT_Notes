@@ -3,13 +3,13 @@
 \contentsline {paragraph}{Three approaches}{2}{section*.2}
 \contentsline {paragraph}{Net Factor Payment(NFP)}{2}{section*.3}
 \contentsline {paragraph}{Problem with GDP}{2}{section*.4}
-\contentsline {subsection}{\numberline {1.2}Measuring Changes over Time}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.2}Measuring Changes over Time}{3}{subsection.1.2}
 \contentsline {paragraph}{Calculation}{3}{section*.5}
 \contentsline {paragraph}{GDP Price Deflator}{3}{section*.6}
 \contentsline {subsection}{\numberline {1.3}Saving and Investment}{3}{subsection.1.3}
 \contentsline {paragraph}{Private Disposable Income}{3}{section*.7}
 \contentsline {paragraph}{Private Saving}{3}{section*.8}
-\contentsline {paragraph}{Public(Government Saving)}{3}{section*.9}
+\contentsline {paragraph}{Public(Government Saving)}{4}{section*.9}
 \contentsline {paragraph}{Total Saving}{4}{section*.10}
 \contentsline {subsection}{\numberline {1.4}Labor Market Measurement}{4}{subsection.1.4}
 \contentsline {paragraph}{Measurements}{4}{section*.11}
@@ -19,8 +19,8 @@
 \contentsline {paragraph}{Physical Goods ($C$)}{4}{section*.12}
 \contentsline {paragraph}{Leisure ($\ell $)}{4}{section*.13}
 \contentsline {subsubsection}{\numberline {2.1.2}Assumptions}{4}{subsubsection.2.1.2}
-\contentsline {subsubsection}{\numberline {2.1.3}Constraints}{4}{subsubsection.2.1.3}
-\contentsline {paragraph}{Budget Constraint}{4}{section*.14}
+\contentsline {subsubsection}{\numberline {2.1.3}Constraints}{5}{subsubsection.2.1.3}
+\contentsline {paragraph}{Budget Constraint}{5}{section*.14}
 \contentsline {paragraph}{Time Constraint}{5}{section*.15}
 \contentsline {paragraph}{Other (implicit) Constraints}{5}{section*.16}
 \contentsline {subsubsection}{\numberline {2.1.4}Experiments}{5}{subsubsection.2.1.4}
@@ -69,3 +69,7 @@
 \contentsline {paragraph}{Exogenous variables}{9}{section*.42}
 \contentsline {paragraph}{Endogenous variables}{9}{section*.43}
 \contentsline {paragraph}{Competitive Equilibrium}{10}{section*.44}
+\contentsline {section}{\numberline {4}Chapter 6 Two-sided search model}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Model setup}{10}{subsection.4.1}
+\contentsline {paragraph}{Definition}{10}{section*.45}
+\contentsline {paragraph}{Definition}{10}{section*.46}
