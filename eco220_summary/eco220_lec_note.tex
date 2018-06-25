@@ -231,7 +231,7 @@
 			\[
 				R^2 = \frac{SSR}{SST}
 			\]
-			and notice that $R^2 \in [0, 1]$ and can be interpreted as \underbar{\% of variation in $y$ explained by $x$ (via the linear model)}
+			and notice that $R^2 \in [0, 1]$ and can be interpreted as \textbf{\% of variation in $y$ explained by $x$ (via the linear model)}
 		\paragraph{Note} in ECO220, we use $R^2$ or $r^2$ to represent the same thing.
 		
 		\subsection{Sample space, Event and Probability}
@@ -239,7 +239,7 @@
 		\paragraph{Random Experiment} a random experiment is an experiment such that the outputs \emph{cannot} be determined \underbar{with certainty} before the end of the experiment.
 		\paragraph{Sample Space} a sample space is the \underbar{set} of all possible outcomes in a random experiment.
 		\paragraph{Event} an event is a \underbar{subset} of a sample space.
-		\paragraph{Prob} Let $S$ be the sample space, let $E$ be an event, then the \textbf{probability of $E$} $P(E)$ is defined as
+		\paragraph{Prob} Let $S$ be the sample space, let $E$ be an event, then the \textbf{probability of $E$}, $P(E)$ is defined as
 			\[
 				P(E) = \tx{probability of $E$} = \frac{\tx{Number of outcomes in $E$}}{\tx{Number of outcomes in $S$}}
 			\]
@@ -422,6 +422,20 @@
 				\[
 					\overline{X} \sim N(\mu, \frac{\sigma^2}{n}), \tx{ when $n$ is large.}
 				\]
+				
+	\section{Lecture 13 Jun. 19 2018}
+		\subsection{Confidence Interval}
+			\paragraph{} To find $100(1-\alpha)\%$ confidence interval for $p$ estimated from $\hat{p}$ is
+			\[
+				\hat{p} \pm z_{\frac{\alpha}{2}}\sqrt{\frac{\hat{p}\hat{q}}{n}}
+			\]
+		
+		\subsection{Sample Size Required}
+			\paragraph{} When we specify the confidence level $1-\alpha$, and the margin of error, the required sample size is
+			\[
+				n = \frac{z_{\frac{\alpha}{2}}^2}{(ME)^2}pq
+			\]
+			If $p$ can be estimated from previous surveys, use it to find $n$. Else, use $p=0.5$ to find $n$.
 \end{document}
 
 
