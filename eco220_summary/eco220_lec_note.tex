@@ -6,7 +6,7 @@
 \usepackage{float}
 \usepackage{mycommands}
 
-
+ 
 \title{ECO220: Quantitative Methods in Economics \newline Lecture Notes (0201)}
 \author{Tianyu Du, Instructor: Victor Yu}
 \date{\today}
@@ -436,6 +436,183 @@
 				n = \frac{z_{\frac{\alpha}{2}}^2}{(ME)^2}pq
 			\]
 			If $p$ can be estimated from previous surveys, use it to find $n$. Else, use $p=0.5$ to find $n$.
+			
+	\section{Lecture 14 Jul. 3 2018}
+		\subsection{Confidence Interval for Population Proportion}
+			\paragraph{} \textbf{Point estimator} for $p$ is $\hat{p}$, confidence interval for $p$ is 
+				\[
+					\hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}\hat{q}}{n}},\ with\ large\ n
+				\]
+				$n$ is considered as \emph{large} iff $np \geq 10 \land nq \geq 10$.
+				$\sqrt{\frac{\hat{p}\hat{q}}{n}}$ is the \textbf{standard error/deviation} of estimation. 
+				And $z_{\alpha/2} \sqrt{\frac{\hat{p}\hat{q}}{n}}$ is the \textbf{margin of error}. 
+		\subsection{Two populations}
+			\paragraph{}$p_1, p_2$ denote the qualification percentages for population 1 and 2. And $\hat{p_1}, \hat{p_2}$ denote the qualification percentages in samples with sample sizes
+				$n_1, n_2$ from population 1 and 2.
+			\paragraph{Point estimator}To estimate $p_1$ to $p_2$, we estimate $p_1 - p_2$.
+			The point estimator for $p_1 - p_2$ is $\hat{p_1} - \hat{p_2}$.
+			\paragraph{Interval estimator}The interval estimation for $p_1 - p_2$ is 
+				\[
+					PointEstimator \pm z_{\alpha /2} \times Std(PointEstimator)
+				\]
+				\[
+					\hat{p_1} - \hat{p_2} \pm z_{\alpha /2} \times Std(\hat{p_1} - \hat{p_2})
+				\]
+				To find $Std(\hat{p_1} - \hat{p_2})$, by \emph{law of expectation}
+				\[
+					Var(aX+bY) = Var(aX) + Var(bY) + 2abCov(X,Y)
+				\]
+				We select two independent samples of size $n_1$ and $n_2$ from populations, therefore
+				\[
+					V(\hat{p_1} - \hat{p_2}) = V(\hat{p_1}) + V(\hat{p_2})
+				\]
+				When $n_1$ and $n_2$ are \underline{large}, by \emph{central limit theorem}, 
+				\begin{displaymath}
+					\hat{p_1} \sim N(p_1, \frac{p_1 q_1}{n_1}), \quad
+					\hat{p_2} \sim N(p_2, \frac{p_2 q_2}{n_2})
+				\end{displaymath}
+				Then, for two \emph{independent} samples, $\hat{p_1}$ and $\hat{p_2}$ are independent, 
+				\[
+					V(\hat{p_1} - \hat{p_2}) = \frac{p_1 q_1}{n_1} + \frac{p_2 q_2}{n_2}
+				\]
+				But we do not know $p_1$ and $p_2$, we cannot calculate $V(\hat{p_1} - \hat{p_2})$ directly from above equation. We estimate $p_1$ and $p_2$ by $\hat{p_1}$ and $\hat{p_2}$
+				\newline Therefore the \textbf{estimated variance} is 
+				\[
+					(Estimated)V(\hat{p_1} - \hat{p_2}) = \frac{\hat{p_1} \hat{q_1}}{n_1} + \frac{\hat{p_2} \hat{q_2}}{n_2}
+				\]
+				\[
+					(Estimated)Std(\hat{p_1} - \hat{p_2}) = \sqrt{\frac{\hat{p_1} \hat{q_1}}{n_1} + \frac{\hat{p_2} \hat{q_2}}{n_2}}
+				\]
+		\paragraph{Result} confidence interval for $\hat{p_1} - \hat{p_2}$
+			\[
+				C.I._{\alpha} = \hat{p_1} - \hat{p_2} \pm z_{\alpha/2} \sqrt{\frac{\hat{p_1} \hat{q_1}}{n_1} + \frac{\hat{p_2} \hat{q_2}}{n_2}}
+			\]
+		\paragraph{Example} Compare the percentage of people going to casino in Ontario and Manitoba.
+			\begin{center}
+				\begin{tabular}{l|cc}
+				  Var & Ontario & Manitoba \\
+				  \hline
+				  Actual & $p_1$ & $p_2$ \\
+				  Sample size & $n_1=4151$ & $n_2=389$ \\
+				  Point estimator & $\hat{p_1}=66.5\%$ & $\hat{p_2}=75.2\%$
+				\end{tabular}
+			\end{center}
+			\quad \textbf{Point estimator} for $p_1 - p_2$ is $\hat{p_1} - \hat{p_2} = -0.087$
+			\newline the 95\% C.I. for $p_1 - p_2$ is
+				\[
+					-.0087 \pm (z_{.025}=1.96) * \sqrt{\frac{.665 * .335}{4151} + \frac{.752 * .248}{389}} = (-.132, -.042)
+				\]
+			\newline \textbf{Interpretation} 95\% of the times, $p_1 - p_2$ falls between -.132 and -.042. We are 95\% confident that $p_1 - p_2$ is between -.132 and -.042.
+			\newline \textbf{Remark} Is there a \underbar{significant difference} between the \% going to casinos between Ontario and Manitoba? Since the 95\% C.I. for $p_1 - p_2$ does not contain 0, we conclude that there \textbf{is} a significant difference between \% in two population.
+			\newline \textbf{Remark} You can also use estimate the $p_2 - p_1$ and the 95\% C.I. would be $(.042, .132)$.
+		
+		\subsection{Chapter 12. Hypothesis Testing in Population Proportion}
+		\[
+			\tx{Statistical Inference}
+			\begin{cases}
+				\tx{Estimation}
+					\begin{cases}	
+						\tx{Point Estimation} \\
+						\tx{Interval Estimation}
+					\end{cases}\\
+				\tx{Hypothesis Testing}
+			\end{cases}
+		\]
+		\paragraph{} $H_0$: the \textbf{null hypothesis}. $H_1$: the \textbf{alternative hypothesis}.
+		\paragraph{Reality}
+			\[
+				\begin{cases}
+					H_0 \tx{ Person not murder}
+						\begin{cases}
+							Guilty\ \vert \ H_0\textbf{ Type I Error}\\
+							NotGuilty\ \vert \ H_0 \textbf{ No error}
+						\end{cases} \\
+					H_1 \tx{ Person is murderer}
+						\begin{cases}
+							Guilty\ \vert \ H_1 \textbf{ No error}\\
+							NotGuilty\ \vert \ H_1 \textbf{ Type II Error}\\
+						\end{cases}
+				\end{cases}
+			\]
+		\paragraph{}When the court concludes "Guilty" and $H_0$ is true, type I error occurs and denote the probability of type I error as $\alpha$
+			\[
+				\alpha = P(\tx{Reject $H_0$} \vert H_0) P(\tx{Type I Error})
+			\]
+			And in this case, Type II Error will not occur.
+		\paragraph{}Let $\beta$ denote the probability for type II error to occur.
+			\[
+				\beta = P(\tx{Reject $H_1$/Fail to reject $H_0$} \vert H_1) = P(\tx{Type II Error})
+			\]
+		\paragraph{Remark} $\beta$ becomes large as $\alpha$ becomes small. 
+		\paragraph{Conclusion} Therefore, in \emph{hypothesis testing}, we have two hypotheses, $H_0$ and $H_1$. Based on sample results (evidence), we either \emph{reject $H_0$} or \emph{do not reject $H_0$}
+		
+	\section{Lecture 15 Jul. 4 2018}
+		\subsection{Recall: Concepts of Hypothesis Testing}
+			\paragraph{Concepts} $H_0$ \textbf{null hypothesis} and $H_1$ \textbf{alternative hypothesis}
+			
+			\paragraph{Case I} Rejecting $H_0$ while $H_0$ is true. \underbar{Failed to accept null hypothesis $H_0$}.
+				\[
+					\alpha = P(\tx{Reject }H_0\ \vert \ H_0 \tx{ True})= \textbf{Significance Level}
+				\]
+				\emph{In real life, we want the \textbf{significance level} to be as low as possible.} And note that significance level is probability for \underbar{type I error} to occur when $H_0$ is true.
+				
+			\paragraph{Case II} Accepting $H_0$ with $H_1$ is true. \underbar{Fail to accept alternative hypothesis}. $\beta$ is the probability of \underbar{type II error} while $H_1$ is true.
+				\[
+					\beta = P(\tx{Accept }H_0\ \vert \ H_1 \tx{ True})
+				\]
+			\paragraph{Remark} In hypothesis testing, we wish both $\alpha$ and $\beta$ to be small. However, by setting the rule of decision making and lowering $\alpha$, $\beta$ goes higher.
+		\subsection{Hypothesis Testing}
+			\textbf{Steps}
+			\begin{enumerate}
+				\item Set up null and alternative hypotheses $H_0$ and $H_1$.
+				\item Setup a decision rule.
+				\item Test statistic.
+				\item Conclusion.
+			\end{enumerate}
+			
+		\subsection{Hypothesis Testing in Population Proportion}
+			\paragraph{Data} Population proportion $p$. Select sample with sample size $n$ and sample proportion $\hat{p}$.
+			\paragraph{} $H_0$ null hypothesis on $p$ and $H_1$ as the alternative hypothesis.
+			
+			\paragraph{Example} Government claims that more than $50\%$ of Canadian are in favour of a policy.
+			\newline
+			\textbf{Step 1} setup hypotheses \underbar{$H_0:= p \leq 0.5$ and $H_1 := p > 0.5$}
+			\newline
+			\textbf{Step 2} setup a decision rule \underbar{If $\hat{p} < c$ we accept $H_0$. If $\hat{p} \geq c$ we reject $H_0$.}
+			\newline Consider $c=0.55$. Then in a random sample of $n=200, \hat{p} = \%$ in favour from sample. Decision rule is
+			\[
+				\begin{cases}
+					\tx{Accept $H_0: p \leq 0.5$ if $\hat{p} < 0.55$} \\
+					\tx{Accept $H_1: p > 0.5$ if $\hat{p} \geq 0.55$}
+				\end{cases}
+			\]
+			\newline \textbf{Step 3} test statistic. In a sample of $n=200, \hat{p}=0.58$.
+			\newline \textbf{Step 4} Conclusion: Reject $H_0$.
+			
+			\subsubsection{Finding Critical Value c}
+				\paragraph{} Finding $\alpha$
+					\[
+						\alpha = P(\tx{Type I Error}) = P(\hat{p}\geq 0.55 \vert p \leq 0.5)
+					\]
+					By \underbar{central limit theorem}, when $n$ is large,
+					\[
+						\hat{p} \sim N(np, \frac{pq}{n})
+					\]
+					Then normalized data, 
+					\[
+						\alpha = p(z \geq \frac{0.05 \sqrt{200}}{0.5}) = 0.0793 \approx 8\%
+					\]
+					Therefore, by setting the critical value $c=0.55$, the probability of type I error, $\alpha = 0.08$.
+					\newline
+					Finding $\beta$
+					\[
+						\beta = P(\hat{p} < 0.55 \vert p > 0.5)
+					\]
+				\begin{figure*}[h]
+					\begin{center}
+						\includegraphics[width=\linewidth]{fig3}
+					\end{center}
+				\end{figure*}
 \end{document}
 
 

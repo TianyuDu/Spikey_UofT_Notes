@@ -1,0 +1,144 @@
+\contentsline {section}{\numberline {1}Lecture 1 May. 08 2018}{3}
+\contentsline {subsection}{\numberline {1.1}Notations}{3}
+\contentsline {subsection}{\numberline {1.2}From Sample to Population}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {section}{\numberline {2}Lecture 2 May. 09 2018}{3}
+\contentsline {subsection}{\numberline {2.1}What is Statistics?}{3}
+\contentsline {subsection}{\numberline {2.2}Data}{3}
+\contentsline {subsection}{\numberline {2.3}Descriptive Statistics - Graphs}{4}
+\contentsline {subsection}{\numberline {2.4}Descriptive Statistics - Numerical measures}{4}
+\contentsline {subsubsection}{\numberline {2.4.1}Measures of centre}{4}
+\contentsline {paragraph}{Mean}{4}
+\contentsline {paragraph}{Median}{4}
+\contentsline {paragraph}{Mode}{4}
+\contentsline {paragraph}{Percentiles}{4}
+\contentsline {section}{\numberline {3}Lecture 3 May. 15 2018}{4}
+\contentsline {subsection}{\numberline {3.1}Measures of Variation(Spread)}{4}
+\contentsline {paragraph}{Variance and Standard Derivation}{4}
+\contentsline {paragraph}{Note}{4}
+\contentsline {paragraph}{Note}{5}
+\contentsline {paragraph}{Range}{5}
+\contentsline {section}{\numberline {4}Lecture 4 May. 16 2018}{5}
+\contentsline {subsection}{\numberline {4.1}Covariance and Correlation: on Populations}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{Denote}{5}
+\contentsline {paragraph}{Covariance}{5}
+\contentsline {paragraph}{Correlation coefficient}{5}
+\contentsline {subsection}{\numberline {4.2}Covariance and Correlation: on Samples}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{Covariance}{5}
+\contentsline {paragraph}{Correlation coefficient}{5}
+\contentsline {subsection}{\numberline {4.3}Interpretations}{6}
+\contentsline {subsubsection}{\numberline {4.3.1}Interpreting covariance}{6}
+\contentsline {paragraph}{Example}{6}
+\contentsline {subsubsection}{\numberline {4.3.2}Interpreting correlation coefficient}{6}
+\contentsline {paragraph}{Example}{6}
+\contentsline {paragraph}{Note}{6}
+\contentsline {section}{\numberline {5}Lecture 5 May. 22 2018}{6}
+\contentsline {subsection}{\numberline {5.1}Introduction to Simple Regression}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {paragraph}{Note}{6}
+\contentsline {paragraph}{SSE}{6}
+\contentsline {paragraph}{OLS}{6}
+\contentsline {subsection}{\numberline {5.2}Relationship between $b_1$ and $r$}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {subsection}{\numberline {5.3}Analysis of Variance (ANOVA)}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{Definition}{7}
+\contentsline {paragraph}{Notice}{7}
+\contentsline {paragraph}{Anova Table}{7}
+\contentsline {section}{\numberline {6}Lecture 6 May. 23 2018}{8}
+\contentsline {subsection}{\numberline {6.1}OLS, continued.}{8}
+\contentsline {paragraph}{R-square}{8}
+\contentsline {paragraph}{Note}{8}
+\contentsline {subsection}{\numberline {6.2}Sample space, Event and Probability}{8}
+\contentsline {paragraph}{Experiment}{8}
+\contentsline {paragraph}{Random Experiment}{8}
+\contentsline {paragraph}{Sample Space}{8}
+\contentsline {paragraph}{Event}{8}
+\contentsline {paragraph}{Prob}{8}
+\contentsline {subsection}{\numberline {6.3}Some Rules of Probability}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {section}{\numberline {7}Lecture 7 May. 29 2018}{9}
+\contentsline {paragraph}{Mutually Exclusive Event}{9}
+\contentsline {subsection}{\numberline {7.1}Conditional Probability}{9}
+\contentsline {paragraph}{Conditional Prob}{9}
+\contentsline {paragraph}{Multiplication rule}{9}
+\contentsline {subsection}{\numberline {7.2}Independent Event}{9}
+\contentsline {paragraph}{Independent Event}{9}
+\contentsline {section}{\numberline {8}Lecture 8 May. 30 2018}{9}
+\contentsline {subsection}{\numberline {8.1}Bayes Theorem}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {subsection}{\numberline {8.2}Random Variable and Prob. Distributions}{9}
+\contentsline {paragraph}{Prob. distribution}{9}
+\contentsline {paragraph}{Cumulative Prob. distribution}{9}
+\contentsline {subsection}{\numberline {8.3}Expected Values}{10}
+\contentsline {paragraph}{Expected Value}{10}
+\contentsline {paragraph}{Variance of Random Variable}{10}
+\contentsline {section}{\numberline {9}Lecture 9 June. 5 2018}{10}
+\contentsline {subsection}{\numberline {9.1}Expected Value of a Random Variable}{10}
+\contentsline {paragraph}{Mean}{10}
+\contentsline {paragraph}{Variance}{10}
+\contentsline {subsection}{\numberline {9.2}Laws of Expectation}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{Note}{10}
+\contentsline {subsection}{\numberline {9.3}Binomial Distribution}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {section}{\numberline {10}Lecture 10 June. 6 2018}{11}
+\contentsline {subsection}{\numberline {10.1}Uniform Distribution}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {subsection}{\numberline {10.2}Normal Distribution}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {paragraph}{Standard Normal Distribution}{11}
+\contentsline {section}{\numberline {11}Lecture 11 June. 12 2018}{11}
+\contentsline {subsection}{\numberline {11.1}Applying normal distribution}{11}
+\contentsline {paragraph}{Theorem}{11}
+\contentsline {subsection}{\numberline {11.2}Normal Approximation to Binomial}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {section}{\numberline {12}Lecture 12 June. 13 2018}{12}
+\contentsline {subsection}{\numberline {12.1}Sampling Distributions}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{Example}{12}
+\contentsline {paragraph}{Method 1}{12}
+\contentsline {paragraph}{Method 2}{13}
+\contentsline {paragraph}{Note}{13}
+\contentsline {subsection}{\numberline {12.2}Sampling distribution of $\overline {X}$, the sample mean}{13}
+\contentsline {section}{\numberline {13}Lecture 13 Jun. 19 2018}{13}
+\contentsline {subsection}{\numberline {13.1}Confidence Interval}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {subsection}{\numberline {13.2}Sample Size Required}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {section}{\numberline {14}Lecture 14 Jul. 3 2018}{14}
+\contentsline {subsection}{\numberline {14.1}Confidence Interval for Population Proportion}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {subsection}{\numberline {14.2}Two populations}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{Point estimator}{14}
+\contentsline {paragraph}{Interval estimator}{14}
+\contentsline {paragraph}{Result}{15}
+\contentsline {paragraph}{Example}{15}
+\contentsline {subsection}{\numberline {14.3}Chapter 12. Hypothesis Testing in Population Proportion}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{Reality}{15}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{Remark}{16}
+\contentsline {paragraph}{Conclusion}{16}
+\contentsline {section}{\numberline {15}Lecture 15 Jul. 4 2018}{16}
+\contentsline {subsection}{\numberline {15.1}Recall: Concepts of Hypothesis Testing}{16}
+\contentsline {paragraph}{Concepts}{16}
+\contentsline {paragraph}{Case I}{16}
+\contentsline {paragraph}{Case II}{16}
+\contentsline {paragraph}{Remark}{16}
+\contentsline {subsection}{\numberline {15.2}Hypothesis Testing}{16}
+\contentsline {subsection}{\numberline {15.3}Hypothesis Testing in Population Proportion}{17}
+\contentsline {paragraph}{Data}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{Example}{17}
+\contentsline {subsubsection}{\numberline {15.3.1}Finding Critical Value c}{17}
+\contentsline {paragraph}{}{17}
