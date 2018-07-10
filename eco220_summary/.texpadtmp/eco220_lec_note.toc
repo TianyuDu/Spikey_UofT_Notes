@@ -142,3 +142,7 @@
 \contentsline {paragraph}{Example}{17}
 \contentsline {subsubsection}{\numberline {15.3.1}Finding Critical Value c}{17}
 \contentsline {paragraph}{}{17}
+\contentsline {section}{\numberline {16}Lecture 16 Jul. 10 2018}{18}
+\contentsline {subsection}{\numberline {16.1}Concepts in Hypothesis Testing}{18}
+\contentsline {subsection}{\numberline {16.2}Hypothesis on $p$, Population Proportion}{18}
+\contentsline {paragraph}{Example}{18}

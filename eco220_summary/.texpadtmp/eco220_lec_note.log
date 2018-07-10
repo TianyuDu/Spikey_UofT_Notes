@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  4 JUL 2018 15:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  10 JUL 2018 14:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -85,7 +85,14 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+)) (/Users/tianyudu/Library/texmf/tex/spikey.sty
+Package: spikey 
+\c@definition=\count99
+\c@theorem=\count100
+\c@corollary=\count101
+\c@lemma=\count102
+\c@remark=\count103
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -105,19 +112,17 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count99
+\Gread@gobject=\count104
 ))
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count100
+\c@float@type=\count105
 \float@exts=\toks20
 \float@box=\box28
 \@float@everytoks=\toks21
 \@floatcapt=\box29
-) (./mycommands.sty
-Package: mycommands 
 ) (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/eco220_summary/.texpadtmp/eco220_lec_note.aux)
 \openout1 = `eco220_lec_note.aux'.
 
@@ -135,16 +140,16 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
+\scratchcounter=\count106
 \scratchdimen=\dimen114
 \scratchbox=\box30
-\nofMPsegments=\count102
-\nofMParguments=\count103
+\nofMPsegments=\count107
+\nofMParguments=\count108
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count104
+\MPscratchCnt=\count109
 \MPscratchDim=\dimen115
-\MPnumerator=\count105
-\makeMPintoPDFobject=\count106
+\MPnumerator=\count110
+\makeMPintoPDFobject=\count111
 \everyMPtoPDFconversion=\toks23
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO)
@@ -225,22 +230,18 @@ Package pdftex.def Info: fig2.png used on input line 355.
 File: fig3.png Graphic file (type png)
  <use fig3.png>
 Package pdftex.def Info: fig3.png used on input line 613.
-(pdftex.def)             Requested size: 345.0pt x 163.12337pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[17] [18 <./fig3.png>] (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/eco220_summary/.texpadtmp/eco220_lec_note.aux) ) 
+(pdftex.def)             Requested size: 137.9979pt x 65.24535pt.
+ [17 <./fig3.png>] [18] (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/eco220_summary/.texpadtmp/eco220_lec_note.aux) ) 
 Here is how much of TeX's memory you used:
- 2506 strings out of 493014
- 34135 string characters out of 6133351
- 98050 words of memory out of 5000000
- 5999 multiletter control sequences out of 15000+600000
+ 2534 strings out of 493014
+ 34480 string characters out of 6133351
+ 98250 words of memory out of 5000000
+ 6026 multiletter control sequences out of 15000+600000
  13525 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,15n,26p,458b,271s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/eco220_summary/.texpadtmp/eco220_lec_note.pdf (18 pages, 537472 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/eco220_summary/.texpadtmp/eco220_lec_note.pdf (18 pages, 538244 bytes).
 PDF statistics:
  162 PDF objects out of 1000 (max. 8388607)
  111 compressed objects within 2 object streams

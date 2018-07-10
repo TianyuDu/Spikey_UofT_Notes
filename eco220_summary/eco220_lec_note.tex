@@ -2,9 +2,9 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{spikey}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{mycommands}
 
  
 \title{ECO220: Quantitative Methods in Economics \newline Lecture Notes (0201)}
@@ -610,9 +610,87 @@
 					\]
 				\begin{figure*}[h]
 					\begin{center}
-						\includegraphics[width=\linewidth]{fig3}
+						\includegraphics[width=0.4\linewidth]{fig3}
 					\end{center}
 				\end{figure*}
+				
+				
+	\section{Lecture 16 Jul. 10 2018}
+		\subsection{Concepts in Hypothesis Testing}
+			\begin{enumerate}
+				\item Set up $H_0$ and $H_1$ hypotheses.
+				\item Set up a decision rule.
+				\item Test statistic (sample evidence).
+				\item Conclusion.
+			\end{enumerate}
+			
+		\subsection{Hypothesis on $p$, Population Proportion}
+			\paragraph{Example} Government Claims that more than half of the Canadian support the idea of increasing [...]
+			
+			\[
+				H_0: p \leq 0.5,\quad 
+				H_1: p > 0.5
+			\]
+			\\
+			\textbf{Decision rule} we will select a large sample, $n=100$. Let $\hat{p} = \%$ support in the sample. By choosing critical value $c$, we reject $H_0$ if $\hat{p} \geq c$ and do not reject $H_0$ if $\hat{p} < c$.
+		
+		\subsection{Determining the Critical Value $c$}
+			\paragraph{Cont'd} Since $n=100$ is large, by central limit theorem,
+				\[
+					\hat{p} \sim N(p, \frac{pq}{n})
+				\]
+			\paragraph{Remark} To determine a critical value $c$, we select an acceptable $\alpha$ value.
+			
+			\paragraph{Example} Refer to previous example.
+			\[
+				H_0: p \leq 0.5,\quad 
+				H_1: p > 0.5
+			\]
+			Want to choose $\alpha = 0.01$. We know that if $\hat{p} \geq c$ then reject $H_0$. then
+			\begin{multline*}
+				\\
+				\alpha = 0.01 = P(\tx{Reject }H_0 | H_0 \tx{ True}) \\
+				= P(\hat{p} \geq c | p \leq 0.5) \\
+				 \tx{ (Normalizing data, since $p$ is unknown, use 0.5 for it.)} \\
+				= P(\frac{\hat{p} - p}{\sqrt{pq/n}} \geq \frac{c - 0.5}{\sqrt{(0.5)(0.5)/100}})\\
+				= P(z \geq \frac{c - 0.5}{\sqrt{(0.5)(0.5)/100}}) \\
+				\implies \frac{c - 0.5}{\sqrt{(0.5)(0.5)/100}} = 2.33 \\
+				\implies c = 0.5 + 2.33 \sqrt{\frac{0.25}{100}}\\
+				\implies c = 0.6165 \\
+				\blacksquare
+			\end{multline*}
+			\paragraph{} Therefore, for decision rule $\alpha = 0.01$, corresponds to \emph{Reject $H_0$ if $c \geq 0.6165$}.
+			\\ also can be stated as a normalized proportion: \emph{Reject $H_0$ if $z = \frac{\hat{p} - p}{\sqrt{pq/n}} \geq 2.33$}
+			
+			\paragraph{Ways to Write Decision Rules}
+			\begin{enumerate}
+				\item \underbar{By significance value} $\alpha = 0.01$
+				\item \underbar{By sample proportion} If $\hat{p} \geq 0.6165$ then reject $H_0$, else accept $H_0$.
+				\item \underbar{By normalized sample proportion} If $z \geq 2.33$ reject $H_0$, else, accept $H_0$; where $z = \frac{\hat{p} - p}{\sqrt{pq/n}}$.
+			\end{enumerate}
+			
+			\paragraph{Example} Manufacturer claims that \underbar{less than $10\%$} of the computer ship they manufactured are defective. Select a random sample with $n=100$.
+			\\
+			\emph{Solution.}
+			\\
+			Let $p=\%$ defective. Setting up the hypotheses:
+				\[
+					H_0 := p \geq 0.1 \quad
+					H_1 := p < 0.1
+				\]
+			Setting up the decision rule: $\alpha = 0.05$. i.e. Reject $H_0$ if $\hat{p} \leq c$.
+			\begin{multline*}
+				\emph{Finding $c$:} \\
+				\alpha = 0.05 = P(\hat{p} \leq c | p \geq 0.1) \\
+				\implies 0.05 = P(z=\frac{\hat{p}-p}{\sqrt{pq/n}} \leq \frac{c-0.1}{\sqrt{0.09/100}}) \\
+				\implies c = 0.05065 \\
+				\blacksquare
+			\end{multline*}
+			Therefore decision rule associated with $\alpha = 0.05$ is \emph{if $\hat{p} \leq 0.05065$ then reject $H_0$.}
+			\\
+			Sample Statistic: in the sample of $n=100$, $\hat{p} = 0.06$. Therefore, since $\hat{p} > 0.005065$, accept $H_0$.
+			
+			\paragraph{Remark} Suppose we select the decision rule $\alpha$ less than $0.05$, the conclusion from hypothesis testing remains unchanged. Suppose we select a larger $\alpha$ the conclusion might change, depending on how large $\alpha$ is.
 \end{document}
 
 
