@@ -8,6 +8,7 @@
 \usepackage{spikey}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{color}
 
 
 \begin{document}
@@ -15,6 +16,7 @@
 	\tableofcontents
 	
 	\section{The Topology of $\R ^n$}
+	\section{Sets and Notataion}
 	
 	\begin{definition}
 		A \textbf{set} is any collection of \underbar{distinct} objects.
@@ -78,10 +80,96 @@
 	\end{definition}
 	
 	
-	\underbar{STOP: PAGE?}
+	\subsection{Structures on $\R^n$}
+	
+	\begin{definition}
+		The \textbf{Euclidean inner product}, also know as \textbf{dot product}. Given two vectors $\vec{x} = \stuple{x}{1}{n}$ and $\vec{y} = \stuple{y}{1}{n}$ in $\R^n$ we write
+			\[
+				\langle \vec{x}, \vec{y} \rangle = \vec{x} \cdot \vec{y} := \sum_{i=1}^n {x_i y_i}
+			\]
+	\end{definition}
+	
+	\begin{proposition}
+		Let $\vec{x}, \vec{y}, \vec{z} \in \R^n$ and $c \in \R$, then the inner product satisfies
+		\begin{enumerate}
+			\item \textbf{Symmetry: } $\inner{x}{y} = \inner{y}{x}$.
+			\item \textbf{Non-negative: } $\inner{x}{x} \geq 0$ and $\inner{x}{x} = 0 \iff \vec{x} = \vec{0}$.
+			\item \textbf{Linearity: } $\Inner{c \vec{x} + \vec{y}}{\vec{z}} = c\inner{x}{z} + \inner{y}{z}$
+		\end{enumerate}
+	\end{proposition}
+	
+	
+	\begin{theorem}
+		(\textbf{Cauchy-Schwarz inequality}) Let $\vec{x}, \vec{y} \in \R^n$ then
+		\[
+			|\inner{x}{y}| \leq \norm{\vec{x}} \norm{\vec{y}}
+		\]
+	\end{theorem}
+	
+	\begin{proposition}
+		Let $\vec{x}, \vec{y} \in R^n$ and $c \in \R$, the norm $\norm{\cdot}$ satisfies the following properties:
+		\begin{enumerate}
+			\item \textbf{Non-degeneracy: } $\norm{\vec{x}} \geq 0$ and $\norm{\vec{x}} = 0 \iff \vec{x} = \vec{0}$.
+			\item \textbf{Normality: } $\norm{c \vec{x}} = |c| \norm{\vec{x}}$.
+			\item \textbf{Triangle Inequality: } $\norm{\vec{x}} + \norm{\vec{y}} \geq \norm{\vec{x} + \vec{y}}$
+		\end{enumerate}
+	\end{proposition}
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	\textcolor{red}{
+	\underbar{STOP: PAGE14}}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
 	
 	
 	

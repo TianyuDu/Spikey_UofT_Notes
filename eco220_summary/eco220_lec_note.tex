@@ -5,6 +5,7 @@
 \usepackage{spikey}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{xcolor}
 
  
 \title{ECO220: Quantitative Methods in Economics \newline Lecture Notes (0201)}
@@ -505,6 +506,13 @@
 			\newline \textbf{Interpretation} 95\% of the times, $p_1 - p_2$ falls between -.132 and -.042. We are 95\% confident that $p_1 - p_2$ is between -.132 and -.042.
 			\newline \textbf{Remark} Is there a \underbar{significant difference} between the \% going to casinos between Ontario and Manitoba? Since the 95\% C.I. for $p_1 - p_2$ does not contain 0, we conclude that there \textbf{is} a significant difference between \% in two population.
 			\newline \textbf{Remark} You can also use estimate the $p_2 - p_1$ and the 95\% C.I. would be $(.042, .132)$.
+			
+		\textcolor{red}{
+			\paragraph{Interpretation (midterm 2)}
+			A 95\% confidence interval for the proportion of Toronto residents who are in favour of building a new subway was found to be (0.26, 0.34). Which of the following is the best interpretation of this confidence interval?
+			\\
+			\textbf{Solution} We are 95\% confident that the \underbar{true proportion} of Toronto residents who are in favour of building a new subway is between 26\% and 34\%.
+		}
 		
 		\subsection{Chapter 12. Hypothesis Testing in Population Proportion}
 		\[
@@ -545,7 +553,25 @@
 			\]
 		\paragraph{Remark} $\beta$ becomes large as $\alpha$ becomes small. 
 		\paragraph{Conclusion} Therefore, in \emph{hypothesis testing}, we have two hypotheses, $H_0$ and $H_1$. Based on sample results (evidence), we either \emph{reject $H_0$} or \emph{do not reject $H_0$}
-		
+	
+	\textcolor{blue}{
+		\section*{Midterm 2}
+		\paragraph{Question 19} Let $X \sim N(\mu=7, \sigma^2=27)$ and $Y \sim U(-2, 16)$
+		}
+		\paragraph{Question (c)} Probability of obtaining a negative value of $Y$,
+			\[
+				P(Y < 0) = \frac{1}{16-(-2)} (0 - (-2)) = \frac{1}{9} = 0.1111
+			\]
+		\paragraph{Question (d)} A random same of size $n=30$ from the uniform population $Y$, what is the probability of getting a negative sample mean?
+		\\
+		\textbf{solution:} $\mu_Y = \frac{1}{2}(-2+16) = 7$ and $\sigma_Y^2 = \frac{1}{12}(16-(-2))^2 = 27$. Notice \textcolor{red}{ 
+			\[\overline{Y} \sim N(\mu_Y, \sigma_Y^2)\]
+			}
+		Therefore
+		\[
+			P(\overline{Y} < 0) = P(\frac{\overline{Y} - \mu_Y}{\sigma_Y/\sqrt{n}} < \frac{0 - 7}{\sqrt{27}/\sqrt{30}}) \approx 0
+		\]
+	
 	\section{Lecture 15 Jul. 4 2018}
 		\subsection{Recall: Concepts of Hypothesis Testing}
 			\paragraph{Concepts} $H_0$ \textbf{null hypothesis} and $H_1$ \textbf{alternative hypothesis}
