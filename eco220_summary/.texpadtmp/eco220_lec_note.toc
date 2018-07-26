@@ -1,3 +1,4 @@
+\select@language {english}
 \contentsline {section}{\numberline {1}Lecture 1 May. 08 2018}{3}
 \contentsline {subsection}{\numberline {1.1}Notations}{3}
 \contentsline {subsection}{\numberline {1.2}From Sample to Population}{3}
@@ -5,7 +6,7 @@
 \contentsline {paragraph}{}{3}
 \contentsline {section}{\numberline {2}Lecture 2 May. 09 2018}{3}
 \contentsline {subsection}{\numberline {2.1}What is Statistics?}{3}
-\contentsline {subsection}{\numberline {2.2}Data}{3}
+\contentsline {subsection}{\numberline {2.2}Data}{4}
 \contentsline {subsection}{\numberline {2.3}Descriptive Statistics - Graphs}{4}
 \contentsline {subsection}{\numberline {2.4}Descriptive Statistics - Numerical measures}{4}
 \contentsline {subsubsection}{\numberline {2.4.1}Measures of centre}{4}
@@ -16,7 +17,7 @@
 \contentsline {section}{\numberline {3}Lecture 3 May. 15 2018}{4}
 \contentsline {subsection}{\numberline {3.1}Measures of Variation(Spread)}{4}
 \contentsline {paragraph}{Variance and Standard Derivation}{4}
-\contentsline {paragraph}{Note}{4}
+\contentsline {paragraph}{Note}{5}
 \contentsline {paragraph}{Note}{5}
 \contentsline {paragraph}{Range}{5}
 \contentsline {section}{\numberline {4}Lecture 4 May. 16 2018}{5}
@@ -29,7 +30,7 @@
 \contentsline {paragraph}{}{5}
 \contentsline {paragraph}{}{5}
 \contentsline {paragraph}{Covariance}{5}
-\contentsline {paragraph}{Correlation coefficient}{5}
+\contentsline {paragraph}{Correlation coefficient}{6}
 \contentsline {subsection}{\numberline {4.3}Interpretations}{6}
 \contentsline {subsubsection}{\numberline {4.3.1}Interpreting covariance}{6}
 \contentsline {paragraph}{Example}{6}
@@ -41,7 +42,7 @@
 \contentsline {paragraph}{}{6}
 \contentsline {paragraph}{Note}{6}
 \contentsline {paragraph}{SSE}{6}
-\contentsline {paragraph}{OLS}{6}
+\contentsline {paragraph}{OLS}{7}
 \contentsline {subsection}{\numberline {5.2}Relationship between $b_1$ and $r$}{7}
 \contentsline {paragraph}{}{7}
 \contentsline {subsection}{\numberline {5.3}Analysis of Variance (ANOVA)}{7}
@@ -122,27 +123,48 @@
 \contentsline {paragraph}{Interval estimator}{14}
 \contentsline {paragraph}{Result}{15}
 \contentsline {paragraph}{Example}{15}
+\contentsline {paragraph}{Interpretation (midterm 2)}{15}
 \contentsline {subsection}{\numberline {14.3}Chapter 12. Hypothesis Testing in Population Proportion}{15}
 \contentsline {paragraph}{}{15}
-\contentsline {paragraph}{Reality}{15}
+\contentsline {paragraph}{Reality}{16}
 \contentsline {paragraph}{}{16}
 \contentsline {paragraph}{}{16}
 \contentsline {paragraph}{Remark}{16}
 \contentsline {paragraph}{Conclusion}{16}
-\contentsline {section}{\numberline {15}Lecture 15 Jul. 4 2018}{16}
-\contentsline {subsection}{\numberline {15.1}Recall: Concepts of Hypothesis Testing}{16}
-\contentsline {paragraph}{Concepts}{16}
-\contentsline {paragraph}{Case I}{16}
-\contentsline {paragraph}{Case II}{16}
-\contentsline {paragraph}{Remark}{16}
-\contentsline {subsection}{\numberline {15.2}Hypothesis Testing}{16}
+\contentsline {paragraph}{Question 19}{16}
+\contentsline {paragraph}{Question (c)}{16}
+\contentsline {paragraph}{Question (d)}{16}
+\contentsline {section}{\numberline {15}Lecture 15 Jul. 4 2018}{17}
+\contentsline {subsection}{\numberline {15.1}Recall: Concepts of Hypothesis Testing}{17}
+\contentsline {paragraph}{Concepts}{17}
+\contentsline {paragraph}{Case I}{17}
+\contentsline {paragraph}{Case II}{17}
+\contentsline {paragraph}{Remark}{17}
+\contentsline {subsection}{\numberline {15.2}Hypothesis Testing}{17}
 \contentsline {subsection}{\numberline {15.3}Hypothesis Testing in Population Proportion}{17}
 \contentsline {paragraph}{Data}{17}
 \contentsline {paragraph}{}{17}
 \contentsline {paragraph}{Example}{17}
-\contentsline {subsubsection}{\numberline {15.3.1}Finding Critical Value c}{17}
-\contentsline {paragraph}{}{17}
+\contentsline {subsubsection}{\numberline {15.3.1}Finding Critical Value c}{18}
+\contentsline {paragraph}{}{18}
 \contentsline {section}{\numberline {16}Lecture 16 Jul. 10 2018}{18}
 \contentsline {subsection}{\numberline {16.1}Concepts in Hypothesis Testing}{18}
-\contentsline {subsection}{\numberline {16.2}Hypothesis on $p$, Population Proportion}{18}
-\contentsline {paragraph}{Example}{18}
+\contentsline {subsection}{\numberline {16.2}Hypothesis on $p$, Population Proportion}{19}
+\contentsline {paragraph}{Example}{19}
+\contentsline {subsection}{\numberline {16.3}Determining the Critical Value $c$}{19}
+\contentsline {paragraph}{Cont'd}{19}
+\contentsline {paragraph}{Remark}{19}
+\contentsline {paragraph}{Example}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{Ways to Write Decision Rules}{20}
+\contentsline {paragraph}{Example}{20}
+\contentsline {paragraph}{Remark}{20}
+\contentsline {section}{\numberline {17}Lecture 17 Jul. 11 2018}{20}
+\contentsline {subsection}{\numberline {17.1}Continue, Type I Error Control}{20}
+\contentsline {paragraph}{Two-Sided Test}{20}
+\contentsline {paragraph}{Summary}{21}
+\contentsline {paragraph}{Intuitively}{22}
+\contentsline {subsection}{\numberline {17.2}Type II Error}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {section}{\numberline {18}Lecture 18 Jul. 17 2018}{22}
+\contentsline {paragraph}{}{23}

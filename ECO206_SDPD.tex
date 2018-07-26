@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+
+\title{ECO206 Microeconomic Theory\\ \small Second Degree Price Discrimination \small}
+\author{Tianyu Du}
+\date{\today}
+
+\usepackage{spikey}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+	\maketitle
+	
+	\section{Setup}
+	\paragraph{} Consider two groups of customers with different marginal willingness to pay. Their demands are captured by demand function
+	\begin{equation}
+		D_i = f_i (p)\ i \in \{L, H\}
+	\end{equation}
+	Assuming $H$ group has higher MWTP at any quantity of $x$, that's 
+	\begin{equation}
+		f_H^{-1}(x) > f_L^{-1}(x) \ \forall x \in \R_+
+	\end{equation}
+	Let function $C_L(x)$ and $C_H(x)$ denote the cost to provide goods/services to each group of customer.
+	\\
+	Define welfare function for customers
+	\begin{equation}
+		u_i(x_i) = \int_{0}^{x_i} f_i^{-1}(x)\ dx \ i \in \{L, H\}
+	\end{equation}
+	By equation (2), we have
+	\begin{equation}
+		u_H(x) > u_L(x) \ \forall x \in \R_+
+	\end{equation}
+
+	\section{Mathematical Form}
+	The profit optimization problem of producer can be formalized as
+	\begin{equation}
+		\max_{x_L,p_L,x_H,p_H} \big \{\pi(\cdot) =  P_L - C_L(x_L) + P_H - C_H(x_H) \big \}
+	\end{equation} 
+	subject to \underbar{individual rationality} and \underbar{intensive compatibility} constraints
+	\begin{equation}
+		\begin{cases}
+			u_L(x_L) - p_L \geq 0 \\
+			u_H(x_H) - p_H \geq 0 \\
+			u_L(x_L) - p_L \geq u_L(x_H) - p_H \\
+			u_H(x_H) - p_H \geq u_H(x_L) - p_L \\
+		\end{cases}
+	\end{equation}
+	
+	\section{Reduce the Constraint Region}
+	The constraint can be reduced to
+	\begin{equation}
+		\begin{cases}
+			u_L(x_L) - p_L = 0 \\
+			u_L(x_H) - p_H \leq 0 \\
+			u_H(x_H) - p_H = u_H(x_L) - p_L \\
+		\end{cases}
+	\end{equation}
+	
+	\section{Solving the Problem}
+		We want to write $\pi(\cdot)$ as a function of $x_L$ and solve the optimal $x_L$.
+	\subsection{Step 1: Directly solve $x_H^*$}
+		We wish to sell \underbar{efficient amount} to the high types, that's where MC(supply) equals demand.
+		Find $x_H^*$ by solving
+		\begin{equation}
+			\pd{C_H(x_H)}{x_H}\bigg\vert_{x_H = x_H^*} = f_H^{-1}(x_H^*)
+		\end{equation}
+	\subsection{Step 2: Rewrite $P_L$}
+		Using equation (7.1), we can map $x_L$ to $p_L$ by
+		\begin{equation}
+			p_L(x_L) = u_L(x_L) = \int_0^{x_L} f_L^{-1}(x)\ dx
+		\end{equation}
+	\subsection{Step 3: Rewrite $p_H$}
+		Using equation (7.3) to map $x_L$ to $p_H$ as
+		\begin{equation}
+			p_H(x_L) = \overline{u_H(x_H^*)} - \int_{0}^{x_L}f_H^{-1}(x)\ dx + p_L(x_L)
+		\end{equation}
+	\subsection{Step 4: Solving Problem}
+		By equation (7.2)
+		\begin{equation}
+			p_H \geq u_L(x_H^*) \iff x_L \leq x_H^*
+		\end{equation}
+		\begin{multline*}
+			\emph{Proof.} \\
+			7.2 \implies u_L(x_H) \leq p_H \\
+			\tx{(with 7.3)} \implies u_L(x_H) \leq u_H(x_H) - u_H(x_L) + p_L \\
+			\implies u_L(x_H) \leq u_H(x_H) - u_H(x_L) + u_L(x_L) \\
+			\implies u_L(x_H) - u_L(x_L) \leq u_H(x_H) - u_H(x_L) \\
+			\implies \int_{x_L}^{x_H} f_L^{-1}(x)\ dx \leq \int_{x_L}^{x_H} f_H^{-1}(x)\ dx \\
+			\tx{as } 0 < f_L^{-1}(x) < f_H^{-1}(x) \ \forall x \in \R_+ \\
+			\iff x_L \leq x_H \\
+			\blacksquare
+		\end{multline*}
+		Rewrite the objective function as 
+		\begin{equation}
+			\pi(x_L) = P_L(x_L) + P_H(x_L) - C_L(x_L) - \overline{C_H(x_H^*)}
+		\end{equation}
+		and maximize $\pi(x_L)$ by solving $\pd{\pi(x_L)}{x_L} = 0$ and $x_L \in [0, x_H^*)$.
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

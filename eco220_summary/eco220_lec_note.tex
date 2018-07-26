@@ -717,6 +717,177 @@
 			Sample Statistic: in the sample of $n=100$, $\hat{p} = 0.06$. Therefore, since $\hat{p} > 0.005065$, accept $H_0$.
 			
 			\paragraph{Remark} Suppose we select the decision rule $\alpha$ less than $0.05$, the conclusion from hypothesis testing remains unchanged. Suppose we select a larger $\alpha$ the conclusion might change, depending on how large $\alpha$ is.
+			
+	\section{Lecture 17 Jul. 11 2018}
+	
+	\subsection{Continue, Type I Error Control}
+		\paragraph{Two-Sided Test}
+			\[
+				H_0 := p = p_0 \quad
+				H_1 := p \neq p_0
+			\]
+		\begin{example}
+			A candidate believes that \underbar{at least} \footnote{See remark 17.1, moving the equal sign to the null hypothesis is insignificant in large population} $30\%$ of voters will vote for him in the upcoming election. Put the \underbar{want to prove} part into the alternative hypothesis.
+			\[
+				H_0 := p \leq 0.3 \quad
+				H_1 := p > 0.3
+			\]
+		\end{example}
+		
+		\begin{remark}
+			\color{red}{Always put the equal sign with the null hypothesis}
+		\end{remark}
+		\begin{proof}
+			Set $\alpha = 0.05$ the decision rule also can also be written as:
+			\[
+			\begin{cases}
+				\tx{if $\hat{p} \geq c$ reject $H_0$}\\
+				\tx{if $\hat{p} < c$ do not reject $H_0$}.
+			\end{cases}
+			\]
+			or using standardized $\hat{p}$,
+			\[
+			\begin{cases}
+				\tx{if $z \geq 1.645$ reject $H_0$}\\
+				\tx{if $z < 1.645$ do not reject $H_0$}.
+			\end{cases}
+			\]
+		Sample result:
+		\\
+		In a sample of size $n=400$, $\hat{p} = 0.32$.
+		\\
+		\underbar{Step1} Standardize $z := \frac{\hat{p} - p}{\sqrt{pq/n}} = \frac{0.32-0.3}{\sqrt{0.21/400}} = 0.873$.
+		\\
+		\underbar{Step2} Check decision rule, $z < 1.645$.
+		\\
+		\underbar{Step3} Draw conclusion: do not reject $H_0$.
+		\end{proof}
+		
+		
+		\begin{example}
+			Refer to example 1,
+			\[
+				H_0:= p \leq 0.3 \quad
+				H_1:= p > 0.3
+			\]
+			with decision rule $\alpha=0.05$.
+			\\
+			Sample result is $\hat{p}=0.32$.
+		\end{example}
+		\begin{proof}
+			Method2:
+			\\
+			Find the p-value:= area under $H_0$ normal graph to the right of $\hat{p}$.
+			\[
+				p-value = P(\hat{p}\geq0.32 | H_0) = P(z \geq \frac{0.32 - 0.3}{\sqrt{0.21/400}}) = P(z > 0.873) = 0.1922 > \alpha
+			\]
+			Therefore, accept $H_0$.
+		\end{proof}
+	
+		\paragraph{Summary} Hypothesis testing using p-value.
+		\begin{enumerate}
+			\item if p-value $\leq \alpha$,\footnote{Notice that when $p-value = \alpha$, we reject $H_0$.} reject $H_0$.
+			\item if p-value $ > \alpha$, do not reject $H_0$.
+		\end{enumerate}
+		
+		
+		\begin{example}
+			Wish to test
+			\[
+				H_0 := p \geq 0.4 \quad
+				H_1 := p < 0.4
+			\]
+		Setting $\alpha = 0.05$. Suppose p-value
+			\[
+				p-value = \frac{\hat{p} - 0.4}{\sqrt{0.24/n}} = 0.0193
+			\]
+		Since $p-value \leq \alpha$, reject $H_0$.
+		\end{example}
+		\paragraph{Intuitively} If the p-value is small compared to $\alpha$, then choose to reject $H_0$.
+		
+		\begin{example}
+			Test 
+			\[
+				H_0 := p \leq 0.6 \quad
+				H_1 := p > 0.6
+			\]
+			and the calculation shows the sample p-value is $0.025$. The conclusion would depend on the decision rule.
+			\\
+			(1) Choose $\alpha=0.5$ then we reject $H_0$.
+			\\
+			(2) If we choose $\alpha=0.01$, since $p-value > \alpha$, we do not reject $H_0$.
+		\end{example}
+		
+		\subsection{Type II Error}
+		
+		\begin{example}
+			Test 
+			\[
+				H_0 := p \leq 0.4 \quad
+				H_1 := p > 0.4
+			\]
+			and select $\alpha=0.05$. Let $\hat{p}$ be the sample percentage from large sample with size $n$.
+		\end{example}
+		\paragraph{}
+			By definition
+			\[
+				\beta = P(\tx{Do not reject }H_0 | H_1)
+			\]
+			and $\beta$ is the area to the \underbar{left} of $c$ under \underbar{$H_1$} curve. In the graph, \emph{as $\alpha$ decreases, $\beta$ increases at the same time.} Hence, in hypothesis testing, we select $\alpha$ first. Then we look at how large $\beta$ is.
+		
+		\begin{figure*}[h]
+			\centering
+			\caption{Graph representation of $\alpha$ and $\beta$.}
+%			\includegraphics{}
+		\end{figure*}
+		
+		And $\alpha$ is called the \textbf{significance level}. And $1-\beta$ is called the \textbf{power}.
+		\\
+		Ideally, in hypothesis testing, we want both $\alpha$ and $\beta$ small.
+		
+		\begin{example}
+			Test 
+			\[
+				H_0 := p \leq 0.4 \quad
+				H_1 := p > 0.4
+			\]
+			Select $\alpha = 0.05$ then to calculate $\beta$. For example, we can find $\beta$ at p=0.5.
+		\end{example}
+
+
+
+	\section{Lecture 18 Jul. 17 2018}
+		\begin{example}
+			\[
+				H_0 := p \leq .4 \quad
+				H_1 := p > .4
+			\]
+			Decision rule: $\alpha = 0.05$, reject region of $H_0$ has area $0.05 = \alpha$
+			\\
+			$\alpha = 0.05$ means we reject $H_0$ if $\hat{p} \geq c$ and don't reject $H_0$ of $\hat{p} < c$.
+			\\
+			\textbf{Use standardized normal curve} 
+			\[
+				\begin{cases}
+					\tx{Reject $H_0$ if } z \geq 1.645 \\
+					\tx{Do not reject $H_0$ if } z < 1.645
+				\end{cases}
+			\]
+			From sample $n=400$, we find 184 of them will vote. The sample result shows $\hat{p} = 0.46$.
+			To draw a conclusion for the first type of decision rule, need to determine $c$ by solving
+			\[
+				\frac{\hat{p}-c}{\sqrt{\hat{p}(1-\hat{p})/n}}
+			\]
+			for method 2, the same as method 1 but we use standard normal $z$ instead of the regular normal, where $p=0.4$
+			\[
+				z = \frac{\hat{p} - p}{\sqrt{pq/n}}
+			\]
+			by comparing p-value $p-v = P(\hat{p} \geq 0.46 | H_0)$ and compare to $\alpha$.
+		\end{example}
+
+		\paragraph{} If we don't reject $H_0$, then we do not make type I error. However, if $H_0$ is not true and we do not reject it. 
+			There would be a \textbf{Type II Error} what's the probability of type II error $\beta$? By definition $\beta=P(Accept\ H_0 | H_1 \ True)$
+			
 \end{document}
 
 

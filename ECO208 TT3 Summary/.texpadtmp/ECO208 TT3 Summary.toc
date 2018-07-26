@@ -1,0 +1,62 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Chapter 9 A Two-Period Model: \\ The Consumption-Savings Decision and Credit Markets}{2}
+\contentsline {subsection}{\numberline {1.1}A Two-Period Model of the Economy}{2}
+\contentsline {subsubsection}{\numberline {1.1.1}Consumers}{2}
+\contentsline {paragraph}{}{2}
+\contentsline {paragraph}{}{2}
+\contentsline {subsection}{\numberline {1.2}Experiments}{4}
+\contentsline {subsubsection}{\numberline {1.2.1}An Increase in Current-Period Income}{4}
+\contentsline {paragraph}{Pure income effect}{4}
+\contentsline {paragraph}{Consumption Smoothing}{4}
+\contentsline {paragraph}{Excess variability}{5}
+\contentsline {subsubsection}{\numberline {1.2.2}An Increase in Future Income}{5}
+\contentsline {paragraph}{Pure income effect}{5}
+\contentsline {subsubsection}{\numberline {1.2.3}Temporary and Permanent Changes in Income}{6}
+\contentsline {subsubsection}{\numberline {1.2.4}An Increase in the Real Interest Rate}{7}
+\contentsline {paragraph}{Effect}{7}
+\contentsline {paragraph}{Lender}{7}
+\contentsline {paragraph}{Borrowers}{8}
+\contentsline {subsection}{\numberline {1.3}Government}{8}
+\contentsline {subsection}{\numberline {1.4}Competitive Equilibrium}{9}
+\contentsline {subsection}{\numberline {1.5}The Ricardian Equivalence Theorem}{10}
+\contentsline {subsubsection}{\numberline {1.5.1}Assumptions}{10}
+\contentsline {subsubsection}{\numberline {1.5.2}The Theorem}{10}
+\contentsline {subsubsection}{\numberline {1.5.3}Credit Market}{12}
+\contentsline {section}{\numberline {2}Chapter 11 A Real Inter-temporal Model with Investment}{12}
+\contentsline {subsection}{\numberline {2.1}The Representative Consumer}{12}
+\contentsline {subsubsection}{\numberline {2.1.1}Setup}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {subsubsection}{\numberline {2.1.2}Optimization problem}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {subsubsection}{\numberline {2.1.3}Optimal Solution}{13}
+\contentsline {paragraph}{Solve}{13}
+\contentsline {paragraph}{Inter-temporal consumption}{13}
+\contentsline {paragraph}{Inter-temporal leisure}{13}
+\contentsline {paragraph}{Intra-temporal leisure consumption}{14}
+\contentsline {subsubsection}{\numberline {2.1.4}Current Labor Supply}{14}
+\contentsline {subsubsection}{\numberline {2.1.5}Current Demand for Consumption Goods}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {subsection}{\numberline {2.2}The Representative Firm}{15}
+\contentsline {subsubsection}{\numberline {2.2.1}Optimization Problem}{15}
+\contentsline {paragraph}{Setup}{15}
+\contentsline {paragraph}{Production function}{15}
+\contentsline {paragraph}{Current period profit}{15}
+\contentsline {paragraph}{Capital accumualtion}{15}
+\contentsline {paragraph}{Future period profit}{16}
+\contentsline {paragraph}{Present value for life time profit}{16}
+\contentsline {subsubsection}{\numberline {2.2.2}Optimal Solution}{16}
+\contentsline {paragraph}{Labor choice}{16}
+\contentsline {paragraph}{Investment schedule}{16}
+\contentsline {paragraph}{Change in optimal investment schedule}{16}
+\contentsline {subsection}{\numberline {2.3}Government}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {subsection}{\numberline {2.4}Competitive Equilibrium}{17}
+\contentsline {subsubsection}{\numberline {2.4.1}The Current Labor Market and the Output Supply Curve}{17}
+\contentsline {paragraph}{Steps}{17}
+\contentsline {subsubsection}{\numberline {2.4.2}Current Good Market and the Output Demand Curve}{18}
+\contentsline {paragraph}{Steps}{18}
+\contentsline {subsubsection}{\numberline {2.4.3}Credit Market}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {subsubsection}{\numberline {2.4.4}Complete Model}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {subsection}{\numberline {2.5}Shocks to the General Equilibrium}{19}

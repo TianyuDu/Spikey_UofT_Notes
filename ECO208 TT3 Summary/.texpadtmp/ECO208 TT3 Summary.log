@@ -1,16 +1,16 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  18 JUL 2018 22:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  24 JUL 2018 16:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**eco220_lec_note.tex
-(./eco220_lec_note.tex
+**"ECO208 TT3 Summary.tex"
+(./ECO208 TT3 Summary.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -23,74 +23,12 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/10 v2.15b AMS math features
-\@mathmargin=\skip43
-
-For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
- (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks14
-\ex@=\dimen103
-)) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen104
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
-)
-\inf@bad=\count87
-LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count88
-\leftroot@=\count89
-LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count90
-\DOTSCASE@=\count91
-LaTeX Info: Redefining \ldots on input line 394.
-LaTeX Info: Redefining \dots on input line 397.
-LaTeX Info: Redefining \cdots on input line 518.
-\Mathstrutbox@=\box26
-\strutbox@=\box27
-\big@size=\dimen105
-LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
-\macc@depth=\count92
-\c@MaxMatrixCols=\count93
-\dotsspace@=\muskip10
-\c@parentequation=\count94
-\dspbrk@lvl=\count95
-\tag@help=\toks15
-\row@=\count96
-\column@=\count97
-\maxfields@=\count98
-\andhelp@=\toks16
-\eqnshift@=\dimen106
-\alignsep@=\dimen107
-\tagshift@=\dimen108
-\tagwidth@=\dimen109
-\totwidth@=\dimen110
-\lineht@=\dimen111
-\@envbody=\toks17
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks18
-LaTeX Info: Redefining \[ on input line 2739.
-LaTeX Info: Redefining \] on input line 2740.
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/Users/tianyudu/Library/texmf/tex/spikey.sty
+) (/Users/tianyudu/Library/texmf/tex/spikey.sty
 Package: spikey 
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
-\inpenc@prehook=\toks19
-\inpenc@posthook=\toks20
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2016/02/28 v1.1s UTF-8 support for inputenc
 Now handling font encoding OML ...
@@ -402,24 +340,86 @@ Package: babel 2016/04/23 3.9r The Babel package
 Language: english 2012/08/20 v3.3p English support from the babel system
  (/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2016/04/23 3.9r Babel common definitions
-\babel@savecnt=\count99
-\U@D=\dimen112
+\babel@savecnt=\count87
+\U@D=\dimen103
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 )) (/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
-\thm@style=\toks21
-\thm@bodyfont=\toks22
-\thm@headfont=\toks23
-\thm@notefont=\toks24
-\thm@headpunct=\toks25
-\thm@preskip=\skip46
-\thm@postskip=\skip47
-\thm@headsep=\skip48
-\dth@everypar=\toks26
+\thm@style=\toks16
+\thm@bodyfont=\toks17
+\thm@headfont=\toks18
+\thm@notefont=\toks19
+\thm@headpunct=\toks20
+\thm@preskip=\skip43
+\thm@postskip=\skip44
+\thm@headsep=\skip45
+\dth@everypar=\toks21
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/10 v2.15b AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks22
+\ex@=\dimen104
+)) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen105
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
 )
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks23
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks24
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks25
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks26
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 \c@definition=\count100
 \c@theorem=\count101
 \c@corollary=\count102
@@ -474,21 +474,21 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/eco220_summary/.texpadtmp/eco220_lec_note.aux)
-\openout1 = `eco220_lec_note.aux'.
+) (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/ECO208 TT3 Summary/.texpadtmp/ECO208 TT3 Summary.aux)
+\openout1 = `"ECO208 TT3 Summary.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
@@ -537,70 +537,178 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+LaTeX Font Info:    Try loading font information for U+msa on input line 12.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+LaTeX Font Info:    Try loading font information for U+msb on input line 12.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/eco220_summary/.texpadtmp/eco220_lec_note.toc [1
+) (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/ECO208 TT3 Summary/.texpadtmp/ECO208 TT3 Summary.toc [1
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2])
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write3
-\openout3 = `eco220_lec_note.toc'.
+\openout3 = `"ECO208 TT3 Summary.toc"'.
 
+ [2] <figures/91.png, id=18, 1263.72125pt x 650.43pt>
+File: figures/91.png Graphic file (type png)
+ <use figures/91.png>
+Package pdftex.def Info: figures/91.png used on input line 61.
+(pdftex.def)             Requested size: 360.0pt x 185.28514pt.
+ [3 <./figures/91.png>] <figures/93.png, id=24, 1288.815pt x 733.74126pt>
+File: figures/93.png Graphic file (type png)
+ <use figures/93.png>
+Package pdftex.def Info: figures/93.png used on input line 85.
+(pdftex.def)             Requested size: 216.0022pt x 122.9654pt.
+ <figures/94.png, id=25, 1346.02875pt x 760.8425pt>
+File: figures/94.png Graphic file (type png)
+ <use figures/94.png>
+Package pdftex.def Info: figures/94.png used on input line 89.
+(pdftex.def)             Requested size: 216.0022pt x 122.08557pt.
 
-Overfull \hbox (59.38194pt too wide) detected at line 53
-[] []
+Overfull \hbox (74.43773pt too wide) in paragraph at lines 83--91
+[]$[]$ $[]$ 
  []
 
-<fig1.png, id=16, 499.8675pt x 155.58125pt>
-File: fig1.png Graphic file (type png)
- <use fig1.png>
-Package pdftex.def Info: fig1.png used on input line 57.
-(pdftex.def)             Requested size: 207.0021pt x 64.4273pt.
- [3 <./fig1.png>] [4] [5]
-Overfull \hbox (0.69731pt too wide) in paragraph at lines 157--159
-\OT1/cmr/m/n/10 creases, $\OML/cmm/m/it/10 y$ \OT1/cmr/m/n/10 de-creases. The $[]$ 0.94 means the $[]$.
+<figures/95.png, id=26, 1299.85625pt x 706.64pt>
+File: figures/95.png Graphic file (type png)
+ <use figures/95.png>
+Package pdftex.def Info: figures/95.png used on input line 103.
+(pdftex.def)             Requested size: 360.0pt x 195.70135pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <./figures/93.png> <./figures/94.png>] <figures/97.png, id=34, 1234.6125pt x 634.37pt>
+File: figures/97.png Graphic file (type png)
+ <use figures/97.png>
+Package pdftex.def Info: figures/97.png used on input line 119.
+(pdftex.def)             Requested size: 360.0pt x 184.96927pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5 <./figures/95.png>] <figures/98.png, id=39, 1222.5675pt x 734.745pt>
+File: figures/98.png Graphic file (type png)
+ <use figures/98.png>
+Package pdftex.def Info: figures/98.png used on input line 131.
+(pdftex.def)             Requested size: 360.0pt x 216.34428pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./figures/97.png>] <figures/912.png, id=44, 1272.755pt x 897.3525pt>
+File: figures/912.png Graphic file (type png)
+ <use figures/912.png>
+Package pdftex.def Info: figures/912.png used on input line 162.
+(pdftex.def)             Requested size: 360.0pt x 253.80379pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./figures/98.png>] <figures/913.png, id=50, 1246.6575pt x 857.2025pt>
+File: figures/913.png Graphic file (type png)
+ <use figures/913.png>
+Package pdftex.def Info: figures/913.png used on input line 180.
+(pdftex.def)             Requested size: 360.0pt x 247.53596pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8 <./figures/912.png>] [9 <./figures/913.png>] [10] <figures/915.png, id=67, 1150.2975pt x 617.30624pt>
+File: figures/915.png Graphic file (type png)
+ <use figures/915.png>
+Package pdftex.def Info: figures/915.png used on input line 272.
+(pdftex.def)             Requested size: 288.0011pt x 154.55225pt.
+ [11 <./figures/915.png>] <figures/916.png, id=73, 1115.16624pt x 545.03625pt>
+File: figures/916.png Graphic file (type png)
+ <use figures/916.png>
+Package pdftex.def Info: figures/916.png used on input line 284.
+(pdftex.def)             Requested size: 288.0011pt x 140.758pt.
+ [12 <./figures/916.png>]
+Overfull \hbox (10.37645pt too wide) in paragraph at lines 314--315
+ \OT1/cmr/bx/n/10.95 Solve[] \OT1/cmr/m/n/10.95 Solve above op-ti-miza-tion prob-lem with La-grangian Mul-ti-plier method, 
  []
 
-[6] [7]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 252.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 252.
- [8] [9] [10] <fig2.png, id=56, 723.70375pt x 205.76875pt>
-File: fig2.png Graphic file (type png)
- <use fig2.png>
-Package pdftex.def Info: fig2.png used on input line 356.
-(pdftex.def)             Requested size: 207.0021pt x 58.85506pt.
- [11 <./fig2.png>] [12] [13] [14] [15] [16] [17] <fig3.png, id=84, 923.45pt x 436.63126pt>
-File: fig3.png Graphic file (type png)
- <use fig3.png>
-Package pdftex.def Info: fig3.png used on input line 639.
-(pdftex.def)             Requested size: 137.9979pt x 65.24535pt.
- [18 <./fig3.png>] [19] [20]
-Overfull \hbox (1.0224pt too wide) detected at line 783
-\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 value \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 ([] \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 32\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z \OMS/cmsy/m/n/10 ^^U []\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z > \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 873) = 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1922 \OML/cmm/m/it/10 > 
+
+Overfull \hbox (39.11919pt too wide) detected at line 317
+\OMS/cmsy/m/n/10.95 L \OT1/cmr/m/n/10.95 = [] \OML/cmm/m/it/10.95 C \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^Q [] l \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^L\OT1/cmr/m/n/10.95 [[] [] + \OML/cmm/m/it/10.95 ^^Q [] []\OT1/cmr/m/n/10.95 ] + \OML/cmm/m/it/10.95 ^^U[]w\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 h \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 l\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 ^^Y \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 T \OT1/cmr/m/n/10.95 + [] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 C \OMS/cmsy/m/n/10.95 ^^@ [][]
  []
 
-[21] [22] [23] (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/eco220_summary/.texpadtmp/eco220_lec_note.aux) ) 
+[13] <figures/114.png, id=82, 993.7125pt x 597.23125pt>
+File: figures/114.png Graphic file (type png)
+ <use figures/114.png>
+Package pdftex.def Info: figures/114.png used on input line 367.
+(pdftex.def)             Requested size: 360.0pt x 216.36092pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[14] [15 <./figures/114.png>] <figures/119.png, id=90, 950.55125pt x 576.1525pt>
+File: figures/119.png Graphic file (type png)
+ <use figures/119.png>
+Package pdftex.def Info: figures/119.png used on input line 421.
+(pdftex.def)             Requested size: 360.0pt x 218.20174pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (0.11855pt too wide) in paragraph at lines 430--431
+ [] \OT1/cmr/m/n/10.95 Gov-ern-ment sets gov-ern-ment pur-chases of con-sump-tion goods ex-oge-nously
+ []
+
+[16] <figures/1112.png, id=94, 427.5975pt x 705.63625pt>
+File: figures/1112.png Graphic file (type png)
+ <use figures/1112.png>
+Package pdftex.def Info: figures/1112.png used on input line 445.
+(pdftex.def)             Requested size: 180.0pt x 297.04353pt.
+ <figures/1113.png, id=95, 635.37375pt x 727.71875pt>
+File: figures/1113.png Graphic file (type png)
+ <use figures/1113.png>
+Package pdftex.def Info: figures/1113.png used on input line 450.
+(pdftex.def)             Requested size: 251.9989pt x 288.62834pt.
+
+Overfull \hbox (71.9989pt too wide) in paragraph at lines 450--451
+ [][] 
+ []
+
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 443--452
+[]$[]$  $[]$ 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[17 <./figures/119.png>] <figures/1117.png, id=100, 677.53125pt x 388.45125pt>
+File: figures/1117.png Graphic file (type png)
+ <use figures/1117.png>
+Package pdftex.def Info: figures/1117.png used on input line 469.
+(pdftex.def)             Requested size: 360.0pt x 206.4057pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/1119.png, id=101, 684.5575pt x 417.56pt>
+File: figures/1119.png Graphic file (type png)
+ <use figures/1119.png>
+Package pdftex.def Info: figures/1119.png used on input line 479.
+(pdftex.def)             Requested size: 251.9989pt x 153.71107pt.
+ [18 <./figures/1112.png> <./figures/1113.png>] [19 <./figures/1117.png> <./figures/1119.png>] (/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/ECO208 TT3 Summary/.texpadtmp/ECO208 TT3 Summary.aux) ) 
 Here is how much of TeX's memory you used:
- 3803 strings out of 493014
- 48556 string characters out of 6133351
- 124500 words of memory out of 5000000
- 7258 multiletter control sequences out of 15000+600000
- 13525 words of font info for 51 fonts, out of 8000000 for 9000
+ 3853 strings out of 493014
+ 49548 string characters out of 6133351
+ 124397 words of memory out of 5000000
+ 7296 multiletter control sequences out of 15000+600000
+ 13888 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,15n,35p,458b,279s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/eco220_summary/.texpadtmp/eco220_lec_note.pdf (23 pages, 559991 bytes).
+ 38i,11n,35p,459b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "/Users/tianyudu/Documents/UToronto/Notes/Spieky-University-of-Toronto-Notes/ECO208 TT3 Summary/.texpadtmp/ECO208 TT3 Summary.pdf" (19 pages, 1145327 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 122 compressed objects within 2 object streams
+ 167 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
