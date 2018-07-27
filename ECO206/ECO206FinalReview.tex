@@ -9,8 +9,216 @@
 \author{Tianyu Du}
 
 \begin{document}
-\maketitle
-\tableofcontents
+    \maketitle
+    \tableofcontents
 
-
+    \section{Lecture 1 Introduction and Budget Constraints}
+    
+        \subsection{Notation-Bundle}
+            \begin{definition}
+                If we have $n$ goods, then vector $(x_1^A, x_2^A, \dots, x_n^A) \in \R^n_+$ represents a \textbf{bundle}, where $x_1^A$ represents a quantity($x$) of good 1 in bundle A. 
+            \end{definition}
+            
+        \subsection{Types of Income}
+            \paragraph{Exogenous}independent to price of goods.
+            \paragraph{Endogenous}bundle of goods endowed, value dependents on price of goods.
+            
+        \subsection{Budget Set}
+            \begin{definition}
+                \textbf{Budget Set} is the set of all affordable consumption \emph{bundles}. Let $\vec{e}=(\omega_1,\omega_2,\dots,\omega_n) \in \R^n_+$ denote the endowment of consumer and $I$ denote the exogenous income, and consumers are price-takers facing price vector $\vec{p}$. Then
+                \[
+                    \mathcal{B} = \big\{\vec{x}\in \R^n_+ \vert \vec{x}\cdot\vec{p} \leq \vec{e}\cdot\vec{p} + I  \big\}
+                \]
+            \end{definition}
+            
+        \subsection{Opportunity Cost}
+            \par Opportunity cost is the rate at which one good can be traded for another though the \emph{market}. It captures what the consumer is \textbf{able} to trade at market price, not what the consumer is \emph{willing} to trade.
+            \par Consider budget constraint $\vec{x}\cdot\vec{p}=I$. Take the total differential,
+            \[
+                \sum_i \pd{\vec{x}\cdot\vec{p}}{x_i} d{x_i} = 0
+            \]
+            And the opportunity cost for one unit of good $x$ is shown to be 
+            \[
+                \frac{dy}{dx} = -\frac{p_x}{p_y}
+            \]
+            
+        \subsection{Income and Price changes}
+        \par \underbar{Pure Income Changes: } \emph{parallel shift} of budget line.
+        \par \underbar{Price changes: } \emph{rotation} of budget line around the \emph{invariant point} (i.e. the consumption bundle that is not affected by the price change).
+            \begin{enumerate}
+                \item Exogenous income: Invariant point $\impliedby$ $\{x_1, \dots, x_i=0, \dots, x_n\}$ with $p_i$ changes. 
+                \item Endogenous income: Invariant point $\impliedby$ endowment point $\vec{e}$.
+            \end{enumerate}
+            
+    \section{Lecture 2 Preferences and Utility}
+        \subsection{Tastes as Binary Relations}
+            \begin{definition}
+                \begin{enumerate}
+                    \item Bundle A $(x_1^A, x_2^A)$ is \textbf{strictly preferred to} bundle B $(x_1^B, x_2^B)$.
+                        \[
+                            (x_1^A, x_2^A) \succ (x_1^B, x_2^B)
+                        \]
+                    \item Bundle A is \textbf{at least as good as} bundle B
+                        \[
+                            (x_1^A, x_2^A) \succcurlyeq (x_1^B, x_2^B)
+                        \]
+                    \item The consumer is indifferent between bundle A and bundle B
+                        \[
+                            (x_1^A, x_2^A) \sim (x_1^B, x_2^B)
+                        \]
+                \end{enumerate}
+            \end{definition}
+        
+        \subsection{Rationality Assumptions}
+            \begin{definition}
+                \textbf{Complete: } For all bundles $A=(x_1^A, x_2^A)$ and $B=(x_1^B, x_2^B)$.
+                \[
+                    A \succcurlyeq B \lor B \succcurlyeq A
+                \]
+            \end{definition}
+            
+            \begin{definition}
+                \textbf{Transitive: } for any three bundles, $A, B, C$
+                \[
+                    A \succcurlyeq B \land B \succcurlyeq C \implies A \succcurlyeq C
+                \]
+            \end{definition}
+        
+        \subsection{Convenience Assumptions}
+            \begin{definition}
+                \textbf{Monotonic: }
+                \[
+                    A \succcurlyeq B\ \impliedby \ x_i^A \geq x_i^B \ \forall \ i
+                \]
+                \[
+                    A \succ B\ \impliedby \ x_i^A > x_i^B \ \forall \ i
+                \]
+            \end{definition}
+            
+            \begin{definition}
+                \textbf{Convexity: } Suppose $A = (x_1^A, x_2^A) \sim B = (x_1^B, x_2^B)$
+                \[
+                    \alpha A + (1 - \alpha) B \succcurlyeq A,\ \forall \ \alpha \in [0, 1]
+                \]
+            \end{definition}
+            
+            \begin{definition}
+                \textbf{Continuity: } (no sudden jumps)
+            \end{definition}
+        
+        \subsection{Utility Function and Indifference Curve}
+            \begin{definition}
+                Let $\mathcal{X}$ denote the consumption set and a \textbf{utility function} is a real-valued function $u:\mathcal{X} \rightarrow \R_+$ so that
+                \[
+                    A \succcurlyeq B \iff u(A) \geq u(B)
+                \]
+                and
+                \[
+                    A \succ B \iff u(A) > u(B)
+                \]
+            \end{definition}
+            
+            \begin{remark}
+                The \underbar{positive monotone transformations} of utility function of a preference also captures the same preference. 
+            \end{remark}
+            
+            \begin{definition}
+                The \textbf{indifference curve} corresponding to utility level $\overline{u}$ is a set of consumption bundles
+                \[
+                    \{\vec{x} \in \R^n_+\ \vert\ u(\vec{x}) = \overline{u} \}
+                \]
+            \end{definition}
+            
+        \subsection{Marginal Rate of Substitution}
+            \begin{definition}
+                The \textbf{MRS} is the number of good $y$ that a consumer is \textbf{willing} to given up in order to get one more unit of good $x$.
+                \\Take total differential of equation $u(\vec{x}) = \overline{u}$,
+                \[
+                    \sum_{i}{
+                        \pd{u(\vec{x})}{x_i} d{x_i} = 0
+                        }
+                    \implies
+                    \frac{dy}{dx} = -\frac{MU_x}{MU_y}
+                \]
+                And MRS is a function of bundle $\vec{x}$.
+            \end{definition}
+            
+            \paragraph{Diminishing MRS} is when the \textbf{absolute MRS} decreases as more good $x$ is consumed along the indifference curve.
+            
+        \subsection{Different Types of Tastes}
+            \begin{itemize}
+                \item \textbf{Perfect Substitutes} MRS constant at every bundle.
+                \item \textbf{Perfect Complements} Unwilling to substitute.
+                \item \textbf{Homothetic} MRS constant on a ray ($\beta \vec{x_o},\ \beta > 0$) through origin.
+                \item \textbf{Quasi-linear} MRS depends on $\vec{x_{-i}}$ where $x_i$ is excluded.
+            \end{itemize}
+            
+    \section{Lecture 3 Choice}
+        \paragraph{Diminishing MRS in words} Comparing two bundles on the \emph{same} indifferent curve. At each bundle consider how much of $y$ we are willing to given up for an additional unit of $x$. \emph{If we have relatively \underbar{more} $x$ in one bundle, then we are \underbar{less} willing to give up $y$ at that bundle compared to the other bundle}.
+        
+        \begin{remark}
+            Perfect Substitutes (linear in every commodity) $\implies$ quasi-linear.
+        \end{remark}
+        
+        \subsection{Lagrangian Multiplier}
+            \paragraph{Sufficiency} FOCs from Lagrangian multiplier is both necessary and sufficient if and only if
+                \begin{enumerate}
+                    \item There are no "flat spots" on indifference curves.
+                    \item All goods are essential (\underbar{interior solution})
+                    \item Both choice set (characterized by budget constraint) and tastes (characterized by preference and utility function, quasi-concave).
+                \end{enumerate}
+            \paragraph{Uniqueness} Assuming \textbf{convexity} of preferences and choice set guarantees \emph{uniqueness} of optimal choice. (Reducing problem to a convex optimization problem).
+        
+        \subsection{Problem Solving}
+            \begin{enumerate}
+                \item Determine preference type.
+                \item Check expectation of interior solution.
+                \begin{itemize}
+                    \item If interior solution (e.g. Cobb-Douglas): setup and solve Lagrangian multiplier, check sufficiency.
+                    \item If not:
+                    \begin{enumerate}
+                        \item Perfect Substitute: Corner Solution if $MRS \neq rel.Price$.
+                        \item Perfect Complement: Solution on path $x_1=\gamma x_2$.
+                        \item Quasi-linear: interior solutions found for some parameter values only. \emph{Use LM to find expression of solution and check the condition for positiveness}.
+                    \end{enumerate}
+                \end{itemize}
+                \item Check for \emph{multiple optimal solutions}.
+            \end{enumerate}
+            
+    \section{Lectuer 4 Demand and Income Effects}
+        \subsection{Demand}
+            \begin{definition}
+                A \textbf{demand function} is an equation that expresses \underbar{bundle choices} as a \underbar{function} of prices and incomes.
+            \end{definition}
+            
+        \subsection{Income Effects}
+            \begin{definition}
+                \textbf{Income effect} is the change in behavior arising from just a change in income and leads to a parallel shift in the budget constraint.
+            \end{definition}
+            
+            \begin{remark}
+                With quasi-linear preference with numeraire $x_1$, then the demand for all \underbar{other} commodities other than $x_1$ have no income effect. We often refer to quasi-linear goods as the borderline goods between normal and inferior.
+            \end{remark}
+            
+            \begin{remark}
+                With pure income effect and homothetic preference, the ratios of commodities before and after are the same.
+            \end{remark}
+            
+            \begin{definition}
+                A \textbf{Engel curve} $x_i^D(I, \vec{p})$ captures the relationship between \underbar{demand} and \underbar{income}. Note: put $I$ on y-axis.
+            \end{definition}
+            
+            \begin{itemize}
+                \item \textbf{Normal goods} $\pd{x}{I} > 0$
+                \item \textbf{Inferior goods} $\pd{x}{I} < 0$
+            \end{itemize}
+            
+        \subsection{Decomposition of Substitution Effect and Income Effect}
+            \begin{itemize}
+                \item \textbf{Substitution Effect} changing \underbar{relative prices} holding the \underbar{utility level constant}.
+                \item \textbf{Income Effect} changing \underbar{purchasing power} of the consumer's income holding 
+                \underbar{relative prices constant}.
+            \end{itemize}
+            
+    \section{Lecture 5 Income and Substitution Effects}
 \end{document}
