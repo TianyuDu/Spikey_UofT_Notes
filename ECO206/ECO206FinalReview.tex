@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{float}
+\usepackage{soul}
 
 \title{ECO206 Final Review Notes}
 \author{Tianyu Du}
@@ -12,7 +13,7 @@
     \maketitle
     \tableofcontents
 
-    \section{Lecture 1 Introduction and Budget Constraints}
+    \section{Lecture 1 Budget Constraints}
     
         \subsection{Notation-Bundle}
             \begin{definition}
@@ -43,8 +44,8 @@
             \]
             
         \subsection{Income and Price changes}
-        \par \underbar{Pure Income Changes: } \emph{parallel shift} of budget line.
-        \par \underbar{Price changes: } \emph{rotation} of budget line around the \emph{invariant point} (i.e. the consumption bundle that is not affected by the price change).
+        \par \ul{Pure Income Changes: } \emph{parallel shift} of budget line.
+        \par \ul{Price changes: } \emph{rotation} of budget line around the \emph{invariant point} (i.e. the consumption bundle that is not affected by the price change).
             \begin{enumerate}
                 \item Exogenous income: Invariant point $\impliedby$ $\{x_1, \dots, x_i=0, \dots, x_n\}$ with $p_i$ changes. 
                 \item Endogenous income: Invariant point $\impliedby$ endowment point $\vec{e}$.
@@ -119,7 +120,7 @@
             \end{definition}
             
             \begin{remark}
-                The \underbar{positive monotone transformations} of utility function of a preference also captures the same preference. 
+                The \ul{positive monotone transformations} of utility function of a preference also captures the same preference. 
             \end{remark}
             
             \begin{definition}
@@ -154,7 +155,7 @@
             \end{itemize}
             
     \section{Lecture 3 Choice}
-        \paragraph{Diminishing MRS in words} Comparing two bundles on the \emph{same} indifferent curve. At each bundle consider how much of $y$ we are willing to given up for an additional unit of $x$. \emph{If we have relatively \underbar{more} $x$ in one bundle, then we are \underbar{less} willing to give up $y$ at that bundle compared to the other bundle}.
+        \paragraph{Diminishing MRS in words} Comparing two bundles on the \emph{same} indifferent curve. At each bundle consider how much of $y$ we are willing to given up for an additional unit of $x$. \emph{If we have relatively \ul{more} $x$ in one bundle, then we are \ul{less} willing to give up $y$ at that bundle compared to the other bundle}.
         
         \begin{remark}
             Perfect Substitutes (linear in every commodity) $\implies$ quasi-linear.
@@ -164,7 +165,7 @@
             \paragraph{Sufficiency} FOCs from Lagrangian multiplier is both necessary and sufficient if and only if
                 \begin{enumerate}
                     \item There are no "flat spots" on indifference curves.
-                    \item All goods are essential (\underbar{interior solution})
+                    \item All goods are essential (\ul{interior solution})
                     \item Both choice set (characterized by budget constraint) and tastes (characterized by preference and utility function, quasi-concave).
                 \end{enumerate}
             \paragraph{Uniqueness} Assuming \textbf{convexity} of preferences and choice set guarantees \emph{uniqueness} of optimal choice. (Reducing problem to a convex optimization problem).
@@ -188,7 +189,7 @@
     \section{Lectuer 4 Demand and Income Effects}
         \subsection{Demand}
             \begin{definition}
-                A \textbf{demand function} is an equation that expresses \underbar{bundle choices} as a \underbar{function} of prices and incomes.
+                A \textbf{demand function} is an equation that expresses \ul{bundle choices} as a \ul{function} of prices and incomes.
             \end{definition}
             
         \subsection{Income Effects}
@@ -197,7 +198,7 @@
             \end{definition}
             
             \begin{remark}
-                With quasi-linear preference with numeraire $x_1$, then the demand for all \underbar{other} commodities other than $x_1$ have no income effect. We often refer to quasi-linear goods as the borderline goods between normal and inferior.
+                With quasi-linear preference with numeraire $x_1$, then the demand for all \ul{other} commodities other than $x_1$ have no income effect. We often refer to quasi-linear goods as the borderline goods between normal and inferior.
             \end{remark}
             
             \begin{remark}
@@ -205,7 +206,7 @@
             \end{remark}
             
             \begin{definition}
-                A \textbf{Engel curve} $x_i^D(I, \vec{p})$ captures the relationship between \underbar{demand} and \underbar{income}. Note: put $I$ on y-axis.
+                A \textbf{Engel curve} $x_i^D(I, \vec{p})$ captures the relationship between \ul{demand} and \ul{income}. Note: put $I$ on y-axis.
             \end{definition}
             
             \begin{itemize}
@@ -215,10 +216,69 @@
             
         \subsection{Decomposition of Substitution Effect and Income Effect}
             \begin{itemize}
-                \item \textbf{Substitution Effect} changing \underbar{relative prices} holding the \underbar{utility level constant}.
-                \item \textbf{Income Effect} changing \underbar{purchasing power} of the consumer's income holding 
-                \underbar{relative prices constant}.
+                \item \textbf{Substitution Effect} changing \ul{relative prices} holding the \ul{utility level constant}.
+                \item \textbf{Income Effect} changing \ul{purchasing power} of the consumer's income holding 
+                \ul{relative prices constant}.
             \end{itemize}
             
     \section{Lecture 5 Income and Substitution Effects}
+        \begin{definition}
+            \textbf{Hicksian substitution effect} derived by compensating consumer enough income so that the consumer can reach the \ul{original utility level} after the price changes.
+        \end{definition}
+        \begin{definition}
+            \textbf{Slutsky substitution effect} derived by compensating consumer enough income so that the consumer can afford the \ul{original optimal bundle} after the price changes.
+        \end{definition}
+        
+        \subsection{Expenditure Minimization}
+            \begin{definition}
+                With \ul{new prices}, given consumer enough (hypothetical) income to just reach the \ul{original indifference curve}. Mathematically,
+                \[
+                    min_{x_1,x_2} p_1^{final} x_1 + p_2^{final} x_2 \ s.t.\ u(x_1, x_2) = U^{initial} = u(x_1^{initial}, x_2^{initial})
+                \]
+            \end{definition}
+            
+            \par Solving the expenditure using Lagrangian multiplier method 
+                \[
+                    \mc{L}(\vec{x}, \lambda) = \vec{x} \cdot \vec{p} + \lambda\{\overline{u} - u(\vec{x}) \}
+                \]
+                Let $\vec{x}^{SE} = (x_1^{SE}, x_2^{SE}, \dots, x_N^{SE}) = argmin_{\vec{x}}\{\vec{p} \cdot \vec{x}\ s.t.\ u(\vec{x}) = \overline{u}\}$ and $\vec{p}^{new} \cdot \vec{x}$ denote the \textbf{compensated income}.
+            
+            \begin{definition}
+                From expenditure minimization, we define the \textbf{expenditure function} $e(\vec{p}, 
+                \overline{u}): \R^{n+1}_+ \rightarrow \R_+$ as a function of price vector $\vec{p}$ and utility level $\overline{u}$.
+                \[
+                    e(\vec{p}, \overline{u}) := min_{\vec{x}} \{\vec{p} \cdot \vec{x} \ s.t. \ u(\vec{x}) = \overline{u} \}
+                \]
+            \end{definition}
+            
+        \subsection{Income Effect}
+            \begin{remark} Decomposing substitution and income effects.
+                \begin{enumerate}
+                    \item The utility value achieved is $\overline{u} = u(\vec{x}^*_1)$.
+                    \item Given prices $\vec{p}_1, \vec{p}_2$, use \ul{utility maximization} to find optimal bundles $\vec{x}^*_1, \vec{x}^*_2$.
+                    \item Use \ul{expenditure minimization} with respect to \ul{new price} and \ul{original utility level} to find $\vec{x}_{SE}(\vec{p}_2, \overline{u})$.
+                    \item Substitution effect is $\vec{x}_{SE} - \vec{x}^*_1$.
+                    \item Income effect is $\vec{x}^*_2 - \vec{x}_{SE}$.
+                \end{enumerate}
+            \end{remark}
+            \begin{figure}
+                \centering
+                \includegraphics{}
+                \caption{Decomposition of two effects}
+                \label{fig:my_label}
+            \end{figure}
+        
+        \subsection{Compensated Demand Curve}
+            \begin{remark}
+                \textbf{Regular demand (Marshallian)} changes in $x_1$ as $p_1$ changes when \ul{income held fixed}. (On graph: initial to final bundles)
+            \end{remark}
+            
+            \begin{definition}
+                \textbf{Compensated demand (Hicksian)} captures the changes in $x_1$ as $p_1$ changes, when \ul{utility level is held fixed}(hitting the same IC) by compensating consumer additional income. (On graph: initial to SE)
+                \\\textbf{Notation}:
+                \\Given prices $p_i$ and prices of other goods, $\vec{p}_{-i}$ and original utility $\overline{u}$, compensated demand for $x_i$ is denoted as
+                \[
+                    h_i(p_i, \vec{p}_{-1}, \overline{u}): \R^n_+ \rightarrow \R_+
+                \]
+            \end{definition}
 \end{document}
