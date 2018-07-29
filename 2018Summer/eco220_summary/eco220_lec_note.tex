@@ -887,7 +887,63 @@
 
 		\paragraph{} If we don't reject $H_0$, then we do not make type I error. However, if $H_0$ is not true and we do not reject it. 
 			There would be a \textbf{Type II Error} what's the probability of type II error $\beta$? By definition $\beta=P(Accept\ H_0 | H_1 \ True)$
-			
+		
+	\section{Lecture 20 Lecture 20 Jul. 24 2018}
+	    \subsection{Simple Regression}
+            \subsubsection{Basic Model}
+	            \paragraph{Model}
+	            \[
+	                y = \beta_0 + \beta_1 x + \epsilon
+	            \]
+	            estimate from sample data
+	            \[
+	                \hat{y} = b_0 + b_1 x
+	            \]
+	            \paragraph{Interpretation} $x$ increases by 1 unit, $y$ increases by $b_1$ unit(s).
+	       \subsection{Regress $y$ on $\ln{x}$}
+	            \paragraph{Model}
+	            \[
+	                y = \beta_0 + \beta_1 \ln{x} + \epsilon
+	            \]
+	            estimate from sample data
+	            \[
+	               \hat{y} = b_0 + b_1 \ln{x}
+	            \]
+	            \begin{gather*}
+	                \frac{dy}{dx} = b_1 \frac{1}{x} \\
+	                \implies dy = b_1 \frac{dx}{x}
+	            \end{gather*}
+	            \paragraph{Interpretation} $x$ increases by \underline{1 percent}, $y$ increase by $\frac{b_1}{100}$ unit(s).
+	            
+	       \subsection{Regress $\ln{y}$ on $x$}
+	            \paragraph{Model}
+	            \[
+	                \ln{y} = \beta_0 + \beta_1 x + \epsilon
+	            \]
+	            estimate from sample data
+	            \[
+	                \hat{\ln{y}} = b_0 + b_1 x
+	            \]
+	            \begin{gather*}
+	                \frac{d\ln{y}}{dy} \frac{dy}{dx} = b_1 \\
+	                \implies \frac{dy}{y} = b_1 dx 
+	            \end{gather*}
+	            \paragraph{Interpretation} $x$ increases by 1 unit, $y$ increases by $b_1$ \underline{percent}.
+	       
+	       \subsection{Regress $\ln{y}$ on $\ln{x}$}
+	            \paragraph{Model}
+	            \[
+	                \ln{y} = \beta_0 + \beta_1 \ln{x} + \epsilon
+	            \]
+	            estimate from sample data
+	            \[
+	                \hat{\ln{y}} = b_0 + b_1 \ln{x}
+	            \]
+	            \begin{gather*}
+	                \frac{d\ln{y}}{dy} \frac{dy}{dx} = b_1 \frac{1}{x} \\
+	                \implies \frac{dy}{y} = b_1 \frac{dx}{x} \\
+	            \end{gather*}
+	            \paragraph{Interpretation} $x$ increases by 1 \underline{percent} and $y$ increases by 1 \underline{percent}.
 \end{document}
 
 
