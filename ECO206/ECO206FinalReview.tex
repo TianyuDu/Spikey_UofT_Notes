@@ -5,12 +5,20 @@
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{soul}
+\usepackage{xcolor}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc},
+    version={4.0},
+]{doclicense}
 
 \title{ECO206 Microeconomic Theory \\ \small Final Preparation Notes}
 \author{Tianyu Du}
 
 \begin{document}
     \maketitle
+    \doclicenseThis
     \tableofcontents
 
     \section{Lecture 1 Budget Constraints}
@@ -261,11 +269,10 @@
                     \item Income effect is $\vec{x}^*_2 - \vec{x}_{SE}$.
                 \end{enumerate}
             \end{remark}
-            \begin{figure}
+            \begin{figure}[h]
                 \centering
-                \includegraphics{}
+                % \includegraphics{}
                 \caption{Decomposition of two effects}
-                \label{fig:my_label}
             \end{figure}
         
         \subsection{Compensated Demand Curve}
@@ -402,4 +409,194 @@
             \end{gather*}
         
     \section{Lecture 7 Elasticity and Consumer Surplus}
+        \subsection{Consumer Surplus}
+            \par Relating the \ul{regular demand}, \ul{choice diagram} and \ul{compensated demand}.
+        
+            \begin{definition}
+                \textbf{Consumer surplus} is the difference between what you are \ul{willing to pay (MRS)} and what you have to pay for \ul{each unit} in your chosen bundle \ul{quantified in dollars}.
+            \end{definition}
+            
+            \paragraph{Calculating Consumer Surplus}
+            \begin{enumerate}
+                \item Identify the original bundle chosen and utility level $\overline{u}$.
+                \item Calculate $h_1(p_1, \textcolor{red}{p_2=1},\overline{u})$.
+                \item $CS = \int_{p^*}^{\infty}{h_1(p_1,p_2=1,\overline{u})}\ dp_1$
+            \end{enumerate}
+            
+            \begin{remark}
+                If the preference is \textbf{quasi-linear}, then for \ul{non-numeraire} commodities, consumer surplus calculated from compensated and uncompensated demand curves are the same.
+            \end{remark}
+        
+        \subsection{Expenditure Function}
+            \begin{definition}
+                \textbf{Expenditure function} is the value function for consumer expenditure minimization problem.
+                \[
+                    e(\vec{p}, \overline{u}) = \min_{\vec{x}} \{\vec{x} \cdot \vec{p}\ s.t.\ u(\vec{x}) \geq \overline{u}\} = \vec{p} \cdot \vec{h}^*(\vec{p}, \overline{u})
+                \]
+            \end{definition}
+        
+        \subsection{Compensating Variation}
+            \begin{definition}
+                \textbf{Compensating Variation(CV)} is the amount of compensation consumer needs to achieve it's \ul{original utility level} with the \ul{new price}.
+                \[
+                    |CV| = e(
+                    \textcolor{red}{
+                        \vec{p}_{final}, \overline{u}_{initial}
+                        }) - I
+                \]
+            \end{definition}
+            
+            \begin{remark}
+                Consider a change on $p_i$ from $p_i^1$ to $p_i^2$, the prices for other commodities $\overline{p}_{-i}$ are unchanged. By Sheppard's lemma, $\pd{e(\cdot)}{p_i} = h_i$.
+                \[
+                    |CV| = e(p_i^2, \overline{p}_{-i}, \overline{u}_{initial}) - e(p_i^1, \overline{p}_{-i}, \overline{u}_{initial}) = \int_{p_i^1}^{p_i^2}{h_i(p_i, \overline{u}_{initial})\ dp_i}
+                \]
+            \end{remark}
+        
+        \subsection{Equivalent Variation}
+            \begin{definition}
+                \textbf{Equivalent Variation (EV)} is the amount of compensation consumer needs at \ul{initial price} to make him as well off as \ul{after} the price change.
+                \[
+                    |EV| = e(
+                    \textcolor{red}{
+                        \vec{p}_{initial}, \overline{u}_{final}
+                        }) - I 
+                \]
+            \end{definition}
+        
+        \begin{remark}
+            Consider a change on $p_i$ from $p_i^1$ to $p_i^2$, the prices for other commodities $\overline{p}_{-i}$ are unchanged.
+            \[
+                |EV| = e(p_i^1, \overline{p}_{-i}, \overline{u}_{final}) - e(p_i^2, \overline{p}_{-i}, \overline{u}_{final}) = \int_{p_i^2}^{p_i^1}{h_i(p_i, \overline{u}_{final})\ dp_i}
+            \]
+        \end{remark}
+        
+        \paragraph{Exit Question}
+            CV and EV are derived from integral of compensated demand $h_i$ at difference utility levels.
+            \textcolor{blue}{For quasi-linear preferences, $|CV| = |EV|$}
+            , since there is no income effect, compensated demand curves at any utility level coincides the uncompensated demand curve. Therefore both CV and EV are derived from integral compensated demand and they have the \ul{absolute absolute value} \emph{but opposite sign}.
+    
+    \section{Lecture 8 Dead Weight Loss and Uncertainty}
+        \begin{remark}
+            In general, the compensated and uncompensated demand curves intersect at one point (where the compensated demand curve is constructed). As we move away from that point by changing prices, the quantity on CD and Reg.D will differ because the CD captures only SE but regular demand captures both IE and SE.
+        \end{remark}
+        
+        \subsection{Finding $\Delta CS$ on Graph}
+            \begin{figure}[h]
+                \centering
+                % \includegraphics{}
+                \caption{CV, EV and CS on graph for normal goods}
+            \end{figure}
+            
+        \subsection{Dead Weight Loss(DWL)}
+            \begin{definition}
+                \textbf{Dead weight loss} is the \ul{loss in surplus} that could have been captured by someone in the economy but isn't.
+            \end{definition}
+            
+            \begin{remark}
+                DWL is due to a \textbf{substitution effect} - changing relative prices causes people to move away from relatively more expensive good, lowering tax revenue.
+            \end{remark}
+            
+            \begin{remark}
+                Lump-sum tax causes pure income effect and therefore no dead weight loss. We calculate the DWL from taxation using 
+                \[
+                    DWL = |T - L|
+                \]
+                where $T$ is the actual tax revenue.
+            \end{remark}
+            
+            \begin{figure}[h]
+                \centering
+                % \includegraphics{}
+                \caption{Lump-sum revenue, tax revenue and dead weight loss on graph}
+            \end{figure}
+            
+            \subsubsection{Calculating DWL from taxation}
+                \begin{enumerate}
+                    \item Put composite good on y-axis of the choice diagram.
+                    \item Find \ul{post tax} choice $\vec{x}_t$ and utility level $\overline{u}_t$.
+                    \item Calculate $EV = I - e(\vec{p}_{initial}, \overline{u}_t)$. And notice $EV$ is the maximum amount of lump sum tax could be charged leaving consumer at least as well as charging them proportional tax $t$ on commodity.
+                    \item Calculate $T = t*p_x*x^t$.
+                    \item $DWL = |T - L|$. (\ul{focus on the absolute value})
+                \end{enumerate}
+            
+        \subsection{Duality}
+            \begin{remark}
+                Notice at the optimal, 
+                \[
+                    v(\vec{p}, e(\vec{p}, u)) = u
+                \]
+                and
+                \[
+                    e(\vec{p}, v(\vec{p}, I)) = I
+                \]
+                Indirect utility function $v(\vec{p}, I)$ and expenditure function $e(\vec{p}, u)$ are invert of each other.
+            \end{remark}
+    
+        \subsection{Risk and Uncertainty}
+            \subsubsection{Setup}
+                \paragraph{Axes} Accident state ($x_A$) consumption on x-axis and safe state consumption ($x_S$) on y-axis.
+                
+                \begin{figure}[h]
+                    \centering
+                    % \includegraphics{}
+                    \caption{Coordinate used to analyze uncertainty}
+                \end{figure}
+                
+                \begin{definition}
+                    A \textbf{gamble} is a bundle giving payoff in different states, and each state has its probability of being realized.
+                    \[
+                        (x_A, x_S) =
+                        \begin{cases}
+                            x_A \tx{ with probability } \delta \\
+                            x_S \tx{ with probability} 1 - \delta \\
+                        \end{cases}
+                    \]
+                \end{definition}
+            
+            \subsubsection{Budget Constraint}
+                \begin{remark} 
+                    \textbf{Endowed income} here is the consumption in each state when there are no interventions.
+                \end{remark}
+                
+                \begin{definition}
+                    A general form of \text{insurance} is paying \textbf{premium} $p$ in \ul{both} states and get \textbf{benefit} $b$ only in a certain state.
+                \end{definition}
+                
+                \begin{example}
+                    With endowed income $(e_A, e_S)$, an insurance costs premium $p$ in both states and pays benefit $b$ in accident state only transforms the consumption bundle
+                    \[
+                        \begin{cases}
+                            x_A = e_A \\
+                            x_S = e_S \\
+                        \end{cases} \rightarrow
+                        \begin{cases}
+                            x_A = e_A - p + b \\
+                            x_S = e_S - p
+                        \end{cases}
+                    \]
+                \end{example}
+                
+                \begin{remark}
+                    We usually consider two types of insurance contracts:
+                    \begin{enumerate}
+                        \item \textbf{Buy or not:} Comparing the \ul{expected utility level} with and without insurance.
+                        \item \textbf{How much to buy:} \textcolor{red}{negative amount allowed}.
+                    \end{enumerate}
+                \end{remark}
+                
+                \par Consider the insurance contract
+                \[
+                    b = \gamma p
+                \]
+                Then the budget constraint between $x_A$ and $x_S$ becomes
+                \[
+                    x_S = e_S + \frac{\gamma}{1 - \gamma}(e_A - x_A)
+                \]
+                Therefore we can find the opportunity cost for each unit of $x_A$ is 
+                \[
+                    \frac{dx_S}{dx_A} = - \frac{\gamma}{1 - \gamma}
+                \]
+            \paragraph{Exit Question}
+            \textcolor{blue}{When insurance gets more expensive ($\gamma \uparrow$), how does the budget constraint change?} The budget constraint \textbf{rotates} around the endowment point. It's getting steeper (with accident consumption on x-axis and safe consumption on y-axis) as more safe state consumption are needed to be given up ($p$) for one more unit of accident state consumption ($b - p = (1 - \gamma)*b$).
 \end{document}
