@@ -6,7 +6,7 @@
 \usepackage{float}
 \usepackage{soul}
 
-\title{ECO206 Final Review Notes}
+\title{ECO206 Microeconomic Theory \\ \small Final Preparation Notes}
 \author{Tianyu Du}
 
 \begin{document}
@@ -281,4 +281,125 @@
                     h_i(p_i, \vec{p}_{-1}, \overline{u}): \R^n_+ \rightarrow \R_+
                 \]
             \end{definition}
+            \begin{remark}
+                \begin{itemize}
+                    \item \ul{Change in prices of other goods / changes in original utility level} Movements of the compensated demand curve.
+                    \item \ul{Own-price changes} Movement \emph{along} the curve.
+                \end{itemize}
+            \end{remark}
+            
+        \subsection{Slutsky Equation (Optional)}
+        \begin{theorem}
+            \[
+                \pd{x_i}{p_j} = \pd{h_i}{p_j} - h_j \pd{x_i}{y}
+            \]
+        \end{theorem}
+        \begin{proof}
+            Notice that at the optimal, $x_i(\vec{p}, e(\vec{p}, u)) = h_i(\vec{p}, u)$, take derivative with respect to $p_j$ we have
+            \[
+                \pd{x_i}{p_j} + \pd{x_i}{e} \pd{e}{p_j} = \pd{h_i}{p_j}
+            \]
+            By Sheppard's Lemma $\pd{e(\vec{p}, u)}{p_j} = h_j(\cdot)$, 
+            \[
+                \pd{x_i}{p_j} = \pd{h_i}{p_j} - h_j \pd{x_i}{y}
+            \]
+        \end{proof}
+    
+    \section{Lecture 6 Labor Supply and Elasticities}
+        \subsection{Labor Supply}
+            \begin{itemize}
+                \item Endogenous income: Leisure endowment ($L$) sold at real wage rate $w$.
+                \item Exogenous income: Non-labor income ($M$) 
+            \end{itemize}
+            \paragraph{Setup}
+            \quad \\
+            \emph{Budget constraint:}
+            \[
+                c = w(L-\ell) + M
+            \]
+            \\
+            \emph{Optimization problem:}
+            \begin{gather*}
+                \max_{c, \ell} u(c,\ell)\\ s.t.\ c \leq w(L - \ell) + M
+            \end{gather*}
+            Let $c^*(w), \ell^*(w)$ denote the maximizers and \textbf{labor supply} is
+            \[
+                h(w) = L - \ell(w)
+            \]
+            \begin{example}
+                For wage rate $w$ increases:
+                \begin{itemize}
+                    \item Substitution effect: $\ell \downarrow$ and $h \uparrow$
+                    \item Income effect (positive):
+                        \begin{itemize}
+                            \item (Inferior leisure) $\ell \downarrow$ and $h \uparrow$
+                            \item (Normal leisure) $\ell \uparrow$ and $h \downarrow$
+                        \end{itemize}
+                \end{itemize}
+            \end{example}
+            
+            \begin{remark}
+                Labor supply is \ul{upwards sloping} if \ul{substitution effect dominates income effect} or leisure is considered as \ul{inferior}.
+            \end{remark}
+        
+        \subsection{Taxes and Labor Supply}
+            \begin{remark}
+                \emph{Proportional income tax} is effective a change in real wage $w$ faced by consumers. Consider both \ul{income effect} (and notice leisure could be inferior or normal) and \ul{substitution effect}. 
+            \end{remark}
+            
+            \subsubsection{Laffer Curve (Optional)}
+                \begin{definition}
+                    \textbf{Laffer curve} captures the relation between \ul{tax revenue} and \ul{marginal tax rate}. For proportional income tax, tax revenue $T(\tau)$ is
+                    \[
+                        T(\tau) = \tau*w*h(\tau)
+                    \]
+                    and marginal tax revenue depends on the \ul{elasticity of labor supply}.
+                \end{definition}
+                
+        \subsection{Elasticity}
+            \begin{definition}
+                The \textbf{own price elasticity of demand} for commodity $i$ at coordinate $(x_i, p_i)$ on its demand curve is 
+                \[
+                    \epsilon_i = \frac{
+                        \frac{dx_i}{x_i}
+                        }{
+                        \frac{dp_i}{p_i}
+                        }
+                    = \frac{dx_i}{dp_i} \frac{p_i}{x_i}
+                \]
+            \end{definition}
+            
+            \begin{definition}
+                \textbf{Cross price elasticity of demand} for commodity $i$ with respect to price of commodity $j$ is 
+                \[
+                    \epsilon_{i,j} = \frac{dx_i}{dp_j}\frac{p_j}{x_i}
+                \]
+            \end{definition}
+            
+            \begin{definition}
+                The \textbf{income elasticity of demand} for commodity $i$ is
+                \[
+                    \eta_{i} = \frac{dx_i}{dI}\frac{I}{x_i}
+                \]
+            \end{definition}
+            
+            \begin{definition} Elasticity $\epsilon$ is classified as 
+                \begin{itemize}
+                    \item \textbf{Elastic} if $|\epsilon| > 1$.
+                    \item \textbf{Inelastic} if $|\epsilon| < 1$.
+                    \item \textbf{Unit elastic} if $|\epsilon| = 1$.
+                    \item \textbf{Perfectly inelastic} if $|\epsilon| = 0$.
+                    \item \textbf{Perfectly elastic} if $|\epsilon| = \infty$.
+                \end{itemize}
+            \end{definition}
+            
+        \subsection{Change in Revenue}
+            \par Total revenue $TR(p) = p*x(p)$, take derivative with respect to $p$ on both sides
+            \begin{gather*}
+                \pd{TR(p)}{p} = x(p) + p\pd{x(p)}{p} \\
+                \implies \pd{TR(p)}{p} = x(p) \{ 1 + \pd{x(p)}{p} \frac{p}{x(p)} \} = x(p) \{1 - |\epsilon| \}\\
+                \implies \pd{TR(p)}{p} > 0 \iff |\epsilon| < 1 \\
+            \end{gather*}
+        
+    \section{Lecture 7 Elasticity and Consumer Surplus}
 \end{document}
