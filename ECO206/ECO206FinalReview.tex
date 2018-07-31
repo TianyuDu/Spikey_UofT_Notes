@@ -742,4 +742,35 @@
                         \big \{ p_x(x_{-i}^C + Br_i(x_{-i}^C)) - AC \big \} \times Br_i(x_{-i}^C) - (p_x(x_M) - AC) \times \frac{x_M}{N} \leq C_{Pi}
                     \]
                 \end{remark}
+                
+    \section{Lecture 21 Oligopoly 2}
+        \subsection{Stackelberg Model of Oligopoly}
+            \subsubsection{Market}
+                \paragraph{Market demand} The (inverse) market demand for good $x$ is a function of market level of production $X = \sum_{i=1}^N{x_i}$
+                \[
+                    p_x(X) = p_x(x_1 + x_2 + \dots + x_N)
+                \]
+                And each firm encounter cost function $C_i(x_i),\ i \in \{1, 2\}$.
+                
+                \begin{remark}
+                    The \textbf{order of production} in Stackelberg model matters.
+                \end{remark}
+                
+                \begin{remark}
+                    \textbf{Finding best responses}
+                    Taking other players' strategies $s_{-i}$ as fixed and observe \ul{quantity} of firms that come before $\{x_1, x_2, \dots, x_{i-1}\}$ and know \ul{strategies} of firms that come after $\{s_{i+1}, \dots, s_N\}$. And then maximize pay-off.
+                \end{remark}
+            
+            \subsubsection{Solving}
+                \ul{For 2 firm case.} \textcolor{red}{Solve recursively}
+                \paragraph{Optimization} Firm 1's optimization
+                    \[
+                        \max_{x_1} \big \{ \pi_1 = p_x (x_1 + x_2^*(x_1)) \times x_1 - C_1(x_1) \big \}
+                    \]
+                    where $x_2^*(x_1) = argmax_{x_2}\pi_2(x_1, x_2)$ is the solution for firm 2's optimization problem
+                    \[
+                        \max_{x_2} \big \{ \pi_2 (x_1, x_2) = p_x(x_1 + x_2) \times x_2 - C_2(x_2) \big \}
+                    \]
+            
+        \subsection{Bertrand Oligopoly}
 \end{document}
