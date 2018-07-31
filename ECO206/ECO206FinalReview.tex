@@ -599,4 +599,147 @@
                 \]
             \paragraph{Exit Question}
             \textcolor{blue}{When insurance gets more expensive ($\gamma \uparrow$), how does the budget constraint change?} The budget constraint \textbf{rotates} around the endowment point. It's getting steeper (with accident consumption on x-axis and safe consumption on y-axis) as more safe state consumption are needed to be given up ($p$) for one more unit of accident state consumption ($b - p = (1 - \gamma)*b$).
+    
+    \section{Lecture 20 Oligopoly 1}
+        \begin{remark}
+            \textbf{Characteristics of Oligopoly}
+            \begin{itemize}
+                \item Large firms with \ul{identical products}.
+                \item Firms have \ul{market power}: firms' demand is \emph{not} perfectly elastic.
+                \item Firms faced \ul{residual demand}, which depends the decision of other firms.
+            \end{itemize}
+        \end{remark}
+        
+        \begin{remark}
+            Oligopoly can be modelled either competing in \textbf{price} or \textbf{quantity}.
+        \end{remark}
+        
+        \subsection{Cournot Model of Oligopoly}
+            \paragraph{Keys}
+                \begin{itemize}
+                    \item Competing in \textbf{quantity}.
+                    \item \textbf{Simultaneous} decision.
+                \end{itemize}
+                
+            \subsubsection{Market}
+                \begin{definition}
+                    The market is defined as, with $N$ firms. Each firm selects \textbf{quantity} $x_i$ to produce. Therefore the \textbf{market supply} $X$ is 
+                    \[
+                        X = \sum_{i=1}^N{x_i}
+                    \]
+                    and the market demand is given by invert demand function $p_x(X)$. Thus, \textbf{market clearance price} would be 
+                    \[
+                        p_x(X) = p_x(\sum_{i=1}^N{x_i})
+                    \]
+                    and each firm bears the production cost defined with \textbf{cost function} $C_i(x_i)$
+                \end{definition}
+                
+            \subsubsection{Cournot Oligopoly as a Game}
+                \begin{remark} Attributes of the Game
+                    \begin{itemize}
+                        \item Set of players (firms): $i \in \mc{I} = \{1,\dots,N\}$.
+                        \item Set of strategies (possible production level): $S_i = [0, \infty),\ i \in \mc{I}$.
+                        \item Strategy picked (production level): $x_i = s_i \in S_i,\ i \in \mc{I}$.
+                        \item Pay-off function (profit): $u_i(\vec{s}) = \pi_i(\vec{s}) = p_x(X)x_i - C_i(x_i)$.
+                    \end{itemize}
+                \end{remark}
+            
+            \subsubsection{Finding Best Response}
+                \begin{definition}
+                    Given other firms' strategies fixed $x_{-i} = \sum_{j \in \mc{I}}{x_j} - x_i$, the \textbf{best response} of firm $i$ is 
+                    \[
+                        Br_i(x_{-i}) = 
+                        \begin{cases}
+                            argmax_{x_i} \big \{ {\pi_i(x_i, x_{-i})} \big \}
+                            = argmax_{x_i} \big \{ {p_x(x_i+x_{-i})x_i - C_i(x_i) \big \}
+                            \tx{ if } max{\pi_i}} \geq 0\\
+                            0 \tx{ otherwise (shutdown)} \\
+                        \end{cases}
+                    \]
+                    $Br_i(\cdot): \R^n \rightarrow \R$ Best response maps competitors' strategy profile to a production quantity.
+                \end{definition}
+                
+                \textcolor{red}{
+                \begin{remark}
+                    Remember to check \ul{fixed cost} and assert non-negative profit at optimal. Firm would shutdown if negative profit(loss) is encountered.
+                \end{remark}
+                }
+                
+                \begin{definition}
+                    Firm are facing (inverted) \textbf{residual demand}, which depends on both competitors' strategy profile $x_{-i}$ and the production level .
+                    \[
+                        \overline{p}_x(x_i) = p_x(x_i + x_{-i}) = p_x(X)
+                    \]
+                \end{definition}
+                
+                \begin{example}
+                    \[
+                        p_x(X) = \alpha - X = \alpha - x_{-i} - x_i = \beta - x_i = \overline{p}_x(x_i)
+                    \]
+                \end{example}
+                
+            \subsubsection{Nash Equilibrium}
+                \paragraph{Methodology} \emph{Firstly find best responses of firms and then find the mutually best responses.}
+                
+                \begin{example} (without fixed cost)
+                    Consider two identical firms facing market demand $p(X) = 100 - X = 100 - x_1 - x_2$ and cost function $C_i(x_i) = x_i^2$. And best response could be solved in functional form
+                    \[
+                        Br_i(x_{-i}) = f(x_{-i})\ i \in \{1, 2\}
+                    \]
+                    Then solve simultaneous equation
+                    \[
+                        \begin{cases}
+                            Br_1(x_2^{NE}) = x_1^{NE} \\
+                            Br_2(x_1^{NE}) = x_2^{NE} \\
+                        \end{cases}
+                    \]
+                \end{example}
+                
+                \begin{figure}
+                    \centering
+                    % \includegraphics{}
+                    \caption{Finding Nash Equilibrium for Cournot Model}
+                \end{figure}
+                
+                \begin{remark}
+                    With \ul{fixed costs}, FOC stays the same but need to \ul{assert positive profit}. And maximum profits are decreasing in $x_{-i}$ and the shutdown point will be lower in terms of competitor's production level.
+                \end{remark}
+                
+                \begin{remark}
+                    Possible types of Nash equilibrium for Cournot Duopoly,
+                    \begin{enumerate}
+                        \item Both produce.
+                        \item Only one producer produces.
+                        \item Both producers shutdown.
+                    \end{enumerate}
+                \end{remark}
+                
+        \subsection{Cartels}
+            \subsection{Profit}
+                \begin{definition}
+                    \textbf{Cartel} is a group of firms that collude to pick quantities and agree to all \ul{lower quantities} to \ul{increase price}.
+                \end{definition}
+                
+                \begin{remark}
+                    Total profit for Cartel is maximized at the \ul{monopoly quantity} $x_M$. And assume each firm produces $\frac{x_M}{N}$. \footnote{It is not necessary for each firm to produce at the same level.}
+                \end{remark}
+                
+            \subsection{Sustainability}
+                \begin{remark} \textbf{Cheating}
+                    The marginal revenue for individual firm is higher than the marginal revenue for Cartel as a group (monopoly) since each individual firm has \ul{less previous units sold}. (Notice: they have to decrease prices for all units sold to sell one additional unit) Therefore, at quantity assigned by Cartel group, $\frac{x_M}{N}$, $MR > MC$ and firm has incentive to increase their production quantity to improve profit. 
+                    \[
+                        Br_i(x_{-i}^C) > \frac{x_M}{N}
+                    \]
+                \end{remark}
+                
+                \begin{remark}
+                    Cartel quantity $\frac{x_M}{N}$ is not a Nash equilibrium unless firms have ability to punish each other. (includes cost of cartel dissolving: less profit earned without Cartel)
+                \end{remark}
+                
+                \begin{remark} \textbf{Punishment}
+                    To maintain the sustainability of Cartel, the \ul{cost of being punished}$C_{Pi}$ to firm $i$ should be greater or equal to \ul{the net benefit from cheating} for firm $i$.
+                    \[
+                        \big \{ p_x(x_{-i}^C + Br_i(x_{-i}^C)) - AC \big \} \times Br_i(x_{-i}^C) - (p_x(x_M) - AC) \times \frac{x_M}{N} \leq C_{Pi}
+                    \]
+                \end{remark}
 \end{document}
