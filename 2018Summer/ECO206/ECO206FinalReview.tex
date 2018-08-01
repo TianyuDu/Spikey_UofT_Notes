@@ -762,7 +762,7 @@
                 \end{remark}
             
             \subsubsection{Solving}
-                \ul{For 2 firm case.} \textcolor{red}{Solve recursively}
+                \ul{For 2 firm case.} \textcolor{red}{\emph{Solve recursively}}
                 \paragraph{Optimization} Firm 1's optimization
                     \[
                         \max_{x_1} \big \{ \pi_1 = p_x (x_1 + x_2^*(x_1)) \times x_1 - C_1(x_1) \big \}
@@ -771,6 +771,30 @@
                     \[
                         \max_{x_2} \big \{ \pi_2 (x_1, x_2) = p_x(x_1 + x_2) \times x_2 - C_2(x_2) \big \}
                     \]
+                
+                \begin{remark}
+                    Notice the best response for firm 2 has to satisfy \ul{both} 
+                    \begin{enumerate}
+                        \item \textbf{non-negative quantity constraint.}
+                        \item \textbf{non-negative profit constraint.}
+                    \end{enumerate}
+                    Non-negative quantity constraint is given by solving 
+                    \[
+                        x_{1}^*\ s.t.\ x_2^*(x_1) = 0
+                    \]
+                    And non-negative profit constraint is given by solving
+                    \[
+                        x_{1}^{**}\ s.t.\ \pi_2(x_1, x_2^*(x_1)) = 0 
+                    \]
+                    and combining both constraint, we have 
+                    \[
+                        Br_2(x_1) = 
+                        \begin{cases}
+                            x_2^*(x_1) = argmax_{x_2} \big \{ \pi_2(x_1,x_2) \big \} \tx{ if } x_1 \leq \min\{x_1^*, x_1^{**}\} \\
+                            0 \tx{ if } x \geq \min\{x_1^*, x_1^{**}\} \\
+                        \end{cases}
+                    \]
+                \end{remark}
             
         \subsection{Bertrand Oligopoly}
 \end{document}
