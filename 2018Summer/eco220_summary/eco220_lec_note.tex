@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{xcolor}
+\usepackage{soul}
 
  
 \title{ECO220: Quantitative Methods in Economics \newline Lecture Notes (0201)}
@@ -888,7 +889,47 @@
 		\paragraph{} If we don't reject $H_0$, then we do not make type I error. However, if $H_0$ is not true and we do not reject it. 
 			There would be a \textbf{Type II Error} what's the probability of type II error $\beta$? By definition $\beta=P(Accept\ H_0 | H_1 \ True)$
 		
-	\section{Lecture 20 Lecture 20 Jul. 24 2018}
+	\section{Lecture 19 Jul. 18 2018}
+	    \subsection{Confidence Interval and Hypothesis Testing on the Population Mean $\mu$}
+	        \par \textcolor{red}{If $\sigma$ is known and $n$ is large}
+	        \\
+	        Let $\overline{X}$ denote the observed sample mean and as the point estimator of population mean $\mu$. And the $1-\alpha$ confidence interval for $\mu$ is 
+	        \[
+	            \overline{X} \pm z_{\alpha/2} \frac{\sigma}{\sqrt{n}}
+	        \]
+	        and z-statistic
+	        \[
+	            z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}}
+	        \]
+	        
+	        \begin{remark}
+	            When we use z-statistic, \ul{we assume $n$ is large or population is normal}.
+	        \end{remark}
+	        
+	        \par \textcolor{red}{If $\sigma$ is unknown}
+	        Use t-statistic and sample standard deviation $s$ to approximate normal distribution,
+	        \[
+	            t = \frac{\overline{X} - \mu}{s/\sqrt{n}} \quad df = n - 1
+	        \]
+	    
+    	    \begin{remark}
+    	        Mathematically, the t-distribution is derived from z-distribution. So when we use the t-distribution, \ul{we also assume the population is normal or close to normal}.
+    	    \end{remark}
+    	    
+        \subsection{Comparing mean of two populations}
+            \paragraph{Point estimation} on $\mu_1 - \mu_2$ is $\overline{X_1} - \overline{X_2}$.
+            \paragraph{Confidence Interval} the $(1-\alpha)$ confidence interval for $\mu_1 - \mu_2$ is 
+                \\
+                if $\sigma_1, \sigma_2$ are known,
+                \[
+                    \overline{X_1} - \overline{X_2} \pm z_{\alpha/2} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}
+                \] if $\sigma_1, \sigma_2$ are unknown,
+                \[
+                    \overline{X_1} - \overline{X_2} \pm t_{\alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+                \]
+	        
+		
+	\section{Lecture 20 Jul. 24 2018}
 	    \subsection{Simple Regression}
             \subsubsection{Basic Model}
 	            \paragraph{Model}
@@ -944,6 +985,42 @@
 	                \implies \frac{dy}{y} = b_1 \frac{dx}{x} \\
 	            \end{gather*}
 	            \paragraph{Interpretation} $x$ increases by 1 \underline{percent} and $y$ increases by 1 \underline{percent}.
+	            
+    \section{Lecture 21 Jul. 31 2018}
+        \subsection{Dummy Variable}
+            \begin{definition}
+                A \textbf{dummy variable} is a \ul{binary categorical variable} such that the numerical values are labels for the category.
+            \end{definition}
+            
+        \subsection{Hypothesis Testing in Simple Regression}
+            \paragraph{Model}
+                \[
+                    y = \beta_0 + \beta_1 x + \epsilon
+                \]
+            \paragraph{Significance of model relation}
+            $\beta_1$ captures the relationship between $x$ and $y$, we wish to test if the relationship between $x$ and $y$ is significant.
+            \\
+            \textbf{Setup hypothesis}
+            \[
+                \begin{cases}
+                    H_0 : \beta_1 = 0 \tx{ model relation is \textbf{not} significant.} \\
+                    H_1 : \beta_1 \neq 0 \tx{ model relation is significant.} \\
+                \end{cases}
+            \]
+            
+            \paragraph{Method 1: Use t-statistic}
+                \begin{gather*}
+                    t = \frac{\tx{point estimator - value to be tested}}{SE(\tx{point estimator})} \\
+                    = \frac{b_1 - 0}{SE(b_1)} \\
+                    = \frac{b_1}{SE(b_1)}\quad df = n - 2\\
+                \end{gather*}
+            
+            \paragraph{Method 2: Use F-statistic}
+                From ANOVA table, and $F$ value can be find using
+                \begin{gather*}
+                    F = \frac{MS_{regression}}{MS_{residue}} \quad df = (1, n-2)
+                \end{gather*}
+                Notice $df_{numerator} = k = 1$ as the number of independent variables the model is regressing on and $df_{denominator} = n - k - 1$.
 \end{document}
 
 
