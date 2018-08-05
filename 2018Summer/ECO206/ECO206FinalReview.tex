@@ -797,4 +797,68 @@
                 \end{remark}
             
         \subsection{Bertrand Oligopoly}
+            \par Competing for \ul{price} $p_i \in S_i = [0, \infty)$, decision made sequentially or simultaneously.
+            \subsubsection{Setup: duopoly}
+                \par Given market demand $x_D(p)$ and each firm faces cost function $C_i(p)$. Firms have to serve all consumers came, even if that leads to a loss. Each firm $i$ facing demand, given price of the other firm $p_{-i}$
+                \[
+                x_i(p_1, p_2) = 
+                    \begin{cases}
+                        x_D(p_i) \tx{ if } p_i < p_{-i} \\
+                        \frac{x_D(p_i)}{2}\ \tx{ if } p_i = p_{-i} \\
+                        0 \quad \quad \ \tx{ if } p_i > p_{-i} \\
+                    \end{cases}
+                \]
+                
+            \subsubsection{Best Response Function for Constant Cost}
+                \[
+                    B_i(p_j) = 
+                    \begin{cases}
+                        \{p_i: p_i > p_j\} \tx{ if } p_j < c \\
+                        \{p_i: p_i \geq p_j \} \tx{ if } p_j = c \\
+                        \emptyset \tx{ if } c < p_j \leq p^m \\
+                        \{p^m\} \tx{ if } p^m < p_j \\
+                    \end{cases}
+                \]
+    \section{Lecture 22 Externalities}
+        \subsection{Externalities}
+            \par Generally issues on merging two parties to deal disjoint profit problem (externality).
+                \begin{enumerate}
+                    \item Credit constraint.
+                    \item Negotiation costs can cause loss.
+                \end{enumerate}
+            \begin{definition}
+                \textbf{Externality} is the cost or benefit imposed on a \ul{third party} which is external to market activity.
+            \end{definition}
+            
+            \begin{definition}
+                \textbf{Social costs} is private costs plus \ul{negative} externalities. And \textbf{social benefits} is private benefits plus \ul{positive} externalities.
+            \end{definition}
+            
+            \begin{theorem}
+                \textbf{Coase Theorem} if transaction costs are negligibly low, it does not matter how property rights are assigned, as long as they are clearly defined, the efficient outcome is attainable. \textcolor{red}{Assumptions of this theorem are too strict, therefore this theorem is extremely limited.}
+            \end{theorem}
+        
+        \subsection{Techniques for Dealing with Externalities}
+            \subsubsection{Per-unit Pigovian Tax}
+                \par Let $x^s$ denote the socially optimal quantity, that's, 
+                \[
+                    MSC(x^s) = MSB(x^s)
+                \]
+                and per-unit pigovian tax to deal with externality can be found at
+                \[
+                    t = MSC(x^s) - MPC(x^s) = MEC(x^s)
+                \]
+            
+            \subsubsection{Per-unit Pigovian Subsidies}
+                \[
+                    s = MSB(x^s) - MPB(x^s) = MEB(x^s)
+                \]
+            
+            \subsubsection{Vouchers}
+                \par \emph{Limit pollution directly} Create \ul{perfectly inelastic supply} of vouchers for that amount of pollution. Charge per-unit tax $r$ on pollution for $\delta$ units of pollution and close up the gap.
+                \[
+                    r \times \delta(x^s) = MEC(x^s)
+                \]
+                \paragraph{Disadvantages} need to be able to measure pollution.
+                \paragraph{Advantages} Shifts production towards firms that pollute less and encourages firms to develop cleaner technology.
 \end{document}
