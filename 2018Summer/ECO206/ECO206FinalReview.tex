@@ -600,6 +600,40 @@
             \paragraph{Exit Question}
             \textcolor{blue}{When insurance gets more expensive ($\gamma \uparrow$), how does the budget constraint change?} The budget constraint \textbf{rotates} around the endowment point. It's getting steeper (with accident consumption on x-axis and safe consumption on y-axis) as more safe state consumption are needed to be given up ($p$) for one more unit of accident state consumption ($b - p = (1 - \gamma)*b$).
     
+    \section{Lecture 9 Uncertainty}
+        \begin{definition}
+            An insurance plan in the form of $p = \gamma b$ paying $b$ when state with probability $\delta$ happens is \textbf{fair} if the expected payoff from this insurance is zero. That's 
+            \begin{gather*}
+                \mathbb{E}(insurance) = \\
+                \delta (b - \gamma b) + (1 - \delta) (- \gamma b) = 0\\
+                \implies \textcolor{blue}{\delta = \gamma}
+            \end{gather*}
+        \end{definition}
+        
+        \subsection{Budget Constraint}
+            \begin{remark} Given insurance in $p = \gamma b$ form, budget constraint captures the \ul{trade off between safe state disposable income and accident state disposable income}.
+            \end{remark}
+            \par Given disposable incomes in both states
+            \[
+                \begin{cases}
+                    x_A = e_A + \frac{1 - \gamma}{\gamma}p\\
+                    x_S = e_S - p \\
+                \end{cases}
+            \]
+            and combining above equations gives the \textbf{budget constraint},
+            \[
+                \textcolor{red}{
+                    x_A = e_A + (e_S - x_S)(\frac{1 - \gamma}{\gamma})
+                    }
+            \]
+            where the \textbf{opportunity cost} is 
+            \[
+                \frac{dx_S}{dx_A} = - \frac{\gamma}{1 - \gamma} 
+            \]
+            interpreted as \ul{the quantity of safe state income \emph{given up} for one additional unit of accident state income.}
+            
+        \subsection{Expected Value of Gamble}
+        
     \section{Lecture 20 Oligopoly 1}
         \begin{remark}
             \textbf{Characteristics of Oligopoly}
