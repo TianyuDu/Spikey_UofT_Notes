@@ -6,6 +6,7 @@
 \usepackage{float}
 \usepackage{soul}
 \usepackage{xcolor}
+\usepackage{centernot}
 
 \usepackage[
     type={CC},
@@ -717,7 +718,185 @@
                         e_A + b - p = e_S - p
                     \]
                 \end{definition}
+                
+                \begin{theorem}
+                    The individual will choose to be \ul{fully insured} if the following three conditions are satisfied,
+                    \begin{enumerate}
+                        \item Fair insurance.
+                        \item State independent tastes.
+                        \item Risk-aversion.
+                    \end{enumerate}
+                \end{theorem}
+    
+    \section{Lecture 10 Production}
+        \subsection{Production Function}
+            \begin{definition}
+                \textbf{Production function} $f: \R^n_+ \rightarrow \R_+$ maps input bundle to the \ul{maximum} possible output.
+            \end{definition}
             
+            \begin{remark}
+                Given short run production function $f(l)$, $f^{-1}(x)$ gives the \ul{minimum quantity of labor} required for output quantity $x$.
+            \end{remark}
+            
+            \begin{definition}
+                The \textbf{isoquant} curve captures the input bundles that can be used to produce the quantity $\overline{q}$.
+                \[
+                    \{ \vec{x} \in \mc{X}\ | \ f(\vec{x}) = \overline{q} \}
+                \]
+            \end{definition}
+            
+            \begin{definition}
+                \textbf{Marginal Rate of Technical Substitution(MRTS)} captures at what rate can a firm substitute one input for another \ul{without changing its output level}.
+                \[
+                    \frac{dk}{dl} = -{MPL}{MPK}
+                \]
+            \end{definition}
+            
+        \subsection{Technologies}
+            \begin{definition}
+                \textbf{Monotonicity} let $\vec{x}$ denote input bundle,
+                \[
+                    \pd{f(\cdot)}{x_i}\ \forall \ i
+                \]
+            \end{definition}
+            
+            \begin{definition}
+                \textbf{Convex Isoquants} $\iff$ \emph{quasi-concave} production function.
+            \end{definition}
+            
+            \begin{definition}
+                \begin{enumerate}
+                    \item \textbf{CRS} $f(\lambda \vec{x}) = \lambda f(\vec{x}),\ \forall \lambda > 0$
+                    \item \textbf{IRS} $f(\lambda \vec{x}) > \lambda f(\vec{x}),\ \forall \lambda > 0$
+                    \item \textbf{DRS} $f(\lambda \vec{x}) < \lambda f(\vec{x}),\ \forall \lambda > 0$
+                \end{enumerate}
+            \end{definition}
+            
+       \subsubsection{Elasticity of Substitution}
+            \begin{definition} \textbf{Elasticity of substitution} between two input factors $l, k$ is defined as
+                \begin{gather*}
+                    \sigma = \frac{\frac{d(k/l)}{k/l}}{\frac{dMRTS}{MRTS}} \\ = \frac{d\ln{k/l}}{d\ln{|MRTS|}}
+                \end{gather*}
+            \end{definition}
+            
+            
+    \section{Lecture 11 Cost Minimization and Cost Curve}
+        \subsection{Firm's Problem}
+            \[
+                \max \pi(x) = p(x) x - C(x, w, r)
+            \]
+        \subsection{Types of Costs}
+            \paragraph{Classification of costs:}
+            \begin{enumerate}
+                \item Fixed cost.
+                \item Sunk cost.
+                \item Variable cost.
+            \end{enumerate}
+        
+        \subsection{Cost Minimization}
+            \begin{definition}
+                \textbf{Conditional input demands} capture the demands for input factors to produce output quantity $\overline{x}$.
+                \[
+                    (l, k) = argmin_{(l, k)}{w*l + r*k}\ s.t.\ f(k, l) = \overline{x}
+                \]
+            \end{definition}
+            
+            \subsubsection{Short-run Cost Minimization}
+                \begin{gather*}
+                    \min_{l} wl + r\overline{k}\ s.t.\ f(l, \overline{k}) = \overline{x} \\
+                    \min_{k} w\overline{l} + rk\ s.t.\ f(\overline{l}, k) = \overline{x}
+                \end{gather*}
+                and \textbf{conditional input demand}
+                \begin{gather*}
+                    l(\overline{x}, w) \\
+                    k(\overline{x}, r) \\
+                \end{gather*}
+                and \textbf{SR Cost function}
+                \begin{gather*}
+                    C(\overline{x}, w, r) = wl(\overline{x}, w) + r \overline{k} \\
+                    C(\overline{x}, w, r) = w\overline{l} + r k(\overline{x}, w)
+                \end{gather*}
+                
+            \subsubsection{Long-run Cost Minimization}
+                \begin{gather*}
+                    \min_{k, l} wl + rk \\
+                    s.t. f(l, k) = \overline{x}
+                \end{gather*}
+                and get \textbf{conditional input demands}
+                \[
+                    l(\overline{x}, w, r) and k(\overline{x}, w, r)
+                \]
+                and \textbf{long run cost} as a function of output quantity, which captures the \ul{minimum cost required to produce certain among of output $\overline{x}$}:
+                \[
+                    C(\overline{x}, l, r) = w*l(\overline{x}, w, r) + k*k(\overline{x}, w, r)
+                \]
+                
+                \begin{remark}
+                    For some types of production function (e.g. \emph{(quasi)linear}), solution of cost minimization could be \ul{corner solution}. Use isoquant and isocost curve to solve the problem.
+                \end{remark}
+                
+        \subsection{LR vs SR on Choice Graph}
+            \begin{remark}
+                LR total cost curve is the \ul{lower envelope} of the short-run total cost curves. And The LR total cost curve always has one point in common with any particular short-run total cost curve (\emph{not always the lowest point}). \textcolor{red}{Since the short run conditional input demand is always available in the long run. Therefore, long run cost minimization problem has larger choice set and therefore the value function is weakly lower than the short run minimization problem.}
+            \end{remark}
+            
+            \begin{remark}
+                Returns to scale determine how average (variable) production costs change with output level. If scaling up \ul{output} by a a factor $\lambda$ average cost becomes
+                \[
+                    \frac{f(\lambda \vec{x})}{\lambda \vec{p} \cdot \vec{x}} \sim \frac{\lambda f(\vec{x})}{\lambda \vec{p} \cdot \vec{x}}
+                \]
+                then AVC increases if IRT and decreases if DRT.
+            \end{remark}
+    
+    \section{Lecture 12 Profit Maximization and Factor Demand}
+        \subsection{Two step method: profit maximization}
+            \[
+                \max_x \pi(x) = p(x)x - C(x, w, r)
+            \]
+            \paragraph{Step 1} Minimize cost and construct \textbf{conditional} input demand and cost function $C(x, \cdot)$
+            \paragraph{Step 2} Profit maximization and determine the optimal quantity $x(p)$ using $MR = \pd{C(x, w, r)}{x}$, \textcolor{red}{assert non-negative profit.}
+        \subsection{Short Run Firm Supply}
+            \[
+                x_{SR}(p, w, r) =
+                \begin{cases}
+                    MC_{SR}^{-1}(p) \tx{ if } p \geq \min\{AVC_{SR}\} \\
+                    0 \tx{ (shutdown) otherwise } \\
+                \end{cases}
+            \]
+        
+        \subsection{Long Run Firm Supply}
+            \[
+                x_{LR}(p, w, r) =
+                \begin{cases}
+                    MC_{LR}^{-1}(p) \tx{ if } p \geq \min\{AVC_{LR}\} \\
+                    0 \tx{ (exit market) otherwise } \\
+                \end{cases}
+            \]
+        
+        \subsection{One step method: profit maximization}
+            \begin{gather*}
+                \max_{l, k} p*f(l, k) - w*l - r*k
+            \end{gather*}
+            
+            \begin{remark}
+                $argmax$ for above optimization is the \textbf{unconditional factor demands}.
+            \end{remark}
+            
+            \begin{remark}
+                Profit maximization $\implies$ Cost minimization. But Cost minimization $\centernot \implies$ Profit maximization.
+            \end{remark}
+        
+        \subsection{Edge Cases}
+            \subsubsection{Corner Solutions}
+                \begin{itemize}
+                    \item $x = 0 \impliedby \max\{\pi\} < 0$ shutdown.
+                    \item $x = \infty \impliedby$ increasing return to scale. ($AVC(x) < p \ \forall x \geq x^*$)
+                \end{itemize}
+            \subsubsection{Multiple Solutions}
+                \par Choose all candidates and pick the highest valued one.
+        
+    
+    
     \section{Lecture 20 Oligopoly 1}
         \begin{remark}
             \textbf{Characteristics of Oligopoly}
