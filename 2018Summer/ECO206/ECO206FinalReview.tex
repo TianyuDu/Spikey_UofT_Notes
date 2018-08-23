@@ -14,7 +14,7 @@
     version={4.0},
 ]{doclicense}
 
-\title{ECO206 Microeconomic Theory \\ \small Final Preparation Notes}
+\title{ECO206 Microeconomic Theory \\ \small Final Preparation Notes \ul{First Half} \\ \ul{no further update}}
 \author{Tianyu Du}
 
 \begin{document}
@@ -178,6 +178,10 @@
                     \item Both choice set (characterized by budget constraint) and tastes (characterized by preference and utility function, quasi-concave).
                 \end{enumerate}
             \paragraph{Uniqueness} Assuming \textbf{convexity} of preferences and choice set guarantees \emph{uniqueness} of optimal choice. (Reducing problem to a convex optimization problem).
+            
+            \begin{remark}
+                If convexity is not satisfied, Lagrangian multiplier could give \emph{minimal} instead. 
+            \end{remark}
         
         \subsection{Problem Solving}
             \begin{enumerate}
@@ -195,7 +199,7 @@
                 \item Check for \emph{multiple optimal solutions}.
             \end{enumerate}
             
-    \section{Lectuer 4 Demand and Income Effects}
+    \section{Lecture 4 Demand and Income Effects}
         \subsection{Demand}
             \begin{definition}
                 A \textbf{demand function} is an equation that expresses \ul{bundle choices} as a \ul{function} of prices and incomes.
@@ -225,7 +229,7 @@
             
         \subsection{Decomposition of Substitution Effect and Income Effect}
             \begin{itemize}
-                \item \textbf{Substitution Effect} changing \ul{relative prices} holding the \ul{utility level constant}.
+                \item \textbf{Substitution Effect} changing \ul{relative prices} holding the \ul{utility level constant}. (Moving along Hicksian demand)
                 \item \textbf{Income Effect} changing \ul{purchasing power} of the consumer's income holding 
                 \ul{relative prices constant}.
             \end{itemize}
@@ -475,7 +479,7 @@
         \paragraph{Exit Question}
             CV and EV are derived from integral of compensated demand $h_i$ at difference utility levels.
             \textcolor{blue}{For quasi-linear preferences, $|CV| = |EV|$}
-            , since there is no income effect, compensated demand curves at any utility level coincides the uncompensated demand curve. Therefore both CV and EV are derived from integral compensated demand and they have the \ul{absolute absolute value} \emph{but opposite sign}.
+            , since there is no income effect, compensated demand curves at any utility level coincides the uncompensated demand curve. Therefore both CV and EV are derived from integral compensated demand and they have the \ul{same absolute value} \emph{but opposite sign}.
     
     \section{Lecture 8 Dead Weight Loss and Uncertainty}
         \begin{remark}
@@ -634,7 +638,7 @@
                 EV = \delta e_A + (1 - \delta) e_S + \delta b - p
             \]
             \begin{definition}
-                An insurance plan in the form of $p = \gamma b$ paying $b$ when state with probability $\delta$ happens is \textbf{fair} if the expected payoff from this insurance is zero. That's 
+                An insurance plan in the form of $p = \gamma b$ paying $b$ when state with probability $\delta$ happens is a \textbf{fair insurance} if the expected payoff from this insurance is zero. That's 
                 \begin{gather*}
                     \mathbb{E}(insurance) = \\
                     \delta (b - \gamma b) + (1 - \delta) (- \gamma b) = 0\\
@@ -748,7 +752,7 @@
             \begin{definition}
                 \textbf{Marginal Rate of Technical Substitution(MRTS)} captures at what rate can a firm substitute one input for another \ul{without changing its output level}.
                 \[
-                    \frac{dk}{dl} = -{MPL}{MPK}
+                    \frac{dk}{dl} = -\frac{MPL}{MPK}
                 \]
             \end{definition}
             
@@ -756,7 +760,7 @@
             \begin{definition}
                 \textbf{Monotonicity} let $\vec{x}$ denote input bundle,
                 \[
-                    \pd{f(\cdot)}{x_i}\ \forall \ i
+                    \pd{f(\cdot)}{x_i} > 0 \ \forall \ i
                 \]
             \end{definition}
             
@@ -764,7 +768,7 @@
                 \textbf{Convex Isoquants} $\iff$ \emph{quasi-concave} production function.
             \end{definition}
             
-            \begin{definition}
+            \begin{definition}\quad
                 \begin{enumerate}
                     \item \textbf{CRS} $f(\lambda \vec{x}) = \lambda f(\vec{x}),\ \forall \lambda > 0$
                     \item \textbf{IRS} $f(\lambda \vec{x}) > \lambda f(\vec{x}),\ \forall \lambda > 0$
@@ -845,7 +849,7 @@
                 \[
                     \frac{f(\lambda \vec{x})}{\lambda \vec{p} \cdot \vec{x}} \sim \frac{\lambda f(\vec{x})}{\lambda \vec{p} \cdot \vec{x}}
                 \]
-                then AVC increases if IRT and decreases if DRT.
+                then AVC increases if DRS and decreases if IRS.
             \end{remark}
     
     \section{Lecture 12 Profit Maximization and Factor Demand}
@@ -893,269 +897,5 @@
                     \item $x = \infty \impliedby$ increasing return to scale. ($AVC(x) < p \ \forall x \geq x^*$)
                 \end{itemize}
             \subsubsection{Multiple Solutions}
-                \par Choose all candidates and pick the highest valued one.
-        
-    
-    
-    \section{Lecture 20 Oligopoly 1}
-        \begin{remark}
-            \textbf{Characteristics of Oligopoly}
-            \begin{itemize}
-                \item Large firms with \ul{identical products}.
-                \item Firms have \ul{market power}: firms' demand is \emph{not} perfectly elastic.
-                \item Firms faced \ul{residual demand}, which depends the decision of other firms.
-            \end{itemize}
-        \end{remark}
-        
-        \begin{remark}
-            Oligopoly can be modelled either competing in \textbf{price} or \textbf{quantity}.
-        \end{remark}
-        
-        \subsection{Cournot Model of Oligopoly}
-            \paragraph{Keys}
-                \begin{itemize}
-                    \item Competing in \textbf{quantity}.
-                    \item \textbf{Simultaneous} decision.
-                \end{itemize}
-                
-            \subsubsection{Market}
-                \begin{definition}
-                    The market is defined as, with $N$ firms. Each firm selects \textbf{quantity} $x_i$ to produce. Therefore the \textbf{market supply} $X$ is 
-                    \[
-                        X = \sum_{i=1}^N{x_i}
-                    \]
-                    and the market demand is given by invert demand function $p_x(X)$. Thus, \textbf{market clearance price} would be 
-                    \[
-                        p_x(X) = p_x(\sum_{i=1}^N{x_i})
-                    \]
-                    and each firm bears the production cost defined with \textbf{cost function} $C_i(x_i)$
-                \end{definition}
-                
-            \subsubsection{Cournot Oligopoly as a Game}
-                \begin{remark} Attributes of the Game
-                    \begin{itemize}
-                        \item Set of players (firms): $i \in \mc{I} = \{1,\dots,N\}$.
-                        \item Set of strategies (possible production level): $S_i = [0, \infty),\ i \in \mc{I}$.
-                        \item Strategy picked (production level): $x_i = s_i \in S_i,\ i \in \mc{I}$.
-                        \item Pay-off function (profit): $u_i(\vec{s}) = \pi_i(\vec{s}) = p_x(X)x_i - C_i(x_i)$.
-                    \end{itemize}
-                \end{remark}
-            
-            \subsubsection{Finding Best Response}
-                \begin{definition}
-                    Given other firms' strategies fixed $x_{-i} = \sum_{j \in \mc{I}}{x_j} - x_i$, the \textbf{best response} of firm $i$ is 
-                    \[
-                        Br_i(x_{-i}) = 
-                        \begin{cases}
-                            argmax_{x_i} \big \{ {\pi_i(x_i, x_{-i})} \big \}
-                            = argmax_{x_i} \big \{ {p_x(x_i+x_{-i})x_i - C_i(x_i) \big \}
-                            \tx{ if } max{\pi_i}} \geq 0\\
-                            0 \tx{ otherwise (shutdown)} \\
-                        \end{cases}
-                    \]
-                    $Br_i(\cdot): \R^n \rightarrow \R$ Best response maps competitors' strategy profile to a production quantity.
-                \end{definition}
-                
-                \textcolor{red}{
-                \begin{remark}
-                    Remember to check \ul{fixed cost} and assert non-negative profit at optimal. Firm would shutdown if negative profit(loss) is encountered.
-                \end{remark}
-                }
-                
-                \begin{definition}
-                    Firm are facing (inverted) \textbf{residual demand}, which depends on both competitors' strategy profile $x_{-i}$ and the production level .
-                    \[
-                        \overline{p}_x(x_i) = p_x(x_i + x_{-i}) = p_x(X)
-                    \]
-                \end{definition}
-                
-                \begin{example}
-                    \[
-                        p_x(X) = \alpha - X = \alpha - x_{-i} - x_i = \beta - x_i = \overline{p}_x(x_i)
-                    \]
-                \end{example}
-                
-            \subsubsection{Nash Equilibrium}
-                \paragraph{Methodology} \emph{Firstly find best responses of firms and then find the mutually best responses.}
-                
-                \begin{example} (without fixed cost)
-                    Consider two identical firms facing market demand $p(X) = 100 - X = 100 - x_1 - x_2$ and cost function $C_i(x_i) = x_i^2$. And best response could be solved in functional form
-                    \[
-                        Br_i(x_{-i}) = f(x_{-i})\ i \in \{1, 2\}
-                    \]
-                    Then solve simultaneous equation
-                    \[
-                        \begin{cases}
-                            Br_1(x_2^{NE}) = x_1^{NE} \\
-                            Br_2(x_1^{NE}) = x_2^{NE} \\
-                        \end{cases}
-                    \]
-                \end{example}
-                
-                \begin{figure}
-                    \centering
-                    % \includegraphics{}
-                    \caption{Finding Nash Equilibrium for Cournot Model}
-                \end{figure}
-                
-                \begin{remark}
-                    With \ul{fixed costs}, FOC stays the same but need to \ul{assert positive profit}. And maximum profits are decreasing in $x_{-i}$ and the shutdown point will be lower in terms of competitor's production level.
-                \end{remark}
-                
-                \begin{remark}
-                    Possible types of Nash equilibrium for Cournot Duopoly,
-                    \begin{enumerate}
-                        \item Both produce.
-                        \item Only one producer produces.
-                        \item Both producers shutdown.
-                    \end{enumerate}
-                \end{remark}
-                
-        \subsection{Cartels}
-            \subsection{Profit}
-                \begin{definition}
-                    \textbf{Cartel} is a group of firms that collude to pick quantities and agree to all \ul{lower quantities} to \ul{increase price}.
-                \end{definition}
-                
-                \begin{remark}
-                    Total profit for Cartel is maximized at the \ul{monopoly quantity} $x_M$. And assume each firm produces $\frac{x_M}{N}$. \footnote{It is not necessary for each firm to produce at the same level.}
-                \end{remark}
-                
-            \subsection{Sustainability}
-                \begin{remark} \textbf{Cheating}
-                    The marginal revenue for individual firm is higher than the marginal revenue for Cartel as a group (monopoly) since each individual firm has \ul{less previous units sold}. (Notice: they have to decrease prices for all units sold to sell one additional unit) Therefore, at quantity assigned by Cartel group, $\frac{x_M}{N}$, $MR > MC$ and firm has incentive to increase their production quantity to improve profit. 
-                    \[
-                        Br_i(x_{-i}^C) > \frac{x_M}{N}
-                    \]
-                \end{remark}
-                
-                \begin{remark}
-                    Cartel quantity $\frac{x_M}{N}$ is not a Nash equilibrium unless firms have ability to punish each other. (includes cost of cartel dissolving: less profit earned without Cartel)
-                \end{remark}
-                
-                \begin{remark} \textbf{Punishment}
-                    To maintain the sustainability of Cartel, the \ul{cost of being punished}$C_{Pi}$ to firm $i$ should be greater or equal to \ul{the net benefit from cheating} for firm $i$.
-                    \[
-                        \big \{ p_x(x_{-i}^C + Br_i(x_{-i}^C)) - AC \big \} \times Br_i(x_{-i}^C) - (p_x(x_M) - AC) \times \frac{x_M}{N} \leq C_{Pi}
-                    \]
-                \end{remark}
-                
-    \section{Lecture 21 Oligopoly 2}
-        \subsection{Stackelberg Model of Oligopoly}
-            \subsubsection{Market}
-                \paragraph{Market demand} The (inverse) market demand for good $x$ is a function of market level of production $X = \sum_{i=1}^N{x_i}$
-                \[
-                    p_x(X) = p_x(x_1 + x_2 + \dots + x_N)
-                \]
-                And each firm encounter cost function $C_i(x_i),\ i \in \{1, 2\}$.
-                
-                \begin{remark}
-                    The \textbf{order of production} in Stackelberg model matters.
-                \end{remark}
-                
-                \begin{remark}
-                    \textbf{Finding best responses}
-                    Taking other players' strategies $s_{-i}$ as fixed and observe \ul{quantity} of firms that come before $\{x_1, x_2, \dots, x_{i-1}\}$ and know \ul{strategies} of firms that come after $\{s_{i+1}, \dots, s_N\}$. And then maximize pay-off.
-                \end{remark}
-            
-            \subsubsection{Solving}
-                \ul{For 2 firm case.} \textcolor{red}{\emph{Solve recursively}}
-                \paragraph{Optimization} Firm 1's optimization
-                    \[
-                        \max_{x_1} \big \{ \pi_1 = p_x (x_1 + x_2^*(x_1)) \times x_1 - C_1(x_1) \big \}
-                    \]
-                    where $x_2^*(x_1) = argmax_{x_2}\pi_2(x_1, x_2)$ is the solution for firm 2's optimization problem
-                    \[
-                        \max_{x_2} \big \{ \pi_2 (x_1, x_2) = p_x(x_1 + x_2) \times x_2 - C_2(x_2) \big \}
-                    \]
-                
-                \begin{remark}
-                    Notice the best response for firm 2 has to satisfy \ul{both} 
-                    \begin{enumerate}
-                        \item \textbf{non-negative quantity constraint.}
-                        \item \textbf{non-negative profit constraint.}
-                    \end{enumerate}
-                    Non-negative quantity constraint is given by solving 
-                    \[
-                        x_{1}^*\ s.t.\ x_2^*(x_1) = 0
-                    \]
-                    And non-negative profit constraint is given by solving
-                    \[
-                        x_{1}^{**}\ s.t.\ \pi_2(x_1, x_2^*(x_1)) = 0 
-                    \]
-                    and combining both constraint, we have 
-                    \[
-                        Br_2(x_1) = 
-                        \begin{cases}
-                            x_2^*(x_1) = argmax_{x_2} \big \{ \pi_2(x_1,x_2) \big \} \tx{ if } x_1 \leq \min\{x_1^*, x_1^{**}\} \\
-                            0 \tx{ if } x \geq \min\{x_1^*, x_1^{**}\} \\
-                        \end{cases}
-                    \]
-                \end{remark}
-            
-        \subsection{Bertrand Oligopoly}
-            \par Competing for \ul{price} $p_i \in S_i = [0, \infty)$, decision made sequentially or simultaneously.
-            \subsubsection{Setup: duopoly}
-                \par Given market demand $x_D(p)$ and each firm faces cost function $C_i(p)$. Firms have to serve all consumers came, even if that leads to a loss. Each firm $i$ facing demand, given price of the other firm $p_{-i}$
-                \[
-                x_i(p_1, p_2) = 
-                    \begin{cases}
-                        x_D(p_i) \tx{ if } p_i < p_{-i} \\
-                        \frac{x_D(p_i)}{2}\ \tx{ if } p_i = p_{-i} \\
-                        0 \quad \quad \ \tx{ if } p_i > p_{-i} \\
-                    \end{cases}
-                \]
-                
-            \subsubsection{Best Response Function for Constant Cost}
-                \[
-                    B_i(p_j) = 
-                    \begin{cases}
-                        \{p_i: p_i > p_j\} \tx{ if } p_j < c \\
-                        \{p_i: p_i \geq p_j \} \tx{ if } p_j = c \\
-                        \emptyset \tx{ if } c < p_j \leq p^m \\
-                        \{p^m\} \tx{ if } p^m < p_j \\
-                    \end{cases}
-                \]
-    \section{Lecture 22 Externalities}
-        \subsection{Externalities}
-            \par Generally issues on merging two parties to deal disjoint profit problem (externality).
-                \begin{enumerate}
-                    \item Credit constraint.
-                    \item Negotiation costs can cause loss.
-                \end{enumerate}
-            \begin{definition}
-                \textbf{Externality} is the cost or benefit imposed on a \ul{third party} which is external to market activity.
-            \end{definition}
-            
-            \begin{definition}
-                \textbf{Social costs} is private costs plus \ul{negative} externalities. And \textbf{social benefits} is private benefits plus \ul{positive} externalities.
-            \end{definition}
-            
-            \begin{theorem}
-                \textbf{Coase Theorem} if transaction costs are negligibly low, it does not matter how property rights are assigned, as long as they are clearly defined, the efficient outcome is attainable. \textcolor{red}{Assumptions of this theorem are too strict, therefore this theorem is extremely limited.}
-            \end{theorem}
-        
-        \subsection{Techniques for Dealing with Externalities}
-            \subsubsection{Per-unit Pigovian Tax}
-                \par Let $x^s$ denote the socially optimal quantity, that's, 
-                \[
-                    MSC(x^s) = MSB(x^s)
-                \]
-                and per-unit pigovian tax to deal with externality can be found at
-                \[
-                    t = MSC(x^s) - MPC(x^s) = MEC(x^s)
-                \]
-            
-            \subsubsection{Per-unit Pigovian Subsidies}
-                \[
-                    s = MSB(x^s) - MPB(x^s) = MEB(x^s)
-                \]
-            
-            \subsubsection{Vouchers}
-                \par \emph{Limit pollution directly} Create \ul{perfectly inelastic supply} of vouchers for that amount of pollution. Charge per-unit tax $r$ on pollution for $\delta$ units of pollution and close up the gap.
-                \[
-                    r \times \delta(x^s) = MEC(x^s)
-                \]
-                \paragraph{Disadvantages} need to be able to measure pollution.
-                \paragraph{Advantages} Shifts production towards firms that pollute less and encourages firms to develop cleaner technology.
+                \paragraph{Solution} Choose all candidates and pick the highest valued one.
 \end{document}
