@@ -16,14 +16,61 @@
     \newpage
     
     \section{Lecture 1. September 6. 2018}
-    \begin{defn}
-        \textbf The {growth miracle} are episodes where thee growth in a country far exceeds the world average over a extended period of time. \ul{Result} the country experiencing the miracle moves up the wold income distribution.
-    \end{defn}
+        \begin{defn}
+            A \textbf{growth miracle} are episodes where thee growth in a country far exceeds the world average over a extended period of time. \ul{Result} the country experiencing the miracle moves up the wold income distribution.
+        \end{defn}
+        
+        \begin{defn}
+            A \textbf{growth disaster} is an episodes where the growth in a country falls short at the world average for an extended period of time. \ul{Result} the country moves down in the world income distribution.
+        \end{defn}
     
-    \begin{defn}
-        The \textbf{growth disaster} is an episodes where the growth in a country falls short at the world average for an extended period of time. \ul{Result} the country moves down in the world income distribution.
-    \end{defn}
-    
-    
-    
+        \paragraph{Facts} Data from the $20^{th}$ century suggest that
+        \begin{enumerate}
+            \item Real output grows at a (more or less) constant rate.
+            \item Stock of real capital grows at a (more or less) constant rate (but it grows faster than labor input).
+            \item Growth rates of real output and the stock of capital are about the same.
+            \item The rate of growth of output per capita varies greatly across countries.
+        \end{enumerate}
+        
+        \subsection{Solow Growth Model (continuous time version)}
+            \par Solow growth model decomposes the growth in output per capita into portions accounted for by increase in inputs and the portion contributed to increases in productivity.
+            \par In the baseline model we denote $K$ as capital, $L$ as labor and $A$ as technology.
+            
+        \subsubsection{Production Function}
+            \begin{remark}
+                Harrod-neutral technology here, refer to Uzawa's theorem.
+            \end{remark}
+            \begin{defn}
+                The \textbf{effective labor input} is defined as $A(t)L(t)$
+            \end{defn}
+            
+            \begin{defn}
+                The production function is defined as
+                \[
+                    Y(t) = F(K(t), A(t)L(t))
+                \]
+                Typically Cobb-Douglas form is taken
+                \[
+                    Y(t) = K(t)^\alpha (A(t)L(t))^{1 - \alpha},\ \alpha \in (0, 1)
+                \]
+            \end{defn}
+            
+            \begin{prop} Properties on production function.
+                \begin{enumerate}
+                    \item \ul{CRS in $K$ and $AL$}: $Y(cK, cAL) = cY(K, AL),\ \forall c \geq 0$ implies
+                        \begin{itemize}
+                            \item All gains from specialization have been exhausted.
+                            \item Inputs other than $K$ and $AL$ are unimportant.
+                        \end{itemize}
+                \end{enumerate}
+            \end{prop}
+            
+            \begin{defn}
+                Define $c := \frac{1}{AL}$, the \textbf{intensive form} of production function is
+                \[
+                    y = \frac{Y}{AL} = f(k)
+                \]
+                where $y := \frac{Y}{AL}$ denotes the \textbf{output per unit of effective labor} and $k := \frac{K}{AL}$ denote the capital stock per unit of effective labor.
+            \end{defn}
 \end{document}
+
