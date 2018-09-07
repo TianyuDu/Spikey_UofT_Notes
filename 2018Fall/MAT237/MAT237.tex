@@ -1,0 +1,181 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{spikey}
+\usepackage{float}
+\usepackage{xcolor}
+
+\title{MAT237: Lecture Notes \\ \small Advanced Calculus}
+\date{\today}
+\author{Tianyu Du}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    
+    \newpage
+    
+    \section{Lecture 1 September 6 2018}
+        \subsection{The Geometry of Euclidean Space}
+        \begin{example}
+            Consider $(1, 2) \in \R^2$ as a \ul{point} or a \ul{vector}.
+        \end{example}
+        
+        \begin{remark}
+            All vectors in this course are considered as \ul{column vectors}. Reasoning: suppose a linear function $\trans{f}{\R^n}{\R^m}$, then the transformation can be implemented as 
+            \[
+                f(\vec{x}) = \tbf{A}\vec{x},\ \tbf{A} \in \rmspace{m}{n}
+            \]
+            if $\vec{x}$ is a column vector.
+        \end{remark}
+        
+        \begin{defn}
+            Let $\vec{a}, \vec{b} \in \R^n$, the \textbf{dot product} $\trans{\cdot}{\R^n \times \R^n}{\R}$ is defined as,
+            \[
+                \dotprod{a}{b} = \sum_{i}{a_i b_i}
+            \]
+        \end{defn}
+        
+        \begin{defn}
+            Let $\vec{a} \in \R^n$, the \textbf{Euclidean norm} $\trans{\Norm{\cdot}}{\R^n}{\R}$ is defined as 
+            \[
+                \norm{a} = \sqrt{\dotprod{a}{b}}
+            \]
+        \end{defn}
+        
+        \paragraph{Interpretation} the Euclidean norm of $\vec{a}$, $\norm{a}$ is the \ul{length} of $\vec{a}$, or the \ul{distance} of $\vec{a}$ from the origin. And $\Norm{\vec{a} - \vec{b}}$ is the distance from $\vec{a}$ to $\vec{b}$.
+        
+        \begin{defn}
+            Two vectors $\vec{a}, \vec{b} \in \R^n$ is \textbf{orthogonal} if and only if
+            \[
+                \dotprod{a}{b} = 0
+            \]
+        \end{defn}
+        
+        \begin{theorem}
+            \textbf{(Cauchy Schwarz inequality)}
+            \[
+                | \dotprod{a}{b} | \leq \norm{a} \norm{b}
+            \]
+        \end{theorem}
+        
+        \begin{theorem}
+        \textbf{(Triangle inequality)}
+            \[
+                \Norm{\vec{a} + \vec{b}} \leq \norm{a} + \norm{b}
+            \]
+        \end{theorem}
+        
+        \begin{theorem}
+            \[
+                \dotprod{a}{b} = \norm{a} \norm{b} \cos{\theta}
+            \]
+            where $\theta$ is the angle between $\vec{a}$ and $\vec{b}$
+        \end{theorem}
+        
+        \begin{defn}
+            If $\vec{u} \in \Rn$ is a \textbf{unit vector} if  
+            \[
+                \norm{u} = 1
+            \]
+        \end{defn}
+        
+        \begin{defn}
+            The \textbf{projection} of $\vec{a}$ onto the line through $\vec{u}$ is defined as 
+            \[
+                (\dotprod{u}{a})\vec{u}
+            \]
+        \end{defn}
+        
+        \subsection{Subspaces of $\R^n$}
+        \begin{defn}
+            A subspace $V$ if $\R^n$ is a \ul{subset} of $\R^n$ such that
+            \[
+                \vec{a}, \vec{b} \in V \land
+                c_1, c_2 \in \R
+                \implies c_1 \vec{a} + c_2 \vec{b} \in V
+            \]
+        \end{defn}
+        
+        \begin{example}
+            Suppose
+            \[
+                \tbf{A} = \begin{pmatrix}
+                    1 & 3 \\
+                    2 & 7 \\
+                    -1 & 0 \\
+                \end{pmatrix}
+            \]
+            And consider 
+            \[
+                V = \{\tbf{A} \vec{x}: \vec{x} \in \R^n\}
+            \]
+            $V$ is a subspace with dimension 2.
+        \end{example}
+        
+        \begin{theorem}
+            Let $\tbf{A} \in \rmspace{m}{n}$ with $m > n$ and columns are independent then $V = \{\tbf{A}\vec{x}: \vec{x} \in \R^n\}$ is a n-dimensional subspace of $\R^n$.
+        \end{theorem}
+        
+        \begin{example} 
+            Consider 
+            \[
+                \tbf{A} = \begin{pmatrix}
+                    3 & 1 & 0 \\ 1 & 9 & -2
+                \end{pmatrix}
+            \] and 
+            \[
+                V = \{\vec{x} \in \R^3: \tbf{A} \vec{x} = \vec{0}\}
+            \]
+            Then $V$ is a 1-dimensional subspace of $\R^3$.
+        \end{example}
+        
+        \begin{theorem}
+            $\tbf{A} \in \rmspace{m}{n}$ and $m < n$ and rows are linearly independent, then $\{ \vec{x} \in \R^n: \tbf{A}\vec{x} = \vec{0} \}$ is a $(n-m)$ dimensional subspace.
+        \end{theorem}
+        
+        \subsection{Cross Product}
+            (\emph{Only available in $\R^3$}) is a way to multiplying two vectors in $\R^3$ to get another vector in $\R^3$.
+            \begin{defn}
+                Let $\vec{a}, \vec{b} \in \R^3$ then the \tbf{cross product} $\trans{\times}{\R^6}{\R^3}$ is defined as
+                \begin{gather*}
+                    \vec{a} \times \vec{b} := det(
+                        \begin{bmatrix}
+                            \vec{i} & \vec{j} & \vec{k} \\
+                            a_1 & a_2 & a_3 \\
+                            b_1 & b_2 & b_3 \\
+                        \end{bmatrix}
+                    ) \\
+                    \tx{ where } \vec{i} = (1,0,0),\ \vec{j} = (0,1,0),\ \vec{k} = (0,0,1)
+                \end{gather*}
+            \end{defn}
+            
+            \begin{remark} $\vec{a} \times \vec{b}$ is the vector such that
+                \begin{enumerate}
+                    \item orthogonal to both $\vec{a}$ and $\vec{b}$.
+                    \item it's length is $\norm{a}\norm{b}\sin{\theta}$.
+                \end{enumerate}
+            \end{remark}
+            
+            \begin{prop} Let $\vec{a}, \vec{b} \in \R^3$, then
+                \begin{enumerate}
+                    \item $\vec{a} \times \vec{b} = \vec{b} \times \vec{a}$
+                    \item $\vec{a} \times \vec{a} = \vec{0}$
+                    \item $(c_1 \vec{a_1} + c_2 \vec{a_2}) \times \vec{b} = c_1 (\vec{a_1} \times \vec{b_1}) + c_2 (\vec{a_2} \times \vec{b_2})$
+                    \item $(\vec{a} \times \vec{b}) \times \vec{c} \textcolor{red}{\ \neq\ } \vec{}{a} \times (\vec{b} \times \vec{c})$
+                \end{enumerate}
+            \end{prop}
+    \subsection{Functions of Several Variables}
+        \begin{remark}
+            Idea of differential calculus: more general general functions can then be approximated by linear functions.
+        \end{remark}
+        
+        \begin{defn}
+            Consider function $\trans{f}{\R^2}{\R}$, the graph of $f$ is 
+            \[
+                \{(x,y,z): z = f(x,y)\} \subseteq \R^3
+            \]
+        \end{defn}
+\end{document}
