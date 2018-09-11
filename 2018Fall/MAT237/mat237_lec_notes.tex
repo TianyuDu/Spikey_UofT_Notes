@@ -6,6 +6,7 @@
 \usepackage{spikey}
 \usepackage{float}
 \usepackage{xcolor}
+\usepackage{graphicx}
 
 \title{MAT237: Lecture Notes \\ \small Advanced Calculus}
 \date{\today}
@@ -31,28 +32,28 @@
             if $\vec{x}$ is a column vector.
         \end{remark}
         
-        \begin{defn}
+        \begin{definition}
             Let $\vec{a}, \vec{b} \in \R^n$, the \textbf{dot product} $\trans{\cdot}{\R^n \times \R^n}{\R}$ is defined as,
             \[
                 \dotprod{a}{b} = \sum_{i}{a_i b_i}
             \]
-        \end{defn}
+        \end{definition}
         
-        \begin{defn}
+        \begin{definition}
             Let $\vec{a} \in \R^n$, the \textbf{Euclidean norm} $\trans{\Norm{\cdot}}{\R^n}{\R}$ is defined as 
             \[
                 \norm{a} = \sqrt{\dotprod{a}{b}}
             \]
-        \end{defn}
+        \end{definition}
         
         \paragraph{Interpretation} the Euclidean norm of $\vec{a}$, $\norm{a}$ is the \ul{length} of $\vec{a}$, or the \ul{distance} of $\vec{a}$ from the origin. And $\Norm{\vec{a} - \vec{b}}$ is the distance from $\vec{a}$ to $\vec{b}$.
         
-        \begin{defn}
+        \begin{definition}
             Two vectors $\vec{a}, \vec{b} \in \R^n$ is \textbf{orthogonal} if and only if
             \[
                 \dotprod{a}{b} = 0
             \]
-        \end{defn}
+        \end{definition}
         
         \begin{theorem}
             \textbf{(Cauchy Schwarz inequality)}
@@ -75,29 +76,29 @@
             where $\theta$ is the angle between $\vec{a}$ and $\vec{b}$
         \end{theorem}
         
-        \begin{defn}
+        \begin{definition}
             If $\vec{u} \in \Rn$ is a \textbf{unit vector} if  
             \[
                 \norm{u} = 1
             \]
-        \end{defn}
+        \end{definition}
         
-        \begin{defn}
+        \begin{definition}
             The \textbf{projection} of $\vec{a}$ onto the line through $\vec{u}$ is defined as 
             \[
                 (\dotprod{u}{a})\vec{u}
             \]
-        \end{defn}
+        \end{definition}
         
         \subsection{Subspaces of $\R^n$}
-        \begin{defn}
+        \begin{definition}
             A subspace $V$ if $\R^n$ is a \ul{subset} of $\R^n$ such that
             \[
                 \vec{a}, \vec{b} \in V \land
                 c_1, c_2 \in \R
                 \implies c_1 \vec{a} + c_2 \vec{b} \in V
             \]
-        \end{defn}
+        \end{definition}
         
         \begin{example}
             Suppose
@@ -138,7 +139,7 @@
         
         \subsection{Cross Product}
             (\emph{Only available in $\R^3$}) is a way to multiplying two vectors in $\R^3$ to get another vector in $\R^3$.
-            \begin{defn}
+            \begin{definition}
                 Let $\vec{a}, \vec{b} \in \R^3$ then the \tbf{cross product} $\trans{\times}{\R^6}{\R^3}$ is defined as
                 \begin{gather*}
                     \vec{a} \times \vec{b} := det(
@@ -150,7 +151,7 @@
                     ) \\
                     \tx{ where } \vec{i} = (1,0,0),\ \vec{j} = (0,1,0),\ \vec{k} = (0,0,1)
                 \end{gather*}
-            \end{defn}
+            \end{definition}
             
             \begin{remark} $\vec{a} \times \vec{b}$ is the vector such that
                 \begin{enumerate}
@@ -159,23 +160,110 @@
                 \end{enumerate}
             \end{remark}
             
-            \begin{prop} Let $\vec{a}, \vec{b} \in \R^3$, then
+            \begin{proposition} Let $\vec{a}, \vec{b} \in \R^3$, then
                 \begin{enumerate}
                     \item $\vec{a} \times \vec{b} = \vec{b} \times \vec{a}$
                     \item $\vec{a} \times \vec{a} = \vec{0}$
                     \item $(c_1 \vec{a_1} + c_2 \vec{a_2}) \times \vec{b} = c_1 (\vec{a_1} \times \vec{b_1}) + c_2 (\vec{a_2} \times \vec{b_2})$
                     \item $(\vec{a} \times \vec{b}) \times \vec{c} \textcolor{red}{\ \neq\ } \vec{}{a} \times (\vec{b} \times \vec{c})$
                 \end{enumerate}
-            \end{prop}
+            \end{proposition}
     \subsection{Functions of Several Variables}
         \begin{remark}
             Idea of differential calculus: more general general functions can then be approximated by linear functions.
         \end{remark}
         
-        \begin{defn}
+        \begin{definition}
             Consider function $\trans{f}{\R^2}{\R}$, the graph of $f$ is 
             \[
                 \{(x,y,z): z = f(x,y)\} \subseteq \R^3
             \]
-        \end{defn}
+        \end{definition}
+        
+	\section{Lecture 2 September 11 2018}
+		\subsection{Visualize function with two variables}
+		\begin{definition}
+			Given $\trans{f}{\R^2}{\R}$ define \textbf{graph} of 
+			\[
+				\mc{G}(f):=\{(x,y,z):z=f(x,y)\}
+			\]
+			and the \textbf{level set} of $f$ is the set $\{(x,y) : f(x,y) = c\}$, with several values of $c$, it's called \textbf{contour plot}.
+		\end{definition}
+		\begin{example}
+			$f(x,y) = \frac{x^2}{4}-\frac{y^2}{9}$.
+		\end{example}
+		\begin{definition}
+			Consider function $\trans{f}{\R^3}{\R}$ we still define the graph of it as 
+			\[
+				\mc{G}(f) := \{(x,y,z,w): w = f(x,y,z)\} \subseteq \R^4
+			\]
+			and the \textbf{level sets} (\emph{level surfaces}) of $f$ are defined as
+			\[
+				\{(x,y,z): f(x,y,z) = c\} \subseteq \R^3
+			\]
+		\end{definition}
+		
+		\begin{definition}
+			Consider real value function $\trans{f}{\R^n}{\R}$, it's graph is a subset of $\R^{n+1}$ and the contour is a subset of $\R^n$.
+		\end{definition}
+		
+		\subsection{Subsets of $\R^n$}
+		\begin{definition}
+			Given $r > 0$ and $\vec{a} \in \R^n$, the \textbf{open ball} of radius $r$ centred at $\vec{a}$ is defined as 
+			\[
+				\mc{B}(r, \vec{a}) :=
+				\{\vec{x} \in \R^n: \Norm{\vec{x} - \vec{a}}\ \textcolor{red}{<}\ r\}
+			\]
+		\end{definition}
+		
+		\begin{definition}
+			The \textbf{sphere} of radius $r$ centred at $\vec{a}$ is defined as 
+			\[
+				\{\vec{x} \in \R^n: \Norm{\vec{x} - \vec{a}}\ \textcolor{red}{=}\ r\}
+			\]
+		\end{definition}
+		
+		\begin{definition}
+			Let $S \subseteq \R^n$, then $S$ is \textbf{bounded} if and only if
+			\[
+				\exists r > 0\ s.t.\ S \subseteq \mc{B}(r, \vec{0})
+			\]
+		\end{definition}
+		
+		\begin{example}
+			\begin{gather*}
+				S_1 = \{(x,y,z): x^2 + y^2 - \cos{e^{e^z}} \leq 5\} \tx{ Unbounded}\\
+				S_2 = \{(x,y,z): x^2 + y^2 + z^2 - \cos{e^{e^z}} \leq 5\} \tx{ Bounded}\\
+				S_3 = \{(x,y): xy=-1\} \tx{ Unbounded} \\
+			\end{gather*}
+		\end{example}
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
