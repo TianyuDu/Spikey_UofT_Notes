@@ -1,0 +1,63 @@
+\ProvidesPackage{spikey}
+
+% Cust. Package by Spikey.
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english]{babel}
+ 
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+
+\renewcommand\qedsymbol{$\blacksquare$}  % Change QED symbol to blacksquare
+
+% ================ General Shortcuts ================
+\newcommand{\tx}[1]{\text{{#1}}}
+\newcommand{\mc}[1]{\mathcal{{#1}}}
+
+
+% ================ Linear Algebra ================
+% TRANSformation
+\newcommand{\trans}[3]{{#1}: {#2} \to {#3}}
+% COORdinate.
+\newcommand{\coor}[2]{[\vec{{#1}}]_{{#2}}}
+% Transformation's MATrix representation
+\newcommand{\tmat}[3]{[{#1}]_{{#2}}^{{#3}}}
+% Vector SET, with index.
+\newcommand{\vset}[3]{\{\vec{{#1}_{#2}}, \dots, \vec{{#1}_{#3}}\}}
+% Scalar SET, with index.
+\newcommand{\sset}[3]{\{{{#1}_{#2}}, \dots, {{#1}_{#3}}\}}
+% Scalar TUPLE.
+\newcommand{\stuple}[3]{({{#1}_{#2}}, \dots, {{#1}_{#3}})}
+% INNER product, with auto vector
+\newcommand{\inner}[2]{\langle {\vec{{#1}}}, {\vec{{#2}}} \rangle}
+% INNER product, wihtout auto vector
+\newcommand{\Inner}[2]{\langle {#1}, {#2} \rangle}
+% NORM, with auto vector
+\newcommand{\norm}[1]{\vert \vert \vec{{#1}} \vert \vert}
+% NORM, without auto vector.
+\newcommand{\Norm}[1]{\vert \vert {#1} \vert \vert}
+
+
+
+% ================ General Math Symbols ================
+\newcommand{\R}[0]{\mathbb{R}}  % Real number field.
+\newcommand{\C}[0]{\mathbb{C}}  % Complex number field.
+
+\newcommand{\pd}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\expect}[1]{\mathbb{E}({#1})}
+
+
+% ================ Math Thms ================
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{prop}{Property}[section]

@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+
+\author{Tianyu Du}
+\date{\today}
+\title{MAT246: Concepts in Abstract Mathematics: \\ \small Lecture 0101 Notes}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{spikey}
+\usepackage{xcolor}
+
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	\section{Lecture 1 Sep. 7 2018}
+	
+	\begin{definition}
+		Let $\mathbb{N} := \{1, 2, 3, \dots\}$ be the set of \textbf{natural numbers}.
+	\end{definition}
+	
+	\begin{theorem}[Principle of Mathematical Induction]
+		Suppose $S$ is a set of natural numbers, $S \subseteq \mathbb{N}$. If
+		\begin{enumerate}
+			\item $1 \in S$
+			\item $k \in S \implies k + 1 \in S,\ \forall k \in \mathbb{N}$
+		\end{enumerate}
+		then, $S = \mathbb{N}$
+	\end{theorem}
+	
+	\begin{example}
+		Show that 
+		\[
+			1^2 + 2^2 + \dots + n^2 = \frac{n(n+1)(2n+1)}{6}\ \forall n \in \mathbb{N}
+		\]
+		\begin{proof}
+			
+		\end{proof}
+	\end{example}
+	
+	\section{Lecture 2 Sep. 10 2018}
+	
+	\begin{theorem}[Extended Principle of Mathematical Induction]
+		Suppose set $S \subseteq \mathbb{N}$ and let $n_0 \in \mathbb{N}$ fixed, if
+		\begin{enumerate}
+			\item $n_0 \in S$
+			\item $\forall k \geq n_0, k \in S \implies k + 1 \in S$
+		\end{enumerate}
+		then $\{n_0, n_0 + 1, n_0 + 2, \dots \}\ \textcolor{red}{\subseteq}\ S$
+	\end{theorem}
+	
+	\begin{example}
+		Show that 
+		\[
+			n! \geq 3^n\ \forall n \geq 7
+		\]
+		\begin{proof}
+			
+		\end{proof}
+	\end{example}
+	
+	\begin{theorem}[Well-Ordering Principle]
+		Every non-empty subset of natural number has a smallest element.
+	\end{theorem}
+
+	\begin{proof} (Principle of Mathematical Induction)\\
+		Let $S \subseteq \mathbb{N}$ \\
+		Suppose $1 \in S \land (k \in S \implies k+1 \in S, \forall k \in \mathbb{N})$ \\
+		Show: $S = \mathbb{N}$ \\
+		Let $T = \mathbb{N} \backslash S$ \\
+		Suppose $T \neq \emptyset$ \\
+		By Well-Ordering Principle, there exists a smallest element of T, denoted as $t_0 \in \mathbb{N}$. \\
+		Since $1 \in S$, therefore $t_0 \neq 1$. \\
+		Therefore $t_0 > 2$. \\
+		Thus $t_0 - 1 \in \mathbb{N}$ and since $t_0 = \min{T}$, $t_0 - 1 \notin T$ \\
+		Therefore $t_0 - 1 \in S$, then, $t_0 - 1 + 1 = t_0 \in S$, \\
+		Contradict the assumption that $t_0 \in T$. \\
+		Thus $T = \emptyset$ and $S = \mathbb{N}$. \\
+	\end{proof}
+	
+	\begin{remark}
+		We can use principle of Mathematical Induction to prove Well-Ordering Principle as well.
+	\end{remark}
+\end{document}
