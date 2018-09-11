@@ -1,4 +1,4 @@
-# Spieky-University-of-Toronto-Notes Repo
+# Spikey's Note Repository
 
 Spikey's Notes for courses at University of Toronto
 
@@ -6,7 +6,23 @@ Spikey's Notes for courses at University of Toronto
 
 ### Third Yr, Fall 2018
 
-#### MAT
+#### MAT237Y1 Y (Full Session) Multivariable Calculus
+
+- Lecture 5201
+
+#### MAT246H1 F (Fall) Concepts in Abstract Mathematics
+
+* Lecture 0101
+
+#### ECO325H1 F (Fall) Advanced Economic Theory - Macro
+
+* Lecture 0201
+
+#### ECO375H1 F (Fall) Applied Econometrics I
+
+* Lecture 0201
+
+
 
 
 
