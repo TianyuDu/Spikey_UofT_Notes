@@ -10,7 +10,7 @@
 \usepackage{soul}
 \usepackage{spikey}
 \usepackage{xcolor}
-
+\usepackage{centernot}
 
 \begin{document}
 	\maketitle
@@ -84,4 +84,90 @@
 	\begin{remark}
 		We can use principle of Mathematical Induction to prove Well-Ordering Principle as well.
 	\end{remark}
+	
+	\section{Lecture 3 Sep. 12 2018}
+	\begin{definition}
+		Let $a, b \in \mathbb{N}$ and $a$ \textbf{divides} $b$, written as $a | b$ if 
+		\[
+			\exists c \in \mathbb{N}\ s.t.\ b = ac
+		\]
+		And $a$ is a \textbf{divisor} of $b$.
+	\end{definition}
+	
+	\begin{definition}
+		A natural number $p$ (except $1$) is called \textbf{prime} if the only divisors of $p$ are $1$ and $p$.
+	\end{definition}
+	
+	\begin{lemma}[Prime numbers are building blocks of natural numbers]
+		Every natural number other than $1$ is a \emph{product}\footnote{Product could mean the product of a single number.} of prime numbers.
+	\end{lemma}
+	
+	\begin{theorem}[Principle of Complete Induction]
+		Suppose $S \subseteq \mathbb{N}$ and if 
+		\begin{enumerate}
+			\item $n_0 \in S$
+			\item $n_0, n_0 + 1, \dots, k \in S \implies k+1 \in S,\ \forall k \geq n_0$
+		\end{enumerate}
+		then 
+		\[
+			\{n_0, n_0 + 1, \dots\} \subseteq S
+		\]
+	\end{theorem}
+	\begin{proof} [Proof of Lemma]
+		Let $S \subseteq \mathbb{N}$ for which the lemma is true, \\
+		Want to show: $S = \mathbb{N} \backslash \{1\}$ \\
+		(Base Case) For $2$ it's a product of prime. Thus $2 \in S$ \\
+		(Inductive Step) Suppose $\{2,3, \dots k\} \subseteq S$ \\
+		Consider $k+1$, if $k+1$ is a prime then $k+1$ can be written as a product of itself, as a product of one single prime.\\
+		Else, if $k+1$ is not a prime, then $\exists 1<m,n<k+1\ s.t.\ k+1 = mn$.\\
+		By induction hypothesis of strong induction, $m,n$ can both be written as product of primes. \\
+		$m = \prod_{i=1}^\ell {p_i},\ n = \prod_{i=1}^t {q_i}$ where $p_i, q_i$ are all primes.\\
+		and $k+1 = \prod_{i=1}^t{q_i}\prod_{i=1}^\ell {p_i}$ \\
+		thus $k+1 \in S$ \\ 
+		by principle of strong induction, $\{2,3,\dots,\} \subseteq S$.
+	\end{proof}
+	
+	\begin{theorem}
+		There is no largest prime number.
+	\end{theorem}
+	
+	\begin{proof}
+		(By contradiction) \\
+		Assume there is a largest prime $p$, \\
+		then $\{2,3,5,\cdots,p\}$ is the set of all primes \\
+		Let $M := (2*3*5*\cdots*p)+1 \in \mathbb{N}$ \\
+		$M$ is either prime or not. \\
+		Suppose $M$ is not a prime, then by Lemma 3.1, $\exists p' $ dividing $M$. \\
+		Obviously $\forall i \in \{2*3*5*\cdots*p\},\ i \centernot | M$. \\
+		There is no prime dividing $M$, which contradict Lemma 3.1 \\
+		Thus $M$ is a prime, and $M > p$, which contradicts assumption \\
+		Therefore there is no largest prime.
+	\end{proof}
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
