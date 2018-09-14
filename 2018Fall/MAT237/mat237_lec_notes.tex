@@ -7,10 +7,15 @@
 \usepackage{float}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{centernot}
 
 \title{MAT237: Lecture Notes \\ \small Advanced Calculus}
 \date{\today}
 \author{Tianyu Du}
+
+
+\newcommand{\ball}[2]{\mathcal{B}({#1}, {#2})}
+\newcommand{\ballset}[2]{\{\vec{x} \in \R^n: \Norm{\vec{x} - \vec{#2}} < {#1}\}}
 
 \begin{document}
     \maketitle
@@ -237,6 +242,156 @@
 				S_3 = \{(x,y): xy=-1\} \tx{ Unbounded} \\
 			\end{gather*}
 		\end{example}
+	\section{Lecture 3 September 13 2018}
+	
+	\begin{definition}
+		Let $S \subseteq \R^n$, the \textbf{complement} of $S$ in $\R^n$ denoted as $S^c$ is defined as 
+		\[
+			S^c:= \{\vec{x} \in \R^n: \vec{x} \notin S\}
+		\]
+	\end{definition}
+	
+	\begin{definition}
+		A point $\vec{x} \in \R^n$ and let $S \subseteq \R^n$ then $\vec{x}$ is in the \textbf{interior} of $S$, denoted as $\vec{x} \in S^{int}$ if
+		
+		\[
+			\exists \epsilon > 0 \ s.t.\ \ball{\epsilon}{\vec{x}} \subseteq S
+		\]
+	\end{definition}
+	
+	\begin{definition}
+		$\vec{x}$ is in the \textbf{boundary} of $S$, denoted as $\vec{x} \in \partial S$, if 
+		\[
+			\forall \epsilon > 0,\ 
+			\ball{\epsilon}{\vec{x}} \cap S \neq \emptyset 
+			\land 
+			\ball{\epsilon}{\vec{x}} \cap S^c \neq \emptyset
+		\]
+	\end{definition}
+	
+	\begin{definition}
+		$\vec{x}$ is in the \textbf{closure} of $S$, denoted as $\vec{x} \in \overline{S}$
+		\[
+			\forall \epsilon > 0,\ \ball{\epsilon}{\vec{x}} \cap S \neq \emptyset
+		\]
+	\end{definition}
+
+	\begin{theorem}
+		Notice that 
+		\[
+			\overline{S} = \partial S \cup S^{int}
+		\]
+	\end{theorem}
+	
+	\begin{example}
+		\[
+			S = \ball{r}{\vec{a}} = \{\vec{x}: \Norm{\vec{x} - \vec{a}} < r\}
+		\]
+		Claim (true):
+		\begin{enumerate}
+			\item $S^{int} = S$ 
+			\item $\partial S = \{\vec{x}: \Norm{\vec{x} - \vec{a}} = r\}$
+			\item $\overline{S} = \{\vec{x}: \Norm{\vec{x} - \vec{a}} \leq r\} $
+		\end{enumerate}
+	\end{example}
+	
+	\begin{example}
+		Consider 
+		\[
+			S = \{x \in (0, 1): x \in \mathbb{Q}\} \subseteq \R
+		\]
+		Claim (true):
+		\begin{enumerate}
+			\item $S^{int} = \emptyset$
+			\item $\partial S = [0,1]$
+			\item $\overline{S} = [0,1]$
+		\end{enumerate}
+	\end{example}
+	
+	\begin{theorem}
+		For all set $S \subseteq \R^n$, 
+		\[
+			S^{int} \subseteq S \subseteq \overline{S}
+		\]
+	\end{theorem}
+	\begin{proof}
+		Let $\vec{x} \in S^{int}$, by definition of interior points, $\exists \epsilon > 0\ s.t.\ \ball{\epsilon}{\vec{x}} \subseteq S$, \\
+		Since $\vec{x} \in \ball{\epsilon}{\vec{x}}$ by definition of open ball $\implies \vec{x} \in S\ \forall \vec{x} \in S^{int} \implies S^{int} \subseteq S$\\
+		Since $\overline{S} = S^{int} \cup \partial S$, therefore $S^{int} \subseteq \overline{S}$. 
+	\end{proof}
+	
+	\begin{theorem}
+		For all $S \subseteq \R^n$, 
+		\[
+			\partial S = \partial (S^c)
+		\]
+	\end{theorem}
+	
+	\begin{proof}
+		Let $\vec{x} \in \partial (S^c)$ \\
+		$\iff \forall \epsilon > 0,\ \ball{\epsilon}{\vec{x}} \cap S \neq \emptyset \land \ball{\epsilon}{\vec{x}} \cap S^c \neq \emptyset$ \\
+		$\iff \forall \epsilon > 0, \ \ball{\epsilon}{\vec{x}} \cap (S^c)^c \neq \emptyset \land \ball{\epsilon}{\vec{x}} \cap S^c \neq \emptyset$ \\
+		$\iff \vec{x} \in \partial S$
+	\end{proof}
+	
+	\begin{definition}
+		A set $S \subseteq \R^n$ is \textbf{open} if $S = S^{int}$ and is \textbf{closed} if $S = \overline{S}$.
+	\end{definition}
+	
+	\begin{remark}
+		A set $S$ can be both open and closed or neither open or closed.
+	\end{remark}
+	
+	\begin{example}
+		Consider set $S = \R^n$, $\partial S = \emptyset$ then $S = S^{int} = \overline{S}$ and $S$ is \ul{both} open and closed.
+	\end{example}
+	
+	\begin{example}
+		Consider $S = \ball{r}{\vec{a}} \subseteq \R^n$, and $S = S^{int} \implies S$ is open.
+	\end{example}
+	
+	\begin{example}
+		Consider $S = \emptyset$, $S = S^{int} = \partial S = \overline{S} = \emptyset$ and $S$ is \ul{both} open and closed.
+	\end{example}
+	
+	\begin{example}
+		Consider $S = \mathbb{Q}$, $S^{int} = \emptyset$ and $\partial S = \R$, $S$ is \ul{neither} open or closed.
+	\end{example}
+	
+	\begin{remark}
+		Most sets are neither open or closed.
+	\end{remark}
+	
+	\begin{theorem}
+		Let $S\subseteq \R^n$ be a set, the following statements are equivalent,
+		\begin{enumerate}
+			\item $S \subseteq \R^n$ is an open set.
+			\item $S \subseteq S^{int}$
+			\item $\forall \vec{x} \in S,\ \exists\ \epsilon > 0,\ s.t.\ \ball{\epsilon}{\vec{x}} \subseteq S$
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		Let $T \subseteq \R^n$, the following statements are equivalent,
+		\begin{enumerate}
+			\item $T$ is a closed set.
+			\item $\partial T \subseteq T$
+			\item $T^c$ is open.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		Let $T$ be a closed set, by definition, $\partial T \subseteq T$. \\
+		By theorem 3.3, $\partial(T^c) \subseteq T$, \\
+		$\iff \partial {T^c} \centernot \subseteq T^c$ \\
+		$\iff$ no points in $T^c$ is boundary point \\
+		$\iff \forall \vec{x} \in T^c,\ \neg(\forall \epsilon > 0,\ \ball{\epsilon}{\vec{x}} \cap T^c \neq \emptyset \land \ball{\epsilon}{\vec{x}} \cap T \neq \emptyset)$ \\
+		$\iff \forall \vec{x} \in T^c, \exists \epsilon > 0,\ s.t.\ \ball{\epsilon}{\vec{x}} \cap T^c = \emptyset \lor \ball{\epsilon}{\vec{x}} \cap T = \emptyset$ \\
+		Clearly, since $\vec{x} \in T^c$, $\ball{\epsilon}{\vec{x}} \cap T^c \neq \emptyset$ \\
+		$\iff \forall \vec{x} \in T^c, \exists \epsilon > 0,\ s.t.\ \ball{\epsilon}{\vec{x}} \cap (T^c)^c = \emptyset$,\\
+		By definition of open set, $T^c$ is open.
+	\end{proof}
+	
 \end{document}
 
 
