@@ -143,6 +143,50 @@
 		Thus $M$ is a prime, and $M > p$, which contradicts assumption \\
 		Therefore there is no largest prime.
 	\end{proof}
+	
+	\section{Lecture 4 Sep. 14 2018}
+	\begin{theorem}[the Fundamental Theorem of Arithmetic]
+		Every natural (except 1) is a product of prime(s), and the prime(s) in the product are unique including multiplicity except for the order.
+	\end{theorem}
+	\begin{proof}
+		We have already proven that the existential parts of this theorem in Lemma 3.1. \\
+		(Proof for the uniqueness part) Suppose there exists natural number (not 1) has 2 different prime factorizations. \\
+		By well ordering principle, there is a smallest $n$, which has two distinct prime factorizations. \\
+		Say $n = p_1 p_2 \dots p_k = q_1 q_2 \dots q_\ell $ where $p_i, q_i$ are all primes. \\
+		Notice that $p_i \neq q_j$ for any combination of $(i,j)$ since if so $\frac{n}{p_i}=\frac{n}{q_j}$ is a natural number smaller than $n$ having 2 distinct prime factorization, which contradicts our assumption above. \\
+		Specifically, $p_1 \neq q_1$. \\
+		(Case 1: $p_1 < q_1$) \\
+		Let $m := n - p_1 q_2 \dots q_\ell \in \mathbb{N}$ \\
+		Notice $m = p_1 (p_2 p_3 \dots p_k - q_2 q_3 \dots q_\ell)$ \\
+		Also $m = (q_1 - p_1) (q_2 q_3 \dots q_\ell)$ \\
+		$\implies m = p_1 \dots p_k = q_2 q_3 \dots q_\ell (q_1 - p_1)$ \\
+		$\implies p_1 | m $ also notices that $p_1 \centernot | q_2 q_3 \dots q_\ell$ \\
+		$\implies p_1 |  (q_1 - p_1) \implies p_1 | q_1 \implies p_1 = q_1$ \\
+		Contradicts the assumption that $p_q < q_1$ \\
+		The other case goes a similar proof.
+	\end{proof}
+	
+	\begin{definition}
+		A natural number $n$ is called \textbf{composite} if it's not 1 or a prime number.
+	\end{definition}
+	
+	\begin{remark}
+		Natural numbers are partitioned into 3 categories, 1, prime and composite numbers.
+	\end{remark}
+	
+	\begin{example}
+		Find 20 consecutive composite numbers.
+		\[
+		(21!)+2, (21!)+3, \dots, (21!)+21
+		\]
+	\end{example}
+	
+	\begin{example}
+		Find $k$ consecutive composite numbers.
+		\[
+			(k+1!)+2, (k+1)!+3, \dots ,(k+1!)+k+1
+		\]
+	\end{example}
 \end{document}
 
 
