@@ -187,6 +187,76 @@
 			(k+1!)+2, (k+1)!+3, \dots ,(k+1!)+k+1
 		\]
 	\end{example}
+	
+	\section{Lecture 5 Sep. 17 2018}
+	
+	\begin{definition}
+		Let $a, b \in \mathbb{Z}$, and let $m \in \mathbb{N}$. If $m | a - b$ then we say "$a$ and $b$ are congruent modulo $m$"
+	\end{definition}
+	
+	\begin{remark}
+		Regular Induction $\iff$ Complete Induction $\iff$ Well-Ordering Principle
+	\end{remark}
+	
+	\begin{proof}
+		(WTS: Complete Induction $\implies$ Well-Ordering Principle) \\
+		Let $S \subseteq \mathbb{N}$ and $S \neq \emptyset$ \\
+		(WTS, $S$ has the smallest element) \\
+		Assume $S$ does not have the smallest element. \\
+		Let $T := S^c$ \\
+		Clearly $1 \in T$ (prop 1) \\
+		Since other wise 1 could be the smallest element of $S$. \\
+		Let $k \in \mathbb{N}$. \\
+		Suppose $1, 2, 3, \dots, k \in T$, if $k+1 \notin T$, then $k+1 \in S$ and $k+1$ becomes the smallest element of $S$ and contradicts our assumption above. \\
+		Therefore $1, 2, 3, \dots k \in T \implies k+1 \in T$.\\ 
+		By principle of strong induction, $T = \mathbb{N}$. \\
+		Thus, $S = \emptyset$, and contradicts our definition of $S$. \\
+		Therefore $\forall S \subseteq \mathbb{N}\ s.t.\ S \neq \emptyset$, $S$ has the smallest element (Well-Ordering Principle). 
+	\end{proof}
+	
+	\begin{example}[Application 2]
+		Is $2^{29} + 3$ divisible by 7? \\ 
+		\begin{proof}[Solution] Notice $2^2 \equiv 4 \mod 7$ and $2^3 \equiv 1 \mod 7$. \\
+		$\implies (2^3)^9 \equiv 1^9 \mod 7$ \\
+		$\implies 2^{27} \equiv 1 \mod 7 $ \\
+		$\implies 2^{29} \equiv 4 \mod 7 $ \\
+		Also $3 \equiv 3 \mod 7$ \\
+		$\implies 2^{29} + 3 \equiv 4 + 3 \mod 7$ \\
+		$\implies 2^{29} + 3 \equiv 7 \mod 7$ \\
+		$\implies 7 | 2^{29}+3$.
+		\end{proof}
+	\end{example}
+	
+	\begin{theorem}[Rules on computing congruence ]
+		Let $a, b, c, d \in \mathbb{Z}$ and $m \in \mathbb{N}$.
+		\begin{enumerate}
+			\item $a \equiv b \mod m \land c \equiv d \mod m \implies a + c \equiv b + d \mod m$
+			\item $a \equiv b \mod m \land c \equiv d \mod m \implies ac \equiv bd \mod m$
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		Let $a, b, c, d \in \mathbb{Z}$ and $m \in \mathbb{N}$, \\
+		suppose $a \equiv b \mod m \land c \equiv d \mod m$ \\
+		by definition of congruence, $\exists p, q\in \mathbb{Z}\ s.t.\ (a-b) = pm \land (c-d) = qm$\\
+		$\implies (a+c-b-d) = (p+q)m,\ (p+q) \in \mathbb{Z}$ \\
+		$\implies a + c \equiv b + d \mod m$ \\
+		And $a = b + pm \land c = d + qm$ \\
+		$ac - bd = (b + pm)(d+qm) - bd$ \\
+		$=bd +dpm + qbm + pqm^2 - bd$ \\
+		$=(dp+qb+pqm)m$ \\
+		$\implies m | ac-bd$ \\
+		$\implies ac \equiv bd \mod m$ 
+	\end{proof}
+	
+	\begin{proposition}[Corollary from theorem 5.1]
+		\[
+		a \equiv b \mod m \implies a + c \equiv b + c \mod m 
+		\] and
+		\[
+			a \equiv b \mod m \implies a^k \equiv b^k \mod m,\ \forall k \in \mathbb{Z}_{\geq 0}
+		\]
+	\end{proposition}
 \end{document}
 
 
