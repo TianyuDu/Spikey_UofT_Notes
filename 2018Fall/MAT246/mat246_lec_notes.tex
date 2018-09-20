@@ -257,6 +257,61 @@
 			a \equiv b \mod m \implies a^k \equiv b^k \mod m,\ \forall k \in \mathbb{Z}_{\geq 0}
 		\]
 	\end{proposition}
+	
+	\section{Lecture 6 Sep. 19 2018}
+	
+	\begin{theorem}
+		Let $a,b \in \mathbb{Z}$,
+		\[
+			a = b \implies a \equiv b \mod m\ \forall m \in \mathbb{N}
+		\]
+	\end{theorem}
+	
+	\begin{example}
+		What is the reminder when $3^{202}+5^9$ is divided by 8		
+		\begin{proof}[Solution]
+			Notice $3^2 \equiv 1 \mod 8$ \\
+			Therefore, $(3^2)^{101} \equiv 1^{101} \mod 8$ \\
+			That's, $3^{202} \equiv 1 \mod 8$ \\
+			Also $5^2 \equiv 1 \mod 8$ \\
+			$\implies (5^2)^4 \equiv 1^4 \mod 8$ \\
+			$\implies 5^9 \equiv 5 \mod 8$ \\
+			$\implies 3^{202} + 5^9 \equiv 5 + 1 \mod 8$ \\
+			$\implies$ the reminder is $6$. \\
+			(Notice that $3^{202} + 5^9 \equiv 6 \equiv 14 \equiv 22 \equiv \dots \mod 8 $, and the reminder is the smallest integer satisfying above relation.)
+		\end{proof}
+	\end{example}
+	
+	\begin{theorem}
+		Let $M \in \mathbb{Z}$ and $M = d_N \dots d_2 d_1 d_0,\ d_i \in \{0,1,\dots,9\}$ \footnote{This means the integer $M$ is constructed from digits $d_i$. For example, $M=256$, then $d_0=6, d_1=5,d_2=2$}, then
+		\[
+			3 | M \iff 3\ |\ \sum_{i=0}^N{d_i}
+		\]
+	\end{theorem}
+	
+	\begin{proof}
+		Notice $10 \equiv 1 \mod 3$, $100 \equiv 1 \mod 3$ and so on, \\
+		(Fact) $10^k \equiv 1 \mod 3,\ \forall k \in \mathbb{Z}_{\geq 0}$ \\
+		Then $d_i 10^i \equiv d_i \mod 3,\ \forall i$ \\
+		Therefore, $\sum_{i=0}^N{10^i d_i} \equiv \sum_{i=0}^N{d_i} \mod 3$ \\
+		Therefore $\sum_{i=0}^N{10^i d_i} \equiv 0 \mod 3 \iff \sum_{i=0}^N{d_i} \equiv 0 \mod 3$ \\
+	\end{proof}
+		
+	\begin{theorem}
+		Let $M \in \mathbb{Z}$ and $M = d_N \dots d_2 d_1 d_0,\ d_i \in \{0,1,\dots,9\}$, then 
+		\[
+			11 | M \iff 11\ |\ \sum_{i=0}^N{(-1)^i d_i}
+		\]
+	\end{theorem}
+	
+	\begin{proof}
+		Notice $10^i \equiv (-1)^i \mod 11$ \\
+		Therefore $10^i d_i \equiv (-1)^i d_i$ \\
+		Thus, $\sum_{i=0}^N{10^i d_i} \equiv \sum_{i=0}^N{(-1)^i d_i} \mod 11$ \\
+		Then, $\sum_{i=0}^N{10^i d_i} \equiv 0 \mod 11 \iff \sum_{i=0}^N{(-1)^i d_i} \equiv 0 \mod 11$ \\
+	\end{proof}
+	
+	
 \end{document}
 
 
