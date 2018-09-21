@@ -8,10 +8,20 @@
 \usepackage{amssymb}
 \usepackage{soul}
 \usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc},
+    version={4.0},
+]{doclicense}
 
 
 \begin{document}
-    \maketitle 
+    \maketitle
+    \doclicenseThis
+    \url{https://github.com/TianyuDu/Spikey_UofT_Notes}
     \tableofcontents
     \newpage
     
@@ -72,5 +82,252 @@
                 \]
                 where $y := \frac{Y}{AL}$ denotes the \textbf{output per unit of effective labor} and $k := \frac{K}{AL}$ denote the capital stock per unit of effective labor.
             \end{definition}
+
+	\section{Lecture 3 September 20. 2018}
+		\subsection{Dynamic Transitions}
+			\begin{remark}
+				For the dynamic transition function of capital per unit of effective labor,
+				\[
+					\dot{k}(t) = sf(k(t)) - (n+g+\delta)k(t)
+				\]
+			\end{remark}
+			\paragraph{} And dynamic transition and phase diagram can be expressed as
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.6\linewidth]{figures/3_1.png}
+				\caption{Dynamic Transition of Capital Per Unit of Effective Labor}
+			\end{figure}
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.6\linewidth]{figures/3_2.png}
+				\caption{Phase Diagram of Capital Per Unit of Effective Labor}
+			\end{figure}
+			
+			\begin{definition}
+			\textbf{Steady level of capital per unit of effective labor($k^*$)} is defined as the level of capital per unit of effective labor that equates break-even investment per unit of effective labor and actual investment per unit of effective labor. \footnote{The definition can also be expressed as $k^* := \{k \in \R_{+}: \hat{k} = 0\}$}
+				\[
+					k^* := \{k \in \R_{+}: sf(k) = (n+g+\delta) k\}
+				\]
+			\end{definition}
+			
+			\begin{remark}
+				The values of other endogenous variables at steady state are also derived from $k^*$.
+				\begin{example}
+					\begin{gather}
+						y^* = f(k^*) \\
+						i^* = sf(k^*) = (n+g+\delta) k^* \\
+						c^* = y^* - i^* = f(k^*) - (n+g+\delta)k^* = (1-s)f(k^*)
+					\end{gather}
+				\end{example}
+				For the growth rate of each endogenous variable (per unit of effective labor). 
+					\begin{gather}
+						\pd{k(t)}{t}|_{k=k^*} = 0 \\
+						\pd{c(t)}{t}|_{k=k^*} = 0 \\
+						\pd{y(t)}{t}|_{k=k^*} = 0 
+					\end{gather}
+					above relations are equivalent to 
+					\begin{gather}
+						\tx{On steady state} \begin{cases}
+							\dot{c}(t) = 0 \\
+							\dot{k}(t) = 0 \\
+							\dot{y}(t) = 0 \\
+						\end{cases}
+					\end{gather}
+			\end{remark}
+			
+			\begin{proof}
+				By definition of consumption per unit of effective labor,\\
+				$c(\cdot) = (1-s)f(k(t))$ \\
+				$\implies \dot{c}(t) := \pd{c(\cdot)}{t} = (1-s)f'(k(t)) \dot{k(t)}$ by chain rule \\
+				Since $\dot{k}|_{k=k^*} = 0$ and $(1-s)f'(k(t)) < \infty$ \\
+				Thus $\dot{c}(t)|_{k=k^*} = 0$
+			\end{proof}
+			
+		\subsection{Balanced Growth Path}
+			\begin{definition}
+				A \textbf{balanced growth path} is a situation where each variable in the model are all growing at a constant rate. \footnote{Variables are not required to grow at the same rate by this definition.} \footnote{Variables remaining fixed are also considered as growing at a constant rate ($g=0$).}
+			\end{definition}
+			
+			\subsubsection{Growth Rates on Balanced Growth Path}
+			\paragraph{Population and Technology} By definition of population and technological progress,
+			\begin{gather}
+				g_A := \frac{\dot{A}}{A} = g \\
+				g_L := \frac{\dot{L}}{L} = n
+			\end{gather}
+			
+			\paragraph{Capital per person} Since $\frac{K(t)}{L(t)} = \frac{k(t)A(t)L(t)}{L(t)} = k(t)A(t)$, and the growth rate of $x(t)$ can be found as $\pd{\ln{x(t)}}{t}$. Then
+			\begin{proof}[Solution]
+				\begin{gather*}
+					\pd{\ln{\frac{K(t)}{L(t)}}}{t} = \pd{k(t)A(t)}{t} \\
+					= \pd{\ln{k(t)}}{t} + \pd{\ln{A(t)}}{t} \\
+					= \frac{\dot{k}(t)}{k(t)} + g \\
+				\end{gather*}
+				And at the steady state, by definition, $\dot{k}(t)|_{k-k^*} = 0$, therefore 
+				\begin{equation}
+					g_{\frac{K}{L}}^* = g
+				\end{equation}
+			\end{proof}
+			
+			\paragraph{Output and Consumption per person} Similarly,
+			\begin{proof}[Solution]
+				\begin{gather*}
+					\frac{Y(t)}{L(t)} = y(t)A(t) \\
+					g_{\frac{Y}{L}} = \pd{\ln{y(t)} + \ln{A(t)}}{t} \\
+					= \pd{\ln{y}}{t} + \pd{\ln{A(t)}}{t} \\
+					= g + \frac{\dot{y}}{y}
+				\end{gather*}
+				and for consumption per person,
+				\begin{gather*}
+					\frac{C(t)}{L(t)} = c(t)A(t)\\
+					g_{\frac{C}{L}} = g + \frac{\dot{c}}{c} \\
+				\end{gather*}
+				Thus, on the balanced growth path, \footnote{$g_X^*$ denotes the growth rate of variable $X$ on the balanced growth path.}
+				\begin{gather}
+					g_{\frac{Y}{L}}^* = g \\
+					g_{\frac{C}{L}}^* = g
+				\end{gather}
+			\end{proof}
+			
+			\begin{proposition}
+				Along the balanced growth path, consumption and output per person also growth at rate $g$.
+			\end{proposition}
+			
+			\begin{proposition}
+				Along the balanced growth path, aggregate variables, $Y(t), I(t), C(t)$ are all growing at a rate $n + g$.
+				\begin{equation}
+					g_{Y}^* = g_{C}^* = g_{I}^* = n + g
+				\end{equation}
+			\end{proposition}
+			\begin{proof}
+				\begin{gather*}
+				g_{K} = \pd{\ln{K(t)}}{t} \\
+				= \pd{\ln{A(t)L(t)k(t)}}{t} \\
+				= \pd{\ln{A(t)}}{t} + \pd{\ln{L(t)}}{t} + \pd{\ln{k(t)}}{t} \\
+				= g + n + \frac{\dot{k}}{k}
+				\end{gather*}
+				and at balanced growth path, $\frac{\dot{k}}{k}|_{k=k^*} = 0$, therefore 
+				\begin{equation*}
+					g_K^* = n + g
+				\end{equation*}
+				and proof for $C(t)$ and $I(t)$ follows the same path.
+			\end{proof}
+		
+		\begin{definition}
+			The \textbf{golden rule level of capital per unit of effective labor} ($k_G$) is the \ul{steady state level of} capital per unit of effective labor that maximizes steady state consumption per unit of effective labor.
+				\[
+					k_G = argmax_{k^* \in \textbf{k}^*(\Theta)} \{c^* = f(k^*) - (n+g+ \delta) k^*\}
+				\]
+		\end{definition}
+		
+		\begin{proof}[First Order Necessary Condition]
+		Solve \\
+			\begin{gather*}
+				\pd{c^*(k^*)}{k^*} = 0 \\
+				\implies \pd{f(k^*) - (n+g+\delta)k^*}{k^*} = 0 \\
+				\implies f'(k^*) = (n+g+\delta)
+			\end{gather*}
+			Thus, golden rule level of capital stock per unit of effective labor $k_G$ can be expressed as \footnote{Notice that the zero solution, $k^* = 0$ is a trivial steady state and we ignore this case during this course.}
+			\begin{equation}
+				k_G = \{k \in \R_{+}: f'(k) = (n+g+\delta)\}
+			\end{equation}
+		\end{proof}
+		
+		\subsection{Experiment}
+			\subsubsection{Impact of Change in the Saving Rate ($s_1 > s_0$)}
+			\paragraph{} Suppose at time $t_0$, the saving rate parameter increases discretely: $s_0 \rightarrow s_1$.
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.5\linewidth]{figures/3_3.png}
+				\includegraphics[width=0.5\linewidth]{figures/3_4.png}
+				\caption{Effect of an Increase in Saving Rate.}
+			\end{figure}
+			
+			\begin{remark}
+				The relation of $c_0^*$ and $c_1^*$ depends on the relative position of $s_1$ and the golden rule level of saving rate $s_G$.
+			\end{remark}
+			
+			\subsubsection{Derive the Effect of Change in $s$ Mathematically}
+				\paragraph{Goal} Find $\pd{k^*}{s}$. And notice that $k^*(n+g+\delta) = sf(k^*)$ for any steady state capital level $k^*$. And the steady state level of capital per unit of effective labor can be written as a function of parameters, as $k^*(n, g, \delta, s)$.
+				
+			\paragraph{Impact on $k^*$}
+			\begin{proof}[Solution]
+				At any steady state level, $k^*$ satisfies \\
+				\[sf(k^*(n,g,\delta,s)) = (n+g+\delta)k^*(n,g,\delta,s)\] \\
+				Differentiate both sides with respect to $s$, \\
+				We have \[sf'(k^*)\pd{k^*}{s} + f(k^*) = (n+g+\delta)\pd{k^*}{s}\] \\
+				Rearrange and get \\
+				\[
+					\pd{k^*}{s} = \frac{f(k^*)}{(n+g+\delta) - sf'(k^*)}
+				\] \\
+				Notice that the slope of break-even investment is greater than the slope of the actual investment at the steady state, therefore \[\pd{k^*}{s} > 0\] \\
+			\end{proof}
+			
+			\paragraph{Impact on $y^*$}
+			\begin{proof}[Solution]
+				Using chain rule we have
+				\begin{gather*}
+					\pd{y^*}{s} = \pd{f(k^*)}{s} \\
+					= \pd{f(k^*)}{k^*} \pd{k^*}{s} > 0,\ \forall k^* \in \textbf{k}^*({\Theta})
+				\end{gather*}
+			\end{proof}
+			
+			\par To get a sense on how much $y^*$ changes wit respect to change in $s$, we could look at the \ul{elasticity}.
+			\[
+				\eta = \pd{y^*}{s}\frac{s}{y^*} = f'(k^*) \pd{k^*}{s} \frac{s}{f(k^*)} = \frac{f'(k^*)s}{(n+g+\delta) - sf'(k^*)}
+			\]
+			Recall that $(n+g+\delta) = \frac{sf(k^*)}{k^*}$ and rearrange the elasticity
+			\begin{gather*}
+				\eta = \pd{y^*}{s}\frac{s}{y^*} \\
+				= \frac{f'(k^*)s}{(n+g+\delta) - sf'(k^*)} \\
+				= \frac{s f'(k^*)}{\frac{s f(k^*)}{k^*} - sf'(k^*)} \\
+				= \frac{f'(k^*)}{\frac{f(k^*)}{k^*} - f'(k^*)} \\
+				= \frac{f'(k^*) \frac{k^*}{f(k^*)}}{1 - f'(k^*)\frac{k^*}{f(k^*)}} \\
+				= \frac{\alpha_K}{1 - \alpha_K} \\
+			\end{gather*}
+			
+			\begin{remark}
+				$\alpha_K$ denotes the elasticity of output per unit of effective unit labor with respect to capital stock per unit of effective labor, along the balanced growth path. And
+				\[
+					\alpha_K \approx \frac{1}{3}
+				\]
+			\end{remark}
+			
+			\begin{remark}
+				If the production function is in the Cobb-Douglas form, then $\alpha_K = \alpha$.
+			\end{remark}
+			
+			\begin{example}
+				If $\alpha_K \approx \frac{1}{3}$ then $\pd{y^*}{s}{s}{y^*} \approx \frac{1}{2}$.
+			\end{example}
+			
+			\paragraph{Impact on $c^*$} Notice that on the balanced growth path $c^* = y^* - i^*$.
+			\[
+				c^* = f(k^*) - (n+g+\delta)k^*
+			\]
+			and differentiate with respect to $s$
+			\[
+				\pd{c^*}{s} = [f'(k^*) - (n+g+\delta)] \pd{k^*}{s}
+			\]
+			And notice that the sign of $\pd{c^*}{s}$ depends on the relative slope of production function and break-even investment.
+			By the first order condition of golden rule level of capital per unit of effective labor, $(n+g+\delta) = f'(k_G)$
+			\begin{gather*}
+				\pd{c^*}{s} = [f'(k^*) - f'(k_G)]\pd{k^*}{s}
+			\end{gather*}
+			And 
+			\begin{equation*}
+				\begin{cases}
+					k^* = k_G \implies f'(k^*) = f'(k_G) \implies \pd{c^*}{s} = 0 \\
+					k^* < k_G \implies f'(k^*) > f'(k_G) \implies \pd{c^*}{s} > 0 \\
+					k^* > k_G \implies f'(k^*) < f'(k_G) \implies \pd{c^*}{s} < 0
+				\end{cases}
+			\end{equation*}
 \end{document}
+
+
+
+
+
+
+
 

@@ -1,0 +1,21 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Lecture 1. September 6. 2018}{2}{section.1}
+\contentsline {paragraph}{Facts}{2}{section*.2}
+\contentsline {subsection}{\numberline {1.1}Solow Growth Model (continuous time version)}{2}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Production Function}{2}{subsubsection.1.1.1}
+\contentsline {section}{\numberline {2}Lecture 3 September 20. 2018}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Dynamic Transitions}{3}{subsection.2.1}
+\contentsline {paragraph}{}{3}{section*.3}
+\contentsline {subsection}{\numberline {2.2}Balanced Growth Path}{4}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Growth Rates on Balanced Growth Path}{5}{subsubsection.2.2.1}
+\contentsline {paragraph}{Population and Technology}{5}{section*.4}
+\contentsline {paragraph}{Capital per person}{5}{section*.5}
+\contentsline {paragraph}{Output and Consumption per person}{5}{section*.6}
+\contentsline {subsection}{\numberline {2.3}Experiment}{7}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Impact of Change in the Saving Rate ($s_1 > s_0$)}{7}{subsubsection.2.3.1}
+\contentsline {paragraph}{}{7}{section*.7}
+\contentsline {subsubsection}{\numberline {2.3.2}Derive the Effect of Change in $s$ Mathematically}{7}{subsubsection.2.3.2}
+\contentsline {paragraph}{Goal}{7}{section*.8}
+\contentsline {paragraph}{Impact on $k^*$}{7}{section*.9}
+\contentsline {paragraph}{Impact on $y^*$}{9}{section*.10}
+\contentsline {paragraph}{Impact on $c^*$}{10}{section*.11}
