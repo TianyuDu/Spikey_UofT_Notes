@@ -319,6 +319,87 @@
 		Then, $\sum_{i=0}^N{10^i d_i} \equiv 0 \mod 11 \iff \sum_{i=0}^N{(-1)^i d_i} \equiv 0 \mod 11$ \\
 	\end{proof}
 	
+	\section{Lecture 7 Sep. 21 2018}
+	\begin{theorem}
+		Suppose $p$ is a prime and $a,b \in \mathbb{N}$, if $p|ab$ then $p | a \lor p | b$.
+	\end{theorem}
+	\begin{proof}
+		If $a = 1 \lor b = 1$, then done. And for the case $a = b = 1$, the proposition is vacuously true.\\
+		Let $a, b > 1$, \\
+		By the fundamental theorem of arithmetic, we can write $a, b $ as their unique prime factorization \\
+		$a = p_1^{\alpha_1} \dots p_k^{\alpha_k},\ \alpha_j \geq 1$ and $b = q_1^{\beta_1}\dots q_\ell^{\beta_\ell},\ \beta_j \geq 1$\\
+		then $ab = p_1^{\alpha_1} \dots p_k^{\alpha_k}q_1^{\beta_1}\dots q_\ell^{\beta_\ell}$ is the unique prime factorization of $ab$. \\
+		Since $p \in \mathbb{P}$, therefore, $p=p_j \lor p = q_j$ 
+		$\implies p | a \lor p | b$ \\
+	\end{proof}
+	
+	\begin{remark}
+		We have shown that $a \equiv b \mod m \implies ca \equiv cb \mod m$. But notice that 
+		\[
+			ca \equiv cb \mod m \centernot \implies a \equiv b \mod m
+		\]
+	\end{remark}
+	
+	\begin{definition}
+		Let $a,b \in \mathbb{Z}$, then we say $a$ and $b$ are \textbf{relatively prime} if they have no prime factor in common.
+	\end{definition}
+	
+	\begin{theorem}
+		Suppose \ul{$p$ is a prime} and $a \in \mathbb{Z}$ and $p \centernot | a$, then $ax \equiv ay \mod p \implies x \equiv y \mod p$.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $x,y,a \in \mathbb{N}$ and $p \in \mathbb{P}$. \\
+		Suppose $ax \equiv ay \mod p$ \\
+		Then $p | a(x-y)$ \\
+		By theorem 7.1, $p | a \lor p | (x-y)$\\
+		But by our assumption, $p \centernot | a$, therefore $p | (x-y)$ \\
+		Thus $x \equiv y \mod p$ \\
+	\end{proof}
+	
+	\begin{theorem}[Generalization of Theorem 7.2]
+		Let $m \in \mathbb{N}$ and $a \in \mathbb{Z}$ and $a$ and $m$ are relatively prime. Then 
+		\[
+			ax \equiv ay \mod m \implies x \equiv y \mod m
+		\]
+	\end{theorem}
+	
+	\begin{proof}
+		Suppose $ax \equiv ay \mod m$ \\
+		Then $m | a(x-y)$ \\
+		Therefore $m | a \lor m | (x - y)$ \\
+		For $m$ to divide $a$, all of $m's$ prime factors have to be in the prime factorization of $|a|$. \\
+		But $m$ and $a$ are relatively prime, therefore $m \centernot | a$. \\
+		Therefore $m | (x-y)$ and that's $x \equiv y \mod m$\\
+	\end{proof}
+	
+	\begin{theorem}
+		Any integer $a$ is congruent to mod $m$ to exactly one of $\{0, 1, \dots, m-1\}$.
+	\end{theorem}
+	
+	\begin{theorem}[Fermat's Little Theorem]
+		If $p$ is a prime and $p \centernot | a$ (i.e. $a$ and $p$ are relatively prime), then
+		\[
+			a^{p-1} \equiv 1 \mod p
+		\]
+	\end{theorem}
+	
+	\begin{proof}
+		Let $S := \{a1, a2, \dots a(p-1)\}$ \\
+		Notice that if $ax_i \equiv ax_j \mod p$, since $p \centernot | a$, $x_1 \equiv x_2 \mod p$. \\
+		Since $1 \leq x_i, x_j \leq p-1$, then $x_i = x_j$. \\
+		Therefore all elements in $S$ are distinct with mod $p$ \\
+		i.e. $x_i \centernot \equiv x_j \mod p,\ \forall (i,j) \in \mathbb{Z}^2$. \\
+		Since $p \centernot | a \land p \centernot | m,\ \forall m \in \{1, 2, \dots, (p-1)\}$ \\
+		So no element in $S$ is congruent to $0 \mod p$. \\
+		Thus, $S$ contains $p-1$ numbers and no two of them are congruent mod $p$. \\
+		Also none of them are congruent to $0 \mod p$. \\
+		By theorem 7.4, each element in $S$ is congruent to one corresponding element in set $\{1,2,\dots, p-1\}$. \\
+		Therefore $(a1)(a2)\dots(a(p-1)) \equiv 1*2*\dots*(p-1) \mod p$ \\
+		That's $a^{p-1}(1*2* \dots *(p-1)) \equiv 1*2*\dots*(p-1) \mod p$ \\
+		Clearly $p \centernot | (1*2*\dots (p-1))$, since if a prime divides a product of natural numbers, the prime must divide at least one of elements in the product. \\
+		Therefore $a^{p-1} \equiv 1 \mod p$ \\
+	\end{proof}
 	
 \end{document}
 
