@@ -82,11 +82,150 @@
                 \]
                 where $y := \frac{Y}{AL}$ denotes the \textbf{output per unit of effective labor} and $k := \frac{K}{AL}$ denote the capital stock per unit of effective labor.
             \end{definition}
-
+	
+	\section{Lecture 2 September 13. 2018}
+		\subsection{Solow Growth Model: Setup}
+			\begin{definition}
+				\textbf{Production function} $F: \R^2_{+} \rightarrow \R_+$ maps input factors:
+				\begin{itemize}
+					\item $K(t) := $ aggregate capital stock at time $t$.
+					\item $L(t) := $ aggregate labor supple at time $t$.
+					\item $A(t) := $ labor argument technology (\ul{effectiveness of labor}) at time $t$.
+				\end{itemize} 
+				to output values ($Y(t) := $ aggregate output at time $t$.) The production function takes the form of
+				\[
+					Y(t) = F(K(t), A(t)L(t))
+				\]
+			\end{definition}
+			
+			\begin{assumption}[Assumptions on Production Function]
+				The production function are assumed to satisfy the following assumptions: 
+				\begin{itemize}
+					\item \ul{Constant Return to Scale}: \[cF(K(t), A(t)L(t)) = F(cK(t), cA(t)L(t)),\ \forall c > 0\]
+				\end{itemize}
+			\end{assumption}
+			
+			\begin{definition}
+				The \textbf{intensive form of production function} is defined as the output per effective unit of labor. Let $f(t) := \frac{Y(t)}{A(t)L(t)}$ and $k(t) := \frac{K(t)}{A(t)L(t)}$ be the output and capital per unit of effective labor respectively. By the assumption of \emph{CRS} on \emph{aggregate} production function, take $c = \frac{1}{A(t)L(t)}$. The \emph{intensive form} production function can be expressed as
+				\begin{equation}
+					y(t) = f(k(t))
+				\end{equation}
+			\end{definition}
+			
+			\begin{assumption}[Assumptions on Intensive Form Production Function] the function $f(\cdot): \R_+ \rightarrow \R_+$ is assumed to satisfy \emph{Inada Conditions}.
+				\begin{enumerate}
+					\item $f(0) = 0$: capital is necessary for production.
+					\item $f'(k) > 0,\ \forall k \in \R_+$: the marginal return of capital per effective unit of labor is positive.
+					\item $f''(k) < 0,\ \forall k \in \R_+$: capital per effective unit of labor is experiencing diminishing marginal return.
+					\item $\lim_{k \to 0}f'(k) = \infty$
+					\item $\lim_{k \to \infty}f''(k) = 0$
+				\end{enumerate}
+				\emph{The role of above conditions is to ensure that the path of the economy does not diverge.}
+			\end{assumption}
+			
+			\begin{example}[Cobb-Douglas Production Function]
+				Consider the Cobb-Douglas production function
+				\[
+					Y(t) = K(t)^\alpha (A(t)L(t))^{1 - \alpha},\ \alpha \in (0, 1)
+				\]
+				
+				\begin{proof}[Check]
+					Let $c \in \R_+$, 
+					\begin{gather*}
+						F(cK, cAL) = (cK)^\alpha (cAL)^{1 - \alpha} \\
+						= c^\alpha c^{1-\alpha} K^\alpha AL^{1-\alpha} \\
+						= cK^{\alpha} AL^{1-\alpha} = cF(K, AL)
+					\end{gather*}
+					CRS on aggregate form is shown. \\
+					Notice that $f(k) = k^{\alpha}$ \\
+					And 
+					\begin{enumerate}
+						\item $f(0) = 0^{\alpha} = 0$
+						\item $f'(k) = \alpha k ^ {\alpha - 1} > 0, \forall k \in \R_+$
+						\item $f''(k) = (\alpha - 1)\alpha k ^ {\alpha - 2} < 0, \ \forall k \in \R_+$
+						\item $\lim_{k \to 0} \alpha \frac{1}{k^{1-\alpha}} = \infty$
+						\item $\lim_{k \to \infty} \alpha \frac{1}{k^{1-\alpha}} = 0$
+					\end{enumerate}
+					Inada conditions on intensive form are shown. \\
+				\end{proof}
+			\end{example}
+			
+			\begin{assumption}[Assumptions on the Economy]
+				Assume the initial values of $K, A, L$ are given and strictly positive. Labor and Knowledge are assumed to grow at an exogenously given constant rate, denoted as $n, g$ respective.
+				\begin{gather*}
+					\dot{L(t)} = nL(t),\ n > 0 \\
+					\dot{A(t)} = gA(t),\ g > 0 \\
+				\end{gather*}
+			\end{assumption}
+			
+			\begin{proposition}
+				Notice the \ul{growth rate} of variable $X$ is given by 
+				\[
+					g_X := \frac{\dot{X(t)}}{X(t)} = \pd{\ln{X(t)}}{t}
+				\]
+			\end{proposition}
+			\begin{proof}
+				\begin{gather*}
+					\pd{\ln{X(t)}}{t} = \pd{\ln{X(t)}}{X(t)} \pd{X(t)}{t} \\
+					= \frac{1}{X(t)} \dot{X(t)}
+					= \frac{\dot{X(t)}}{X(t)}
+					= g_X \\
+				\end{gather*}
+			\end{proof}
+			
+			\begin{proposition}
+				The functional form of technology and labor at time $t$ can be found by solving ODEs 
+				\begin{gather*}
+					L(t) = e^{nt} L(0) \\
+					A(t) = e^{gt} A(0) \\
+				\end{gather*}
+			\end{proposition}
+			
+			\par Assume there is \emph{no government} and the Solow economy is a \emph{closed economy}. The output is divided between \emph{consumption} and \emph{investment} as 
+			\[
+				Y(t) = C(t) + I(t)
+			\]
+			And given $\delta$ as depreciation rate of capital, in discrete time (let $\Delta t = 1$)we have 
+			\begin{gather*}
+				K(t+1) = (1-\delta)K(t) + I(t) \\
+				\iff I(t) = K(t+1) - K(t) + \delta K(t) \\
+				\tx{As } \Delta \to 0 \tx{ (convert to continuous time)}\\
+				I(t) = \dot{K}(t) + \delta K(t)
+			\end{gather*}
+			
+			\begin{assumption}
+				Assume investment equals saving and a constant friction $s \in [0, 1]$ of output is saved at each epoch. The marginal propensity to save, $s$ is given exogenously.
+			\end{assumption}
+			
+			\par Therefore,
+			\begin{gather*}
+				I(t) = sY(t) \implies \dot{K}(t) + \delta K(t) = sY(t) \\
+				\implies \dot{K}(t) = sY(t) - \delta(K(t)) \\
+			\end{gather*}
+			
+			\subsection{Dynamics of $k(t)$}
+				\par For simplicity, assuming $n, g, \delta > 0$ and the dynamics of capital per effective unit of labor follows: 
+				\begin{gather*}
+					\dot{k}(t) := \pd{k(t)}{t} = \pd{}{t} \frac{K(t)}{A(t)L(t)} \\
+					= \frac{\dot{K}AL - K(\dot{A}L + A\dot{L})}{(AL)^2} \\
+					= \frac{\dot{K}}{AL} - \frac{K\dot{A}L}{(AL)^2} - \frac{K A\dot{L}}{(AL)^2} \\
+					= \frac{sY - \delta K}{AL} - \frac{\dot{A}}{A}\frac{K}{AL} - \frac{\dot{L}}{L} \frac{K}{AL} \\
+					= sy(t) - (n + g + \delta) k(t) \\
+				\end{gather*}
+				Where $s y(t)$ is the \textbf{actual investment} per unit effective unit of labor and $(n + g + \delta) k(t)$ is the \textbf{break-even investment} per effective unit of labor.
+				
+			\begin{remark}
+				The \ul{convergence speed} is \ul{inversely} correlated with the value of $|| k(t) - k^* ||$, where $k^*$ denotes the steady state level of capital stock per effective unit of labor.
+			\end{remark}
+			
+			\begin{remark}
+				With \ul{convex} production function ($f''(k) > 0$), then $k(t) < k^* \implies \dot{k} < 0$ and $k(t) > k^* \implies \dot{k} > 0$. The steady state value $k^*$ is \ul{steady but not stable} (with $k(t) \neq k^*$, $k$ does not automatically converge to $k^*$).
+			\end{remark}
+	
 	\section{Lecture 3 September 20. 2018}
 		\subsection{Dynamic Transitions}
 			\begin{remark}
-				For the dynamic transition function of capital per unit of effective labor,
+				For the dynamic transition function of capital per unit of effective labor:
 				\[
 					\dot{k}(t) = sf(k(t)) - (n+g+\delta)k(t)
 				\]
