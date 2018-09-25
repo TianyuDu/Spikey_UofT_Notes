@@ -1,6 +1,8 @@
 \select@language {english}
+\contentsline {paragraph}{Github}{1}{section*.2}
+\contentsline {paragraph}{Color notations}{1}{section*.3}
 \contentsline {section}{\numberline {1}Lecture 1. September 6. 2018}{2}{section.1}
-\contentsline {paragraph}{Facts}{2}{section*.2}
+\contentsline {paragraph}{Facts}{2}{section*.5}
 \contentsline {subsection}{\numberline {1.1}Solow Growth Model (continuous time version)}{2}{subsection.1.1}
 \contentsline {subsubsection}{\numberline {1.1.1}Production Function}{2}{subsubsection.1.1.1}
 \contentsline {section}{\numberline {2}Lecture 2 September 13. 2018}{3}{section.2}
@@ -8,17 +10,17 @@
 \contentsline {subsection}{\numberline {2.2}Dynamics of $k(t)$}{6}{subsection.2.2}
 \contentsline {section}{\numberline {3}Lecture 3 September 20. 2018}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Dynamic Transitions}{6}{subsection.3.1}
-\contentsline {paragraph}{}{6}{section*.3}
+\contentsline {paragraph}{}{6}{section*.6}
 \contentsline {subsection}{\numberline {3.2}Balanced Growth Path}{8}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Growth Rates on Balanced Growth Path}{8}{subsubsection.3.2.1}
-\contentsline {paragraph}{Population and Technology}{8}{section*.4}
-\contentsline {paragraph}{Capital per person}{8}{section*.5}
-\contentsline {paragraph}{Output and Consumption per person}{9}{section*.6}
+\contentsline {paragraph}{Population and Technology}{8}{section*.7}
+\contentsline {paragraph}{Capital per person}{8}{section*.8}
+\contentsline {paragraph}{Output and Consumption per person}{9}{section*.9}
 \contentsline {subsection}{\numberline {3.3}Experiment}{10}{subsection.3.3}
 \contentsline {subsubsection}{\numberline {3.3.1}Impact of Change in the Saving Rate ($s_1 > s_0$)}{10}{subsubsection.3.3.1}
-\contentsline {paragraph}{}{10}{section*.7}
+\contentsline {paragraph}{}{10}{section*.10}
 \contentsline {subsubsection}{\numberline {3.3.2}Derive the Effect of Change in $s$ Mathematically}{10}{subsubsection.3.3.2}
-\contentsline {paragraph}{Goal}{10}{section*.8}
-\contentsline {paragraph}{Impact on $k^*$}{12}{section*.9}
-\contentsline {paragraph}{Impact on $y^*$}{12}{section*.10}
-\contentsline {paragraph}{Impact on $c^*$}{13}{section*.11}
+\contentsline {paragraph}{Goal}{10}{section*.11}
+\contentsline {paragraph}{Impact on $k^*$}{12}{section*.12}
+\contentsline {paragraph}{Impact on $y^*$}{12}{section*.13}
+\contentsline {paragraph}{Impact on $c^*$}{13}{section*.14}

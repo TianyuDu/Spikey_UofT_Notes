@@ -10,6 +10,11 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+
+\counterwithin*{equation}{section}
+
 
 \usepackage[
     type={CC},
@@ -21,7 +26,14 @@
 \begin{document}
     \maketitle
     \doclicenseThis
-    \url{https://github.com/TianyuDu/Spikey_UofT_Notes}
+    \section*{Notes}
+    	\paragraph{Github} \url{https://github.com/TianyuDu/Spikey_UofT_Notes}
+    	\paragraph{Color notations}
+    		\begin{itemize}
+    			\item \textcolor{orange}{Important equations for model setup.}
+    			\item \textcolor{blue}{Important equations as results from model.}
+    			\item \textcolor{violet}{Implications of model result.}
+    		\end{itemize}
     \tableofcontents
     \newpage
     
@@ -56,9 +68,9 @@
             
             \begin{definition}
                 The production function is defined as
-                \[
-                    Y(t) = F(K(t), A(t)L(t))
-                \]
+	            \begin{equation}
+                    \textcolor{orange}{Y(t) = F(K(t), A(t)L(t))}
+	            \end{equation}
                 Typically Cobb-Douglas form is taken
                 \[
                     Y(t) = K(t)^\alpha (A(t)L(t))^{1 - \alpha},\ \alpha \in (0, 1)
@@ -78,7 +90,7 @@
             \begin{definition}
                 Define $c := \frac{1}{AL}$, the \textbf{intensive form} of production function is
                 \[
-                    y = \frac{Y}{AL} = f(k)
+                    y(t) = \frac{Y(t)}{A(t)L(t)} = f(k(t))
                 \]
                 where $y := \frac{Y}{AL}$ denotes the \textbf{output per unit of effective labor} and $k := \frac{K}{AL}$ denote the capital stock per unit of effective labor.
             \end{definition}
@@ -108,7 +120,9 @@
 			\begin{definition}
 				The \textbf{intensive form of production function} is defined as the output per effective unit of labor. Let $f(t) := \frac{Y(t)}{A(t)L(t)}$ and $k(t) := \frac{K(t)}{A(t)L(t)}$ be the output and capital per unit of effective labor respectively. By the assumption of \emph{CRS} on \emph{aggregate} production function, take $c = \frac{1}{A(t)L(t)}$. The \emph{intensive form} production function can be expressed as
 				\begin{equation}
-					y(t) = f(k(t))
+					\textcolor{orange}{
+						y(t) = f(k(t))
+					}
 				\end{equation}
 			\end{definition}
 			
@@ -152,10 +166,13 @@
 			
 			\begin{assumption}[Assumptions on the Economy]
 				Assume the initial values of $K, A, L$ are given and strictly positive. Labor and Knowledge are assumed to grow at an exogenously given constant rate, denoted as $n, g$ respective.
-				\begin{gather*}
-					\dot{L(t)} = nL(t),\ n > 0 \\
-					\dot{A(t)} = gA(t),\ g > 0 \\
-				\end{gather*}
+				\begin{gather}
+				\textcolor{orange}{
+					\dot{L(t)} = nL(t),\ n > 0 }\\
+					\textcolor{orange}{
+						\dot{A(t)} = gA(t),\ g > 0
+					}
+				\end{gather}
 			\end{assumption}
 			
 			\begin{proposition}
@@ -175,10 +192,14 @@
 			
 			\begin{proposition}
 				The functional form of technology and labor at time $t$ can be found by solving ODEs 
-				\begin{gather*}
-					L(t) = e^{nt} L(0) \\
-					A(t) = e^{gt} A(0) \\
-				\end{gather*}
+				\begin{gather}
+					\textcolor{orange}{
+						L(t) = e^{nt} L(0)
+						} \\
+					\textcolor{orange}{
+						A(t) = e^{gt} A(0)
+						}
+				\end{gather}
 			\end{proposition}
 			
 			\par Assume there is \emph{no government} and the Solow economy is a \emph{closed economy}. The output is divided between \emph{consumption} and \emph{investment} as 
@@ -200,7 +221,9 @@
 			\par Therefore,
 			\begin{gather*}
 				I(t) = sY(t) \implies \dot{K}(t) + \delta K(t) = sY(t) \\
-				\implies \dot{K}(t) = sY(t) - \delta(K(t)) \\
+				\implies \textcolor{orange}{
+					\dot{K}(t) = sY(t) - \delta(K(t))
+					}
 			\end{gather*}
 			
 			\subsection{Dynamics of $k(t)$}
@@ -210,7 +233,7 @@
 					= \frac{\dot{K}AL - K(\dot{A}L + A\dot{L})}{(AL)^2} \\
 					= \frac{\dot{K}}{AL} - \frac{K\dot{A}L}{(AL)^2} - \frac{K A\dot{L}}{(AL)^2} \\
 					= \frac{sY - \delta K}{AL} - \frac{\dot{A}}{A}\frac{K}{AL} - \frac{\dot{L}}{L} \frac{K}{AL} \\
-					= sy(t) - (n + g + \delta) k(t) \\
+					= sy(t) - (n + g + \delta) k(t)
 				\end{gather*}
 				Where $s y(t)$ is the \textbf{actual investment} per unit effective unit of labor and $(n + g + \delta) k(t)$ is the \textbf{break-even investment} per effective unit of labor.
 				
@@ -226,9 +249,11 @@
 		\subsection{Dynamic Transitions}
 			\begin{remark}
 				For the dynamic transition function of capital per unit of effective labor:
-				\[
+				\begin{equation}
+				\textcolor{orange}{
 					\dot{k}(t) = sf(k(t)) - (n+g+\delta)k(t)
-				\]
+					}
+				\end{equation}
 			\end{remark}
 			\paragraph{} And dynamic transition and phase diagram can be expressed as
 			\begin{figure}[h]
@@ -304,7 +329,9 @@
 				\end{gather*}
 				And at the steady state, by definition, $\dot{k}(t)|_{k-k^*} = 0$, therefore 
 				\begin{equation}
-					g_{\frac{K}{L}}^* = g
+					\textcolor{blue}{
+						g_{\frac{K}{L}}^* = g
+					}
 				\end{equation}
 			\end{proof}
 			
@@ -323,8 +350,13 @@
 				\end{gather*}
 				Thus, on the balanced growth path, \footnote{$g_X^*$ denotes the growth rate of variable $X$ on the balanced growth path.}
 				\begin{gather}
-					g_{\frac{Y}{L}}^* = g \\
-					g_{\frac{C}{L}}^* = g
+					\textcolor{blue}{
+						g_{\frac{Y}{L}}^* = g
+					}
+					\\
+					\textcolor{blue}{
+						g_{\frac{C}{L}}^* = g
+					}
 				\end{gather}
 			\end{proof}
 			
@@ -335,7 +367,9 @@
 			\begin{proposition}
 				Along the balanced growth path, aggregate variables, $Y(t), I(t), C(t)$ are all growing at a rate $n + g$.
 				\begin{equation}
-					g_{Y}^* = g_{C}^* = g_{I}^* = n + g
+					\textcolor{blue}{
+						g_{Y}^* = g_{C}^* = g_{I}^* = n + g
+						}
 				\end{equation}
 			\end{proposition}
 			\begin{proof}
@@ -346,9 +380,11 @@
 				= g + n + \frac{\dot{k}}{k}
 				\end{gather*}
 				and at balanced growth path, $\frac{\dot{k}}{k}|_{k=k^*} = 0$, therefore 
-				\begin{equation*}
-					g_K^* = n + g
-				\end{equation*}
+				\begin{equation}
+					\textcolor{blue}{
+						g_K^* = n + g
+					}
+				\end{equation}
 				and proof for $C(t)$ and $I(t)$ follows the same path.
 			\end{proof}
 		
@@ -422,7 +458,9 @@
 				= \frac{s f'(k^*)}{\frac{s f(k^*)}{k^*} - sf'(k^*)} \\
 				= \frac{f'(k^*)}{\frac{f(k^*)}{k^*} - f'(k^*)} \\
 				= \frac{f'(k^*) \frac{k^*}{f(k^*)}}{1 - f'(k^*)\frac{k^*}{f(k^*)}} \\
-				= \frac{\alpha_K}{1 - \alpha_K} \\
+				= \textcolor{blue}{
+					\frac{\alpha_K}{1 - \alpha_K}
+					} \\
 			\end{gather*}
 			
 			\begin{remark}
@@ -441,9 +479,9 @@
 			\end{example}
 			
 			\paragraph{Impact on $c^*$} Notice that on the balanced growth path $c^* = y^* - i^*$.
-			\[
+			\begin{equation}
 				c^* = f(k^*) - (n+g+\delta)k^*
-			\]
+			\end{equation}
 			and differentiate with respect to $s$
 			\[
 				\pd{c^*}{s} = [f'(k^*) - (n+g+\delta)] \pd{k^*}{s}
