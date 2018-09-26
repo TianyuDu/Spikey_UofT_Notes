@@ -401,7 +401,169 @@
 		Therefore $a^{p-1} \equiv 1 \mod p$ \\
 	\end{proof}
 	
+	\section{Lecture 8 Sep. 24 2018}
+	\begin{definition}
+		Let $p \in \mathbb{N}$ and $a \in \mathbb{Z}$. The \textbf{multiplicative inverse} $\mod p$ of $a$ is an integer $b$ such that
+		\[
+			ab \equiv 1 \mod p
+		\]
+	\end{definition}
+	\begin{remark}
+		Notice that the multiplicative inverse is generally not unique but unique up to $\mod p$.		
+	\end{remark}
+	
+	\begin{corollary}
+		Let $p \in \mathbb{P}$, $a \in \mathbb{N}$ and $p \centernot | a$. Then 
+		\[
+			\exists b \in \mathbb{Z},\ s.t.\ ba \equiv 1 \mod p
+		\]
+	\end{corollary}
+	
+	\begin{proof}
+		Let $p \in \mathbb{Z}$ and $a \in \mathbb{Z}$ \\
+		Suppose $p \centernot | a$, then by Fermat's little theorem, \\
+		$a^{p-1} \equiv 1 \mod p \implies a^{p-2}a \equiv 1 \mod p$ \\
+		Take $b = a^{p-2} \in \mathbb{Z}$ and $ab \equiv 1 \mod p$
+	\end{proof}
+	
+	\begin{example}
+		Let $a=8$ and $p=5$. Obviously $p \centernot | a$. By corollary above, 
+		\[
+			\exists b \in \mathbb{Z},\ s.t.\ 8b \equiv 1 \mod 5
+		\]
+		Notice $b=2$ satisfies above equation.
+	\end{example}
+	
+	\begin{remark}
+		Corollary 8.1 requires $p$ to be a prime.
+	\end{remark}
+	
+	\begin{corollary}[Generalization]
+		Let $a$ and $m \in \mathbb{N}$ and $a$ and $m$ are \ul{relatively prime}, then 
+		\[
+			\exists b \in \mathbb{Z},\ s.t.\ ab \equiv 1 \mod m
+		\]
+	\end{corollary}
+	
+	\begin{theorem}[Wilsons' Theorem]
+		Let $p \in \mathbb{P}$ then
+		\[
+			(p-1)! \equiv -1 \mod p 
+		\]
+	\end{theorem}
+	
+	\begin{proof}
+		Let $p \in \mathbb{P}$ \\
+		if $p = 2 \lor p = 3$, then $1! \equiv -1 \mod 2$ and $2! \equiv -1 \mod 3$. \\
+		Otherwise, suppose $p > 3$, \\
+		Consider, let $S := \{2, 3, 4, \dots, p-2\}$ \\
+		Notice that none of $S$ is divisible by $p$. \\
+		Therefore $p$ is relatively prime to all elements in $S$. \\
+		Then by Corollary 8.1, $\exists b_i \in \mathbb{Z}\ s.t.\ b_i s_i \equiv 1 \mod p,\ \forall s_i \in S$. \\
+		Notice that $0$ has no multiplicative inverse and 
+		\[
+			(p-1)(p-1)=p^2 - 2p + 1 \equiv 1 \mod p
+		\]
+		That's, $1$ and $(p-1)$ have themselves as their multiplicative inverse. \\
+		Also notice that for any $s_i \in S$, $s_i$ does not have itself as its multiplicative inverse. \\
+		If $a \in S$ has itself as it's multiplicative inverse, then
+		\begin{gather*}
+			a^2 \equiv 1 \mod p\\
+			\implies a^2 - 1 \equiv 0 \mod p \\
+			\implies (a+1)(a-1) \equiv 0 \mod p \\ 
+			\implies p | (a+1)(a-1)
+		\end{gather*}
+		Notice that at last one of $(a+1)$ and $(a-1)$ is in set $S$ since $p > 3 \implies S \neq \emptyset$. This contradicts what we argued above, \emph{none of $S$ is divisible by $p$}.\\
+		That's \[s_i s_i \centernot \equiv 1 \mod p,\ \forall s_i \in S\]
+		\emph{Note that if $y$ is a multiplicative inverse of $x$, then $x$ is a multiplicative inverse of $y$.} \\
+		Notice that for any $s_i \in S$, by Corollary 8.1, \\
+		there exists an integer $b_i$ s.t. $s_i b_i \equiv 1 \mod p$\\
+		And the multiplicative inverse is unique up to $\mod p$, \\
+		Thus $s_i(b_i \mod p) \equiv 1 \mod p$ and $(b_i \mod p) \in S$.\\
+		And for all elements in $S$ has one of their multiplicative inverse in $S$,
+		
+		That's
+		\[
+			s_i s_j \equiv 1 \mod p,\ i \neq j
+		\]
+		Notice $p > 3$ implies $p$ is odd, so $|S|$ is even. \\
+		Match every pair of multiplicative inverses in $S$ and they collapse to 1 $\mod p$ \\
+		Therefore 
+		\begin{gather*}
+			2\cdot 3 \cdot 4 \cdots (p-2) \equiv 1 \mod p \\
+			\implies 2\cdot 3 \cdot 4 \cdots (p-2) \cdot (p-1) \equiv (p - 1) \mod p \\
+			\implies (p-1)! \equiv -1 \mod p
+		\end{gather*}
+	\end{proof}
+	
+	\section{Lecture 9 Sep. 26 2018}
+	\begin{remark}
+		Recall that an integer $n$ is even iff $n \equiv 0 \mod 2$ and is odd iff $n \equiv 1 \mod 2$.
+	\end{remark}
+	
+	\begin{theorem}
+		There are infinitely many primes of the form $4k+3$, where $k \in \mathbb{Z}$.
+	\end{theorem}
+	\begin{proof}
+		Note that odd numbers $n$ can be classified as $n \equiv 1 \mod 4$ and $n \equiv 3 \equiv -1\mod 4$ \\
+		(Suppose 1) there are only finitely many primes in the form $4k+3$. \\
+		Let finite set $S := \{p_1, p_2, \dots p_m\}$ denotes the collection of them. \\
+		And notice that $p_i \equiv -1 \mod 4,\ \forall p_i \in S$. \\
+		Let 
+		\[
+			M := (p_1 \cdot p_2 \cdots p_m)^2 + 2
+		\]
+		and $M \equiv 1 + 2 \equiv 3 \equiv -1 \mod 4$. \\
+		Therefore $M$ is an odd natural number. \\
+		By the Fundamental Theorem of Arithmetic, $M$ can be factorized into product of primes.\\
+		\[
+			M = \prod_{i=1}^{\ell} q_i
+		\]
+		and since $M$ is odd, $q_i \neq 2\ \forall \ i$. Thus all $q_i$ are odd.\\
+		(Suppose 2) All $q_i \equiv 1 \mod 4$. \\
+		Then $M \equiv 1 \mod 4$. \\
+		Contradict the fact that $M \equiv -1 \mod 4$. Thus (Suppose 2) is false. \\
+		Therefore $\exists i,\ s.t.\ q_i \equiv -1 \mod 4$. \\
+		From (Suppose 1), $S$ is the collection of all primes that $\equiv -1 \mod 4$. \\
+		Therefore $q_i = p_j$ for some $j$. \\
+		Therefore $p_j | M$.\\
+		Also note that $p_j | (p_1 \cdot p_2 \cdots p_m) \implies p_j | (p_1 \cdot p_2 \cdots p_m)^2$ \\
+		$\implies p_j | 2 \implies p_j = 2$ contradicts the fact that $p_j$ is odd. \\
+		Therefore (Suppose 1) is false, there are infinitely many primes taking the form $4k+3$. \\
+	\end{proof}
+	
+	\begin{example}
+		Find $7^{20^{30}} \mod 5$.
+		\begin{proof}[Solution]
+			Let $n := 20^{30}$. \\
+			Notice that $7^4 \equiv 1 \mod 5$. \\
+			And if $n \equiv r \mod 4$ where $r \in \mathbb{Z}$, \\
+			$n = 4k+r$ and $7^n \equiv 7^{4k+r} \equiv (7^4)^k + 7^r \equiv 1^k 7^r \equiv 7^r \mod 5$. \\
+			Notice that $20 \equiv 0 \mod 4 \implies 20^{30} \equiv 0 \mod 4$. \\
+			Thus $r = 0$. \\
+			Therefore $7^n \equiv 7^0 \equiv 1 \mod 5$. \\
+			Thus $7^{20^{30}} \mod 5 = 1$.
+		\end{proof}
+	\end{example}
+	
+	\begin{example}
+		Find $10^{3^{30}} \mod 7$.
+		\begin{proof}[Solution]
+			Notice that $10^6 \equiv 1 \mod 7$. \\
+			And $3 \equiv 3 \mod 6, 3^2 \equiv 3 \mod 6, 3^3 \equiv 3 \mod 6 \dots $ \\
+			Using induction, we can show that 
+			\[
+				3^k \equiv 3 \mod 6,\ \forall k \in \mathbb{Z}_{\geq 0}
+			\]
+			Therefore $3^{30} \equiv 3 \mod 6$. \\
+			That's $3^{30} = 6k + 3$ for some $k$. \\
+			Thus $10^{3^{30}} \equiv (10^6)^k 10^3 \equiv (1)^k 10^3 \equiv -1 \equiv 6 \mod 7$. \\
+			So $10^{3^{30}} \mod 7 = 6$. \\
+		\end{proof}
+	\end{example}
+	
 \end{document}
+
 
 
 
