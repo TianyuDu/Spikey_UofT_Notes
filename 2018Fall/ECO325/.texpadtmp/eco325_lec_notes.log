@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 SEP 2018 10:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 SEP 2018 12:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -714,7 +714,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 28.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) <doclicense-CC-by-nc.pdf, id=66, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-nc.pdf, id=78, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 28.
@@ -725,13 +725,13 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 33.
- (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.toc)
+ (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.toc [1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc.pdf>])
 \tf@toc=\write4
 \openout4 = `eco325_lec_notes.toc'.
 
- [1
-
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc.pdf>] [2] [3]
+ [2] [3]
 Overfull \hbox (1.32231pt too wide) in paragraph at lines 114--115
 [][]\OT1/cmr/bx/n/10 Assumption 2.1 \OT1/cmr/m/n/10 (As-sump-tions on Pro-duc-tion Func-tion)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 The pro-duc-tion func-
  []
@@ -750,7 +750,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 229.
 
-[6] <figures/3_1.png, id=173, 355.3275pt x 222.8325pt>
+[6] <figures/3_1.png, id=188, 355.3275pt x 222.8325pt>
 File: figures/3_1.png Graphic file (type png)
  <use figures/3_1.png>
 Package pdftex.def Info: figures/3_1.png used on input line 261.
@@ -759,7 +759,7 @@ Package pdftex.def Info: figures/3_1.png used on input line 261.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/3_2.png, id=175, 429.605pt x 301.125pt>
+<figures/3_2.png, id=190, 429.605pt x 301.125pt>
 File: figures/3_2.png Graphic file (type png)
  <use figures/3_2.png>
 Package pdftex.def Info: figures/3_2.png used on input line 267.
@@ -794,12 +794,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 412.
 
-<figures/3_3.png, id=241, 420.57124pt x 316.18124pt>
+<figures/3_3.png, id=256, 420.57124pt x 316.18124pt>
 File: figures/3_3.png Graphic file (type png)
  <use figures/3_3.png>
 Package pdftex.def Info: figures/3_3.png used on input line 416.
 (pdftex.def)             Requested size: 172.5pt x 129.68338pt.
- <figures/3_4.png, id=242, 451.6875pt x 724.7075pt>
+ <figures/3_4.png, id=257, 451.6875pt x 724.7075pt>
 File: figures/3_4.png Graphic file (type png)
  <use figures/3_4.png>
 Package pdftex.def Info: figures/3_4.png used on input line 417.
@@ -823,31 +823,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 433--435
 
  []
 
-[13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 505.
- [14] [15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 505.
+[13] [14] [15] [16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 642--645
+
+ []
+
+<figures/4_1.png, id=320, 361.35pt x 223.83624pt>
+File: figures/4_1.png Graphic file (type png)
+ <use figures/4_1.png>
+Package pdftex.def Info: figures/4_1.png used on input line 655.
+(pdftex.def)             Requested size: 241.49895pt x 149.59721pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 659.
+ [18 <./figures/4_1.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 659.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 505.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 505.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 659.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 659.
 Package rerunfilecheck Info: File `eco325_lec_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 505.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 659.
  ) 
 Here is how much of TeX's memory you used:
- 8996 strings out of 493014
- 127527 string characters out of 6133351
- 244769 words of memory out of 5000000
- 12243 multiletter control sequences out of 15000+600000
+ 9025 strings out of 493014
+ 127889 string characters out of 6133351
+ 245769 words of memory out of 5000000
+ 12250 multiletter control sequences out of 15000+600000
  13248 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,15n,46p,921b,553s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (15 pages, 394675 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (18 pages, 424972 bytes).
 PDF statistics:
- 396 PDF objects out of 1000 (max. 8388607)
- 339 compressed objects within 4 object streams
- 121 named destinations out of 1000 (max. 500000)
- 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 442 PDF objects out of 1000 (max. 8388607)
+ 381 compressed objects within 4 object streams
+ 142 named destinations out of 1000 (max. 500000)
+ 175 words of extra memory for PDF output out of 10000 (max. 10000000)
 

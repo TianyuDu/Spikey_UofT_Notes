@@ -532,22 +532,26 @@
 	    \end{equation}
 	    denotes the \ul{elasticity of $y$ with respect to $k$ \emph{at steady state}.}
 	    So
-	    \begin{equation}
-	        \dot{k}(k) \approx (n + g + \delta) (\alpha (k^*) - 1) (k - k^*)
-	    \end{equation}
+	    \begin{gather*}
+	        \dot{k}(k(t)) \approx (n + g + \delta) (\alpha (k^*) - 1) (k(t) - k^*) \\
+	        \implies \pd{({k - k^*}(k))}{t} = \dot{k}(k(t)) \approx (n + g + \delta) (\alpha (k^*) - 1) (k(t) - k^*)
+	    \end{gather*}
 	    Let $\lambda := (n + g + \delta) (1 - \alpha (k^*))$ then 
 	    \begin{gather}
-	        \dot{k}(k(t)) \approx -\lambda(k(t)-k^*) \\
-	        \implies \textcolor{orange}{
-	            k(t) - k^* \approx e^{-\lambda t}
-	            }
+	    \textcolor{orange}{
+	        k(t) - k^* \approx e^{-\lambda t}(k(0) - k^*)
+	    }
 	    \end{gather}
-	    \begin{proof}[Derive]
-	        Let $X(t) := k(t) + k^*$ \\
-	        And $\dot{X}(t) = \dot{k}(t)$ \\
-	        So we have an equation $\dot{X}(t) \approx -\lambda X(t)$
-	    \end{proof}
-	    Then note that 
+	    \begin{remark}
+		    \begin{proof}[Derive] (above equation)\\
+		        Let $X(t) := k(t) - k^*$ \\
+		        And since $\pd{k(t)}{t} = \pd{(k(t) - k^*)}{t}$ \\
+		        Therefore $\dot{X}(t) = \dot{k}(t) \approx -\lambda X(t)$ \\
+		        $\implies X(t) \approx X(0) e^{-\lambda t}$ \\
+		        $\iff k(t) - k^* \approx (k(0) - k^*) e^{-\lambda t}$
+		    \end{proof}
+	    \end{remark}
+	    Then note that 3
 	    \begin{gather*}
 	        y(t) = f(k(t)) \\
 	        \implies \dot{y}(t) = f'(k(t))\dot{k}(t) \\
@@ -555,12 +559,14 @@
 	        \implies y(t) \approx f(k^*) + f'(k^*) (k(t)-k^*) \\
 	        \implies y(t) - y^* \approx f'(k^*)(k(t) - k^*) \\
 	        \implies \frac{\dot{y}(t)}{y(t) - y^*} = \frac{f'(k^*)\dot{k}(t)}{f'(k^*)(k(t) - k^*)} \approx - \lambda \\
-	       \implies y(t) - y^* \approx e^{- \lambda t} (y(0) - y^*)
+	       \implies \textcolor{orange}{
+	       		y(t) - y^* \approx e^{- \lambda t} (y(0) - y^*)
+	       }
 	    \end{gather*}
 	    
 	    \begin{example}
 	        How long does it take to move 1/2 way to the balance growth path. Assuming population growth rate is $2\%$, growth in output per worker is $2\%$ and depreciation is $2\%$ and  $\alpha_K = \frac{1}{3}$.
-	        \begin{proof}
+	        \begin{proof}[Solution]
 	            $\lambda = (1 - \alpha_K)(n + g + \delta)$ 
 	            Since we know along the balanced growth path, \begin{gather*}
 	                \frac{Y(t)}{L(t)} = y^* A(t) \\
@@ -569,12 +575,87 @@
 	            Therefore $g = 0.02$ and therefore $\lambda = 0.04$. \\
 	            To find the date where we have moved half way we need to solve 
 	            \begin{gather*}
-	                \frac{y(\hat{t} - y^*)}{y(0) - y^*} = 0.5 \approx e^{-\lambda t}\\
-	                \implies \ln(0.5) \approx -\lambda \hat{t} \\
-	                \implies \hat{t} = \frac{-\ln(0.5)}{0.04} \approx 17.33
+	                \frac{y(\tilde{t} - y^*)}{y(0) - y^*} = 0.5 \approx e^{-\lambda t}\\
+	                \implies \ln(0.5) \approx -\lambda \tilde{t} \\
+	                \implies \tilde{t} = \frac{-\ln(0.5)}{0.04} \approx 17.33
 	            \end{gather*}
 	        \end{proof}
 	    \end{example}
+	    
+	    \subsection{General Statements}
+	    \par Solow growth model identifies 2 sources of output per worker,
+	    \begin{enumerate}
+	    	\item Differences in the among of \ul{capital per worker}.
+	    	\item Differences in the \ul{effectiveness of productivity} of labor $A$.
+	    \end{enumerate}
+	    Notice that the output per worker 
+	    \[
+	    	\frac{Y(t)}{L(t)} = \frac{F(K(t), A(t)L(t))}{L(t)} = F(\frac{K(t)}{L(t)}, A(t))
+	    \]
+	    Notice that in the long run balanced growth path
+	    \begin{gather*}
+	    	\frac{K(t)}{L(t)} = k(t)A(t) \\
+	    	\implies \pd{\ln(\frac{K(t)}{L(t)})}{t} = \frac{\dot{k}(t)}{k(t)} + \frac{\dot{A}(t)}{A(t)}
+	    \end{gather*}
+	    Therefore along the balanced growth path $\dot{k}(t) = 0$ so only the growth in $A$ matters.
+	    
+	    \subsection{Growth Accounting}
+	    \par Consider the growth rate of aggregate output $Y(t)$, take the total differential and get
+	    \begin{gather}
+	    	\dot{Y}(t) = \pd{Y(t)}{K(t)} \pd{K(t)}{t} + \pd{Y(t)}{L(t)} \pd{L(t)}{t} + \pd{Y(t)}{A(t	)}\pd{A(t)}{t} \\
+	    	\implies 
+	    	\frac{\dot{Y}(t)}{Y(t)} = \pd{Y(t)}{K(t)} \frac{1}{Y(t)} \pd{K(t)}{t} + \pd{Y(t)}{L(t)} \frac{1}{Y(t)} \pd{L(t)}{t} + \pd{Y(t)}{A(t)} \frac{1}{Y(t)} \pd{A(t)}{t} 
+	    \end{gather}
+	    Then express the equation in terms of growth rates in $K, L, A$ variables,
+	    \begin{gather}
+	    	\frac{\dot{Y}(t)}{Y(t)} = \textcolor{orange}{\pd{Y(t)}{K(t)} \frac{K(t)}{Y(t)}}\frac{\pd{K(t)}{t}}{K(t)} 
+	    	+ \textcolor{red}{\pd{Y(t)}{L(t)} \frac{L(t)}{Y(t)}} \frac{\pd{L(t)}{t}}{L(t)} 
+	    	+ \textcolor{blue}{\pd{Y(t)}{A(t)} \frac{A(t)}{Y(t)} \frac{\pd{A(t)}{t}}{A(t)}}
+	    	\\
+	    	= \textcolor{orange}{\alpha_K} \frac{\dot{K}(t)}{K(t)} 
+	    	+ \textcolor{red}{\alpha_L} \frac{\dot{L}(t)}{L(t)} 
+	    	+ \textcolor{blue}{R(t)}
+	    \end{gather}
+	    where $R(t)$ is the \textbf{Solow Residual} and 
+	    \begin{equation}
+	    	R(t) = \pd{Y(t)}{A(t)} \frac{A(t)}{Y(t)} \frac{\dot{A}(t)}{A(t)}
+	    \end{equation}
+	    And $\alpha_K(t)$ and $\alpha_L(t)$ denote the elasticity of output with respect to capital and labor respectively.
+	    
+	    \begin{example}
+	    	Assume the output growth if $40\%$ and capital growth is $20\%$ and labor growth is $30\%$. If $\alpha_K = 0.3$ and $\alpha_L = 0.7$. What's the contribution to output growth of capital?
+	    	\[
+	    		\alpha_K \frac{\dot{K}(t)}{K(t)} = 0.3 \times 20\% = 0.06
+	    	\]
+	    	and the contribution from labor is
+	    	\[
+	    		\alpha_L \frac{\dot{L}(t)}{L(t)} = 0.7 \times 30\% = 0.21
+	    	\]
+	    	and the Solow residual is 
+	    	\[
+	    		R(t) = g_Y - 6\% - 21\% = 0.4 - 0.06 - 0.21 = 0.13
+	    	\]
+	    \end{example}
+	    
+	    \subsection{Growth Model}
+	    \begin{example}
+	    	Let's assume the economy is on its balanced growth path. Assume that a change in medicine increase survival rate during child birth. \\
+	    	What would the effect of this be on steady state $k^*, y^*, c^*, i^*$.\\
+	    	First show the growth that despite break-even investment and actual investment. Label the steady state values. \\
+	    \end{example}
+	    
+	    \begin{proof}[Solution]
+	    	\textbf{The effect would be an increase in $n$} \\
+	    	Suppose $n_0 \to n_1$ with $n_0 < n_1$. \\
+	    	Therefore $k^*$ falls, and $y^*$ falls. \\
+	    	Since consumption and actual investment are constant frictions of $y^*$, \\
+	    	Therefore both $c^*, i^*$ falls.
+	    	\begin{figure*}[h]
+	    		\centering
+	    		\includegraphics[width=0.7\linewidth]{figures/4_1}
+	    	\end{figure*}
+	    \end{proof}
+	    
 \end{document}
 
 
