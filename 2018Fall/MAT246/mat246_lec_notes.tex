@@ -538,7 +538,7 @@
 			Let $n := 20^{30}$. \\
 			Notice that $7^4 \equiv 1 \mod 5$. \\
 			And if $n \equiv r \mod 4$ where $r \in \mathbb{Z}$, \\
-			$n = 4k+r$ and $7^n \equiv 7^{4k+r} \equiv (7^4)^k + 7^r \equiv 1^k 7^r \equiv 7^r \mod 5$. \\
+			$n = 4k+r$ and $7^n \equiv 7^{4k+r} \equiv (7^4)^k \times 7^r \equiv 1^k \times 7^r \equiv 7^r \mod 5$. \\
 			Notice that $20 \equiv 0 \mod 4 \implies 20^{30} \equiv 0 \mod 4$. \\
 			Thus $r = 0$. \\
 			Therefore $7^n \equiv 7^0 \equiv 1 \mod 5$. \\
@@ -557,7 +557,7 @@
 			\]
 			Therefore $3^{30} \equiv 3 \mod 6$. \\
 			That's $3^{30} = 6k + 3$ for some $k$. \\
-			Thus $10^{3^{30}} \equiv (10^6)^k 10^3 \equiv (1)^k 10^3 \equiv -1 \equiv 6 \mod 7$. \\
+			Thus $10^{3^{30}} \equiv (10^6)^k \times 10^3 \equiv (1)^k \times 10^3 \equiv -1 \equiv 6 \mod 7$. \\
 			So $10^{3^{30}} \mod 7 = 6$. \\
 		\end{proof}
 	\end{example}
