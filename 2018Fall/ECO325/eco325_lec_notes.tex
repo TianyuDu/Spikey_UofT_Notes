@@ -502,7 +502,79 @@
 	\section{Lecture 4 September 27. 2018}
 	\subsection{Speed of Convergence}
 	    \paragraph{Methodology} Look at the change in $k$ and linearize using first order Taylor's expansion.
+	    \paragraph{Recall} $\dot{k}(t)$ is a function of $k(t)$ since 
+	    \begin{equation}
+	        \dot{k}(t) = sf(k(t)) - (n+g+\delta)k(t)
+	    \end{equation}
+	    And the first order Taylor series approximation of a function $f(x)$ around the point $x = x_0$.
+	    \[
+	        f(x) \approx f(x_0) + f'(x_0)(x - x_0)
+	    \]
+	    Then
+	    \begin{gather*}
+	        \dot{k}(k) \approx \dot{k}(k^*) + \pd{\dot{k}(k)}{k}|_{k=k^*} (k - k^*) \\
+	        = 0 + \pd{\dot{k}(k)}{k}|_{k=k^*} (k - k^*)
+	    \end{gather*}
+	    Differentiating the both sides of equation (1) with respect to $k$.
+	    \begin{gather*}
+	        \pd{\dot{k}(k)}{k}|_{k=k^*} = sf'(k^*) - (n + g + \delta) \\
+	        = \frac{(n + g + \delta) k^*}{f(k^*)} f'(k^*) - (n + g + \delta) \\
+	        = (n + g + \delta) \Big [
+	            \frac{f'(k^*) k^*}{f(k^*)} - 1
+	            \Big ] \\
+	        = (n + g + \delta) (\alpha (k^*) - 1)
+	    \end{gather*}
+	    where 
+	    \begin{equation}
+	    \textcolor{blue}{
+	        \alpha_k (k^*) = f'(k^*)\frac{k^*}{f(k^*)}
+	        }
+	    \end{equation}
+	    denotes the \ul{elasticity of $y$ with respect to $k$ \emph{at steady state}.}
+	    So
+	    \begin{equation}
+	        \dot{k}(k) \approx (n + g + \delta) (\alpha (k^*) - 1) (k - k^*)
+	    \end{equation}
+	    Let $\lambda := (n + g + \delta) (1 - \alpha (k^*))$ then 
+	    \begin{gather}
+	        \dot{k}(k(t)) \approx -\lambda(k(t)-k^*) \\
+	        \implies \textcolor{orange}{
+	            k(t) - k^* \approx e^{-\lambda t}
+	            }
+	    \end{gather}
+	    \begin{proof}[Derive]
+	        Let $X(t) := k(t) + k^*$ \\
+	        And $\dot{X}(t) = \dot{k}(t)$ \\
+	        So we have an equation $\dot{X}(t) \approx -\lambda X(t)$
+	    \end{proof}
+	    Then note that 
+	    \begin{gather*}
+	        y(t) = f(k(t)) \\
+	        \implies \dot{y}(t) = f'(k(t))\dot{k}(t) \\
+	        \tx{(Take the first order Taylor series approximation around $k=k^*$)} \\
+	        \implies y(t) \approx f(k^*) + f'(k^*) (k(t)-k^*) \\
+	        \implies y(t) - y^* \approx f'(k^*)(k(t) - k^*) \\
+	        \implies \frac{\dot{y}(t)}{y(t) - y^*} = \frac{f'(k^*)\dot{k}(t)}{f'(k^*)(k(t) - k^*)} \approx - \lambda \\
+	       \implies y(t) - y^* \approx e^{- \lambda t} (y(0) - y^*)
+	    \end{gather*}
 	    
+	    \begin{example}
+	        How long does it take to move 1/2 way to the balance growth path. Assuming population growth rate is $2\%$, growth in output per worker is $2\%$ and depreciation is $2\%$ and  $\alpha_K = \frac{1}{3}$.
+	        \begin{proof}
+	            $\lambda = (1 - \alpha_K)(n + g + \delta)$ 
+	            Since we know along the balanced growth path, \begin{gather*}
+	                \frac{Y(t)}{L(t)} = y^* A(t) \\
+	                \implies \pd{\ln{\frac{Y(t)}{L(t)}}}{t} = g
+	            \end{gather*}
+	            Therefore $g = 0.02$ and therefore $\lambda = 0.04$. \\
+	            To find the date where we have moved half way we need to solve 
+	            \begin{gather*}
+	                \frac{y(\hat{t} - y^*)}{y(0) - y^*} = 0.5 \approx e^{-\lambda t}\\
+	                \implies \ln(0.5) \approx -\lambda \hat{t} \\
+	                \implies \hat{t} = \frac{-\ln(0.5)}{0.04} \approx 17.33
+	            \end{gather*}
+	        \end{proof}
+	    \end{example}
 \end{document}
 
 
