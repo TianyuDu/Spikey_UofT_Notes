@@ -11,6 +11,7 @@
 \usepackage{spikey}
 \usepackage{xcolor}
 \usepackage{centernot}
+\usepackage{txfonts}
 
 \usepackage[
     type={CC},
@@ -562,6 +563,112 @@
 		\end{proof}
 	\end{example}
 	
+	\section{Lecture 10 Sep. 28 2018}
+	\begin{example}
+		Find $8^{9^{10^{11}}} \mod 5$.
+	\end{example}
+	\begin{proof}[Solution]
+		Let $n := 9^{10^{11}}$ \\
+		And notices that $8^4 \equiv 1 \mod 5$. \\
+		Then find $n \mod 4$ \\
+		Note that $9 \equiv 1 \mod 4 \implies 9^{10^{11}} \equiv 1 \mod 4$. \\
+		Thus $n = 4k + 1$. \\
+		Therefore $8^{9^{{10}^{11}}} \equiv (8^4)^k \cdot 8 \equiv 1 \cdot 3 \mod 5$. \\
+		That's $8^{9^{10^{11}}} \mod 5 = 3$. \\
+	\end{proof}
+	
+	\begin{definition}[Euler $\phi$-function] Let $m \in \mathbb{N}$ and $\phi(m): \mathbb{N} \to \mathbb{N}$ is defined as \emph{the number of elements in $\{1, 2, \dots, m-1\}$ that are relatively prime to $m$}.	
+	\end{definition}
+	
+	\begin{example}
+		For $m = 8$, note that $\{1, 3, 5, 7\} \subset \{1,2,\dots,7\}$ are relatively prime with 8, therefore $\phi(8) = 4$. \\
+		And for $m=11$, since $m$ is a prime, then every integer between $1$ and $m-1$ are relatively prime with $11$. Therefore $\phi(11)=10$. \\
+		And notice that $\phi(p) = p-1$ if $p \in \mathbb{P}$. (Fermat's Little Theorem)\\
+	\end{example}
+	
+	\begin{proposition}
+		Let $p, q$ be two distinct primes, then \[ \phi(pq) = (p-1)(q-1) \]
+	\end{proposition}
+	\begin{proof}
+		Let $S:= \{1, 2, \dots, pq - 1\}$. \\
+		WLOG, assume $p < q$. \\
+		We need find all elements in $S$ that with either $p$ or $q$ in their prime factorization to find elements in $S$ that are \ul{not} relatively prime to $pq$. \\
+		And those elements are multiples of $p$ and multiples of $q$. \\
+		And since $pq \notin S$, the largest multiple of $p$ in $S$ is $(q-1)p$ and the largest multiple of $q$ in $S$ is $q(p-1)$. \\
+		And since there is no multiple of \ul{both} $p$ and $q$ in set $S$, therefore there's no overlapping between multiples of $p$ and multiples of $q$.\\
+		Therefore exists $(p-1)+(q-1)$ elements that are \ul{not} relatively. prime to $pq$. \\
+		Therefore $\phi(pq) = (pq-1)-(p-1)-(q-1)$ \\
+		$=pq-p-q+1$ \\
+		$=(p-1)(q-1)$
+	\end{proof}
+	
+	\begin{proposition}
+		For any natural number $m \in \mathbb{N}$. Therefore $m$ can be expressed as 
+		\[
+			m = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}
+		\]
+		Then 
+		\[
+			\phi(m) = \phi(p_1^{\alpha_1}) \phi(p_2^{\alpha_2}) \cdots \phi(p_k^{\alpha_k})
+		\]
+		And 
+		\[
+			\phi(p^\alpha) = p^\alpha - p^{\alpha - 1}= p^{\alpha - 1} (p - 1)
+		\]
+		Therefore
+		\[
+			\phi(m) = (p_1^{\alpha_1} - p_1^{\alpha_1 - 1})(p_2^{\alpha_2} - p_2^{\alpha_2 - 1}) \cdots (p_k^{\alpha_k} - p_k^{\alpha_k - 1})
+		\]
+	\end{proposition}
+	
+	\begin{example}
+		\begin{gather*}
+			\phi(6) = \phi(2^1 3^1) \\
+			= \phi(2^1) \phi(3^1) \\
+			= (2^1 - 2^0) (3^1 - 3^0) \\
+			= (2 - 1)(3 - 1)
+			= 2 \\
+		\end{gather*}
+	\end{example}
+	\begin{example}
+		\begin{gather*}
+			\phi(8) = \phi(2^3)\\
+			= (2^3 - 2^2) = 4
+		\end{gather*}
+	\end{example}
+	
+	\begin{theorem}[Euler's Theorem]
+		Suppose $m \in \mathbb{N} \backslash \{1\}$. And $a \in \mathbb{N}$ \footnote{Also true for $a \in \mathbb{Z}$}Assume $a$ and $m$ are relatively prime, then 
+		\[
+			a^{\phi(m)} \equiv 1 \mod m
+		\]
+	\end{theorem}
+	
+	\begin{remark}
+		This theorem is a generalization of Fermat's Little Theorem. When $m \in \mathbb{P}$, it becomes Fermat's Little Theorem.
+	\end{remark}
+	
+	\begin{proof}\renewcommand{\qedsymbol}{\textcolor{red}{$ \ensuremath\varheartsuit$}}
+		Let $S := \{r_1, r_2, \dots r_{\phi(m)}\}$ be the set of all elements in $\{1, 2, \dots, m-1\}$ that are relatively prime to $m$. \\
+		Let $T := \{a r_1, a r_2, \dots a r_{\phi(m)}\}$. \\
+		(Observation 1) that no two elements in $S$ are congruent to each other $\mod m$. Since all elements are in the range $[1, m-1]$ and they are the reminder while $r_i$ is divided by $m$. \\
+		Also notice that elements in $T$ are not congruent to each other $\mod m$.\\
+		Since, suppose \[a r_i \equiv a r_j \mod m\] for some $(i, j)$. \\
+		Since $a$ and $m$ are relatively prime, therefore we could use cancellation law.\\
+		\[
+			r_i =\equiv r_j \mod m
+		\]
+		This would contradict our observation 1 \\
+		(Observation 2) elements in $T$ are not congruent to each other $\mod m$. \\
+		Therefore elements in $S$ are congruent to elements in $T \mod m$ \ul{in some order}. \\
+		Therefore \[ r_1 r_2 r_3 \cdots r_{\phi(m)} \equiv a^{\phi(m)} r_1 r_2 \cdots r_{\phi(m)} \mod m \]\\
+		 And notice $r_1 r_2 r_3 \cdots r_{\phi(m)}$ is a product of natural numbers relatively prime to $m$. \\
+		 Therefore $r_1 r_2 r_3 \cdots r_{\phi(m)}$ is relatively prime to m. \\
+		 And by cancellation law, we have 
+		 \[
+		 	a^{\phi(m)} \equiv 1 \mod m
+		 \]
+	\end{proof}
 \end{document}
 
 
