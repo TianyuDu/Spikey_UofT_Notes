@@ -669,6 +669,107 @@
 		 	a^{\phi(m)} \equiv 1 \mod m
 		 \]
 	\end{proof}
+	
+	\section{Lecture 11 Oct. 2 2018}
+	\subsection{Rational and Irrational Numbers}
+	\begin{definition}
+		A \textbf{rational number} is an expression in form 
+		\[
+			\frac{m}{n},\ m,n \in \mathbb{Z},\ n \neq 0
+		\]
+	\end{definition}
+	
+	\begin{definition}
+		Two rational numbers $\frac{m_1}{n_1}, \frac{m_2}{n_2} \in \mathbb{Q}$ are \textbf{equal} if and only if  $m_1 n_2 = m_2 n_1$.
+	\end{definition}
+	
+	\begin{definition}
+		Arithmetic on $\mathbb{Q}$ are defined as 
+		\begin{itemize}
+			\item \textbf{Addition} $+: \frac{m_1}{n_1} + \frac{m_2}{n_2} := \frac{m_1 n_2 + m_2 n_1}{n_1 n_2}$
+			\item \textbf{Multiplication} $\times: \frac{m_1}{n_1} \times \frac{m_2}{n_2} := \frac{m_1 m_2}{n_1 n_2}$
+			\item \textbf{Subtraction} $-: \frac{m_1}{n_1} - \frac{m_2}{n_2} := \frac{m_1 n_2 - m_2 n_1}{n_1 n_2}$
+			\item \textbf{Division} $\div: \frac{\frac{m_1}{n_1}}{\frac{m_2}{n_2}} := \frac{m_1 n_2}{n_1 m_2}$, defined only if $m_2 \neq 0$.
+		\end{itemize}
+	\end{definition}
+	
+	\begin{definition}
+		The \textbf{multiplicative inverse} of a \ul{non-zero} rational number $x \neq 0$ is a rational number $y$ such that $xy=1$.
+	\end{definition}
+	\begin{remark}
+		Let $x = \frac{m}{n} \neq 0$, then the multiplicative inverse $y = \frac{n}{m}$.
+	\end{remark}
+	
+	\begin{example}
+		Claim: $\sqrt{2}$ is not rational.
+	\end{example}
+	\begin{proof}
+		Assume $\sqrt{2}$ is rational, \\
+		by definition of rational numbers, $\sqrt{2} = \frac{m}{n}$ where $m,n \in \mathbb{Z}, n \neq 0$. \\
+		Divide numerator and denominator by their common prime factors (if any). \\
+		Assume $m$ and $n$ have been reduced so that they are relatively prime. \\
+		\begin{gather*}
+			\implies 2 = \frac{m^2}{n^2}\\
+			\iff 2n^2 = m^2 \\
+			\implies 2 | m^2 
+		\end{gather*}
+		Consider if $2 \centernot | m$, then $m$ is odd, then $2 \centernot | m^2$. \\
+		Take the contraposition, $2 | m^2 \implies 2 | m$. \\
+		\begin{gather*}
+			\implies 2 | m \\
+			\implies m = 2q,\ q \in \mathbb{Z} \\
+			\implies 2n^2 = 4 q ^2 \\
+			\implies n^2 = 2q^2 \\
+			\implies 2 | n^2 \\
+			\implies 2 | n
+		\end{gather*}
+		That's $2 | m \land 2 | n$, which contradicts our assumption that $m$ and $n$ are relatively prime. \\
+		Therefore $\sqrt{2}$ cannot be rational.
+	\end{proof}
+	
+	\begin{definition}[non-rigorous definition]
+		\textbf{Real numbers}, denoted as $\R$, are numbers representing distance of points on a line from $0$.
+	\end{definition}
+	
+	\begin{definition}
+		\textbf{Irrational numbers} are real numbers which are not rational. ($\mathbb{R}\backslash \mathbb{Q}$)
+	\end{definition}
+	
+	\begin{proposition}
+		Let $p \in \mathbb{P}$ and $m \in \mathbb{Z}$, then 
+		\[
+		p | m^2 \implies p | m
+		\]
+	\end{proposition}
+	\begin{proof}
+		Let $m = q_1 q_2 \dots q_\ell$ be the unique prime factorization. \\
+		Suppose $p \centernot | m$, then $p \notin \{q_1, q_2, \dots, q_\ell\}$. \\
+		Obviously, $m^2 = q_1^2 q_2^2 \dots q_\ell^2$ as it's prime factorization. \\
+		Then $p \centernot | m^2$.
+	\end{proof}
+	
+	\begin{example}
+		$\sqrt{p} \notin \mathbb{Q},\ \forall p \in \mathbb{P}$.
+	\end{example}
+	
+	\begin{proof}
+		Let $p \in \mathbb{P}$,
+		Suppose $\sqrt{p} \in \mathbb{Q}$. \\
+		Therefore $\sqrt{p} = \frac{m}{n}$ where $m, n \in \mathbb{Z}$ and $n \neq 0$. \\
+		Assume $\frac{m}{n}$ has been reduced such that $m$ and $n$ are relatively prime. \\
+		\begin{gather*}
+			\implies p n^2 = m^2 \\
+			\implies p | m^2 \\
+			\implies p | m \\
+			\implies m = pr,\ r \in \mathbb{Z}. \\
+			\implies pn^2 = p^2 r^2 \\
+			\implies n^2 = p r^2 \\
+			\implies p | n^2 \\
+			\implies p | n
+		\end{gather*}
+		Contradicts the assumption that $m$ and $n$ are relatively prime.
+	\end{proof}
+	
 \end{document}
 
 
