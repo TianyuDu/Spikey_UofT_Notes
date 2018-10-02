@@ -34,6 +34,10 @@
     			\item \textcolor{blue}{Important equations as results from model.}
     			\item \textcolor{violet}{Implications of model result.}
     		\end{itemize}
+    \paragraph{Revisions}
+    \begin{itemize}
+    	\item Revise October 2. 2018. Midterm 1.
+    \end{itemize}
     \tableofcontents
     \newpage
     
@@ -46,46 +50,51 @@
             A \textbf{growth disaster} is an episodes where the growth in a country falls short at the world average for an extended period of time. \ul{Result} the country moves down in the world income distribution.
         \end{definition}
     
-        \paragraph{Facts} Data from the $20^{th}$ century suggest that
+        \paragraph{Facts}(with corresponding result from Solow growth model.)
         \begin{enumerate}
-            \item Real output grows at a (more or less) constant rate.
-            \item Stock of real capital grows at a (more or less) constant rate (but it grows faster than labor input).
-            \item Growth rates of real output and the stock of capital are about the same.
-            \item The rate of growth of output per capita varies greatly across countries.
+            \item Real output($Y$) grows at a (more or less) constant rate ($n+g$).
+            \item Stock of real capital($K$) grows at a (more or less) constant rate($n+g$) (but it grows faster than labor input($L$)($n$).
+            \item Growth rates of real output and the stock of capital are about the same. (both $n+g$)
+            \item The rate of growth of output per capita($\frac{Y}{L}$) varies greatly across countries. ($g$ varies across countries)
         \end{enumerate}
         
         \subsection{Solow Growth Model (continuous time version)}
-            \par Solow growth model decomposes the growth in output per capita into portions accounted for by increase in inputs and the portion contributed to increases in productivity.
-            \par In the baseline model we denote $K$ as capital, $L$ as labor and $A$ as technology.
+            \paragraph{Intro.} Solow growth model decomposes the growth in output per capita into portions accounted for by increase in \ul{inputs} and the portion contributed to increases in \ul{productivity}.
+           
+            \paragraph{Notations} In the baseline model we denote $K$ as capital, $L$ as labor and $A$ as technology.
             
         \subsubsection{Production Function}
             \begin{remark}
-                Harrod-neutral technology here, refer to Uzawa's theorem.
+                \st{Harrod-neutral technology here, refer to Uzawa's theorem.}
             \end{remark}
             \begin{definition}
-                The \textbf{effective labor input} is defined as $A(t)L(t)$
+                The \textbf{effective labor input}(total units off effective labor) is defined as $A(t)L(t)$
             \end{definition}
             
             \begin{definition}
-                The production function is defined as
+                The production function is defined as a real-valued mapping from input factor space to an output level.
 	            \begin{equation}
                     \textcolor{orange}{Y(t) = F(K(t), A(t)L(t))}
 	            \end{equation}
-                Typically Cobb-Douglas form is taken
+            \end{definition}
+            
+            \begin{example}
+            	    Cobb-Douglas form of production function.
                 \[
                     Y(t) = K(t)^\alpha (A(t)L(t))^{1 - \alpha},\ \alpha \in (0, 1)
                 \]
-            \end{definition}
+            \end{example}
             
-            \begin{property} Properties on production function.
-                \begin{enumerate}
-                    \item \ul{CRS in $K$ and $AL$}: $Y(cK, cAL) = cY(K, AL),\ \forall c \geq 0$ implies
-                        \begin{itemize}
-                            \item All gains from specialization have been exhausted.
-                            \item Inputs other than $K$ and $AL$ are unimportant.
-                        \end{itemize}
-                \end{enumerate}
-            \end{property}
+            \begin{assumption} The production function is assumed to be \ul{constant return to scale} in $K$ and $AL$.
+            \[
+            	Y(cK, cAL) = cY(K, AL),\ \forall c \geq 0
+            \]
+           	This CRS assumption is the result of two separate assumptions.
+           	\begin{enumerate}
+           		\item \emph{The economy is big enough that the gains from specialization have been exhausted.} $\implies$ There is \textbf{no} increasing return to scale.
+           		\item \emph{Inputs other than capital, labor, and the effectiveness of labor are relatively unimportant.} $\implies$ There is \textbf{no} decreasing return to scale.
+           	\end{enumerate}
+            \end{assumption}
             
             \begin{definition}
                 Define $c := \frac{1}{AL}$, the \textbf{intensive form} of production function is
@@ -102,7 +111,7 @@
 				\begin{itemize}
 					\item $K(t) := $ aggregate capital stock at time $t$.
 					\item $L(t) := $ aggregate labor supple at time $t$.
-					\item $A(t) := $ labor argument technology (\ul{effectiveness of labor}) at time $t$.
+					\item $A(t) := $ labor argument technology\footnote{Harrod-neutral technology} (\ul{effectiveness of labor}) at time $t$.
 				\end{itemize} 
 				to output values ($Y(t) := $ aggregate output at time $t$.) The production function takes the form of
 				\[
@@ -111,14 +120,22 @@
 			\end{definition}
 			
 			\begin{assumption}[Assumptions on Production Function]
-				The production function are assumed to satisfy the following assumptions: 
-				\begin{itemize}
-					\item \ul{Constant Return to Scale}: \[cF(K(t), A(t)L(t)) = F(cK(t), cA(t)L(t)),\ \forall c > 0\]
-				\end{itemize}
+				The production function are assumed to be \ul{constant return to scale} in $A(t)L(t)$ and $K(t)$.
+				\[
+					cF(K(t), A(t)L(t)) = F(cK(t), cA(t)L(t)),\ \forall c > 0
+				\]
 			\end{assumption}
 			
 			\begin{definition}
-				The \textbf{intensive form of production function} is defined as the output per effective unit of labor. Let $f(t) := \frac{Y(t)}{A(t)L(t)}$ and $k(t) := \frac{K(t)}{A(t)L(t)}$ be the output and capital per unit of effective labor respectively. By the assumption of \emph{CRS} on \emph{aggregate} production function, take $c = \frac{1}{A(t)L(t)}$. The \emph{intensive form} production function can be expressed as
+				The \textbf{intensive form of production function} is defined as the output per unit of effective labor. \\
+				Let 
+				\[
+					f(t) := \frac{Y(t)}{A(t)L(t)}
+				\] 
+				and 
+				\[
+					k(t) := \frac{K(t)}{A(t)L(t)}
+				\] denote the output and capital per unit of effective labor respectively. By the assumption of \emph{CRS} on \emph{aggregate} production function, take $c = \frac{1}{A(t)L(t)}$. The \emph{intensive form} production function can be expressed as
 				\begin{equation}
 					\textcolor{orange}{
 						y(t) = f(k(t))
@@ -134,8 +151,11 @@
 					\item $\lim_{k \to 0}f'(k) = \infty$
 					\item $\lim_{k \to \infty}f''(k) = 0$
 				\end{enumerate}
-				\emph{The role of above conditions is to ensure that the path of the economy does not diverge.}
 			\end{assumption}
+			
+			\begin{remark}	
+			The role of assumption 2.2 is to ensure that the path of the economy does not diverge.
+			\end{remark}
 			
 			\begin{example}[Cobb-Douglas Production Function]
 				Consider the Cobb-Douglas production function
@@ -176,7 +196,7 @@
 			\end{assumption}
 			
 			\begin{proposition}
-				Notice the \ul{growth rate} of variable $X$ is given by 
+				Notice the \ul{growth rate} of variable $X(t)$ is given by 
 				\[
 					g_X := \frac{\dot{X(t)}}{X(t)} = \pd{\ln{X(t)}}{t}
 				\]
@@ -211,7 +231,7 @@
 				K(t+1) = (1-\delta)K(t) + I(t) \\
 				\iff I(t) = K(t+1) - K(t) + \delta K(t) \\
 				\tx{As } \Delta \to 0 \tx{ (convert to continuous time)}\\
-				I(t) = \dot{K}(t) + \delta K(t)
+				\textcolor{orange}{I(t) = \dot{K}(t) + \delta K(t)}
 			\end{gather*}
 			
 			\begin{assumption}
@@ -235,10 +255,10 @@
 					= \frac{sY - \delta K}{AL} - \frac{\dot{A}}{A}\frac{K}{AL} - \frac{\dot{L}}{L} \frac{K}{AL} \\
 					= sy(t) - (n + g + \delta) k(t)
 				\end{gather*}
-				Where $s y(t)$ is the \textbf{actual investment} per unit effective unit of labor and $(n + g + \delta) k(t)$ is the \textbf{break-even investment} per effective unit of labor.
+				Where $s y(t)$ is the \textbf{actual investment} per unit of effective labor and $(n + g + \delta) k(t)$ is the \textbf{break-even investment} per unit of effective labor.
 				
 			\begin{remark}
-				The \ul{convergence speed} is \ul{inversely} correlated with the value of $|| k(t) - k^* ||$, where $k^*$ denotes the steady state level of capital stock per effective unit of labor.
+				The \textbf{convergence speed} is \ul{inversely} correlated with the value of $| k(t) - k^* |$, where $k^*$ denotes the steady state level of capital stock per effective unit of labor.
 			\end{remark}
 			
 			\begin{remark}
@@ -268,16 +288,18 @@
 				\caption{Phase Diagram of Capital Per Unit of Effective Labor}
 			\end{figure}
 			
+			\newpage 
+			
 			\begin{definition}
-			\textbf{Steady level of capital per unit of effective labor($k^*$)} is defined as the level of capital per unit of effective labor that equates break-even investment per unit of effective labor and actual investment per unit of effective labor. \footnote{The definition can also be expressed as $k^* := \{k \in \R_{+}: \hat{k} = 0\}$}
+			\textbf{Steady level of capital per unit of effective labor($k^*$)} is defined as the level of capital per unit of effective labor that equates break-even investment per unit of effective labor and actual investment per unit of effective labor. So that $k$ does not deviate from $k^*$.\footnote{The definition can also be expressed as $k^* := \{k \in \R_{+}: \dot{k}(k) = 0\}$}
 				\[
 					k^* := \{k \in \R_{+}: sf(k) = (n+g+\delta) k\}
 				\]
 			\end{definition}
 			
 			\begin{remark}
-				The values of other endogenous variables at steady state are also derived from $k^*$.
-				\begin{example}
+				The values of other endogenous variables at steady state are derived from $k^*$.
+				\begin{example} Find the steady state growth rate of investment, consumption and output per unit of effective labor.
 					\begin{gather}
 						y^* = f(k^*) \\
 						i^* = sf(k^*) = (n+g+\delta) k^* \\
@@ -286,15 +308,15 @@
 				\end{example}
 				For the growth rate of each endogenous variable (per unit of effective labor). 
 					\begin{gather}
-						\pd{k(t)}{t}|_{k=k^*} = 0 \\
+						\pd{i(t)}{t}|_{k=k^*} = 0 \\
 						\pd{c(t)}{t}|_{k=k^*} = 0 \\
 						\pd{y(t)}{t}|_{k=k^*} = 0 
 					\end{gather}
 					above relations are equivalent to 
 					\begin{gather}
 						\tx{On steady state} \begin{cases}
+							\dot{i}(t) = 0 \\
 							\dot{c}(t) = 0 \\
-							\dot{k}(t) = 0 \\
 							\dot{y}(t) = 0 \\
 						\end{cases}
 					\end{gather}
@@ -305,7 +327,8 @@
 				$c(\cdot) = (1-s)f(k(t))$ \\
 				$\implies \dot{c}(t) := \pd{c(\cdot)}{t} = (1-s)f'(k(t)) \dot{k(t)}$ by chain rule \\
 				Since $\dot{k}|_{k=k^*} = 0$ and $(1-s)f'(k(t)) < \infty$ \\
-				Thus $\dot{c}(t)|_{k=k^*} = 0$
+				Thus $\dot{c}(t)|_{k=k^*} = 0$ \\
+				And $i(t) = sf(k(t))$, which is constant at $sf(k^*)$ at steady state. \\
 			\end{proof}
 			
 		\subsection{Balanced Growth Path}
@@ -361,7 +384,7 @@
 			\end{proof}
 			
 			\begin{proposition}
-				Along the balanced growth path, consumption and output per person also growth at rate $g$.
+				Along the balanced growth path, consumption and output per person also grow at rate $g$.
 			\end{proposition}
 			
 			\begin{proposition}
@@ -395,8 +418,11 @@
 				\]
 		\end{definition}
 		
-		\begin{proof}[First Order Necessary Condition]
-		Solve \\
+		\begin{definition}
+			The \textbf{golden rule level of saving rate} $s_G$ is the saving rate such that the golden role level of capital per unit of effective labor is achieved.
+		\end{definition}
+		
+		\begin{proof}[Proof. (First Order Necessary Condition for $k_G$)]
 			\begin{gather*}
 				\pd{c^*(k^*)}{k^*} = 0 \\
 				\implies \pd{f(k^*) - (n+g+\delta)k^*}{k^*} = 0 \\
@@ -410,8 +436,8 @@
 		
 		\subsection{Experiment}
 			\subsubsection{Impact of Change in the Saving Rate ($s_1 > s_0$)}
-			\paragraph{} Suppose at time $t_0$, the saving rate parameter increases discretely: $s_0 \rightarrow s_1$.
-			\begin{figure}
+			\par Suppose at time $t_0$, the saving rate parameter increases discretely: $s_0 \rightarrow s_1$.
+			\begin{figure}[H]
 				\centering
 				\includegraphics[width=0.5\linewidth]{figures/3_3.png}
 				\includegraphics[width=0.5\linewidth]{figures/3_4.png}
@@ -475,7 +501,7 @@
 			\end{remark}
 			
 			\begin{example}
-				If $\alpha_K \approx \frac{1}{3}$ then $\pd{y^*}{s}{s}{y^*} \approx \frac{1}{2}$.
+				If $\alpha_K \approx \frac{1}{3}$ then \[\eta = \pd{y^*}{s} \frac{s}{y^*} \approx \frac{1}{2}\]
 			\end{example}
 			
 			\paragraph{Impact on $c^*$} Notice that on the balanced growth path $c^* = y^* - i^*$.
@@ -558,7 +584,7 @@
 	        \tx{(Take the first order Taylor series approximation around $k=k^*$)} \\
 	        \implies y(t) \approx f(k^*) + f'(k^*) (k(t)-k^*) \\
 	        \implies y(t) - y^* \approx f'(k^*)(k(t) - k^*) \\
-	        \implies \frac{\dot{y}(t)}{y(t) - y^*} = \frac{f'(k^*)\dot{k}(t)}{f'(k^*)(k(t) - k^*)} \approx - \lambda \\
+	        \implies \frac{\dot{y}(t)}{y(t) - y^*} = \frac{f'(k^*)\dot{k}(t)}{f'(k^*)(k(t) - k^*)} = \frac{\dot{k}(t)}{k(t) - k^*} \approx - \lambda \\
 	       \implies \textcolor{orange}{
 	       		y(t) - y^* \approx e^{- \lambda t} (y(0) - y^*)
 	       }
@@ -575,7 +601,7 @@
 	            Therefore $g = 0.02$ and therefore $\lambda = 0.04$. \\
 	            To find the date where we have moved half way we need to solve 
 	            \begin{gather*}
-	                \frac{y(\tilde{t} - y^*)}{y(0) - y^*} = 0.5 \approx e^{-\lambda t}\\
+	                \frac{y(\tilde{t}) - y^*}{y(0) - y^*} = 0.5 \approx e^{-\lambda t}\\
 	                \implies \ln(0.5) \approx -\lambda \tilde{t} \\
 	                \implies \tilde{t} = \frac{-\ln(0.5)}{0.04} \approx 17.33
 	            \end{gather*}
@@ -583,7 +609,7 @@
 	    \end{example}
 	    
 	    \subsection{General Statements}
-	    \par Solow growth model identifies 2 sources of output per worker,
+	    \par Solow growth model identifies 2 sources of output \ul{per worker},
 	    \begin{enumerate}
 	    	\item Differences in the among of \ul{capital per worker}.
 	    	\item Differences in the \ul{effectiveness of productivity} of labor $A$.
@@ -618,12 +644,12 @@
 	    \end{gather}
 	    where $R(t)$ is the \textbf{Solow Residual} and 
 	    \begin{equation}
-	    	R(t) = \pd{Y(t)}{A(t)} \frac{A(t)}{Y(t)} \frac{\dot{A}(t)}{A(t)}
+	    	\textcolor{blue}{R(t) = \pd{Y(t)}{A(t)} \frac{A(t)}{Y(t)} \frac{\dot{A}(t)}{A(t)}}
 	    \end{equation}
 	    And $\alpha_K(t)$ and $\alpha_L(t)$ denote the elasticity of output with respect to capital and labor respectively.
 	    
 	    \begin{example}
-	    	Assume the output growth if $40\%$ and capital growth is $20\%$ and labor growth is $30\%$. If $\alpha_K = 0.3$ and $\alpha_L = 0.7$. What's the contribution to output growth of capital?
+	    	Assume the output growth is $40\%$ and capital growth is $20\%$ and labor growth is $30\%$. If $\alpha_K = 0.3$ and $\alpha_L = 0.7$. What's the contribution to output growth of capital?
 	    	\[
 	    		\alpha_K \frac{\dot{K}(t)}{K(t)} = 0.3 \times 20\% = 0.06
 	    	\]
@@ -637,7 +663,6 @@
 	    	\]
 	    \end{example}
 	    
-	    \subsection{Growth Model}
 	    \begin{example}
 	    	Let's assume the economy is on its balanced growth path. Assume that a change in medicine increase survival rate during child birth. \\
 	    	What would the effect of this be on steady state $k^*, y^*, c^*, i^*$.\\
