@@ -770,6 +770,74 @@
 		Contradicts the assumption that $m$ and $n$ are relatively prime.
 	\end{proof}
 	
+	\section{Lecture 12 Oct. 3 2018}
+	\begin{definition}
+		A natural number (\ul{other than 1}) is called a \textbf{perfect square} if it is the square of some natural number.
+	\end{definition}
+	
+	\begin{theorem}
+		A natural number $m$ is a perfect square if and only if every prime factor occurs with an even power in its prime decomposition.
+	\end{theorem}
+	
+	\begin{proof}
+		($\implies$) Suppose $m$ is a perfect square, \\
+		Then $m = n^2, b \in \mathbb{N}$. \\
+		Let $n = p_1^{\alpha_1} \dots p_k^{\alpha_k}$ be the prime decomposition. \\
+		Then $m = p_1^{2\alpha_1} \dots p_k^{2\alpha_k}$. \\
+		Obviously all prime factors in the prime factorization occurs with an even power. \\
+		($\impliedby$) Suppose $m = p_1^{2\alpha_1} \dots p_k^{2\alpha_k}$ as its prime decomposition. \\
+		Then $m = (p_1^{\alpha_1} \dots p_k^{\alpha_k})^2$ and $n = p_1^{\alpha_1} \dots p_k^{\alpha_k} \in \mathbb{N}$. \\
+		Therefore $m$ is a perfect square.
+	\end{proof}
+	
+	\begin{theorem}[Generalization]
+		Let $n \in \mathbb{N}$ other than 1, then \footnote{The square root here denotes the positive square root.}
+		\[
+			\sqrt{n} \in \mathbb{Q} \iff n \tx{ is a perfect square}
+		\]
+	\end{theorem}
+	\begin{proof}
+		($\impliedby$) if $n$ is perfect square, then $\sqrt{n} \in \mathbb{N}$. \\
+		Obviously a natural number is rational. \\
+		($\implies$) Suppose $\sqrt{n} \in \mathbb{Q}$. \\
+		Then 
+		\[
+			\sqrt{n} = \frac{m}{l} \in \mathbb{Q}
+		\]where $m, l \in \mathbb{Z}$ and $l \neq 0$. \\
+		Since $\sqrt{n} > 0$, WLOG, assume $m, l \geq 0$. \\
+		Suppose $m, l$ are relatively prime. (Otherwise, factorize the friction so that $m$ and $l$ are relatively prime.)\\
+		Then 
+		\[
+			m^2 = n l^2
+		\]
+		(Suppose 1) $l > 1 $ and $p$ is a prime in the prime decomposition of $m$, i.e. $p | l$, \\
+		Thus $p | l^2$ and therefore $p | m^2$. \\
+		By proposition 11.1 (previous lecture), $p | m$ \\
+		And we have $p | l \land p | m$ which contradicts our assumption that $m, l$ are relatively prime. \\
+		Therefore (Suppose 1) is false and $l \leq 1$ (so that $l$ has no prime factor). \\
+		Also notice that $l \in \mathbb{Z}$ and $l \geq 0$. therefore $l = 1$. \\
+		Therefore $n = m^2$ and $n$ is a prefect square.
+	\end{proof}
+	
+	\begin{example}
+		Claim $\sqrt[3]{4}$ is irrational.
+	\end{example}
+	\begin{proof}
+		Suppose $\sqrt[3]{4}$ is rational and 
+		\[
+			\sqrt[3]{4} = \frac{m}{n} \implies 4 = \frac{m^3}{n^3} \implies 2^2 n^3 = m^3
+		\]
+		Suppose 
+		\begin{gather*}
+			n = p_1^{\alpha_1} \dots p_k^{\alpha_k} \\
+			m = q_1^{\beta_1} \dots q_\ell^{\beta_{\ell}}
+		\end{gather*}
+		The prime factor 2 has power of 2 or $2 + \alpha_j$ on the left hand side. \\
+		And have power of $3\beta_i$ on the right hand side. \\
+		The left hand side power is congruent to 2 mod 3 and the right hand side is congruent to 0 mod 3. \\
+		It's impossible for them to be equal. Thus, contradicts the uniqueness of prime decomposition. \\
+		Therefore $\sqrt[3]{4}$ cannot be rational.
+	\end{proof}
 \end{document}
 
 
