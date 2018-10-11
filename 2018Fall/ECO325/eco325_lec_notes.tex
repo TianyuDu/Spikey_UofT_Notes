@@ -774,19 +774,26 @@
 	\begin{remark}
 		If households could run a Ponzi scheme, then the present value of lifetime consumption can exceed the present value of lifetime resources.
 	\end{remark}
-	The household instantaneous utility function (CRRA).
+	\begin{assumption}
+	The household \emph{instantaneous utility function} is assumed to be in the form of constant relative risk aversion (CRRA) as 
 	\begin{equation}
 		u(C(t)) = \frac{C(t)^{1 - \theta}}{1 - \theta}
 	\end{equation}
-	\begin{assumption}
-		Assuming $\theta > 0$ and $\beta = \rho - n - (1-\theta)g > 0$.
 	\end{assumption}
+	
 	\begin{gather*}
 		U = \int_{t=0}^\infty e^{-\rho t} \frac{c(t)^{1-\theta}}{1-\theta} A(0)^{1-\theta} e^{(1-\theta)gt} e^{nt} \frac{L(0)}{H}\ dt\\
 		= A(0)^{1 - \theta} \frac{L(0)}{H} \int_{t=0}^\infty {e^{-\rho t + nt + (1-\theta)gt} \frac{c(t)^{1-\theta}}{1-\theta}\ dt} \\
-		= A(0)^{1 - \theta} L(0) \int_{t=0}^\infty {e^{-(\rho - n - (1-\theta)g)t} \frac{c(t)^{1-\theta}}{1-\theta}\ dt} \\
-		= B \int_{t=0}^\infty e^{-\beta t}\frac{c(t)^{1-\theta}}{1- \theta}\ dt \\
+		= A(0)^{1 - \theta} \frac{L(0)}{H} \int_{t=0}^\infty {e^{-(\rho - n - (1-\theta)g)t} \frac{c(t)^{1-\theta}}{1-\theta}\ dt} \\
+		= B \int_{t=0}^\infty e^{-\beta t}\frac{c(t)^{1-\theta}}{1- \theta}\ dt
 	\end{gather*}
+	\[
+		B := A(0)^{1-\theta} \frac{L(0)}{H}\tx{ and } \beta := \rho - n - (1-\theta)g
+	\]
+	\begin{assumption}
+		Assuming $\theta > 0$ and $\beta = \rho - n - (1-\theta)g > 0$.
+	\end{assumption}
+	
 	\begin{remark}
 		If $\beta \leq 0$ then the integral would diverge and the maximization problem does not have a well-defined solution.
 	\end{remark}
