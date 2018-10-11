@@ -1,14 +1,15 @@
 \select@language {english}
-\contentsline {section}{\numberline {1}Lecture 1 Sep. 7 2018}{2}{section.1}
-\contentsline {section}{\numberline {2}Lecture 2 Sep. 10 2018}{2}{section.2}
-\contentsline {section}{\numberline {3}Lecture 3 Sep. 12 2018}{3}{section.3}
-\contentsline {section}{\numberline {4}Lecture 4 Sep. 14 2018}{4}{section.4}
-\contentsline {section}{\numberline {5}Lecture 5 Sep. 17 2018}{5}{section.5}
-\contentsline {section}{\numberline {6}Lecture 6 Sep. 19 2018}{7}{section.6}
-\contentsline {section}{\numberline {7}Lecture 7 Sep. 21 2018}{8}{section.7}
-\contentsline {section}{\numberline {8}Lecture 8 Sep. 24 2018}{9}{section.8}
-\contentsline {section}{\numberline {9}Lecture 9 Sep. 26 2018}{11}{section.9}
-\contentsline {section}{\numberline {10}Lecture 10 Sep. 28 2018}{13}{section.10}
-\contentsline {section}{\numberline {11}Lecture 11 Oct. 1 2018}{15}{section.11}
-\contentsline {subsection}{\numberline {11.1}Rational and Irrational Numbers}{15}{subsection.11.1}
-\contentsline {section}{\numberline {12}Lecture 12 Oct. 3 2018}{17}{section.12}
+\contentsline {section}{\numberline {1}Lecture 1 Sep. 7 2018}{3}{section.1}
+\contentsline {section}{\numberline {2}Lecture 2 Sep. 10 2018}{3}{section.2}
+\contentsline {section}{\numberline {3}Lecture 3 Sep. 12 2018}{4}{section.3}
+\contentsline {section}{\numberline {4}Lecture 4 Sep. 14 2018}{5}{section.4}
+\contentsline {section}{\numberline {5}Lecture 5 Sep. 17 2018}{6}{section.5}
+\contentsline {section}{\numberline {6}Lecture 6 Sep. 19 2018}{8}{section.6}
+\contentsline {section}{\numberline {7}Lecture 7 Sep. 21 2018}{9}{section.7}
+\contentsline {section}{\numberline {8}Lecture 8 Sep. 24 2018}{10}{section.8}
+\contentsline {section}{\numberline {9}Lecture 9 Sep. 26 2018}{12}{section.9}
+\contentsline {section}{\numberline {10}Lecture 10 Sep. 28 2018}{14}{section.10}
+\contentsline {section}{\numberline {11}Lecture 11 Oct. 1 2018}{16}{section.11}
+\contentsline {subsection}{\numberline {11.1}Rational and Irrational Numbers}{16}{subsection.11.1}
+\contentsline {section}{\numberline {12}Lecture 12 Oct. 3 2018}{18}{section.12}
+\contentsline {section}{\numberline {13}Lecture 13 Oct. 5 2018}{20}{section.13}

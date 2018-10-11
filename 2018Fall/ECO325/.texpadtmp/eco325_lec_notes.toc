@@ -1,33 +1,39 @@
 \select@language {english}
 \contentsline {paragraph}{Github}{1}{section*.2}
 \contentsline {paragraph}{Color notations}{1}{section*.3}
+\contentsline {paragraph}{Revisions}{1}{section*.4}
 \contentsline {section}{\numberline {1}Lecture 1. September 6. 2018}{3}{section.1}
-\contentsline {paragraph}{Facts}{3}{section*.5}
+\contentsline {paragraph}{Facts}{3}{section*.6}
 \contentsline {subsection}{\numberline {1.1}Solow Growth Model (continuous time version)}{3}{subsection.1.1}
+\contentsline {paragraph}{Intro.}{3}{section*.7}
+\contentsline {paragraph}{Notations}{3}{section*.8}
 \contentsline {subsubsection}{\numberline {1.1.1}Production Function}{3}{subsubsection.1.1.1}
 \contentsline {section}{\numberline {2}Lecture 2 September 13. 2018}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Solow Growth Model: Setup}{4}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Dynamics of $k(t)$}{7}{subsection.2.2}
 \contentsline {section}{\numberline {3}Lecture 3 September 20. 2018}{7}{section.3}
 \contentsline {subsection}{\numberline {3.1}Dynamic Transitions}{7}{subsection.3.1}
-\contentsline {paragraph}{}{7}{section*.6}
+\contentsline {paragraph}{}{7}{section*.9}
 \contentsline {subsection}{\numberline {3.2}Balanced Growth Path}{9}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Growth Rates on Balanced Growth Path}{9}{subsubsection.3.2.1}
-\contentsline {paragraph}{Population and Technology}{9}{section*.7}
-\contentsline {paragraph}{Capital per person}{9}{section*.8}
-\contentsline {paragraph}{Output and Consumption per person}{10}{section*.9}
-\contentsline {subsection}{\numberline {3.3}Experiment}{11}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Impact of Change in the Saving Rate ($s_1 > s_0$)}{11}{subsubsection.3.3.1}
-\contentsline {paragraph}{}{11}{section*.10}
-\contentsline {subsubsection}{\numberline {3.3.2}Derive the Effect of Change in $s$ Mathematically}{11}{subsubsection.3.3.2}
-\contentsline {paragraph}{Goal}{11}{section*.11}
-\contentsline {paragraph}{Impact on $k^*$}{13}{section*.12}
-\contentsline {paragraph}{Impact on $y^*$}{13}{section*.13}
-\contentsline {paragraph}{Impact on $c^*$}{14}{section*.14}
+\contentsline {paragraph}{Population and Technology}{9}{section*.10}
+\contentsline {paragraph}{Capital per person}{9}{section*.11}
+\contentsline {paragraph}{Output and Consumption per person}{10}{section*.12}
+\contentsline {subsection}{\numberline {3.3}Experiment}{12}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Impact of Change in the Saving Rate ($s_1 > s_0$)}{12}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Derive the Effect of Change in $s$ Mathematically}{13}{subsubsection.3.3.2}
+\contentsline {paragraph}{Goal}{13}{section*.13}
+\contentsline {paragraph}{Impact on $k^*$}{13}{section*.14}
+\contentsline {paragraph}{Impact on $y^*$}{13}{section*.15}
+\contentsline {paragraph}{Impact on $c^*$}{14}{section*.16}
 \contentsline {section}{\numberline {4}Lecture 4 September 27. 2018}{15}{section.4}
 \contentsline {subsection}{\numberline {4.1}Speed of Convergence}{15}{subsection.4.1}
-\contentsline {paragraph}{Methodology}{15}{section*.15}
-\contentsline {paragraph}{Recall}{15}{section*.16}
+\contentsline {paragraph}{Methodology}{15}{section*.17}
+\contentsline {paragraph}{Recall}{15}{section*.18}
 \contentsline {subsection}{\numberline {4.2}General Statements}{16}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Growth Accounting}{17}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Growth Model}{18}{subsection.4.4}
+\contentsline {section}{\numberline {5}Lecture 5}{18}{section.5}
+\contentsline {subsection}{\numberline {5.1}Economy}{18}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Households}{19}{subsection.5.2}
+\contentsline {paragraph}{Objective Function}{19}{section*.19}
+\contentsline {paragraph}{Household Budget Constraints}{19}{section*.20}

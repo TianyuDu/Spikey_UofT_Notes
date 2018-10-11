@@ -838,6 +838,67 @@
 		It's impossible for them to be equal. Thus, contradicts the uniqueness of prime decomposition. \\
 		Therefore $\sqrt[3]{4}$ cannot be rational.
 	\end{proof}
+	
+	\section{Lecture 13 Oct. 5 2018}
+	\begin{example}
+		$\sqrt{3} + \sqrt{5}$ is irrational.
+	\end{example}
+	\begin{proof}
+		Suppose $\sqrt{3} + \sqrt{5}$ are rational then $\sqrt{3} + \sqrt{5} = \frac{m}{n}$. \\
+		\begin{gather*}
+			\implies \sqrt{5} = \frac{m}{n} - \sqrt{3} \\
+			\implies 5 = (\frac{m}{n} - \sqrt{3})^2 = \frac{m^2}{n^2} - \frac{2m\sqrt{3}}{n} + 3 \\
+			\implies \sqrt{3} = \frac{5-3-\frac{m^2}{n^2}}{-\frac{2n}{n}} \\
+		\end{gather*}
+		Obviously the right hand side is rational, leads to contradiction. \\
+		Therefore $\sqrt{3} + \sqrt{5} \notin \mathbb{Q}$.
+	\end{proof}
+	
+	\begin{example}
+		Are there two irrational numbers $x,y$ such that $x^y \in \mathbb{Q}$?
+	\end{example}
+	\begin{proof}[Solution]
+		Consider $\sqrt{3}^{\sqrt{2}}$. \\
+		\textbf{case 1:} $\sqrt{3}^{\sqrt{2}} \in \mathbb{Q}$, then take $x = \sqrt{3}$ and $y = \sqrt{2}$. \\
+		\textbf{case 2:} $\sqrt{3}^{\sqrt{2}} \notin \mathbb{Q}$, then take $x = \sqrt{3}^{\sqrt{2}}$, $y = \sqrt{2}$. \\
+		And $x^y = \sqrt{3}^{\sqrt{2} \sqrt{2}} = \sqrt{3}^2 = 3 \in \mathbb{Q}$.
+	\end{proof}
+	
+	\begin{remark}
+		Basic arithmetic operations on integers preserve rationality.
+	\end{remark}
+	
+	\begin{theorem}[Rational Root Theorem]
+		Consider a polynomial with integer coefficients, 
+		\[
+			a_0 + a_1 x + x_2 x^2 + \dots + a_k x^k,\ a_i \in \mathbb{Z}
+		\]
+		If $\frac{m}{n}$ is a rational root for the polynomial and $m$ and $n$ are relatively prime. Then
+		\[
+			m | a_0 \land n | a_k
+		\]
+	\end{theorem}
+	\begin{proof}
+		Suppose $\frac{m}{n}$ is a rational root for the polynomial, \\
+		then 
+		\[
+			a_0 + a_1 \frac{m}{n} + a_2 \frac{m^2}{n^2} + \dots + a_k \frac{m^k}{n^k} = 0
+		\]
+		Thus 
+		\[
+			a_0 n^k + a_1 m n^{k-1} + a_2 m^2 n^{k-2} + \dots + a_k m^k = 0
+		\]
+		And 
+		\[
+			- a_0 n^k = a_1 m n^{k-1} + a_2 m^2 n^{k-2} + \dots + a_k m^k
+		\]
+		Therefore $m | a_0 n^k$ and since $m \centernot | n$, thus $m | a_0$. \\
+		Similarly,
+		\[
+			- a_k m^k = a_0 n^k + a_1 m n^{k-1} + a_2 m^2 n^{k-2} + \dots + a_{k-1}m^{k-1}n
+		\]
+		Which implies $n | a_k m^k$ and since $n \centernot | m$, thus $n | a_k$. \\
+	\end{proof}
 \end{document}
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 SEP 2018 12:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  11 OCT 2018 11:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -714,7 +714,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 28.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) <doclicense-CC-by-nc.pdf, id=78, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-nc.pdf, id=86, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 28.
@@ -732,131 +732,133 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 \openout4 = `eco325_lec_notes.toc'.
 
  [2] [3]
-Overfull \hbox (1.32231pt too wide) in paragraph at lines 114--115
+Overfull \hbox (1.32231pt too wide) in paragraph at lines 123--124
 [][]\OT1/cmr/bx/n/10 Assumption 2.1 \OT1/cmr/m/n/10 (As-sump-tions on Pro-duc-tion Func-tion)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 The pro-duc-tion func-
  []
 
 [4]
-Overfull \hbox (5.04187pt too wide) in paragraph at lines 141--142
+Overfull \hbox (5.04187pt too wide) in paragraph at lines 161--162
 [][]\OT1/cmr/bx/n/10 Example 2.1 \OT1/cmr/m/n/10 (Cob-b--Dou-glas Pro-duc-tion Func-tion)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Con-sider the Cobb-Douglas
  []
 
-[5]
+[5] [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 229.
+(hyperref)                removing `math shift' on input line 249.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 229.
+(hyperref)                removing `math shift' on input line 249.
 
-[6] <figures/3_1.png, id=188, 355.3275pt x 222.8325pt>
+<figures/3_1.png, id=208, 355.3275pt x 222.8325pt>
 File: figures/3_1.png Graphic file (type png)
  <use figures/3_1.png>
-Package pdftex.def Info: figures/3_1.png used on input line 261.
+Package pdftex.def Info: figures/3_1.png used on input line 281.
 (pdftex.def)             Requested size: 207.0021pt x 129.81757pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/3_2.png, id=190, 429.605pt x 301.125pt>
+<figures/3_2.png, id=210, 429.605pt x 301.125pt>
 File: figures/3_2.png Graphic file (type png)
  <use figures/3_2.png>
-Package pdftex.def Info: figures/3_2.png used on input line 267.
+Package pdftex.def Info: figures/3_2.png used on input line 287.
 (pdftex.def)             Requested size: 207.0021pt x 145.09431pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7] [8 <./figures/3_1.png> <./figures/3_2.png>] [9]
-Overfull \hbox (31.66254pt too wide) in paragraph at lines 368--369
+Overfull \hbox (31.66254pt too wide) in paragraph at lines 391--392
 [][]\OT1/cmr/bx/n/10 Proposition 3.2. []\OT1/cmr/m/n/10 Along the bal-anced growth path, ag-gre-gate vari-ables, $\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 399--400
 
- []
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 438.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 412.
+(hyperref)                removing `subscript' on input line 438.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 412.
+(hyperref)                removing `subscript' on input line 438.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 412.
+(hyperref)                removing `math shift' on input line 438.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 412.
-
-<figures/3_3.png, id=256, 420.57124pt x 316.18124pt>
+<figures/3_3.png, id=272, 420.57124pt x 316.18124pt>
 File: figures/3_3.png Graphic file (type png)
  <use figures/3_3.png>
-Package pdftex.def Info: figures/3_3.png used on input line 416.
+Package pdftex.def Info: figures/3_3.png used on input line 442.
 (pdftex.def)             Requested size: 172.5pt x 129.68338pt.
- <figures/3_4.png, id=257, 451.6875pt x 724.7075pt>
+ <figures/3_4.png, id=273, 451.6875pt x 724.7075pt>
 File: figures/3_4.png Graphic file (type png)
  <use figures/3_4.png>
-Package pdftex.def Info: figures/3_4.png used on input line 417.
+Package pdftex.def Info: figures/3_4.png used on input line 443.
 (pdftex.def)             Requested size: 172.5pt x 276.77397pt.
+ [11]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 451.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 425.
+(hyperref)                removing `math shift' on input line 451.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 425.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+[12 <./figures/3_3.png> <./figures/3_4.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
-[11] [12 <./figures/3_3.png> <./figures/3_4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 433--435
+
+Underfull \hbox (badness 10000) in paragraph at lines 459--461
 
  []
 
 [13] [14] [15] [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 642--645
+Underfull \hbox (badness 10000) in paragraph at lines 667--670
 
  []
 
-<figures/4_1.png, id=320, 361.35pt x 223.83624pt>
+<figures/4_1.png, id=338, 361.35pt x 223.83624pt>
 File: figures/4_1.png Graphic file (type png)
  <use figures/4_1.png>
-Package pdftex.def Info: figures/4_1.png used on input line 655.
+Package pdftex.def Info: figures/4_1.png used on input line 680.
 (pdftex.def)             Requested size: 241.49895pt x 149.59721pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 659.
- [18 <./figures/4_1.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 659.
+ [18 <./figures/4_1.png (PNG copy)>] [19]
+Overfull \hbox (65.67079pt too wide) in paragraph at lines 754--754
+[] 
+ []
+
+[20]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 793.
+ [21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 793.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 659.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 659.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 793.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 793.
 Package rerunfilecheck Info: File `eco325_lec_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 659.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 793.
  ) 
 Here is how much of TeX's memory you used:
- 9025 strings out of 493014
- 127889 string characters out of 6133351
- 245769 words of memory out of 5000000
- 12250 multiletter control sequences out of 15000+600000
+ 9053 strings out of 493014
+ 128197 string characters out of 6133351
+ 246769 words of memory out of 5000000
+ 12252 multiletter control sequences out of 15000+600000
  13248 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,15n,46p,921b,553s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,15n,46p,921b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (18 pages, 424972 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (21 pages, 444130 bytes).
 PDF statistics:
- 442 PDF objects out of 1000 (max. 8388607)
- 381 compressed objects within 4 object streams
- 142 named destinations out of 1000 (max. 500000)
- 175 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 493 PDF objects out of 1000 (max. 8388607)
+ 428 compressed objects within 5 object streams
+ 168 named destinations out of 1000 (max. 500000)
+ 191 words of extra memory for PDF output out of 10000 (max. 10000000)
 
