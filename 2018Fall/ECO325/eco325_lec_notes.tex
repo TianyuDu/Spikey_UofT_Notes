@@ -681,44 +681,56 @@
 	    	\end{figure*}
 	    \end{proof}
 	
-	\section{Lecture 5}
-	\subsection{Economy}
+	\section{Lecture 5 October 11. 2018}
+	\subsection{Economy Setup}
 	\begin{itemize}
 		\item Infinite horizon continuous time model.
 		\item Exogenous growth rates of technology and population.
-		\begin{gather*}
-			A(t) = A(0) e^{gt} \\
+		\begin{equation}\textcolor{orange}{
+			A(t) = A(0) e^{gt}}
+		\end{equation}
+		
+		\begin{equation}\textcolor{orange}{
 			L(t) = L(0) e^{nt}
-		\end{gather*}
-		\item A key difference from the solow model is that the saving decision and the capital stock are determined by the interaction of maximizing households and firms.
+			}
+		\end{equation}
+		\item (\ul{Endogenous saving decisions}) A key difference from the Solow model is that the saving decision and the capital stock are determined by the interaction of maximizing households and firms.
 	\end{itemize}
 	
 	\subsection{Households}
-	\begin{assumption}(Household Setup)
+	\subsubsection{Assumptions and Behaviours}
+	\begin{assumption}(Setup)
 		\begin{itemize}
 			\item There are a large numbers of \ul{identical} households in the economy ($H$). \emph{To ensure that \ul{no household has marker power}.}
 			\item And the size of each household are assumed to grow at rate $n$.
-			\item Each household has $\frac{L(t)}{H}$ people in it at time $t$.
-			\item Each household has initial capital holding of $\frac{K(0)}{H}$.
+			\item Each household has $\frac{L(t)}{H}$ members in it at time $t$.
+			\item Each household has \emph{initial} capital holding of $\frac{K(0)}{H}$.
 			\item Each member of the household supplies 1 unit of labor at each point in time \ul{inelastically}. (\emph{No uncertainty})
-			\item (For simplicity)There's no depreciation. ($\delta = 0$)
+			\item For simplicity, there's no depreciation of capital stock. ($\delta = 0$)
 			\item Capital is rented to firms at rate $r(t)$.
-			\item Labor is hired at rate $W(t) = w(t)A(t)$. Where $W(t)$ is the wage per unit of labor and $w(t)$ is the wage per unit of effective labor.
+			\item Labor is hired at wage rate $W(t) = w(t)A(t)$. Where $W(t)$ is the wage per unit of labor and $w(t)$ is the wage per unit of effective labor.
 		\end{itemize}
 	\end{assumption}
 	
-	\paragraph{Objective Function} Household's \textbf{lifetime utility function} is given by
+	\subsubsection{Objective Functions}
+	\par Household's \emph{objective function} is given by the \textbf{lifetime utility function}
 	\begin{equation}
 		\textcolor{orange}{
-			U = \int_{t=0}^\infty {e^{-\rho t} u(C(t)) \frac{L(t)}{H}}\ dt
+			U = \int_{t=0}^\infty {e^{-\rho t} u(C(t)) \frac{L(t)}{H}}\ dt,\ \rho > 0
 		}
 	\end{equation}
-	where $\rho$ is the \textbf{discount rate} and $C(t)$ is the \textbf{consumption per person}.
+	where $\rho$ is the \textbf{discount rate} and $C(t)$ is the \textbf{consumption \emph{per person}}.
 	\begin{remark}
-		When $\rho = 0$, household values utility in the future equally. The greater $\rho$ is, the less value household puts on future consumption/utility.
+		$\rho$ measures consumers' attitude between present and future utility.
+		When $\rho = 0$, household values utility in the future equally. 
+		When $\rho > 0$, household values future utility less than present utility.
+		The greater $\rho$ is, the less value household puts on future consumption/utility (\emph{consumers are less patient}).
+		Notice that $\rho$ cannot be negative in this model, since with $\rho < 0$ household values utility at $t=\infty$ infinitely more than current utility, the lifetime utility does not converge.
+		\footnote{Intuitively, if $\rho < 0$, households could save everything and spend their saving when $t > \infty$. This scenario is certainly unrealistic.}
 	\end{remark}
 	
-	\paragraph{Household Budget Constraints} Household's budget is given in terms of \ul{present discounted value}. \\
+	\subsubsection{Household Budget Constraints}
+	\par Household's budget is given in terms of \ul{present discounted value}. \\
 	Since the household has $\frac{L(t)}{H}$ members, labor income at time $t$ is 
 	\[
 		A(t)w(t)\frac{L(t)}{H} = W(t)\frac{L(t)}{H}
@@ -736,7 +748,7 @@
 		We know under \ul{continuously compounding interest}, one unit of output invested at time 0 is worth $e^{R(t)}$ units at time $t$. Conversely, 1 unit of output at time $t$ is worth $e^{-R(t)}$ at time 0.
 	\end{remark}
 	\begin{remark}
-		The budget constraint implies that the \ul{present discounted value of lifetime consumption} cannot exceed the \ul{present discounted value of labor income} plus \ul{initial wealth}.
+		The budget constraint implies that the \ul{present discounted value of lifetime consumption} must not exceed the \ul{present discounted value of labor income} plus \ul{initial wealth}.
 	\end{remark}
 	\par And the household lifetime budget constraint is given by
 	\begin{equation}
@@ -744,7 +756,8 @@
 			\int_{t=0}^\infty e^{-R(t)} C(t) \frac{L(t)}{H}\ dt \leq \frac{K(0)}{H} + \int_{t=0}^\infty e^{-R(t)} w(t) \frac{A(t)L(t)}{H}\ dt
 		}
 	\end{equation}
-	\par Normalize budget constraint (3) into per unit of effective labor variables to get an equivalent form.
+	\\
+	Then normalize budget constraint (5) into per unit of effective labor variables to get an equivalent form.
 	\begin{gather*}
 		\int_{t=0}^\infty e^{-R(t)} C(t) \frac{L(t)}{H}\ dt  \leq \frac{K(0)}{H} + \int_{t=0}^\infty e^{-R(t)} w(t) \frac{A(t)L(t)}{H}\ dt \\
 		\iff 
@@ -752,7 +765,8 @@
 		\iff \int_{t=0}^\infty e^{-R(t)} c(t) e^{(n+g)t} \frac{A(0)L(0)}{H}\ dt \leq \frac{k(0)A(0)L(0)}{H} + \int_{t=0}^\infty e^{-R(t)} w(t) e^{(n+g)t}\frac{A(0)L(0)}{H}\ dt \\
 		\iff \int_{t=0}^\infty e^{-R(t)} e^{(n+g)t} c(t)\ dt \leq k(0) + \int_{t=0}^\infty e^{-R(t)} e^{(n+g)t} w(t)\ dt
 	\end{gather*}
-	\par About \textbf{assets} on date $t=s$, notice
+	\\
+	The \textbf{assets} owned by household on date $t=s$ is given by
 	\begin{gather*}
 		\frac{K(s)}{H} = \frac{K(0)}{H}e^{R(s)} + \int_{t=0}^s e^{-R(t)+R(s)} \Big\{\frac{w(t)A(t)L(t)}{H} - \frac{c(t)A(t)L(t)}{H} \Big\}\ dt \\
 		= \frac{K(0)}{H} e^{R(s)} +  \int_{t=0}^s e^{-R(t)+R(s)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H} dt \\
@@ -760,36 +774,51 @@
 	\end{gather*}
 	Back to the budget constraint,
 	\begin{gather*}
-		\frac{K(0)}{H} + \int_{t=0}^\infty \frac{w(t)A(t)L(t)}{H}\ dt - \int_{t=0}^\infty \frac{c(t)A(t)L(t)}{H}\ \geq 0 \\
-		\iff \frac{K(0)}{H} + \int_{t=0}^\infty e^{-R(t)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H} \geq 0 \\
-		\iff \lim_{s \to \infty}\Big\{ \frac{K(0)}{H} + \int_{t=0}^s e^{-R(t)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H} \geq 0 \Big \} \\
-		\implies \lim_{s\to \infty}e^{-R(s)}\frac{K(s)}{H} \geq 0
+		\frac{K(0)}{H} + \int_{t=0}^\infty \frac{w(t)A(t)L(t)}{H}\ dt - \int_{t=0}^\infty \frac{c(t)A(t)L(t)}{H}\ dt \geq 0 \\
+		\iff \frac{K(0)}{H} + \int_{t=0}^\infty e^{-R(t)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H}\ dt \geq 0 \\
+		\iff \lim_{s \to \infty}\Big\{ \frac{K(0)}{H} + \int_{t=0}^s e^{-R(t)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H}\ dt \geq 0 \Big \}
 	\end{gather*}
-	These implies that the household's asset holding cannot be negative in the limit. And this is a \textbf{no-Ponzi game} condition.
+	\begin{equation}
+		\textcolor{blue}{
+			\implies \lim_{s\to \infty}e^{-R(s)}\frac{K(s)}{H} \geq 0
+		}
+	\end{equation}
+	These implies that the household's asset holding cannot be negative at the limit. And this is a \textbf{no-Ponzi game} condition.
 	
 	\begin{definition}
-		A \textbf{Ponzi-game} is a scheme in which someone issues debt and rolls it over forever. In other words, the person always pays off debt by issuing more debt.
+		A \textbf{Ponzi game} is a scheme in which someone issues debt and rolls it over forever. In other words, the person always pays off debt by issuing more debt.
 	\end{definition}
 	
 	\begin{remark}
 		If households could run a Ponzi scheme, then the present value of lifetime consumption can exceed the present value of lifetime resources.
 	\end{remark}
-	\begin{assumption}
-	The household \emph{instantaneous utility function} is assumed to be in the form of constant relative risk aversion (CRRA) as 
-	\begin{equation}
-		u(C(t)) = \frac{C(t)^{1 - \theta}}{1 - \theta}
-	\end{equation}
-	\end{assumption}
 	
+	\subsection{Instantaneous Utility Function}
+	
+	\begin{assumption}
+		The household \textbf{instantaneous utility function} is assumed to be in the form of constant relative risk aversion (CRRA) as 
+		\begin{equation}
+		\textcolor{orange}{
+			u(C(t)) = \frac{C(t)^{1 - \theta}}{1 - \theta}
+			}
+		\end{equation}
+	\end{assumption}
+	And lifetime utility function becomes
 	\begin{gather*}
-		U = \int_{t=0}^\infty e^{-\rho t} \frac{c(t)^{1-\theta}}{1-\theta} A(0)^{1-\theta} e^{(1-\theta)gt} e^{nt} \frac{L(0)}{H}\ dt\\
+		U = \int_{t=0}^\infty e^{-\rho t} \frac{(A(t)c(t))^{1-\theta}}{1-\theta} e^{nt} \frac{L(0)}{H}\ dt\\
+		\int_{t=0}^\infty e^{-\rho t} \frac{c(t)^{1-\theta}}{1-\theta} A(0)^{1-\theta} e^{(1-\theta)gt} e^{nt} \frac{L(0)}{H}\ dt\\
 		= A(0)^{1 - \theta} \frac{L(0)}{H} \int_{t=0}^\infty {e^{-\rho t + nt + (1-\theta)gt} \frac{c(t)^{1-\theta}}{1-\theta}\ dt} \\
-		= A(0)^{1 - \theta} \frac{L(0)}{H} \int_{t=0}^\infty {e^{-(\rho - n - (1-\theta)g)t} \frac{c(t)^{1-\theta}}{1-\theta}\ dt} \\
-		= B \int_{t=0}^\infty e^{-\beta t}\frac{c(t)^{1-\theta}}{1- \theta}\ dt
+		= A(0)^{1 - \theta} \frac{L(0)}{H} \int_{t=0}^\infty {e^{-(\rho - n - (1-\theta)g)t} \frac{c(t)^{1-\theta}}{1-\theta}\ dt}
 	\end{gather*}
-	\[
+	\begin{equation}
+	\textcolor{orange}{
+		B \int_{t=0}^\infty e^{-\beta t}\frac{c(t)^{1-\theta}}{1- \theta}\ dt
+	}
+	\end{equation}
+	where
+	\begin{equation}
 		B := A(0)^{1-\theta} \frac{L(0)}{H}\tx{ and } \beta := \rho - n - (1-\theta)g
-	\]
+	\end{equation}
 	\begin{assumption}
 		Assuming $\theta > 0$ and $\beta = \rho - n - (1-\theta)g > 0$.
 	\end{assumption}

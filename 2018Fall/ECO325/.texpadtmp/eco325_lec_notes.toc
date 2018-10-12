@@ -32,8 +32,10 @@
 \contentsline {paragraph}{Recall}{15}{section*.18}
 \contentsline {subsection}{\numberline {4.2}General Statements}{16}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Growth Accounting}{17}{subsection.4.3}
-\contentsline {section}{\numberline {5}Lecture 5}{18}{section.5}
-\contentsline {subsection}{\numberline {5.1}Economy}{18}{subsection.5.1}
+\contentsline {section}{\numberline {5}Lecture 5 October 11. 2018}{18}{section.5}
+\contentsline {subsection}{\numberline {5.1}Economy Setup}{18}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Households}{19}{subsection.5.2}
-\contentsline {paragraph}{Objective Function}{19}{section*.19}
-\contentsline {paragraph}{Household Budget Constraints}{19}{section*.20}
+\contentsline {subsubsection}{\numberline {5.2.1}Assumptions and Behaviours}{19}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Objective Functions}{19}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Household Budget Constraints}{20}{subsubsection.5.2.3}
+\contentsline {subsection}{\numberline {5.3}Instantaneous Utility Function}{21}{subsection.5.3}
