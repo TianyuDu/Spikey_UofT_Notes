@@ -899,6 +899,108 @@
 		\]
 		Which implies $n | a_k m^k$ and since $n \centernot | m$, thus $n | a_k$. \\
 	\end{proof}
+	
+	\section{Lecture 14 Oct. 10 2018 Euclidean Algorithm}
+		\begin{definition}
+			The \textbf{greatest common divisor}(gcd) of $m, n \in \mathbb{N}$ is denoted as $gcd(m,n)$ or $(m;n)$ is the largest natural number that divides both $m$ and $n$.
+		\end{definition}
+		\begin{example}
+			\begin{gather*}
+				gcd(27, 15) = 3 \\
+				gcd(36, 48) = 12 \\
+				gcd(7, 21) = 7
+			\end{gather*}
+		\end{example}
+		\subsection{Conventional Method}
+		\par Factorize $m$ and $n$ into primes and in general,
+		\begin{gather*}
+			m = p_1^{\alpha_1} \dots p_k^{\alpha_k} \\
+			n = p_1^{\beta_1} \dots p_k^{\beta_k}
+		\end{gather*}
+		where $\{p_1, \dots p_k \} = $ \{prime factors of $m$\} $\cup$ \{ prime factors of $n$ \}. And $\alpha_i, \beta_i \geq 0$.
+		and gcd could be found by
+		\[
+			gcd(m,n) = p_1^{\min\{\alpha_1, \beta_1\}} \dots p_k^{\min\{\alpha_k, \beta_k\}}
+		\]
+		
+		\subsection{Euclidean Algorithm}
+		\par Notice that $r | a, b \implies r | gcd(a, b)$. \\
+		For $a, b \in \mathbb{N}$, WLOG, assuming $a \geq b$.
+		\begin{gather*}
+			a = q_0 b + r_0\quad r_0, q_0 \in \mathbb{N},\ 0 \leq r_0 < b \\
+			b = q_1 r_0 + r_1\quad r_1, q_1 \in \mathbb{N},\ 0 \leq r_1 < r_0 \\
+			r_0 = q_2 r_1 + r_2 \\
+			r_i \tx{ is strictly decreasing, and it's guaranteed to be 0 after certain iterations.} \\
+			\dots \\
+			r_{k-2} = q_{k} r_{k-1} + r_k \\ 
+			r_{k-1} = q_{k+1} r_k + 0
+		\end{gather*}
+		and then $r_k$ is the greatest common divisor of $a$ and $b$.
+		\begin{proof}
+			WTS: $r_k = gcd(a, b)$ \\
+			Obviously $r_k | r_{k-1}$ \\
+			Then, $r_k | r_{k-1} \land r_k | r_k \implies r_k | r_{k-2}$ \\
+			Similarly, tracing upwards through the Euclidean Algorithm, \\
+			we have $r_k | b$ and $r_k | a$. \\
+			so $r_k \leq gcd(a, b)$ since $r_k$ is a common divisor of $a$ and $b$. \\
+			Since $gcd | a \land gcd | b$, \\
+			Therefore $gcd | r_0$, \\
+			similarly, tracing downloads in the Euclidean Algorithm, \\
+			$gcd | r_k$, so $gcd \leq r_k$. \\
+			Therefore $r_k = gcd(a, b)$
+		\end{proof}
+	
+	\begin{theorem}
+		Given natural numbers $a$ and $b$ with the greatest common divisor $d$, there exists integers $x$ and $y$ such that 
+		\[
+			d = ax + by
+		\]
+	\end{theorem}
+	\begin{proof}
+		This can be seen by working upwards in the sequence of equations that constitute the Euclidean Algorithm. 
+	\end{proof}
+		
+	\section{Lecture 15 Oct. 12 2018 Public Key Cryptography, RSA Public Key}
+		\begin{lemma}
+			Let $N = pq$ where $p \neq q$ are distinct primes, \\
+			and let $n$ and $M$ be integers. \\
+			Then 
+			\[
+				n \equiv 1 \mod \phi(N) \implies M^n \equiv M \mod N
+			\]
+		\end{lemma}
+		\begin{proof}
+			Note that $\phi(N) = \phi(pq) = (p-1)(q-1)$. \\
+			And suppose $\phi(N) | (n-1)$, \\
+			Then $k \phi(N) = n - 1$ for some $k$. \\
+			That's $n = 1 + k \phi(N)$. \\
+			Therefore $M^n = M^{1 + k \phi(N)} = (M^{\phi(N)})^k \cdot M $ \\
+			It's sufficient to show $M^n \equiv M \mod N$\\
+			by showing $M^n \equiv M \mod p$ and $M^n \equiv M \mod q$ \\
+			To show $M^n \equiv M \mod p$, \\
+			Case 1: $p | M$, then $0^n \equiv 0 \mod p$, done. \\
+			Case 2: $p \centernot | M$, then $M^n = (M^{\phi(N)})^k \cdot M = (M^{(p-1)})^{(q-1)k} \cdot M$ \\
+			By Fermat's Little Theorem, $M^{p-1} \equiv 1 \mod p$. \\
+			Therefore $M^n \equiv 1^{(q-1)k} \times M \mod p$.
+		\end{proof}
+		
+		\subsection{RSA Public Key Procedures}
+		\par Procedures:
+		\begin{enumerate}
+			\item \textbf{Receiver:} pick two large distinct primes $p \neq q$ and calculate $N = p\times q$.
+			\item \textbf{Receiver:} calculate $\phi(N) = (p-1)(q-1)$ and pick $e$ relatively prime to $\phi(N)$. 
+			\item \textbf{Receiver:} announce $N$ and $e$.
+			\item \textbf{Sender:} choose message $M \in \mathbb{N}$ satisfies $M < N$ (if $M \geq N$, break $M$ into pieces.)
+			\item \textbf{Sender:} find $M^e \equiv R \mod N$. 
+			\item \textbf{Sender:} announce the encoded message $R$. 
+			\item \textbf{Receiver:} pick $d \geq 0$ s.t. $de + k\phi(N) = 1$ as the decoder. Such z-linear combination is guaranteed to exist.
+			\item \textbf{Receiver:} the original message $M$ can be found by $R^d \equiv M \mod N$
+			\begin{proof}
+				$R^d \equiv (M^e)^d \equiv M^{ed} \mod N$ \\
+				Since $ed \equiv 1 \mod \phi(N)$ \\
+				By lemma 15.1, $M^{ed} \equiv M \mod N$.
+			\end{proof}
+		\end{enumerate}
 \end{document}
 
 

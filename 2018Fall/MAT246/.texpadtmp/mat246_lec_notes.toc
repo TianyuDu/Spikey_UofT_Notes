@@ -13,3 +13,8 @@
 \contentsline {subsection}{\numberline {11.1}Rational and Irrational Numbers}{16}{subsection.11.1}
 \contentsline {section}{\numberline {12}Lecture 12 Oct. 3 2018}{18}{section.12}
 \contentsline {section}{\numberline {13}Lecture 13 Oct. 5 2018}{20}{section.13}
+\contentsline {section}{\numberline {14}Lecture 14 Oct. 10 2018 Euclidean Algorithm}{21}{section.14}
+\contentsline {subsection}{\numberline {14.1}Conventional Method}{21}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Euclidean Algorithm}{22}{subsection.14.2}
+\contentsline {section}{\numberline {15}Lecture 15 Oct. 12 2018 Public Key Cryptography, RSA Public Key}{22}{section.15}
+\contentsline {subsection}{\numberline {15.1}RSA Public Key Procedures}{23}{subsection.15.1}
