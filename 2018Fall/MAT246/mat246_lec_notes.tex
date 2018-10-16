@@ -1001,6 +1001,59 @@
 				By lemma 15.1, $M^{ed} \equiv M \mod N$.
 			\end{proof}
 		\end{enumerate}
+	\section{Lecture 16 Oct. 15 2018 RSA Cryptography Examples}
+	    \subsection{Recall}
+	    \begin{enumerate}
+	        \item \textbf{Receiver: } choose $p, q \in \mathbb{P}$ and computes $N = pq, \phi(N)=(p-1)(q-1)$ and choose $e\ s.t.\ gcd(e, \phi(N)) = 1$. Then announces $e, N$.
+	        \item \textbf{Sender: } choose $0 \leq M < N$ and calculate $R$ such that $R = M^{e} \mod N$.
+	        \item \textbf{Receiver: } compute decoder $d$ s.t. $de + k \phi(N) = 1$. And decode message $M^* = R^d \mod N$
+	    \end{enumerate}
+	    
+	    \subsection{More Examples}
+	    \begin{example}
+	        \textbf{Receiver: } pick $p = 11, q = 7$. Calculate $N = 77$ and $\phi(N) = 10 * 6 = 60$. Pick $e=13$ which is relatively prime to $\phi(N)$.\\
+	       \textbf{Receiver: } announces $N=77$ and $e=13$ to sender. \\
+	       \textbf{Sender: } pick message $M=71<N$ and \emph{encodes} message by computing $71^{13} \equiv R \mod 77$. 
+	       \begin{gather*}
+	           71 \equiv -6 \mod 77 \\
+	           71^3 \equiv (-6)^3 \equiv 216 \equiv 15 \mod 77 \\
+	           (71)^6 \equiv (71^3)^2 \equiv 15^2 \equiv 225 \equiv -6 \mod 77 \\
+	           (71)^{12} \equiv (71^6)^2 \equiv (-6)^2 \equiv 36 \mod 77 \\
+	           (71)^{13} \equiv 36 \times (-6) \equiv -216 \equiv 15 \mod 77
+	       \end{gather*}
+	       And calculate $R=15$ satisfies $71^{13} \equiv 15 \mod 77$. \\
+	       \textbf{Sender: } announces $R = 15$ to the rest of world. \\
+	       \textbf{Receiver: } find $d \geq 0$ satisfying $d \times e + k \times \phi(N) = 1$. as the \emph{decoder}. And find that $d=37, k=-8$. \\
+	       \textbf{Receiver: } compute $R^d \mod 77$ 
+	       \begin{gather*}
+	           15^2 \equiv 225 \equiv -6 \mod 77 \\
+	           15^6 \equiv -216 \equiv 15 \mod 77 \\
+	           15^{12} \equiv 15^2 \equiv -6 \mod 77 \\
+	           15^{24} \equiv 36 \mod 77 \\
+	           15^{36} \equiv -216 \equiv 15 \mod 77 \\
+	           15^{37} \equiv 15^2 \equiv 226 \equiv -6 \equiv 71 \mod 77 \\
+	           \implies M^* = 15^{37} \mod 77 = 71
+	       \end{gather*}
+	    \end{example}
+	    
+	    \paragraph{Security of RSA} For anyone knowing $N$ but does not know $\phi(N)$. To compute the decoder $d$, $\phi(N)$ needs to be calculated.
+	    \begin{enumerate}
+	        \item \textbf{Method 1:} Use definition and iterating through $\{1, 2, \dots N\}$ and compute $\phi(N)$.
+	        \item \textbf{Method 2:} Factorize $N$ and find $p$ and $q$, then calculate $\phi(N) = (p-1)(q-1)$.
+	    \end{enumerate}
+	    Both brute force methods are impractical in terms of run-time.
+	    
+	    \begin{example} \textbf{Receiver: } pick $p=11, q=7$ then $N = pq = 77$ and $\phi(N) = (p-1)(q-1) = 60$ and choose $e=13$. \\
+	    \textbf{Receiver: } announce $N=77$ and $e=13$. \\
+	    \textbf{Sender: } pick $M = 76 < 77$ and $M^{13} \equiv (-1)^13 \equiv -1 \equiv 76 \mod 77$. Announce $R=76$. \\
+	    \textbf{Receiver: } find \emph{decoder} $d \geq 0$ s.t. $d \times 13 + k \times 60 = 1$. Found $d = 13$. \\
+	    \textbf{Receiver: } Compute $R^d \mod 77$. \\
+	    \begin{gather*}
+	        R = 76 \equiv -1 \mod 77 \\
+	        R^{13} \equiv (-1)^{13} \equiv -1 \equiv 76 \mod 77 \\
+	        \implies M^* = R^{13} \mod 77 = 76 
+	    \end{gather*}
+	    \end{example}
 \end{document}
 
 
