@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  16 OCT 2018 22:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  17 OCT 2018 14:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -835,7 +835,7 @@ File: utxmia.fd 2000/12/15 v3.1
 LaTeX Font Info:    Try loading font information for U+txsyc on input line 24.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-) <doclicense-CC-by-nc.pdf, id=94, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-nc.pdf, id=106, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 24.
@@ -898,28 +898,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 1046--1051
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1057.
-[25]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1057.
+[25] [26]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1183.
+ [27]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1183.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT246/.texpadtmp/mat246_lec_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1057.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1057.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1183.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1183.
 Package rerunfilecheck Info: File `mat246_lec_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 9522 strings out of 493014
- 134147 string characters out of 6133351
+ 9539 strings out of 493014
+ 134365 string characters out of 6133351
  245528 words of memory out of 5000000
- 12691 multiletter control sequences out of 15000+600000
+ 12694 multiletter control sequences out of 15000+600000
  46612 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,12n,46p,805b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT246/.texpadtmp/mat246_lec_notes.pdf (25 pages, 127359 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT246/.texpadtmp/mat246_lec_notes.pdf (27 pages, 133605 bytes).
 PDF statistics:
- 415 PDF objects out of 1000 (max. 8388607)
- 373 compressed objects within 4 object streams
- 152 named destinations out of 1000 (max. 500000)
- 182 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 450 PDF objects out of 1000 (max. 8388607)
+ 405 compressed objects within 5 object streams
+ 166 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

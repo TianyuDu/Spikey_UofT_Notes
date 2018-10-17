@@ -22,3 +22,6 @@
 \contentsline {subsection}{\numberline {16.1}Recall}{24}{subsection.16.1}
 \contentsline {subsection}{\numberline {16.2}More Examples}{24}{subsection.16.2}
 \contentsline {paragraph}{Security of RSA}{25}{section*.2}
+\contentsline {section}{\numberline {17}Lecture 17 Oct. 17 2018}{25}{section.17}
+\contentsline {subsection}{\numberline {17.1}Chinese Reminder Theorem}{25}{subsection.17.1}
+\contentsline {subsection}{\numberline {17.2}Complex Numbers}{27}{subsection.17.2}

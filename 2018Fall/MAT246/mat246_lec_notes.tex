@@ -1054,6 +1054,132 @@
 	        \implies M^* = R^{13} \mod 77 = 76 
 	    \end{gather*}
 	    \end{example}
+	\section{Lecture 17 Oct. 17 2018}
+		\begin{remark}
+			In RSA, picking the \emph{decoder} $d \geq 0$ s.t. $de + \phi(N)k = 1$ is equivalent to pick $d$ such that
+			\[
+				de \equiv 1 \mod \phi(N)
+			\]
+		\end{remark}
+		
+		\subsection{Chinese Reminder Theorem}
+		\begin{theorem}[Chinese Reminder Theorem (CRT)]
+			Solve system of congruent equations, where $m_1$ and $m_2$ are relatively prime, 
+			\[
+				\begin{cases}
+					x \equiv a \mod m_1 \\
+					x \equiv b \mod m_2
+				\end{cases}
+			\]
+			The solution is given by 
+			\[
+				x = a x_2 m_2 + b x_1 m_1
+			\]
+			where $x_1$ and $x_2$ satisfy
+			\[
+				\begin{cases}
+					x_1 m_1 \equiv 1 \mod m_2 \\
+					x_2 m_2 \equiv 1 \mod m_1 
+				\end{cases}
+			\]
+		\end{theorem}
+		The general solution $x$ is the superposition of two specific solutions.
+		
+		\begin{proof}
+			If $m_1$ and $m_2$ are relatively prime, by Theorem 14.1,
+			\[
+				\exists x_1, x_2 \in \mathbb{Z}\ s.t. \ x_1 m_1 + x_2 m_2 = 1
+			\]
+			Taking congruence with respect to mod $m_1$ and $m_2$ gives
+			\[
+				\begin{cases}
+					1 \equiv x_2 m_2 \mod m_1 \\
+					1 \equiv x_1 m_1 \mod m_2
+				\end{cases}
+			\]
+			Consider 
+			\[
+				x = a x_2 m_2 + b x_1 m_1
+			\]
+			Clearly 
+			\begin{gather*}
+				x - a = a(x_2 m_2 - 1) + b x_1 m_1 \\
+				m_1 | (x_2 m_2 - 1) \land m_1 | b x_1 m_1 \implies m_1 | x - a \\
+				\implies x \equiv a \mod m_1
+			\end{gather*}
+			Similarly, we can show $x \equiv b \mod m_2$. \\
+			Thus $x$ is the solution to system of equations 
+			\[
+				\begin{cases}
+					x \equiv a \mod m_1 \\
+					x \equiv b \mod m_2
+				\end{cases}
+			\]
+		\end{proof}
+		
+		\begin{example}
+			Solve
+			\[
+				\begin{cases}
+					x \equiv 5 \mod 7 \\
+					x \equiv 13 \mod 8
+				\end{cases}
+			\]
+		\end{example}
+		\begin{proof}[Solution.]
+			Solve 
+			\[
+				\begin{cases}
+					x_1 \times 7 \equiv 1 \mod 8 \\
+					x_2 \times 8 \equiv 1 \mod 7
+				\end{cases}
+			\]
+			Solve $x_1 = 7$ and $x_2 = 1$. And one solution is given by 
+			\[
+				x = a x_2 m_2 + b x_1 m_1 = 5 \times 8 \times 1 + 13 \times 7 \times 7 = 677
+			\]
+		\end{proof}
+	\subsection{Complex Numbers}
+	\begin{definition}[9.1.3]
+		A \textbf{complex number} is an expression of the form $a+bi$ where $a$ and $b$ are real numbers. The real number $a$ is called the \emph{real part} of $a+bi$, denoted as $\Re(a+bi)$. And the real number $b$ is called the \emph{imaginary part} of $a+bi$, denoted as $\Im(a+bi)$.
+	\end{definition}
+	
+	\begin{definition}
+		\[
+			i^2 = -1
+		\]
+	\end{definition}
+	\begin{remark}
+		Shorthands for complex numbers
+		\begin{itemize}
+			\item $a+i0=a$
+			\item $0+ib=ib$
+			\item $0+i0=0$
+		\end{itemize}
+	\end{remark}
+	\begin{remark}
+		\[
+			\mathbb{C} \subset \mathbb{R}
+		\]
+	\end{remark}
+	\begin{definition}
+		Arithmetic on complex numbers are defined as following,
+		\begin{itemize}
+			\item \textbf{Addition}($+: \mathbb{C}^2 \to \mathbb{C}$) is defined as \[(a+ib)+(c+id):=(a+c)+i(b+d)\]
+			\item \textbf{Multiplication}($\times: \mathbb{C}^2 \to \mathbb{C}$) is defined as \[(a+ib)\times(c+id):=(ac-bd) + i(ad + bc)\]
+		\end{itemize}
+	\end{definition}
+	\begin{proposition}
+		Let $z = a+ib \in \mathbb{C}$ be a complex number, the \textbf{multiplication inverse} of $z$ is given by 
+		\[
+			\frac{1}{a + ib} = \frac{a - ib}{a^2 + b^2}
+		\]
+	\end{proposition}
+	\begin{proof}
+		\begin{gather*}
+			\frac{1}{a+ib} = \frac{1}{a+ib} \times \frac{a-ib}{a-ib} = \frac{a-ib}{(a^2 + b^2) + i(ab - ab)} = \frac{a-ib}{a^2 + b^2}
+		\end{gather*}
+	\end{proof}
 \end{document}
 
 
