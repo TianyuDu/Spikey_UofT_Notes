@@ -18,3 +18,7 @@
 \contentsline {subsection}{\numberline {14.2}Euclidean Algorithm}{22}{subsection.14.2}
 \contentsline {section}{\numberline {15}Lecture 15 Oct. 12 2018 Public Key Cryptography, RSA Public Key}{22}{section.15}
 \contentsline {subsection}{\numberline {15.1}RSA Public Key Procedures}{23}{subsection.15.1}
+\contentsline {section}{\numberline {16}Lecture 16 Oct. 15 2018 RSA Cryptography Examples}{24}{section.16}
+\contentsline {subsection}{\numberline {16.1}Recall}{24}{subsection.16.1}
+\contentsline {subsection}{\numberline {16.2}More Examples}{24}{subsection.16.2}
+\contentsline {paragraph}{Security of RSA}{25}{section*.2}
