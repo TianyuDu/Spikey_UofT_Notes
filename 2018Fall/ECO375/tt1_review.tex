@@ -15,4 +15,151 @@
 
 \begin{document}
 	\maketitle
+	\tableofcontents
+	\section{Slide 4: Simple \& Multiple Regression - Estimation}
+	\subsection{Regression Model}
+	\begin{assumption}
+	    Assuming the population follows
+	    \[
+	        y = \beta_0 + \beta_1 x + u
+	    \]
+	    and assume that \emph{$x$ causes y}.
+	\end{assumption}
+	
+	\subsection{OLS}
+	\begin{gather*}
+	    \min_{\vec{\beta}} \sum_{i} (y_i - \hat{y}_i)^2 \\
+	    \tx{With FOC:} \\
+	    \sum_{i}(y_i - \hat{y}_i) = 0 \\
+	    \sum_{i}x_{ij}(y_i - \hat{y}_i) = 0,\ \forall j
+	\end{gather*}
+	
+	\begin{remark}
+	    Both $\hat{\beta}_0$ and $\hat{\beta}_j$ are functions of \emph{random variables} and therefore themselves \emph{random} with \emph{sampling distribution}. And the estimated coefficients are random up to random sample chosen.
+	\end{remark}
+	
+	\begin{property}
+	    Properties of OLS estimators
+	    \begin{itemize}
+	        \item \textbf{Unbiased} $\mathbb{E}[\hat{\beta} | X] = \beta$
+	        \item \textbf{Consistent} $\hat{\beta} \to \beta$ as $n \to \infty$
+	        \item \textbf{Efficient/Good} min variance.
+	    \end{itemize}
+	\end{property}
+	
+	\begin{definition}
+	    The \textbf{Simple Coefficient of Determination}
+	    \[
+	        R^2 = \frac{SSE}{SST}
+	    \]
+	    and $SS\underline{Total} = SS\underline{Explained} + SS\underline{Residual}$
+	    \[
+	        \sum_i {(y_i - \overline{y})^2} = \sum_i {(\hat{y}_i - \overline{y})^2} + \sum_i {(y_i - \hat{y}_i)^2}
+	    \]
+	\end{definition}
+	
+	\begin{proposition}[Logarithms] Interpretation with logarithmic transformation.
+	    \begin{itemize}
+	        \item $\ln{y} = \alpha + \beta \ln{y} + u$: \ul{$x$ increases by $1\%$, $y$ increases by $\beta \%$}.
+	        \item $\ln{y} = \alpha + \beta x + u$: \ul{$x$ increases by 1 unit, $y$ increases by $100 \beta \%$}.
+	        \item $y = \alpah + \beta \ln{x} + u$: \ul{$x$ increases by $1\%$, $y$ increases by $0.01\beta$ unit.}
+	    \end{itemize}
+	\end{proposition}
+	
+	\begin{assumption}
+	    Simple regression model assumptions
+	    \begin{enumerate}
+	        \item Model is \ul{linear} in parameter.
+	        \item \ul{Random samples} $\{(x_i, y_i)\}_{i=1}^n$.
+	        \item Sample outcomes $\{x_i\}_{i=1}^n$ are not the same.
+	        \item $\mathbb{E}(u|x)=0$ conditional on random sample $x$.
+	        \item Error is \ul{homoskedastic}. $Var(u|x) = \sigma^2$ for all $x$.
+	    \end{enumerate}
+	\end{assumption}
+	\paragraph{Benefits of MLR compared with SLR}
+	    \begin{itemize}
+	        \item More accurate causal effect estimation.
+	        \item More flexible function forms.
+	        \item Could explicitly include more predictors so $\mathbb{E}(u|X) = 0$ is easier to be satisfied.
+	        \item MLR4 is less restrictive than SLR4.
+	    \end{itemize}
+	   
+    \begin{property}
+        MLR OLS residual satisfies
+        \begin{gather*}
+            \sum_i {\hat{u_i}} = 0\\
+            \sum_i {x_{ji} \hat{u_i}} = 0,\ \forall i \in \{1, 2, \dots, k\}
+        \end{gather*}
+    \end{property}
+    
+    \begin{property}
+        MLR OLS estimators $\hat{\beta}_0, \hat{\beta}_1, \dots, \hat{\beta}_k$ pass through the average point.
+        \[
+            \overline{y} = \hat{\beta}_0 + \hat{\beta}_1 \overline{x}_1 + \dots + \hat{\beta}_k \overline{x}_k
+        \]
+    \end{property}
+    \begin{proof}
+    \end{proof}
+    
+    \subsection{Partialling Out}
+    \subsubsection{Steps}
+        \begin{enumerate}
+            \item Regress $x_1$ on $x_2, x_3, \dots, x_K$ and calculate the residual $\widetilde{r}_1$. 
+            \item Regress $y$ on $\widetilde{r}_1$ with simple regression and find the estimated coefficient $\hat{\lambda}_1$.
+            \item Then the multiple regression coefficient estimator $\hat{\beta}_1$ is
+            \[
+                \hat{\beta}_1 = \hat{\lambda}_1 = \frac{\sum_{i}{y_i \widetilde{r}_{1i}}}{\sum_i {(\widetilde{r}_{1i})^2}}
+            \]
+        \end{enumerate}
+        \begin{proof}
+        \end{proof}
+        
+    \subsubsection{Interpretation}
+    \par This OLS estimator only uses the \ul{unique variance} of one independent variable. And the parts of variation correlated with other independent variables is partialled out.
+    
+    \begin{assumption}Multiple Regression Assumptions
+        \begin{enumerate}
+            \item (MLR1) The model is \ul{linear} in parameters. 
+            \item (MLR2) \ul{Random sample} from population $\{(x_{1i}, \dots x_{ki}, y_i\}_{i=1}^n$.
+            \item (MLR3) No \perfect \ul{multicollinearity}.
+            \item (MLR4) \ul{Zero expected error} conditional on population slice given by $X$.
+            \[
+                \mathbb{E}(u|X) = \mathbb{E}(u|x_1, x_2, \dots, x_k) = 0
+            \]
+            \item (MLR5) \ul{Homoskedastic error} conditional on population slice given by $X$.
+            \[
+                Var(u|X) = \sigma^2
+            \]
+            \item (MLR6, \emph{strict assumption}) \ul{Normally distributed error}
+            \[
+                u \sim \mc{N}(0, \sigma^2)
+            \]
+        \end{enumerate}
+    \end{assumption}
+    
+    \subsection{Omitted Variable Bias}
+    \par Suppose population follows the \emph{real model} 
+    \begin{equation}
+        y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \dots + \beta_k x_{ki} + u_i
+    \end{equation}
+    Consider the \emph{alternative model}, and \ul{$x_k$ is omitted}, which is assumed to be relevant.
+    \begin{equation}
+        y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + \dots + \beta_{k-1} x_{(k-1)i} + r_i
+    \end{equation}
+    and use the partialling-out result on the second regression we have
+    \[
+        \tilde{\beta}_1 = \frac{\sum_i \tilde{r}_{1i} y_i}{( \tilde{r}_{1i})^2}
+    \]
+    where $\tilde{r_{1i}} = x_{1i} - \tilde{\alpha}_0 - \tilde{\alpha}_2 x_{2i} - \dots - \tilde{\alpha}_{k-1}x_{(k-1)i}$
+    
+    
+    \begin{equation}
+        \tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_k \frac{\sum (\tilde{r}_{1i} x_{ki})}{\sum (\tilde{r}_{1i})^2}
+    \end{equation}
+    and take the expectation 
+    \begin{gather*}
+        \mathbb{E}(\tilde{\beta}_1 | X) = \beta_1 + \tilde{\delta}_1 \beta_k \\
+        Bias(\tilde{\beta}_1) = \tilde{\delta}_1 \beta_k
+    \end{gather*}
+    And notice the sign of bias depends on $cov(x_1, x_k)$ and $\beta_k$.
 \end{document}
