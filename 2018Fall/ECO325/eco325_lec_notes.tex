@@ -28,6 +28,7 @@
     \doclicenseThis
     \section*{Notes}
     	\paragraph{Github} \url{https://github.com/TianyuDu/Spikey_UofT_Notes}
+    	\paragraph{Direct Download} \url{TianyuDu.com/notes}
     	\paragraph{Color notations}
     		\begin{itemize}
     			\item \textcolor{orange}{Important equations for model setup.}
@@ -826,7 +827,184 @@
 	\begin{remark}
 		If $\beta \leq 0$ then the integral would diverge and the maximization problem does not have a well-defined solution.
 	\end{remark}
+	
+	\section{Lecture 6 Oct 18. 2018}
+		\subsection{Firm Setup}
+			\begin{assumption}
+				Firms 
+				\begin{itemize}
+					\item are all \emph{identical} and 
+					\item employ stocks of capital and labor
+					\item perfectly competitive in factor markets (no control over wage and rent)
+					\item maximize profits
+					\item each firm has access to the production function $Y = F(K, AL)$
+				\end{itemize}
+			\end{assumption}
+			\begin{notation} Let
+				\begin{itemize}
+					\item $w(t)$ denote the \emph{real} wage per unit of effective labor
+					\item $r(t)$ denote the rental rate of capital
+					\item $A(t)$ denotes the labor augmenting technology/ knowledge
+				\end{itemize}
+			\end{notation}
+			\begin{remark}
+				The profit is given by 
+				\[
+					\pi(t) = F(K(t), A(t)L(t)) - w(t)A(t)L(t) -r(t) K(t)
+				\]
+			\end{remark}
+			\begin{assumption}
+				Technology in this model, $A(t)$, is given exogenously so it isn't a choice for firms.
+			\end{assumption}
+			
+		\subsection{Firm's Optimization}
+			\paragraph{Maximization}
+			\begin{gather*}
+				\max_{K(t), L(t)} \pi(t) = F(K(t), A(t)L(t)) - w(t)A(t)L(t) -r(t) K(t)
+			\end{gather*}
+			
+			\paragraph{First Order Condition}
+			\begin{gather*}
+				K(t) : \pd{F(K(t), A(t)L(t))}{K(t)} - r(t) = 0 \\
+				L(t) : \pd{F(K(t), A(t)L(t))}{L(t)} - w(t)A(t) = 0
+			\end{gather*}
+			
+			\begin{example}[Cobb-Douglas Form]
+				Consider 
+				\[
+					F(K(t), A(t)L(t)) = K^\alpha (AL)^{1-\alpha}
+				\]
+				\begin{gather*}
+					K(t) : \alpha K^{\alpha - 1} (AL)^{1-\alpha} = r(t)\\
+					L(t) : (1-\alpha) K^\alpha (AL)^{-\alpha}A(t) =A(t) w(t)
+				\end{gather*}
+				In per unit of effective form
+				\begin{gather*}
+					\alpha k(t) ^ {\alpha - 1} = r(t) \\
+					(1-\alpha) k(t) ^ \alpha = w(t) \\
+				\end{gather*}
+			\end{example}
+			In general we could have the following first order necessary conditions in terms of the per unit of effective labor variables.
+			\begin{gather*}
+			\textcolor{blue}{
+				f'(k(t)) = r(t)
+			} \\
+			\textcolor{blue}{
+				f(k(t)) - k(t) f'(k(t)) = w(t)
+			}
+			\end{gather*}
+			\begin{remark}
+				To show above result, substitute $Y$ using $AL f(\frac{K}{AL})$.
+			\end{remark}
+		\subsection{Household Behaviour}
+			\par Household are going to chose a function $\mc{C}(t): [0, \infty) \to \R$ to maximize lifetime utility subjected to their lifetime budget constraint.
+			\begin{gather*}
+				\max_{\{c(t)\}_{t=0}^\infty} B \int_{t=0}^\infty e^{-\beta t} \frac{c(t)^{1-\theta}}{1-\theta}\ dt \\
+				s.t.\ 0 \leq k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} (w(t) - c(t))\ dt}
+			\end{gather*}
+			Setup Lagrangian at each time point,
+			\begin{equation}
+				\mc{L} = B \int_{t=0}^\infty e^{-\beta t} \frac{c(t)^{1-\theta}}{1-\theta}\ dt + \lambda \Big [ k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} (w(t) - c(t))\ dt} \Big ]
+			\end{equation}
+			\paragraph{First Order Necessary Conditions}
+				On an arbitrary time point $t$,
+				\begin{gather}
+					c(t): B e^{-\beta t} c(t) ^{-\theta} - \lambda e^{-R(t)} e^{(n+g)t} = 0 \\
+					\lambda: k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} (w(t) - c(t))\ dt} = 0
+				\end{gather}
+		\subsection{The Behaviour of Consumption}
+			\par The the log of both size of (2) gives 
+			\begin{gather*}
+				\ln(B) + \ln(e^{-\beta t}) + \ln(c(t)^{-\theta}) = \ln(\lambda) + \ln(e^{-R(t)}) + \ln(e^{(n+g)t}) \\
+				\iff \ln(B) - \beta t - \theta \ln(c(t)) = \ln(\lambda) - R(t) + (n+g)t \\
+				\tx{Since above equation holds for all $t$, take the derivative with respect to $t$} \\
+				\implies -\beta - \theta \frac{\dot{c}(t)}{c(t)} = -r(t) + (n+g) \\
+				\iff \frac{\dot{c}(t)}{c(t)} = \frac{r(t) - \beta - (n + g)}{\theta} \\
+				\because \beta = \rho - n - (1-\theta) g\\
+				\iff 
+				\textcolor{blue}{
+					\frac{\dot{c}(t)}{c(t)} = \frac{r(t) - \rho - \theta g}{\theta}
+				}
+			\end{gather*}
+			\begin{remark}
+				The growth rate of consumption \ul{per person} is given by
+				\begin{equation}
+					\pd{\ln(C(t))}{t} = \frac{r(t)-\rho}{\theta}
+				\end{equation}
+			\end{remark}
+			\begin{remark}
+				Go backwards by solving the ODE
+				\begin{gather*}
+					\frac{\dot{c}(t)}{c(t)} = \frac{r(t) - \rho - \theta g}{\theta} = \pd{\ln(c(t))}{t} \\
+					\implies c(t) = c(0) e^{\frac{R(t) - (\rho + \theta g)t}{\theta}}
+				\end{gather*}
+				Using the budget constraint to solve for $c(0)$.
+				\begin{gather*}
+					k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} w(t)\ dt} = \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} c(t)\ dt} \\
+					= \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} c(0) e^{\frac{R(t) - (\rho + \theta g)t}{\theta}}}\ dt \\
+					= c(0) \int_{t=0}^\infty e^{(\frac{1}{\theta} - 1)R(t)} e^{(n - \frac{\rho}{\theta})t} \ dt \\
+					\implies
+					c(0) = \frac{
+					k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} w(t)\ dt}
+					}{
+					\int_{t=0}^\infty e^{(\frac{1}{\theta} - 1)R(t)} e^{(n - \frac{\rho}{\theta})t} \ dt
+					}
+				\end{gather*}
+			\end{remark}
+		\subsection{Dynamics of the Economy}
+		\subsubsection{Dynamic of $c$}
+		\par From the firms problem, $r(t) = f'(k(t))$, so in equilibrium, 
+		\[
+			\frac{\dot{c}(t)}{c(t)} = \frac{f'(k(t)) - \rho - \theta g}{\theta}
+		\]
+		In the long run, $\dot{c}(t) = 0$. This happens if and only if 
+		\[
+			f'(k^*) = \rho + \theta g
+		\]
+		Therefore 
+		\begin{equation}
+			\frac{\dot{c}(t)}{c(t)} = \frac{f'(k(t)) - f(k^*)}{\theta}
+		\end{equation}
+		That's, $k(t) < k^* \implies f'(k(t)) > f(k^*) \implies \dot{c}(t) > 0$.
+		\begin{figure*}[h]
+			\centering
+			\caption{Phase diagram of $\dot{c}$ and $\dot{k}$}
+			\includegraphics[width=0.45\linewidth]{figures/6_1}
+			\includegraphics[width=0.45\linewidth]{figures/6_2}
+		\end{figure*}
+		
+		\subsubsection{Dynamic of $k$}
+		\par Assuming there's no depreciation ($\delta=0$)
+		\begin{equation}
+			\dot{k}(t) = f(k(t)) - c(t) - (n+g)k(t)
+		\end{equation}
+%		\begin{figure*}[h]
+%			\centering
+%			\caption{Phase diagram of $\dot{k}$}
+%			\includegraphics[width=0.6\linewidth]{figures/6_2}
+%		\end{figure*}
+		Below the $\dot{k} = 0$ curve, $\dot{k} > 0$ since actual investment per unit of effective labor exceeds the break-even level of investment per unit of effective labor.
+		\\
+		Putting two phase diagrams together,
+		\begin{figure*}[h]
+			\centering
+			\caption{Combined phase diagram}
+			\includegraphics[width=0.5\linewidth]{figures/6_3}
+		\end{figure*}
+		The \textbf{steady state} is given at point $E$, where $\dot{c} = \dot{k} = 0$.
+		
+		\newpage
+		\subsubsection{Initial Point Problem (Saddle Path)}
+		\par For any given value of $k(0)$, there exists an \ul{unique} value of $c(0)$, so that one economy starts with $k(0), c(0)$ would evolve and converge to the steady state $E$. Such path of convergence is called \textbf{saddle path}.
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{figures/6_4}
+		\end{figure*}
 \end{document}
+
+
+
+
 
 
 

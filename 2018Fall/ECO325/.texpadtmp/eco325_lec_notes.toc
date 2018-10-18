@@ -1,35 +1,36 @@
 \select@language {english}
 \contentsline {paragraph}{Github}{1}{section*.2}
-\contentsline {paragraph}{Color notations}{1}{section*.3}
-\contentsline {paragraph}{Revisions}{1}{section*.4}
+\contentsline {paragraph}{Direct Download}{1}{section*.3}
+\contentsline {paragraph}{Color notations}{1}{section*.4}
+\contentsline {paragraph}{Revisions}{1}{section*.5}
 \contentsline {section}{\numberline {1}Lecture 1. September 6. 2018}{3}{section.1}
-\contentsline {paragraph}{Facts}{3}{section*.6}
+\contentsline {paragraph}{Facts}{3}{section*.7}
 \contentsline {subsection}{\numberline {1.1}Solow Growth Model (continuous time version)}{3}{subsection.1.1}
-\contentsline {paragraph}{Intro.}{3}{section*.7}
-\contentsline {paragraph}{Notations}{3}{section*.8}
+\contentsline {paragraph}{Intro.}{3}{section*.8}
+\contentsline {paragraph}{Notations}{3}{section*.9}
 \contentsline {subsubsection}{\numberline {1.1.1}Production Function}{3}{subsubsection.1.1.1}
 \contentsline {section}{\numberline {2}Lecture 2 September 13. 2018}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Solow Growth Model: Setup}{4}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Dynamics of $k(t)$}{7}{subsection.2.2}
 \contentsline {section}{\numberline {3}Lecture 3 September 20. 2018}{7}{section.3}
 \contentsline {subsection}{\numberline {3.1}Dynamic Transitions}{7}{subsection.3.1}
-\contentsline {paragraph}{}{7}{section*.9}
+\contentsline {paragraph}{}{7}{section*.10}
 \contentsline {subsection}{\numberline {3.2}Balanced Growth Path}{9}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Growth Rates on Balanced Growth Path}{9}{subsubsection.3.2.1}
-\contentsline {paragraph}{Population and Technology}{9}{section*.10}
-\contentsline {paragraph}{Capital per person}{9}{section*.11}
-\contentsline {paragraph}{Output and Consumption per person}{10}{section*.12}
+\contentsline {paragraph}{Population and Technology}{9}{section*.11}
+\contentsline {paragraph}{Capital per person}{9}{section*.12}
+\contentsline {paragraph}{Output and Consumption per person}{10}{section*.13}
 \contentsline {subsection}{\numberline {3.3}Experiment}{12}{subsection.3.3}
 \contentsline {subsubsection}{\numberline {3.3.1}Impact of Change in the Saving Rate ($s_1 > s_0$)}{12}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Derive the Effect of Change in $s$ Mathematically}{13}{subsubsection.3.3.2}
-\contentsline {paragraph}{Goal}{13}{section*.13}
-\contentsline {paragraph}{Impact on $k^*$}{13}{section*.14}
-\contentsline {paragraph}{Impact on $y^*$}{13}{section*.15}
-\contentsline {paragraph}{Impact on $c^*$}{14}{section*.16}
+\contentsline {paragraph}{Goal}{13}{section*.14}
+\contentsline {paragraph}{Impact on $k^*$}{13}{section*.15}
+\contentsline {paragraph}{Impact on $y^*$}{13}{section*.16}
+\contentsline {paragraph}{Impact on $c^*$}{14}{section*.17}
 \contentsline {section}{\numberline {4}Lecture 4 September 27. 2018}{15}{section.4}
 \contentsline {subsection}{\numberline {4.1}Speed of Convergence}{15}{subsection.4.1}
-\contentsline {paragraph}{Methodology}{15}{section*.17}
-\contentsline {paragraph}{Recall}{15}{section*.18}
+\contentsline {paragraph}{Methodology}{15}{section*.18}
+\contentsline {paragraph}{Recall}{15}{section*.19}
 \contentsline {subsection}{\numberline {4.2}General Statements}{16}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Growth Accounting}{17}{subsection.4.3}
 \contentsline {section}{\numberline {5}Lecture 5 October 11. 2018}{18}{section.5}
@@ -39,3 +40,15 @@
 \contentsline {subsubsection}{\numberline {5.2.2}Objective Functions}{19}{subsubsection.5.2.2}
 \contentsline {subsubsection}{\numberline {5.2.3}Household Budget Constraints}{20}{subsubsection.5.2.3}
 \contentsline {subsection}{\numberline {5.3}Instantaneous Utility Function}{21}{subsection.5.3}
+\contentsline {section}{\numberline {6}Lecture 6 Oct 18. 2018}{22}{section.6}
+\contentsline {subsection}{\numberline {6.1}Firm Setup}{22}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Firm's Optimization}{22}{subsection.6.2}
+\contentsline {paragraph}{Maximization}{22}{section*.20}
+\contentsline {paragraph}{First Order Condition}{22}{section*.21}
+\contentsline {subsection}{\numberline {6.3}Household Behaviour}{23}{subsection.6.3}
+\contentsline {paragraph}{First Order Necessary Conditions}{23}{section*.22}
+\contentsline {subsection}{\numberline {6.4}The Behaviour of Consumption}{24}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Dynamics of the Economy}{24}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Dynamic of $c$}{24}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.2}Dynamic of $k$}{25}{subsubsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.3}Initial Point Problem (Saddle Path)}{26}{subsubsection.6.5.3}
