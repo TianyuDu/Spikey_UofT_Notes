@@ -12,6 +12,7 @@
 \usepackage{xcolor}
 \usepackage{centernot}
 \usepackage{txfonts}
+\usepackage{graphicx}
 
 \usepackage[
     type={CC},
@@ -1180,6 +1181,109 @@
 			\frac{1}{a+ib} = \frac{1}{a+ib} \times \frac{a-ib}{a-ib} = \frac{a-ib}{(a^2 + b^2) + i(ab - ab)} = \frac{a-ib}{a^2 + b^2}
 		\end{gather*}
 	\end{proof}
+	
+	\section{Lecture 18 Oct. 19 2018 Complex Numbers}
+	\begin{definition}
+		The \textbf{division} on complex numbers is equivalent to multiplying a complex number by its inverse, and is defined as 
+		\[
+			\frac{c+id}{a+id} = (c+id) \frac{a-ib}{a^2 + b^2}
+		\]
+	\end{definition}
+	
+	\begin{notation}
+		The set of all complex numbers is denoted as 
+		\[
+			\mathbb{C} = \{ a + ib : a, b \in \R, i^2 = - 1\}
+		\]
+	\end{notation}
+	\begin{remark}
+		Notice that $\mathbb{C}$ is closed under the 4 basic operations of arithmetics. Anything like this is called a \textbf{field}.
+	\end{remark}
+	
+	\begin{example}
+		The irrational set $\mathbb{Q}^c$ is \emph{not} a field.
+	\end{example}
+	
+	\begin{definition}
+		The \textbf{complex conjugate} of a complex number $a + ib$ is defined as 
+		\[
+			a - ib
+		\]
+	\end{definition}
+	
+	\begin{definition}
+		The \textbf{modulus} of a complex number $a + ib$ is defined as 
+		\[
+			|a + ib| = \sqrt{a^2 + b^2} \in \R_{\geq 0}
+		\]
+	\end{definition}
+	
+	\subsection{The Geometric Representation of Complex Numbers}
+	
+	\par Any complex could be represented as a vector in a 2-dimensional coordinate, with real line on the $x$ axis and imaginary line on the $y$ axis.
+	\begin{figure*}[h]
+		\centering
+		\includegraphics[width=0.4\linewidth]{figures/49_polar_representation_of_complex_number}
+	\end{figure*}
+	\begin{remark}[Geometrical Interpretation]
+		The \textbf{modulus} is the \emph{distance} from the point to the origin.
+	\end{remark}
+	\begin{remark}[Geometrical Interpretation]
+		The \textbf{conjugate} is the \emph{reflection} of the point about the real ($x$) axis.
+	\end{remark}
+	
+	
+	\subsection{Polar Coordinates}
+	\subsubsection{Coordinate Conversion}
+		\par Consider a complex number represented by $(a,b)$ in Cartesian coordinate and $(r, \theta)$ in polar coordinate.
+		\begin{figure*}[h]
+			\centering
+			\begin{tabular}{|c|c|}
+				\hline
+				Cartesian & Polar \\
+				\hline
+				$(a, b)$ & $(\sqrt{a^2 + b^2}, \arctan(\frac{b}{a}))$ \\
+				\hline
+				$(r \cos(\theta), r \sin(\theta))$ & $(r, \theta)$ \\
+				\hline
+			\end{tabular}
+		\end{figure*}
+		\begin{remark}
+			$\arctan(\frac{b}{a})$ gives multiple solutions due to the periodicity of $\tan$. We need to use the signs of real and imaginary values to determine which value of $\arctan{\frac{b}{a}}$ to take.
+		\end{remark}
+		
+		\begin{example}
+			Consider $1+i$, it could be represented as $(1,1)$ in Cartesian coordinate. Converting it into polar coordinates gives $(\sqrt{2}, \frac{\pi}{4})$. Converting back gives
+			\begin{gather*}
+				1 + i = \sqrt{2}(\cos(\frac{\pi}{4}) + i \sin(\frac{\pi}{4})) \\
+				= \sqrt{2} (\cos(\frac{\pi}{4} + 2\pi k) + i \sin(\frac{\pi}{4} + 2 \pi k)),\ \forall k \in \mathbb{Z}
+			\end{gather*}
+		\end{example}
+		
+		\subsubsection{Multiplication in Polar Coordinates}
+		\par Consider the product of two complex numbers $r_1 (\cos(\theta_1) + i \sin(\theta_1))$ and $r_2 (\cos(\theta_2) + i \sin(\theta_2))$:
+		\begin{gather*}
+			r_1 (\cos(\theta_1) + i \sin(\theta_1)) \times r_2 (\cos(\theta_2) + i \sin(\theta_2)) \\
+			= r_1 r_2 \Big[
+				\Big(\cos(\theta_1) \cos(\theta_2)
+				 - \sin(\theta_1) \sin(\theta_2) \Big) + 
+				 i \Big(
+				 	\cos(\theta_1)\sin(\theta_2) + \sin(\theta_1) \cos(\theta_2)
+				 \Big)
+				\Big] \\
+			\tx{By triangle inequality} \\
+			= r_1 r_2 \Big ( \cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)\Big)
+		\end{gather*}
+		
+		\begin{example}
+			Every complex number has a square root.
+			\begin{proof}
+				Let $z = r(\cos(\theta) + i \sin(\theta)) \in \mathbb{C}$. \\
+				Consider $w = \sqrt{r} (\cos(\frac{\theta}{2}) + i \sin(\frac{\theta}{2}))$ \\
+				By above result, we could easily verify that $w^2 = z$. \\
+				Notice that, $w = \sqrt{r}\Big(\cos(\frac{\theta}{2} + \pi) + i \sin(\frac{\theta}{2} + \pi) \Big)$ is also a square root of $z$.
+			\end{proof}
+		\end{example}
 \end{document}
 
 

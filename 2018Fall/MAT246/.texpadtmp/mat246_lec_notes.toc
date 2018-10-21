@@ -25,3 +25,8 @@
 \contentsline {section}{\numberline {17}Lecture 17 Oct. 17 2018}{25}{section.17}
 \contentsline {subsection}{\numberline {17.1}Chinese Reminder Theorem}{25}{subsection.17.1}
 \contentsline {subsection}{\numberline {17.2}Complex Numbers}{27}{subsection.17.2}
+\contentsline {section}{\numberline {18}Lecture 18 Oct. 19 2018 Complex Numbers}{28}{section.18}
+\contentsline {subsection}{\numberline {18.1}The Geometric Representation of Complex Numbers}{28}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}Polar Coordinates}{29}{subsection.18.2}
+\contentsline {subsubsection}{\numberline {18.2.1}Coordinate Conversion}{29}{subsubsection.18.2.1}
+\contentsline {subsubsection}{\numberline {18.2.2}Multiplication in Polar Coordinates}{29}{subsubsection.18.2.2}
