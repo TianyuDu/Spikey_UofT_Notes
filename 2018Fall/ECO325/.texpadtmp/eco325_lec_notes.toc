@@ -44,11 +44,11 @@
 \contentsline {subsection}{\numberline {6.1}Firm Setup}{22}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Firm's Optimization}{22}{subsection.6.2}
 \contentsline {paragraph}{Maximization}{22}{section*.20}
-\contentsline {paragraph}{First Order Condition}{22}{section*.21}
-\contentsline {subsection}{\numberline {6.3}Household Behaviour}{23}{subsection.6.3}
-\contentsline {paragraph}{First Order Necessary Conditions}{23}{section*.22}
+\contentsline {paragraph}{First Order Condition}{23}{section*.21}
+\contentsline {subsection}{\numberline {6.3}Household Behaviour}{24}{subsection.6.3}
+\contentsline {paragraph}{First Order Necessary Conditions}{24}{section*.22}
 \contentsline {subsection}{\numberline {6.4}The Behaviour of Consumption}{24}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}Dynamics of the Economy}{24}{subsection.6.5}
-\contentsline {subsubsection}{\numberline {6.5.1}Dynamic of $c$}{24}{subsubsection.6.5.1}
-\contentsline {subsubsection}{\numberline {6.5.2}Dynamic of $k$}{25}{subsubsection.6.5.2}
-\contentsline {subsubsection}{\numberline {6.5.3}Initial Point Problem (Saddle Path)}{26}{subsubsection.6.5.3}
+\contentsline {subsection}{\numberline {6.5}Dynamics of the Economy}{25}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Dynamic of $c$}{25}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.2}Dynamic of $k$}{26}{subsubsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.3}Initial Point Problem (Saddle Path)}{27}{subsubsection.6.5.3}
