@@ -37,7 +37,8 @@
     		\end{itemize}
     \paragraph{Revisions}
     \begin{itemize}
-    	\item Revise October 2. 2018. Midterm 1.
+    	\item Revise October 2. 2018. Midterm 1. Lec1-Lec4
+    	\item Revise October 21. 2018. Lec5-Lec6
     \end{itemize}
     \tableofcontents
     \newpage
@@ -686,7 +687,7 @@
 	\subsection{Economy Setup}
 	\begin{itemize}
 		\item Infinite horizon continuous time model.
-		\item Exogenous growth rates of technology and population.
+		\item Exogenous growth rates of technology/productivity and population.
 		\begin{equation}\textcolor{orange}{
 			A(t) = A(0) e^{gt}}
 		\end{equation}
@@ -695,20 +696,20 @@
 			L(t) = L(0) e^{nt}
 			}
 		\end{equation}
-		\item (\ul{Endogenous saving decisions}) A key difference from the Solow model is that the saving decision and the capital stock are determined by the interaction of maximizing households and firms.
+		\item (\ul{Endogenous saving decisions}) A key difference of endogenous growth model from the Solow model is that the saving decision and the capital stock are determined by the interaction of utility/profit maximizing households and firms.
 	\end{itemize}
 	
 	\subsection{Households}
 	\subsubsection{Assumptions and Behaviours}
 	\begin{assumption}(Setup)
 		\begin{itemize}
-			\item There are a large numbers of \ul{identical} households in the economy ($H$). \emph{To ensure that \ul{no household has marker power}.}
+			\item There are a large numbers of \ul{identical} households in the economy ($H$). \emph{To ensure that \ul{no household has market power}.}
 			\item And the size of each household are assumed to grow at rate $n$.
 			\item Each household has $\frac{L(t)}{H}$ members in it at time $t$.
 			\item Each household has \emph{initial} capital holding of $\frac{K(0)}{H}$.
 			\item Each member of the household supplies 1 unit of labor at each point in time \ul{inelastically}. (\emph{No uncertainty})
 			\item For simplicity, there's no depreciation of capital stock. ($\delta = 0$)
-			\item Capital is rented to firms at rate $r(t)$.
+			\item Capital is rented to firms at rate $r(t)$. (Note that investment is covered by the capital accumulation and interest rate.)
 			\item Labor is hired at wage rate $W(t) = w(t)A(t)$. Where $W(t)$ is the wage per unit of labor and $w(t)$ is the wage per unit of effective labor.
 		\end{itemize}
 	\end{assumption}
@@ -722,11 +723,11 @@
 	\end{equation}
 	where $\rho$ is the \textbf{discount rate} and $C(t)$ is the \textbf{consumption \emph{per person}}.
 	\begin{remark}
-		$\rho$ measures consumers' attitude between present and future utility.
+		$\rho$ measures consumers' attitude between present and future utilities.
 		When $\rho = 0$, household values utility in the future equally. 
 		When $\rho > 0$, household values future utility less than present utility.
-		The greater $\rho$ is, the less value household puts on future consumption/utility (\emph{consumers are less patient}).
-		Notice that $\rho$ cannot be negative in this model, since with $\rho < 0$ household values utility at $t=\infty$ infinitely more than current utility, the lifetime utility does not converge.
+		The greater $\rho$ is, the less value household puts on future consumption/utility (\emph{i.e. consumers are less patient}).
+		Notice that $\rho$ cannot be negative in this model, since with $\rho < 0$ household values utility at $t=\infty$ infinitely more than current utility, the lifetime utility does not converge. For instance, with $\rho>0$, $e^{-\rho t}$ is increasing in $t$, then infinite-horizon household could attain infinite utility by allocating consumption at $t=\infty$.
 		\footnote{Intuitively, if $\rho < 0$, households could save everything and spend their saving when $t > \infty$. This scenario is certainly unrealistic.}
 	\end{remark}
 	
@@ -741,15 +742,15 @@
 	\[
 		C(t)\frac{L(t)}{H}
 	\]
-	And let $R(t)$ denote the \textbf{continuous compounding interest rate}:
+	And let $R(t)$ denote the \textbf{continuously compounding interest rate}:
 	\begin{equation}
 		R(t) := \int_{\tau=0}^t r(\tau)\ d\tau
 	\end{equation}
 	\begin{remark}
-		We know under \ul{continuously compounding interest}, one unit of output invested at time 0 is worth $e^{R(t)}$ units at time $t$. Conversely, 1 unit of output at time $t$ is worth $e^{-R(t)}$ at time 0.
+		We know under \ul{continuously compounding interest}, one unit of output invested at $\tau=0$ is worth $e^{R(t)}$ units at $\tau=t$. Conversely, 1 unit of output at $\tau=t$ is worth $e^{-R(t)}$ at $\tau=0$.
 	\end{remark}
 	\begin{remark}
-		The budget constraint implies that the \ul{present discounted value of lifetime consumption} must not exceed the \ul{present discounted value of labor income} plus \ul{initial wealth}.
+		The budget constraint implies that the \ul{present discounted value of lifetime consumption} must not exceed the \ul{present discounted value of labor income} plus \ul{initial wealth/capital}.
 	\end{remark}
 	\par And the household lifetime budget constraint is given by
 	\begin{equation}
@@ -758,7 +759,7 @@
 		}
 	\end{equation}
 	\\
-	Then normalize budget constraint (5) into per unit of effective labor variables to get an equivalent form.
+	Then normalize budget constraint (5) into \emph{per unit of effective labor variables} to get an equivalent form.
 	\begin{gather*}
 		\int_{t=0}^\infty e^{-R(t)} C(t) \frac{L(t)}{H}\ dt  \leq \frac{K(0)}{H} + \int_{t=0}^\infty e^{-R(t)} w(t) \frac{A(t)L(t)}{H}\ dt \\
 		\iff 
@@ -767,13 +768,13 @@
 		\iff \int_{t=0}^\infty e^{-R(t)} e^{(n+g)t} c(t)\ dt \leq k(0) + \int_{t=0}^\infty e^{-R(t)} e^{(n+g)t} w(t)\ dt
 	\end{gather*}
 	\\
-	The \textbf{assets} owned by household on date $t=s$ is given by
+	The \textbf{assets} owned by household on date $t=s$, $\frac{K(s)}{H}$, is given by \emph{reverse discounting saving and initial capital to $\tau=s$}.
 	\begin{gather*}
-		\frac{K(s)}{H} = \frac{K(0)}{H}e^{R(s)} + \int_{t=0}^s e^{-R(t)+R(s)} \Big\{\frac{w(t)A(t)L(t)}{H} - \frac{c(t)A(t)L(t)}{H} \Big\}\ dt \\
-		= \frac{K(0)}{H} e^{R(s)} +  \int_{t=0}^s e^{-R(t)+R(s)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H} dt \\
-		\implies \frac{K(s)}{H}e^{-R(s)} := \frac{K(0)}{H} + \int_{t=0}^s e^{R(t)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H}\ dt
+		\frac{K(s)}{H} = e^{R(s)} \frac{K(0)}{H} + \int_{t=0}^s e^{-R(t)+R(s)} \Big\{\frac{w(t)A(t)L(t)}{H} - \frac{c(t)A(t)L(t)}{H} \Big\}\ dt \\
+		= e^{R(s)} \frac{K(0)}{H} +  \int_{t=0}^s e^{-R(t)+R(s)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H} dt \\
+		\implies e^{-R(s)} \frac{K(s)}{H} := \frac{K(0)}{H} + \int_{t=0}^s e^{R(t)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H}\ dt
 	\end{gather*}
-	Back to the budget constraint,
+	Substitute to the budget constraint,
 	\begin{gather*}
 		\frac{K(0)}{H} + \int_{t=0}^\infty \frac{w(t)A(t)L(t)}{H}\ dt - \int_{t=0}^\infty \frac{c(t)A(t)L(t)}{H}\ dt \geq 0 \\
 		\iff \frac{K(0)}{H} + \int_{t=0}^\infty e^{-R(t)} \{w(t) - c(t)\} \frac{A(t)L(t)}{H}\ dt \geq 0 \\
@@ -854,11 +855,11 @@
 				\]
 			\end{remark}
 			\begin{assumption}
-				Technology in this model, $A(t)$, is given exogenously so it isn't a choice for firms.
+				Technology in this model, $A(t)$, is \ul{given exogenously} so it isn't a choice for firms.
 			\end{assumption}
 			
 		\subsection{Firm's Optimization}
-			\paragraph{Maximization}
+			\paragraph{Maximization} \footnote{Note since $A(t)$ is given exogenously, the arguments of maximization could also be written as $\max_{K(t), A(t)L(t)}$}
 			\begin{gather*}
 				\max_{K(t), L(t)} \pi(t) = F(K(t), A(t)L(t)) - w(t)A(t)L(t) -r(t) K(t)
 			\end{gather*}
@@ -893,9 +894,29 @@
 				f(k(t)) - k(t) f'(k(t)) = w(t)
 			}
 			\end{gather*}
-			\begin{remark}
-				To show above result, substitute $Y$ using $AL f(\frac{K}{AL})$.
-			\end{remark}
+			
+			\begin{proof}
+    			\begin{gather*}
+    			    r(t) = \pd{F(\cdot)}{K} 
+    			    = \pd{AL f(\frac{K}{AL})}{K} \\
+    			    = AL \pd{f(k)}{k} \pd{\frac{K}{AL}}{K} 
+    			    = \pd{f(k)}{k} 
+    			    = f'(k)
+    			\end{gather*}
+			\end{proof}
+			
+			\begin{proof}
+                \begin{gather*}
+                    A(t)w(t) = \pd{F(K, AL)}{L} = \pd{AL f(\frac{K}{AL})}{L} \\
+                    = Af(k) + AL \pd{f(\frac{K}{AL})}{AL} \pd{AL}{L} \\
+                    = Af(k) + AL \pd{f(\frac{K}{AL})}{k} \pd{\frac{K}{AL}}{AL} \pd{AL}{L} \\
+                    = Af(k) + A^2 L f'(k) \frac{-K}{(AL)^2} \\
+                    = Af(k) - k f'(k) \frac{A^2 L}{AL} \\
+                    = Af(k) - k f'(k) A \\
+                    \implies w(t) = f(k) - f'(k)
+                \end{gather*}
+			\end{proof}
+			
 		\subsection{Household Behaviour}
 			\par Household are going to chose a function $\mc{C}(t): [0, \infty) \to \R$ to maximize lifetime utility subjected to their lifetime budget constraint.
 			\begin{gather*}
@@ -907,7 +928,7 @@
 				\mc{L} = B \int_{t=0}^\infty e^{-\beta t} \frac{c(t)^{1-\theta}}{1-\theta}\ dt + \lambda \Big [ k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} (w(t) - c(t))\ dt} \Big ]
 			\end{equation}
 			\paragraph{First Order Necessary Conditions}
-				On an arbitrary time point $t$,
+				On an arbitrary time period $t$,
 				\begin{gather}
 					c(t): B e^{-\beta t} c(t) ^{-\theta} - \lambda e^{-R(t)} e^{(n+g)t} = 0 \\
 					\lambda: k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} (w(t) - c(t))\ dt} = 0
@@ -944,16 +965,18 @@
 					= \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} c(0) e^{\frac{R(t) - (\rho + \theta g)t}{\theta}}}\ dt \\
 					= c(0) \int_{t=0}^\infty e^{(\frac{1}{\theta} - 1)R(t)} e^{(n - \frac{\rho}{\theta})t} \ dt \\
 					\implies
+					\textcolor{blue}{
 					c(0) = \frac{
 					k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} w(t)\ dt}
 					}{
 					\int_{t=0}^\infty e^{(\frac{1}{\theta} - 1)R(t)} e^{(n - \frac{\rho}{\theta})t} \ dt
 					}
+					}
 				\end{gather*}
 			\end{remark}
 		\subsection{Dynamics of the Economy}
 		\subsubsection{Dynamic of $c$}
-		\par From the firms problem, $r(t) = f'(k(t))$, so in equilibrium, 
+		\par From the firms problem, $r(t) = f'(k(t))$, so at equilibrium, 
 		\[
 			\frac{\dot{c}(t)}{c(t)} = \frac{f'(k(t)) - \rho - \theta g}{\theta}
 		\]
