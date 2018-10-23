@@ -1284,6 +1284,129 @@
 				Notice that, $w = \sqrt{r}\Big(\cos(\frac{\theta}{2} + \pi) + i \sin(\frac{\theta}{2} + \pi) \Big)$ is also a square root of $z$.
 			\end{proof}
 		\end{example}
+	
+	\section{Lecture 19 Oct. 22 2018}
+		\subsection{De Moivre's Theorem}
+		\begin{theorem}(De Moivre's Theorem)
+			Let $z = r[\cos(\theta) + i \sin(\theta)] \in \mathbb{C}$, and the $n^{th}$ power of $z$ is given by
+			\[
+				(r[\cos(\theta) + i \sin(\theta)])^n = r^n [\cos(n\theta) + i \sin(n \theta)],\ \forall n \in \mathbb{N}
+			\]
+		\end{theorem}
+		\begin{proof}
+			(By induction) \\
+			\textbf{Base Case} for $n=1$, obviously $z^1 = z$ \\
+			\textbf{Inductive Step} let $k \in \mathbb{N}$, \\
+			suppose $z^k = r^k [\cos(k \theta) + i \sin(k \theta)]$ \\
+			Consider $z^{k+1}$, \\
+			\begin{gather*}
+				r^{k+1} = r^k [\cos(k \theta) + i \sin(k \theta)] \times r[\cos(\theta) + i \sin(\theta)] \\
+				= r^{k+1} \Big[
+					(\cos(k \theta) \cos(\theta) - \sin (k \theta) \sin(\theta)) + 
+					i (\cos(k \theta) \sin(\theta) + \sin(k \theta) \cos(\theta))
+				\Big] \\
+				\tx{By Triangle Identity} \\
+				= r^{k+1} \big[ \cos((k+1)\theta) + i \sin((k+1) \theta) \big ]
+			\end{gather*}
+			We could then conclude what the theorem stated by principle of mathematical induction.
+		\end{proof}
+		
+		\begin{example}
+			Calculate $(1+i)^8$. 
+			\begin{proof}[Solution]
+				$1+i$ can be written as $(1,1)$ in Cartesian coordinate. \\
+				Then it can be converted into Polar coordinate as 
+				\[
+					\sqrt{2} \Big ( \cos(\frac{\pi}{4}) + i \sin(\frac{\pi}{4})\Big)
+				\]
+				Then by De Moivre's theorem,
+				\begin{gather*}
+					\Big( \sqrt{2} \Big ( \cos(\frac{\pi}{4}) + i \sin(\frac{\pi}{4})\Big) \Big)^8 \\
+					= (\sqrt{2})^8 \Big ( \cos(\frac{\pi}{4} \times 8) + i \sin(\frac{\pi}{4} \times 8)\Big) \\
+					= 16 \times \Big ( \cos(2\pi) + i \sin(2\pi)\Big) \\
+					= 16 (\cos(0) + i \sin(0)) \\
+					= 16
+				\end{gather*}
+			\end{proof}
+			\emph{Geometrically Interpretation: rotates the vector anti-clockwise by $(n-1)\theta$ and enlarge the magnitude by factor of $n$.}
+		\end{example}
+		
+		\subsection{Roots of Unity}
+		\begin{example}
+			Find all roots of $z^2 = 1$, where $z \in \mathbb{C}$. 
+			\begin{proof}[Solution]
+				In polar coordinates, let $z = r (\cos \theta + i \sin \theta)$. \\
+				Thus by De Moivre's Theorem, $z^2 = r^2 (\cos (2\theta) + i \sin(2\theta))$. \\
+				And $1 = 1 (\cos(0+2k\pi) + \sin(0+2k\pi)),\ k \in \mathbb{Z}$ in polar coordinate. \\
+				Solving the equation $z^2 = 1$ gives \\
+				\[
+					\begin{cases}
+						r^2 = 1 \\
+						2\theta = 2k\pi,\ k \in \mathbb{Z}
+					\end{cases}
+				\]
+				We can conclude that $r=1$ since it represents a \emph{distance} and $r \in \R_{\geq 0}$. \\
+				\begin{itemize}
+					\item $k=0:\quad r=1,\ \theta = 0 \rightarrow 1(\cos(0) + i \sin(0)) = 1$ 
+					\item $k=1:\quad r=1,\ \theta = \pi \rightarrow 1(\cos(\pi) + i \sin(\pi)) = -1$ 
+					\item $k=2:\quad r=1,\ \theta = 2\pi \rightarrow 1(\cos(2\pi) + i \sin(2\pi)) = 1$
+				\end{itemize}
+			\end{proof}
+			From the repeating pattern we can conclude that $\forall k \in \mathbb{Z}$ \footnote{The case $k<0$ is covered by symmetry.} \[z = 1 (\cos(\pi k) + i \sin(\pi k)) = \pm 1\]
+		\end{example}
+		
+		\begin{example}
+			Find all roots of $z^n = 1$
+			\begin{proof}[Solution]
+				\begin{gather*}
+					z^n = r^n [\cos(n\theta) + i \sin(n \theta)] \\
+					1 = 1(\cos(2k\pi) + i \sin(2k\pi)) \\
+					\implies r = 1 \\
+					\land n\theta = 2 k \pi \iff \theta = k \frac{2\pi}{n} 
+				\end{gather*}
+				Consider cases 
+				\begin{itemize}
+					\item $k=0:\quad r=1,\ \theta=0$
+					\item $k=1:\quad r=1,\ \theta=\frac{2\pi}{n}$
+					\item $k=2:\quad r=1,\ \theta=2\frac{2\pi}{n}$
+					\item $k=3:\quad r=1,\ \theta=3\frac{2\pi}{n}$
+				\end{itemize}
+				Until $k=n$, we have $r=1 \land \theta=n\frac{2\pi}{n}=2\pi$, where $z|_{k=n} = z|_{k=0}$ and the root starts repeating. \\
+				There are $n$ roots in total,
+				\[
+					z = \cos(k \frac{2\pi}{n}) + \sin(k \frac{2\pi}{n}),\ k \in \{0, 1, \dots, n-1\}
+				\]
+			\end{proof}
+		\end{example}
+		\begin{example}
+			Solve $z^3 = 1$
+		\end{example}
+		\begin{example}
+			Solve $z^4 = 1$
+		\end{example}
+		\paragraph{Geometrically Interpretation} Divides the unit ball into $n$ equal slices.
+		\begin{example}
+			Solve $z^3 = 2 + 2 i$
+			\begin{proof}[Solution]
+				In polar coordinate, 
+				\[
+					2+2i = \sqrt{8} \Big(\cos(\frac{\pi}{4} + 2k\pi) + i \sin(\frac{\pi}{4} + 2k\pi) \Big)
+				\]
+				We have to solve 
+				\begin{gather*}
+					3\theta = \frac{\pi}{4} + 2k\pi,\ k \in \mathbb{Z} \\
+					\implies \theta = \frac{\pi}{12} + k \frac{2\pi}{3},\ k \in \mathbb{Z}
+				\end{gather*}
+				And clearly $r = \sqrt{2}$. And roots are fond by plugging in $k$ with $0,1,2$.
+				\[
+					\begin{cases}
+						z_1 = \sqrt{2} (\cos(\frac{\pi}{12}) + i \sin(\frac{\pi}{12})) \\
+						z_2 = \sqrt{2} (\cos(\frac{\pi}{12} + \frac{2\pi}{3}) + i \sin(\frac{\pi}{12} + \frac{2\pi}{3})) \\
+						z_3 = \sqrt{2} (\cos(\frac{\pi}{12} + \frac{4\pi}{3}) + i \sin(\frac{\pi}{12} + \frac{4\pi}{3}))
+					\end{cases}
+				\]
+			\end{proof}
+		\end{example}
 \end{document}
 
 
