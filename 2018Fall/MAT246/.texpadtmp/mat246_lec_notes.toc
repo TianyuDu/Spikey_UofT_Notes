@@ -34,3 +34,4 @@
 \contentsline {subsection}{\numberline {19.1}De Moivre's Theorem}{30}{subsection.19.1}
 \contentsline {subsection}{\numberline {19.2}Roots of Unity}{31}{subsection.19.2}
 \contentsline {paragraph}{Geometrically Interpretation}{32}{section*.3}
+\contentsline {section}{\numberline {20}Lecture 20. Oct 24 2018}{33}{section.20}

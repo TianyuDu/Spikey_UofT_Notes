@@ -1407,6 +1407,72 @@
 				\]
 			\end{proof}
 		\end{example}
+		
+	\section{Lecture 20. Oct 24 2018}
+	\begin{theorem}[The Fundamental Theorem of Algebra]
+		Every \emph{non-constant} polynomial (with complex coefficients) has a complex root.
+		i.e. for 
+		\[
+			p(z) = a_n z^n + a_{n-1} z^{n-1} + \dots + a_1 z + a_0,\quad a_i \in \mathbb{C},\ n\geq 1
+		\]
+		there exists $r \in \mathbb{C}$ such that $p(r) = 0$.
+	\end{theorem}
+	\begin{example}
+		Let $p(x) = x^3 -3x^2 - 9x + 27$, $p(x) = (x-3)^2 (x+3)$. \\
+		\textbf{Interpretation} \emph{Linear polynomials (polynomials of degree 1) are building blocks of all polynomials.}
+	\end{example}
+	
+	\begin{theorem}[Long Division]
+		Suppose $p(z)$ is a non-constant polynomial and $r \in \mathbb{C}$, there exists a polynomial $q(z) \in \mc{P}$ and $c \in \mathbb{C}$ such that
+		\[
+			p(z) = q(z)(z-r) + c
+		\]
+		where $c$ is the \emph{reminder} of long division.
+	\end{theorem}
+	
+	\begin{definition}
+		A polynomial $f(z)$ is a \textbf{factor} of another polynomial $p(z)$ if 
+		\[
+			\exists q(z) \in \mc{P},\ s.t.\ p(z) = f(z)q(z)
+		\]
+	\end{definition}
+	
+	\begin{theorem}[Factor Theorem]
+		A complex number $r$ is a root of a polynomial $p(z)$ if and only if $(z-r)$ is a factor of $p(z)$.
+	\end{theorem}
+	\begin{proof}
+		($\impliedby$) Suppose $(z-r)$ is a factor. \\
+		By definition of factor, $\exists q(z) \in \mc{P}$ such that $p(z) = q(z)(z-r)$. \\
+		Plugging in $r$ gives $p(r) = q(r)(r-r) = 0$ and suggests $r$ is a root of $p(z)$. \\
+		($\implies$) Suppose $r$ is a root of $p(z)$. \\
+		By the theorem of long division, $\exists q(z) \in \mc{P}$ and $c \in \mathbb{C}$ satisfying \\
+		$p(z) = q(z)(z-r) + c$. \\
+		Plugging in $z=r$ gives $p(r) = q(r)(r-r) + c = 0$, which implies $c=0$. \\
+		That's $p(z) = q(z)(z-r)$.
+	\end{proof}
+	
+	\begin{theorem}[Extended Fundamental Theorem of Algebra]
+		A non-zero\footnote{For zero polynomial, it has infinitely many roots.} polynomial of degree $n$ has exactly $n$ roots, counting multiplicities.
+	\end{theorem}
+	\begin{proof}
+		Let $p(z) \in \mc{P}$ with degree $n \geq 0$ and suppose $p(z)$ is non-zero. \\
+		Case 1: $n=0$, then $p(z)$ has 0 roots. \\
+		Case 2: $n \geq 1$, by the fundamental theorem of algebra, \\
+		$p(z)$ has a root $r_1 \in \mathbb{C}$. \\
+		By factor theorem, $\exists q_1(z) \in \mc{P}(\mathbb{C}),\ s.t.\ p(z) = (z-r_1)q_1(z)$. \\
+		Note that $q_1(z)$ has degree of $n-1$. \\
+		If $n-1 \geq 1$, repeating above argument and we have \\
+		$\exists r_2 \in \mathbb{C},\ \exists q_2(z) \in \mc{P}(\mathbb{C}),\ s.t.\ q_1(z) = (z-r_2)q_2(z)$. \\
+		Note that $q_2(z)$ has degree of $n-2$. \\
+		Equivalently $p(z) = (z-r_1)(z-r_2)q_2(z)$. \\
+		Iterating till $q_i(z)$ has degree 0 (i.e. constant), this will be achieved after exactly $n$ iterations. \\
+		Aggregately, we can factorize $p(z)$ into 
+		\[
+			p(z) = (z-r_1)(z-r_2)\dots(z-r_n)q_n
+		\]
+		where $q_n$ is a constant. \\
+		Obviously there are $n$ (possibly repeating) roots, namely $r_1, r_2, \dots, r_n$.
+	\end{proof}
 \end{document}
 
 
