@@ -3,7 +3,7 @@
 \contentsline {paragraph}{Direct Download}{1}{section*.3}
 \contentsline {paragraph}{Color notations}{1}{section*.4}
 \contentsline {paragraph}{Revisions}{1}{section*.5}
-\contentsline {section}{\numberline {1}Lecture 1. September 6. 2018}{3}{section.1}
+\contentsline {section}{\numberline {1}Lecture 1 September 6. 2018}{3}{section.1}
 \contentsline {paragraph}{Facts}{3}{section*.7}
 \contentsline {subsection}{\numberline {1.1}Solow Growth Model (continuous time version)}{3}{subsection.1.1}
 \contentsline {paragraph}{Intro.}{3}{section*.8}
@@ -52,3 +52,12 @@
 \contentsline {subsubsection}{\numberline {6.5.1}Dynamic of $c$}{25}{subsubsection.6.5.1}
 \contentsline {subsubsection}{\numberline {6.5.2}Dynamic of $k$}{26}{subsubsection.6.5.2}
 \contentsline {subsubsection}{\numberline {6.5.3}Initial Point Problem (Saddle Path)}{27}{subsubsection.6.5.3}
+\contentsline {section}{\numberline {7}Lecture 7 Oct. 25 2018}{27}{section.7}
+\contentsline {subsection}{\numberline {7.1}Welfare}{27}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}In the Long Run: Balanced Growth Path}{28}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Modified Golden Rule Level of Capital}{28}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Experiment: an unexpected fall in the discounted rate $\rho $.}{29}{subsection.7.4}
+\contentsline {paragraph}{Impact on $k^*$ and $c^*$}{29}{section*.23}
+\contentsline {paragraph}{Result}{29}{section*.24}
+\contentsline {subsection}{\numberline {7.5}Experiment: government purchases}{30}{subsection.7.5}
+\contentsline {paragraph}{Impact}{30}{section*.25}

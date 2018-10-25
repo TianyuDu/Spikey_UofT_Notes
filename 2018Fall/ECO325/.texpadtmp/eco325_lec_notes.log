@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  21 OCT 2018 23:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  25 OCT 2018 11:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -715,7 +715,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 28.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) <doclicense-CC-by-nc.pdf, id=138, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-nc.pdf, id=162, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 28.
@@ -751,7 +751,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 251.
 
-<figures/3_1.png, id=275, 355.3275pt x 222.8325pt>
+<figures/3_1.png, id=306, 355.3275pt x 222.8325pt>
 File: figures/3_1.png Graphic file (type png)
  <use figures/3_1.png>
 Package pdftex.def Info: figures/3_1.png used on input line 283.
@@ -760,7 +760,7 @@ Package pdftex.def Info: figures/3_1.png used on input line 283.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/3_2.png, id=277, 429.605pt x 301.125pt>
+<figures/3_2.png, id=308, 429.605pt x 301.125pt>
 File: figures/3_2.png Graphic file (type png)
  <use figures/3_2.png>
 Package pdftex.def Info: figures/3_2.png used on input line 289.
@@ -791,12 +791,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 440.
 
-<figures/3_3.png, id=340, 420.57124pt x 316.18124pt>
+<figures/3_3.png, id=370, 420.57124pt x 316.18124pt>
 File: figures/3_3.png Graphic file (type png)
  <use figures/3_3.png>
 Package pdftex.def Info: figures/3_3.png used on input line 444.
 (pdftex.def)             Requested size: 172.5pt x 129.68338pt.
- <figures/3_4.png, id=341, 451.6875pt x 724.7075pt>
+ <figures/3_4.png, id=371, 451.6875pt x 724.7075pt>
 File: figures/3_4.png Graphic file (type png)
  <use figures/3_4.png>
 Package pdftex.def Info: figures/3_4.png used on input line 445.
@@ -825,7 +825,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 669--672
 
  []
 
-<figures/4_1.png, id=405, 361.35pt x 223.83624pt>
+<figures/4_1.png, id=436, 361.35pt x 223.83624pt>
 File: figures/4_1.png Graphic file (type png)
  <use figures/4_1.png>
 Package pdftex.def Info: figures/4_1.png used on input line 682.
@@ -844,12 +844,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 978.
 
-<figures/6_1.png, id=474, 436.63126pt x 376.40625pt>
+<figures/6_1.png, id=504, 436.63126pt x 376.40625pt>
 File: figures/6_1.png Graphic file (type png)
  <use figures/6_1.png>
 Package pdftex.def Info: figures/6_1.png used on input line 995.
 (pdftex.def)             Requested size: 155.24895pt x 133.83478pt.
- <figures/6_2.png, id=475, 419.5675pt x 339.2675pt>
+ <figures/6_2.png, id=505, 419.5675pt x 339.2675pt>
 File: figures/6_2.png Graphic file (type png)
  <use figures/6_2.png>
 Package pdftex.def Info: figures/6_2.png used on input line 996.
@@ -863,40 +863,97 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 999.
 
-<figures/6_3.png, id=476, 416.55624pt x 351.3125pt>
+<figures/6_3.png, id=506, 416.55624pt x 351.3125pt>
 File: figures/6_3.png Graphic file (type png)
  <use figures/6_3.png>
 Package pdftex.def Info: figures/6_3.png used on input line 1015.
 (pdftex.def)             Requested size: 172.5pt x 145.48105pt.
- [25 <./figures/6_1.png> <./figures/6_2.png>] [26 <./figures/6_3.png>] <figures/6_4.png, id=493, 488.82625pt x 397.485pt>
+ [25 <./figures/6_1.png> <./figures/6_2.png>] [26 <./figures/6_3.png>] <figures/6_4.png, id=523, 488.82625pt x 397.485pt>
 File: figures/6_4.png Graphic file (type png)
  <use figures/6_4.png>
 Package pdftex.def Info: figures/6_4.png used on input line 1024.
 (pdftex.def)             Requested size: 172.5pt x 140.26814pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1026.
  [27 <./figures/6_4.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1026.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1085.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\rho' on input line 1085.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1085.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1086--1089
+
+ []
+
+[28] <figures/7_1.png, id=544, 798.985pt x 693.59125pt>
+File: figures/7_1.png Graphic file (type png)
+ <use figures/7_1.png>
+Package pdftex.def Info: figures/7_1.png used on input line 1101.
+(pdftex.def)             Requested size: 207.0021pt x 179.69447pt.
+ [29 <./figures/7_1.png>]
+Overfull \hbox (68.033pt too wide) in paragraph at lines 1135--1135
+[] 
+ []
+
+
+Overfull \hbox (32.48079pt too wide) in paragraph at lines 1139--1139
+[] 
+ []
+
+
+Overfull \hbox (33.11063pt too wide) in paragraph at lines 1143--1143
+[] 
+ []
+
+
+Overfull \hbox (48.63144pt too wide) in paragraph at lines 1148--1148
+[] 
+ []
+
+[30]
+Overfull \hbox (55.05516pt too wide) in paragraph at lines 1153--1153
+[] 
+ []
+
+<figures/7_2.png, id=561, 994.71625pt x 617.30624pt>
+File: figures/7_2.png Graphic file (type png)
+ <use figures/7_2.png>
+Package pdftex.def Info: figures/7_2.png used on input line 1172.
+(pdftex.def)             Requested size: 276.00105pt x 171.28096pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1181.
+[31] [32 <./figures/7_2.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1181.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1026.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1026.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1181.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1181.
 Package rerunfilecheck Info: File `eco325_lec_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1026.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1181.
  ) 
 Here is how much of TeX's memory you used:
- 9139 strings out of 493014
- 129407 string characters out of 6133351
+ 9183 strings out of 493014
+ 129936 string characters out of 6133351
  245835 words of memory out of 5000000
- 12289 multiletter control sequences out of 15000+600000
+ 12303 multiletter control sequences out of 15000+600000
  13607 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,15n,46p,921b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (27 pages, 540619 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (32 pages, 664411 bytes).
 PDF statistics:
- 633 PDF objects out of 1000 (max. 8388607)
- 552 compressed objects within 6 object streams
- 212 named destinations out of 1000 (max. 500000)
- 315 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 714 PDF objects out of 1000 (max. 8388607)
+ 623 compressed objects within 7 object streams
+ 240 named destinations out of 1000 (max. 500000)
+ 373 words of extra memory for PDF output out of 10000 (max. 10000000)
 

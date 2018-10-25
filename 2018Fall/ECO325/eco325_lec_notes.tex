@@ -43,7 +43,7 @@
     \tableofcontents
     \newpage
     
-    \section{Lecture 1. September 6. 2018}
+    \section{Lecture 1 September 6. 2018}
         \begin{definition}
             A \textbf{growth miracle} are episodes where thee growth in a country far exceeds the world average over a extended period of time. \ul{Result} the country experiencing the miracle moves up the wold income distribution.
         \end{definition}
@@ -980,7 +980,7 @@
 		\[
 			\frac{\dot{c}(t)}{c(t)} = \frac{f'(k(t)) - \rho - \theta g}{\theta}
 		\]
-		In the long run, $\dot{c}(t) = 0$. This happens if and only if 
+		In the long run, $\dot{c}(t) = 0$. This happens if and only if (note that we have $\delta=0$.)
 		\[
 			f'(k^*) = \rho + \theta g
 		\]
@@ -1018,11 +1018,166 @@
 		
 		\newpage
 		\subsubsection{Initial Point Problem (Saddle Path)}
-		\par For any given value of $k(0)$, there exists an \ul{unique} value of $c(0)$, so that one economy starts with $k(0), c(0)$ would evolve and converge to the steady state $E$. Such path of convergence is called \textbf{saddle path}.
+		\par For any given value of $k(0)$ and the budget constraint satisfied, there exists an \ul{unique} value of $c(0)$, so that one economy starts with $k(0), c(0)$ would evolve and converge to the steady state $E$. Such path of convergence is called \textbf{saddle path}.
 		\begin{figure*}[h]
 			\centering
 			\includegraphics[width=0.5\linewidth]{figures/6_4}
 		\end{figure*}
+
+
+	\section{Lecture 7 Oct. 25 2018}
+		\begin{remark}[Conditions on Phase Diagram] The phase diagram and saddle path is constructed from the following conditions,
+			\begin{enumerate}
+				\item Euler equation of $c$. 
+				\item Dynamic transition of $k$.
+				\item Life time budget constraint.
+				\item $(c,k) \in \R_{\geq 0}^2$
+			\end{enumerate}
+		\end{remark}
+		
+		\subsection{Welfare}
+			\par The \emph{First Welfare Theorem} says if 
+			\begin{enumerate}
+				\item markets are complete,
+				\item and competitive,
+				\item No externality
+			\end{enumerate} then the \ul{decentralized equilibrium} is \emph{Pareto efficient} if the number of agents is finite. So it's impossible to make anyone better off without making someone worse off.
+		
+		\subsection{In the Long Run: Balanced Growth Path}
+			\par At steady state, (i.e. $\dot{c}=\dot{k}=0$) we have an economy that behaves in an identical way to one in the Solow model. \\
+			\textbf{Per unit of effective labor: } 
+			\begin{itemize}
+				\item $\dot{k}=0\implies$: $k$ constant.
+				\item $\dot{c}=0\implies$: $c$ constant.
+				\item $\dot{y}(k)=0$: $y$ is constant, since $k$ is constant.
+				\item $i^* = y^* - c^*$ investment per unit of effective labor also constant.
+				\item $s = \frac{y-c}{y}$ is constant.
+			\end{itemize}
+			And for \textbf{per capita} variable, they are growing at a constant rate $g$.
+			
+			\begin{example}
+				\begin{gather*}
+					\pd{\ln(\frac{K(t)}{L(t)})}{t} = \pd{\ln(k^*A(t))}{t} \\
+					= \pd{\ln(k^*) + \ln(A(t))}{t} = \frac{\dot{A(t)}}{A(t)} = g
+				\end{gather*}
+			\end{example}
+			The \textbf{aggregate} variable are growing at a constant rate of $n+g$.
+			
+		\subsection{Modified Golden Rule Level of Capital}
+			\par The main difference between Ramsey and Solow model is that $k^*$ cannot exceed $k_G$ in Ramsey model.
+			\begin{proof}
+				Consider the definition of $k_G$, 
+				\[
+					f'(k_G) = n + g
+				\]
+				and for $k^*$,
+				\[
+					f'(k^*) = \rho + \theta g
+				\]
+				And take the difference 
+				\[
+					f'(k^*) - f'(k_G) = \beta > 0 \implies f'(k^*) > f'(k_G)
+				\]
+				Thus $k^* < k_G$.
+			\end{proof}
+			And $k^*$ is called the \textbf{modified golden rule level of capital}. \emph{It's the optimal but not the best}.
+		
+		\subsection{Experiment: an unexpected fall in the discounted rate $\rho$.}
+			\par Suppose the change in unexpected \footnote{If a change is expected, households may alter their behaviuor before the change occurs.} \\
+			Since $\dot{k}(t) = f(k(t)) - c(t) - (n+g)k(t)$. There's no impact on $\dot{k}=0$. \\
+			But there would be impact on $\dot{c} = 0$ curve. \\
+			\paragraph{Impact on $k^*$ and $c^*$}
+			\begin{proof}
+				Let $\rho_0 > \rho_1$.
+				\begin{gather*}
+					f'(k^*_0) = \rho_0 + \theta g \land f'(k^*_1) = \rho_1 + \theta g \\
+					\implies f'(k^*_0) > f'(k^*_1) \\
+					\because \rho_0 > \rho_1 \land f''(\cdot)<0 \\
+					\implies k^*_1 > k^*_0
+				\end{gather*}
+			\end{proof}
+			\begin{figure*}[h]
+				\centering
+				\includegraphics[width=0.6\linewidth]{figures/7_1}
+			\end{figure*}
+			\paragraph{Result}Both $k^*$ and $c^*$ are going up since $k^*_0 < k_G$.\\
+			At the time of shock, the economy moves from $E$ to $A$. i.e. $k$ remains $k^*_0$ and $c$ falls. From that moment, the economy will move along the new saddle path to the new balanced path growth in the long run.
+			And in the long run, the economy will settle at point $E_1$. While we are moving from $A$ to $E_1$ we have $\dot{c}, \dot{k} > 0$.		
+		
+		\subsection{Experiment: government purchases}
+			\begin{assumption}
+				Assume the government buys output at a rate of $G(t)$ per unit of effective labor. \\
+				For the base case we will assume that the government expenditures do not affect the utility from private consumption at all. 
+				\begin{enumerate}
+				\item This can occur if the government devotes the expenditure to an activity we(consumers) don't care about, 
+				\item or the utility in a period equals utility from private consumption plus utility from government purchased good.
+				\end{enumerate}
+				The government denotes expenditure to public consumption rather than public investment. \\
+				We will find government purchases with \ul{lump-sum} taxes and the government runs a \ul{balanced budget}.
+			\end{assumption}
+			\paragraph{Impact}Thus, there's no impact on the $\dot{c} = 0$ curve since the household problem still gives us $\frac{\dot{c}}{c} = \frac{f'(k)-\rho-\theta g}{\theta}$. \\
+			However, there is a change in the $\dot{k}=0$ curve, because 
+			\[
+				\dot{k}(t) = y(t) - c(t) - (n+g)k(t) - G(t)
+			\]
+			To see there is not effect on $\dot{c}=0$ curve, we need to look at the household's problem. \\
+			Let's assume that the Household does not care about $G(t)$. So
+			\[
+				U = B\int_{t=0}^\infty e^{-\beta t} \frac{c^{1-\theta}}{1-\theta}\ dt
+			\]
+			And the change comes in the \emph{budget constraint}. Here when we found government expenditure period by period with lump-sum taxes, the government sets tax equal expenses. (Since no government saving)
+			\[
+				T(t)A(t)L(t) = G(t)A(t)L(t)
+			\]
+			The Household's budget constraint then becomes 
+			\begin{gather*}
+				\int_{t=0}^\infty e^{-R(t)} c(t)\frac{A(t)L(t)}{H}\ dt + \int_{t=0}^\infty e^{-R(t)} T(t) \frac{A(t)L(t)}{H}\ dt \leq \frac{K(0)}{H} + \int_{t=0}^\infty e^{-R(t)} w(t) \frac{A(t)L(t)}{H}\ dt
+			\end{gather*}
+			Effectively two means that in terms of the per unit of effective labor variable we got 
+			\begin{gather*}
+				\int_{t=0}^\infty e^{-R(t)} c(t) e^{(n+g)t}\ dt + \int_{t=0}^\infty e^{-R(t)} T(t) e^{(n+g)t}\ dt \leq k(0) + \int_{t=0}^\infty e^{-R(t)} w(t) e^{(n+g)t} \ dt
+			\end{gather*}
+			Given $G(t) = T(t),\ \forall t$, equivalently
+			\begin{gather*}
+				\int_{t=0}^\infty e^{-R(t)} c(t) e^{(n+g)t}\ dt + \int_{t=0}^\infty e^{-R(t)} G(t) e^{(n+g)t}\ dt \leq k(0) + \int_{t=0}^\infty e^{-R(t)} w(t) e^{(n+g)t} \ dt
+			\end{gather*}
+			This means the household's problem can be written as 
+			\begin{gather*}
+				\max_{\{c(t)\}} B\int_{t=0}^\infty e^{-\beta t} \frac{c^{1-\theta}}{1-\theta}\ dt \\
+				s.t. \int_{t=0}^\infty e^{-R(t)} c(t) e^{(n+g)t}\ dt + \int_{t=0}^\infty e^{-R(t)} G(t) e^{(n+g)t}\ dt \leq k(0) + \int_{t=0}^\infty e^{-R(t)} w(t) e^{(n+g)t} \ dt
+			\end{gather*}
+			And the Lagrangian becomes
+			\begin{gather*}
+				\mc{L} = B \int_{t=0}^\infty e^{-\beta t} \frac{c^{1-\theta}}{1-\theta}\ dt \\
+				+ \lambda \Big[ k(0) + \int_{t=0}^\infty e^{-R(t)} w(t) e^{(n+g)t} \ dt - \int_{t=0}^\infty e^{-R(t)} c(t) e^{(n+g)t}\ dt + \int_{t=0}^\infty e^{-R(t)} G(t) e^{(n+g)t}\ dt\Big]
+			\end{gather*}
+			By solving for the first order condition w.r.t. $c(t)$ we have 
+			\[
+				\pd{\mc{L}}{c(t)} = B e^{\beta t} c^{-\theta} - \lambda e^{-R(t)} e^{(n+g)t} = 0
+			\]
+			Since the changing in $G$ does not impact the firms problem we still have $r(t) = f'(k(t))$. \\
+			So at equilibrium we still have 
+			\[
+				\frac{\dot{c}(t)}{c(t)} = \frac{f'(k(t)) - \rho - \theta g}{\theta}
+			\]
+			Consider a shock that \emph{permanently} increases $G(t)$ from $G(t) = G_L \forall t$ to $G(t) = G_H \forall t$, where $G_L < G_H$. \\
+			Since $\frac{\dot{c}(t)}{c(t)}$ does not depends on $G$ so there's no change in $\dot{c}=0$ curve. \\
+			But for $\dot{k}=0$ curve is affected as
+			\begin{gather*}
+				\dot{k}_{old} = 0 \iff 0 = f(k(t)) - c(t) - (n+g)k(t) - G_L \\ 
+				\dot{k}_{new} = 0 \iff 0 = f(k(t)) - c(t) - (n+g)k(t) - G_H
+			\end{gather*}
+			\begin{figure*}[h]
+				\centering
+				\includegraphics[width=0.8\linewidth]{figures/7_2}
+			\end{figure*}
+			The $\dot{k}=0$ curve drops down by $\Delta G = G_H - G_L$. \\
+			\textcolor{red}{The $c^*$ falls by $\Delta G$ but $k^*$ does not change.} \\
+			Optimally, at the time of the shock, the economy jumps from point $E$ (before) to point $E_1$. We move \ul{immediately} from one steady state to the other. (No smoothing could be done here) \\
+			Since there's no change in $k^*$, there's no change in the rate of return on capital ($f'(k(t)))$).
+			\begin{remark}
+				For \ul{temporary} changes, where would be smoothing.
+			\end{remark}
 \end{document}
 
 
