@@ -1,0 +1,54 @@
+\documentclass{article}
+\author{Tianyu Du}
+\date{\today}
+\title{MAT246 Concepts in Abstract Mathematics \\ \small Midterm Theorem Checklist}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{spikey}
+\usepackage{soul}
+
+\begin{document}
+	\maketitle
+	\section{Chapter 1}
+	\begin{lemma}[1.1.1]
+		Every natural numbers \ul{greater than 1} has a prime divisor.
+		\begin{proof}
+			Iteratively factorize $n$.
+		\end{proof}
+	\end{lemma}
+	
+	\begin{theorem}[1.1.2]
+		There's no largest prime.
+		\begin{proof}
+			(Contradiction) Let $p_n$ be the largest prime and consider \[M=p_1 p_2 \dots p_n + 1\]
+		\end{proof}
+	\end{theorem}
+	
+	\section{Chapter 2}
+	\begin{theorem}[2.1.1 PMI] $S \subset \mathbb{N}$ and 
+	\begin{enumerate}
+		\item $1 \in S$.
+		\item $k \in S \implies k+1 \in S,\ \forall k \in \mathbb{N}$.
+	\end{enumerate}
+	then $S = \mathbb{N}$.
+		\begin{proof}
+			(WOP and Contradiction) \\
+			Let $T = S^c$ and show that $T = \emptyset$.
+		\end{proof}
+	\end{theorem}
+	
+	\begin{theorem}[2.1.2 WOP]
+		$T \subset \mathbb{N} \land T \neq \emptyset \implies \exists \min\{T\}$
+		\begin{proof}
+			(Contradiction) \\
+			Let $T \neq \emptyset$, $t = \min\{T\}$. \\
+			Then $t-1 \notin T \implies t-1 \in S \implies t-1+1 = t \in S$.
+		\end{proof}
+	\end{theorem}
+	
+	\begin{theorem}
+		
+	\end{theorem}
+	
+\end{document}
