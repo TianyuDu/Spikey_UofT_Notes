@@ -416,9 +416,9 @@
     	\]
     	\paragraph{Test statistic}
     	\begin{gather*}
-    		F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-k-1)} \\
+    		F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-k-1)} \sim F_{(q, n-k-1)} \\
     		\tx{or} \\
-    		F' = \frac{(R^2_{ur} - R^2_r)/q}{(1-R^2_{ur})/(n-k-1)}
+    		F' = \frac{(R^2_{ur} - R^2_r)/q}{(1-R^2_{ur})/(n-k-1)} \sim F_{(q, n-k-1)}
     	\end{gather*}
     	
     	\subsection{Full F-test for the significance of the model}
@@ -429,6 +429,121 @@
     	\begin{remark}
     		$R^2$ version only and substitute $R^2_{r} = 0$, since $SSR_{r}$ is undefined.
     	\end{remark}
+    	\paragraph{Test statistic}
+    	\[
+    		F = \frac{R^2_{ur}/k}{(1-R^2_{ur})/(n-k-1)} \sim F_{(k, n-k-1)}
+    	\]
+    	
+    	\subsection{F-test for general restrictions}
+    	\begin{remark}
+    		Use the $SSR$ version of $Fstatistic$ only since the $SST$ for restricted and unrestricted models are different.
+    	\end{remark}
+    	\begin{remark}
+    		We only reject or failed to reject $H_0$, we never accept $H_0$ in a hypothesis test.
+    	\end{remark}
+    	
+    \section{Slides 9}
+    	\subsection{Data Scaling}
+    		\subsubsection{Mutiplier}
+    		\begin{enumerate}
+    			\item Enlarge $x_j$ by factor $a$: $\hat{\beta}_j$ shrinks by $a$.
+    			\item Enlarge $y$ by factor $a$: \textbf{all} $\hat{\beta}_i$ enlarged by $a$.
+    			\item \textcolor{red}{Test statistic $t = \frac{\hat{\beta}}{s.e.(\hat{\beta})} = \frac{a\hat{\beta}}{s.e.(a \hat{\beta})}$ is unaffected.}
+    		\end{enumerate}
+    	
+    		\subsubsection{Standardization}
+    			\paragraph{Standardized variable} For $j^{th}$ observation of explanatory variable $x$, 
+    				\[
+    					z_j = \frac{x_j - \overline{x}}{\sigma_{x}}
+    				\]
+    				which satisfies
+    				\[
+    					\expect{z_j} = 0,\ Var(z_j) = 1
+    				\]
+    			\paragraph{Properties} Consider model and find the estimator of regressing standardized $y$ on standardized $x$.
+    				\[
+    					y_i = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \dots + \hat{\beta}_k x_{ik} + \hat{u}_i
+    				\]
+    				Since OLS estimator passes through the mean,
+    				\begin{gather*}
+    					\overline{y} = \hat{\beta}_0 + \hat{\beta}_1 \overline{x}_1 + \dots \hat{\beta}_k \overline{x}_k \\
+    					\implies (y_i - \overline{y}) = \hat{\beta}_1 (x_{i1} - \overline{x}_1) + \dots + \hat{\beta}_k (x_{ik} - \overline{x}_k) + \hat{u}_i \\
+    					\implies \frac{y_i - \overline{y}}{\sigma_y} = 
+    					\frac{\hat{\beta}_1 \sigma_{x_1}}{\sigma_y} \frac{x_{i1} - \overline{x}_1}{\sigma_{x_1}} + \dots + 
+    					\frac{\hat{\beta}_k \sigma_{x_k}}{\sigma_y} \frac{x_{ik} - \overline{x}_k}{\sigma_{x_k}} + \frac{\hat{u}_i}{\sigma_y} \\
+    					\implies b_j = \frac{\hat{\beta}_j \sigma_{x_j}}{\sigma_y}
+    				\end{gather*}
+    			\begin{remark}[Interpretation]
+    				$x_j$ increases by 1 \textbf{std}, y increases by $b_j = \frac{\hat{\beta}_j \sigma_{x_j}}{\sigma_y}$ \textbf{std}, \emph{ceteris paribus}.
+    			\end{remark}
+    	\subsection{Logarithmic Function}
+    		\par \textbf{Exact} interpretation of log transformation.
+    			\[
+    				\ln(y_i) = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \dots \hat{\beta}_k x_{ik} + \hat{u}_i
+    			\]
+    			\begin{proof}[Derive]
+	    			\begin{gather*}
+	    				\ln(y_2) - \ln(y_1) = \hat{\beta}_j \Delta x_j \\
+	    				\implies \ln(\frac{y_2}{y_1}) = \hat{\beta}_j \Delta x_j \\
+	    				\implies \frac{y_2}{y_1} = exp(\hat{\beta}_j \Delta x_j) \\
+	    				\implies \frac{y_2 - y_1}{y_1} 
+	    				= \frac{y_2}{y_1} - 1 \\
+	    				\implies \%\Delta y= exp(\hat{\beta}_j \Delta x_j) - 1
+	    			\end{gather*}
+    			\end{proof}
+    	\subsection{Quadratics and Polynomials}
+    		\paragraph{Model}
+    			\[
+    				y_i = \sum_{p=0}^k {\beta_p x_{i}^p} + u_i
+    			\]
+    		\begin{remark}
+    			Consider the \textbf{interpretation} and \textbf{turning points}.
+    		\end{remark}
+    	\subsection{Interaction Effects}
+    		\par Consider model
+    		\[
+    			y = \beta_0 + \beta_1 x + \beta_2 z + \beta_3 xz + u
+    		\]
+    		then 
+    		\[
+    			\pd{y}{x} = \beta_1 + \beta_3 z
+    		\]
+    		\begin{enumerate}
+    			\item The effects of change of $x$ on $y$ depends on $z$.
+    			\item Interpretation: \emph{evaluate} $\pd{y}{x}$ at a $z$ point that we are interested in.
+    			\item Use \emph{conventional testing} (t-test) to check if interaction term is significant.
+    		\end{enumerate}
+    	\subsection{Regression Selection and Adjusted R-square}
+    		\par The adjusted R-square, $\overline{R^2}$, incorporates a \emph{penalty} for including more regressors (if insignificant).
+    		\[
+    			\overline{R^2} = 1 - \frac{(1-R^2)(n-1)}{n-k-1}
+    		\]
+    		\begin{remark}
+    			$\overline{R^2}$ increases when adding new regressor(or a group of regressors) if and only if the $t$ value ($F$) for the individual regression(group of regressors) is more than 1.
+    		\end{remark}
+    	
+    	\subsection{Causal Mechanism}
+    	
+    	\subsection{Confidence Interval for Prediction}
+    		\par Consider a prediction 
+    		\[
+    			\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x_1 + \hat{\beta}_2 x_2 + \dots \hat{\beta}_k x_k
+    		\]
+    		Evaluate at an arbitrary data point (not necessarily an observation in sample)
+    		\[
+    			\textbf{c} = (c_1, c_2, \dots ,c_k)
+    		\]
+    		Then the estimation of $y$ at \textbf{c} is 
+    		\begin{gather*}
+    			\theta_0 = \expect{y|x_1=c_1, x_2=c_2, \dots x_k=c_k} \\
+    			= \beta_0 + \beta_1 c_1 + \beta_2 c_2 + \dots + \beta_k c_k \\
+    			\implies \beta_0 = \theta_0 - \beta_1 c_1 - \beta_2 c_2 - \dots - \beta_k c_k
+    		\end{gather*}
+    		substitute back into the model
+    		\[
+    			y = \theta_0 + \beta_1 (x_1 - c_1) + \beta_2 (x_2 - c_2) + \dots + \beta_k x_k + u
+    		\]
+    		And the confidence interval of prediction of $y$ at \textbf{c} can be found by inspecting the \ul{intercept} on above regression.
 \end{document}
 
 
