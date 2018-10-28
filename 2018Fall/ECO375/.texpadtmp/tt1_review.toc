@@ -1,0 +1,19 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Slide 4: Simple \& Multiple Regression - Estimation}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Regression Model}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}OLS}{2}{subsection.1.2}
+\contentsline {paragraph}{Benefits of MLR compared with SLR}{3}{section*.2}
+\contentsline {subsection}{\numberline {1.3}Partialling Out}{3}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Steps}{3}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Interpretation}{3}{subsubsection.1.3.2}
+\contentsline {subsection}{\numberline {1.4}Omitted Variable Bias}{4}{subsection.1.4}
+\contentsline {paragraph}{Conclusion}{4}{section*.3}
+\contentsline {section}{\numberline {2}Matrix Differentiation*}{5}{section.2}
+\contentsline {section}{\numberline {3}Multiple Regression in Matrices}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}The Model}{5}{subsection.3.1}
+\contentsline {paragraph}{Predictor}{5}{section*.4}
+\contentsline {paragraph}{Model}{5}{section*.5}
+\contentsline {paragraph}{First order condition for OLS}{5}{section*.6}
+\contentsline {paragraph}{Estimator}{5}{section*.7}
+\contentsline {subsection}{\numberline {3.2}Assumptions (MLRs) in Matrix Form}{6}{subsection.3.2}
+\contentsline {paragraph}{}{6}{section*.8}

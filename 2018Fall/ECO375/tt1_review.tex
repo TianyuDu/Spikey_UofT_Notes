@@ -62,7 +62,7 @@
 	    \begin{itemize}
 	        \item $\ln{y} = \alpha + \beta \ln{y} + u$: \ul{$x$ increases by $1\%$, $y$ increases by $\beta \%$}.
 	        \item $\ln{y} = \alpha + \beta x + u$: \ul{$x$ increases by 1 unit, $y$ increases by $100 \beta \%$}.
-	        \item $y = \alpah + \beta \ln{x} + u$: \ul{$x$ increases by $1\%$, $y$ increases by $0.01\beta$ unit.}
+	        \item $y = \alpha + \beta \ln{x} + u$: \ul{$x$ increases by $1\%$, $y$ increases by $0.01\beta$ unit.}
 	    \end{itemize}
 	\end{proposition}
 	
@@ -121,7 +121,7 @@
         \begin{enumerate}
             \item (MLR1) The model is \ul{linear} in parameters. 
             \item (MLR2) \ul{Random sample} from population $\{(x_{1i}, \dots x_{ki}, y_i\}_{i=1}^n$.
-            \item (MLR3) No \perfect \ul{multicollinearity}.
+            \item (MLR3) No perfect \ul{multicollinearity}.
             \item (MLR4) \ul{Zero expected error} conditional on population slice given by $X$.
             \[
                 \mathbb{E}(u|X) = \mathbb{E}(u|x_1, x_2, \dots, x_k) = 0
@@ -161,5 +161,171 @@
         \mathbb{E}(\tilde{\beta}_1 | X) = \beta_1 + \tilde{\delta}_1 \beta_k \\
         Bias(\tilde{\beta}_1) = \tilde{\delta}_1 \beta_k
     \end{gather*}
-    And notice the sign of bias depends on $cov(x_1, x_k)$ and $\beta_k$.
+    \paragraph{Conclusion} the sign of bias depends on $cov(x_1, x_k)$ and $\beta_k$.
+    
+    \begin{proof}
+    	\textcolor{red}{TODO}
+    \end{proof}
+    
+    \section{Matrix Differentiation*}
+    	\begin{equation}
+    		\textbf{y} = \textbf{A} \textbf{x} \implies \pd{\textbf{y}}{\textbf{x}} = \textbf{A}
+    	\end{equation}
+    	Let $\alpha = \textbf{y}' \textbf{A} \textbf{x}$, notice that $\alpha \in \R$, then 
+    	\begin{gather}
+    		\pd{\alpha}{\textbf{x}} = \textbf{y}' \textbf{A} \\
+    		\pd{	\alpha}{\textbf{y}} = \textbf{x}' \textbf{A}'
+    	\end{gather}
+    	Consider special case $\alpha = \textbf{x}' \textbf{A} \textbf{x}$, then 
+    	\begin{equation}
+    		\pd{\alpha}{\textbf{x}} = \textbf{x}' \textbf{A} + \textbf{x}' \textbf{A}'
+    	\end{equation}
+    	and if $\textbf{A}$ is symmetric, 
+    	\begin{equation}
+    		\pd{\alpha}{\textbf{x}} = 2 \textbf{x}' \textbf{A}
+    	\end{equation}
+    
+    \section{Multiple Regression in Matrices}
+    	\subsection{The Model}
+    		\paragraph{Predictor}
+    			\[
+    				\textbf{X} \in \mathbb{M}_{n \times (k+1)}(\R)
+    			\]
+    			where $n$ is the number of observations and $k$ is the number of features.
+    			\[
+    				\textbf{X} = \begin{bmatrix}
+    					1 & x_{11} & \dots & x_{1k} \\
+    					1 & x_{21} & \dots & x_{2k} \\
+    					\vdots \\
+    					1 & x_{n1} & \dots & x_{nk} \\
+    				\end{bmatrix}_{n \times (k+1)}
+    			\]
+    		\paragraph{Model}
+    			\[
+    				\textbf{y} = \textbf{X} \vec{\beta} + \textbf{u}
+    			\]
+    		\paragraph{First order condition for OLS}
+    			\begin{gather*}
+    				\textbf{X}' \hat{u} = \textbf{0} \in \R^{k+1} \\
+    				\iff \textbf{X}' (\textbf{y} - \textbf{X} \hat{\beta}) = \textbf{0} \in \R^{k+1}
+    			\end{gather*}
+    		\paragraph{Estimator}	
+    			\[
+    				\hat{\beta} = (\textbf{X}' \textbf{X})^{-1} \textbf{X}' \textbf{y}
+    			\]
+    			\begin{proof}
+    				From the first order condition for the OLS estimator
+    				\begin{gather*}
+    					\textbf{X}' (\textbf{y} - \textbf{X} \hat{\beta}) = \textbf{0} \\
+    					\implies \textbf{X}' \textbf{y} - \textbf{X}' \textbf{X} \hat{\beta} = \textbf{0} \\
+    					\implies \textbf{X}' \textbf{y} = \textbf{X}' \textbf{X} \hat{\beta} \\
+    					\implies \hat{\beta} = (\textbf{X}' \textbf{X})^{-1} \textbf{X}' \textbf{y}
+    				\end{gather*}
+    				and note that $(\textbf{X}' \textbf{X})$ is guaranteed to be invertible by assumption \emph{no perfect multi-collinearity}.
+    			\end{proof}
+    		\paragraph{Sum Squared Residual}
+    		\[
+    			SSR(\hat{\beta}) = \hat{u}' \cdot \hat{u} = (\textbf{y} - \textbf{X} \hat{\beta})' \cdot (\textbf{y} - \textbf{X} \hat{\beta})
+    		\]
+    		
+    		\subsection{Variance Matrix}
+    			\par Consider 
+    			\begin{gather*}
+    				\vec{z}_t = [z_{1t}, z_{2t}, \dots z_{nt}]' \\
+    				\vec{z}_s = [z_{1s}, z_{2s}, \dots z_{ns}]'
+    			\end{gather*}
+    			Notice that the variance and covariance are defined as
+    			\begin{gather*}
+    				Var(\vec{z}_t) = \expect{(\vec{z}_t - \expect{\vec{z}_t})^2} \\
+    				Cov(\vec{z}_t, \vec{z}_s) = \expect{(\vec{z}_t - \expect{\vec{z}_t})(\vec{z}_s - \expect{\vec{z}_s})}
+    			\end{gather*}
+    			The \textbf{variance matrix} of $\textbf{z} = [z_1, z_2, \dots, z_n]$ is given by
+    			\begin{gather*}
+    				Var(\textbf{z}) = \begin{bmatrix}
+    					Var(z_1) & Cov(z_1, z_2) & \dots & Cov(z_1, z_n) \\
+    					Cov(z_2, z_1) & \dots \\
+    					\vdots \\
+    					Cov(z_n, z_1) & \dots & \dots & Var(z_n) \\
+    				\end{bmatrix} \\
+    				= 
+    				\begin{bmatrix}
+    					\expect{(z_1 - \overline{z}_1)^2} & \expect{(z_1 - \overline{z}_1)(z_2 - \overline{z}_2)} & \dots \\
+    					\expect{(z_2 - \overline{z}_2)(z_1 - \overline{z}_1)} & \dots \\
+    					\vdots \\
+    					\expect{(z_n - \overline{z}_n)(z_1 - \overline{z}_1)} & \dots & \expect{(z_n - \overline{z}_n)^2} \\
+    				\end{bmatrix} \\
+    				= \textcolor{red}{
+    				\expect{(\textbf{z} - \expect{\textbf{z}})_{n \times 1} \cdot (\textbf{z} - \expect{\textbf{z}})'_{1 \times n}} \in \mathbb{M}_{n \times n}
+    				}
+    			\end{gather*}
+    			In the special case $\expect{\vec{z}} = \vec{0}$, variance is reduced to
+    			\[
+    				\textcolor{red}{
+    					Var(\textbf{z}) = \expect{\textbf{z} \cdot \textbf{z}'}
+    				}
+    			\]
+    			\paragraph{Residual} Since residual $u_i$ are \emph{i.i.d} with variance $\sigma^2$, the variance matrix of $\textbf{u}$ is
+    			\[\textcolor{red}{
+    				Var(\textbf{u}) = \expect{\textbf{u} \cdot \textbf{u}'} = \sigma^2 \textbf{I}_n
+    			}\]
+    			
+    			\paragraph{Estimator} If $\hat{\beta}$ is unbiased, $\expect{\hat{\beta} | \textbf{X}} = \vec{\beta}$, then 
+    			\[\textcolor{red}{
+    				Var(\hat{\beta}|\textbf{X}) = \expect{(\hat{\beta} - \vec{\beta})\cdot(\hat{\beta} - \vec{\beta})' | \textbf{X}} \in \mathbb{M}_{(k+1) \times (k+1)}
+    			}\]
+    \section{Slide 7}
+    	\subsection{Assumptions (MLRs) in Matrix Form}
+    		\paragraph{E.1.} \emph{linear in parameter}
+    		\[
+    			\textbf{y} = \textbf{X}\vec{\beta} + \textbf{u}
+    		\]
+    		\paragraph{E.2.} \emph{no perfect multi-collinearity}
+    		\[
+    			rank(\textbf{X}) = k +1
+    		\]
+    		\paragraph{E.3.} Error has expected value of \textbf{0} conditional on \textbf{X}.
+    		\[
+    			\expect{\textbf{u}|\textbf{X}} = \textbf{0}
+    		\]
+    		\paragraph{E.4.} Error \textbf{u} is \emph{homoscedastic}.
+    		\[
+    			Var(\textbf{u}|\textbf{X}) = \sigma^2 \textbf{I}_n
+    		\]
+    		\paragraph{E.5.} \emph{Normally distributed} error \textbf{u}.
+    		\[
+    			\textbf{u} \sim \mc{N}(\textbf{0}, \sigma^2 \textbf{I}_n)
+    		\]
+    	
+    	\begin{theorem}
+    		
+    	\end{theorem}
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
