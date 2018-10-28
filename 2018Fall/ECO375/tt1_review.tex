@@ -543,7 +543,85 @@
     		\[
     			y = \theta_0 + \beta_1 (x_1 - c_1) + \beta_2 (x_2 - c_2) + \dots + \beta_k x_k + u
     		\]
-    		And the confidence interval of prediction of $y$ at \textbf{c} can be found by inspecting the \ul{intercept} on above regression.
+    		And the \ul{margin of error} of confidence interval of prediction of $y$ at \textbf{c} can be found by inspecting the \ul{intercept} on above regression.
+    		\[
+    			ME = t_{\frac{\alpha}{2}} \times s.e. (intercept)
+    		\]
+      		The \ul{center} of confidence interval can be found from 
+    		\[
+    			\hat{\theta}_0 = \hat{\beta}_0 + \hat{\beta}_1 c_1 + \dots + \hat{\beta}_k x_k
+      		\]
+      		The $\alpha$ confidence interval is given by
+      		\[
+      			\hat{\theta}_0 \pm ME
+      		\]
+      		
+	\section{Slides 10: Multiple Regression: Qualitative Information}
+		\subsection{Binary predictors}
+			\begin{remark}
+				With binary independent variables, $MLR.1 \sim MLR.6$ still holds, but the interpretations are different.
+			\end{remark}
+			
+			\subsubsection{On Intercept}
+			\[
+				y = \delta_0 + \delta_1 male + \dots + u
+			\]
+			\begin{remark}
+				To avoid perfect multi-collinearity, never include all categories.
+			\end{remark}
+			
+			\subsubsection{On Slopes}
+			\[
+				y = \delta_0 + (\delta_1 + \delta_2 male)\times education + \dots + u
+			\]
+			
+			\subsubsection{F-test(Chow test)}
+			\par Test whether the \ul{true coefficients} in 2 linear regression models (e.g. for different gender groups) are equal. 
+			\begin{enumerate}
+				\item Restricted model ($SSR_r$) \[y = \beta_0 + \beta_1 x + u \]
+				\item Unrestricted model ($SSR_{ur}$) \[y = (\beta_0 + \delta_0 indicator) + (\beta_1 + \delta_1 indicator) x + u\]
+				\item Test whether the additional factors in coefficients ($\delta_0, \delta_1$) are significant. ($q=2$ in this case)
+				\[
+					F = \frac{(SSR_{r} - SSR_{ur})/q}{SSR_{ur}/(n-k-1)}
+				\]
+			\end{enumerate}
+		\subsection{Linear Probability Model}
+			\emph{Qualitative binary dependent variable}
+			\[
+				y = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k + u,\ y \in \{0, 1\}
+			\]
+			\paragraph{Interpretation} the model above predicts the probability of $y=1$.
+				\begin{proof}
+					\begin{gather*}
+						\expect{y|\textbf{x}} = 0 \times Pr(y=0|\textbf{x}) + 1 \times Pr(y=1|\textbf{x}) \\
+						= Pr(y=1|\textbf{x})
+					\end{gather*}
+				\end{proof}
+			\begin{remark}
+				$\beta_j = \pd{P(\textbf{x})}{x_j}$ is the \textbf{response probability}, and $\hat{P}(\textbf{x})$ is the \textbf{predicted probability} of $y$ to be 1.
+			\end{remark}
+			\begin{remark}[Out-of-range predictions]
+				Notice the prediction is not necessarily with the range of $[0,1]$ for some extreme values of \textbf{x}.
+			\end{remark}
+		\subsection{Heterskedasticity}
+			\begin{remark}
+				For probability linear models, $MLR.5$(homoskedasticity) fails.
+			\end{remark}
+			\begin{proof}
+				\begin{gather*}
+					y_i = \beta_0 + \beta_1 x_{i1} + \dots \beta_k x_{ik} + u_i \\
+					\tx{For binary $y$} \\
+					\textcolor{red}{
+						Var(u) = Var(y) = Pr(y=1) (1-Pr(y=1))
+					} \\
+					Var(u|\textbf{x}) = Var(y - \beta_0 - \beta_1 x_1 - \beta_2 x_2 - \dots - \beta_k x_k | \textbf{x}) \\
+					= Var(y | \textbf{x}) \\
+					= Pr(y=1|\textbf{x}) (1-Pr(y=1|\textbf{x})) \\
+					= \expect{y | \textbf{x}} (1 - \expect{y | \textbf{x}}) \\
+					= (\beta_0 + \beta_1 x_1 + \dots + \beta_k x_k) (1 - \beta_0 - \beta_1 x_1 - \dots - \beta_k x_k) \\
+					\neq \sigma_u^2
+				\end{gather*}
+			\end{proof}
 \end{document}
 
 
