@@ -291,14 +291,144 @@
     		\[
     			Var(\textbf{u}|\textbf{X}) = \sigma^2 \textbf{I}_n
     		\]
-    		\paragraph{E.5.} \emph{Normally distributed} error \textbf{u}.
+    		\paragraph{E.5.} \emph{Normally distributed} error \textbf{u}. Note that this assumption is relatively strong.
     		\[
     			\textbf{u} \sim \mc{N}(\textbf{0}, \sigma^2 \textbf{I}_n)
     		\]
-    	
+    	\subsection{Properties of OLS Estimator}
     	\begin{theorem}
-    		
+    		Given \emph{E.1. E.2. E.3.}, the OLS estimator $\hat{\beta}$ is an unbiased estimator for $\vec{\beta}$.
+    		\[
+    			\expect{\hat{\beta}|\textbf{X}} = \vec{\beta}
+    		\]
     	\end{theorem}
+    	\begin{proof}
+    		\begin{gather*}
+    			\hat{\beta} = (\textbf{X}'\textbf{X})^{-1} \textbf{X}' \textbf{y} \\
+    			= (\textbf{X}'\textbf{X})^{-1} \textbf{X}' (\textbf{X}\vec{\beta} + \textbf{u}) \\
+    			= \vec{\beta} + (\textbf{X}'\textbf{X})^{-1} \textbf{X}' \textbf{u} \\
+    			\tx{Taking expectation conditional on \textbf{X} on both sides, }\\
+    			\expect{\hat{\beta}|\textbf{X}} = \vec{\beta} + (\textbf{X}'\textbf{X})^{-1} \textbf{X}' \textbf{0} 
+    			= \vec{\beta}
+    		\end{gather*}
+    	\end{proof}
+    	
+    	\begin{lemma}
+    		Suppose $\textbf{A} \in \mathbb{M}_{m\times n}$ and $\textbf{z} \in \mathbb{M}_{n\times 1}$ then 
+    		\[
+    			Var(\textbf{A} \textbf{z}) = \textbf{A} Var(\textbf{z}) \textbf{A}'
+    		\]
+    	\end{lemma}
+    	\begin{theorem}
+    		Given $E.1 \sim E.4$
+    		\[
+    			Var(\hat{\beta}|\textbf{X}) = (\textbf{X}' \textbf{X})^{-1} \sigma^2
+    		\]
+    	\end{theorem}
+    	\begin{proof}
+    		\begin{gather*}
+    			Var(\hat{\beta}|\textbf{X}) = Var((\textbf{X}'\textbf{X})^{-1} \textbf{X}' \textbf{y} | \textbf{X}) \\ 
+    			= Var((\textbf{X}'\textbf{X})^{-1} \textbf{X}'(\textbf{X}\vec{\beta} + \textbf{u})|\textbf{X}) \\
+    			= Var(\textbf{X}'\textbf{X})^{-1} \textbf{X}'\textbf{u}|\textbf{X}) \\
+    			\tx{By the lemma above, } \\
+    			= (\textbf{X}'\textbf{X})^{-1} \textbf{X}' Var(\textbf{u}|\textbf{X}) [(\textbf{X}'\textbf{X})^{-1} \textbf{X}']' \\
+    			= (\textbf{X}'\textbf{X})^{-1} \textbf{X}' Var(\textbf{u}|\textbf{X}) \textbf{X}'' (\textbf{X}'\textbf{X})^{-1} \\
+    			= (\textbf{X}'\textbf{X})^{-1} \textbf{X}' \sigma^2 \textbf{I}_n \textbf{X} (\textbf{X}'\textbf{X})^{-1} \\
+    			= \sigma^2 (\textbf{X}'\textbf{X})^{-1}
+    		\end{gather*}
+    	\end{proof}
+    	
+    	\begin{theorem}[Gause-Markov]
+    		Given $E.1. \sim E.4.$, the OLS estimator is the \ul{best linear unbiased estimator}(BLUE). \\(\emph{The best} here means the OLS has the least variance among all estimators.)
+    	\end{theorem}
+    	
+    	\subsection{Variance Inflation}
+    	\par Let $j \in \{1, 2, \dots, k\}$, then the variance of an individual estimator on particular feature $j$ is 
+    	\[\textcolor{red}{
+    		Var(\hat{\beta}_j) = \frac{\sigma^2}{(1-R_j^2)SST_j}
+    	}\]
+    	where
+    	\begin{gather*}
+    		SST_j = \sum_{i=1}^n{(x_{ij} - \overline{x}_j)^2}
+    	\end{gather*}
+    	and $R_j^2$ is the coefficient of determination while regressing $x_j$ on \ul{all other} features $x_i, \forall i \neq j$.
+    	\begin{definition}
+    		The \textbf{variance inflation} on estimator for feature $j$ is 
+    		\[
+    			VIF_j = \frac{1}{1-R_j^2}
+    		\]
+    	\end{definition}
+    	\begin{remark}[Interpretation] the standard error of estimator on a particular variable ($\hat{\beta}_j$) is \emph{inflated} by it's($x_j$) relationship with other explanatory variables.
+    	\end{remark}	
+
+    	\paragraph{Solutions to high VIF}
+    		\begin{enumerate}
+    			\item Drop the explanatory variable.
+    			\item Use ratio $\frac{x_i}{x_j}$ instead.
+    			\item Ridge regression.
+    		\end{enumerate}
+    	\begin{remark}
+    		VIF highlights the importantce of \textbf{not} including redundant predictors.
+    	\end{remark}
+    	
+    \section{Slide 8: Multiple Regression-Inference}
+    \paragraph{Hypothesis Testing} on multiple regression model 
+    	\[
+    		y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots \beta_k x_{ik} + u_i
+    	\]
+    	
+    	\subsection{t-test for significance of individual predicator}
+    		\paragraph{Test statistic} Given $MLR.1 \sim MLR.6$ (need $\textbf{u} \sim \mc{N}(\textbf{0}, \sigma^2 \textbf{I}_n)$),
+    		\[
+    			t = \frac{\hat{\beta}_j - b}{s.e.(\hat{\beta}_j)} \sim t_{n-k-1}
+    		\]
+    		where 
+    		\begin{gather*}
+    			H_0: \beta_j = b \\
+    			H_1: \beta_j (\neq, >, <) b
+    		\end{gather*}
+    	
+    	
+    	\subsection{t-test for comparing 2 coefficients}
+    	\paragraph{Test statistic}
+    	\[
+    		t = \frac{(\hat{\beta}_i - \hat{\beta}_j) - b}{s.e.(\hat{\beta}_i - \hat{\beta}_j)} \sim t_{n-k-1}
+    	\]
+    	where 
+    		\begin{gather*}
+    			H_0: \beta_i - \beta_j = b \\
+    			H_1: \beta_i - \beta_j (\neq, >, <) b
+    		\end{gather*}
+    	notice
+    	\begin{gather*}
+    		s.e.(\hat{\beta}_i - \hat{\beta}_j) = \sqrt{Var(\hat{\beta}_i - \hat{\beta}_j)} \\
+    		= \sqrt{Var(\hat{\beta}_i) + Var(\hat{\beta}_j) - 2Cov(\hat{\beta}_i, \hat{\beta}_j)}
+    	\end{gather*}
+    	
+    	\subsection{Partial F-test for joint significance}
+    	\begin{gather*}
+    		H_0: \beta_i = \beta_j = \beta_k = \dots = 0 \\
+    		H_1: \exists\ z \in \{i, j, k, \dots \}\ s.t.\ \beta_z \neq 0
+    	\end{gather*}
+    	Test significance by comparing the \emph{restricted} and \emph{unrestricted} models, see whether restricting the model by removing certain explanatory variables "significantly" hurts the fit of the model.
+    	\[
+    		df = (q, n-k-1)
+    	\]
+    	\paragraph{Test statistic}
+    	\begin{gather*}
+    		F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-k-1)} \\
+    		\tx{or} \\
+    		F' = \frac{(R^2_{ur} - R^2_r)/q}{(1-R^2_{ur})/(n-k-1)}
+    	\end{gather*}
+    	
+    	\subsection{Full F-test for the significance of the model}
+    	\begin{gather*}
+    		H_0: \beta_1 = \beta_2 = \dots = \beta_k = 0 \\
+    		H_1: \exists\ i \in \{1, 2, \dots ,3\}\ s.t.\ \beta_i \neq 0
+    	\end{gather*}
+    	\begin{remark}
+    		$R^2$ version only and substitute $R^2_{r} = 0$, since $SSR_{r}$ is undefined.
+    	\end{remark}
 \end{document}
 
 
