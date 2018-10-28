@@ -1,5 +1,5 @@
 \documentclass[]{article}
-\title{ECO375: Review Notes \\ \small Applied Econometrics I}
+\title{ECO375 Applied Econometrics I \\ \small Lecture Slide Notes}
 \author{Tianyu Du}
 \date{\today}
 
@@ -13,8 +13,17 @@
 \usepackage{xcolor}
 \usepackage{chngcntr}
 
+\usepackage[
+    type={CC},
+    modifier={by-nc},
+    version={4.0},
+]{doclicense}
+
 \begin{document}
 	\maketitle
+	\doclicenseThis
+	\textbf{Updated} version can be found on \url{www.tianyudu.com/notes}
+	
 	\tableofcontents
 	\section{Slide 4: Simple \& Multiple Regression - Estimation}
 	\subsection{Regression Model}
@@ -167,7 +176,7 @@
     	\textcolor{red}{TODO}
     \end{proof}
     
-    \section{Matrix Differentiation*}
+    \section{Slide 5: Matrix Algebra for Regression Analysis}
     	\begin{equation}
     		\textbf{y} = \textbf{A} \textbf{x} \implies \pd{\textbf{y}}{\textbf{x}} = \textbf{A}
     	\end{equation}
@@ -185,7 +194,7 @@
     		\pd{\alpha}{\textbf{x}} = 2 \textbf{x}' \textbf{A}
     	\end{equation}
     
-    \section{Multiple Regression in Matrices}
+    \section{Slide 6: Multiple Regression in Matrix Algebra}
     	\subsection{The Model}
     		\paragraph{Predictor}
     			\[
@@ -273,7 +282,7 @@
     			\[\textcolor{red}{
     				Var(\hat{\beta}|\textbf{X}) = \expect{(\hat{\beta} - \vec{\beta})\cdot(\hat{\beta} - \vec{\beta})' | \textbf{X}} \in \mathbb{M}_{(k+1) \times (k+1)}
     			}\]
-    \section{Slide 7}
+    \section{Slide 7: Multiple Regression - Properties}
     	\subsection{Assumptions (MLRs) in Matrix Form}
     		\paragraph{E.1.} \emph{linear in parameter}
     		\[
@@ -371,7 +380,7 @@
     		VIF highlights the importantce of \textbf{not} including redundant predictors.
     	\end{remark}
     	
-    \section{Slide 8: Multiple Regression-Inference}
+    \section{Slide 8: Multiple Regression - Inference}
     \paragraph{Hypothesis Testing} on multiple regression model 
     	\[
     		y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots \beta_k x_{ik} + u_i
@@ -442,7 +451,7 @@
     		We only reject or failed to reject $H_0$, we never accept $H_0$ in a hypothesis test.
     	\end{remark}
     	
-    \section{Slides 9}
+    \section{Slide 9: Multiple Regression - Further Issues}
     	\subsection{Data Scaling}
     		\subsubsection{Mutiplier}
     		\begin{enumerate}
@@ -556,7 +565,7 @@
       			\hat{\theta}_0 \pm ME
       		\]
       		
-	\section{Slides 10: Multiple Regression: Qualitative Information}
+	\section{Slide 10: Multiple Regression - Qualitative Information}
 		\subsection{Binary predictors}
 			\begin{remark}
 				With binary independent variables, $MLR.1 \sim MLR.6$ still holds, but the interpretations are different.
@@ -603,7 +612,7 @@
 			\begin{remark}[Out-of-range predictions]
 				Notice the prediction is not necessarily with the range of $[0,1]$ for some extreme values of \textbf{x}.
 			\end{remark}
-		\subsection{Heterskedasticity}
+		\subsection{Heterskedasticity of LPM}
 			\begin{remark}
 				For probability linear models, $MLR.5$(homoskedasticity) fails.
 			\end{remark}
@@ -622,6 +631,135 @@
 					\neq \sigma_u^2
 				\end{gather*}
 			\end{proof}
+	\section{Slide 11: Heteroskedasticity}
+		\begin{definition}
+			Consider model 
+			\[
+				y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_k x_{ik} + u_i
+			\]
+			the error of above model is heteroskedastic if for each sample point $\textbf{x}_i \in \R^{k+1}$, 
+			\[
+				Var(u_i | \textbf{x}_i) = \sigma_i^2
+			\]
+			and $\sigma_i^2$ is not the same for all $i$.
+		\end{definition}
+		\begin{remark}[Consequence]
+			Without $MLR.5$, Gauss-Markov theorem does not hold and 
+			\begin{enumerate}
+				\item OLS estimator is still \ul{linear} and \ul{unbiased}.
+				\item But \textbf{not} necessarily the best (variance is affected).
+			\end{enumerate}
+		\end{remark}
+		\begin{proof}[Proof. unbiasedness, in simple regression]
+			\begin{gather*}
+				\hat{\beta}_1 = \frac{\sum_i(x_i - \overline{x})(y_i - \overline{y})}{\sum_i(x_i - \overline{x})^2} \\
+				= \frac{\sum_i(x_i - \overline{x})(\beta_0 + \beta_1 x_1 + u_i - \overline{y})}{\sum_i(x_i - \overline{x})^2} \\
+				= \frac{\sum_i(x_i - \overline{x})(\beta_0 + \beta_1 x_1 + \beta_1 \overline{x} - \beta_1 \overline{x} + u_i - \overline{y})}{\sum_i(x_i - \overline{x})^2} \\
+				= \frac{\sum_i \beta_1 (x_i - \overline{x})^2 + (x_i - \overline{x}) (\beta_0 + \beta_1 \overline{x} - \overline{y} + u_i)}{\sum_i(x_i - \overline{x})^2} \\
+				= \beta_1 + \frac{\sum_i (x_i - \overline{x}) (0 + u_i)}{\sum_i (x_i - \overline{x})^2} \\
+				= \beta_1 + \frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2} \\
+				\tx{taking expectation conditional on \textbf{x} on both sides} \\
+				\expect{\hat{\beta}_1|\textbf{x}} = \beta_1 
+			\end{gather*}
+		\end{proof}
+		
+		\begin{proof}[Proof. variance]
+			\begin{gather*}
+				Var(\hat{\beta}_1 | \textbf{x}) = \expect{(\hat{\beta} - \expect{\hat{\beta}_1 | \textbf{x}})^2 | \textbf{x}} \\
+				= \expect{(\hat{\beta}_1 - \beta_1)^2 | \textbf{x}} \\
+				= \expect{(\frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2})^2|\textbf{x}} \\
+				= \frac{\sum_i(x_i - \overline{x}) \expect{u_i | \textbf{x}}}{\Big( \sum_i (x_i - \overline{x})^2 \Big)^2} \\
+				\neq \frac{\sigma^2}{SST_x}
+			\end{gather*}
+			For multiple regressions
+			\begin{gather*}
+				Var(\hat{\beta}_j | \textbf{x}) = \frac{\sum_i{\tilde{r}_{ij}^2 \sigma_i^2}}{SSR_j^{\textcolor{red}{2}}} \neq \frac{\sigma^2}{SSR_j} = \frac{\sigma}{(1-R^2_j)SST_j}
+			\end{gather*}
+		\end{proof}
+		
+		\paragraph{Remedies}
+		\begin{enumerate}
+			\item Change variables so that the new model is homoskedastic.
+			\item Use robust standard errors.
+			\item Generalized least square (GLS).
+		\end{enumerate}
+		
+		\subsection{Robust Standard Errors}
+			\paragraph{Idea} use $\hat{u}_i^2$ to estimate $\sigma_i^2$.\\
+			Note that  
+			\begin{gather*}
+				Var(u_i | \textbf{x}) = \expect{(u_i - \expect{u_i})^2} \\
+				= \expect{u_i^2 | \textbf{x}} + \expect{u_i | \textbf{x}}^2 \\
+				= \expect{u_i^2 | \textbf{x}}
+			\end{gather*}
+			Consider model 
+			\[
+				y_i = \beta_0 + \beta_1 x_i + u_i
+			\]
+			OLS estimator is 
+			\begin{gather*}
+				\hat{\beta}_1 = \beta_1 + \frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2} \\
+				Var(\hat{\beta} | \textbf{x}) = \frac{\sum_i(x_i - \overline{x})^2 \sigma_i^2}{\sum_i(x_i - \overline{x})^2} \\
+				\widehat{Var}(\hat{\beta} | \textbf{x}) = \frac{\sum_i(x_i - \overline{x})^2 \textcolor{red}{\hat{u}_i^2}}{\sum_i(x_i - \overline{x})^2}
+			\end{gather*}
+		\subsection{Test for Heteroskedasticity}
+		\subsubsection{General Principle}
+			\begin{gather*}
+				H_0: \expect{u_i^2} = Var(u_i|\textbf{x}) = \sigma^2 \tx{ (Homoskedastic)} \\
+				H_1: \expect{u_i^2} = Var(u_i|\textbf{x}) = \sigma_i^2 \tx{ (Heteroskedastic)}
+			\end{gather*}
+			\textbf{Methodology:} specify the variance in alternative hypothesis to be a specific function of $\textbf{x}$ or $y$. \\
+			Consider the model: 
+			\[
+				y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_k x_{ik} + u_i
+			\]
+			And $H_1$ can be expressed as 
+			\[
+				H_1: \expect{u_i^2|\textbf{x}} = \delta_0 + \delta_1 z_1 + \delta_2 z_2 + \dots + \delta_p z_p
+			\]
+			then run the proxy hypothesis testing
+			\begin{gather*}
+				H_0': \delta_1 = \delta_2 = \dots = \delta_p = 0, \delta_0 = \sigma^2 \\
+				H_1': \exists j\ s.t.\ \delta_j \neq 0
+			\end{gather*}
+			Note that the restricted model is homoskedastic. \\
+			Firstly run the original regression model and get residual $\hat{u}_i$. \\
+			Then test the proxy hypotheses with regression $\hat{u}_i^2$ on $z_1, z_2, \dots, z_p$ using full F-test.
+			\begin{gather*}
+				F = \frac{R^2_{\hat{u}^2}/p}{(1-R^2_{\hat{u}^2})/(n-p-1)} \sim F_{(p, n-p-1)} \\
+				 \tx{and }n R^2_{\hat{u}^2} \sim \mc{X}_p^2
+			\end{gather*}
+			
+			\subsubsection{Breusch-Pagan test}
+				\par Use regressors $x_i$ for $z_i$. \\
+				Auxiliary regression:
+				\begin{gather*}
+					\hat{u}_i^2 = \delta_0 + \delta_1 x_1 + \dots \delta_k x_k \\
+					n R^2_{\hat{u}^2} \sim \mc{X}_k^2
+				\end{gather*}
+			\subsubsection{White test version 1}
+				\par Use polynomials of $x_i$ for $z_i$.\\
+				Auxiliary regression: (for the case of 2 regressors)
+				\begin{gather*}
+					\hat{u}_i^2 = \delta_0 + \delta_{i1} x_1 + \delta_2 x_{i2} + \delta_3 x_{i1}^2 + \delta_4 x_{i2}^2 + \delta_5 x_{i1} x_{i2} + \epsilon \\
+					n R^2_{\hat{u}^2} \sim \mc{X}_5^2 \\
+					\tx{or full F-test}
+				\end{gather*}
+			\subsubsection{White test version 2}
+				\par Use \ul{predicted} response $\hat{y}$ (since its a linear combination of predictors) and its polynomial as $z_i$. \\
+				Auxiliary regression:
+				\begin{gather*}
+					\hat{u}_i^2 = \delta_0 + \delta_1 \hat{y} + \delta_2 \hat{y}^2 + \epsilon \\
+				\end{gather*}
+				With hypotheses
+				\begin{gather*}
+					H_0: \delta_1 = \delta_2 = 0\\
+					H_1: \delta_1 \neq 0 \lor \delta_2 \neq 0
+				\end{gather*}
+				\begin{gather*}
+					n R^2_{\hat{u}^2} \sim \mc{X}_2^2 \\
+					\tx{or full F-test}
+				\end{gather*}
 \end{document}
 
 
