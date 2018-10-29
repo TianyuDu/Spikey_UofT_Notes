@@ -47,11 +47,19 @@
 \BOOKMARK [2][-]{subsection.9.1}{Regression Specification Error Test \(RESET\)}{section.9}% 47
 \BOOKMARK [3][-]{subsubsection.9.1.1}{RESET: Nested Alternatives}{subsection.9.1}% 48
 \BOOKMARK [3][-]{subsubsection.9.1.2}{RESET: Non-nested Alternatives}{subsection.9.1}% 49
-\BOOKMARK [1][-]{section.10}{Slide 13: Instrumental Variables}{}% 50
-\BOOKMARK [2][-]{subsection.10.1}{Endogeneity}{section.10}% 51
-\BOOKMARK [2][-]{subsection.10.2}{Instrumental Variables}{section.10}% 52
-\BOOKMARK [2][-]{subsection.10.3}{Implementation of IV: Method of Moments}{section.10}% 53
-\BOOKMARK [3][-]{subsubsection.10.3.1}{In Simple Regression}{subsection.10.3}% 54
-\BOOKMARK [3][-]{subsubsection.10.3.2}{Inference}{subsection.10.3}% 55
-\BOOKMARK [3][-]{subsubsection.10.3.3}{Properties}{subsection.10.3}% 56
-\BOOKMARK [2][-]{subsection.10.4}{IV in Multiple Regression}{section.10}% 57
+\BOOKMARK [2][-]{subsection.9.2}{Davidson-MacKinnon test: non-nested alternatives}{section.9}% 50
+\BOOKMARK [2][-]{subsection.9.3}{Proxy Variables}{section.9}% 51
+\BOOKMARK [3][-]{subsubsection.9.3.1}{Procedures}{subsection.9.3}% 52
+\BOOKMARK [3][-]{subsubsection.9.3.2}{Proxy Bias}{subsection.9.3}% 53
+\BOOKMARK [2][-]{subsection.9.4}{Measurement Error in an Explanatory Variable}{section.9}% 54
+\BOOKMARK [3][-]{subsubsection.9.4.1}{Case 1 Cov\(x1, e1\) = 0}{subsection.9.4}% 55
+\BOOKMARK [3][-]{subsubsection.9.4.2}{Case 2 Cov\(x1true, e1\) = 0: Classical errors-in-variance\(CEV\)}{subsection.9.4}% 56
+\BOOKMARK [2][-]{subsection.9.5}{Measurement Error in Dependent Variable}{section.9}% 57
+\BOOKMARK [1][-]{section.10}{Slide 13: Instrumental Variables}{}% 58
+\BOOKMARK [2][-]{subsection.10.1}{Endogeneity}{section.10}% 59
+\BOOKMARK [2][-]{subsection.10.2}{Instrumental Variables}{section.10}% 60
+\BOOKMARK [2][-]{subsection.10.3}{Implementation of IV: Method of Moments}{section.10}% 61
+\BOOKMARK [3][-]{subsubsection.10.3.1}{In Simple Regression}{subsection.10.3}% 62
+\BOOKMARK [3][-]{subsubsection.10.3.2}{Inference}{subsection.10.3}% 63
+\BOOKMARK [3][-]{subsubsection.10.3.3}{Properties}{subsection.10.3}% 64
+\BOOKMARK [2][-]{subsection.10.4}{IV in Multiple Regression}{section.10}% 65

@@ -841,6 +841,66 @@
 					Under above assumptions, the OLS estimator for $(\beta_1, \beta_2, \dots \textcolor{red}{\beta_k \delta_k})$ is still \hl{consistent} and \hl{unbiased}.
 				\end{remark}
 			\subsubsection{Proxy Bias}
+				If $x_k^{uob}$ is correlated with all $\{x_1, x_2, \dots, x_k\}$, i.e. 
+				\[
+					x_k^{uob} = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \dots + \delta_k x_k + v_k
+				\]
+				the for the coefficient of $x_j$ in the original regression, we are effective estimating 
+				\[
+					\beta_j + \beta_k \delta_j
+				\]
+				which means the estimation is still biased. \hl{In this case, using a proxy variable will not solve the omitted variable bias problem}.
+				
+		\subsection{Measurement Error in an Explanatory Variable}
+			\par Consider the model 
+			\[
+				y = \beta_0 + \beta_1 x_1^{true} + u
+			\]
+			but we can only observe $x_1 = x_1^{true} + e_1$. Assuming \textbf{measurement error} satisfies
+			\[
+				\expect{e_1} = 0
+			\]
+			and the regression model becomes if we regress $y$ on the observed $x_1$.
+			\[
+				y = \beta_0 + \beta_1 x_1 + (u - \beta_1 e_1)
+			\]
+			\begin{assumption}
+				$u$ is uncorrelated with both $x_1$ and $x_1^{true}$.
+			\end{assumption}
+			\subsubsection{Case 1 $Cov(x_1, e_1) = 0$}
+				\begin{gather*}
+					\expect{u-\beta_1 e_1} = \expect{u} - \beta_1 \expect{e_1} = 0
+				\end{gather*}
+				MLR.3 still holds and \hl{estimator $\hat{\beta}_1$ is still consistent}.
+			\subsubsection{Case 2 $Cov(x_1^{true}, e_1) = 0$: Classical errors-in-variance(CEV)}
+				\begin{gather*}
+					Cov(x_1, e_1) = \expect{(x_1 - \overline{x}_1)(e_1 - \overline{e}_1)} \\
+					= \expect{x_1 e_1} \\
+					= \expect{(x_1^{true} + e_1) e_1} \\
+					= \expect{x_1^{true}e_1 + e_1^2} \\
+					= 0 + \expect{e_1^2} \\
+					= \expect{(e_1 - \overline{e}_1)^2} \\
+					= \sigma_{e_1}^2 \neq 0
+				\end{gather*}
+				Then the \hl{estimator $\hat{\beta}_1$  is biased and inconsistent}.
+
+		\subsection{Measurement Error in Dependent Variable}
+			\par Consider model 
+			\[
+				y^{true} = \textbf{X}\vec{\beta} + u
+			\]
+			and the actually observed $y$ is $y = y^{true} + e_0$. If we regress the observed $y$ on explanatory variables, we are effectively estimating
+			\[
+				y = \textbf{X}\vec{\beta} + \textcolor{red}{(u+e_0)}
+			\]
+			note that we would now have higher residual variance $\sigma^2 + \sigma_{e_0}^2$ and the variance for OLS estimator is inflated
+			\[
+				Var(\vec{\beta}) = (\sigma^2 + \sigma_{e_0}^2) (\textbf{X}'\textbf{X})^{-1}
+			\]
+			\hl{If $\expect{e_1|\textbf{X}}=0$ then $\hat{\beta}$ is still unbiased, otherwise in trouble.}
+			
+			
+			
 	\section{Slide 13: Instrumental Variables}
 		\subsection{Endogeneity}
 			\begin{definition}
