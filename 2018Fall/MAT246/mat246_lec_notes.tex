@@ -1472,6 +1472,93 @@
 		where $q_n$ is a constant. \\
 		Obviously there are $n$ (possibly repeating) roots, namely $r_1, r_2, \dots, r_n$.
 	\end{proof}
+
+	\section{Lecture 21. Oct 29 2018}
+		\begin{lemma}[Triangle Inequality]
+			\[
+				|z_1 + z_2| \leq |z_1| + |z_2|,\ \forall z_1, z_2 \in \mathbb{C}
+			\]
+		\end{lemma}
+
+		\begin{lemma}[Extended version of triangle inequality]
+			\[
+				| \sum_{i=1}^{n} {z_i} | \leq \sum_{i=1}^{n} |z_i|,\ \forall (z_i) \in \mathbb{C}^n
+			\]
+		\end{lemma}
+
+		\begin{definition}
+			A \textbf{closed curve in the plane} is a continuous function mapping from $[0, 2\pi]$ to $\mathbb{C}$ such that its values at $0$ and $2\pi$ are the same.
+		\end{definition}
+
+		\begin{definition}
+			If $\phi(t): [0, 2\pi] \to \mathbb{C}$ is a closed curve that \hl{does not go through the origin}, its \textbf{winding number} is the number of times a vector from the origin to a point on the curve winds around the origin as $t$ goes from $0$ to $2\pi$.
+		\end{definition}
+
+		\begin{example}
+			Consider 
+			\[
+				\phi(t) = f(t) + i(g)
+			\]
+			where $f,g: [0, 2\pi] \to \R$ are continuous. Then $\phi(t)$ is continuous.
+		\end{example}
+
+		\begin{example}
+			Consider 
+			\[
+				\phi(t) = \cos(t) + i\sin(t)
+			\]
+			the function above is a closed curve with winding nunber $+1$.
+		\end{example}
+
+		\begin{remark}
+			If points on the curve go around the origin \emph{anti-clockwise} as $t$ goes from $0$ to $2\pi$, then we consider the winding number to be \emph{negative}.
+		\end{remark}
+
+		\begin{example}
+			Curve $\phi(t) = \cos(3t) + i \sin(3t)$ has winding number $+3$.
+		\end{example}
+
+		\begin{example}
+			Curve $\phi(t) = 27\cos(4t) + 27 i \sin(4t)$ has winding number $+4$.
+		\end{example}
+		
+		\begin{example}
+			Curve $\phi(t) = \sin(t) + i \cos(t)$ has winding number $-1$.
+		\end{example}
+		
+		\begin{example}
+			A non-zero constant (e.g. $\phi(t)=3+4i$) is closed and not passing the origin, it has winding number $0$.
+		\end{example}
+		
+		\begin{remark}
+			\hl{The notation of winding number only apply to closed curves that do \textbf{not} passes the origin.}
+		\end{remark}
+		\subsection{Proof of the Fundamental Theorem of Algebra}
+		\begin{proof}
+			Idea: prove by contradiction. \\
+			Suppose $p(z)$ is a non-constant polynomial with no roots. \\
+			i.e. 
+			\[
+				p(z) \neq 0,\ \forall z \in \mathbb{C}
+			\]
+			and degree of $p(z) = n > 0$. \\
+			For each radius $R>0$ define 
+			\[
+				\phi_R(t) := R(\cos(t) + i \sin(t))
+			\]
+			Then for each $R>0$, let 
+			\[
+				p_R(t) := p(\phi_R(t))
+			\]
+			note that $p_R(t): [0, 2\pi] \to \mathbb{C}$ and it's a closed curve. \\
+			Also note that since $p_R(t) \neq 0\ \forall t \in [0, 2\pi]$, $p_R(t)$ does not go through the origin. \\
+			We will show that
+			\begin{enumerate}
+				\item If $R$ is large enough then the winding number of $p_R(t) = deg(p(z))$.
+				\item If $R$ is small enough then the winding number of $p_R(t) = 0$.
+			\end{enumerate}
+			But the winding number of $p_R(t)$ is a continuous function of $R$ and it has co-domain of integers. Then it must be the case that $p_R(t)$ is constant, but this contradicts our assumption that $deg(p(z)) > 0$.
+		\end{proof}
 \end{document}
 
 
