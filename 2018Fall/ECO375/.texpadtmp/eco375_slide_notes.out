@@ -1,0 +1,57 @@
+\BOOKMARK [1][-]{section.1}{Slide 4: Simple \046 Multiple Regression - Estimation}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Regression Model}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{OLS}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Partialling Out}{section.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Steps}{subsection.1.3}% 5
+\BOOKMARK [3][-]{subsubsection.1.3.2}{Interpretation}{subsection.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.4}{Omitted Variable Bias}{section.1}% 7
+\BOOKMARK [1][-]{section.2}{Slide 5: Matrix Algebra for Regression Analysis}{}% 8
+\BOOKMARK [1][-]{section.3}{Slide 6: Multiple Regression in Matrix Algebra}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{The Model}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Variance Matrix}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Slide 7: Multiple Regression - Properties}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Assumptions \(MLRs\) in Matrix Form}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Properties of OLS Estimator}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Variance Inflation}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{Slide 8: Multiple Regression - Inference}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{t-test for significance of individual predicator}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.2}{t-test for comparing 2 coefficients}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.3}{Partial F-test for joint significance}{section.5}% 19
+\BOOKMARK [2][-]{subsection.5.4}{Full F-test for the significance of the model}{section.5}% 20
+\BOOKMARK [2][-]{subsection.5.5}{F-test for general restrictions}{section.5}% 21
+\BOOKMARK [1][-]{section.6}{Slide 9: Multiple Regression - Further Issues}{}% 22
+\BOOKMARK [2][-]{subsection.6.1}{Data Scaling}{section.6}% 23
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Mutiplier}{subsection.6.1}% 24
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Standardization}{subsection.6.1}% 25
+\BOOKMARK [2][-]{subsection.6.2}{Logarithmic Function}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.3}{Quadratics and Polynomials}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.4}{Interaction Effects}{section.6}% 28
+\BOOKMARK [2][-]{subsection.6.5}{Regression Selection and Adjusted R-square}{section.6}% 29
+\BOOKMARK [2][-]{subsection.6.6}{Causal Mechanism}{section.6}% 30
+\BOOKMARK [2][-]{subsection.6.7}{Confidence Interval for Prediction}{section.6}% 31
+\BOOKMARK [1][-]{section.7}{Slide 10: Multiple Regression - Qualitative Information}{}% 32
+\BOOKMARK [2][-]{subsection.7.1}{Binary predictors}{section.7}% 33
+\BOOKMARK [3][-]{subsubsection.7.1.1}{On Intercept}{subsection.7.1}% 34
+\BOOKMARK [3][-]{subsubsection.7.1.2}{On Slopes}{subsection.7.1}% 35
+\BOOKMARK [3][-]{subsubsection.7.1.3}{F-test\(Chow test\)}{subsection.7.1}% 36
+\BOOKMARK [2][-]{subsection.7.2}{Linear Probability Model}{section.7}% 37
+\BOOKMARK [2][-]{subsection.7.3}{Heterskedasticity of LPM}{section.7}% 38
+\BOOKMARK [1][-]{section.8}{Slide 11: Heteroskedasticity}{}% 39
+\BOOKMARK [2][-]{subsection.8.1}{Robust Standard Errors}{section.8}% 40
+\BOOKMARK [2][-]{subsection.8.2}{Test for Heteroskedasticity}{section.8}% 41
+\BOOKMARK [3][-]{subsubsection.8.2.1}{General Principle}{subsection.8.2}% 42
+\BOOKMARK [3][-]{subsubsection.8.2.2}{Breusch-Pagan test}{subsection.8.2}% 43
+\BOOKMARK [3][-]{subsubsection.8.2.3}{White test version 1}{subsection.8.2}% 44
+\BOOKMARK [3][-]{subsubsection.8.2.4}{White test version 2}{subsection.8.2}% 45
+\BOOKMARK [1][-]{section.9}{Slide 12: Specification and Data Problems}{}% 46
+\BOOKMARK [2][-]{subsection.9.1}{Regression Specification Error Test \(RESET\)}{section.9}% 47
+\BOOKMARK [3][-]{subsubsection.9.1.1}{RESET: Nested Alternatives}{subsection.9.1}% 48
+\BOOKMARK [3][-]{subsubsection.9.1.2}{RESET: Non-nested Alternatives}{subsection.9.1}% 49
+\BOOKMARK [1][-]{section.10}{Slide 13: Instrumental Variables}{}% 50
+\BOOKMARK [2][-]{subsection.10.1}{Endogeneity}{section.10}% 51
+\BOOKMARK [2][-]{subsection.10.2}{Instrumental Variables}{section.10}% 52
+\BOOKMARK [2][-]{subsection.10.3}{Implementation of IV: Method of Moments}{section.10}% 53
+\BOOKMARK [3][-]{subsubsection.10.3.1}{In Simple Regression}{subsection.10.3}% 54
+\BOOKMARK [3][-]{subsubsection.10.3.2}{Inference}{subsection.10.3}% 55
+\BOOKMARK [3][-]{subsubsection.10.3.3}{Properties}{subsection.10.3}% 56
+\BOOKMARK [2][-]{subsection.10.4}{IV in Multiple Regression}{section.10}% 57

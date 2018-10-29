@@ -13,6 +13,10 @@
 \usepackage{xcolor}
 \usepackage{chngcntr}
 
+
+\counterwithin*{equation}{section}
+
+
 \usepackage[
     type={CC},
     modifier={by-nc},
@@ -760,6 +764,83 @@
 					n R^2_{\hat{u}^2} \sim \mc{X}_2^2 \\
 					\tx{or full F-test}
 				\end{gather*}
+	
+	\section{Slide 12: Specification and Data Problems}
+		\subsection{Regression Specification Error Test (RESET)}
+		\subsubsection{RESET: Nested Alternatives}
+			\par \emph{Adding nonlinear functions of the regressors into the model and test for their significance.}
+			\\
+			Consider model 
+			\[
+				y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + u
+			\]
+			1) Run above regression, estimate $\hat{y}$. \\
+			2) And add non-linear transformations of the \textbf{estimation} to construct an \textbf{expanded regression model}.
+			\[
+				y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + \delta_1 \textcolor{red}{\hat{y}^2} + \delta_2 \textcolor{red}{\hat{y}^3} + u
+			\]
+			3) Use F-test to test the joint significance with $H_0: \delta_1 = \delta_2 = 0$. 
+			\begin{remark}[Nested Alternatives]
+				One model is \textbf{nested} in another if you can always obtain the first model by constraining some of the parameters of the second model.
+			\end{remark}
+			\begin{example}
+				In above example, the original regression is \emph{nested} in the expanded regression. We can recover the original regression by constraining $\delta_1 = \delta_2 = 0$ in the expanded model.
+			\end{example}
+		\subsubsection{RESET: Non-nested Alternatives}
+			\par Neither of the two models below is nested in the other one, \hl{we \textbf{cannot} use F-test}.
+			\begin{gather}
+				y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + u \\
+				y = \beta_0 + \beta_1 \log(x_1) + \beta_2 \log(x_2) + u
+			\end{gather}
+			1) Expanded regression: 
+			\[
+				y = \beta_0 + \gamma_1 x_1 + \gamma_2 x_2 + \gamma_3 \log(x_1) + \gamma_4 \log(x_4) + u
+			\]
+			2-i) (F) test for specification (1): $H_0: \gamma_1 = \gamma_2 = 0$. \\
+			2-ii) (F) test for specification (2): $H_0: \gamma_3 = \gamma_4 = 0$.
+		\subsection{Davidson-MacKinnon test: non-nested alternatives}
+			\par Let $\hat{y}_1$ and $\hat{y}_2$ denote the fitted values from (1) and (2) respectively. \\
+			\newline
+			1-i) Test for specification (1) with $H_0: \theta_1=0$. (If (1) is corrected, $\hat{y}_2$ should be insignificant.
+			\begin{equation}
+				y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \theta_1 \hat{y}_{\textcolor{red}{2}} + u
+			\end{equation}
+			1-ii) Test for specification (2) with $H_0: \theta_1=0$:
+			\begin{equation}
+				y = \beta_0 + \beta_1 \log(x_1) + \beta_2 \log(x_2) + \theta_1 \hat{y}_{\textcolor{red}{1}} + u
+			\end{equation}
+			\begin{remark}
+				\hl{In Davison-MacKinnon test, its possible for us to reject or accept both specifications.}
+			\end{remark}
+		\subsection{Proxy Variables}
+			\subsubsection{Procedures}
+				\par For the original model
+				\begin{equation}
+					y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k^{uob} + u
+				\end{equation}
+				where $x_k^{uob}$ is unobserved. \\
+				\paragraph{Select} Choose an observed variable $x_k$ is a \textbf{proxy} for $x_k^{uob}$ such that
+				\begin{equation}
+					x_k^{uob} = \delta_0 + \delta_k x_k + v_3,\ \delta_k \neq 0
+				\end{equation}
+				\paragraph{Plug-in} plug (6) into (5)
+				\begin{equation}
+					y = (\beta_0 + \beta_k \delta_0) + \beta_1 x_1 + \dots + \textcolor{red}{\beta_k \delta_k x_k} + (u + \beta_k v)
+				\end{equation}
+				\begin{assumption}
+					For a consistent estimator, we need to assume that
+					\begin{enumerate}
+						\item $u$ is uncorrelated with $x_1, x_2, \dots, x_k^{uob}, x_k$. 
+						\item $v$ is uncorrelated with $x_1, x_2, \dots, x_k$.
+						\[
+							\expect{x_k^{uob}|x_1,x_2,\dots,x_k} = \expect{\delta_0 + \delta_k x_k + v|x_1,x_2,\dots,x_k} = \delta_0 + \delta_k x_k
+						\]
+					\end{enumerate}
+				\end{assumption}
+				\begin{remark}
+					Under above assumptions, the OLS estimator for $(\beta_1, \beta_2, \dots \textcolor{red}{\beta_k \delta_k})$ is still \hl{consistent} and \hl{unbiased}.
+				\end{remark}
+			\subsubsection{Proxy Bias}
 	\section{Slide 13: Instrumental Variables}
 		\subsection{Endogeneity}
 			\begin{definition}
