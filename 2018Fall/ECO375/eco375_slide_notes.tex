@@ -760,6 +760,168 @@
 					n R^2_{\hat{u}^2} \sim \mc{X}_2^2 \\
 					\tx{or full F-test}
 				\end{gather*}
+	\section{Slide 13: Instrumental Variables}
+		\subsection{Endogeneity}
+			\begin{definition}
+				If a predictor $x_j$ is correlated with $u$ for any reason, and MLR.4 is violated, then $x_j$ is said to be an \textbf{endogenous} explanatory variable.
+			\end{definition}
+			\[
+				\expect{u|\textbf{x}} \neq 0
+			\]
+			
+			\begin{equation}
+				y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + u
+			\end{equation}
+			
+			\paragraph{Sources of Endogeneity}
+				\begin{itemize}
+					\item Omitted variable bias.
+					\item Sample selection bias.
+					\item Simultaneity (bidirectional causality).
+					\item Measurement error bias.
+				\end{itemize}
+			\paragraph{Remedies}
+				\begin{itemize}
+					\item Control for confounding variables.\footnote{A \textbf{confounding variable} is a variable that influences both the dependent variable and independent variable causing a spurious association.}
+					\item Instrumental variables or two stage least square.
+					\item Differences in difference. (repeated cross-section data)
+					\item Fixed effects. (panel data)
+				\end{itemize}
+		\subsection{Instrumental Variables}
+			\paragraph{The Problem} For the simple regression model
+			\[
+				y = \beta_0 + \beta x + u
+			\]
+			estimator $\hat{\beta}$ would be biased if endogeneity presents ($Cov(x, u) \neq 0$). \\
+			Then OLS is actually estimating 
+			\[
+				\pd{y}{x} = \beta + \pd{u}{x}
+			\]
+			instead of purely $\beta$, where $\pd{u}{x} \neq 0$ due to endogeneity.\\
+			\emph{We need a method to generate only exogenous variation in $x$, without changing $u$, and measure its impact on $y$ via $\beta$ only.}
+			
+			\begin{definition}
+				An \textbf{instrument} $z$ for predictor $x$ is a variable the property that
+				\begin{enumerate}
+					\item (\ul{Exogeneity condition}) uncorrelated with $u$. \[ Cov(z,u) = 0\]
+					\item (\ul{Relevance condition}) correlated (either positively or negatively) with $x$. \[Cov(z,x) \neq 0\]
+				\end{enumerate}
+			\end{definition}
+			
+			\begin{remark}
+				There no perfect test for exogeneity condition and we have to argue it by appealing to economic theory. So we cannot prove exogeneity condition formally.
+			\end{remark}
+			\par For the relevance condition, we can test it by testing the significance of $\pi_1$ in the regression below
+			\[
+				x = \pi_0 + \pi_1 z + v
+			\]
+		\subsection{Implementation of IV: Method of Moments}
+			\paragraph{Procedure}
+				\begin{enumerate}
+					\item Identify $\beta$ in terms of \emph{population moments}.
+					\item Replace the population moments with the sample moments.\footnote{By \textbf{analogy principle}, such replacement will lead to a consistent estimator.}
+				\end{enumerate}
+			\subsubsection{In Simple Regression}
+				\paragraph{Identification} Consider the model with instrumental variable $z$ for $x$,
+					\[
+						y = \beta_0 + \beta_1 x + u
+					\]
+					subtract both sides the corresponding expectations,
+					\[
+						y - \expect{y} = \beta_1 (x - \expect{x}) + (u - \expect{u})
+					\]
+					multiplying both sides by $(z - \expect{z})$ and take expectation
+					\begin{gather*}
+						\expect{(y-\expect{y})(z-\expect{z})} = \beta_1\expect{(x-\expect{x})(z-\expect{z})} + \expect{(u-\expect{u})(z-\expect{z})} \\
+						\implies Cov(y, z) = \beta_1 Cov(x,z) + Cov(u,z) \\
+						\tx{By exogeneity condition and relevance condition} \\
+						Cov(x,z) \neq 0 \land Cov(z,u) = 0\\
+						\implies \textcolor{red}{\beta_1 = \frac{Cov(y,z)}{Cov(x,z)}}
+					\end{gather*}
+				\paragraph{Replacement} calculate the \ul{sample} covariances between $y,z$ and $x,z$ and substitute into above expression, the \textbf{IV estimator} of $\beta_1$ is
+				\[
+					\hat{\beta}_1 = \frac{\sum_i (y_i - \overline{y})(z_i - \overline{z})}{\sum_i(x_i - \overline{x})(z_i - \overline{z})} 
+				\]
+				and the \textbf{IV estimator} of $\beta_0$ is 
+				\[
+					\hat{\beta}_0 = \overline{y} - \hat{\beta}_1 \overline{x}
+				\]
+				\begin{remark}
+					When $z=x$ the IV estimator is equivalent to the OLS estimator. And the IV estimator is consistent even when MLR.4 does not hold.
+				\end{remark}
+			\subsubsection{Inference}
+				Assuming 
+				\[
+					\expect{u^2|z}=\sigma^2=Var(u)
+				\]
+				Then the variance of $\hat{\beta}_1$ is 
+				\[
+				\textcolor{red}{
+					Var(\hat{\beta}_1) = \frac{\sigma^2}{n\sigma_x^2 \rho_{x,z}^2}
+				}
+				\]
+				with sample analogs and $R^2_{x,z}$ from regression of $x_i$ on $z_i$, the estimated variance is 
+				\[
+					\widehat{Var(\hat{\beta}_1)} = \frac{\hat{\sigma}^2}{SST_x R^2_{x,z}}
+				\]
+				Note that the variance of OLS estimator is estimated to be
+				\[
+					\widehat{Var(\hat{\beta}_1)} = \frac{\hat{\sigma}^2}{SST_x}
+				\]
+				Therefore the $IV$ estimator is always larger than OLS variance. \\
+				Note that as $z \to x$, $R^2_{x,z} \to 1$ and IV estimator is approaching and ultimately equivalent to the OLS estimator.
+			\subsubsection{Properties}
+				If $z$ and $x$ are weakly correlated (i.e. \textbf{weak instrument}).
+				\begin{itemize}
+					\item IV estimators can have large standard errors. (small $R^2_{x,z}$)
+					\item IV estimators can have large \ul{asymptotic bias} if $Corr(z,u) \neq 0$ (we cannot check this formally).
+				\end{itemize}
+				For IV estimator,
+				\[
+					plim \hat{\beta}_1 = \beta_1 + \frac{Corr(z,u) \sigma_u}{\textcolor{red}{Corr(z,x)} \sigma_x}
+				\]
+				compared with OLS estimator
+				\[
+					plim \tilde{\beta}_{OLS} = \beta_{OLS} + Corr(x,u) \frac{\sigma_u}{\sigma_x}
+				\]
+				
+				\begin{remark}
+					The $R^2$ in IV estimation can be negative, and we should be careful about interpreting $R^2$ in IV estimation.
+				\end{remark}
+			\subsection{IV in Multiple Regression}
+			\par Consider the multiple regression model on $k$ predictors, where $y_2$ is endogenous,
+			\begin{equation}
+				y_1 = \beta_0 + \beta_1 \textcolor{red}{y_2} + \beta_2 z_1 + \cdots + \beta_k z_{k-1} + u_1
+			\end{equation}
+			\paragraph{Identification} Let $z_k$ be an instrumental variable for $y_2$ the exogenity condition can be expressed as
+			\[
+				Cov(z_k, u_1) = 0
+			\]
+			and assuming all other explanatory variables $z_i$ are uncorrelated with $u_1$. Also assume the \emph{zero-mean-error},
+			\begin{gather*}
+				Cov(z_i, u_1) = 0,\ \forall i \in \{1, 2, \dots, k - 1\} \\
+				\expect{u_1} = 0
+			\end{gather*}
+			Above conditions can be re-written as 
+			\begin{gather*}
+				\expect{z_i u_1} = 0,\ \forall i \in \{1,2, \dots, k\} \\
+				\expect{u_1} = 0
+			\end{gather*}
+			Above $k+1$ equations identify $\beta_0, \beta_1, \dots, \beta_k$.
+			
+			\paragraph{Replacement} Replacing $u_1$ with $\hat{u}_1$ from regression (10),
+			\begin{gather*}
+				\sum_{i=1}^n(y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 \textcolor{red}{y_{i2}} - \hat{\beta_2}z_{i1} - \cdots - \hat{\beta}_k z_{k-1}) = 0 \\
+				\sum_{i=1}^n \textcolor{red}{z_{i1}} (y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 \textcolor{red}{y_{i2}} - \hat{\beta_2}z_{i1} - \cdots - \hat{\beta}_k z_{k-1}) = 0 \\
+				\sum_{i=1}^n z_{i2} (y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 \textcolor{red}{y_{i2}} - \hat{\beta_2}z_{i1} - \cdots - \hat{\beta}_k z_{k-1}) = 0 \\
+				\vdots \\
+				\sum_{i=1}^n z_{ik-1}(y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 \textcolor{red}{y_{i2}} - \hat{\beta_2}z_{i1} - \cdots - \hat{\beta}_k z_{k-1}) = 0
+			\end{gather*}
+			And solving above $k+1$ equations gives the IV estimations of $\hat{\beta}_0, \hat{\beta}_1, \dots, \hat{\beta}_{k}$.
+			The \ul{relevance condition} $Corr(y_2, z_k)$ can be verified using \textbf{reduced-form(auxiliary) equation} below with $H_0: \pi_k = 0$ and $H_1: \pi_k \neq 0$.
+			\[
+				y_2 = \pi_0 + \pi_1 z_1 + \pi_2 z_2 + \cdots + \pi_k \textcolor{red}{z_k} + v_2
+			\]
 \end{document}
 
 
