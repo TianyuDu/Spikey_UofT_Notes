@@ -1034,10 +1034,12 @@
 			\begin{remark}
 				There no perfect test for exogeneity condition and we have to argue it by appealing to economic theory. So we cannot prove exogeneity condition formally.
 			\end{remark}
-			\par For the relevance condition, we can test it by testing the significance of $\pi_1$ in the regression below
-			\[
-				x = \pi_0 + \pi_1 z + v
-			\]
+			\begin{remark}
+				For the relevance condition, we can test it by testing the significance of $\pi_1$ in the regression below
+					\[
+						x = \pi_0 + \pi_1 z + v
+					\]
+			\end{remark}
 		\subsection{Implementation of IV: Method of Moments}
 			\paragraph{Procedure}
 				\begin{enumerate}
@@ -1094,25 +1096,25 @@
 				Therefore the $IV$ estimator is always larger than OLS variance. \\
 				Note that as $z \to x$, $R^2_{x,z} \to 1$ and IV estimator is approaching and ultimately equivalent to the OLS estimator.
 			\subsubsection{Properties}
-				If $z$ and $x$ are weakly correlated (i.e. \textbf{weak instrument}).
+				If $z$ and $x$ are weakly correlated (aka. \textbf{weak instrument}).
 				\begin{itemize}
 					\item IV estimators can have large standard errors. (small $R^2_{x,z}$)
-					\item IV estimators can have large \ul{asymptotic bias} if $Corr(z,u) \neq 0$ (we cannot check this formally).
+					\item IV estimators can have large \ul{asymptotic bias} if $Corr(z,u) \neq 0$ (since we cannot check exogeneity condition formally, so we cannot rule out this probability).
 				\end{itemize}
 				For IV estimator,
 				\[
-					plim \hat{\beta}_1 = \beta_1 + \frac{Corr(z,u) \sigma_u}{\textcolor{red}{Corr(z,x)} \sigma_x}
+					plim \hat{\beta}_{1, IV} = \beta_1 + \frac{Corr(z,u) \sigma_u}{\textcolor{red}{Corr(z,x)} \sigma_x}
 				\]
 				compared with OLS estimator
 				\[
-					plim \tilde{\beta}_{OLS} = \beta_{OLS} + Corr(x,u) \frac{\sigma_u}{\sigma_x}
+					plim \hat{\beta}_{1,OLS} = \beta_1 + Corr(x,u) \frac{\sigma_u}{\sigma_x}
 				\]
 				
 				\begin{remark}
 					The $R^2$ in IV estimation can be negative, and we should be careful about interpreting $R^2$ in IV estimation.
 				\end{remark}
 			\subsection{IV in Multiple Regression}
-			\par Consider the multiple regression model on $k$ predictors, where $y_2$ is endogenous,
+			\par Consider the multiple regression model on $k$ predictors, where $y_2$ is endogenous. The \textbf{structural model} is given in (2) below.
 			\begin{equation}
 				y_1 = \beta_0 + \beta_1 \textcolor{red}{y_2} + \beta_2 z_1 + \cdots + \beta_k z_{k-1} + u_1
 			\end{equation}
@@ -1132,7 +1134,7 @@
 			\end{gather*}
 			Above $k+1$ equations identify $\beta_0, \beta_1, \dots, \beta_k$.
 			
-			\paragraph{Replacement} Replacing $u_1$ with $\hat{u}_1$ from regression (10),
+			\paragraph{Replacement} Replacing $u_1$ with $\hat{u}_1$ from regression (2),
 			\begin{gather*}
 				\sum_{i=1}^n(y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 \textcolor{red}{y_{i2}} - \hat{\beta_2}z_{i1} - \cdots - \hat{\beta}_k z_{k-1}) = 0 \\
 				\sum_{i=1}^n \textcolor{red}{z_{i1}} (y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 \textcolor{red}{y_{i2}} - \hat{\beta_2}z_{i1} - \cdots - \hat{\beta}_k z_{k-1}) = 0 \\
@@ -1140,7 +1142,8 @@
 				\vdots \\
 				\sum_{i=1}^n z_{ik-1}(y_{i1} - \hat{\beta}_0 - \hat{\beta}_1 \textcolor{red}{y_{i2}} - \hat{\beta_2}z_{i1} - \cdots - \hat{\beta}_k z_{k-1}) = 0
 			\end{gather*}
-			And solving above $k+1$ equations gives the IV estimations of $\hat{\beta}_0, \hat{\beta}_1, \dots, \hat{\beta}_{k}$.
+			And solving above $k+1$ equations and replacing  give the IV estimations of $\hat{\beta}_0, \hat{\beta}_1, \dots, \hat{\beta}_{k}$.
+			\newline
 			The \ul{relevance condition} $Corr(y_2, z_k)$ can be verified using \textbf{reduced-form(auxiliary) equation} below with $H_0: \pi_k = 0$ and $H_1: \pi_k \neq 0$.
 			\[
 				y_2 = \pi_0 + \pi_1 z_1 + \pi_2 z_2 + \cdots + \pi_k \textcolor{red}{z_k} + v_2
