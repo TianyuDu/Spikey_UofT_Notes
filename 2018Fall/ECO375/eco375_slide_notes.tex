@@ -766,138 +766,220 @@
 				\end{gather*}
 	
 	\section{Slide 12: Specification and Data Problems}
+		\paragraph{} A multiple regression model suffers from functional misspecification when it does not properly account for the relationship between the dependent and the observed explanatory variables.
 		\subsection{Regression Specification Error Test (RESET)}
 		\subsubsection{RESET: Nested Alternatives}
 			\par \emph{Adding nonlinear functions of the regressors into the model and test for their significance.}
 			\\
 			Consider model 
-			\[
+			\begin{equation}
 				y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + u
-			\]
-			1) Run above regression, estimate $\hat{y}$. \\
-			2) And add non-linear transformations of the \textbf{estimation} to construct an \textbf{expanded regression model}.
-			\[
-				y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + \delta_1 \textcolor{red}{\hat{y}^2} + \delta_2 \textcolor{red}{\hat{y}^3} + u
-			\]
-			3) Use F-test to test the joint significance with $H_0: \delta_1 = \delta_2 = 0$. 
+			\end{equation}
+			If the original model satisfies MLR.4 ($\expect{u|\textbf{X}}=0$), then \textbf{no} nonlinear functions of the independent variables should be significant when added to equation (1). 
+			
+			\paragraph{Procedures}
+			\begin{enumerate}
+				\item Add polynomials in the OLS fitted values, $\hat{y}$, to equation (1). Typically squared and cubed terms are added.
+					\begin{equation}
+						y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + \delta_1 \textcolor{red}{\hat{y}^2} + \delta_2 \textcolor{red}{\hat{y}^3} + u
+					\end{equation}
+				\item Use F-test to test the joint significance with $H_0: \delta_1 = \delta_2 = 0$. And \hl{a significant $F$ suggests some sort of functional form problem.}
+					\[
+						F \sim \mc{F}_{(2, n-k-2)}
+					\]
+			\end{enumerate}
+			\begin{remark}
+				We will not be interested in the estimated parameters from (2); we only use this equation to test whether (1) has missed important non-linearities.
+			\end{remark}
+			
+			
 			\begin{remark}[Nested Alternatives]
 				One model is \textbf{nested} in another if you can always obtain the first model by constraining some of the parameters of the second model.
 			\end{remark}
 			\begin{example}
 				In above example, the original regression is \emph{nested} in the expanded regression. We can recover the original regression by constraining $\delta_1 = \delta_2 = 0$ in the expanded model.
 			\end{example}
-		\subsubsection{RESET: Non-nested Alternatives}
+			
+			
+		\subsubsection{Non-nested Alternatives: RESET}
 			\par Neither of the two models below is nested in the other one, \hl{we \textbf{cannot} use F-test}.
 			\begin{gather}
 				y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + u \\
 				y = \beta_0 + \beta_1 \log(x_1) + \beta_2 \log(x_2) + u
 			\end{gather}
-			1) Expanded regression: 
-			\[
-				y = \beta_0 + \gamma_1 x_1 + \gamma_2 x_2 + \gamma_3 \log(x_1) + \gamma_4 \log(x_4) + u
-			\]
-			2-i) (F) test for specification (1): $H_0: \gamma_1 = \gamma_2 = 0$. \\
-			2-ii) (F) test for specification (2): $H_0: \gamma_3 = \gamma_4 = 0$.
-		\subsection{Davidson-MacKinnon test: non-nested alternatives}
-			\par Let $\hat{y}_1$ and $\hat{y}_2$ denote the fitted values from (1) and (2) respectively. \\
-			\newline
-			1-i) Test for specification (1) with $H_0: \theta_1=0$. (If (1) is corrected, $\hat{y}_2$ should be insignificant.
-			\begin{equation}
-				y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \theta_1 \hat{y}_{\textcolor{red}{2}} + u
-			\end{equation}
-			1-ii) Test for specification (2) with $H_0: \theta_1=0$:
-			\begin{equation}
-				y = \beta_0 + \beta_1 \log(x_1) + \beta_2 \log(x_2) + \theta_1 \hat{y}_{\textcolor{red}{1}} + u
-			\end{equation}
-			\begin{remark}
-				\hl{In Davison-MacKinnon test, its possible for us to reject or accept both specifications.}
+			\paragraph{Procedures}
+			\begin{enumerate}
+				\item Construct a \emph{comprehensive model} that contains each model as a special case and then to test the restrictions that led to each of the models.
+				\begin{equation}
+					y = \beta_0 + \gamma_1 x_1 + \gamma_2 x_2 + \gamma_3 \log(x_1) + \gamma_4 \log(x_4) + u
+				\end{equation}
+				\item Test competing specifications
+				\begin{enumerate}
+					\item (F) test for specification (4): $H_0: \gamma_1 = \gamma_2 = 0$.
+					\item (F) test for specification (3): $H_0: \gamma_3 = \gamma_4 = 0$.
+				\end{enumerate}
+			\end{enumerate}
+			
+			
+		\subsubsection{Non-nested alternatives: Davidson-MacKinnon test}
+			\par Let $\hat{y}_3$ and $\hat{y}_4$ denote the fitted values from (3) and (4) respectively. \\
+			If model (3) holds with $\expect{u|x_1, x_2}=0$, the \hl{fitted values} from the other model, (4), should be insignificant when added to equation (3).
+			
+			\paragraph{Procedures}
+			\begin{enumerate}
+				\item Test for specification (3) with $H_0: \theta_1=0,\ H_1: \theta_1 \neq 0$.
+					\begin{equation}
+						y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \theta_1 \hat{y}_{\textcolor{red}{4}} + u
+					\end{equation}
+				\item Test for specification (4) with $H_0: \theta_1=0,\ H_1: \theta_1 \neq 0$. \\ \hl{A significant $t$ statistic (against a two-sided alternative) is a rejection of (4)}.
+					\begin{equation}
+						y = \beta_0 + \beta_1 \log(x_1) + \beta_2 \log(x_2) + \theta_1 \hat{y}_{\textcolor{red}{3}} + u
+					\end{equation}
+			\end{enumerate}
+			
+			\begin{remark}[Porblems] \quad
+				\begin{enumerate}
+					\item In Davison-MacKinnon test, its possible for us to reject or accept both specifications.
+					\begin{enumerate}
+						\item If neither rejected, use adjusted R-square to choose one model.
+						\item If both rejected, find another alternative.
+					\end{enumerate}
+					\item Note that a rejection of (3) does not mean (4) is the correct model.
+					\item The case when competing models have \ul{different dependent variables} could be problematic. ($y = \dots $ against $\log(y) = \dots$)
+				\end{enumerate}
 			\end{remark}
 		\subsection{Proxy Variables}
 			\subsubsection{Procedures}
 				\par For the original model
 				\begin{equation}
-					y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k^{uob} + u
+					y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k^{*} + u
 				\end{equation}
-				where $x_k^{uob}$ is unobserved. \\
-				\paragraph{Select} Choose an observed variable $x_k$ is a \textbf{proxy} for $x_k^{uob}$ such that
+				where $x_k^{*}$ is unobserved. \\
+				
+				\paragraph{(1)Select proxy} Choose an observed variable $x_k$ is a \textbf{proxy} for $x_k^{uob}$ such that
+				
 				\begin{equation}
-					x_k^{uob} = \delta_0 + \delta_k x_k + v_3,\ \delta_k \neq 0
+					x_k^{*} = \delta_0 + \delta_k x_k + v_3
 				\end{equation}
-				\paragraph{Plug-in} plug (6) into (5)
+				\begin{assumption}
+					Typically we want $\delta_k > 0$, and no restriction on $\delta_0$.
+				\end{assumption}
+				
+				
+				\paragraph{(2)Plug-in solution to the omitted variables problem} directly replace $x^*_k$ with $\delta_0 + \delta_k x_k + v_3$
 				\begin{equation}
 					y = (\beta_0 + \beta_k \delta_0) + \beta_1 x_1 + \dots + \textcolor{red}{\beta_k \delta_k x_k} + (u + \beta_k v)
 				\end{equation}
 				\begin{assumption}
 					For a consistent estimator, we need to assume that
 					\begin{enumerate}
-						\item $u$ is uncorrelated with $x_1, x_2, \dots, x_k^{uob}, x_k$. 
+						\item $u$ is uncorrelated with $x_1, x_2, \dots, x_k^{*}, x_k$. 
 						\item $v$ is uncorrelated with $x_1, x_2, \dots, x_k$.
 						\[
-							\expect{x_k^{uob}|x_1,x_2,\dots,x_k} = \expect{\delta_0 + \delta_k x_k + v|x_1,x_2,\dots,x_k} = \delta_0 + \delta_k x_k
+							\expect{x_k^{*}|x_1,x_2,\dots,x_k} = \expect{\delta_0 + \delta_k x_k + v|x_1,x_2,\dots,x_k} = \delta_0 + \delta_k x_k
 						\]
 					\end{enumerate}
 				\end{assumption}
 				\begin{remark}
-					Under above assumptions, the OLS estimator for $(\beta_1, \beta_2, \dots \textcolor{red}{\beta_k \delta_k})$ is still \hl{consistent} and \hl{unbiased}.
+					Under above assumptions and regressing $y$ on $x_1, x_2, \dots, \textcolor{red}{x_k}$, the OLS estimator for $(\beta_1, \beta_2, \dots, \beta_{k-1})$ is still \hl{consistent} and \hl{unbiased}.\\
+					 But for intercept and $k^{th}$ coefficient, we are effectively estimating $\beta_0 + \delta_0 \beta_k$ and $\delta_k \beta_k$.
 				\end{remark}
 			\subsubsection{Proxy Bias}
-				If $x_k^{uob}$ is correlated with all $\{x_1, x_2, \dots, x_k\}$, i.e. 
+				If $x_k^{*}$ is correlated with all $\{x_1, x_2, \dots, x_k\}$ (collinearity), i.e. 
 				\[
-					x_k^{uob} = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \dots + \delta_k x_k + v_k
+					x_k^{*} = \delta_0 + \delta_1 x_1 + \delta_2 x_2 + \dots + \delta_k x_k + v_k
 				\]
-				the for the coefficient of $x_j$ in the original regression, we are effective estimating 
+				the for the coefficient of $x_j$ in the original regression, 
 				\[
-					\beta_j + \beta_k \delta_j
+					plim(\hat{\beta}_j) = \beta_j + \beta_k \delta_j
 				\]
 				which means the estimation is still biased. \hl{In this case, using a proxy variable will not solve the omitted variable bias problem}.
 				
 		\subsection{Measurement Error in an Explanatory Variable}
 			\par Consider the model 
 			\[
-				y = \beta_0 + \beta_1 x_1^{true} + u
+				y = \beta_0 + \beta_1 x_1^{*} + u
 			\]
-			but we can only observe $x_1 = x_1^{true} + e_1$. Assuming \textbf{measurement error} satisfies
-			\[
-				\expect{e_1} = 0
-			\]
-			and the regression model becomes if we regress $y$ on the observed $x_1$.
-			\[
-				y = \beta_0 + \beta_1 x_1 + (u - \beta_1 e_1)
-			\]
+			but we can only observe $x_1 = x_1^{*} + e_1$. 
+			
 			\begin{assumption}
-				$u$ is uncorrelated with both $x_1$ and $x_1^{true}$.
+				Assuming \textbf{measurement error} satisfies
+				\[
+					\expect{e_1} = 0
+				\]
 			\end{assumption}
-			\subsubsection{Case 1 $Cov(x_1, e_1) = 0$}
-				\begin{gather*}
-					\expect{u-\beta_1 e_1} = \expect{u} - \beta_1 \expect{e_1} = 0
-				\end{gather*}
-				MLR.3 still holds and \hl{estimator $\hat{\beta}_1$ is still consistent}.
-			\subsubsection{Case 2 $Cov(x_1^{true}, e_1) = 0$: Classical errors-in-variance(CEV)}
-				\begin{gather*}
-					Cov(x_1, e_1) = \expect{(x_1 - \overline{x}_1)(e_1 - \overline{e}_1)} \\
-					= \expect{x_1 e_1} \\
-					= \expect{(x_1^{true} + e_1) e_1} \\
-					= \expect{x_1^{true}e_1 + e_1^2} \\
-					= 0 + \expect{e_1^2} \\
-					= \expect{(e_1 - \overline{e}_1)^2} \\
-					= \sigma_{e_1}^2 \neq 0
-				\end{gather*}
-				Then the \hl{estimator $\hat{\beta}_1$  is biased and inconsistent}.
+			
+			and the regression model becomes if we regress $y$ on the observed $x_1$.
+			\begin{equation}
+				y = \beta_0 + \beta_1 x_1 + (u - \beta_1 e_1)
+			\end{equation}
+			\begin{assumption}
+				$u$ is uncorrelated with both $x_1$ and $x_1^{*}$, i.e. $x_1$ does not affect $y$ after $x_1^*$ has been controlled for.
+			\end{assumption}
+			
+			\subsubsection{Case 1: $Cov(x_1, e_1) = 0$}
+				\begin{remark}
+					Since $e_1 = x_1 + x_1^*$, if $Cov(x_1, e_1) = 0$ then $Cov(x_1^*, e_1) \neq 0$.
+				\end{remark}
+				\begin{remark}
+					\begin{gather*}
+						\expect{u-\beta_1 e_1} = \expect{u} - \beta_1 \expect{e_1} = 0
+					\end{gather*}
+					MLR.3 still holds and \hl{estimator $\hat{\beta}_1$ is still consistent}.
+				\end{remark}
+				
+				\begin{remark}
+					Note that 
+					\[
+						Var(u - \beta_1 e_1) = \sigma_u^2 + \beta_1^2 \sigma_{e_1}^2
+					\]
+					the variance of estimators is inflated unless $\beta_1 = 0$.
+				\end{remark}
+				
+			\subsubsection{Case 2 $Cov(x_1^{*}, e_1) = 0$: Classical errors-in-variance(CEV)}
+				\begin{remark}
+					\begin{gather*}
+						Cov(x_1, e_1) = \expect{(x_1 - \overline{x}_1)(e_1 - \overline{e}_1)} \\
+						= \expect{x_1 e_1} \\
+						= \expect{(x_1^{*} + e_1) e_1} \\
+						= \expect{x_1^{*}e_1 + e_1^2} \\
+						= 0 + \expect{e_1^2} \\
+						= \expect{(e_1 - \overline{e}_1)^2} \\
+						= \sigma_{e_1}^2 \neq 0
+					\end{gather*}
+				Thus the covariance between $x_1$ and $x_1$ is equal to the variance of the measurement error under CEV assumption.
+				\end{remark}
+				
+				\begin{remark}
+					From equation (11), the new residual is $(u - \beta_1 e_1)$ and
+					\begin{gather*}
+						Cov(x_1, u - \beta_1 e_1) = \sum{(x_1 - \overline{x}_1) (u - \beta_1 e_1)} \\
+						= \sum {x_1 u} - \beta_1 \sum {x_1 e_1} \\
+						= Cov(x_1, u) - \beta_1 \sum {(x_1 - \overline{x}_1)(e_1 - 0)} \\
+						= 0 - \beta_1 Cov(x_1, e_1) \\
+						= \sigma_{e_1}^2 \neq 0
+					\end{gather*}
+					this fails MLR.4 and the OLS regression of $y$ on $x_1$ gives a \hl{biased} and \hl{inconsistent} estimator.
+				\end{remark}
 
 		\subsection{Measurement Error in Dependent Variable}
 			\par Consider model 
-			\[
-				y^{true} = \textbf{X}\vec{\beta} + u
-			\]
-			and the actually observed $y$ is $y = y^{true} + e_0$. If we regress the observed $y$ on explanatory variables, we are effectively estimating
-			\[
+			\begin{equation}
+				y^{*} = \textbf{X}\vec{\beta} + u
+			\end{equation}
+			and the actually observed $y$ is $y = y^{*} + e_0$, with \textbf{measurement error} $e_0$. If we regress the observed $y$ on explanatory variables, we are effectively estimating
+			\begin{equation}
 				y = \textbf{X}\vec{\beta} + \textcolor{red}{(u+e_0)}
-			\]
-			note that we would now have higher residual variance $\sigma^2 + \sigma_{e_0}^2$ and the variance for OLS estimator is inflated
-			\[
-				Var(\vec{\beta}) = (\sigma^2 + \sigma_{e_0}^2) (\textbf{X}'\textbf{X})^{-1}
-			\]
-			\hl{If $\expect{e_1|\textbf{X}}=0$ then $\hat{\beta}$ is still unbiased, otherwise in trouble.}
+			\end{equation}
+			\begin{remark}
+				\hl{Assuming the measurement error in $y$ is statistically independent of each explanatory variable}, the OLS estimator from (12) is consistent and unbiased (Gauss-Markov Holds).
+			\end{remark}
+			\begin{remark}
+			Note that we would now have higher residual variance $\sigma_u^2 + \sigma_{e_0}^2$ and the variance for OLS estimator is inflated
+				\[
+					Var(\vec{\beta}) = (\sigma_u^2 + \sigma_{e_0}^2) (\textbf{X}'\textbf{X})^{-1}
+				\]
+			\end{remark}
 			
 			
 			
