@@ -1,0 +1,193 @@
+\documentclass{article}
+
+\title{ECO210H1 Mathematical Methods for Economic Theory: Notes}
+\author{Tianyu Du}
+\date{\today}
+
+\usepackage{spikey}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+
+\counterwithin*{equation}{section}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	
+	\section{Quadratic Forms}
+		\begin{definition}[Quadratic Form]
+			\[
+				Q(\textbf{x}) = \textbf{x}' \textbf{A} \textbf{x}
+			\]
+			where $\textbf{x} \in \R^n$ and \hl{symmetric} $\textbf{A} \in \mathbb{M}_{n\times n}$.
+		\end{definition}
+		
+		\begin{definition}[Definiteness of Quadratic Form]
+			Let $\mc{Q}$ be a quadratic form
+			\begin{enumerate}
+				\item Positive definite.
+				\item Negative definite
+				\item Positive semidefinite.
+				\item Negative semidefinite.
+				\item Indefinite.
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{definition}[$k^{th}$ Order Leading Principal Minor]
+			
+		\end{definition}
+		
+		\begin{proposition}
+			Let \textbf{A} be an $n\times n$ \hl{symmetric} matrix, and let $D_k$ where $k = 1,\dots, n$ be its leading principal minors. Then
+			\begin{enumerate}
+				\item \textbf{A} is positive definite $\iff$ $D_k > 0\ \forall k$. 
+				\item \textbf{A} is negative definite $\iff$ $(-1)^k D_k > 0\ \forall k$.
+			\end{enumerate}
+		\end{proposition}
+		
+		\begin{definition}[$k^{th}$ Order Principal Minor]
+			
+		\end{definition}
+		
+		\begin{proposition}
+			Let \textbf{A} be a $n \times n$ \hl{symmetric} matrix. Then
+			\begin{enumerate}
+				\item \textbf{A} is positive semidefinite $\iff$ all its principal minors are non-negative.
+				\item \textbf{A} is negative semidefinite $\iff$ all its $k^{th}$ order principal minors are non-positive for $k$ odd and non-negative for $k$ even.
+			\end{enumerate}
+		\end{proposition}
+	
+	\section{Concavity and Convexity}
+		\begin{definition}[Convex Sets in $\R^n$]
+			A set $S \subseteq \R^n$ is convex if for all $\textbf{x}^1 \in S$ and $\textbf{x}^2 \in S$, we have
+			\[
+				t \textbf{x}^1 + (1-t)\textbf{x}^2 \in S
+			\]
+			for all $t \in [0, 1]$.
+		\end{definition}
+		
+		\begin{definition}[Convex Combination]
+			Given a finite number of points $\vec{x}_1, \vec{x}_2, \dots \vec{x}_n$ in a real vector space, a convex combination of these points is
+			\[
+				\vec{x} = \sum_{i=1}^n \alpha_i \vec{x}_i
+			\]
+			where 
+			\[
+				\sum_{i=1}^n \alpha_i = 1 \land a_i \geq 0\ \forall i
+			\]
+		\end{definition}
+		
+		\begin{definition}[Convex Hull (of a finite point set)]
+			Let $S$ be a finite set of vectors from a real vector space,
+			\[
+				Conv(S) = \Big \{
+					\sum_{i=1}^{|S|} \alpha_i x_i \Big | (\alpha_i \geq 0\ \forall i) \land \sum_{i=1}^{|S|} \alpha_i = 1
+				\Big \}
+			\]
+		\end{definition}
+		
+		\begin{definition}[Affine Combination]
+			\[
+				\vec{x} = \sum_{i=1}^n \alpha_i \vec{x}_i
+			\]
+			where 
+			\[
+				\sum_{i=1}^n \alpha_i = 1
+			\]
+		\end{definition}
+		
+		\begin{proposition}
+			The intersection of convex sets is convex.
+		\end{proposition}
+		
+		\begin{definition}[Concave Function]
+			Let $D \subseteq \R^n$ be convex and $f: D\to \R$ is \textbf{concave} if for all $\textbf{x}_1, \textbf{x}_2 \in D$
+			\[
+				f(t \textbf{x}_1 + (1-t) \textbf{x}_2) \geq t f(\textbf{x}_1) + (1-t) f(\textbf{x}_2)\quad \forall t \in [0, 1]
+			\]
+		\end{definition}
+		
+		\begin{definition}[Convex Function]
+			Let $D \subseteq \R^n$ be convex and $f: D\to \R$ is \textbf{convex} if for all $\textbf{x}_1, \textbf{x}_2 \in D$
+			\[
+				f(t \textbf{x}_1 + (1-t) \textbf{x}_2) \leq t f(\textbf{x}_1) + (1-t) f(\textbf{x}_2)\quad \forall t \in [0, 1]
+			\]
+		\end{definition}
+		
+		\begin{definition}[Strictly Concave Function]
+			$f: D \to \R$ is \textbf{strictly concave} if and only if, for all $\textbf{x}_1 \neq \textbf{x}_2 \in D$,
+			\[
+				f(t \textbf{x}_1 + (1-t) \textbf{x}_2) > t f(\textbf{x}_1) + (1-t) f(\textbf{x}_2)\quad \forall t \in (0, 1)
+			\]
+		\end{definition}
+		
+		\begin{theorem}
+			$f: D \to \R$ defined on a convex set is 
+			\begin{enumerate}
+				\item Concave if and only if set 
+				\[
+					A \equiv \{(\textbf{x}, y): \textbf{x} \in S, y \leq f(\textbf{x})\}
+				\]
+				is convex. 
+				\item Convex if and only if set 
+				\[
+					A \equiv \{(\textbf{x}, y): \textbf{x} \in S, y \geq f(\textbf{x})\}
+				\]
+				is convex.
+			\end{enumerate}
+		\end{theorem}
+		
+		\begin{theorem}[Jensen's Inequality]
+			Let $f: D \to \R$ defined on a convex set is concave if and only if for all $n \geq 2$,
+			\[
+				f(\sum_{i=1}^n \lambda_i \textbf{x}_i) \geq \sum_{i=1}^n \lambda_i f(\textbf{x}_i)
+			\]
+			where 
+			\[
+				(\forall i: \lambda_i \geq 0) \land \sum_{i=1}^n \lambda_i = 1
+			\]
+			and $f$ is convex if and only if for all $n \geq 2$,
+			\[
+				f(\sum_{i=1}^n \lambda_i \textbf{x}_i) \leq \sum_{i=1}^n \lambda_i f(\textbf{x}_i)
+			\]
+			where 
+			\[
+				(\forall i: \lambda_i \geq 0) \land \sum_{i=1}^n \lambda_i = 1
+			\]
+		\end{theorem}
+		
+	\section{Optimization: definitions}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
