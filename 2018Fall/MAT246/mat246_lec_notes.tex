@@ -1559,6 +1559,91 @@
 			\end{enumerate}
 			But the winding number of $p_R(t)$ is a continuous function of $R$ and it has co-domain of integers. Then it must be the case that $p_R(t)$ is constant, but this contradicts our assumption that $deg(p(z)) > 0$.
 		\end{proof}
+		
+	\section{Lecture 22. Oct 31 2018}
+		\paragraph{Recall} the outline of proving the Fundamental Theorem of Algebra. 
+		\newline
+		Suppose $p(z)$ is a non-=constant polynomial with no roots. i.e.
+		\[
+			p(z) \neq 0\quad \forall z \in \mathbb{C}
+		\]
+		Let 
+		\[
+			p_R(t) := p(\phi_R(t))
+		\]
+		where $\phi(t): [0, 2\pi] \to \mathbb{C} = R(\cos(t) + i\sin(t))$.
+		\newline
+		And we well show
+		\begin{enumerate}
+			\item $R$ is large $\implies$ winding number of $p_R(t) = degree(p(z))$
+			\item $R$ is small $\implies$ winding number of $p_R(t) = 0$.
+		\end{enumerate}
+		\begin{proof}
+			Let $q(z) = z^n$, where $n$ is the degree of polynomial $p(z)$. \\
+			Let $L_R(t) = q(\phi_R(t))$. \\
+			Note that
+			\begin{gather*}
+				L_R(t) = q(\phi_R(t)) \\
+				= q(R(\cos(t) + i\sin(t))) \\
+				= R^n (\cos(nt) + i\sin(nt))
+			\end{gather*}
+			so $L_R(t)$ has winding number $n$. \\
+			\begin{lemma}
+				Let $L(t)$ and $M(t)$ be 2 closed curves not passing through the origin. \\
+				Suppose 
+				\[
+					| L(t) - M(t) | < | L(t) |\quad \forall t \in [0, 2\pi]
+				\]
+				then $L(t)$ and $M(t)$ have the same winding number.
+			\end{lemma}
+			\emph{We are \textbf{not} going to prove this lemma}. \\
+			\begin{proof}[Proof. Proposition 1]
+				Since $L_R(t) = \phi_R(t)^n$, \\
+				Suppose 
+				\[
+					p(\phi_R(t)) = a_n z^n + a_{n-1} z^{z-1} + \dots + a_1 z + a_0
+				\]
+				WLOG, assume $a_n=1$. \\
+				Then 
+				\[
+					p_R(t) = \phi_R(t)^n + a_{n-1} \phi_R(t)^{n-1} + \dots + a_1 \phi_R(t) + a_0
+				\]
+				and 
+				\begin{gather*}
+					|L_R(t) - p_R(t)| = |a_{n-1} \phi_R(t)^{n-1} + \dots + a_1 \phi_R(t) + a_0| \\
+					\leq |a_{n-1}\phi_R(t)^{n-1}| + \dots + |a_0| \\
+					= |a_{n-1}| |\phi_R(t)|^{n-1} + |a_{n-2}| |\phi_R(t)|^{n-2} + \dots + |a_1| |\phi_R(t)| + |a_0| \\
+					= |a_{n-1}| R^{n-1} + |a_{n-2}| R^{n-2} + \dots + |a_1| R + |a_0| \\
+					\tx{Choosing } R > \max \{1, \sum_{i=1}^{n-1}|a_i|\} \\
+					< |a_{n-1}| R^{n-1} + |a_{n-2}| R^{n-1} + \dots + |a_1| R^{n-1} + |a_0| R^{n-1} \\
+					= R^{n-1} \sum_{i=1}^{n-1} |a_i| \\
+					< R^n = |L_R(t)|
+				\end{gather*}
+				Thus we have shown that
+				\[
+					|L_R(t) - p_R(t)| < |L_R(t)|,\quad \forall t \in [0, 2\pi]
+				\]
+				by choosing $R$ large enough. By previous lemma, we conclude that $p_R(t)$ has the same winding number as $L_R(t)$, which is $n$. \\
+			\end{proof}
+			\begin{proof}[Proof. Proposition 2]
+				Note $p(0) = a_0 \neq 0$ since we assumed $p$ has no roots. \\
+				Since $p(z)$ is a polynomial so its continuous. (of course near $0$) \\
+				\[
+					\forall \epsilon > 0,\ \exists \delta > 0\ s.t.\ 0 < |z - 0| < \delta \implies |p(z) - p(0)| < \epsilon 
+				\]
+				Since $p(0) \neq 0$ and the quadrant(excluding axes) containing $a_0$ is open.\\
+				There exists $\epsilon$ such that all points $z$ in $\mc{B}(\epsilon, a_0)$ are in that quadrant. \\
+				There exists $\delta > 0$ satisfying the continuity definition above and we choose 
+				\[
+					R = \frac{\delta}{2}
+				\]
+				Then all $z$ in set $\{\phi_R(t):t\in [0, 2\pi]\}$ are mapped into $\mc{\epsilon, a_0}$, and of course in the quadrant containing $a_0$.\\
+				Therefore the winding number of $p_R(t)$ is 0.
+			\end{proof}
+			altogether with the fact that winding number of $p_R(t)$ is a continuous function from $R_{>0}$ to integers, we conclude that $p_R(t)$ is constant. \\
+			This conclusion contradicts our assumption that $p(z)$ is non-constant, i.e. $n \neq 0$. \\
+			Thus $p(z)$ has root.
+		\end{proof}
 \end{document}
 
 

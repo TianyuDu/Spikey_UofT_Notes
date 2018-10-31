@@ -37,3 +37,5 @@
 \contentsline {section}{\numberline {20}Lecture 20. Oct 24 2018}{33}{section.20}
 \contentsline {section}{\numberline {21}Lecture 21. Oct 29 2018}{34}{section.21}
 \contentsline {subsection}{\numberline {21.1}Proof of the Fundamental Theorem of Algebra}{35}{subsection.21.1}
+\contentsline {section}{\numberline {22}Lecture 22. Oct 31 2018}{36}{section.22}
+\contentsline {paragraph}{Recall}{36}{section*.4}
