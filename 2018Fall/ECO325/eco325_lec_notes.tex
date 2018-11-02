@@ -1178,6 +1178,89 @@
 			\begin{remark}
 				For \ul{temporary} changes, where would be smoothing.
 			\end{remark}
+	
+	\newpage
+	\section{Lecture 8 Nov. 1 2018}
+		\subsection{Government Spending: without bonds}
+			\begin{notation}
+				Let $G(t)$ and $T(t)$ denote the government expenditure and taxation (in form of lump-sum tax) per \hl{effective unit of labor} at time period $t$.
+			\end{notation}
+			
+			\begin{assumption}
+				Government satisfies its budget constraint in every period,
+				\begin{equation}
+					G(t) A(t) L(t) = T(t) A(t) L(t),\quad \forall t \in [0, \infty)
+				\end{equation}
+			\end{assumption}
+			
+			\paragraph{Household budget} constraint (normalized by $\frac{A(0)L(0)}{H}$) can be expressed as
+			\begin{gather}
+				k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} [w(t) - c(t) - T(t)]}\ dt \geq 0 \\
+				\iff k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} [w(t) - c(t) - \textcolor{red}{G(t)}]}\ dt \geq 0
+			\end{gather}
+			
+			\paragraph{State equation} 
+			\begin{equation}
+				\dot{k}(t) = f(k(t)) - c(t) - G(t) - (n+g)k(t)
+			\end{equation}
+			
+			\subsubsection{Temporary shock in $G$}
+				\begin{figure*}[h]
+					\centering
+					\includegraphics[width=0.7\linewidth]{figures/8_1}
+					\caption{The effects of a temporary increase in government purchases}
+				\end{figure*}
+		\newpage
+		\subsection{Government Spending: with bonds (voluntary taxation)}
+			\paragraph{Household Budget Constraint}
+				\begin{equation}
+					k(0) + b(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} [w(t) - c(t) - T(t)]}\ dt \geq 0
+				\end{equation}
+				where government bonds $b(0)$ is considered as a part of \emph{initial asset} of households.
+			\paragraph{Government Budget Constraint}
+				\begin{gather}
+					-b(0) A(0) L(0) + \int_{t=0}^\infty e^{-R(t)} A(t)L(t) [T(t) - G(t)]\ dt \geq 0 \\
+					\implies -b(0) + \int_{t=0}^{\infty} e^{-R(t)} e^{(n+g)t} [T(t) - G(t)]\ dt \geq 0 \\
+					\iff b(s)e^{(n+g)s} = b(0)e^{R(s)} - \int_{t=0}^{\infty} e^{-R(t)+R(s)} e^{(n+g)t} [T(t) - G(t)]\ dt \leq 0 \\
+					\iff \lim_{s\to \infty} b(s) e^{-R(s)} \leq 0
+				\end{gather}
+			\begin{proposition}
+				The effects of government spending on household optimization are the same with and without bonds.
+				\begin{proof}
+					Adding household budget (5) and government budget (7)
+				\begin{gather}
+					k(0) + \int_{t=0}^\infty {e^{-R(t)} e^{(n+g)t} [w(t) - c(t) - G(t)]}\ dt \geq 0
+				\end{gather}
+				Note that (10) is identical to the household budget constraint (3) in last section and taxation and bonds are assumed not affecting household's utility. Therefore household's optimization problem is unchanged under two taxation schemes.
+				\end{proof}
+				
+				\begin{assumption}[Perfect Financial Institute]
+					Government and household are facing the same interest rate $r(t)$.
+				\end{assumption}
+				
+				\begin{definition}[Ricardian Equivalence]
+					\emph{Path of taxation} does not affect household behaviour, only \emph{path of government expenditure} does.
+				\end{definition}
+			\end{proposition}
+			
+		\subsection{Problems of Ricardian Equivalence}
+			\subsubsection{Turn Over of Population}
+				\begin{itemize}
+					\item Old people die before high taxes.
+					\item Remedies: \textbf{Intergenerational Altruism} generations behave as if they are one infinitely living individual.
+				\end{itemize}
+				
+			\subsubsection{Liquidity Constraint}
+				\begin{itemize}
+					\item People cannot borrow earlier. (Imperfect financial market)
+					\item Response: Government can save for individuals.
+				\end{itemize}
+			
+			\subsubsection{No Lump-sum Tax in Real World}
+				\par One critical assumption for Ricardian Equivalence to hold is the tax is flat. But in real world, taxation (e.g. consumption tax) can introduce significant distortion to household budget constraint and thus household behaviour.
+				
+			\subsubsection{Rule of Thumb: Imperfect Foreseeing}
+				\par People cannot foresee future events perfectly, instead, they follow rule of thumb (e.g. same 20\% of income). Therefore they do not always act optimally.
 \end{document}
 
 

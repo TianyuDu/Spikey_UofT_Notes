@@ -3,61 +3,74 @@
 \contentsline {paragraph}{Direct Download}{1}{section*.3}
 \contentsline {paragraph}{Color notations}{1}{section*.4}
 \contentsline {paragraph}{Revisions}{1}{section*.5}
-\contentsline {section}{\numberline {1}Lecture 1 September 6. 2018}{3}{section.1}
-\contentsline {paragraph}{Facts}{3}{section*.7}
-\contentsline {subsection}{\numberline {1.1}Solow Growth Model (continuous time version)}{3}{subsection.1.1}
-\contentsline {paragraph}{Intro.}{3}{section*.8}
-\contentsline {paragraph}{Notations}{3}{section*.9}
-\contentsline {subsubsection}{\numberline {1.1.1}Production Function}{3}{subsubsection.1.1.1}
-\contentsline {section}{\numberline {2}Lecture 2 September 13. 2018}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Solow Growth Model: Setup}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Dynamics of $k(t)$}{7}{subsection.2.2}
-\contentsline {section}{\numberline {3}Lecture 3 September 20. 2018}{7}{section.3}
-\contentsline {subsection}{\numberline {3.1}Dynamic Transitions}{7}{subsection.3.1}
-\contentsline {paragraph}{}{7}{section*.10}
-\contentsline {subsection}{\numberline {3.2}Balanced Growth Path}{9}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Growth Rates on Balanced Growth Path}{9}{subsubsection.3.2.1}
-\contentsline {paragraph}{Population and Technology}{9}{section*.11}
-\contentsline {paragraph}{Capital per person}{9}{section*.12}
-\contentsline {paragraph}{Output and Consumption per person}{10}{section*.13}
-\contentsline {subsection}{\numberline {3.3}Experiment}{12}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Impact of Change in the Saving Rate ($s_1 > s_0$)}{12}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}Derive the Effect of Change in $s$ Mathematically}{13}{subsubsection.3.3.2}
-\contentsline {paragraph}{Goal}{13}{section*.14}
-\contentsline {paragraph}{Impact on $k^*$}{13}{section*.15}
-\contentsline {paragraph}{Impact on $y^*$}{13}{section*.16}
-\contentsline {paragraph}{Impact on $c^*$}{14}{section*.17}
-\contentsline {section}{\numberline {4}Lecture 4 September 27. 2018}{15}{section.4}
-\contentsline {subsection}{\numberline {4.1}Speed of Convergence}{15}{subsection.4.1}
-\contentsline {paragraph}{Methodology}{15}{section*.18}
-\contentsline {paragraph}{Recall}{15}{section*.19}
-\contentsline {subsection}{\numberline {4.2}General Statements}{16}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Growth Accounting}{17}{subsection.4.3}
-\contentsline {section}{\numberline {5}Lecture 5 October 11. 2018}{18}{section.5}
-\contentsline {subsection}{\numberline {5.1}Economy Setup}{18}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Households}{19}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Assumptions and Behaviours}{19}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Objective Functions}{19}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Household Budget Constraints}{20}{subsubsection.5.2.3}
-\contentsline {subsection}{\numberline {5.3}Instantaneous Utility Function}{21}{subsection.5.3}
-\contentsline {section}{\numberline {6}Lecture 6 Oct 18. 2018}{22}{section.6}
-\contentsline {subsection}{\numberline {6.1}Firm Setup}{22}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Firm's Optimization}{22}{subsection.6.2}
-\contentsline {paragraph}{Maximization}{22}{section*.20}
-\contentsline {paragraph}{First Order Condition}{23}{section*.21}
-\contentsline {subsection}{\numberline {6.3}Household Behaviour}{24}{subsection.6.3}
-\contentsline {paragraph}{First Order Necessary Conditions}{24}{section*.22}
-\contentsline {subsection}{\numberline {6.4}The Behaviour of Consumption}{24}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}Dynamics of the Economy}{25}{subsection.6.5}
-\contentsline {subsubsection}{\numberline {6.5.1}Dynamic of $c$}{25}{subsubsection.6.5.1}
-\contentsline {subsubsection}{\numberline {6.5.2}Dynamic of $k$}{26}{subsubsection.6.5.2}
-\contentsline {subsubsection}{\numberline {6.5.3}Initial Point Problem (Saddle Path)}{27}{subsubsection.6.5.3}
-\contentsline {section}{\numberline {7}Lecture 7 Oct. 25 2018}{27}{section.7}
-\contentsline {subsection}{\numberline {7.1}Welfare}{27}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}In the Long Run: Balanced Growth Path}{28}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Modified Golden Rule Level of Capital}{28}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Experiment: an unexpected fall in the discounted rate $\rho $.}{29}{subsection.7.4}
-\contentsline {paragraph}{Impact on $k^*$ and $c^*$}{29}{section*.23}
-\contentsline {paragraph}{Result}{29}{section*.24}
-\contentsline {subsection}{\numberline {7.5}Experiment: government purchases}{30}{subsection.7.5}
-\contentsline {paragraph}{Impact}{30}{section*.25}
+\contentsline {section}{\numberline {1}Lecture 1 September 6. 2018}{4}{section.1}
+\contentsline {paragraph}{Facts}{4}{section*.7}
+\contentsline {subsection}{\numberline {1.1}Solow Growth Model (continuous time version)}{4}{subsection.1.1}
+\contentsline {paragraph}{Intro.}{4}{section*.8}
+\contentsline {paragraph}{Notations}{4}{section*.9}
+\contentsline {subsubsection}{\numberline {1.1.1}Production Function}{4}{subsubsection.1.1.1}
+\contentsline {section}{\numberline {2}Lecture 2 September 13. 2018}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Solow Growth Model: Setup}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Dynamics of $k(t)$}{8}{subsection.2.2}
+\contentsline {section}{\numberline {3}Lecture 3 September 20. 2018}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}Dynamic Transitions}{8}{subsection.3.1}
+\contentsline {paragraph}{}{8}{section*.10}
+\contentsline {subsection}{\numberline {3.2}Balanced Growth Path}{10}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Growth Rates on Balanced Growth Path}{10}{subsubsection.3.2.1}
+\contentsline {paragraph}{Population and Technology}{10}{section*.11}
+\contentsline {paragraph}{Capital per person}{10}{section*.12}
+\contentsline {paragraph}{Output and Consumption per person}{11}{section*.13}
+\contentsline {subsection}{\numberline {3.3}Experiment}{13}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Impact of Change in the Saving Rate ($s_1 > s_0$)}{13}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Derive the Effect of Change in $s$ Mathematically}{14}{subsubsection.3.3.2}
+\contentsline {paragraph}{Goal}{14}{section*.14}
+\contentsline {paragraph}{Impact on $k^*$}{14}{section*.15}
+\contentsline {paragraph}{Impact on $y^*$}{14}{section*.16}
+\contentsline {paragraph}{Impact on $c^*$}{15}{section*.17}
+\contentsline {section}{\numberline {4}Lecture 4 September 27. 2018}{16}{section.4}
+\contentsline {subsection}{\numberline {4.1}Speed of Convergence}{16}{subsection.4.1}
+\contentsline {paragraph}{Methodology}{16}{section*.18}
+\contentsline {paragraph}{Recall}{16}{section*.19}
+\contentsline {subsection}{\numberline {4.2}General Statements}{17}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Growth Accounting}{18}{subsection.4.3}
+\contentsline {section}{\numberline {5}Lecture 5 October 11. 2018}{19}{section.5}
+\contentsline {subsection}{\numberline {5.1}Economy Setup}{19}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Households}{20}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Assumptions and Behaviours}{20}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Objective Functions}{20}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Household Budget Constraints}{21}{subsubsection.5.2.3}
+\contentsline {subsection}{\numberline {5.3}Instantaneous Utility Function}{22}{subsection.5.3}
+\contentsline {section}{\numberline {6}Lecture 6 Oct 18. 2018}{23}{section.6}
+\contentsline {subsection}{\numberline {6.1}Firm Setup}{23}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Firm's Optimization}{23}{subsection.6.2}
+\contentsline {paragraph}{Maximization}{23}{section*.20}
+\contentsline {paragraph}{First Order Condition}{24}{section*.21}
+\contentsline {subsection}{\numberline {6.3}Household Behaviour}{25}{subsection.6.3}
+\contentsline {paragraph}{First Order Necessary Conditions}{25}{section*.22}
+\contentsline {subsection}{\numberline {6.4}The Behaviour of Consumption}{25}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Dynamics of the Economy}{26}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Dynamic of $c$}{26}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.2}Dynamic of $k$}{27}{subsubsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.3}Initial Point Problem (Saddle Path)}{28}{subsubsection.6.5.3}
+\contentsline {section}{\numberline {7}Lecture 7 Oct. 25 2018}{28}{section.7}
+\contentsline {subsection}{\numberline {7.1}Welfare}{28}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}In the Long Run: Balanced Growth Path}{29}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Modified Golden Rule Level of Capital}{29}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Experiment: an unexpected fall in the discounted rate $\rho $.}{30}{subsection.7.4}
+\contentsline {paragraph}{Impact on $k^*$ and $c^*$}{30}{section*.23}
+\contentsline {paragraph}{Result}{30}{section*.24}
+\contentsline {subsection}{\numberline {7.5}Experiment: government purchases}{31}{subsection.7.5}
+\contentsline {paragraph}{Impact}{31}{section*.25}
+\contentsline {section}{\numberline {8}Lecture 8 Nov. 1 2018}{33}{section.8}
+\contentsline {subsection}{\numberline {8.1}Government Spending: without bonds}{33}{subsection.8.1}
+\contentsline {paragraph}{Household budget}{33}{section*.26}
+\contentsline {paragraph}{State equation}{33}{section*.27}
+\contentsline {subsubsection}{\numberline {8.1.1}Temporary shock in $G$}{33}{subsubsection.8.1.1}
+\contentsline {subsection}{\numberline {8.2}Government Spending: with bonds (voluntary taxation)}{34}{subsection.8.2}
+\contentsline {paragraph}{Household Budget Constraint}{34}{section*.28}
+\contentsline {paragraph}{Government Budget Constraint}{35}{section*.29}
+\contentsline {subsection}{\numberline {8.3}Problems of Ricardian Equivalence}{35}{subsection.8.3}
+\contentsline {subsubsection}{\numberline {8.3.1}Turn Over of Population}{35}{subsubsection.8.3.1}
+\contentsline {subsubsection}{\numberline {8.3.2}Liquidity Constraint}{35}{subsubsection.8.3.2}
+\contentsline {subsubsection}{\numberline {8.3.3}No Lump-sum Tax in Real World}{35}{subsubsection.8.3.3}
+\contentsline {subsubsection}{\numberline {8.3.4}Rule of Thumb: Imperfect Foreseeing}{36}{subsubsection.8.3.4}
