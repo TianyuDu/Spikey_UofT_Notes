@@ -1177,15 +1177,16 @@
 
 		\paragraph{2SLS Procedures: general case}
 		\begin{enumerate}
-			\item \textbf{Stage 1} Run regression on REF and compute $\hat{y}_2$, which is a linear combination of $z_1, z_2, z_3$. So $\hat{y}_2 \perp u_1$ by exogeneity condition. Note that, $v_2 \centernot \perp u_1$.
+			\item \textbf{Stage 1} With excluded instrumental variables $\{z_i\}_{i \in \mc{I}}$. OLS Regress each endogenous $\{y_i\}_{i \in \mc{E}}$ on all instrumental variables and included exogenous variables. With reduced form equations,
 			\[
-				\hat{y}_2 = \hat{\pi}_0 + \hat{\pi}_1 z_1 + \hat{\pi}_2 z_2 + \hat{\pi}_3 z_3
+				\hat{y}_j = \hat{\pi}_0 + \hat{\pi}_1 z_1 + \hat{\pi}_2 z_2 + 
+				\dots + \hat{\pi}_n z_n
 			\]
-			\item Check significance of $z_2$ and $z_3$ to verify relevance condition. 
-			\item \textbf{Stage 2} Regress $y_1$ on $\hat{y}_2$ and $z_1$ to obtain $\hat{\beta}_{1, 2SLS}$.
+			\item Check significance of every instrumental variables using $t$ test and/or the joint significance of all instrumental variables used.
+			\item \textbf{Stage 2} Regress $y$ on $\{\hat{y}_j\}_{j \in \mc{I}}$ and all other included exogenous variables to obtain $\hat{\beta}_{i, 2SLS}$.
 		\end{enumerate}		
 
-		\begin{remark}[Number of IVs in the general case]
+		\begin{remark}[Number of IVs, the general case]
 			With $k$ predictors in total, if $m$ of them are endogenous, we need at least $m$ excluded exogenous variables to run 2SLS.\\
 			Otherwise, in the second stage regression, we would have less explanatory variables than parameters to be estimated. (\emph{perfect collinearity})
 		\end{remark}
