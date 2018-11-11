@@ -1644,6 +1644,52 @@
 			This conclusion contradicts our assumption that $p(z)$ is non-constant, i.e. $n \neq 0$. \\
 			Thus $p(z)$ has root.
 		\end{proof}
+		
+	\section{Lecture 23. Nov 2 2018}
+		\begin{proposition}
+			The winding number transformation of $p_R(t) = p(\phi_R(t))$, $W: \R_{> 0} \to \mathbb{Z}$ is continuous in $R$.
+		\end{proposition}
+		\begin{proof}
+			For small enough $\epsilon > 0$, \\
+			Consider 
+			\begin{equation}
+				|p_{R + \epsilon}(t) - p_R(t)| < |p_R(t)|,\ \forall t
+			\end{equation}
+			we will show (1) is true for sufficiently small $\epsilon > 0$. \\
+			By lemma 22.1, $p_{R+\epsilon}(t)$ and $p_R(t)$ have the same winding number. \\
+			Let 
+			\begin{equation}
+				p(z) = z^n + a_{n-1}z^{n-1} + \dots + a_1 z + a_0
+			\end{equation}
+			Then 
+			\begin{gather}
+				\big| p_{R+\epsilon}(t) - p_R(t) \big| = \big| (\phi_{r+\epsilon}(t)^n + a_{n-1}\phi_{r+\epsilon}(t)^{n-1} + \dots) - (\phi_{R}(t)^n + \dots) \big| \\
+				= \big| (\phi_{r+\epsilon}(t)^n - \phi_R(t)^n) + a_{n-1}(\phi_{r+\epsilon}(t)^{n-1} - \phi_R(t)^{n-1}) + \dots \big| \\
+				= \big| [(R+\epsilon)^n - R^n] e^{int} + a_{n-1} [(R+\epsilon)^{n-1} - R^{n-1}] e^{i(n-1)t} + \dots \big| \\
+				\leq \big| (R+\epsilon)^n - R^n \big | \big |e^{int} \big| + \big| a_{n-1} \big| \big | (R+\epsilon)^{n-1} - R^{n-1} \big | \big | e^{i(n-1)t} \big | + \dots + \big |a_1 \big| \big |e^{it} \big |
+			\end{gather}
+			note that
+			\begin{equation}
+				\abs{e^{ijt}} = 1,\quad \forall j \in \{1, 2, \dots, n\}
+			\end{equation}
+			Thus
+			\begin{gather}
+				\abs{p_{R+\epsilon}(t) - p_R(t)} \leq \sum_{j=1}^n \abs{(R + \epsilon)^j - R^j}
+			\end{gather}
+			Note that we can make $\abs{(R+\epsilon)^k - R^k}$ as small as we want by specifying a sufficiently small $\epsilon$ since $x^k$ is continuous. \\
+		\end{proof}
+		
+		\begin{definition}
+			A set $S$ is \textbf{finite} if there exists some $n\in \mathbb{N}$ such that the elements of $S$ can be paired with the elements in set $\{1, 2, \dots, n\}$. Equivalently, we can label the elements of $S$ as $s_1, s_2, \dots s_n$.
+		\end{definition}
+		
+		\begin{definition}
+			A set is \textbf{infinite} if it is not finite.
+		\end{definition}
+		
+		\begin{definition}
+			Two sets $S$ and $T$ \footnote{$S$ and $T$ are \textbf{not} necessarily finite.} have the same \textbf{cardinality} if and only if there exists a \emph{bijection} between them. Written as $\abs{S} = \abs{T}$.
+		\end{definition}
 \end{document}
 
 

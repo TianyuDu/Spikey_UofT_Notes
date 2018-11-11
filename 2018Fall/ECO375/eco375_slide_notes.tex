@@ -12,6 +12,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{chngcntr}
+\usepackage{centernot}
 
 
 \counterwithin*{equation}{section}
@@ -1148,6 +1149,46 @@
 			\[
 				y_2 = \pi_0 + \pi_1 z_1 + \pi_2 z_2 + \cdots + \pi_k \textcolor{red}{z_k} + v_2
 			\]
+	
+	\section{Slide 14: Two Stage Least Square}
+		\paragraph{Motivation} Multiple good instrumental variables for the endogenous variable. \\
+		\textbf{Structural Equation}: 
+		\begin{gather}
+			y = \beta_0 + \beta_1 y_2 + \beta_2 z_1 + u_1
+		\end{gather}
+		with \textbf{Reduced Form Equation}:
+		\begin{gather}
+			y_2 = \pi_0 + \pi_1 z_1 + \pi_2 z_2 + \pi_3 z_3 + v_2
+		\end{gather}
+		where at least one of $\pi_2, \pi_2 \neq 0$. (Relevance condition) \\
+		\paragraph{2SLS Procedures}
+		\begin{enumerate}
+			\item \textbf{Stage 1} Run regression on REF and compute $\hat{y}_2$, which is a linear combination of $z_1, z_2, z_3$. So $\hat{y}_2 \perp u_1$ by exogeneity condition. Note that, $v_2 \centernot \perp u_1$.
+			\[
+				\hat{y}_2 = \hat{\pi}_0 + \hat{\pi}_1 z_1 + \hat{\pi}_2 z_2 + \hat{\pi}_3 z_3
+			\]
+			\item Check significance of $z_2$ and $z_3$ to verify relevance condition. 
+			\item \textbf{Stage 2} Regress $y_1$ on $\hat{y}_2$ and $z_1$ to obtain $\hat{\beta}_{1, 2SLS}$.
+		\end{enumerate}
+		
+		\begin{remark}
+			The first stage of 2SLS removes endogeneity of $y_2$ (dropped with $v_2$).
+		\end{remark}
+
+		\paragraph{2SLS Procedures: general case}
+		\begin{enumerate}
+			\item \textbf{Stage 1} Run regression on REF and compute $\hat{y}_2$, which is a linear combination of $z_1, z_2, z_3$. So $\hat{y}_2 \perp u_1$ by exogeneity condition. Note that, $v_2 \centernot \perp u_1$.
+			\[
+				\hat{y}_2 = \hat{\pi}_0 + \hat{\pi}_1 z_1 + \hat{\pi}_2 z_2 + \hat{\pi}_3 z_3
+			\]
+			\item Check significance of $z_2$ and $z_3$ to verify relevance condition. 
+			\item \textbf{Stage 2} Regress $y_1$ on $\hat{y}_2$ and $z_1$ to obtain $\hat{\beta}_{1, 2SLS}$.
+		\end{enumerate}		
+
+		\begin{remark}[Number of IVs in the general case]
+			With $k$ predictors in total, if $m$ of them are endogenous, we need at least $m$ excluded exogenous variables to run 2SLS.\\
+			Otherwise, in the second stage regression, we would have less explanatory variables than parameters to be estimated. (\emph{perfect collinearity})
+		\end{remark}
 \end{document}
 
 
