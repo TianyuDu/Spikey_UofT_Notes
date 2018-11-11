@@ -1151,6 +1151,7 @@
 			\]
 	
 	\section{Slide 14: Two Stage Least Square}
+	\subsection{Procedure}
 		\paragraph{Motivation} Multiple good instrumental variables for the endogenous variable. \\
 		\textbf{Structural Equation}: 
 		\begin{gather}
@@ -1177,19 +1178,42 @@
 
 		\paragraph{2SLS Procedures: general case}
 		\begin{enumerate}
-			\item \textbf{Stage 1} With excluded instrumental variables $\{z_i\}_{i \in \mc{I}}$. OLS Regress each endogenous $\{y_i\}_{i \in \mc{E}}$ on all instrumental variables and included exogenous variables. With reduced form equations,
-			\[
-				\hat{y}_j = \hat{\pi}_0 + \hat{\pi}_1 z_1 + \hat{\pi}_2 z_2 + 
-				\dots + \hat{\pi}_n z_n
-			\]
+			\item \textbf{Stage 1} For each included endogenous explanatory variables, construct its reduced form equation with instrumental variables (excluded exogenous) and included exogenous variables.
 			\item Check significance of every instrumental variables using $t$ test and/or the joint significance of all instrumental variables used.
-			\item \textbf{Stage 2} Regress $y$ on $\{\hat{y}_j\}_{j \in \mc{I}}$ and all other included exogenous variables to obtain $\hat{\beta}_{i, 2SLS}$.
+			\item \textbf{Stage 2} Regress $y$ all included exogenous variables and the estimated reduced form equations ($\hat{y}_j$) for all included endogenous variables.
 		\end{enumerate}		
 
 		\begin{remark}[Number of IVs, the general case]
 			With $k$ predictors in total, if $m$ of them are endogenous, we need at least $m$ excluded exogenous variables to run 2SLS.\\
 			Otherwise, in the second stage regression, we would have less explanatory variables than parameters to be estimated. (\emph{perfect collinearity})
 		\end{remark}
+		
+		\subsection{Equivalence between IV and 2SLS}
+			\par On the simple regression 
+			\[
+				y = \beta_0 + \beta_1 x + u
+			\]
+			and let $z$ be the excluded exogenous variable used as the instrumental for $x$. \\
+			For simplicity, assume $\overline{x} = \overline{y} = \overline{z} = 0$. \\
+			Then IV estimator 
+			\[
+				\hat{\beta}_{1, IV} = \frac{Cov(z,y)}{Cov(z,x)} = \frac{\sum{yz}}{\sum{xz}}
+			\]
+			And 2SLS estimator
+			\begin{gather*}
+				\hat{\beta}_{1,2SLS} = \frac{\sum (\hat{x} - \overline{\hat{x}}) (y - \overline{y})}{\sum (\hat{x} - \overline{\hat{x}})^2} \\
+				= \frac{\sum \hat{x} y}{\sum \hat{x}^2}
+				= \frac{\sum (\hat{\pi}_0 + \hat{\pi}_1 z) y}{\sum (\hat{\pi}_0 + \hat{\pi}_1 z)^2} \\
+				= \frac{\sum \hat{\pi}_1 y z}{\sum \hat{\pi}_1^2 z^2}
+				= \frac{1}{\hat{\pi}_1} \frac{\sum yz}{\sum z^2} \\
+				= \frac{\sum z^2}{\sum zx} \frac{\sum yz}{\sum z^2} = \frac{\sum yz}{\sum xz} = \hat{\beta}_{1, IV}
+			\end{gather*}
+	\subsection{Evaluating 2SLS}
+		\subsubsection{Regressor Endogeneity}
+		
+		\subsubsection{Instrument Relevance}
+		
+		\subsubsection{Instrument Exogeneity}
 \end{document}
 
 
