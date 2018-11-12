@@ -115,3 +115,13 @@
 \contentsline {paragraph}{Hausman's Test for OLS Consistency}{30}{section*.45}
 \contentsline {subsubsection}{\numberline {11.3.2}Instrument Relevance}{30}{subsubsection.11.3.2}
 \contentsline {subsubsection}{\numberline {11.3.3}Instrument Exogeneity}{30}{subsubsection.11.3.3}
+\contentsline {section}{\numberline {12}Slide 15: Simultaneous Equations}{31}{section.12}
+\contentsline {paragraph}{Motivation}{31}{section*.46}
+\contentsline {subsection}{\numberline {12.1}Simultaneity Bias in OLS}{31}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}IV Estimator and 2SLS}{31}{subsection.12.2}
+\contentsline {paragraph}{Key}{31}{section*.47}
+\contentsline {paragraph}{Procedures}{32}{section*.48}
+\contentsline {paragraph}{Special case}{32}{section*.49}
+\contentsline {paragraph}{Exclusion Restriction}{32}{section*.50}
+\contentsline {paragraph}{Rank Condition}{32}{section*.51}
+\contentsline {paragraph}{Order Condition}{32}{section*.52}

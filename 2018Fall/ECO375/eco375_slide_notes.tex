@@ -1264,6 +1264,83 @@
 					\item Use $z_4$ to recover $\hat{u}_1$ and test again.
 				\end{enumerate}
 			\end{itemize}
+	\section{Slide 15: Simultaneous Equations}
+		\paragraph{Motivation} Variables are \emph{jointly determined}.
+		\begin{example}
+			Linear supply and demand framework.
+			\[
+				\begin{cases}
+					p = \beta_{11} + \beta_{12} q_s + \beta_{13} z_1 + u_1 \\
+					p = \beta_{21} + \beta_{22} q_d + \beta_{23} z_1 + u_2 \\
+					p_d = p_s \\
+				\end{cases}
+			\]
+			where $z_1$ and $z_2$ are exogenous variables. (aka \textbf{supply and demand shifters})\\
+			$q_s, q_d, p$ are endogenous variables. \\
+			$u_1$ and $u_2$ are structural errors.
+		\end{example}
+		
+		\subsection{Simultaneity Bias in OLS}
+			\par Above simultaneous model can be written as reduced from below
+			\begin{gather}
+				\begin{cases}
+					q_s = q_d = \frac{1}{\beta_{12} - \beta_{22}} (\beta_{11} - \beta_{21} + \beta_{13} z_1 - \beta_{23}z_2 + u_1 - u_2)\\
+					p = \frac{\beta_{12}}{\beta_{12} - \beta_{22}} (\beta_{11} - \beta_{21} + \beta_{13} z_1 - \beta_{23}z_2 + u_1 - u_2) + \beta_{11} + \beta_{13}z_1 + u_1
+				\end{cases} \\
+				\implies \begin{cases}
+					q_s = q_d = \pi_{11} + \pi_{12} z_1 + \pi_{13} z_2 + v_1 \\
+					p = \pi_{21} + \pi_{22} z_1 + \pi_{23} z_2 + v_2
+				\end{cases}
+			\end{gather}
+			From (1), obviously $q$ and $p$ are correlated with $u_1,u_2$. \\
+			And $v_1, v_2 \centernot \perp u_1, u_2$. \\
+			\begin{notation}
+					$\beta$: \textbf{structural form parameters}.
+					$\pi$: \textbf{reduced form parameters}.
+					$(v_1, v_2)$: \textbf{reduced form errors}. \\
+				And note that $z_1, z_2 \perp v_1, v_2$.
+			\end{notation}
+			If we use (2) and OLS to regress $q$ and $p$ based on exogenous variables $z_1, z_2$, \hl{we will get consistent reduced form parameters but not structural form parameters}.
+		\subsection{IV Estimator and 2SLS}
+			\paragraph{Key} From (1) or (2), we can show that $p, q$ are correlated with $z_1, z_2$. (Relevance condition) \\
+			Also $z_1, z_2 \perp v_1, v_2$ implies exogeneity condition holds. \\
+			Use $z_1$ and $z_2$ as instrument for $p, q$.
+			\paragraph{Procedures}
+			\begin{enumerate}
+				\item (Stage 1 OLS) Regress $q$ on $z_1, z_2$.
+				\item Estimate $\hat{q}.= \hat{\pi}_{11} + \hat{\pi}_{12} z_1 + \hat{\pi}_{13} z_2$.
+				\item (Stage 2 OLS)
+				\begin{enumerate}
+					\item Regress $p$ on $\hat{q}, z_1$ to obtain supply function.
+					\item Regress $p$ on $\hat{q}, z_2$ to obtain demand function.
+				\end{enumerate}
+			\end{enumerate}
+			
+			\paragraph{Special case} consider the case
+			\begin{equation}
+				\begin{cases}
+					q_s = \alpha_1 p + \beta_1 z_1 + u_1 \\
+					q_d = \alpha_2 p + u_2 \\
+					q_s = q_d \\
+				\end{cases}
+			\end{equation}
+			We cannot recover $q_s$ since $\hat{p}$ would be a function of $z_1$ only and we would encounter perfect co-linearity when regress $q_s$ on $\hat{p}, z_1$. \\
+			\hl{In general, variables that appear \textbf{only} in the demand function can be valid instrument to estimate supply, vice versa. (Otherwise, perfect multi-collinearity)}
+			\paragraph{Exclusion Restriction} $z_1$ omitted in demand and $z_2$ omitted in supply.
+			\paragraph{Rank Condition}(Sufficiency, not covered) tells us when such exclusion restrictions are sufficient to estimate structural parameters and \hl{ensures unique solution for structural parameters}.
+			\paragraph{Order Condition}(Necessary condition for identification) At least as many \emph{excluded exogenous variables (instrument)} are required as \emph{included endogenous variables} in the structural equation. (Otherwise, perfect multi-collinearity)
+			
+			\begin{remark}
+				In 2SLS, we are basically replacing \emph{included endogenous variables} with linear combinations (OLS prediction) of \emph{all exogenous variables}. If one equation is unidentified, the total number of exogenous variables \ul{after} replacement would be less than number of parameters
+			\end{remark}
+			\begin{definition} (Identifications) \\
+				\textbf{Over identified} equation: more excluded exogenous variables than included endogenous variables. \\
+				\textbf{Just identified} same number of excluded exogenous variables and included endogenous variables. \\
+				\textbf{Unidentified} less excluded exogenous variables than included endogenous variables.
+			\end{definition}
+			\begin{remark}
+				\hl{Only over-identified and just identified equations can be correlated estimated by 2SLS.}
+			\end{remark}
 \end{document}
 
 

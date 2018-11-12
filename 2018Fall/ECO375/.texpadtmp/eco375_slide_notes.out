@@ -70,3 +70,6 @@
 \BOOKMARK [3][-]{subsubsection.11.3.1}{Regressor Endogeneity}{subsection.11.3}% 70
 \BOOKMARK [3][-]{subsubsection.11.3.2}{Instrument Relevance}{subsection.11.3}% 71
 \BOOKMARK [3][-]{subsubsection.11.3.3}{Instrument Exogeneity}{subsection.11.3}% 72
+\BOOKMARK [1][-]{section.12}{Slide 15: Simultaneous Equations}{}% 73
+\BOOKMARK [2][-]{subsection.12.1}{Simultaneity Bias in OLS}{section.12}% 74
+\BOOKMARK [2][-]{subsection.12.2}{IV Estimator and 2SLS}{section.12}% 75
