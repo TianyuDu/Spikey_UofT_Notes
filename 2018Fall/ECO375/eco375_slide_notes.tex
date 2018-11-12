@@ -1210,10 +1210,60 @@
 			\end{gather*}
 	\subsection{Evaluating 2SLS}
 		\subsubsection{Regressor Endogeneity}
-		
+			\par OLS is BLUE, if OLS is consistent we should not use the relatively less efficient 2SLS.
+			\paragraph{Hausman's Test for OLS Consistency}
+			\begin{figure*}
+				\centering
+				\begin{tabular}{|c|c|c|}
+					\hline
+					& $H_0$ & $H_1$ \\
+					\hline
+					$\hat{\vec{\beta}}_{OLS}$ & Consistent and Efficient & Inconsistent \\
+					\hline
+					$\hat{\vec{\beta}}_{2SLS}$ & Consistent but less Efficient & Consistent \\
+					\hline
+				\end{tabular}
+			\end{figure*}
+			\par If $H_0$ if failed to be rejected use OLS as BLUE, if we reject $H_0$ then use 2SLS.
+			\begin{gather*}
+				H_0: plim\ \hat{\beta}_{OLS} = plim\ \hat{\beta}_{2SLS} = \vec{\beta} \\
+				H_1: plim\ \hat{\beta}_{OLS} \neq \vec{\beta} \land plim\ \hat{\beta}_{2SLS} = \vec{\beta}
+			\end{gather*}
+			Take 
+			\[
+				d = \hat{\beta}_{OLS} - \hat{\beta}_{2SLS}
+			\]
+			Under the Null Hypothesis, a normalized $d$ statistic is distributed as a $\chi_g$ where $g$ is the number of parameters in the test.
+			
 		\subsubsection{Instrument Relevance}
-		
+			\par Check the significance of instrumental variables in \textbf{reduced form equations} with t-test or F-test. If certain IV is not significant in reduced form equation, then do not use this IV.
+			\par Consider model
+			\begin{equation}
+				y_1 = \beta_0 + \beta_1 y_2 + \beta_2 z_1 + \beta_3 z_2 + u
+			\end{equation}
+			where $y_2$ is suspended to be endogenous and $(z_3, z_4)$ are used as instrumental variables.
 		\subsubsection{Instrument Exogeneity}
+			\par Theoretically impossible to test.
+			\begin{itemize}
+				\item Solution (1): economic sense.
+				\item Solution (2): over-confidence test (with $z_3$ and $z_4$ as instrumental variables)
+				\begin{enumerate}
+					\item Assume $z_3$ is a valid instrumental variable, use $z_3$ as IV to recover $\hat{u}_1$. 
+					\[
+						\hat{u}_1 = y_1 - \hat{\beta}_{0, IV} - \hat{\beta}_{1, IV} y_2 - \hat{\beta}_{2, IV} z_1 - \hat{\beta}_{3, IV} z_3
+					\]
+					\item Test if $Cov(z_4, \hat{u}_1) = 0$ to test the validity of $z_4$.
+					\[
+						\hat{u}_1 = \delta_0 + \delta_1 z_1 + \delta_2 z_2 + \delta_3 z_3 + \delta_4 z_4 + \epsilon
+					\]
+					with $H_0$ all insignificant (exogenous) and $H_1$ at least one of $z_i$ is significant (endogenous). And under $H_0$,
+					\[
+						nR^2_{u,z} \sim \chi^2_q
+					\]
+					where $q$ is the \textbf{degree of overconfidence}, which is the number of IV excluded from the main regression minus the number of endogenous variables.
+					\item Use $z_4$ to recover $\hat{u}_1$ and test again.
+				\end{enumerate}
+			\end{itemize}
 \end{document}
 
 

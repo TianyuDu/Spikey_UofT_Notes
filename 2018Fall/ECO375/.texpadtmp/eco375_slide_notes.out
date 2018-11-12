@@ -46,15 +46,15 @@
 \BOOKMARK [1][-]{section.9}{Slide 12: Specification and Data Problems}{}% 46
 \BOOKMARK [2][-]{subsection.9.1}{Regression Specification Error Test \(RESET\)}{section.9}% 47
 \BOOKMARK [3][-]{subsubsection.9.1.1}{RESET: Nested Alternatives}{subsection.9.1}% 48
-\BOOKMARK [3][-]{subsubsection.9.1.2}{RESET: Non-nested Alternatives}{subsection.9.1}% 49
-\BOOKMARK [2][-]{subsection.9.2}{Davidson-MacKinnon test: non-nested alternatives}{section.9}% 50
-\BOOKMARK [2][-]{subsection.9.3}{Proxy Variables}{section.9}% 51
-\BOOKMARK [3][-]{subsubsection.9.3.1}{Procedures}{subsection.9.3}% 52
-\BOOKMARK [3][-]{subsubsection.9.3.2}{Proxy Bias}{subsection.9.3}% 53
-\BOOKMARK [2][-]{subsection.9.4}{Measurement Error in an Explanatory Variable}{section.9}% 54
-\BOOKMARK [3][-]{subsubsection.9.4.1}{Case 1 Cov\(x1, e1\) = 0}{subsection.9.4}% 55
-\BOOKMARK [3][-]{subsubsection.9.4.2}{Case 2 Cov\(x1true, e1\) = 0: Classical errors-in-variance\(CEV\)}{subsection.9.4}% 56
-\BOOKMARK [2][-]{subsection.9.5}{Measurement Error in Dependent Variable}{section.9}% 57
+\BOOKMARK [3][-]{subsubsection.9.1.2}{Non-nested Alternatives: RESET}{subsection.9.1}% 49
+\BOOKMARK [3][-]{subsubsection.9.1.3}{Non-nested alternatives: Davidson-MacKinnon test}{subsection.9.1}% 50
+\BOOKMARK [2][-]{subsection.9.2}{Proxy Variables}{section.9}% 51
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Procedures}{subsection.9.2}% 52
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Proxy Bias}{subsection.9.2}% 53
+\BOOKMARK [2][-]{subsection.9.3}{Measurement Error in an Explanatory Variable}{section.9}% 54
+\BOOKMARK [3][-]{subsubsection.9.3.1}{Case 1: Cov\(x1, e1\) = 0}{subsection.9.3}% 55
+\BOOKMARK [3][-]{subsubsection.9.3.2}{Case 2 Cov\(x1*, e1\) = 0: Classical errors-in-variance\(CEV\)}{subsection.9.3}% 56
+\BOOKMARK [2][-]{subsection.9.4}{Measurement Error in Dependent Variable}{section.9}% 57
 \BOOKMARK [1][-]{section.10}{Slide 13: Instrumental Variables}{}% 58
 \BOOKMARK [2][-]{subsection.10.1}{Endogeneity}{section.10}% 59
 \BOOKMARK [2][-]{subsection.10.2}{Instrumental Variables}{section.10}% 60
@@ -63,3 +63,10 @@
 \BOOKMARK [3][-]{subsubsection.10.3.2}{Inference}{subsection.10.3}% 63
 \BOOKMARK [3][-]{subsubsection.10.3.3}{Properties}{subsection.10.3}% 64
 \BOOKMARK [2][-]{subsection.10.4}{IV in Multiple Regression}{section.10}% 65
+\BOOKMARK [1][-]{section.11}{Slide 14: Two Stage Least Square}{}% 66
+\BOOKMARK [2][-]{subsection.11.1}{Procedure}{section.11}% 67
+\BOOKMARK [2][-]{subsection.11.2}{Equivalence between IV and 2SLS}{section.11}% 68
+\BOOKMARK [2][-]{subsection.11.3}{Evaluating 2SLS}{section.11}% 69
+\BOOKMARK [3][-]{subsubsection.11.3.1}{Regressor Endogeneity}{subsection.11.3}% 70
+\BOOKMARK [3][-]{subsubsection.11.3.2}{Instrument Relevance}{subsection.11.3}% 71
+\BOOKMARK [3][-]{subsubsection.11.3.3}{Instrument Exogeneity}{subsection.11.3}% 72
