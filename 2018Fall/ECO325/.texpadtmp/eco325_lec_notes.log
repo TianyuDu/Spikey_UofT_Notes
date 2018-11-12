@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  2 NOV 2018 16:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 NOV 2018 12:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -733,28 +733,28 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 \openout4 = `eco325_lec_notes.toc'.
 
  [2] [3] [4]
-Overfull \hbox (1.32231pt too wide) in paragraph at lines 125--126
+Overfull \hbox (1.32231pt too wide) in paragraph at lines 126--127
 [][]\OT1/cmr/bx/n/10 Assumption 2.1 \OT1/cmr/m/n/10 (As-sump-tions on Pro-duc-tion Func-tion)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 The pro-duc-tion func-
  []
 
 [5]
-Overfull \hbox (5.04187pt too wide) in paragraph at lines 163--164
+Overfull \hbox (5.04187pt too wide) in paragraph at lines 164--165
 [][]\OT1/cmr/bx/n/10 Example 2.1 \OT1/cmr/m/n/10 (Cob-b--Dou-glas Pro-duc-tion Func-tion)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/n/10 Con-sider the Cobb-Douglas
  []
 
 [6] [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 251.
+(hyperref)                removing `math shift' on input line 252.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 251.
+(hyperref)                removing `math shift' on input line 252.
 
 <figures/3_1.png, id=356, 355.3275pt x 222.8325pt>
 File: figures/3_1.png Graphic file (type png)
  <use figures/3_1.png>
-Package pdftex.def Info: figures/3_1.png used on input line 283.
+Package pdftex.def Info: figures/3_1.png used on input line 284.
 (pdftex.def)             Requested size: 207.0021pt x 129.81757pt.
 
 
@@ -763,168 +763,150 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <figures/3_2.png, id=358, 429.605pt x 301.125pt>
 File: figures/3_2.png Graphic file (type png)
  <use figures/3_2.png>
-Package pdftex.def Info: figures/3_2.png used on input line 289.
+Package pdftex.def Info: figures/3_2.png used on input line 290.
 (pdftex.def)             Requested size: 207.0021pt x 145.09431pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8] [9 <./figures/3_1.png> <./figures/3_2.png>] [10]
-Overfull \hbox (31.66254pt too wide) in paragraph at lines 393--394
+Overfull \hbox (31.66254pt too wide) in paragraph at lines 394--395
 [][]\OT1/cmr/bx/n/10 Proposition 3.2. []\OT1/cmr/m/n/10 Along the bal-anced growth path, ag-gre-gate vari-ables, $\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )$
  []
 
 [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 440.
+(hyperref)                removing `math shift' on input line 441.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 440.
+(hyperref)                removing `subscript' on input line 441.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 440.
+(hyperref)                removing `subscript' on input line 441.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 440.
+(hyperref)                removing `math shift' on input line 441.
 
 <figures/3_3.png, id=419, 420.57124pt x 316.18124pt>
 File: figures/3_3.png Graphic file (type png)
  <use figures/3_3.png>
-Package pdftex.def Info: figures/3_3.png used on input line 444.
+Package pdftex.def Info: figures/3_3.png used on input line 445.
 (pdftex.def)             Requested size: 172.5pt x 129.68338pt.
  <figures/3_4.png, id=420, 451.6875pt x 724.7075pt>
 File: figures/3_4.png Graphic file (type png)
  <use figures/3_4.png>
-Package pdftex.def Info: figures/3_4.png used on input line 445.
+Package pdftex.def Info: figures/3_4.png used on input line 446.
 (pdftex.def)             Requested size: 172.5pt x 276.77397pt.
  [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 453.
+(hyperref)                removing `math shift' on input line 454.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 453.
+(hyperref)                removing `math shift' on input line 454.
 
 [13 <./figures/3_3.png> <./figures/3_4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 458--459
+Underfull \hbox (badness 10000) in paragraph at lines 459--460
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--463
+Underfull \hbox (badness 10000) in paragraph at lines 462--464
 
  []
 
 [14] [15] [16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 669--672
+Underfull \hbox (badness 10000) in paragraph at lines 670--673
 
  []
 
 <figures/4_1.png, id=485, 361.35pt x 223.83624pt>
 File: figures/4_1.png Graphic file (type png)
  <use figures/4_1.png>
-Package pdftex.def Info: figures/4_1.png used on input line 682.
+Package pdftex.def Info: figures/4_1.png used on input line 683.
 (pdftex.def)             Requested size: 241.49895pt x 149.59721pt.
  [19 <./figures/4_1.png (PNG copy)>] [20]
-Overfull \hbox (65.67079pt too wide) in paragraph at lines 769--769
+Overfull \hbox (65.67079pt too wide) in paragraph at lines 770--770
 [] 
  []
 
 [21] [22] [23] [24] [25]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 978.
+(hyperref)                removing `math shift' on input line 979.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 978.
+(hyperref)                removing `math shift' on input line 979.
 
 <figures/6_1.png, id=555, 436.63126pt x 376.40625pt>
 File: figures/6_1.png Graphic file (type png)
  <use figures/6_1.png>
-Package pdftex.def Info: figures/6_1.png used on input line 995.
+Package pdftex.def Info: figures/6_1.png used on input line 996.
 (pdftex.def)             Requested size: 155.24895pt x 133.83478pt.
  <figures/6_2.png, id=556, 419.5675pt x 339.2675pt>
 File: figures/6_2.png Graphic file (type png)
  <use figures/6_2.png>
-Package pdftex.def Info: figures/6_2.png used on input line 996.
+Package pdftex.def Info: figures/6_2.png used on input line 997.
 (pdftex.def)             Requested size: 155.24895pt x 125.53735pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 999.
+(hyperref)                removing `math shift' on input line 1000.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 999.
+(hyperref)                removing `math shift' on input line 1000.
 
 <figures/6_3.png, id=557, 416.55624pt x 351.3125pt>
 File: figures/6_3.png Graphic file (type png)
  <use figures/6_3.png>
-Package pdftex.def Info: figures/6_3.png used on input line 1015.
+Package pdftex.def Info: figures/6_3.png used on input line 1016.
 (pdftex.def)             Requested size: 172.5pt x 145.48105pt.
  [26 <./figures/6_1.png> <./figures/6_2.png>] [27 <./figures/6_3.png>] <figures/6_4.png, id=573, 488.82625pt x 397.485pt>
 File: figures/6_4.png Graphic file (type png)
  <use figures/6_4.png>
-Package pdftex.def Info: figures/6_4.png used on input line 1024.
+Package pdftex.def Info: figures/6_4.png used on input line 1025.
 (pdftex.def)             Requested size: 172.5pt x 140.26814pt.
- [28 <./figures/6_4.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1085.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\rho' on input line 1085.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1085.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1086--1089
-
- []
-
-[29] <figures/7_1.png, id=593, 798.985pt x 693.59125pt>
+ [28 <./figures/6_4.png>] [29] <figures/7_1.png, id=593, 798.985pt x 693.59125pt>
 File: figures/7_1.png Graphic file (type png)
  <use figures/7_1.png>
-Package pdftex.def Info: figures/7_1.png used on input line 1101.
+Package pdftex.def Info: figures/7_1.png used on input line 1114.
 (pdftex.def)             Requested size: 207.0021pt x 179.69447pt.
  [30 <./figures/7_1.png>]
-Overfull \hbox (68.033pt too wide) in paragraph at lines 1135--1135
+Overfull \hbox (68.033pt too wide) in paragraph at lines 1155--1155
 [] 
  []
 
 
-Overfull \hbox (32.48079pt too wide) in paragraph at lines 1139--1139
+Overfull \hbox (32.48079pt too wide) in paragraph at lines 1159--1159
 [] 
  []
 
 
-Overfull \hbox (33.11063pt too wide) in paragraph at lines 1143--1143
+Overfull \hbox (33.11063pt too wide) in paragraph at lines 1163--1163
 [] 
  []
 
 
-Overfull \hbox (48.63144pt too wide) in paragraph at lines 1148--1148
+Overfull \hbox (48.63144pt too wide) in paragraph at lines 1168--1168
 [] 
  []
 
 [31]
-Overfull \hbox (55.05516pt too wide) in paragraph at lines 1153--1153
+Overfull \hbox (55.05516pt too wide) in paragraph at lines 1173--1173
 [] 
  []
 
-<figures/7_2.png, id=611, 994.71625pt x 617.30624pt>
+<figures/7_2.png, id=616, 994.71625pt x 617.30624pt>
 File: figures/7_2.png Graphic file (type png)
  <use figures/7_2.png>
-Package pdftex.def Info: figures/7_2.png used on input line 1172.
+Package pdftex.def Info: figures/7_2.png used on input line 1192.
 (pdftex.def)             Requested size: 276.00105pt x 171.28096pt.
 
 
@@ -933,46 +915,46 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [32]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1207.
+(hyperref)                removing `math shift' on input line 1227.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1207.
+(hyperref)                removing `math shift' on input line 1227.
 
-<figures/8_1.png, id=617, 429.605pt x 564.1075pt>
+<figures/8_1.png, id=622, 429.605pt x 564.1075pt>
 File: figures/8_1.png Graphic file (type png)
  <use figures/8_1.png>
-Package pdftex.def Info: figures/8_1.png used on input line 1210.
+Package pdftex.def Info: figures/8_1.png used on input line 1230.
 (pdftex.def)             Requested size: 241.49895pt x 317.11171pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [33 <./figures/7_2.png>] [34 <./figures/8_1.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1264.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1284.
  [35] [36]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1264.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1284.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1264.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1264.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1284.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1284.
 Package rerunfilecheck Info: File `eco325_lec_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1264.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1284.
  ) 
 Here is how much of TeX's memory you used:
- 9230 strings out of 493014
- 130602 string characters out of 6133351
- 245835 words of memory out of 5000000
- 12316 multiletter control sequences out of 15000+600000
+ 9231 strings out of 493014
+ 130619 string characters out of 6133351
+ 245801 words of memory out of 5000000
+ 12312 multiletter control sequences out of 15000+600000
  13607 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,15n,46p,921b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (36 pages, 700522 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (36 pages, 702855 bytes).
 PDF statistics:
- 805 PDF objects out of 1000 (max. 8388607)
- 707 compressed objects within 8 object streams
- 273 named destinations out of 1000 (max. 500000)
+ 811 PDF objects out of 1000 (max. 8388607)
+ 713 compressed objects within 8 object streams
+ 278 named destinations out of 1000 (max. 500000)
  450 words of extra memory for PDF output out of 10000 (max. 10000000)
 

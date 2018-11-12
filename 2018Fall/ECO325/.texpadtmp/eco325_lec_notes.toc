@@ -56,19 +56,18 @@
 \contentsline {subsection}{\numberline {7.1}Welfare}{28}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}In the Long Run: Balanced Growth Path}{29}{subsection.7.2}
 \contentsline {subsection}{\numberline {7.3}Modified Golden Rule Level of Capital}{29}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}Experiment: an unexpected fall in the discounted rate $\rho $.}{30}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.4}Experiment: A Fall in the Discount Rate}{30}{subsection.7.4}
 \contentsline {paragraph}{Impact on $k^*$ and $c^*$}{30}{section*.23}
-\contentsline {paragraph}{Result}{30}{section*.24}
-\contentsline {subsection}{\numberline {7.5}Experiment: government purchases}{31}{subsection.7.5}
-\contentsline {paragraph}{Impact}{31}{section*.25}
+\contentsline {subsection}{\numberline {7.5}Experiment: The Effects of Government Purchases}{31}{subsection.7.5}
+\contentsline {paragraph}{Impact}{31}{section*.24}
 \contentsline {section}{\numberline {8}Lecture 8 Nov. 1 2018}{33}{section.8}
 \contentsline {subsection}{\numberline {8.1}Government Spending: without bonds}{33}{subsection.8.1}
-\contentsline {paragraph}{Household budget}{33}{section*.26}
-\contentsline {paragraph}{State equation}{33}{section*.27}
+\contentsline {paragraph}{Household budget}{33}{section*.25}
+\contentsline {paragraph}{State equation}{33}{section*.26}
 \contentsline {subsubsection}{\numberline {8.1.1}Temporary shock in $G$}{33}{subsubsection.8.1.1}
 \contentsline {subsection}{\numberline {8.2}Government Spending: with bonds (voluntary taxation)}{34}{subsection.8.2}
-\contentsline {paragraph}{Household Budget Constraint}{34}{section*.28}
-\contentsline {paragraph}{Government Budget Constraint}{35}{section*.29}
+\contentsline {paragraph}{Household Budget Constraint}{34}{section*.27}
+\contentsline {paragraph}{Government Budget Constraint}{35}{section*.28}
 \contentsline {subsection}{\numberline {8.3}Problems of Ricardian Equivalence}{35}{subsection.8.3}
 \contentsline {subsubsection}{\numberline {8.3.1}Turn Over of Population}{35}{subsubsection.8.3.1}
 \contentsline {subsubsection}{\numberline {8.3.2}Liquidity Constraint}{35}{subsubsection.8.3.2}

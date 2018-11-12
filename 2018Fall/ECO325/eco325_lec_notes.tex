@@ -39,6 +39,7 @@
     \begin{itemize}
     	\item Revise October 2. 2018. Midterm 1. Lec1-Lec4
     	\item Revise October 21. 2018. Lec5-Lec6
+    	\item Revise 	
     \end{itemize}
     \tableofcontents
     \newpage
@@ -1082,10 +1083,22 @@
 			\end{proof}
 			And $k^*$ is called the \textbf{modified golden rule level of capital}. \emph{It's the optimal but not the best}.
 		
-		\subsection{Experiment: an unexpected fall in the discounted rate $\rho$.}
-			\par Suppose the change in unexpected \footnote{If a change is expected, households may alter their behaviour before the change occurs.} \\
-			Since $\dot{k}(t) = f(k(t)) - c(t) - (n+g)k(t)$. There's no impact on $\dot{k}=0$. \\
-			But there would be impact on $\dot{c} = 0$ curve. \\
+		\subsection{Experiment: A Fall in the Discount Rate}
+			\begin{assumption}
+				Suppose the change in unexpected \footnote{If a change is expected, households may alter their behaviour before the change occurs.}
+			\end{assumption}
+			\begin{remark}
+				With $\delta = G = 0$, the locus of $\dot{k}(t) = 0$ is defined by
+				\[
+					\{(k, c):c(t) = f(k) - (n+g)k\} \perp \rho
+				\]
+				thus \hl{there's no effect on capital accumulation locus}.\\
+				But for $\dot{c}(t)=0$ locus, it's defined by
+				\[
+					\{(k,c): f'(k) = \rho + \theta g\}
+				\]
+				Therefore, \hl{consumption locus will shifts right}.
+			\end{remark}
 			\paragraph{Impact on $k^*$ and $c^*$}
 			\begin{proof}
 				Let $\rho_0 > \rho_1$.
@@ -1100,20 +1113,27 @@
 				\centering
 				\includegraphics[width=0.6\linewidth]{figures/7_1}
 			\end{figure*}
-			\paragraph{Result}Both $k^*$ and $c^*$ are going up since $k^*_0 < k_G$.\\
-			At the time of shock, the economy moves from $E$ to $A$. i.e. $k$ remains $k^*_0$ and $c$ falls. From that moment, the economy will move along the new saddle path to the new balanced path growth in the long run.
-			And in the long run, the economy will settle at point $E_1$. While we are moving from $A$ to $E_1$ we have $\dot{c}, \dot{k} > 0$.		
+			
+			\begin{remark}[Result]
+				$c$ jump down so that the economy is on the new saddle path (point $A$), and then the economy moves along the new saddle path till $E'$.
+				
+				
+				\hl{The effects of a fall in $\rho$ are similar to the effects of a rise in the saving rate in the Solow model with a capital stock below the golden-rule level}.
+			\end{remark}	
 		
-		\subsection{Experiment: government purchases}
+		\subsection{Experiment: The Effects of Government Purchases}
 			\begin{assumption}
-				Assume the government buys output at a rate of $G(t)$ per unit of effective labor. \\
-				For the base case we will assume that the government expenditures do not affect the utility from private consumption at all. 
+				Assume the government buys output at a rate of $G(t)$ per unit of effective labor.\\
+				Further, assume
 				\begin{enumerate}
-				\item This can occur if the government devotes the expenditure to an activity we(consumers) don't care about, 
-				\item or the utility in a period equals utility from private consumption plus utility from government purchased good.
-				\end{enumerate}
-				The government denotes expenditure to public consumption rather than public investment. \\
-				We will find government purchases with \ul{lump-sum} taxes and the government runs a \ul{balanced budget}.
+					\item Government purchases are assumed \hl{not to affect utility from private consumption}. This can occur if
+					\begin{enumerate}
+						\item the government devotes the expenditure to an activity consumers don't care about, 
+						\item or utility equals the sum of utility from private consumption and utility from government provided goods.
+					\end{enumerate}
+					\item \hl{not to affect future output}, i.e. the government denotes expenditure to public consumption rather than public investment.
+					\item We will find government purchases with \hl{lump-sum} taxes and the government runs a \hl{balanced budget}.
+					\end{enumerate}
 			\end{assumption}
 			\paragraph{Impact}Thus, there's no impact on the $\dot{c} = 0$ curve since the household problem still gives us $\frac{\dot{c}}{c} = \frac{f'(k)-\rho-\theta g}{\theta}$. \\
 			However, there is a change in the $\dot{k}=0$ curve, because 
