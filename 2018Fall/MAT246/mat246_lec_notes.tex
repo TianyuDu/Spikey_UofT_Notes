@@ -1690,6 +1690,73 @@
 		\begin{definition}
 			Two sets $S$ and $T$ \footnote{$S$ and $T$ are \textbf{not} necessarily finite.} have the same \textbf{cardinality} if and only if there exists a \emph{bijection} between them. Written as $\abs{S} = \abs{T}$.
 		\end{definition}
+		
+	\section{Lecture 24. Nov 12 2018}
+		\begin{example}[Infinite Sets with Same Cardinality]
+			Let $S = \mathbb{N}$ and $T = \{2,4,6,\dots\}$, easy to construct a bijective mapping $f:S\to T$ defined as $f(n) = 2n$ to show $S$ and $T$ have the same cardinality.
+		\end{example}
+
+		\begin{example}[Infinite Sets with Same Cardinality]
+			Let $S = \mathbb{N}$ and $T = \{2,3,4,\dots\}$, easy to construct a bijective mapping $f:S\to T$ defined as $f(n) = n+1$ to show $S$ and $T$ have the same cardinality.
+		\end{example}
+		
+		\begin{remark}[How to Prove Same Cardinality with Natural Numbers]
+			If $\abs{\mathbb{N}} = \abs{T}$, then $\exists$ bijection $f:\mathbb{N} \to T$. That's we can \emph{enumerate} elements in $T$ with $f(n)$: 
+			\[
+				t_1 = f(1),\ t_2 = f(2),\dots \quad \forall t_i \in T
+			\]
+		\end{remark}
+		
+		\begin{definition}
+			Let $T$ be a set, if $\abs{T} = \abs{\mathbb{N}}$, then $T$ is \textbf{countably infinite} and written as $\abs{T} = \aleph_0$.
+		\end{definition}
+		
+		\begin{definition}
+			A set is \textbf{countable} if it is either finite or countably infinite.
+		\end{definition}
+		
+		\begin{theorem}
+			Set $S = \mathbb{Q}^+$ is countable infinite.
+		\end{theorem}
+		\begin{proof}
+			\begin{figure*}[h]
+				\centering
+				\includegraphics[width=0.5\linewidth]{figures/countinfproof}
+			\end{figure*}
+		\end{proof}
+		\begin{proof}(alternative.)
+			Note that the Cartesian product of countably infinite sets is countably infinite. \\
+			Then, for all $\frac{p}{q} \in \mathbb{Q}^+$, where $p, q \in \mathbb{N}$ and $p, q$ are relatively prime. \\
+			Setup bijection $\phi:\mathbb{Q}^+ \to \mathbb{N}^2$, defined as $\phi(\frac{p}{q}) = (p,q)$. \\
+			So $\abs{\mathbb{Q}^+} = \abs{\mathbb{N}^2}$. \\
+			Thus $\mathbb{Q}^+$ is countably infinite.
+		\end{proof}
+		
+		\begin{theorem}
+			Let $[0,1]$ be the set of all real numbers between 0 and 1. $[0,1]$ is not infinitely countable.
+		\end{theorem}
+		\begin{proof}
+			(Prove by contradiction) \\
+			Suppose we can list all real numbers between 0 and 1 as 
+			\begin{gather*}
+				a_1 = 0.a_{11}a_{12}a_{13}\dots \\
+				a_2 = 0.a_{21}a_{22}a_{23}\dots \\
+				a_3 = 0.a_{31}a_{32}a_{33}\dots \\
+				\vdots
+			\end{gather*}
+			Consider another real number in $[0,1]$ constructed as following
+			\[
+				x = 0.x_1 x_2 x_3 \dots \tx{ where } x_i = \begin{cases}
+					6 \tx{ if } a_{ii} = 5 \\
+					5 \tx{ otherwise}
+				\end{cases}
+			\]
+			Note that the first decimal of $x$($x_1$) is not the same as the first decimal of $a_1$($a_{11}$), so $x \neq a_1$. \\
+			Similarly, the second decimal of $x$($x_2$) is not the same as the second decimal of $a_2$($a_{22}$), so $x \neq a_2$, \\
+			It is easy to show that $x \neq a_i,\ \forall i$. So $x$ is a real number between 0 and 1 not included in the table above. \\
+			Contradicting the assumption that we could list all real numbers between 0 and 1 in a table. \\
+			Thus $[0,1]$ is not infinitely countable.
+		\end{proof}
 \end{document}
 
 

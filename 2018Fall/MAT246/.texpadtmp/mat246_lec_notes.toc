@@ -40,3 +40,4 @@
 \contentsline {section}{\numberline {22}Lecture 22. Oct 31 2018}{36}{section.22}
 \contentsline {paragraph}{Recall}{36}{section*.4}
 \contentsline {section}{\numberline {23}Lecture 23. Nov 2 2018}{38}{section.23}
+\contentsline {section}{\numberline {24}Lecture 24. Nov 12 2018}{39}{section.24}
