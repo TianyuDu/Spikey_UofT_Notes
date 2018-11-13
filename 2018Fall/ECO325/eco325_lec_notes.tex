@@ -1132,20 +1132,23 @@
 						\item or utility equals the sum of utility from private consumption and utility from government provided goods.
 					\end{enumerate}
 					\item \hl{not to affect future output}, i.e. the government denotes expenditure to public consumption rather than public investment.
-					\item We will find government purchases with \hl{lump-sum} taxes and the government runs a \hl{balanced budget}.
+					\item We will find government purchases with \hl{lump-sum} taxes and the government runs a \hl{balanced budget}, that's
+					\[
+						G(t) = T(t),\ \forall t \in [0, \infty)
+					\]
 					\end{enumerate}
 			\end{assumption}
-			\paragraph{Impact}Thus, there's no impact on the $\dot{c} = 0$ curve since the household problem still gives us $\frac{\dot{c}}{c} = \frac{f'(k)-\rho-\theta g}{\theta}$. \\
+			\paragraph{Impact}No impact on the $\dot{c} = 0$ curve since the household problem still gives us $\frac{\dot{c}}{c} = \frac{f'(k)-\rho-\theta g}{\theta}$. \\
 			However, there is a change in the $\dot{k}=0$ curve, because 
-			\[
+			\begin{equation}
 				\dot{k}(t) = y(t) - c(t) - (n+g)k(t) - G(t)
-			\]
+			\end{equation}
 			To see there is not effect on $\dot{c}=0$ curve, we need to look at the household's problem. \\
 			Let's assume that the Household does not care about $G(t)$. So
 			\[
 				U = B\int_{t=0}^\infty e^{-\beta t} \frac{c^{1-\theta}}{1-\theta}\ dt
 			\]
-			And the change comes in the \emph{budget constraint}. Here when we found government expenditure period by period with lump-sum taxes, the government sets tax equal expenses. (Since no government saving)
+			And the change comes in the \emph{budget constraint}. Here when we found government expenditure period by period with lump-sum taxes, the government sets tax equal expenses. (Government runs a balanced budget every period.)
 			\[
 				T(t)A(t)L(t) = G(t)A(t)L(t)
 			\]
@@ -1175,30 +1178,41 @@
 			\[
 				\pd{\mc{L}}{c(t)} = B e^{\beta t} c^{-\theta} - \lambda e^{-R(t)} e^{(n+g)t} = 0
 			\]
-			Since the changing in $G$ does not impact the firms problem we still have $r(t) = f'(k(t))$. \\
+			Since the changing in $G$ does not impact the firms problem we still have $r(t) = f'(k(t))$.
 			So at equilibrium we still have 
 			\[
 				\frac{\dot{c}(t)}{c(t)} = \frac{f'(k(t)) - \rho - \theta g}{\theta}
 			\]
-			Consider a shock that \emph{permanently} increases $G(t)$ from $G(t) = G_L \forall t$ to $G(t) = G_H \forall t$, where $G_L < G_H$. \\
-			Since $\frac{\dot{c}(t)}{c(t)}$ does not depends on $G$ so there's no change in $\dot{c}=0$ curve. \\
-			But for $\dot{k}=0$ curve is affected as
-			\begin{gather*}
-				\dot{k}_{old} = 0 \iff 0 = f(k(t)) - c(t) - (n+g)k(t) - G_L \\ 
-				\dot{k}_{new} = 0 \iff 0 = f(k(t)) - c(t) - (n+g)k(t) - G_H
-			\end{gather*}
+			
+			\subsubsection{Permanent Change in Government Purchases}
+			\paragraph{}Consider a shock that \emph{permanently} increases $G(t)$ from $G_L$ to $G_H$.
+			
+			\paragraph{Effect} $\frac{\dot{c}}{c}$ locus is not affected, but $\dot{k}=0$ locus shifts down by $\Delta G$. And \hl{$c^*$ falls by $\Delta G$ but $k^*$ does not change}.
 			\begin{figure*}[h]
 				\centering
 				\includegraphics[width=0.8\linewidth]{figures/7_2}
 			\end{figure*}
-			The $\dot{k}=0$ curve drops down by $\Delta G = G_H - G_L$. \\
-			\textcolor{red}{The $c^*$ falls by $\Delta G$ but $k^*$ does not change.} \\
 			Optimally, at the time of the shock, the economy jumps from point $E$ (before) to point $E_1$. We move \ul{immediately} from one steady state to the other. (No smoothing could be done here) \\
-			Since there's no change in $k^*$, there's no change in the rate of return on capital ($f'(k(t)))$).
+			Since there's no change in $k^*$, there's no change in the rate of return on capital ($f'(k)$) and interest rate.
+		
+			\subsubsection{Temporary Change in Government Purchases}
+			\paragraph{} Assume there's a temporal increase in $G$ and the terminal date is known with certainty. In this case, \hl{$c$ does not fall by the full amount of increase in $G$}. Cause if it did, consumption would jump discontinuously at the time that government purchases return to the original level. \hl{$c$ must jump to the value such that the dynamics implied by $\dot{k}(t) = y(t) - c(t) - (n+g)k(t) - G_H$ bring the economy to the old saddle path at the time that $G$ returns to its initial level}. And $r$ rises gradually during the period that government spending is high and then gradually returns to its initial level.
+				\begin{figure*}[h]
+					\centering
+					\includegraphics[width=0.7\linewidth]{figures/8_1}
+					\caption{The effects of a temporary increase in government purchases}
+				\end{figure*}
+		\subsection{Experiment: Change in Capital Depreciation}
+			\par With capital depreciation, Euler equation of consumption and state equation of capital would become
+			\begin{gather}
+				\frac{\dot{c}}{c} = \frac{f'(k)-\delta-\rho-\theta g}{\theta} \\
+				\dot{k} = f(k) - (n+g+\delta)k - c - G
+			\end{gather}
+			Consider a fall in $\delta$, $k^*$, $k^{GR}$ and $c^*$ all increase with certainty. Immediately after shock, $c$ jumps discourteously onto the new saddle path towards the new steady state. 
 			\begin{remark}
-				For \ul{temporary} changes, where would be smoothing.
+				$k$ can only change gradually, and the direction of the immediate discontinuous jump of $c$ depends on the new saddle path.
 			\end{remark}
-	
+			
 	\newpage
 	\section{Lecture 8 Nov. 1 2018}
 		\subsection{Government Spending: without bonds}
@@ -1209,7 +1223,7 @@
 			\begin{assumption}
 				Government satisfies its budget constraint in every period,
 				\begin{equation}
-					G(t) A(t) L(t) = T(t) A(t) L(t),\quad \forall t \in [0, \infty)
+					G(t) A(t) L(t) = T(t) A(t) L(t)\quad \forall t \in [0, \infty)
 				\end{equation}
 			\end{assumption}
 			
@@ -1223,14 +1237,7 @@
 			\begin{equation}
 				\dot{k}(t) = f(k(t)) - c(t) - G(t) - (n+g)k(t)
 			\end{equation}
-			
-			\subsubsection{Temporary shock in $G$}
-				\begin{figure*}[h]
-					\centering
-					\includegraphics[width=0.7\linewidth]{figures/8_1}
-					\caption{The effects of a temporary increase in government purchases}
-				\end{figure*}
-		\newpage
+		
 		\subsection{Government Spending: with bonds (voluntary taxation)}
 			\paragraph{Household Budget Constraint}
 				\begin{equation}
@@ -1241,11 +1248,17 @@
 				\begin{gather}
 					-b(0) A(0) L(0) + \int_{t=0}^\infty e^{-R(t)} A(t)L(t) [T(t) - G(t)]\ dt \geq 0 \\
 					\implies -b(0) + \int_{t=0}^{\infty} e^{-R(t)} e^{(n+g)t} [T(t) - G(t)]\ dt \geq 0 \\
-					\iff b(s)e^{(n+g)s} = b(0)e^{R(s)} - \int_{t=0}^{\infty} e^{-R(t)+R(s)} e^{(n+g)t} [T(t) - G(t)]\ dt \leq 0 \\
-					\iff \lim_{s\to \infty} b(s) e^{-R(s)} \leq 0
+					\tx{With }b(s)e^{(n+g)s} := b(0)e^{R(s)} - \int_{t=0}^{\infty} e^{-R(t)+R(s)} e^{(n+g)t} [T(t) - G(t)]\ dt\\
+					\iff \lim_{s\to \infty} b(s) e^{(n+g)s} e^{-R(s)} \leq 0
+				\end{gather}
+				Above constraint can be rewritten as \textbf{flow constraint}
+				\begin{gather}
+					\dot{B}(t) = r(t)B(t) + G(t)A(t)L(t) -T(t)A(t)L(t) \\
+					\iff \dot{b}(t) = r(t)b(t) + G(t) - T(t) - (n+g)b(t)
 				\end{gather}
 			\begin{proposition}
 				The effects of government spending on household optimization are the same with and without bonds.
+			\end{proposition}
 				\begin{proof}
 					Adding household budget (5) and government budget (7)
 				\begin{gather}
@@ -1254,13 +1267,12 @@
 				Note that (10) is identical to the household budget constraint (3) in last section and taxation and bonds are assumed not affecting household's utility. Therefore household's optimization problem is unchanged under two taxation schemes.
 				\end{proof}
 				
-				\begin{assumption}[Perfect Financial Institute]
-					Government and household are facing the same interest rate $r(t)$.
-				\end{assumption}
+			\begin{assumption}[Perfect Financial Institute]
+				Government and household are facing the same interest rate $r(t)$.
+			\end{assumption}
 				
-				\begin{definition}[Ricardian Equivalence]
-					\emph{Path of taxation} does not affect household behaviour, only \emph{path of government expenditure} does.
-				\end{definition}
+			\begin{proposition}[Ricardian Equivalence]
+				\emph{Path of taxation} does not affect household behaviour, only \emph{path of government expenditure} does.
 			\end{proposition}
 			
 		\subsection{Problems of Ricardian Equivalence}
