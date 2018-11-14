@@ -70,10 +70,11 @@
 \contentsline {subsubsection}{\numberline {8.2.2}Breusch-Pagan test}{19}{subsubsection.8.2.2}
 \contentsline {subsubsection}{\numberline {8.2.3}White test version 1}{19}{subsubsection.8.2.3}
 \contentsline {subsubsection}{\numberline {8.2.4}White test version 2}{19}{subsubsection.8.2.4}
+\contentsline {subsection}{\numberline {8.3}Generalized/Weighted Least Squared}{19}{subsection.8.3}
 \contentsline {section}{\numberline {9}Slide 12: Specification and Data Problems}{19}{section.9}
 \contentsline {paragraph}{}{19}{section*.28}
-\contentsline {subsection}{\numberline {9.1}Regression Specification Error Test (RESET)}{19}{subsection.9.1}
-\contentsline {subsubsection}{\numberline {9.1.1}RESET: Nested Alternatives}{19}{subsubsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1}Regression Specification Error Test (RESET)}{20}{subsection.9.1}
+\contentsline {subsubsection}{\numberline {9.1.1}RESET: Nested Alternatives}{20}{subsubsection.9.1.1}
 \contentsline {paragraph}{Procedures}{20}{section*.29}
 \contentsline {subsubsection}{\numberline {9.1.2}Non-nested Alternatives: RESET}{20}{subsubsection.9.1.2}
 \contentsline {paragraph}{Procedures}{20}{section*.30}
@@ -81,7 +82,7 @@
 \contentsline {paragraph}{Procedures}{21}{section*.31}
 \contentsline {subsection}{\numberline {9.2}Proxy Variables}{21}{subsection.9.2}
 \contentsline {subsubsection}{\numberline {9.2.1}Procedures}{21}{subsubsection.9.2.1}
-\contentsline {paragraph}{(1)Select proxy}{21}{section*.32}
+\contentsline {paragraph}{(1)Select proxy}{22}{section*.32}
 \contentsline {paragraph}{(2)Plug-in solution to the omitted variables problem}{22}{section*.33}
 \contentsline {subsubsection}{\numberline {9.2.2}Proxy Bias}{22}{subsubsection.9.2.2}
 \contentsline {subsection}{\numberline {9.3}Measurement Error in an Explanatory Variable}{22}{subsection.9.3}

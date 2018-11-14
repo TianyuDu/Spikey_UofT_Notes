@@ -43,33 +43,34 @@
 \BOOKMARK [3][-]{subsubsection.8.2.2}{Breusch-Pagan test}{subsection.8.2}% 43
 \BOOKMARK [3][-]{subsubsection.8.2.3}{White test version 1}{subsection.8.2}% 44
 \BOOKMARK [3][-]{subsubsection.8.2.4}{White test version 2}{subsection.8.2}% 45
-\BOOKMARK [1][-]{section.9}{Slide 12: Specification and Data Problems}{}% 46
-\BOOKMARK [2][-]{subsection.9.1}{Regression Specification Error Test \(RESET\)}{section.9}% 47
-\BOOKMARK [3][-]{subsubsection.9.1.1}{RESET: Nested Alternatives}{subsection.9.1}% 48
-\BOOKMARK [3][-]{subsubsection.9.1.2}{Non-nested Alternatives: RESET}{subsection.9.1}% 49
-\BOOKMARK [3][-]{subsubsection.9.1.3}{Non-nested alternatives: Davidson-MacKinnon test}{subsection.9.1}% 50
-\BOOKMARK [2][-]{subsection.9.2}{Proxy Variables}{section.9}% 51
-\BOOKMARK [3][-]{subsubsection.9.2.1}{Procedures}{subsection.9.2}% 52
-\BOOKMARK [3][-]{subsubsection.9.2.2}{Proxy Bias}{subsection.9.2}% 53
-\BOOKMARK [2][-]{subsection.9.3}{Measurement Error in an Explanatory Variable}{section.9}% 54
-\BOOKMARK [3][-]{subsubsection.9.3.1}{Case 1: Cov\(x1, e1\) = 0}{subsection.9.3}% 55
-\BOOKMARK [3][-]{subsubsection.9.3.2}{Case 2 Cov\(x1*, e1\) = 0: Classical errors-in-variance\(CEV\)}{subsection.9.3}% 56
-\BOOKMARK [2][-]{subsection.9.4}{Measurement Error in Dependent Variable}{section.9}% 57
-\BOOKMARK [1][-]{section.10}{Slide 13: Instrumental Variables}{}% 58
-\BOOKMARK [2][-]{subsection.10.1}{Endogeneity}{section.10}% 59
-\BOOKMARK [2][-]{subsection.10.2}{Instrumental Variables}{section.10}% 60
-\BOOKMARK [2][-]{subsection.10.3}{Implementation of IV: Method of Moments}{section.10}% 61
-\BOOKMARK [3][-]{subsubsection.10.3.1}{In Simple Regression}{subsection.10.3}% 62
-\BOOKMARK [3][-]{subsubsection.10.3.2}{Inference}{subsection.10.3}% 63
-\BOOKMARK [3][-]{subsubsection.10.3.3}{Properties}{subsection.10.3}% 64
-\BOOKMARK [2][-]{subsection.10.4}{IV in Multiple Regression}{section.10}% 65
-\BOOKMARK [1][-]{section.11}{Slide 14: Two Stage Least Square}{}% 66
-\BOOKMARK [2][-]{subsection.11.1}{Procedure}{section.11}% 67
-\BOOKMARK [2][-]{subsection.11.2}{Equivalence between IV and 2SLS}{section.11}% 68
-\BOOKMARK [2][-]{subsection.11.3}{Evaluating 2SLS}{section.11}% 69
-\BOOKMARK [3][-]{subsubsection.11.3.1}{Regressor Endogeneity}{subsection.11.3}% 70
-\BOOKMARK [3][-]{subsubsection.11.3.2}{Instrument Relevance}{subsection.11.3}% 71
-\BOOKMARK [3][-]{subsubsection.11.3.3}{Instrument Exogeneity}{subsection.11.3}% 72
-\BOOKMARK [1][-]{section.12}{Slide 15: Simultaneous Equations}{}% 73
-\BOOKMARK [2][-]{subsection.12.1}{Simultaneity Bias in OLS}{section.12}% 74
-\BOOKMARK [2][-]{subsection.12.2}{IV Estimator and 2SLS}{section.12}% 75
+\BOOKMARK [2][-]{subsection.8.3}{Generalized/Weighted Least Squared}{section.8}% 46
+\BOOKMARK [1][-]{section.9}{Slide 12: Specification and Data Problems}{}% 47
+\BOOKMARK [2][-]{subsection.9.1}{Regression Specification Error Test \(RESET\)}{section.9}% 48
+\BOOKMARK [3][-]{subsubsection.9.1.1}{RESET: Nested Alternatives}{subsection.9.1}% 49
+\BOOKMARK [3][-]{subsubsection.9.1.2}{Non-nested Alternatives: RESET}{subsection.9.1}% 50
+\BOOKMARK [3][-]{subsubsection.9.1.3}{Non-nested alternatives: Davidson-MacKinnon test}{subsection.9.1}% 51
+\BOOKMARK [2][-]{subsection.9.2}{Proxy Variables}{section.9}% 52
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Procedures}{subsection.9.2}% 53
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Proxy Bias}{subsection.9.2}% 54
+\BOOKMARK [2][-]{subsection.9.3}{Measurement Error in an Explanatory Variable}{section.9}% 55
+\BOOKMARK [3][-]{subsubsection.9.3.1}{Case 1: Cov\(x1, e1\) = 0}{subsection.9.3}% 56
+\BOOKMARK [3][-]{subsubsection.9.3.2}{Case 2 Cov\(x1*, e1\) = 0: Classical errors-in-variance\(CEV\)}{subsection.9.3}% 57
+\BOOKMARK [2][-]{subsection.9.4}{Measurement Error in Dependent Variable}{section.9}% 58
+\BOOKMARK [1][-]{section.10}{Slide 13: Instrumental Variables}{}% 59
+\BOOKMARK [2][-]{subsection.10.1}{Endogeneity}{section.10}% 60
+\BOOKMARK [2][-]{subsection.10.2}{Instrumental Variables}{section.10}% 61
+\BOOKMARK [2][-]{subsection.10.3}{Implementation of IV: Method of Moments}{section.10}% 62
+\BOOKMARK [3][-]{subsubsection.10.3.1}{In Simple Regression}{subsection.10.3}% 63
+\BOOKMARK [3][-]{subsubsection.10.3.2}{Inference}{subsection.10.3}% 64
+\BOOKMARK [3][-]{subsubsection.10.3.3}{Properties}{subsection.10.3}% 65
+\BOOKMARK [2][-]{subsection.10.4}{IV in Multiple Regression}{section.10}% 66
+\BOOKMARK [1][-]{section.11}{Slide 14: Two Stage Least Square}{}% 67
+\BOOKMARK [2][-]{subsection.11.1}{Procedure}{section.11}% 68
+\BOOKMARK [2][-]{subsection.11.2}{Equivalence between IV and 2SLS}{section.11}% 69
+\BOOKMARK [2][-]{subsection.11.3}{Evaluating 2SLS}{section.11}% 70
+\BOOKMARK [3][-]{subsubsection.11.3.1}{Regressor Endogeneity}{subsection.11.3}% 71
+\BOOKMARK [3][-]{subsubsection.11.3.2}{Instrument Relevance}{subsection.11.3}% 72
+\BOOKMARK [3][-]{subsubsection.11.3.3}{Instrument Exogeneity}{subsection.11.3}% 73
+\BOOKMARK [1][-]{section.12}{Slide 15: Simultaneous Equations}{}% 74
+\BOOKMARK [2][-]{subsection.12.1}{Simultaneity Bias in OLS}{section.12}% 75
+\BOOKMARK [2][-]{subsection.12.2}{IV Estimator and 2SLS}{section.12}% 76
