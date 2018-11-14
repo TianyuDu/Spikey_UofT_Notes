@@ -1757,6 +1757,78 @@
 			Contradicting the assumption that we could list all real numbers between 0 and 1 in a table. \\
 			Thus $[0,1]$ is not infinitely countable.
 		\end{proof}
+		
+	\section{Lecture 25. Nov 14 2018}
+		\begin{notation}[the Cardinality of continuum]
+			$\abs{[0,1]}=C$
+		\end{notation}
+		
+		\begin{definition}
+			$|S| \leq |T|$ if there exists a subset $T_0 \subseteq T$ such that $|T_0| = |S|$. Or, equivalently, there exists an injection maps from $S$ to $T$.
+		\end{definition}
+		
+		\begin{definition}
+			$|S| < |T|$ if $|S| \leq |T|$ and $|S| \neq |T|$.
+		\end{definition}
+		
+		\begin{proposition}
+			$|\mathbb{N}| < |[0, 1]|$ (i.e. $\aleph_0 < C$)
+			\begin{proof}
+				We've already shown that $|\mathbb{N}| \neq |[0,1]|$. \\
+				Consider injection $f:\mathbb{N}\to [0,1]$ defined as $f(n) = \frac{1}{n}$. \\
+				Therefore $|\mathbb{N}| \leq |[0,1]|$. \\
+				Or equivalently the subset of $[0,1]$ defined as $\{\frac{1}{n}:n \in \mathbb{N}\}$ has the same cardinality as $\mathbb{N}$. \\
+				Thus, by definition, $|\mathbb{N}| < |[0, 1]|$.
+			\end{proof}
+		\end{proposition}
+		
+		\begin{theorem}[Schödre-Bernstein-Cantor Theorem]
+			Let $S$ and $T$ be two sets then
+			\[
+				|S| \leq |T| \land |S| \geq |T| \implies |S| = |T|
+			\]
+			\begin{proof}
+				
+			\end{proof}
+		\end{theorem}
+		
+		\begin{proposition}
+			Let $a,b,c,d \in \R$ satisfying $a<b$ and $c<d$, then
+			\[
+				|[a,b]| = |[c,d]| = C
+			\]
+			\emph{Every closed interval has the same cardinality}.
+			\begin{proof}
+				Consider mapping $f(x) = (d-c)\frac{x-a}{b-a}+c$. \\
+				Obviously, $f:[a,b] \to [c, d]$ and bijective. \\
+				And therefore it's inverse is a bijection from $[c,d]$ to $[a,b]$. \\
+				Thus those two closed intervals have the same cardinality.
+			\end{proof}
+		\end{proposition}
+		
+		\begin{proposition}
+			$|\R| = |(-\frac{\pi}{2}, \frac{\pi}{2})|$.
+			\begin{proof}
+				Consider bijection $f(x):= \tan(x)$.
+			\end{proof}
+		\end{proposition}
+		
+		\begin{proposition}
+			$|[0, 1]| = |(0, 1)|$.
+			\begin{proof}
+				Step 1. Consider bijection $f(x):=x$ and obviously $|(0, 1)| \leq |[0, 1]|$. \\
+				Step 2. As shown before, all closed interval have the same cardinality. Thus $|[0, 1]| = |[\frac{1}{4}, \frac{1}{2}]|$. And clearly $[\frac{1}{4}, \frac{1}{2}] \subsetneq (0, 1)$. \\
+				So $|[0,1]| = |[\frac{1}{4}, \frac{1}{2}]| \leq |(0, 1)|$. \\
+				By Schödre-Bernstein-Cantor theorem, $|[0,1]|=|(0,1)|$
+			\end{proof}
+		\end{proposition}
+		
+		\begin{proposition}
+			Above result can be generalized to arbitrary open and closed intervals, i.e.
+			\[
+				|[a,b]| = |(c,d)|
+			\]
+		\end{proposition}
 \end{document}
 
 
