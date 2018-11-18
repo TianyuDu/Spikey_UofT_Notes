@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 NOV 2018 15:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  17 NOV 2018 22:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -836,7 +836,7 @@ File: utxmia.fd 2000/12/15 v3.1
 LaTeX Font Info:    Try loading font information for U+txsyc on input line 25.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-) <doclicense-CC-by-nc.pdf, id=166, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-nc.pdf, id=170, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 25.
@@ -899,7 +899,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1046--1051
 
  []
 
-[25] [26] [27] <figures/49_polar_representation_of_complex_number.jpg, id=454, 328.97906pt x 254.45062pt>
+[25] [26] [27] <figures/49_polar_representation_of_complex_number.jpg, id=459, 328.97906pt x 254.45062pt>
 File: figures/49_polar_representation_of_complex_number.jpg Graphic file (type jpg)
  <use figures/49_polar_representation_of_complex_number.jpg>
 Package pdftex.def Info: figures/49_polar_representation_of_complex_number.jpg used on input line 1225.
@@ -949,34 +949,39 @@ Overfull \hbox (8.96355pt too wide) in paragraph at lines 1700--1701
 [][]\OT1/txr/bx/n/10.95 Example 24.2 \OT1/txr/m/n/10.95 (In-fi-nite Sets with Same Car-di-nal-ity)\OT1/txr/bx/n/10.95 . []\OT1/txr/m/n/10.95 Let $\OML/txmi/m/it/10.95 S \OT1/txr/m/n/10.95 = \U/txsyb/m/n/10.95 N$ \OT1/txr/m/n/10.95 and $\OML/txmi/m/it/10.95 T \OT1/txr/m/n/10.95 = \OMS/txsy/m/n/10.95 f\OT1/txr/m/n/10.95 2\OML/txmi/m/it/10.95 ; \OT1/txr/m/n/10.95 3\OML/txmi/m/it/10.95 ; \OT1/txr/m/n/10.95 4\OML/txmi/m/it/10.95 ; [] \OMS/txsy/m/n/10.95 g$\OT1/txr/m/n/10.95 ,
  []
 
-<figures/countinfproof.png, id=564, 658.46pt x 462.72874pt>
+<figures/countinfproof.png, id=569, 658.46pt x 462.72874pt>
 File: figures/countinfproof.png Graphic file (type png)
  <use figures/countinfproof.png>
 Package pdftex.def Info: figures/countinfproof.png used on input line 1724.
 (pdftex.def)             Requested size: 180.0pt x 126.49178pt.
- [39 <./figures/countinfproof.png>] [40]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1832.
- [41]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1832.
+ [39 <./figures/countinfproof.png>] [40] [41]
+Underfull \hbox (badness 10000) in paragraph at lines 1883--1886
+
+ []
+
+[42]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1896.
+ [43]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1896.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT246/.texpadtmp/mat246_lec_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1832.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1832.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1896.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1896.
 Package rerunfilecheck Info: File `mat246_lec_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 9679 strings out of 493014
- 136335 string characters out of 6133351
- 246573 words of memory out of 5000000
- 12722 multiletter control sequences out of 15000+600000
+ 9688 strings out of 493014
+ 136431 string characters out of 6133351
+ 246579 words of memory out of 5000000
+ 12723 multiletter control sequences out of 15000+600000
  50494 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,14n,46p,805b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT246/.texpadtmp/mat246_lec_notes.pdf (41 pages, 371817 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT246/.texpadtmp/mat246_lec_notes.pdf (43 pages, 376223 bytes).
 PDF statistics:
- 694 PDF objects out of 1000 (max. 8388607)
- 629 compressed objects within 7 object streams
- 269 named destinations out of 1000 (max. 500000)
- 336 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 715 PDF objects out of 1000 (max. 8388607)
+ 648 compressed objects within 7 object streams
+ 277 named destinations out of 1000 (max. 500000)
+ 344 words of extra memory for PDF output out of 10000 (max. 10000000)
 

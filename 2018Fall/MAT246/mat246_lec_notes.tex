@@ -1829,6 +1829,70 @@
 				|[a,b]| = |(c,d)|
 			\]
 		\end{proposition}
+	\section{Lecture 26 Nov. 16 2018}
+		\begin{theorem}[A Countable Union of Countable Sets is Countable]
+			If $|S_i| = \aleph_0,\ \forall i \in \mc{I}$ where $|\mc{I}| = \aleph_0$, then
+			\[
+				|\cup_{i\in\mc{I}}S_i| = \aleph_0
+			\]
+		\end{theorem}
+		\begin{proof}
+			The proof involving finite union or all finite sets is trivial, here we consider countable as infinitely countable.\\
+			Since $S_1 \subseteq \cup_{i\in\mc{I}}S_i \implies |S_1| \leq |\cup_{i\in\mc{I}}S_i| \implies |\cup_{i\in\mc{I}}S_i| \geq \aleph_0$. \\
+			Then use the snake argument (count along the diagonal) we can easily prove that the set $\cup_{i\in\mc{I}}S_i$ is countable.
+		\end{proof}
+		\begin{example}
+			$|\mathbb{Q}|=\aleph_0$.
+			\begin{proof}
+				Obviously, $\mathbb{Q} = \mathbb{Q}^- \cup \{0\} \cup \mathbb{Q}^+$. \\
+				Also we've shown that $|\mathbb{Q}^+| = \aleph_0$. \\
+				A bijection can be set up between $\mathbb{Q}^+$ and $\mathbb{Q}^-$. \\
+				And $\{0\}$ is finite. \\
+				So $\mathbb{Q}$ is a finite (countable) union of three countable sets. \\
+				Therefore $|\mathbb{Q}| = \aleph_0$.
+			\end{proof}
+		\end{example}
+		
+		\begin{example}
+			$|\mathbb{N}^2| = \aleph_0$ 
+			\begin{proof}
+				Note that $\mathbb{N}^2 = \cup_{i\in \N}\{(i,j):j\in \N\}$, which is a countable union of countable sets. \\
+				So $\N^2$ is countable.
+			\end{proof}
+		\end{example}
+		
+		\begin{theorem}
+			A countable union of sets with cardinality $C$ also have cardinality $C$.
+			\[
+				|S_i| = C, \ \forall i = 1,2,3\dots \implies |\cup_{i=1}^\infty S_i| = C
+			\]
+			\begin{proof}
+				$S_1 \subseteq \cup_{i=1}^\infty S_i \implies C = |S_1| \leq \cup_{i=1}^\infty S_i$. \\
+				WLOG, assume all sets $S_i$ are disjoint. \\
+				(Otherwise, we could construct a new collection of disjoint sets by defining $S_1' = S_1$ and $S_j' = S_j \backslash \cup_{i=1}^{j-1} S_{i}$) \\
+				Since $|S_i| = C$, $|S_i| = |(i, i+1)|$. \\
+				Therefore, for every $S_i$, there's a bijection between it and open interval $(i, i+1)$. \\
+				Easy to shown that there exists a bijection between $\cup_{i=1}^\infty S_i$ and $\cup_{i=1}^\infty (i, i+1) \subseteq \R$. \\
+				So, $|\cup_{i=1}^\infty S_i| = |\cup_{i=1}^\infty (i, i+1)| \leq |\R| = C$. \\
+				Thus $|\cup_{i=1}^\infty (i, i+1)| \leq C$. \\
+				By SBC, $|\cup_{i=1}^\infty (i, i+1)| = C$. \\
+			\end{proof}
+		\end{theorem}
+		
+		\begin{example}
+			Consider the unit square $S=[0,1]\times [0,1]$. $S$ is an uncountably infinite union of uncountably infinite sets.\\
+			Claim $|S| = C$. \\
+			\begin{proof}
+				$S = \cup_{x\in [0,1]}\{(x,y):y\in[0,1]\}$. \\
+				Consider $\{(x, 0):x \in [0,1]\} \subseteq S$, which has cardinality $C$. \\
+				Therefore $|S| \geq C$. \\
+				Consider the function $f: S \to \{(x, 0):x \in [0,1]\}$ \\
+				Consider $(x,y) \in S$ with $x = 0.x_1 x_2 x_3 \dots,\ y=0.y_1 y_2 y_3 \dots$. \\
+				Defined $f$ as $f(x, y) = (0.x_1 y_1 x_2 y_2 x_3 y_3\dots, 0)$.\\
+				$f$ is injective, therefore $|S| \leq C$. \\
+				Thus by SBC, $|S| = C$.
+			\end{proof}
+		\end{example}
 \end{document}
 
 
