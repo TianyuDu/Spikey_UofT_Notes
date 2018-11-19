@@ -4,42 +4,43 @@
 \contentsline {section}{\numberline {3}Lecture 3 Sep. 12 2018}{4}{section.3}
 \contentsline {section}{\numberline {4}Lecture 4 Sep. 14 2018}{5}{section.4}
 \contentsline {section}{\numberline {5}Lecture 5 Sep. 17 2018}{6}{section.5}
-\contentsline {section}{\numberline {6}Lecture 6 Sep. 19 2018}{8}{section.6}
-\contentsline {section}{\numberline {7}Lecture 7 Sep. 21 2018}{9}{section.7}
-\contentsline {section}{\numberline {8}Lecture 8 Sep. 24 2018}{10}{section.8}
-\contentsline {section}{\numberline {9}Lecture 9 Sep. 26 2018}{12}{section.9}
-\contentsline {section}{\numberline {10}Lecture 10 Sep. 28 2018}{14}{section.10}
-\contentsline {section}{\numberline {11}Lecture 11 Oct. 1 2018}{16}{section.11}
-\contentsline {subsection}{\numberline {11.1}Rational and Irrational Numbers}{16}{subsection.11.1}
-\contentsline {section}{\numberline {12}Lecture 12 Oct. 3 2018}{18}{section.12}
-\contentsline {section}{\numberline {13}Lecture 13 Oct. 5 2018}{20}{section.13}
-\contentsline {section}{\numberline {14}Lecture 14 Oct. 10 2018 Euclidean Algorithm}{21}{section.14}
-\contentsline {subsection}{\numberline {14.1}Conventional Method}{21}{subsection.14.1}
-\contentsline {subsection}{\numberline {14.2}Euclidean Algorithm}{22}{subsection.14.2}
-\contentsline {section}{\numberline {15}Lecture 15 Oct. 12 2018 Public Key Cryptography, RSA Public Key}{22}{section.15}
-\contentsline {subsection}{\numberline {15.1}RSA Public Key Procedures}{23}{subsection.15.1}
-\contentsline {section}{\numberline {16}Lecture 16 Oct. 15 2018 RSA Cryptography Examples}{24}{section.16}
-\contentsline {subsection}{\numberline {16.1}Recall}{24}{subsection.16.1}
-\contentsline {subsection}{\numberline {16.2}More Examples}{24}{subsection.16.2}
-\contentsline {paragraph}{Security of RSA}{25}{section*.2}
-\contentsline {section}{\numberline {17}Lecture 17 Oct. 17 2018}{25}{section.17}
-\contentsline {subsection}{\numberline {17.1}Chinese Reminder Theorem}{25}{subsection.17.1}
-\contentsline {subsection}{\numberline {17.2}Complex Numbers}{27}{subsection.17.2}
-\contentsline {section}{\numberline {18}Lecture 18 Oct. 19 2018 Complex Numbers}{28}{section.18}
-\contentsline {subsection}{\numberline {18.1}The Geometric Representation of Complex Numbers}{28}{subsection.18.1}
-\contentsline {subsection}{\numberline {18.2}Polar Coordinates}{29}{subsection.18.2}
-\contentsline {subsubsection}{\numberline {18.2.1}Coordinate Conversion}{29}{subsubsection.18.2.1}
-\contentsline {subsubsection}{\numberline {18.2.2}Multiplication in Polar Coordinates}{29}{subsubsection.18.2.2}
-\contentsline {section}{\numberline {19}Lecture 19 Oct. 22 2018}{30}{section.19}
-\contentsline {subsection}{\numberline {19.1}De Moivre's Theorem}{30}{subsection.19.1}
-\contentsline {subsection}{\numberline {19.2}Roots of Unity}{31}{subsection.19.2}
-\contentsline {paragraph}{Geometrically Interpretation}{32}{section*.3}
-\contentsline {section}{\numberline {20}Lecture 20. Oct 24 2018}{33}{section.20}
-\contentsline {section}{\numberline {21}Lecture 21. Oct 29 2018}{34}{section.21}
-\contentsline {subsection}{\numberline {21.1}Proof of the Fundamental Theorem of Algebra}{35}{subsection.21.1}
-\contentsline {section}{\numberline {22}Lecture 22. Oct 31 2018}{36}{section.22}
-\contentsline {paragraph}{Recall}{36}{section*.4}
-\contentsline {section}{\numberline {23}Lecture 23. Nov 2 2018}{38}{section.23}
-\contentsline {section}{\numberline {24}Lecture 24. Nov 12 2018}{39}{section.24}
-\contentsline {section}{\numberline {25}Lecture 25. Nov 14 2018}{40}{section.25}
-\contentsline {section}{\numberline {26}Lecture 26 Nov. 16 2018}{41}{section.26}
+\contentsline {section}{\numberline {6}Lecture 6 Sep. 19 2018}{7}{section.6}
+\contentsline {section}{\numberline {7}Lecture 7 Sep. 21 2018}{8}{section.7}
+\contentsline {section}{\numberline {8}Lecture 8 Sep. 24 2018}{9}{section.8}
+\contentsline {section}{\numberline {9}Lecture 9 Sep. 26 2018}{11}{section.9}
+\contentsline {section}{\numberline {10}Lecture 10 Sep. 28 2018}{12}{section.10}
+\contentsline {section}{\numberline {11}Lecture 11 Oct. 1 2018}{14}{section.11}
+\contentsline {subsection}{\numberline {11.1}Rational and Irrational Numbers}{14}{subsection.11.1}
+\contentsline {section}{\numberline {12}Lecture 12 Oct. 3 2018}{16}{section.12}
+\contentsline {section}{\numberline {13}Lecture 13 Oct. 5 2018}{17}{section.13}
+\contentsline {section}{\numberline {14}Lecture 14 Oct. 10 2018 Euclidean Algorithm}{18}{section.14}
+\contentsline {subsection}{\numberline {14.1}Conventional Method}{19}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Euclidean Algorithm}{19}{subsection.14.2}
+\contentsline {section}{\numberline {15}Lecture 15 Oct. 12 2018 Public Key Cryptography, RSA Public Key}{20}{section.15}
+\contentsline {subsection}{\numberline {15.1}RSA Public Key Procedures}{20}{subsection.15.1}
+\contentsline {section}{\numberline {16}Lecture 16 Oct. 15 2018 RSA Cryptography Examples}{21}{section.16}
+\contentsline {subsection}{\numberline {16.1}Recall}{21}{subsection.16.1}
+\contentsline {subsection}{\numberline {16.2}More Examples}{21}{subsection.16.2}
+\contentsline {paragraph}{Security of RSA}{21}{section*.2}
+\contentsline {section}{\numberline {17}Lecture 17 Oct. 17 2018}{22}{section.17}
+\contentsline {subsection}{\numberline {17.1}Chinese Reminder Theorem}{22}{subsection.17.1}
+\contentsline {subsection}{\numberline {17.2}Complex Numbers}{23}{subsection.17.2}
+\contentsline {section}{\numberline {18}Lecture 18 Oct. 19 2018 Complex Numbers}{24}{section.18}
+\contentsline {subsection}{\numberline {18.1}The Geometric Representation of Complex Numbers}{25}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}Polar Coordinates}{25}{subsection.18.2}
+\contentsline {subsubsection}{\numberline {18.2.1}Coordinate Conversion}{25}{subsubsection.18.2.1}
+\contentsline {subsubsection}{\numberline {18.2.2}Multiplication in Polar Coordinates}{26}{subsubsection.18.2.2}
+\contentsline {section}{\numberline {19}Lecture 19 Oct. 22 2018}{26}{section.19}
+\contentsline {subsection}{\numberline {19.1}De Moivre's Theorem}{26}{subsection.19.1}
+\contentsline {subsection}{\numberline {19.2}Roots of Unity}{27}{subsection.19.2}
+\contentsline {paragraph}{Geometrically Interpretation}{28}{section*.3}
+\contentsline {section}{\numberline {20}Lecture 20. Oct 24 2018}{29}{section.20}
+\contentsline {section}{\numberline {21}Lecture 21. Oct 29 2018}{30}{section.21}
+\contentsline {subsection}{\numberline {21.1}Proof of the Fundamental Theorem of Algebra}{31}{subsection.21.1}
+\contentsline {section}{\numberline {22}Lecture 22. Oct 31 2018}{31}{section.22}
+\contentsline {paragraph}{Recall}{31}{section*.4}
+\contentsline {section}{\numberline {23}Lecture 23. Nov 2 2018}{33}{section.23}
+\contentsline {section}{\numberline {24}Lecture 24. Nov 12 2018}{34}{section.24}
+\contentsline {section}{\numberline {25}Lecture 25. Nov 14 2018}{35}{section.25}
+\contentsline {section}{\numberline {26}Lecture 26 Nov. 16 2018}{36}{section.26}
+\contentsline {section}{\numberline {27}Lecture 27. Nov. 19 2018}{38}{section.27}

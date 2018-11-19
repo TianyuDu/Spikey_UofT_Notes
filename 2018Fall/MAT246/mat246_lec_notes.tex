@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 
 \author{Tianyu Du}
 \date{\today}
@@ -1891,6 +1891,83 @@
 				Defined $f$ as $f(x, y) = (0.x_1 y_1 x_2 y_2 x_3 y_3\dots, 0)$.\\
 				$f$ is injective, therefore $|S| \leq C$. \\
 				Thus by SBC, $|S| = C$.
+			\end{proof}
+		\end{example}
+	
+	\section{Lecture 27. Nov. 19 2018}
+		\begin{theorem}
+			Let $S$ be the power set of real numbers, $\mc{P}(\R)$, then $|S| > c$. \footnote{The \textbf{power set} of a set $S$ is defined as the collection of all subsets of set $S$, including $S$ itself and $\emptyset$.}
+			\begin{proof}
+				\textbf{Part 1} Consider an injection $f: R \to S$ defined as $f(x) = \{x\}$. \\
+				Clearly $f$ is injective but not surjective. \\
+				Therefore $c = |\R| \leq S$. \\
+				\textbf{Part 2} we are going to show $|S| \neq |\R|$ by contradiction. \\
+				Suppose $|S| = |\R|$, then there must exists a bijection $g: \R \to S$. \\
+				Define the set 
+				\[
+					T := \{x \in \R: x \notin g(x)\} \subseteq S
+				\]
+				We claim that $g$ cannot be surjective by showing that $T \notin g(\R)$. \\
+				($g(\R)$ is the image of $g$ on $\R$.) \\
+				Suppose $g$ is surjective, then $\exists z \in \R$ s.t. $g(z) = T$. \\
+				\emph{Case 1:} $z \in g(z) \implies z \notin T \implies z \notin g(z)$. \\
+				\emph{Case 2:} $z \notin g(z) \implies z \in T \implies z \in g(z)$. \\
+				Therefore such $z$ cannot exist. \\
+				Thus $g$ is not surjective or bijective. \\
+				So we cannot construct any bijective transformation between $\R$ and $S$, \\
+				Consequently, $|\R| \neq |S|$.
+			\end{proof}
+		\end{theorem}
+		\begin{notation}
+			For cardinality of $\mc{P}(\R)$ is denoted as $2^c$.
+		\end{notation}
+		
+		\begin{remark}
+			Note that $\aleph_0 < c < 2^c$.
+		\end{remark}
+		
+		\begin{theorem}[10.3.27]
+			For every set $S$, $|S| < |\mc{S}|$.
+			\begin{proof}
+				Proof is similar to the proof above, the key is to consider set
+				\[
+					T = \{x \in S: x \notin g(x)\} \in \mc{P}(S)
+				\]
+				and setup contradiction.
+			\end{proof}
+		\end{theorem}
+		
+		\begin{remark}
+			There is no largest cardinality. We can always find a larger cardinality 
+		\end{remark}
+		
+		\begin{theorem}[Enumeration Principle]
+			The set of \ul{finite} sequences of (elements from) a \ul{countable} set is countable.
+		\end{theorem}
+		
+		\begin{example}
+			The set of all finite sequence of $\N$ is countable.
+			\begin{proof}
+				The set can be expressed as 
+				\[
+					\cup_{i=0}^{\infty} \{\tx{sequence of } \N \tx{ with length = }i\} = \cup_{i=0}^\infty \N^i
+				\]
+				\textbf{Note} that we regard $\N^0 = \emptyset$ \\
+				which is a (infinitely) countable union of countable sets, and consequently countable. 
+			\end{proof}
+		\end{example}
+		
+		\begin{example}
+			$\Q^+$ is countable.
+			\begin{proof}
+				Express positive rationals as 
+				\[
+					\Q^+ = \{\frac{m}{n}:m, n \in \N, m, n \tx{ are relatively prime.}\}
+				\]
+				Setup injection $f: \Q^+ \to \N^2$ defined as $f(\frac{m}{n}) = (m,n)$. \\
+				Since $\N^2$ can be considered as a set of tuples(finite sequences of length 2) from $\N$,\\
+				therefore $\N^2$ is countable. \\
+				Therefore $|\Q^+| \leq \aleph_0$.
 			\end{proof}
 		\end{example}
 \end{document}
