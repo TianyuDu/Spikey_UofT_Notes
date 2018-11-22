@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass[11pt]{article}
 \title{ECO325: Lecture Notes \\ \small Advanced Economic Theory: Macro}
 \author{Tianyu Du}
 \date{\today}
@@ -1293,6 +1293,68 @@
 				
 			\subsubsection{Rule of Thumb: Imperfect Foreseeing}
 				\par People cannot foresee future events perfectly, instead, they follow rule of thumb (e.g. same 20\% of income). Therefore they do not always act optimally.
+				
+	\section{Lecture 9 Nov. 22 2018}
+		\subsection{Business Cycles}
+			\par \textbf{Potential causes of business cycles}
+			\begin{itemize}
+				\item Technology shocks.
+				\item Monetary policy shocks. (e.g. Fed unexpected changed something)
+				\item Government shocks.
+			\end{itemize}
+		\subsection{Business Cycle Facts}
+			\begin{enumerate}
+				\item Fluctuations do not exhibit any simple regular or cyclical pattern.
+				\item Fluctuations are distributed every unevenly over \ul{components of output}. \footnote{i.e. consumption, investment, government expenditure and exports.} \begin{itemize}
+						\item \emph{\ul{Investment} (primarily inventories) fluctuates more than consumption}.	
+ 						\end{itemize}
+				\item There are no large asymmetries between rises and falls in output. But there are asymmetries in terms of timing.
+				\item In a recession,
+					\begin{enumerate}
+						\item real GPD
+						\item employment
+						\item weekly hours in manufacturing
+						\item interest rates and inflation		
+					\end{enumerate} \emph{typically} fall.
+				\item Decline in employment and hours are generally smaller than the fall in output.
+				\item Productivity ($=\frac{output}{worker hours}$) declines in a recession.
+			\end{enumerate}
+			
+			\begin{definition}
+				A \textbf{Walrasian model} is a competitive model without externalities, asymmetric information, missing markets or other imperfections.
+			\end{definition}
+		\subsection{Baseline Business Cycle Model}
+			\par A discrete time version of the Ramsey-Cass-Koopman model.
+			\paragraph{Firms} produce using the production function
+			\begin{equation}
+				Y_t = K_t^\alpha (A_t L_t)^{1-\alpha},\ \alpha \in (0,1)
+			\end{equation}
+			where $A_t$ is the knowledge or technology at time $t$, $K_t$ is the amount of capital rented at time $t$, $L_t$ is the amount of labor hired at time $t$.
+			
+			\paragraph{Output} is divided between consumption and investment and government expenditure.
+			\begin{gather}
+				Y_t = C_t + I_t + G_t \\
+				I_t = K_{t+1} - (1-\delta)K_t
+			\end{gather}
+			
+			\paragraph{Government Purchases} are financed by \ul{lump sum taxes} here.
+			
+			\paragraph{Ricardian Equivalence} Since households are infinitely lived and there are no capital market imperfection, Ricardian Equivalence holds in the baseline model.
+			
+			\subsubsection{Firm's Problem}
+				\par Firms maximize the \ul{net profits}.
+				\begin{gather}
+					\max_{K_t, L_t} Y_t - \delta K_t - w_t L_t - r_t K_t
+				\end{gather}
+				where $Y_t - \delta K_t$ is the net production function. Substitute in equation (1),
+				\begin{gather}
+					\max_{K_t, L_t} K_t^\alpha (A_t L_t)^{1-\alpha} - \delta K_t - w_t L_t - r_t K_t
+				\end{gather}
+				First order conditions are given as
+				\begin{gather}
+					K_t:\quad \alpha K_t^{\alpha - 1} (A_t L_t)^{1-\alpha} - \delta - r_t = 0 \\
+					L_t:\quad (1-\alpha) K_t^\alpha A_t ^{1-\alpha} L_t^{-\alpha} - w_t = 0
+				\end{gather}
 \end{document}
 
 
