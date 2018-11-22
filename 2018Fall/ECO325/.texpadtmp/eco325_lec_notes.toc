@@ -87,3 +87,24 @@
 \contentsline {paragraph}{Government Purchases}{43}{section*.34}
 \contentsline {paragraph}{Ricardian Equivalence}{43}{section*.35}
 \contentsline {subsubsection}{\numberline {9.3.1}Firm's Problem}{43}{subsubsection.9.3.1}
+\contentsline {subsubsection}{\numberline {9.3.2}Households}{44}{subsubsection.9.3.2}
+\contentsline {paragraph}{Population}{44}{section*.36}
+\contentsline {subsubsection}{\numberline {9.3.3}Technology Shocks}{44}{subsubsection.9.3.3}
+\contentsline {subsubsection}{\numberline {9.3.4}Government Shock}{45}{subsubsection.9.3.4}
+\contentsline {subsection}{\numberline {9.4}Cases}{45}{subsection.9.4}
+\contentsline {subsubsection}{\numberline {9.4.1}Case 1}{45}{subsubsection.9.4.1}
+\contentsline {paragraph}{Assumptions}{45}{section*.37}
+\contentsline {paragraph}{Budget}{45}{section*.38}
+\contentsline {paragraph}{Household's Problem}{45}{section*.39}
+\contentsline {paragraph}{Solving the model}{46}{section*.40}
+\contentsline {subsubsection}{\numberline {9.4.2}Case 2}{46}{subsubsection.9.4.2}
+\contentsline {paragraph}{Assumptions:}{46}{section*.41}
+\contentsline {paragraph}{Budget Constraint}{46}{section*.42}
+\contentsline {paragraph}{Household's Problem}{46}{section*.43}
+\contentsline {paragraph}{Solving the model}{47}{section*.44}
+\contentsline {paragraph}{Intra-temporal Trade-offs}{47}{section*.45}
+\contentsline {paragraph}{Inter-temporal Trade-offs}{47}{section*.46}
+\contentsline {paragraph}{Observation 1}{47}{section*.47}
+\contentsline {paragraph}{Observation 2}{47}{section*.48}
+\contentsline {paragraph}{Observation 3}{48}{section*.49}
+\contentsline {paragraph}{Observation 4}{48}{section*.50}

@@ -14,7 +14,7 @@
 \usepackage{chngcntr}
 
 \counterwithin*{equation}{section}
-
+\newcommand{\expat}[2]{\mathbb{E}_{#1}\Big[{#2}\Big]}
 
 \usepackage[
     type={CC},
@@ -1355,6 +1355,164 @@
 					K_t:\quad \alpha K_t^{\alpha - 1} (A_t L_t)^{1-\alpha} - \delta - r_t = 0 \\
 					L_t:\quad (1-\alpha) K_t^\alpha A_t ^{1-\alpha} L_t^{-\alpha} - w_t = 0
 				\end{gather}
+			\subsubsection{Households}
+				\par Households are \ul{infinitely lived} and there are $H$ households in the economy, $H$ is large.
+				\paragraph{Population} grows exogenous at rate $n$,
+					\begin{equation}
+						\ln N_t = \overline{N} + nt,\quad n < \rho
+					\end{equation}
+				The representative household maximizes the \hl{expected} value of
+				\begin{equation}
+					\sum_{i=0}^\infty e^{-\rho t} u(c_t, 1- \ell_t) \frac{N_t}{H}
+				\end{equation}
+				where $c_t$ is the consumption \emph{per member} of the household and $1-\ell_t$ is the \emph{fraction} of time that the household devotes to leisure.
+				\begin{remark}
+					Another way of interpreting $1-\ell_t$ is that the actual amount of the \emph{time endowment} is normalized to 1.
+				\end{remark}
+				\par $u(\cdot)$ is the \emph{instantaneous utility function} of a member.
+				\par Since all households are the same, the total amount of consumption and labor supplied at equilibrium is
+				\begin{gather}
+					C_t = c_t N_t \\
+					L_t = \ell_t N_t
+				\end{gather}
+				And 
+				\begin{equation}
+					\expat{0}{\sum_{i=0}^\infty e^{-\rho t} u(c_t, 1- \ell_t) \frac{N_t}{H}}
+				\end{equation}
+				is the expectation of lifetime utility at date 0.
+				\par Assume each household has $\frac{K_0}{H}$ unit of wealth at the beginning date. \\
+				Also assuming the instantaneous utility function is log-separable
+				\begin{equation}
+					u(c_t, 1-\ell_t) = \ln c_t + b \ln(1-\ell_t),\ b > 0
+				\end{equation}
+			\subsubsection{Technology Shocks}
+				\par Assuming
+				\begin{equation}
+					\ln A_t = \overline{A} + gt + \tilde{A}_t
+				\end{equation}
+				where $\tilde{A}_t$ is a \emph{first order auto-regressive process}
+				\begin{equation}
+					\tilde{A}_t = \rho_A \tilde{A}_{t-1} + \epsilon_{A, t}\quad \rho_A \in (-1, 1)
+				\end{equation}
+				where $\epsilon_{A,t}$ follows a \emph{white-noise} disturbance.
+			
+			\begin{definition}
+				A \textbf{white-noise disturbance} are a series of mean zero shocks that are uncorrelated with one another.
+			\end{definition}
+			
+			\begin{remark}
+				$\rho_A$ measures the \emph{persistence} at a shock since $\tilde{A}_t$ is a fraction at last period's value plus the shock.
+			\end{remark}
+			\begin{remark}
+				We assume $\rho_A > 0$ since we are assuming no oscillation.
+			\end{remark}
+			
+		\subsubsection{Government Shock}
+			\par To caputre trend growth in government expenditures, we assume in absence of shocks
+			\begin{equation}
+				\ln G_t = \overline{G} + (g+n)t
+			\end{equation}
+			where $g$ is the rate of technical progress and $n$ is the rate of population growth.
+			
+			\begin{remark}
+				The growth rate $n+g$ of $G$ guarantees the fraction of $G_t$ relative to $Y_t$ is not vanishing or exploding as $t \to \infty$.
+			\end{remark}
+			With shocks we have
+			\begin{equation}
+				\ln G_t = \overline{G} + (g+n)t + \tilde{G}_t
+			\end{equation}
+			where $\tilde{G}_t$ is a first order auto-regressive process
+			\begin{equation}
+				\tilde{G}_t = \rho_G \tilde{G}_{t-1} + \epsilon_{G,t}\quad \rho_G \in (-1,1)
+			\end{equation}
+			where $\epsilon_{G,t}$ are white-noise disturbance.
+		
+		\subsection{Cases}
+			\subsubsection{Case 1}
+				\paragraph{Assumptions} Households live one period, there is no uncertainty no initial wealth and one person per household and no growth.
+				\paragraph{Budget} $c \leq w \ell$
+				\paragraph{Household's Problem}
+				\begin{gather*}
+					\max_{c, \ell} \ln c + b \ln (1-\ell) \\
+					s.t.\ c \leq w\ell
+				\end{gather*}
+				\paragraph{Solving the model} Setup the Lagrangian,
+				\begin{equation}
+					\mc{L}(\cdot) = \ln c + b \ln (1-\ell) + \lambda (w \ell - c)
+				\end{equation}
+				First order conditions
+				\begin{gather*}
+					\begin{cases}
+						\pd{\mc{L}}{c} = \frac{1}{c} - \lambda = 0 \\
+						\pd{\mc{L}}{\ell} = \frac{-b}{1-\ell} + w \lambda = 0 \\
+						\pd{\mc{L}}{\lambda} = w\ell - c = 0
+					\end{cases} \\
+					\implies \frac{1}{c} w = \frac{b}{1-\ell} \\
+					\implies \ell = \frac{1}{1+b} < 1
+				\end{gather*}
+			
+			\subsubsection{Case 2}
+				\paragraph{Assumptions:}
+					\begin{enumerate}
+						\item Household lives for 2 periods
+						\item No growth
+						\item No uncertainty
+						\item No initial wealth
+						\item One person per family/household
+					\end{enumerate}
+				\paragraph{Budget Constraint}
+					\begin{equation}
+						c_0 + \frac{c_1}{1+r} \leq w_0 \ell_0 + \frac{w_1 \ell_1}{1+r}
+					\end{equation}
+				
+				\paragraph{Household's Problem}
+					\begin{gather*}
+						\max_{\{c_0, c_1, \ell_0, \ell_1\}} \ln c_0 + b \ln (1-\ell_0) + e^{-\rho} (\ln c_1 + b \ln (1-\ell_1))\\
+						s.t.\ c_0 + \frac{c_1}{1+r} \leq w_0 \ell_0 + \frac{w_1 \ell_1}{1+r}
+					\end{gather*}
+				
+				\paragraph{Solving the model} Setup the Lagrangian
+					\begin{equation}
+						\mc{L}(\cdot) = \ln c_0 + b \ln (1-\ell_0) + e^{-\rho} (\ln c_1 + b \ln (1-\ell_1)) + \lambda \Big(w_0 \ell_0 + \frac{w_1 \ell_1}{1+r} - c_0 - \frac{c_1}{1+r} \Big)
+					\end{equation}
+					First order conditions
+					\begin{gather}
+							\pd{\mc{L}}{c_0} = \frac{1}{c_0} - \lambda = 0 \\
+							\pd{\mc{L}}{c_1} = e^{-\rho} \frac{1}{c_1} - \lambda (\frac{1}{1+r}) = 0 \\
+							\pd{\mc{L}}{\ell_0} = \frac{-b_0}{1-\ell_0} + w_0 \lambda = 0 \\
+							\pd{\mc{L}}{\ell_1} = e^{-\rho}(\frac{-b_0}{1-\ell_1}) + \frac{w_1}{1+r}\lambda = 0 \\
+							\pd{\mc{L}}{\lambda} = c_0 + \frac{c_1}{1+r} - w_0 \ell_0 - \frac{w_1 \ell_1}{1+r} = 0
+					\end{gather}
+					\paragraph{Intra-temporal Trade-offs}
+						Therefore, (22) and (24) imply
+						\begin{equation}
+							\frac{w_0}{c_0} = \frac{b}{1-\ell_0}
+						\end{equation}
+						and (23) and (25) implies
+						\begin{equation}
+							\frac{w_1}{c_1} = \frac{b}{1-\ell_1}
+						\end{equation}
+					\paragraph{Inter-temporal Trade-offs}
+						(22) and (23) imply
+						\begin{equation}
+							\frac{1}{c_0} = e^{-\rho}(1+r)\frac{1}{c_1}
+						\end{equation}
+						Note that the two sides of equation (29) are the discounted marginal utilities.
+						(24) and (25) together imply
+						\begin{equation}
+							\frac{1-\ell_0}{1-\ell_1} = \frac{w_1}{w_0}\frac{1}{e^{-\rho}(1+r)}
+						\end{equation}
+					\paragraph{Observation 1} If $w_0$ rises relative to $w_1$, then $\frac{w_1}{w_0}$ falls. Keeping everything else equal, $\frac{1-\ell_0}{1-\ell_1}$ falls.
+					\paragraph{Observation 2} If $\rho$ increases, then $\frac{1}{e^{\rho}(1+r)}$ increases. Then $\frac{1-\ell_0}{1-\ell_1}$ increases.
+					\paragraph{Observation 3} If $r$ increases, then $\frac{1-\ell_0}{1-\ell_1}$ falls.
+					\paragraph{Observation 4} The \textbf{inter-temporal  elasticity of substitution} between leisure in the two periods equals one.
+					\begin{proof}
+						\begin{gather*}
+							\pd{1-\ell_0}{1-\ell_1} \cdot \frac{1-\ell_1}{1-\ell_0} \\
+							= \frac{w_1}{w_0} \frac{1}{e^{-\rho}(1-r)} \frac{1-\ell_1}{1-\ell_0} \\
+							= \frac{1-\ell_0}{1-\ell_0} = 1
+						\end{gather*}
+					\end{proof}
 \end{document}
 
 
