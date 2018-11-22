@@ -1970,6 +1970,65 @@
 				Therefore $|\Q^+| \leq \aleph_0$.
 			\end{proof}
 		\end{example}
+		
+	\section{Lecture 28 Nov. 21 2018}
+		\begin{example}
+			We've already shown that $|[0,1]| = |(0,1]|$ by
+			\begin{gather*}
+				(0,1] \subseteq [0,1] \implies |(0,1])| \leq |[0,1]| \\
+				|[0,1]| = |[\frac{1}{2}, 1]| \land [\frac{1}{2}, 1] \subseteq (0, 1] \implies |[0, 1]| \leq |(0, 1]| \\
+				\implies |[0, 1]| = |(0,1]|
+			\end{gather*}
+			Now construct a bijection between $[0, 1]$ and $(0, 1]$.\\
+			\begin{equation}
+				f(x) = \begin{cases}
+					1 &\tx{ if } x = 0 \\
+					\frac{1}{n+1} &\tx{ if } \exists n \in \N,\ s.t.\ x = \frac{1}{n} \\
+					x &\tx{ otherwise}
+				\end{cases}
+			\end{equation}
+		\end{example}
+		
+		\begin{lemma}
+			If $S$ is a infinite set, then $S$ contains a countably infinite That's,
+			\[|S| \geq \aleph_0\]
+			for all infinite set $S$. And $\aleph_0$ is the \ul{smallest} infinite cardinality.
+		\end{lemma}
+		\begin{proof}
+			Let $SS$ be infinite, \\
+			Pick $s_1 \in S$ and $S \backslash \{s_1\}$ is still infinite. \\
+			Pick $s_2 \in S\backslash\{s_1\}$ and $S \backslash \{s_1, s_2\}$ is still infinite. \\
+			$\vdots$ \\
+			Pick $s_k \in S \backslash \cup_{i=1}^{k-1}\{s_i\}$ and $S \backslash \cup_{i=1}^{k}\{s_i\}$ is still infinite. \\
+			We've constructed an infinite (countable) list $\{s_1, s_2, \dots\} \subset S$. \\
+			Note that, by construction, there's no repeated elements in the constructed list. 
+		\end{proof}
+		
+		\begin{theorem}
+			Suppose $S$ is an uncountable (infinite) set and $S_0 \subseteq S$ is a countably infinite subset of $S$, then
+			\[
+				|S \backslash S_0| = |S|
+			\]
+		\end{theorem}
+		\begin{proof}
+			If $S\backslash S_0$ is finite or countable, then $(S\backslash S_1) \cup S_0 = S$ is also countable as a countable union of countable sets, which contradicts our assumption that $S$ is uncountable. So $S \backslash S_0$ is uncountably infinite. \\
+			By lemma above, we know there exists a countably infinite set $S_1 \subseteq S \backslash S_0$. \\
+			The union $S_0 \cup S_1$ is countably infinite, that's,
+			\[
+				|S_0 \cup S_1| = |S_1| = \aleph_0
+			\]
+			So there exists a bijection $g:S_0 \cup S_1 \to S_1$. \\
+			Define function $f: S \to S \backslash S_0$ as 
+			\[
+				f(x) = \begin{cases}
+					g(x) &\tx{ if } x \in S_0 \cup S_1 \\
+					x &\tx{ otherwise}
+				\end{cases}
+			\]
+			Note that in the first case, bijection $g(S) = S_1$ and in the second case bijection $y(x)=x$ has range $S \backslash S_1$. \\
+			Therefore the domains and ranges of the two pieces in piece-wise function $f(x)$ are all disjoint. \\
+			So $f(x)$ is bijective, therefore $|S \backslash S_0| = |S|$.
+		\end{proof}
 \end{document}
 
 
