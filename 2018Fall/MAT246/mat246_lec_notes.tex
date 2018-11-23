@@ -2029,7 +2029,102 @@
 			Therefore the domains and ranges of the two pieces in piece-wise function $f(x)$ are all disjoint. \\
 			So $f(x)$ is bijective, therefore $|S \backslash S_0| = |S|$.
 		\end{proof}
+	\section{Lecture 29 Nov. 23 2018}
+		\begin{theorem}
+			A set $S$ is infinite \ul{if and only if} it has a proper subset with same cardinality as $S$.
+		\end{theorem}
+		\begin{proof}
+			($\implies$) \\
+			Suppose $S$ is infinite, it has a countable subset $S_0 = \{s_1, s_2, \dots\}$.\\
+			Note that $S = (S\backslash S_0) \cup S_0$. \\
+			Let $T := S \backslash \{s_1\} \subsetneq S$. \\
+			Consider function $f:T \to S$
+			\[
+				f(x) = \begin{cases}
+					s_{i+1} &\tx{ if } x \in S_0 \\
+					x &\tx{ if } x \in S \backslash S_0
+				\end{cases}
+			\]
+			Note that $f$ is a piece-wise function and $f(S_0) \cap f(S\backslash S_0) = \emptyset$. \\
+			($\impliedby$) \\
+			If $S$ is finite, then any proper subset $T$ would have $|T| < |S|$. \\
+			The converse part can be shown by showing its contraposition.
+		\end{proof}
+		
+		\begin{theorem}
+			The set of all subset of $\N$, $\mc{P}(\N)$, has cardinality $c$.
+			\[
+				2^{\aleph_0} = c
+			\] 
+		\end{theorem}
+		
+		\begin{definition}
+			The \textbf{characteristic function} of set $S \subseteq \N$ is a function $f_S: \N \to \{0,1\}$ defined as 
+			\[
+				f_S(n) = \begin{cases}
+					1 &\tx{ if } n \in S \\
+					0 &\tx{ if } n \notin S
+				\end{cases}
+			\]
+		\end{definition}
+		
+		\begin{proof}
+			Obviously, we can construct a characteristic function $f_S$ for any set $S \subseteq \N$ and such a constructor is bijective. \\
+			There exists a bijection $\phi: \mc{P}(\N) \to \{char.\ func.\} = T$. \\
+			Therefore $|\mc{P}(\N)| = |\{char.\ func.\}| = |T|$ \\
+			We are going to show $|\mc{P}(\N)| = c$ by showing $|T| = c$. \\
+			Define $\varphi: T \to \R$ as $\varphi(f) := 0.f(1)f(2)f(3)\dots$, \\
+			$\varphi$ is obviously injective.\\
+			Therefore $|T| \leq |\R| = c$. \\
+			\newline 
+			Consider function $\psi: [0, 1]\to T$ defined in the following way, \\
+			for any $x \in [0,1]$, the binary representation of $x$ is 
+			\[
+				x = \sum_{i=0}^{\infty} b_i 2^{-i} = (b_0 b_1 b_2 b_3 \dots )_2
+			\]
+			Defined the image $\psi(x)$ as $f$ such that \\
+			$f(i) := $ the $i^{th}$ element in the binary representation of $x$. \\
+			Consider $x_1, x_2 \in [0,1]$, suppose $\psi(x_1) = \psi(x_2)$, then $x_1$ and $x_2$ have identical binary representation. \\
+			Since conversion between binary and decimal representations is bijective, we conclude that $\psi(x_1) = \psi(x_2) \implies x_1 = x_2$. \\
+			So that $\psi:[0,1]\to T$ is injective, and $|T| \geq |[0,1]| = c$. \\
+			By SBC, we conclude $|T| = c$. \\
+			Consequently, $\mc{P}(\N) = c$.
+		\end{proof}
+		
+		\begin{definition}
+			A real number is \textbf{algebraic} if there exists a non-zero polynomial with \ul{integer} coefficients that has this number as a root. The set of all algebraic numbers is denoted as $\mc{A}$.
+		\end{definition}
+		
+		\begin{theorem}
+			Any \ul{rational} number is algebraic. i.e. 
+			\[
+				\Q \subseteq \mc{A}
+			\]
+		\end{theorem}
+		\begin{proof}
+			Let $\frac{m}{n} \in \Q$, where $m, n \in \Z$.
+			Obviously it's a root of polynomial $nx - m$.
+		\end{proof}
+		
+		\begin{theorem}
+			\[
+				|\mc{A}| = \aleph_0
+			\]
+			Therefore 
+			\[
+				\mc{A} \subsetneq \R
+			\]
+		\end{theorem}
+		
+		\begin{definition}
+			Real numbers that are not algebraic are called \textbf{transcendental}, can be denoted as $\R \backslash \mc{A}$.
+		\end{definition}
+		
+		\begin{example}
+			$\pi$ and $e$ are transcendental numbers.
+		\end{example}
 \end{document}
+
 
 
 
