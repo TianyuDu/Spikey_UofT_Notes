@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 NOV 2018 00:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  24 NOV 2018 20:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -717,7 +717,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 29.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) <doclicense-CC-by-nc.pdf, id=311, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-nc.pdf, id=339, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 29.
@@ -728,13 +728,14 @@ Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 29.
 \tf@toc=\write4
 \openout4 = `eco375_slide_notes.toc'.
 
+ [3]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 58.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
- [3] [4] [5] [6] [7] [8] [9] [10]
+ [4] [5] [6] [7] [8] [9] [10]
 Overfull \hbox (6.02185pt too wide) in paragraph at lines 426--428
 \OT1/cmr/m/n/10 Test sig-nif-i-cance by com-par-ing the \OT1/cmr/m/it/10 re-stricted \OT1/cmr/m/n/10 and \OT1/cmr/m/it/10 un-re-stricted \OT1/cmr/m/n/10 mod-els, see whether
  []
@@ -797,30 +798,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 1295--1298
 
  []
 
-[31]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1345.
- [32]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1345.
+[31] [32] [33]
+Overfull \hbox (31.40622pt too wide) in paragraph at lines 1433--1435
+\OT1/cmr/m/n/10 is \OT1/cmr/bx/n/10 sta-tion-ary \OT1/cmr/m/n/10 if the \OT1/cmr/m/it/10 joint dis-tri-bu-tion \OT1/cmr/m/n/10 of $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 x[]; x[]; [] \OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 is the same as $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 x[]; x[]; [] \OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1443--1445
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1456.
+[34]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1456.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1345.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1345.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1456.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1456.
 Package rerunfilecheck Info: File `eco375_slide_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1345.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1456.
  ) 
 Here is how much of TeX's memory you used:
- 9241 strings out of 493014
- 130635 string characters out of 6133351
- 246936 words of memory out of 5000000
- 12296 multiletter control sequences out of 15000+600000
+ 9284 strings out of 493014
+ 131122 string characters out of 6133351
+ 246948 words of memory out of 5000000
+ 12303 multiletter control sequences out of 15000+600000
  13557 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,15n,46p,923b,553s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,15n,46p,923b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.pdf (32 pages, 361430 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.pdf (34 pages, 369896 bytes).
 PDF statistics:
- 899 PDF objects out of 1000 (max. 8388607)
- 833 compressed objects within 9 object streams
- 314 named destinations out of 1000 (max. 500000)
- 614 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 977 PDF objects out of 1000 (max. 8388607)
+ 908 compressed objects within 10 object streams
+ 350 named destinations out of 1000 (max. 500000)
+ 670 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1342,6 +1342,117 @@
 			\begin{remark}
 				\hl{Only over-identified and just identified equations can be correlated estimated by 2SLS.}
 			\end{remark}
+	\section{Slide 17: Intro to Time Series}
+		\begin{definition}
+			A \textbf{time series}(or stochastic process) is a sequence of random variables
+			\[
+				\{y_t\},\quad t = 1,2,\dots,n
+			\]
+		\end{definition}
+		\begin{itemize}
+			\item Order matters.
+			\item Only a single \emph{realization} of "economic history" (a stochastic process).
+			\item Model the statistics as if we could observe repeated realization of the entire sequence.
+		\end{itemize}
+		
+		\begin{example}[Static Phillips Curve]
+			captures \emph{contemporaneous relationships}.
+			\[
+				inflation_t = \beta_0 + \beta_1 unemployment_t + u_t
+			\]
+		\end{example}
+		
+		\begin{example}[Expectation Augmented Phillips Curve]
+			\[
+				\Delta infl_t = infl_t - infl_{t-1} = \beta_0 + \beta_1 unemp_t + u_t
+			\]
+		\end{example}
+		
+		\subsection{Random Walk}
+		
+		\begin{definition}
+			\textbf{Random walk} process.
+			\[
+				y_t = y_{t-1}+ e_t
+			\]
+			where $e_t$ follows \emph{white noise} satisfying
+			\begin{enumerate}
+				\item $\expect{e_t} = 0$
+				\item $Var(e_t) = \sigma_e^2$
+				\item $\expect{e_t e_s} = 0,\ t \neq s$ (i.e. $Cov(e_t, e_s) = 0,\ t \neq s$)
+			\end{enumerate}
+		\end{definition}
+		\paragraph{Properties of Random Walker Process}
+			\begin{enumerate}
+				\item $y_t = \sum_{i=1}^t e_i + y_0$
+				\item $Var(y_t) = Var(y_0) + t^2 \sigma_e^2$
+				\item $\expect{y_t y_{t+h}} = \expect{y_t (y_t + e_{t+1} + \dots + e_{t+h})} = \expect{y_t^2}$
+				\begin{enumerate}
+					\item If $\expect{y_0} = Var(y_0)$ (i.e. $y_0=0$), then $\expect{y_t^2} = t^2 \sigma_e^2$.
+				\end{enumerate}
+			\end{enumerate}
+		
+		\subsection{Trend}
+			\begin{itemize}
+				\item If trend presents (i.e. $t$ should be included as a regressor), then ignoring the trend would introduce \hl{omitted variable bias}.
+				\item (In practice) partialling out trends.
+				\item \hl{\textbf{Note:}} \ul{$R^2$ tends to be high when using trending data and the high $R^2$ may reflect the explanatory power of trend ($t$) but not the explanatory power of $\textbf{x}_t$}
+			\end{itemize}
+		
+		\subsection{Seasonality}
+			\paragraph{Simple Solution}: including dummy variables representing different sections in a complete season loop.
+			\[
+				y_t = \alpha_0 + \textcolor{green}{\alpha_1 t} + \textcolor{red}{\delta_1 Q_{t1} + \delta_2 Q_{t2} + \delta_3 Q_{t3}} + \beta \textbf{x} + u_t
+			\]
+			where $\alpha_1 t$ captures the trend and $\delta_i Q{ti}$ captures the seasonalities.
+		
+		\subsection{Serial Correlation}
+			\begin{definition}
+				\[
+					\expect{u_t u_s | \textbf{X}} \neq 0, \tx{ for } t \neq s
+				\]
+			\end{definition}
+			\begin{remark}
+				Similar to heteroskedasticity, $\expect{u_t^2 | \textbf{X}} = \sigma_t^2 \neq \sigma^2$.
+			\end{remark}
+			\paragraph{Consequences} OLS will still be
+				\begin{enumerate}
+					\item Consistent
+					\item and unbiased
+				\end{enumerate}
+				but
+				\begin{enumerate}
+					\item not the best (i.e. not the most efficient)
+					\item biased/inconsistent variance-covariance matrix and biased inferences.
+				\end{enumerate}
+		\subsection{Stationarity}
+			\begin{definition}
+				A \emph{stochastic process} 
+				\[
+					\{x_t | t = 1, 2, \dots \}
+				\]
+				is \textbf{stationary} if the \emph{joint distribution} of $\{x_{t1}, x_{t2}, \dots\}$ is the same as $\{x_{t1+h}, x_{t2+h}, \dots\}$. \\
+				i.e. \begin{enumerate}
+					\item $x_t$ is identically distributed for all $t \in \N$,
+					\item and $corr(x_t, x_{t+1}) = corr(x_{t+h}, x_{t+h+1})$.
+				\end{enumerate}
+			\end{definition}
+		
+		\subsection{Weakly Dependent Time Series}
+			\begin{definition}
+				A time series is \textbf{weakly dependent} if, loosely speaking, $x_{t}$ and $x_{t+h}$ are "almost independent" as $n$ increases without bound. \\
+				Similar to the \emph{random sample} assumption in MLR. \\
+				\[
+					\lim_{h\to \infty} corr(x_t, x_{t+h}) = 0
+				\]
+			\end{definition}
+		\begin{remark}
+			To use OLS on time series, the series must be \ul{both}
+			\begin{enumerate}
+				\item Stationary
+				\item \textbf{and} weakly dependent
+			\end{enumerate}
+		\end{remark}
 \end{document}
 
 

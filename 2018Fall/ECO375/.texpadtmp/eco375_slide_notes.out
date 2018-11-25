@@ -74,3 +74,10 @@
 \BOOKMARK [1][-]{section.12}{Slide 15: Simultaneous Equations}{}% 74
 \BOOKMARK [2][-]{subsection.12.1}{Simultaneity Bias in OLS}{section.12}% 75
 \BOOKMARK [2][-]{subsection.12.2}{IV Estimator and 2SLS}{section.12}% 76
+\BOOKMARK [1][-]{section.13}{Slide 17: Intro to Time Series}{}% 77
+\BOOKMARK [2][-]{subsection.13.1}{Random Walk}{section.13}% 78
+\BOOKMARK [2][-]{subsection.13.2}{Trend}{section.13}% 79
+\BOOKMARK [2][-]{subsection.13.3}{Seasonality}{section.13}% 80
+\BOOKMARK [2][-]{subsection.13.4}{Serial Correlation}{section.13}% 81
+\BOOKMARK [2][-]{subsection.13.5}{Stationarity}{section.13}% 82
+\BOOKMARK [2][-]{subsection.13.6}{Weakly Dependent Time Series}{section.13}% 83
