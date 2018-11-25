@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  24 NOV 2018 20:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  24 NOV 2018 21:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -593,10 +593,8 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 Package: chngcntr 2009/09/02 v1.0a change counter resetting
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/doclicense.sty
-Package: doclicense 2016/04/24 v1.5.0 Support for putting documents under a license
- (/usr/local/texlive/2016/texmf-dist/tex/latex/xifthen/xifthen.sty
-Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
  (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count122
@@ -609,13 +607,33 @@ LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count124
 \calc@Cskip=\skip53
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count125
+\l_MT_multwidth_dim=\dimen124
+\origjot=\skip54
+\l_MT_shortvdotswithinadjustabove_dim=\dimen125
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen126
+\l_MT_above_intertext_sep=\dimen127
+\l_MT_below_intertext_sep=\dimen128
+\l_MT_above_shortintertext_sep=\dimen129
+\l_MT_below_shortintertext_sep=\dimen130
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/doclicense.sty
+Package: doclicense 2016/04/24 v1.5.0 Support for putting documents under a license
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/xifthen/xifthen.sty
+Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
 Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
 )) (/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count125
+\etb@tempcnta=\count126
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/verbatim.sty
@@ -624,17 +642,17 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks36
 \verbatim@in@stream=\read1
 )
-\doclicense@hsize=\skip54
+\doclicense@hsize=\skip55
  (/usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/doclicense-english.ldf
 File: doclicense-english.ldf 
 )) (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
-\csq@reset=\count126
-\csq@gtype=\count127
-\csq@glevel=\count128
-\csq@qlevel=\count129
-\csq@maxlvl=\count130
-\csq@tshold=\count131
+\csq@reset=\count127
+\csq@gtype=\count128
+\csq@glevel=\count129
+\csq@qlevel=\count130
+\csq@maxlvl=\count131
+\csq@tshold=\count132
 \csq@ltx@everypar=\toks37
  (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
@@ -651,37 +669,37 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks38
 \XKV@tempa@toks=\toks39
 )
-\XKV@depth=\count132
+\XKV@depth=\count133
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.aux)
 \openout1 = `eco375_slide_notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count133
-\scratchdimen=\dimen124
+\scratchcounter=\count134
+\scratchdimen=\dimen131
 \scratchbox=\box30
-\nofMPsegments=\count134
-\nofMParguments=\count135
+\nofMPsegments=\count135
+\nofMParguments=\count136
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count136
-\MPscratchDim=\dimen125
-\MPnumerator=\count137
-\makeMPintoPDFobject=\count138
+\MPscratchCnt=\count137
+\MPscratchDim=\dimen132
+\MPnumerator=\count138
+\makeMPintoPDFobject=\count139
 \everyMPtoPDFconversion=\toks41
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -695,32 +713,32 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring OFF on input line 27.
+Package hyperref Info: Link coloring OFF on input line 28.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count139
+\c@section@level=\count140
 )
-LaTeX Info: Redefining \ref on input line 27.
-LaTeX Info: Redefining \pageref on input line 27.
-LaTeX Info: Redefining \nameref on input line 27.
+LaTeX Info: Redefining \ref on input line 28.
+LaTeX Info: Redefining \pageref on input line 28.
+LaTeX Info: Redefining \nameref on input line 28.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.out) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.out)
 \@outlinefile=\write3
 \openout3 = `eco375_slide_notes.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 29.
+LaTeX Font Info:    Try loading font information for U+msa on input line 30.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 29.
+LaTeX Font Info:    Try loading font information for U+msb on input line 30.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) <doclicense-CC-by-nc.pdf, id=339, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-nc.pdf, id=343, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
-Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 29.
+Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 30.
 (pdftex.def)             Requested size: 100.00015pt x 35.53667pt.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.toc [1
 
@@ -729,108 +747,109 @@ Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 29.
 \openout4 = `eco375_slide_notes.toc'.
 
  [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 58.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 59.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
  [4] [5] [6] [7] [8] [9] [10]
-Overfull \hbox (6.02185pt too wide) in paragraph at lines 426--428
+Overfull \hbox (6.02185pt too wide) in paragraph at lines 427--429
 \OT1/cmr/m/n/10 Test sig-nif-i-cance by com-par-ing the \OT1/cmr/m/it/10 re-stricted \OT1/cmr/m/n/10 and \OT1/cmr/m/it/10 un-re-stricted \OT1/cmr/m/n/10 mod-els, see whether
  []
 
 [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 858--860
+Underfull \hbox (badness 10000) in paragraph at lines 859--861
 
  []
 
 [21]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 922.
+(hyperref)                removing `math shift' on input line 923.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 922.
+(hyperref)                removing `subscript' on input line 923.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 922.
+(hyperref)                removing `subscript' on input line 923.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 922.
+(hyperref)                removing `math shift' on input line 923.
 
 [22]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 941.
+(hyperref)                removing `math shift' on input line 942.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 941.
+(hyperref)                removing `subscript' on input line 942.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 941.
+(hyperref)                removing `superscript' on input line 942.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 941.
+(hyperref)                removing `subscript' on input line 942.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 941.
+(hyperref)                removing `math shift' on input line 942.
 
 [23] [24] [25] [26] [27]
-Overfull \hbox (23.66437pt too wide) in paragraph at lines 1146--1150
+Overfull \hbox (23.66437pt too wide) in paragraph at lines 1147--1151
 \OT1/cmr/m/n/10 The []rel[]-[]e[]-[]vance [][]con[]-[]di[]-[]tion $\OML/cmm/m/it/10 Corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y[]; z[]\OT1/cmr/m/n/10 )$ can be ver-i-fied us-ing \OT1/cmr/bx/n/10 reduced-form(auxiliary)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1164--1166
+Underfull \hbox (badness 10000) in paragraph at lines 1165--1167
 
  []
 
 [28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1295--1298
+Underfull \hbox (badness 10000) in paragraph at lines 1296--1299
 
  []
 
 [31] [32] [33]
-Overfull \hbox (31.40622pt too wide) in paragraph at lines 1433--1435
+Overfull \hbox (31.40622pt too wide) in paragraph at lines 1434--1436
 \OT1/cmr/m/n/10 is \OT1/cmr/bx/n/10 sta-tion-ary \OT1/cmr/m/n/10 if the \OT1/cmr/m/it/10 joint dis-tri-bu-tion \OT1/cmr/m/n/10 of $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 x[]; x[]; [] \OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 is the same as $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 x[]; x[]; [] \OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1443--1445
+Underfull \hbox (badness 10000) in paragraph at lines 1444--1446
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1456.
-[34]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1456.
+[34] [35]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1551.
+ [36]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1551.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1456.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1456.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1551.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1551.
 Package rerunfilecheck Info: File `eco375_slide_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1456.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1551.
  ) 
 Here is how much of TeX's memory you used:
- 9284 strings out of 493014
- 131122 string characters out of 6133351
- 246948 words of memory out of 5000000
- 12303 multiletter control sequences out of 15000+600000
+ 9770 strings out of 493014
+ 139735 string characters out of 6133351
+ 257919 words of memory out of 5000000
+ 12762 multiletter control sequences out of 15000+600000
  13557 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,15n,46p,923b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.pdf (34 pages, 369896 bytes).
+ 34i,18n,46p,923b,565s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO375/.texpadtmp/eco375_slide_notes.pdf (36 pages, 383344 bytes).
 PDF statistics:
- 977 PDF objects out of 1000 (max. 8388607)
- 908 compressed objects within 10 object streams
- 350 named destinations out of 1000 (max. 500000)
- 670 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1015 PDF objects out of 1200 (max. 8388607)
+ 943 compressed objects within 10 object streams
+ 370 named destinations out of 1000 (max. 500000)
+ 678 words of extra memory for PDF output out of 10000 (max. 10000000)
 

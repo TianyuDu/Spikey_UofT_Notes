@@ -13,6 +13,7 @@
 \usepackage{xcolor}
 \usepackage{chngcntr}
 \usepackage{centernot}
+\usepackage{mathtools}
 
 
 \counterwithin*{equation}{section}
@@ -1453,6 +1454,100 @@
 				\item \textbf{and} weakly dependent
 			\end{enumerate}
 		\end{remark}
+	
+	\section{Slide 18: Asymptotic Analysis}
+		\begin{definition}
+			A sequence of random variable $\{Z_n\}$ is said to \textbf{converge in distribution} to a random variable $Z$ if 
+			\[
+				\lim_{n \to \infty} F_n(x) = F(x)
+			\]
+			for $x \in \R$ at which $F$ is continuous, where $F_n$ is the \emph{cdf} of $Z_n$ and $F$ is the \emph{cdf} of $Z$.
+			\[
+				Z_n \xrightarrow{\textcolor{red}{d}} Z
+			\]
+			and $F$ is the \textbf{limit distribution} of $\{Z_n\}$.
+		\end{definition}
+		
+		\begin{theorem}[Classical Central Limit Theorem]
+			Let $\{X_1, \dots, X_n\}$ be a sequence of $n$ iid random variable, with 
+			\begin{enumerate}
+				\item $\expect{X_i} = \mu < \infty$ and
+				\item $0 < Var(X_i) = \sigma^2 < \infty$
+			\end{enumerate}
+			Then as $n \to \infty$, the distribution of $\overline{X}_n = \frac{\sum_{i=1}^n X_i}{n}$ converges to the \emph{Normal distribution} with mean $\mu$ and variance $\frac{\sigma^2}{n}$, i.e.
+			\[
+				\overline{X}_n \xrightarrow{d} \mc{N}(\mu, \frac{\sigma^2}{n})
+			\]
+			irrespective of the shape of the original distribution of $X_i$.
+		\end{theorem}
+		\begin{corollary}
+			\[
+				\sqrt{n} \frac{(\overline{X}_n - \mu)}{\sigma} \xrightarrow{d} \mc{N}(0,1)
+			\]
+		\end{corollary}
+		
+		\begin{definition}
+			Let $\{a_n\}$ be a sequence of \emph{deterministic} (i.e. non-random) real numbers. If 
+			\[
+				\forall \epsilon > 0\ \exists n^* \in \N \ s.t.\ |a_n - a| < \epsilon\ \forall n > n^*
+			\]
+			then $a_n$ \textbf{deterministically converges} to $a$ as $n \to \infty$. \\
+			Equivalent notations:
+			\begin{enumerate}
+				\item $P(|a_n - a|>\epsilon) = 0,\ \forall n > n^*$
+				\item $a_t \to a$
+				\item $\lim(a_n) = 0$
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{definition}
+			Let $\{Z_n\}$ be a sequence of \emph{random} variables. If 
+			\[
+				\forall \epsilon, \delta > 0\ \exists n^* \in \N\ s.t.\ \forall n > n^*,\ P(|Z_n - a |>\epsilon) < \delta
+			\]
+			then $Z_n$ \textbf{converges in probability} to $a$ as $n \to \infty$. \\
+			Equivalent notations:
+			\begin{enumerate}
+				\item $\lim_{n \to \infty} P(|Z_n - a| > \epsilon) = 0,\ \forall \epsilon > 0$
+				\item $Z_n \xrightarrow{\textcolor{red}{p}}a$
+				\item $plim(Z_n) = a$
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{theorem}
+			convergence in probability $\implies$ convergence in distribution. i.e.
+			\[
+				Z_n \xrightarrow{p} a \implies Z_n \xrightarrow{d} a
+			\]
+		\end{theorem}
+		\begin{proof}
+			
+		\end{proof}
+		
+		\begin{theorem}[Law of Large Numbers]
+			Let $\{X_1, \dots, X_n\}$ be a sequence of $n$ independent and iid random variables, with $\expect{X_i} = \mu < \infty$. Then
+			\[
+				plim_{n \to \infty}(\overline{X}_n) = \mu
+			\]
+		\end{theorem}
+		
+		\begin{theorem}[Continuous Mapping Theorem (Transformation Theorem) I]
+			If $T_n \xrightarrow{p} a$ and $U_n \xrightarrow{p} b$, then
+				\begin{gather*}
+					(T_n + U_n) \xrightarrow{p} a + b \\
+					T_n U_n \xrightarrow{p} ab \\
+					\frac{T_n}{U_n} \xrightarrow{p} \frac{a}{b} \tx{ if } b \neq 0
+				\end{gather*}
+		\end{theorem}
+		
+		\begin{theorem}[Continuous Mapping Theorem (Transformation Theorem) II]
+			If $Z_n \xrightarrow{d} Z$ and $U_n \xrightarrow{p} b$, where $Z$ is \emph{random variable}, then
+			\begin{gather*}
+				Z_n + U_n \xrightarrow{d} Z + b \\
+				Z_n U_n \xrightarrow{d} Zb \\
+				\frac{Z_n}{U_n} \xrightarrow{d} \frac{Z}{b} \tx{ if } P(U_n = 0) = 0 \land b \neq 0
+			\end{gather*}
+		\end{theorem}
 \end{document}
 
 
