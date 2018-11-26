@@ -1927,7 +1927,7 @@
 		\end{remark}
 		
 		\begin{theorem}[10.3.27]
-			For every set $S$, $|S| < |\mc{S}|$.
+			For every set $S$, $|S| < |\mc{P}(S)|$.
 			\begin{proof}
 				Proof is similar to the proof above, the key is to consider set
 				\[
@@ -2123,6 +2123,128 @@
 		\begin{example}
 			$\pi$ and $e$ are transcendental numbers.
 		\end{example}
+	\section{Lecture 30. Nov 26 2018}
+		\begin{theorem}
+			\[
+				|\mc{A}| = \aleph_0
+			\]
+		\end{theorem}
+		\begin{proof}
+			Note that $\mc{A}$ can be written as
+			\[
+				\mc{A} = \cup_{i \in \N} \mc{A}_i
+			\]
+			where $\mc{A}_i$ denotes the set of $x \in \R$ where $x$ is a root of a polynomial with integer coefficients and degree $i$. \\
+			Note that for any polynomial of degree $n$
+			\[
+				a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n
+			\]
+			can be written as a $(n + 1)$-tuple:
+			\[
+				(a_n, a_{n-1}, a_{n-2}, \dots, a_1, a_0) \in \Z^{n+1}
+			\]
+			By the fundamental theorem of algebra, a polynomial of degree $i$ has $i$ roots, including the multiplicities and complex roots. \\
+			For each polynomial of degree $i$, list its roots in some order and append the index of each root $j \in \{1,2,\dots,i\}$ to the $(i+1)$-tuple representing the polynomial. \\
+			So that 
+			\[
+				(a_n, \dots, a_1, a_0, j) \in \Z^{i+1}\times \{1,2,\dots,i\}
+			\]
+			provides an unique label (i.e. a bijection) to locate every root of every polynomial with integer coefficients and degree $i$. \\
+			i.e.
+			\begin{gather*}
+				|\{\tx{all roots, including complex and duplicates, of polynomials of degree $i$}\}| \\
+				= |\Z^{i+1}\times \{1,2,\dots,i\}|
+			\end{gather*}
+			And note that algebraic numbers are all real, so we have to exclude those complex roots from our locator system. \\
+			Also, we have to drop the duplicate roots from above label system. \\
+			Since $\Z$ and $\{1,2,\dots,i\}$ are countable,
+			\[
+				|\Z^{i+1}\times \{1,2,\dots,i\}| = \aleph_0
+			\]
+			So that 
+			\[
+				|\mc{A}_i| \leq |\Z^{i+1}\times \{1,2,\dots,i\}| = \aleph_0
+			\]
+			Lastly, since we've shown that all rational numbers are algebraic and the set of rational numbers is countable. 
+			\[
+				\aleph_0 = |\Q| \leq |\mc{A}|
+			\]
+			Consequently,
+			\[
+				|\mc{A}_i| = \aleph_0,\ \forall i \in \N
+			\]
+			and $\mc{A}$ is a countable union of countable $\mc{A}_i$, so 
+			\[
+				|\mc{A}| = \aleph_0
+			\]
+		\end{proof}
+		
+		\begin{notation}
+			$\R \backslash \mc{A}$ denotes the set of \textbf{transcendental} numbers.
+		\end{notation}
+		
+		\begin{theorem}
+			The set of transcendental numbers has cardinality $c$.
+			\[
+				|\R \backslash \mc{A}| = c
+			\]
+		\end{theorem}
+		\begin{proof}
+			Since $|\R| = c$ and $|\mc{A}| = \aleph_0$, \\
+			Taking element since $\mc{A}$ has the same cardinality of $\N$. \\
+			Consider $\R \backslash \N$, obviously $(-1,0) \subseteq \R \backslash \N$. \\
+			And the open interval in $\R$ has cardinality $c$. \\
+			So 
+			\[
+				c = |(-1,0)| \leq |\R \backslash \N|
+			\]
+			and $\R \backslash \N \subseteq \R$ implies 
+			\[
+				|\R \backslash \N| \leq |\R| = c
+			\]
+			therefore 
+			\[
+				|\mc{A}| = c
+			\]
+		\end{proof}
+		
+		\subsection{Number Fields}
+		\begin{definition}
+			Any subset of $\R$ which contained $\{0,1\}$ and closed under the four basic operations of arithmetic, $+, -, \times, \div$, is called a \textbf{number field}.
+		\end{definition}
+		
+		\begin{example}
+			$\R$, $\Q$, and $\mc{A}$ are all number fields.
+		\end{example}
+		
+		\begin{example}
+			\[
+				\Q(\sqrt{2}) := \{a+b\sqrt{2}:a,b\in\Q\}
+			\]
+			is a number field.
+		\end{example}
+		\begin{proof}
+			Obviously $\{0, 1\} \subseteq \Q(\sqrt{2})$. \\
+			Let $a_1 + b_1 \sqrt{2}, a_2 + b_2 \sqrt{2} \in \Q(\sqrt{2})$. \\
+			\textbf{Closed under addition and subtraction: }
+			\[
+				(a_1 + b_1 \sqrt{2}) \pm (a_2 + b_2 \sqrt{2}) = (a_1 \pm a_2) + (b_1 \pm b_2)\sqrt{2} \in \Q(\sqrt{2})
+			\]
+			\textbf{Closed under multiplication: }
+			\[
+				(a_1 + b_1 \sqrt{2}) \times (a_2 + b_2 \sqrt{2}) = (a_1 a_2 + 2 b_1 b_2) + (a_1 b_2 + a_2 b_1)\sqrt{2} \in \Q(\sqrt{2})
+			\]
+			\textbf{Closed under division: } this can be shown by showing that 
+			\[
+				z \in \Q(\sqrt{2}) \implies \frac{1}{z} \in \Q(\sqrt{2})
+			\]
+			Let $a + b \sqrt{2} \in \Q(\sqrt{2})$,
+			\begin{gather*}
+				\frac{1}{a+b\sqrt{2}} = \frac{1}{a+b\sqrt{2}} \frac{a-b\sqrt{2}}{a-b\sqrt{2}} \\
+				= \frac{a-b\sqrt{2}}{a^2 - 2b^2} \\
+				= (\frac{a}{a^2 - 2b^2}) + (\frac{-b}{a^2 - 2b^2})\sqrt{2} \in \Q(\sqrt{2})
+			\end{gather*}
+		\end{proof}
 \end{document}
 
 

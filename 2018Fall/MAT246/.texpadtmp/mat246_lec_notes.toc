@@ -46,3 +46,5 @@
 \contentsline {section}{\numberline {27}Lecture 27. Nov. 19 2018}{38}{section.27}
 \contentsline {section}{\numberline {28}Lecture 28 Nov. 21 2018}{39}{section.28}
 \contentsline {section}{\numberline {29}Lecture 29 Nov. 23 2018}{40}{section.29}
+\contentsline {section}{\numberline {30}Lecture 30. Nov 26 2018}{42}{section.30}
+\contentsline {subsection}{\numberline {30.1}Number Fields}{43}{subsection.30.1}
