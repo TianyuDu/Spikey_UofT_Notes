@@ -79,32 +79,31 @@
 \contentsline {subsubsection}{\numberline {8.3.3}No Lump-sum Tax in Real World}{41}{subsubsection.8.3.3}
 \contentsline {subsubsection}{\numberline {8.3.4}Rule of Thumb: Imperfect Foreseeing}{42}{subsubsection.8.3.4}
 \contentsline {section}{\numberline {9}Lecture 9 Nov. 22 2018}{42}{section.9}
-\contentsline {subsection}{\numberline {9.1}Business Cycles}{42}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Business Cycle Facts}{42}{subsection.9.2}
-\contentsline {subsection}{\numberline {9.3}Baseline Business Cycle Model}{43}{subsection.9.3}
-\contentsline {paragraph}{Firms}{43}{section*.32}
-\contentsline {paragraph}{Output}{43}{section*.33}
-\contentsline {paragraph}{Government Purchases}{43}{section*.34}
-\contentsline {paragraph}{Ricardian Equivalence}{43}{section*.35}
-\contentsline {subsubsection}{\numberline {9.3.1}Firm's Problem}{43}{subsubsection.9.3.1}
-\contentsline {subsubsection}{\numberline {9.3.2}Households}{44}{subsubsection.9.3.2}
-\contentsline {paragraph}{Population}{44}{section*.36}
-\contentsline {subsubsection}{\numberline {9.3.3}Technology Shocks}{44}{subsubsection.9.3.3}
-\contentsline {subsubsection}{\numberline {9.3.4}Government Shock}{45}{subsubsection.9.3.4}
-\contentsline {subsection}{\numberline {9.4}Cases}{45}{subsection.9.4}
-\contentsline {subsubsection}{\numberline {9.4.1}Case 1}{45}{subsubsection.9.4.1}
-\contentsline {paragraph}{Assumptions}{45}{section*.37}
-\contentsline {paragraph}{Budget}{45}{section*.38}
-\contentsline {paragraph}{Household's Problem}{45}{section*.39}
-\contentsline {paragraph}{Solving the model}{46}{section*.40}
-\contentsline {subsubsection}{\numberline {9.4.2}Case 2}{46}{subsubsection.9.4.2}
-\contentsline {paragraph}{Assumptions:}{46}{section*.41}
-\contentsline {paragraph}{Budget Constraint}{46}{section*.42}
-\contentsline {paragraph}{Household's Problem}{46}{section*.43}
-\contentsline {paragraph}{Solving the model}{47}{section*.44}
-\contentsline {paragraph}{Intra-temporal Trade-offs}{47}{section*.45}
-\contentsline {paragraph}{Inter-temporal Trade-offs}{47}{section*.46}
-\contentsline {paragraph}{Observation 1}{47}{section*.47}
-\contentsline {paragraph}{Observation 2}{47}{section*.48}
-\contentsline {paragraph}{Observation 3}{48}{section*.49}
-\contentsline {paragraph}{Observation 4}{48}{section*.50}
+\contentsline {subsection}{\numberline {9.1}Business Cycle Facts}{42}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Baseline Business Cycle Model}{43}{subsection.9.2}
+\contentsline {paragraph}{Firms}{43}{section*.33}
+\contentsline {paragraph}{Output}{43}{section*.34}
+\contentsline {paragraph}{Government Purchases}{43}{section*.35}
+\contentsline {paragraph}{Ricardian Equivalence}{43}{section*.36}
+\contentsline {subsubsection}{\numberline {9.2.1}Firm's Problem}{44}{subsubsection.9.2.1}
+\contentsline {subsubsection}{\numberline {9.2.2}Households}{44}{subsubsection.9.2.2}
+\contentsline {paragraph}{Population}{44}{section*.37}
+\contentsline {subsubsection}{\numberline {9.2.3}Technology Shocks}{45}{subsubsection.9.2.3}
+\contentsline {subsubsection}{\numberline {9.2.4}Government Shock}{45}{subsubsection.9.2.4}
+\contentsline {subsection}{\numberline {9.3}Cases}{46}{subsection.9.3}
+\contentsline {subsubsection}{\numberline {9.3.1}Case 1}{46}{subsubsection.9.3.1}
+\contentsline {paragraph}{Assumptions}{46}{section*.38}
+\contentsline {paragraph}{Budget}{46}{section*.39}
+\contentsline {paragraph}{Household's Problem}{46}{section*.40}
+\contentsline {paragraph}{Solving the model}{46}{section*.41}
+\contentsline {subsubsection}{\numberline {9.3.2}Case 2}{47}{subsubsection.9.3.2}
+\contentsline {paragraph}{Assumptions:}{47}{section*.42}
+\contentsline {paragraph}{Budget Constraint}{47}{section*.43}
+\contentsline {paragraph}{Household's Problem}{47}{section*.44}
+\contentsline {paragraph}{Solving the model}{47}{section*.45}
+\contentsline {paragraph}{Intra-temporal Trade-offs}{48}{section*.46}
+\contentsline {paragraph}{Inter-temporal Trade-offs}{48}{section*.47}
+\contentsline {paragraph}{Observation 1}{48}{section*.48}
+\contentsline {paragraph}{Observation 2}{48}{section*.49}
+\contentsline {paragraph}{Observation 3}{48}{section*.50}
+\contentsline {paragraph}{Observation 4}{48}{section*.51}
