@@ -2204,7 +2204,7 @@
 			\]
 			therefore 
 			\[
-				|\mc{A}| = c
+				|T| \equiv |\R \backslash \mc{A}| = c
 			\]
 		\end{proof}
 		
@@ -2245,6 +2245,61 @@
 				= (\frac{a}{a^2 - 2b^2}) + (\frac{-b}{a^2 - 2b^2})\sqrt{2} \in \Q(\sqrt{2})
 			\end{gather*}
 		\end{proof}
+	\section{Lecture 31. Nov 28 2018}
+		\begin{definition}
+			The set of points that can be marked on a line, which has zero and one, using straight edge and compass is called \textbf{constructible points/numbers}, denoted as $C$.
+		\end{definition}
+		
+		\begin{example}
+			$\Z \in C$
+		\end{example}
+		
+		\begin{remark}
+			If $a, b \in C$, i.e. $a$ and $b$ are constructible, then,
+			\begin{enumerate}
+				\item $a \pm b \in C$.
+				\item $\frac{a}{b} \in C$.
+				\item $a \cdot b \in C$.
+			\end{enumerate}
+		\end{remark}
+		\begin{proposition}
+			From above remark, it's obvious that 
+			\begin{enumerate}
+				\item $C \subseteq \R$,
+				\item $\{0, 1\} \subseteq C$,
+				\item and $C$ is closed under four basic arithmetic operations.
+			\end{enumerate}
+			So $C$ is a \ul{number field}.
+		\end{proposition}
+		
+		\begin{remark}
+			A \emph{number field} is certainly a field, and we add the \emph{number} prefix to emphasize it's a subset of real numbers.
+		\end{remark}
+		
+		\begin{example}
+			$\Q \in C$
+		\end{example}
+		
+		\begin{proposition}
+			Let $\mc{F}$ be a number field, and exists $0 < r \in \mc{F}$ such that $\sqrt{r} \notin \mc{F}$.\\
+			$\mc{F}(\sqrt{r})$, called \ul{$\mc{F}$ adjoin $\sqrt{r}$}, is a number field.
+		\end{proposition}
+		\begin{proof}
+			Easy to show $\mc{F}(\sqrt{r}) \subseteq \R$ and it contains $\{0,1\}$. \\
+			Let $a, b, r>0 \in \mc{F}$, so $a + b \sqrt{r} \in \mc{F}(\sqrt{r})$. \\
+			Easy to verify $\mc{F}(\sqrt{r})$ is closed under addition, subtraction and multiplication. \\
+			To check the division closure, consider the closure under inverse operation:
+			\begin{gather*}
+				\frac{1}{a + b \sqrt{r}} = \frac{1}{a + b \sqrt{r}} \frac{a - b \sqrt{r}}{a - b \sqrt{r}} \\
+				\frac{a}{a^2 - r b^2} - \frac{b}{a^2 - rb^2} \sqrt{r} \in \mc{F}(\sqrt{r})
+			\end{gather*}
+			\textbf{Note:} Given $a + b \sqrt{r} \in \mc{F}(\sqrt{r})$, $a - b \sqrt{r}$ is guaranteed to be non-negative. \\
+			If $a - b \sqrt{r} = 0$, then $\sqrt{r} = \frac{a}{b} \in \mc{F}$, which contradicts our assumption that $\sqrt{r} \notin \mc{F}$. So we will not encounter zero division exception while examining closure.
+		\end{proof}
+		
+		\begin{example}
+			$\Q(\sqrt{3})$ is a number field.
+		\end{example}
 \end{document}
 
 
