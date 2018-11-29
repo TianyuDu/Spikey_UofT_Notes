@@ -434,9 +434,10 @@
     	\]
     	
     	\subsection{t-test for significance of individual predicator}
-    		\paragraph{Test statistic} Given $MLR.1 \sim MLR.6$ (need $\textbf{u} \sim \mc{N}(\textbf{0}, \sigma^2 \textbf{I}_n)$),
+    		\paragraph{Test statistic} Given $MLR.1 \sim MLR.6$,\\
+    		(\hl{requires $\textbf{u} \sim \mc{N}(\textbf{0}, \sigma^2 \textbf{I}_n)$ so that $t$-statistic follows the $t$ distribution}),
     		\[
-    			t = \frac{\hat{\beta}_j - b}{s.e.(\hat{\beta}_j)} \sim t_{n-k-1}
+    			t = \frac{\hat{\beta}_j - b}{s.e.(\hat{\beta}_j)} \sim t_{\textcolor{red}{n-k-1}}
     		\]
     		where 
     		\begin{gather*}
@@ -448,7 +449,7 @@
     	\subsection{t-test for comparing 2 coefficients}
     	\paragraph{Test statistic}
     	\[
-    		t = \frac{(\hat{\beta}_i - \hat{\beta}_j) - b}{s.e.(\hat{\beta}_i - \hat{\beta}_j)} \sim t_{n-k-1}
+    		t = \frac{(\hat{\beta}_i - \hat{\beta}_j) - b}{s.e.(\hat{\beta}_i - \hat{\beta}_j)} \sim t_{\textcolor{red}{n-k-1}}
     	\]
     	where 
     		\begin{gather*}
@@ -466,11 +467,11 @@
     		H_0: \beta_i = \beta_j = \beta_k = \dots = 0 \\
     		H_1: \exists\ z \in \{i, j, k, \dots \}\ s.t.\ \beta_z \neq 0
     	\end{gather*}
-    	Test significance by comparing the \emph{restricted} and \emph{unrestricted} models, see whether restricting the model by removing certain explanatory variables "significantly" hurts the fit of the model.
+    	Test significance by comparing the \ul{restricted} and \ul{unrestricted} models, see whether restricting the model by removing certain explanatory variables "significantly" hurts the fit of the model.
     	\[
-    		df = (q, n-k-1)
+    		\textcolor{red}{df = (q, n-k-1)}
     	\]
-    	\paragraph{Test statistic}
+    	\paragraph{Test statistic} Let $SSR$ denote the regression residual,
     	\begin{gather*}
     		F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-k-1)} \sim F_{(q, n-k-1)} \\
     		\tx{or} \\
@@ -480,10 +481,10 @@
     	\subsection{Full F-test for the significance of the model}
     	\begin{gather*}
     		H_0: \beta_1 = \beta_2 = \dots = \beta_k = 0 \\
-    		H_1: \exists\ i \in \{1, 2, \dots ,3\}\ s.t.\ \beta_i \neq 0
+    		H_1: \exists\ i \in \{1, 2, \dots ,k\}\ s.t.\ \beta_i \neq 0
     	\end{gather*}
     	\begin{remark}
-    		$R^2$ version only and substitute $R^2_{r} = 0$, since $SSR_{r}$ is undefined.
+    		\hl{$R^2$ version only} and substitute $R^2_{r} = 0$ (restricted model explains nothing), since $SSR_{r}$ is undefined.
     	\end{remark}
     	\paragraph{Test statistic}
     	\[
@@ -491,8 +492,22 @@
     	\]
     	
     	\subsection{F-test for general restrictions}
+    	\begin{gather*}
+    		H_0: \beta_1 + \beta_2 = 1 \\
+    		H_1: \neg H_0
+    	\end{gather*}
+    	\paragraph{Procedure}
+    		\begin{enumerate}
+    			\item Substitute the restriction in $H_0$ into the original model to derive the restricted model.
+    			\item Estimate both the original and restricted models and calculate their $SSR$.
+    		\end{enumerate}
+    		Test hypothesis with $F-statistic$
+    		\[
+    			F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-k-1)}
+    		\]
+    		where $q$ denotes the number of restrictions (equations) in $H_0$.
     	\begin{remark}
-    		Use the $SSR$ version of $Fstatistic$ only since the $SST$ for restricted and unrestricted models are different.
+    		\hl{Use the $SSR$ version only} of $F-statistic$ only since the $SST$ for restricted and unrestricted models are different.
     	\end{remark}
     	\begin{remark}
     		We only reject or failed to reject $H_0$, we never accept $H_0$ in a hypothesis test.
@@ -504,7 +519,7 @@
     		\begin{enumerate}
     			\item Enlarge $x_j$ by factor $a$: $\hat{\beta}_j$ shrinks by $a$.
     			\item Enlarge $y$ by factor $a$: \textbf{all} $\hat{\beta}_i$ enlarged by $a$.
-    			\item \textcolor{red}{Test statistic $t = \frac{\hat{\beta}}{s.e.(\hat{\beta})} = \frac{a\hat{\beta}}{s.e.(a \hat{\beta})}$ is unaffected.}
+    			\item \hls{Test statistic $t = \frac{\hat{\beta}}{s.e.(\hat{\beta})} = \frac{a\hat{\beta}}{s.e.(a \hat{\beta})}$ is unaffected.}
     		\end{enumerate}
     	
     		\subsubsection{Standardization}
