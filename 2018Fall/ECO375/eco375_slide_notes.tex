@@ -767,7 +767,63 @@
 					\tx{or full F-test}
 				\end{gather*}
 		\subsection{Generalized/Weighted Least Squared}
-	
+			\paragraph{Motivation} when a regression model is suspicious for \emph{heteroskedasticity} (i.e. MLR5 fails), Gauss-Markov theorem does no longer hold and OLS still unbiased and consistent but \ul{no longer the most efficient} one. We wish to \emph{transform} the original model, by \ul{multiplying by weights}($p_i$), to a homoskedastic model. And then run OLS on the transformed model to get linear estimations for coefficients, which are efficient. (Guaranteed by Gauss-Markov theorem)
+			
+			\subsubsection{GLS with Known Functional Form}
+				Suppose (\hl{central assumption})
+				\[
+					Var(u_i) = \expect{u_i^2|\textbf{X}} = h_i \sigma^2
+				\]
+				for some known function $h_i$. Take weight function
+				\[
+					p_i := \frac{1}{\sqrt{h_i}}
+				\]
+				The \textbf{transformed} equation becomes
+				\begin{gather*}
+					p_i y_i = p_i \beta_0 + \beta_1 p_i x_{i1} + \dots + \beta_k p_i x _{ik} + p_i u_i \\
+					\iff y_i / \sqrt{h_i} = \beta_0 / \sqrt{h_i} + \beta_1 (x_{i1}/\sqrt{h_i}) + \dots + \beta_k (x_{ik}/\sqrt{h_i}) + u_i / \sqrt{h_i} \\
+					\implies \expect{(u_i / \sqrt{h_i})^2 | \textbf{X}} = \frac{1}{h_i} h_i \sigma^2 = \sigma^2
+				\end{gather*}
+				which is homoskedastic.
+				\begin{remark}
+					In weighted least square with weight function $p_i$ above, the variance of residual at a certain data cross-section is proportional to $h_i$. And $p_i \equiv \frac{1}{\sqrt{h_i}}$, that's, \emph{observations with higher residual variance receive less weight}.
+				\end{remark}
+			\subsection{Feasible GLS}
+				Suppose (\hl{central assumption})
+				\[
+					Var(u_i|\textbf{X}) = \expect{u_i^2|\textbf{X}} = \sigma^2 exp(\vec{\delta} \cdot \textbf{x}_i)
+				\]
+				for some constant $\sigma$. \\
+				Equivalently,
+				\[
+					h(x) = exp(\delta_0 + \delta_1 x_1 + \dots + \delta_k x_k)
+				\]
+				\begin{remark}
+					The \emph{exponential} operator in our assumption guarantees the error variance is strictly positive.
+				\end{remark}
+				To estimate the \textbf{variance}, we are going to model the squared residual $u^2$,
+				\begin{gather*}
+					u_i^2 = \sigma^2 exp(\vec{\delta} \cdot \textbf{x}_i)\textcolor{red}{v_i} \\
+					\iff \ln(u_i^2) = [\ln(\sigma^2) + \delta_0] + [\delta_1 x_{i1} + \dots + \delta_k x_{ik}] + \textcolor{red}{e_i} \\
+					\alpha_0 \equiv \ln(\sigma^2) + \delta_0,\quad e_i \equiv \ln(v_i)
+				\end{gather*}
+			\paragraph{Procedures} of FGLS
+				\begin{enumerate}
+					\item Run OLS regression on the \ul{original} model, then estimate $\hat{u}_i^2$ and $\ln(\hat{u}_i^2)$.
+					\item Estimate model 
+						\[
+							\ln(\hat{u_i}^2) = [\ln(\sigma^2) + \delta_0] + [\delta_1 x_{i1} + \dots + \delta_k x_{ik}] + \textcolor{red}{e_i}
+						\]
+					\item Compute 
+						\[
+							\hat{h}_i := exp(\widehat{\ln(u_i^2)})
+						\]
+					using result from above model. And compute 
+					\[
+						p_i := \frac{1}{\sqrt{\hat{h}_i}}
+					\]
+					\item Transform the original model using weights $p_i$ and estimate it using OLS. \hl{Note that the transformed model has \textbf{no} constant term. The constant is replaced with $(p_i \beta_0)$, which varies across observations.}
+				\end{enumerate}
 	\section{Slide 12: Specification and Data Problems}
 		\paragraph{} A multiple regression model suffers from functional misspecification when it does not properly account for the relationship between the dependent and the observed explanatory variables.
 		\subsection{Regression Specification Error Test (RESET)}
