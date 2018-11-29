@@ -31,6 +31,9 @@
 	\textbf{Updated} version can be found on \url{www.tianyudu.com/notes}
 	
 	\tableofcontents
+	
+	\newpage
+	
 	\section{Slide 4: Simple \& Multiple Regression - Estimation}
 	\subsection{Regression Model}
 	\begin{assumption}
@@ -53,14 +56,14 @@
 	    Both $\hat{\beta}_0$ and $\hat{\beta}_j$ are functions of \emph{random variables} and therefore themselves \emph{random} with \emph{sampling distribution}. And the estimated coefficients are random up to random sample chosen.
 	\end{remark}
 	
-	\begin{property}
+	\begin{proposition}
 	    Properties of OLS estimators
 	    \begin{itemize}
 	        \item \textbf{Unbiased} $\mathbb{E}[\hat{\beta} | X] = \beta$
 	        \item \textbf{Consistent} $\hat{\beta} \to \beta$ as $n \to \infty$
-	        \item \textbf{Efficient/Good} min variance.
+	        \item \textbf{Efficient} min variance.
 	    \end{itemize}
-	\end{property}
+	\end{proposition}
 	
 	\begin{definition}
 	    The \textbf{Simple Coefficient of Determination}
@@ -81,13 +84,13 @@
 	    \end{itemize}
 	\end{proposition}
 	
-	\begin{assumption}
+	\begin{assumption}(\hl{SLR})
 	    Simple regression model assumptions
 	    \begin{enumerate}
 	        \item Model is \ul{linear} in parameter.
 	        \item \ul{Random samples} $\{(x_i, y_i)\}_{i=1}^n$.
-	        \item Sample outcomes $\{x_i\}_{i=1}^n$ are not the same.
-	        \item $\mathbb{E}(u|x)=0$ conditional on random sample $x$.
+	        \item Sample outcomes $\{x_i\}_{i=1}^n$ are not the same.\footnote{Otherwise, $SST=0$.}
+	        \item $\expect{u|x}=0$ conditional on random sample $x$.
 	        \item Error is \ul{homoskedastic}. $Var(u|x) = \sigma^2$ for all $x$.
 	    \end{enumerate}
 	\end{assumption}
@@ -95,25 +98,31 @@
 	    \begin{itemize}
 	        \item More accurate causal effect estimation.
 	        \item More flexible function forms.
-	        \item Could explicitly include more predictors so $\mathbb{E}(u|X) = 0$ is easier to be satisfied.
+	        \item Could explicitly include more predictors so $\mathbb{E}(u|\textbf{x}) = 0$ is easier to be satisfied. \footnote{If we suspect some predictors may interact with certain component in $u$, moving the portion of $u$ to the predictor set solves the problem.}
 	        \item MLR4 is less restrictive than SLR4.
 	    \end{itemize}
 	   
-    \begin{property}
+    \begin{proposition}
         MLR OLS residual satisfies
         \begin{gather*}
-            \sum_i {\hat{u_i}} = 0\\
-            \sum_i {x_{ji} \hat{u_i}} = 0,\ \forall i \in \{1, 2, \dots, k\}
+            \sum_i {\hat{u}_i} = 0\\
+            \sum_i {x_{ji} \hat{u}_i} = 0,\ \forall i \in \{1, 2, \dots, k\}
         \end{gather*}
-    \end{property}
+    \end{proposition}
     
-    \begin{property}
+    \begin{proposition}
         MLR OLS estimators $\hat{\beta}_0, \hat{\beta}_1, \dots, \hat{\beta}_k$ pass through the average point.
         \[
             \overline{y} = \hat{\beta}_0 + \hat{\beta}_1 \overline{x}_1 + \dots + \hat{\beta}_k \overline{x}_k
         \]
-    \end{property}
+    \end{proposition}
     \begin{proof}
+    	\begin{gather*}
+    		\sum_i {\hat{u}_i} = 0 \\
+    		\implies \sum_i {\hat{y}_i - y_i} = 0 \\
+    		\implies \sum_i {\hat{\beta}_0 + \hat{\beta}_1 x_{1i} + \dots + \hat{\beta}_k x_{ki} - y_i} = 0 \\
+    		\implies \hat{\beta}_0 + \hat{\beta}_1 \overline{x}_1 + \dots + \hat{\beta}_k \overline{x}_k = \overline{y}
+    	\end{gather*}
     \end{proof}
     
     \subsection{Partialling Out}
@@ -127,25 +136,36 @@
             \]
         \end{enumerate}
         \begin{proof}
+        	By the first order condition of OLS,
+        	\begin{gather*}
+        		\sum x_1 \hat{u} = 0 \\
+        		\implies \sum (\hat{x}_1 + \tilde{r}_1) \hat{u} = 0 \\
+        		\implies \sum \tilde{r}_1 \hat{u} = 0 \\
+        		\implies \sum \tilde{r}_1 (y - \hat{y}) = 0 \\
+        		\implies \sum \tilde{r}_1 (y - \hat{\beta}_0 - \hat{\beta}_1 x_1 - \hat{\beta}_2 x_2 - \dots - \hat{\beta}_k x_k) = 0 \\
+        		\implies \sum \tilde{r}_1 y = \hat{\beta}_1 \sum \tilde{r}_1 x_1 \\
+        		\implies \sum \tilde{r}_1 y = \hat{\beta}_1 \sum \tilde{r}_1 (\hat{x}_1 + \tilde{r}_1) = \hat{\beta}_1 \sum \tilde{r_1}^2\\
+        		\implies \hat{\beta}_1 = \frac{\sum \tilde{r} y}{\sum \tilde{r}^2}
+        	\end{gather*}
         \end{proof}
         
     \subsubsection{Interpretation}
-    \par This OLS estimator only uses the \ul{unique variance} of one independent variable. And the parts of variation correlated with other independent variables is partialled out.
+    \par This OLS estimator only uses the \hl{unique variance} of one independent variable. And the parts of variation correlated with other independent variables is partialled out.
     
-    \begin{assumption}Multiple Regression Assumptions
+    \begin{assumption}(\hl{MLR}) Multiple Regression Assumptions
         \begin{enumerate}
-            \item (MLR1) The model is \ul{linear} in parameters. 
-            \item (MLR2) \ul{Random sample} from population $\{(x_{1i}, \dots x_{ki}, y_i\}_{i=1}^n$.
-            \item (MLR3) No perfect \ul{multicollinearity}.
-            \item (MLR4) \ul{Zero expected error} conditional on population slice given by $X$.
+            \item (MLR.1) The model is \hl{linear} in parameters. 
+            \item (MLR.2) \hl{Random sample} from population $\{(x_{1i}, \dots x_{ki}, y_i\}_{i=1}^n$.
+            \item (MLR.3) No perfect \hl{multicollinearity}.
+            \item (MLR.4) \hl{Zero expected error} conditional on population slice given by $X$.
             \[
-                \mathbb{E}(u|X) = \mathbb{E}(u|x_1, x_2, \dots, x_k) = 0
+                \mathbb{E}(u|\textbf{x}) \equiv \mathbb{E}(u|x_1, x_2, \dots, x_k) = 0
             \]
-            \item (MLR5) \ul{Homoskedastic error} conditional on population slice given by $X$.
+            \item (MLR.5) \hl{Homoskedastic error} conditional on population slice given by $X$.
             \[
-                Var(u|X) = \sigma^2
+                Var(u|\textbf{x}) = \sigma^2
             \]
-            \item (MLR6, \emph{strict assumption}) \ul{Normally distributed error}
+            \item (MLR.6, \emph{strict assumption}) \ul{Normally distributed error}
             \[
                 u \sim \mc{N}(0, \sigma^2)
             \]
@@ -163,20 +183,22 @@
     \end{equation}
     and use the partialling-out result on the second regression we have
     \[
-        \tilde{\beta}_1 = \frac{\sum_i \tilde{r}_{1i} y_i}{( \tilde{r}_{1i})^2}
+        \tilde{\beta}_1 = \frac{\sum_i \tilde{r}_{1i} y_i}{\sum_i(\tilde{r}_{1i})^2}
     \]
-    where $\tilde{r_{1i}} = x_{1i} - \tilde{\alpha}_0 - \tilde{\alpha}_2 x_{2i} - \dots - \tilde{\alpha}_{k-1}x_{(k-1)i}$
-    
-    
+    where 
+    \[
+    	\tilde{r}_{1i} = x_{1i} - \tilde{\alpha}_0 - \tilde{\alpha}_2 x_{2i} - \dots - \tilde{\alpha}_{\textcolor{red}{k-1}}x_{\textcolor{red}{(k-1)}i}
+    \]
+    and
     \begin{equation}
-        \tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_k \frac{\sum (\tilde{r}_{1i} x_{ki})}{\sum (\tilde{r}_{1i})^2}
+        \tilde{\beta}_1 = \hat{\beta}_1 + \hat{\beta}_k \frac{\sum_i (\tilde{r}_{1i} x_{ki})}{\sum_i (\tilde{r}_{1i})^2}
     \end{equation}
     and take the expectation 
     \begin{gather*}
         \mathbb{E}(\tilde{\beta}_1 | X) = \beta_1 + \tilde{\delta}_1 \beta_k \\
         Bias(\tilde{\beta}_1) = \tilde{\delta}_1 \beta_k
     \end{gather*}
-    \paragraph{Conclusion} the sign of bias depends on $cov(x_1, x_k)$ and $\beta_k$.
+    \paragraph{Conclusion} the \ul{sign} of bias depends on $Cov(x_1, x_k)$ and $\beta_k$.
     
     \begin{proof}
     	\textcolor{red}{TODO}
@@ -202,7 +224,7 @@
     
     \section{Slide 6: Multiple Regression in Matrix Algebra}
     	\subsection{The Model}
-    		\paragraph{Predictor}
+    		\paragraph{Independent Variable Matrix}
     			\[
     				\textbf{X} \in \mathbb{M}_{n \times (k+1)}(\R)
     			\]
@@ -221,8 +243,10 @@
     			\]
     		\paragraph{First order condition for OLS}
     			\begin{gather*}
-    				\textbf{X}' \hat{u} = \textbf{0} \in \R^{k+1} \\
-    				\iff \textbf{X}' (\textbf{y} - \textbf{X} \hat{\beta}) = \textbf{0} \in \R^{k+1}
+%    				\textbf{X}' \hat{u} = \textbf{0} \in \R^{k+1} \\
+%    				\iff \textbf{X}' (\textbf{y} - \textbf{X} \hat{\beta}) = \textbf{0} \in \R^{k+1}
+					\pd{(\textbf{y} - \textbf{X}\vec{\beta})^2}{\vec{\beta}} = \textbf{0}
+					\iff \textbf{X}' (\textbf{y} - \textbf{X}\vec{\beta}) = \textbf{0}
     			\end{gather*}
     		\paragraph{Estimator}	
     			\[
@@ -236,18 +260,21 @@
     					\implies \textbf{X}' \textbf{y} = \textbf{X}' \textbf{X} \hat{\beta} \\
     					\implies \hat{\beta} = (\textbf{X}' \textbf{X})^{-1} \textbf{X}' \textbf{y}
     				\end{gather*}
-    				and note that $(\textbf{X}' \textbf{X})$ is guaranteed to be invertible by assumption \emph{no perfect multi-collinearity}.
+    				and
+    				\begin{remark}
+	    				note that $(\textbf{X}' \textbf{X})$ is guaranteed to be invertible by assumption \emph{no perfect multi-collinearity} and the implicit assumption that the number of features $k$ is sufficiently greater than the number of observations $n$. i.e. $k >> n$.
+    				\end{remark}
     			\end{proof}
     		\paragraph{Sum Squared Residual}
     		\[
-    			SSR(\hat{\beta}) = \hat{u}' \cdot \hat{u} = (\textbf{y} - \textbf{X} \hat{\beta})' \cdot (\textbf{y} - \textbf{X} \hat{\beta})
+    			SSR(\hat{\beta}) = ||\hat{u}||^2 = ||\textbf{y} - \textbf{X} \hat{\beta}||^2
     		\]
     		
     		\subsection{Variance Matrix}
     			\par Consider 
     			\begin{gather*}
-    				\vec{z}_t = [z_{1t}, z_{2t}, \dots z_{nt}]' \\
-    				\vec{z}_s = [z_{1s}, z_{2s}, \dots z_{ns}]'
+    				\textbf{z}_t = [z_{1t}, z_{2t}, \dots z_{nt}]' \\
+    				\textbf{z}_s = [z_{1s}, z_{2s}, \dots z_{ns}]'
     			\end{gather*}
     			Notice that the variance and covariance are defined as
     			\begin{gather*}
@@ -273,15 +300,15 @@
     				\expect{(\textbf{z} - \expect{\textbf{z}})_{n \times 1} \cdot (\textbf{z} - \expect{\textbf{z}})'_{1 \times n}} \in \mathbb{M}_{n \times n}
     				}
     			\end{gather*}
-    			In the special case $\expect{\vec{z}} = \vec{0}$, variance is reduced to
+    			In the special case $\expect{\textbf{z}} = \textbf{0}$, variance is reduced to
     			\[
     				\textcolor{red}{
-    					Var(\textbf{z}) = \expect{\textbf{z} \cdot \textbf{z}'}
+    					Var(\textbf{z}|\textbf{X}) = \expect{\textbf{z} \cdot \textbf{z}'|\textbf{X}}
     				}
     			\]
     			\paragraph{Residual} Since residual $u_i$ are \emph{i.i.d} with variance $\sigma^2$, the variance matrix of $\textbf{u}$ is
     			\[\textcolor{red}{
-    				Var(\textbf{u}) = \expect{\textbf{u} \cdot \textbf{u}'} = \sigma^2 \textbf{I}_n
+    				Var(\textbf{u}|\textbf{X}) = \expect{\textbf{u} \cdot \textbf{u}'|\textbf{X}} = \sigma^2 \textbf{I}_n
     			}\]
     			
     			\paragraph{Estimator} If $\hat{\beta}$ is unbiased, $\expect{\hat{\beta} | \textbf{X}} = \vec{\beta}$, then 
@@ -290,23 +317,24 @@
     			}\]
     \section{Slide 7: Multiple Regression - Properties}
     	\subsection{Assumptions (MLRs) in Matrix Form}
-    		\paragraph{E.1.} \emph{linear in parameter}
+    		\paragraph{E.0.} \hl{Random sample} from population.
+    		\paragraph{E.1.} \hl{Linear in parameter}
     		\[
     			\textbf{y} = \textbf{X}\vec{\beta} + \textbf{u}
     		\]
-    		\paragraph{E.2.} \emph{no perfect multi-collinearity}
+    		\paragraph{E.2.} \hl{No perfect multi-collinearity}
     		\[
     			rank(\textbf{X}) = k +1
     		\]
-    		\paragraph{E.3.} Error has expected value of \textbf{0} conditional on \textbf{X}.
+    		\paragraph{E.3.} Error has expected value of \textbf{0} conditional on \textbf{X} and $\textbf{X}$ is \hl{orthogonal} to residual $\textbf{u}$.
     		\[
     			\expect{\textbf{u}|\textbf{X}} = \textbf{0}
     		\]
-    		\paragraph{E.4.} Error \textbf{u} is \emph{homoscedastic}.
+    		\paragraph{E.4.} Error \textbf{u} is \hl{homoskedastic}.
     		\[
     			Var(\textbf{u}|\textbf{X}) = \sigma^2 \textbf{I}_n
     		\]
-    		\paragraph{E.5.} \emph{Normally distributed} error \textbf{u}. Note that this assumption is relatively strong.
+    		\paragraph{E.5.} \hl{Normally distributed} error \textbf{u}. Note that this assumption is relatively strong.
     		\[
     			\textbf{u} \sim \mc{N}(\textbf{0}, \sigma^2 \textbf{I}_n)
     		\]
@@ -331,13 +359,17 @@
     	\begin{lemma}
     		Suppose $\textbf{A} \in \mathbb{M}_{m\times n}$ and $\textbf{z} \in \mathbb{M}_{n\times 1}$ then 
     		\[
-    			Var(\textbf{A} \textbf{z}) = \textbf{A} Var(\textbf{z}) \textbf{A}'
+    			\textcolor{red}{
+    				Var(\textbf{A} \textbf{z}) = \textbf{A} Var(\textbf{z}) \textbf{A}'
+    			}
     		\]
     	\end{lemma}
     	\begin{theorem}
     		Given $E.1 \sim E.4$
     		\[
-    			Var(\hat{\beta}|\textbf{X}) = (\textbf{X}' \textbf{X})^{-1} \sigma^2
+    			\textcolor{red}{
+    				Var(\hat{\beta}|\textbf{X}) = (\textbf{X}' \textbf{X})^{-1} \sigma^2
+    			}
     		\]
     	\end{theorem}
     	\begin{proof}
@@ -353,8 +385,15 @@
     		\end{gather*}
     	\end{proof}
     	
-    	\begin{theorem}[Gause-Markov]
-    		Given $E.1. \sim E.4.$, the OLS estimator is the \ul{best linear unbiased estimator}(BLUE). \\(\emph{The best} here means the OLS has the least variance among all estimators.)
+    	\begin{theorem}[\hl{Gauss-Markov Theorem}]
+    		Given $E.1. \sim E.4.$, i.e.
+    			\begin{enumerate}
+    				\item Models is linear in parameters.
+    				\item No perfect multi-collinearity presents.
+    				\item Error has expected value of zero conditional on \textbf{X}.
+    				\item Homoskedastic.
+    			\end{enumerate}
+    		the OLS estimator is the \ul{best linear unbiased estimator} (BLUE). \\(\emph{The best} here refers to the OLS has the least variance among all estimators.)
     	\end{theorem}
     	
     	\subsection{Variance Inflation}
@@ -373,17 +412,18 @@
     			VIF_j = \frac{1}{1-R_j^2}
     		\]
     	\end{definition}
-    	\begin{remark}[Interpretation] the standard error of estimator on a particular variable ($\hat{\beta}_j$) is \emph{inflated} by it's($x_j$) relationship with other explanatory variables.
+    	\begin{remark}[Interpretation] the standard error of estimator on a particular variable ($\hat{\beta}_j$) is \emph{inflated} by it's($x_j$) relationship with other explanatory variables. \\
+    		If a predictor is highly correlated with other predictors, it's estimated coefficient will be inefficient (i.e. with high variance/uncertainty)
     	\end{remark}	
 
     	\paragraph{Solutions to high VIF}
     		\begin{enumerate}
-    			\item Drop the explanatory variable.
+    			\item Drop the highly inflated explanatory variable.
     			\item Use ratio $\frac{x_i}{x_j}$ instead.
     			\item Ridge regression.
     		\end{enumerate}
-    	\begin{remark}
-    		VIF highlights the importantce of \textbf{not} including redundant predictors.
+    	\begin{remark}[Interpretation]
+    		VIF highlights the importance of \textbf{not} including redundant predictors.
     	\end{remark}
     	
     \section{Slide 8: Multiple Regression - Inference}
