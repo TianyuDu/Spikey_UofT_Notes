@@ -1445,9 +1445,8 @@
 				\tilde{G}_t = \rho_G \tilde{G}_{t-1} + \epsilon_{G,t}\quad \rho_G \in (-1,1)
 			\end{equation}
 			where $\epsilon_{G,t}$ are white-noise disturbance.
-		
-		\subsection{Cases}
-			\subsubsection{Case 1}
+			
+			\subsection{Case 1}
 				\paragraph{Assumptions} Households live one period, there is no uncertainty no initial wealth and one person per household and no growth.
 				\paragraph{Budget} $c \leq w \ell$
 				\paragraph{Household's Problem}
@@ -1470,7 +1469,7 @@
 					\implies \ell = \frac{1}{1+b} < 1
 				\end{gather*}
 			
-			\subsubsection{Case 2}
+			\subsection{Case 2}
 				\paragraph{Assumptions:}
 					\begin{enumerate}
 						\item Household lives for 2 periods
@@ -1534,73 +1533,111 @@
 					\end{proof}
 	\section{Lecture 10 Nov. 29 2018}
 		\subsection{Case 3}
-			\begin{assumption}
+			\begin{assumption} \quad
 				\begin{enumerate}
 					\item No uncertainty 
-					\item one member per household
-					\item no depreciation, no growth
-					\item infinite time horizon
-					\item $H=1$
+					\item One member per household
+					\item No depreciation ($\delta = 0$)
+					\item No growth
+					\item Infinite time horizon
+					\item Only one single household in the economy $H=1$
 				\end{enumerate}
 			\end{assumption}
 			
-			\paragraph{Controls} $c_t$ and $K_{t+1}$
-			\paragraph{Budget} At each time period $t$,
+			\subsubsection{Setup the Model}
+			\paragraph{Objective Function}
+				\begin{equation}
+					\sum_{t=0}^\infty e^{-\rho t} [\ln(c_t) + b\ln(1-\ell_t)]
+				\end{equation}
+			
+			\paragraph{Controls} Individual households choose 
+				\begin{itemize}
+					\item \ul{Consumption} $c_t$
+					\item \ul{Leisure} $\ell_t$
+					\item and \ul{Saving} $K_{t+1}$
+				\end{itemize}
+			\paragraph{Budget Constraint} At each time period $t$,
 			\begin{equation}
 				K_{t+1} - K_t + c_t + G_t \leq r_t K_t + w_t \ell_t
 			\end{equation}
-			Setup the Lagrangian
+			where $I_{t} = K_{t+1} - K_t$ since there's on depreciation.
+			
+			\subsubsection{Solving the Model}
+			\paragraph{Lagrangian}
 			\begin{gather}
 				\mc{L} = \sum_{t=0}^\infty \Big\{e^{-\rho t} [\ln(c_t) + b\ln(1-\ell_t)]
 				+ \lambda_t [r_t K_t + w_t \ell_t - K_{t+1} + K_t - c_t - G_t] \Big\}
 			\end{gather}
-			\paragraph{First Order Condition} 
+			\paragraph{First Order Conditions}\hl{have to be satisfied at every time period $t \in \R_{\geq 0}$}
 			\begin{gather}
 				\pd{\mc{L}}{c_t} = e^{-\rho t}\frac{1}{c_t} - \lambda_t = 0,\quad \forall t \in \R_+ \\
-				\pd{\mc{L}}{\ell_t} e^{-\rho t} \frac{-b}{1-\ell_t} + \lambda_t w_t = 0,\quad \forall t \in \R_+ \\
+				\pd{\mc{L}}{\ell_t} = e^{-\rho t} \frac{-b}{1-\ell_t} + \lambda_t w_t = 0,\quad \forall t \in \R_+ \\
 				\pd{\mc{L}}{K_{t+1}} = -\lambda_t + (1+r_{t+1})\lambda_{t+1} = 0,\quad \forall t \in \R_+ \\
 				\pd{\mc{L}}{\lambda_t} = r_t K_t + w_t \ell_t - K_{t+1} + K_t - c_t - G_t = 0,\quad \forall t \in \R_+
 			\end{gather}
 			\begin{remark}
-				Equation (3) implies $\lambda_t > 0,\quad \forall t \in \R_+$, so KTT complementary slackness condition suggests budget constraint (1) are satisfied with equality 
+				Equation (4) implies $\lambda_t > 0,\quad \forall t \in \R_+$, so KTT complementary slackness condition suggests budget constraint are hold as equalities at each time $t$.
 			\end{remark}
+			
+			\subsubsection{Analysis}
 			
 			\paragraph{Inter-Temporal Consumption}
 				\begin{gather*}
-					(3) \implies \lambda_t = e^{-\rho t}\frac{1}{c_t} \land \lambda_{t+1} = e^{-\rho (t+1)}\frac{1}{c_{t+1}}\\
-					(5) \implies \lambda_t = \lambda_{t+1}(1+r_{t+1}) \\
+					\begin{cases}
+						\pd{\mc{L}}{c_t} = 0 \iff \lambda_t = e^{-\rho t}\frac{1}{c_t} \\
+						\pd{\mc{L}}{c_{t+1}} = 0 \iff \lambda_{t+1} = e^{-\rho (t+1)}\frac{1}{c_{t+1}} \\
+						\lambda_t = \lambda_{t+1}(1+r_{t+1})
+					\end{cases}\\
 					\iff \frac{1}{c_t} = (1+r_{\textcolor{red}{t+1}})e^{-\rho}\frac{1}{c_{t+1}}
 				\end{gather*}
+				
 			\paragraph{Intra-Temporal Consumption-Leisure}
 				\begin{gather*}
-					(4) \implies e^{-\rho t} \frac{b}{1-\ell_t} = \lambda_t w_t \\
+					\begin{cases}
+						\pd{\mc{L}}{\ell_t} = 0 \iff e^{-\rho t} \frac{b}{1-\ell_t} = \lambda_t w_t \\
+						\pd{\mc{L}}{c_t} = 0 \iff \lambda_t = e^{-\rho t}\frac{1}{c_t}
+					\end{cases} \\
 					\iff e^{-\rho t} \frac{b}{1-\ell_t} = e^{-\rho t}\frac{1}{c_t} w_t \\
 					\iff \frac{b}{1-\ell_t} = \frac{1}{c_t} w_t,\quad \forall t \in \R_+
 				\end{gather*}
+				
 			\paragraph{Inter-Temporal Leisure}
 				\begin{gather*}
-					(4) \land (5) \implies \frac{b}{1-\ell_t} \frac{1}{w_t} = e^{-\rho} (1+r_{t+1}) \frac{b}{1-\ell_{t+1}}\frac{1}{w_{t+1}} \\
+					\begin{cases}
+						\pd{\mc{L}}{\ell_t} = 0 \iff e^{-\rho t} \frac{b}{1-\ell_t} = \lambda_t w_t \\
+						\pd{\mc{L}}{\ell_{t+1}} = 0 \iff e^{-\rho (t+1)} \frac{b}{1-\ell_{t+1}} = \lambda_{t+1} w_{t+1} \\
+						\pd{\mc{L}}{K_{t+1}} = 0 \iff \lambda_t = (1+r_{t+1})\lambda_{t+1}
+					\end{cases}\\
+					\implies \frac{b}{1-\ell_t} \frac{1}{w_t} = e^{-\rho} (1+r_{t+1}) \frac{b}{1-\ell_{t+1}}\frac{1}{w_{t+1}} \\
 					\iff \frac{1-\ell_{t}}{1-\ell_{t+1}} = \frac{w_{t+1}}{w_{t}} \frac{1}{(1+r_{t+1}) e^{-\rho}}
 				\end{gather*}
-				
+			\begin{remark}
+				Above results on optimality conditions (i.e. inter-temporal substitutes and intra-temporal substitutions) are the same as in previous two period case (case 2).
+			\end{remark}	
 		\subsection{Case 4}
 			\begin{assumption}
 				Add \textbf{uncertainty} to case 3.
 			\end{assumption}
+		\subsubsection{Setup the Model}
 			\paragraph{Budget Constraint at $t$}
 			\begin{equation}
 				K_{t+1} - K_t + c_t + G_t \leq w_t \ell_t + r_t K_t
 			\end{equation}
+			\paragraph{(Optional)} if we relax the assumption $\delta = 0$, the budget constraint becomes
+			\begin{equation}
+				K_{t+1} - K_t + \textcolor{red}{\delta K_t} + c_t + G_t \leq w_t \ell_t + r_t K_t
+			\end{equation}
+		\subsubsection{Solving the Model}
 			\paragraph{Lagrangian}
 			\begin{equation}
-				\mc{L} = \expat{0}{\sum_{t=0}^\infty e^{-\rho t}[\ln(c_t) + b \ln(1-\ell_t)] + \lambda_t [w_t \ell_t + r_t k_t - c_t - K_{t+1} + K_t - G_t]}
+				\mc{L} = \expat{\textcolor{red}{0}}{\sum_{t=0}^\infty e^{-\rho t}[\ln(c_t) + b \ln(1-\ell_t)] + \lambda_t [w_t \ell_t + r_t K_t - c_t - K_{t+1} + K_t - \textcolor{red}{\delta K_t} - G_t]}
 			\end{equation}
 
 			\begin{remark}
 				\[
 					\expat{t}{\lambda_t} = \lambda_t
 				\]
-				\textbf{No} uncertainty presents in the shadow price $\lambda_t$ for any given time period $t$.
+				No uncertainty presents in the \ul{shadow price}, $\lambda_t$, for any given time period $t$. (i.e. we assume individuals know well how they value their extra gain upon relaxing budget constraint a little bit.)
 			\end{remark}
 
 			\paragraph{First Order Condition with Expectations}
@@ -1610,11 +1647,11 @@
 				\iff e^{-\rho t} \frac{1}{c_t} = \lambda_t \\
 				\pd{\mc{L}}{\ell_t} = \expat{t}{e^{-\rho t} \frac{-b}{1-\ell_t} - \lambda_t w_t} = 0 \\
 				\iff e^{-\rho t} \frac{b}{1-\ell_t} = \lambda_t w_t \\
-				\pd{\mc{L}}{K_{t+1}} = \expat{t}{-\lambda_t + \lambda_{t+1}(1 + r_{t+1})} = 0 \\
-				\iff \lambda_t = \expat{t}{\lambda_{t+1}(1+r_{t+1})} \\
-				\pd{\mc{L}}{\lambda_t} = 0 \iff K_{t+1} - K_t + c_t + G_t = w_t \ell_t + r_t K_t
+				\pd{\mc{L}}{K_{t+1}} = \expat{t}{-\lambda_t + \lambda_{t+1}(1 + r_{t+1} - \textcolor{red}{\delta})} = 0 \\
+				\iff \lambda_t = \expat{t}{\lambda_{t+1}(1+r_{t+1} - \textcolor{red}{\delta})} \\
+				\pd{\mc{L}}{\lambda_t} = 0 \iff K_{t+1} - K_t + c_t + G_t - \textcolor{red}{\delta K_t}= w_t \ell_t + r_t K_t
 			\end{gather}
-			
+		\subsubsection{Analysis}
 			\paragraph{Intra-Temporal Consumption-Leisure}
 			\begin{equation}
 				\frac{b}{1-\ell_t} = w_t\frac{1}{c_t}
@@ -1622,54 +1659,63 @@
 			
 			\paragraph{Inter-Temporal Consumption}
 			\begin{equation}
-				\frac{1}{c_t} = e^{-\rho} \expat{t}{(1+r_{t+1})\frac{1}{c_{t+1}}}
+				\frac{1}{c_t} = e^{-\rho} \expat{t}{(1 + r_{t+1} - \textcolor{red}{\delta})\frac{1}{c_{t+1}}}
 			\end{equation}
 			
 			\paragraph{Inter-Temporal Leisure}
 			\begin{gather}
-				e^{-\rho t} \frac{b}{(1-\ell_t) w_t} = e^{-\rho (t+1)} \expat{t}{\frac{b}{(1-\ell_{t+1})w_{t+1}}} \\
-				\implies \frac{1}{1-\ell_t} \frac{1}{w_t} = e^{-\rho} \expat{t}{\frac{1}{1-\ell_{t+1}}\frac{1}{w_{t+1}}}
+				e^{-\rho t} \frac{b}{(1-\ell_t) w_t} = e^{-\rho (t+1)} \expat{t}{\frac{b}{(1-\ell_{t+1})w_{t+1}} (1 + r_{t+1} - \textcolor{red}{\delta})} \\
+				\implies \frac{1}{1-\ell_t} \frac{1}{w_t} = e^{-\rho} \expat{t}{\frac{1}{1-\ell_{t+1}}\frac{1}{w_{t+1}} (1 + r_{t+1} - \textcolor{red}{\delta})}
 			\end{gather}
 		\subsection{Social Planner Problem}
-			\par The social planner maximize household utility subject to aggregate resource constraint.
+			\par The social planner maximize household utility subject to aggregate resource constraint. \hl{We are going to show the solutions to social planner problem and decentralized household optimization problem collides }
 			\begin{assumption}
-				For simplicity, $\delta=0$ and there's no growth, population is fixed at $N$.
+				For simplicity, $\delta=0$ and there's no growth, population is fixed at $N$. Further assuming the production function is in Cobb-Douglas Form.
 			\end{assumption}
+		\subsubsection{Setup the Model}
 			\paragraph{Optimization}
-			\begin{gather*}
-				\max_{\{c_t, \ell_t, K_{t+1}\}_{t=0}^\infty} \expat{0}{\sum_{t=0}^\infty e^{-\rho t} [\ln(c_t) + b \ln(1-\ell_t)]N} \\
+			\begin{gather}
+				\max_{\{c_t, \ell_t, K_{t+1}\}_{t=0}^\infty} \expat{\textcolor{red}{0}}{\sum_{t=0}^\infty e^{-\rho t} [\ln(c_t) + b \ln(1-\ell_t)]\textcolor{red}{N}} \\
 				s.t.\ 0 \leq K_t^\alpha (A_t \ell_t N)^{1-\alpha} - Nc_t - K_{t+1} + K_t - G_t
-			\end{gather*}
-			\paragraph{First Order Necessary Condition}
+			\end{gather}
+		\subsubsection{Solving the Model}
+			\paragraph{Lagrangian}
+			\begin{equation}
+				\mc{L} = \expat{\textcolor{red}{0}}{\sum_{t=0}^\infty e^{-\rho t} [\ln(c_t) + b \ln(1-\ell_t)]\textcolor{red}{N}} + \lambda_t \Big (K_t^\alpha (A_t \ell_t N)^{1-\alpha} - Nc_t - K_{t+1} + K_t - G_t \Big )
+			\end{equation}
+			
+			\paragraph{First Order Necessary Conditions}\hl{for all $t$ and all sates of the world}.
 			\begin{gather*}
 				\pd{\mc{L}}{c_t} = \expat{t}{e^{-\rho t} \frac{1}{c_t}N - \lambda_t N} = 0 \\
 				\implies e^{-\rho t} \frac{1}{c_t} = \lambda_t
 			\end{gather*}
-			for all $t$ and all sates of the world.
 			\begin{gather*}
-				\pd{\mc{L}}{\ell_t} = \expat{t}{e^{-\rho t} (\frac{-b}{1-\ell_t})N + \lambda_t [(1-\alpha)K_t^\alpha (A_t N)^{1-\alpha} \ell_t ^ {-\alpha}]} = 0 \\
+				\pd{\mc{L}}{\ell_t} = \expat{t}{e^{-\rho t} (\frac{-b}{1-\ell_t})N + \lambda_t \Big( (1-\alpha)K_t^\alpha (A_t N)^{1-\alpha} \ell_t ^ {-\alpha}\Big)} = 0 \\
 				\implies e^{-\rho t} \frac{b}{1-\ell_t} = \lambda_t \frac{Y_t}{\ell_t N} (1-\alpha)
 			\end{gather*}
 			\begin{gather*}
 				\pd{\mc{L}}{K_{t+1}} = \expat{t}{-\lambda_t + \lambda_{t+1}\{\alpha K_{t+1}^{\alpha-1}(A_{t+1} \ell_{t+1} N)^{1-\alpha} \textcolor{red}{+ 1}\}} \\
 				\implies \lambda_t = \expat{t}{\lambda_{t+1} (\alpha \frac{Y_{t+1}}{K_{t+1}} + 1)}
 			\end{gather*}
-			gathering together,
+			where $\alpha \frac{Y_{t+1}}{K_{t+1}} + 1$ is the aggregate net return (no depreciation) to capital. ($\alpha$ equals the share of income goes to capital in equilibrium.) \\
 			\begin{gather*}
-				e^{-\rho t} \frac{1}{c_t} = \expat{t}{e^{-\rho(t+1)} \frac{1}{c_{t+1}} (\alpha \frac{Y_{t+1}}{K_{t+1}} + 1)}
+				e^{-\rho t} \frac{1}{c_t} = \expat{t}{e^{-\rho(t+1)} \frac{1}{c_{t+1}} (\alpha \frac{Y_{t+1}}{K_{t+1}} + 1)} \\
+				\implies \frac{1}{c_t} = e^{-\rho}\expat{t}{\frac{1}{c_{t+1}} (\alpha \frac{Y_{t+1}}{K_{t+1}} + 1)}
 			\end{gather*}
+		\subsubsection{Analysis}
 			\begin{remark}
 				Perfectly competitive decentralize economy implies no profit and
 				\[
 					Y_t = r_t K_t + w_t \ell_t N,\quad \forall t \in \R_+
 				\]
 			\end{remark}
+			Also,
 			\begin{gather*}
-				\pd{\mc{L}}{\lambda_t} = 0 \\
+				\pd{\mc{L}}{\lambda_t} = 0 
 				\implies Y_t = Nc_t + K_{t+1} - K_t + G_t
 			\end{gather*}
 			
-			\par Note from the decentralized economy,
+			\par Note from the decentralized economy, $\alpha$ and $1 - \alpha$ represents the share of income (aggregate output) to capital and labor respectively.
 			\begin{gather*}
 				w_t = (1-\alpha)\frac{Y_t}{L_t} = (1-\alpha) \frac{Y_t}{\ell_t N} \\
 				r_{t+1} = \alpha \frac{Y_{t+1}}{K_{t+1}}
@@ -1678,10 +1724,9 @@
 			And \hl{the first welfare theorem holds}.
 			
 		\subsection{Solving One Model (Optional)}
-		\begin{assumption} For simplicity, assume
-			\begin{enumerate}
-				\item $\delta = 1$
-			\end{enumerate}
+		\emph{\textbf{Note}: materials below are not required for ECO325}
+		\begin{assumption}
+			For simplicity, assume \ul{full depreciation}, i.e. $\delta = 1$.
 		\end{assumption}
 		\paragraph{Note} only focus on two variables for the solution, label supply per person, $\ell$, and fraction of output saved, $s$. Solve the model by checking the \textbf{log-linear} versions of equilibrium conditions and \hl{replace $c_t = \frac{C_t}{N} = (1-s_t)\frac{Y_t}{N_t}$} whenever it appears.
 		\begin{gather*}
@@ -1724,6 +1769,22 @@
 			\implies \frac{\hat{Y}_t - \alpha \hat{Y}_{t-1}}{1-\alpha} = \rho_A (\frac{\hat{Y}_{t-1} - \hat{Y}_{t-2}}{1-\alpha}) + \epsilon_{A, t} \\
 			\implies \hat{Y}_{t} = (\rho_A + \alpha) \hat{Y}_{t-1} - \rho_A \alpha \hat{Y}_{t-2} + (1 - \alpha)\epsilon_{A,t}
 		\end{gather*}
+		
+		\subsection{A More General Case (Optional)}
+			\begin{assumption}
+				In this general case, all restrictions in previous cases are relaxed. Specifically,
+				\begin{enumerate}
+					\item $\delta \in [0, 1]$ presents.
+					\item $n \in \R_{\geq 0}$ presents.
+				\end{enumerate}
+			\end{assumption}
+			
+		\setcounter{equation}{0}
+		\subsubsection{Setup the Model}
+			\paragraph{Objective}
+				\begin{equation}
+					\sum_{i=0}^\infty 
+				\end{equation}	
 \end{document}
 
 
