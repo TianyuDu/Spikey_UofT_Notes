@@ -1407,7 +1407,7 @@
 			\end{proof}
 		\end{example}
 		
-	\section{Lecture 20. Oct 24 2018}
+	\section{Lecture 20. Oct. 24 2018}
 	\begin{theorem}[The Fundamental Theorem of Algebra]
 		Every \emph{non-constant} polynomial (with complex coefficients) has a complex root.
 		i.e. for 
@@ -1473,7 +1473,7 @@
 		Obviously there are $n$ (possibly repeating) roots, namely $r_1, r_2, \dots, r_n$.
 	\end{proof}
 
-	\section{Lecture 21. Oct 29 2018}
+	\section{Lecture 21. Oct. 29 2018}
 		\begin{lemma}[Triangle Inequality]
 			\[
 				|z_1 + z_2| \leq |z_1| + |z_2|,\ \forall z_1, z_2 \in \mathbb{C}
@@ -1560,7 +1560,7 @@
 			But the winding number of $p_R(t)$ is a continuous function of $R$ and it has co-domain of integers. Then it must be the case that $p_R(t)$ is constant, but this contradicts our assumption that $deg(p(z)) > 0$.
 		\end{proof}
 		
-	\section{Lecture 22. Oct 31 2018}
+	\section{Lecture 22. Oct. 31 2018}
 		\paragraph{Recall} the outline of proving the Fundamental Theorem of Algebra. 
 		\newline
 		Suppose $p(z)$ is a non-=constant polynomial with no roots. i.e.
@@ -1645,7 +1645,7 @@
 			Thus $p(z)$ has root.
 		\end{proof}
 		
-	\section{Lecture 23. Nov 2 2018}
+	\section{Lecture 23. Nov. 2 2018}
 		\begin{proposition}
 			The winding number transformation of $p_R(t) = p(\phi_R(t))$, $W: \R_{> 0} \to \mathbb{Z}$ is continuous in $R$.
 		\end{proposition}
@@ -1691,7 +1691,7 @@
 			Two sets $S$ and $T$ \footnote{$S$ and $T$ are \textbf{not} necessarily finite.} have the same \textbf{cardinality} if and only if there exists a \emph{bijection} between them. Written as $\abs{S} = \abs{T}$.
 		\end{definition}
 		
-	\section{Lecture 24. Nov 12 2018}
+	\section{Lecture 24. Nov 12. 2018}
 		\begin{example}[Infinite Sets with Same Cardinality]
 			Let $S = \mathbb{N}$ and $T = \{2,4,6,\dots\}$, easy to construct a bijective mapping $f:S\to T$ defined as $f(n) = 2n$ to show $S$ and $T$ have the same cardinality.
 		\end{example}
@@ -1758,7 +1758,7 @@
 			Thus $[0,1]$ is not infinitely countable.
 		\end{proof}
 		
-	\section{Lecture 25. Nov 14 2018}
+	\section{Lecture 25. Nov. 14 2018}
 		\begin{notation}[the Cardinality of continuum]
 			$\abs{[0,1]}=C$
 		\end{notation}
@@ -2245,7 +2245,7 @@
 				= (\frac{a}{a^2 - 2b^2}) + (\frac{-b}{a^2 - 2b^2})\sqrt{2} \in \Q(\sqrt{2})
 			\end{gather*}
 		\end{proof}
-	\section{Lecture 31. Nov 28 2018}
+	\section{Lecture 31. Nov. 28 2018}
 		\begin{definition}
 			The set of points that can be marked on a line, which has zero and one, using straight edge and compass is called \textbf{constructible points/numbers}, denoted as $C$.
 		\end{definition}
@@ -2301,7 +2301,73 @@
 			$\Q(\sqrt{3})$ is a number field.
 		\end{example}
 	
-	\section{}
+	\section{Lecture 32. Nov. 30 2018}
+		\paragraph{Recall} $\Q(\sqrt{2})$ and $\Q(\sqrt{3})$ are number field. And set 
+		\[
+			\Q(\sqrt{2})(\sqrt{3}) := \{a + 3b: a, b \in \Q(\sqrt{2})\}
+		\]
+		is also a number field.
+		\begin{definition}
+			A \ul{\textbf{tower} of number fields} is a \ul{finite} collection of number fields, each obtained from previous one by adjoining a square root.
+			\begin{gather*}
+				\mc{F}_0 \tx{ is a field, and, }\\
+				\mc{F}_1 := \mc{F}_0(\sqrt{r_1}),\quad 0 < r_1 \in \mc{F}_0 \land \sqrt{r_1} \notin \mc{F}_0 \\
+				\mc{F}_2 := \mc{F}_1(\sqrt{r_2}),\quad 0 < r_2 \in \mc{F}_1	\land \sqrt{r_2} \notin \mc{F}_1
+			\end{gather*}
+		\end{definition}
+		\begin{example}
+			The collection $\{\Q,\ \Q(\sqrt{2}),\ \Q(\sqrt{2})(\sqrt{3})\}$ is a tower.
+		\end{example}
+		
+		\begin{theorem}
+			Suppose $r \in C$ and $r > 0$, then $\sqrt{r} \in C$.
+		\end{theorem}
+		
+		\begin{remark}
+			\[
+				\Q \subseteq \Q(\sqrt{r_1}) \subseteq \Q(\sqrt{r_1})(\sqrt{r_2}) \subseteq \dots \subseteq C
+			\]
+		\end{remark}
+		\begin{theorem}
+			The union of all towers of number fields equals $C$.
+		\end{theorem}
+		
+		\begin{proposition}
+			We cannot trisect a 60-degree angle with compass and straight edge.
+		\end{proposition}
+		\begin{proof}
+			We can easily construct a 60-degree angle. \\
+			Note that an angle $\theta$ (assuming it's acute) is constructible if and only if $\cos(\theta)$ is constructible. \\
+			\textbf{Recall}
+			\begin{gather*}
+				\cos(A+B) = \cos(A)\cos(B) - \sin(A)\sin(B) \\
+				\sin(A+B) = \sin(A)\cos(B) + \sin(B)\cos(A) \\
+				\cos(2A) = \cos^2(A) - \sin^2(B) = 2\cos^2(A) - 1 \\
+				\sin(2A) = 2\sin(A)\cos(A) \\
+				\cos(3A) = \cos(A + 2A) = \cos(A) \cos(2A) - \sin(A) \sin(2A) \\
+				= \cos(A) (2\cos^2(A) - 1) - 2\sin^2(A)\cos(A) \\
+				= 2\cos^3(A) - \cos(A) - 2(1-\cos^2(A))\cos(A) \\
+				= 4 \cos^3(A) - 3\cos(A)
+			\end{gather*}
+			Therefore 
+			\[
+				\cos(3\theta) = 4 \cos^3(\theta) - 3\cos(\theta)
+			\]
+			Suppose $\theta = 20-deg$, then 
+			\begin{gather*}
+				\cos(60) = \frac{1}{2} = 4 \cos^3(20) - 3\cos(20) \\
+				\implies 8 \cos^3(20) - 6 \cos(20) - 1 = 0 \\
+				\iff (2\cos(20))^3 - 3(\cos(20)) -1 = 0
+			\end{gather*}
+			$\cos(20)$ is constructible if and only if polynomial $x^2 - 3 x - 1$ has constructible roots. \\
+			\begin{theorem}
+				If any polynomial with integer coefficients has constructible roots, then all of its roots are rational.
+			\end{theorem}
+			By rational root theorem, if the polynomial has rational roots $\frac{m}{n}$, then it must be $\pm 1$.\\
+			Easy to verify the polynomial $x^2 - 3x - 1$ has no rational roots by rational root theorem. \\
+			Thus it has no constructible roots so $2\cos(20)$ and $\cos(20$ are not constructible. \\
+			So 20-deg angle is not constructible and we cannot trisect 60-degree angles with compass and straight edge only.
+		\end{proof}
 \end{document}
 
 
