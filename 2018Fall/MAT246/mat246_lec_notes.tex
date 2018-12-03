@@ -2368,6 +2368,77 @@
 			Thus it has no constructible roots so $2\cos(20)$ and $\cos(20$ are not constructible. \\
 			So 20-deg angle is not constructible and we cannot trisect 60-degree angles with compass and straight edge only.
 		\end{proof}
+		
+		
+	\section{Lecture 33. Dec. 3 2018}
+	
+		\begin{theorem}
+			If a cubic polynomial with \ul{rational coefficients} has constructible root(s), then is also have rational root(s).
+		\end{theorem}
+		
+		\begin{lemma}
+			For any cubic polynomials with rational coefficients, sum of its three roots is also rational.
+			\begin{proof}
+				WLOG, assuming the leading coefficient of the polynomial is 1. \\
+				By the fundamental theorem of algebra, the polynomial has three roots in $\C$. \\
+				Let $r_1, r_2, r_3 \in \C$ denote the roots of the polynomial. \\
+				The polynomial can therefore, be written as 
+				\begin{gather*}
+					(x - r_1)(x - r_2)(x - r_3) \\
+					= x^3 - (r_1 + r_2 + r_3)x^2 + \dots
+				\end{gather*}
+				Obviously, the coefficient of $x^2$ is a rational number by assumption, so is the sum of roots.
+			\end{proof}
+		\end{lemma}
+		
+		\begin{definition}
+			Let $\mc{F}(\sqrt{2})$ be a number field and $a + b\sqrt{r} \in \mc{F}(\sqrt{2})$, the \textbf{conjugate} of $a + b\sqrt{r}$ is defined as
+			\[
+				\overline{a + b\sqrt{r}} \equiv a - b\sqrt{r}
+			\]
+		\end{definition}
+		
+		\begin{lemma}
+			Let $\mc{F}(\sqrt{2})$ be a number field, and $z_1, z_2 \in \mc{F}(\sqrt{2})$. Then for any $k \in \N$,
+			\[
+				\begin{cases}
+					\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2} \\
+					\overline{z_1} \times \overline{z_2} = \overline{z_1 \times z_2} \\
+					(\overline{z_1})^k = \overline{(z_1)^k}
+				\end{cases}
+			\]
+		\end{lemma}
+		
+		\begin{theorem}
+			If $p$ is a polynomial with \ul{rational} coefficients and $p(a + b\sqrt{r}) = 0$, then 
+			\[
+				p(a - b\sqrt{r}) = 0
+			\]
+			i.e. the conjugate of any root of such polynomial is also a root of this polynomial.
+			
+			\begin{proof}
+				(Trivial.)
+			\end{proof}
+		\end{theorem}
+		
+		\begin{proof}[proof. of theorem 33.1]
+			Assuming $C = $ the union of all towers of number fields starting with $\Q$ (defined as \textbf{surd}).\\
+			Suppose root $x_0 = a + b \sqrt{r_k}$ in some tower $\mc{F}_k$, where
+			\[
+				\Q \subset \mc{F}_1 \subset \mc{F}_2 \subset \cdots \subset \mc{F}_k
+			\]
+			and suppose $\mc{F}_k$ is the shortest tower containing $x_0$. \\
+			So that $b \neq 0$ (otherwise, $x_0 \in \mc{F}_{k-1}$. \\
+			Note that $x_1 = a - b \sqrt{r_k}$ is also a root the cubic polynomial. \\
+			Let $q$ denote the third root of the cubic polynomial, so that
+			\[
+				x_0 + x_1 + q = 2a + q \in \Q
+			\]
+			by above lemma.\\
+			Let $s = 2a + q \in \Q$, and $q = s - 2a \in \mc{F}_{k-1}$ since $s \in \Q \subset \mc{F}_{k-1}$ \\
+			So if the cubic polynomial has roots in some towers $\mc{F}_{k} \neq \Q$, we can show that this polynomial also have root in $\mc{F}_{k-1}$. \\
+			By applying above argument recursively, we can show that all roots of this cubic polynomial must be rational.
+		\end{proof}
 \end{document}
 
 

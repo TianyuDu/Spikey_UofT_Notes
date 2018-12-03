@@ -1,0 +1,148 @@
+\select@language {english}
+\contentsline {section}{\numberline {4}Slide 4: Simple \& Multiple Regression - Estimation}{2}{section.4}
+\contentsline {subsection}{\numberline {4.1}Regression Model}{2}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}OLS}{2}{subsection.4.2}
+\contentsline {paragraph}{Benefits of MLR compared with SLR}{3}{section*.2}
+\contentsline {subsection}{\numberline {4.3}Partialling Out}{4}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Steps}{4}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Interpretation}{4}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Omitted Variable Bias}{5}{subsection.4.4}
+\contentsline {paragraph}{Conclusion}{5}{section*.3}
+\contentsline {section}{\numberline {5}Slide 5: Matrix Algebra for Regression Analysis}{5}{section.5}
+\contentsline {section}{\numberline {6}Slide 6: Multiple Regression in Matrix Algebra}{6}{section.6}
+\contentsline {subsection}{\numberline {6.1}The Model}{6}{subsection.6.1}
+\contentsline {paragraph}{Independent Variable Matrix}{6}{section*.4}
+\contentsline {paragraph}{Model}{6}{section*.5}
+\contentsline {paragraph}{First order condition for OLS}{6}{section*.6}
+\contentsline {paragraph}{Estimator}{6}{section*.7}
+\contentsline {paragraph}{Sum Squared Residual}{7}{section*.8}
+\contentsline {subsection}{\numberline {6.2}Variance Matrix}{7}{subsection.6.2}
+\contentsline {paragraph}{Residual}{7}{section*.9}
+\contentsline {paragraph}{Estimator}{7}{section*.10}
+\contentsline {section}{\numberline {7}Slide 7: Multiple Regression - Properties}{7}{section.7}
+\contentsline {subsection}{\numberline {7.1}Assumptions (MLRs) in Matrix Form}{7}{subsection.7.1}
+\contentsline {paragraph}{E.0.}{7}{section*.11}
+\contentsline {paragraph}{E.1.}{8}{section*.12}
+\contentsline {paragraph}{E.2.}{8}{section*.13}
+\contentsline {paragraph}{E.3.}{8}{section*.14}
+\contentsline {paragraph}{E.4.}{8}{section*.15}
+\contentsline {paragraph}{E.5.}{8}{section*.16}
+\contentsline {subsection}{\numberline {7.2}Properties of OLS Estimator}{8}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Variance Inflation}{9}{subsection.7.3}
+\contentsline {paragraph}{Solutions to high VIF}{10}{section*.17}
+\contentsline {section}{\numberline {8}Slide 8: Multiple Regression - Inference}{10}{section.8}
+\contentsline {paragraph}{Hypothesis Testing}{10}{section*.18}
+\contentsline {subsection}{\numberline {8.1}t-test for significance of individual predicator}{10}{subsection.8.1}
+\contentsline {paragraph}{Test statistic}{10}{section*.19}
+\contentsline {subsection}{\numberline {8.2}t-test for comparing 2 coefficients}{10}{subsection.8.2}
+\contentsline {paragraph}{Test statistic}{10}{section*.20}
+\contentsline {subsection}{\numberline {8.3}Partial F-test for joint significance}{11}{subsection.8.3}
+\contentsline {paragraph}{Test statistic}{11}{section*.21}
+\contentsline {subsection}{\numberline {8.4}Full F-test for the significance of the model}{11}{subsection.8.4}
+\contentsline {paragraph}{Test statistic}{11}{section*.22}
+\contentsline {subsection}{\numberline {8.5}F-test for general restrictions}{11}{subsection.8.5}
+\contentsline {paragraph}{Procedure}{11}{section*.23}
+\contentsline {section}{\numberline {9}Slide 9: Multiple Regression - Further Issues}{12}{section.9}
+\contentsline {subsection}{\numberline {9.1}Data Scaling}{12}{subsection.9.1}
+\contentsline {subsubsection}{\numberline {9.1.1}Mutiplier}{12}{subsubsection.9.1.1}
+\contentsline {subsubsection}{\numberline {9.1.2}Standardization}{12}{subsubsection.9.1.2}
+\contentsline {paragraph}{Standardized variable}{12}{section*.24}
+\contentsline {paragraph}{Properties}{12}{section*.25}
+\contentsline {subsection}{\numberline {9.2}Logarithmic Function}{13}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Quadratics and Polynomials}{13}{subsection.9.3}
+\contentsline {paragraph}{Model}{13}{section*.26}
+\contentsline {subsection}{\numberline {9.4}Interaction Effects}{13}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}Regression Selection and Adjusted R-square}{13}{subsection.9.5}
+\contentsline {subsection}{\numberline {9.6}Causal Mechanism}{14}{subsection.9.6}
+\contentsline {subsection}{\numberline {9.7}Confidence Interval for Prediction}{14}{subsection.9.7}
+\contentsline {section}{\numberline {10}Slide 10: Multiple Regression - Qualitative Information}{14}{section.10}
+\contentsline {subsection}{\numberline {10.1}Binary predictors}{14}{subsection.10.1}
+\contentsline {subsubsection}{\numberline {10.1.1}On Intercept}{14}{subsubsection.10.1.1}
+\contentsline {subsubsection}{\numberline {10.1.2}On Slopes}{15}{subsubsection.10.1.2}
+\contentsline {subsubsection}{\numberline {10.1.3}F-test(Chow test)}{15}{subsubsection.10.1.3}
+\contentsline {subsection}{\numberline {10.2}Linear Probability Model}{15}{subsection.10.2}
+\contentsline {paragraph}{Interpretation}{15}{section*.27}
+\contentsline {subsection}{\numberline {10.3}Heterskedasticity of LPM}{16}{subsection.10.3}
+\contentsline {section}{\numberline {11}Slide 11: Heteroskedasticity}{16}{section.11}
+\contentsline {paragraph}{Remedies}{17}{section*.28}
+\contentsline {subsection}{\numberline {11.1}Robust Standard Errors}{18}{subsection.11.1}
+\contentsline {paragraph}{Idea}{18}{section*.29}
+\contentsline {subsection}{\numberline {11.2}Test for Heteroskedasticity}{18}{subsection.11.2}
+\contentsline {subsubsection}{\numberline {11.2.1}General Principle}{18}{subsubsection.11.2.1}
+\contentsline {subsubsection}{\numberline {11.2.2}Breusch-Pagan test}{19}{subsubsection.11.2.2}
+\contentsline {subsubsection}{\numberline {11.2.3}White test version 1}{19}{subsubsection.11.2.3}
+\contentsline {subsubsection}{\numberline {11.2.4}White test version 2}{19}{subsubsection.11.2.4}
+\contentsline {subsection}{\numberline {11.3}Generalized/Weighted Least Squared}{19}{subsection.11.3}
+\contentsline {paragraph}{Motivation}{19}{section*.30}
+\contentsline {subsubsection}{\numberline {11.3.1}GLS with Known Functional Form}{20}{subsubsection.11.3.1}
+\contentsline {subsection}{\numberline {11.4}Feasible GLS}{20}{subsection.11.4}
+\contentsline {paragraph}{Procedures}{20}{section*.31}
+\contentsline {section}{\numberline {12}Slide 12: Specification and Data Problems}{21}{section.12}
+\contentsline {paragraph}{}{21}{section*.32}
+\contentsline {subsection}{\numberline {12.1}Regression Specification Error Test (RESET)}{21}{subsection.12.1}
+\contentsline {subsubsection}{\numberline {12.1.1}RESET: Nested Alternatives}{21}{subsubsection.12.1.1}
+\contentsline {paragraph}{Procedures}{21}{section*.33}
+\contentsline {subsubsection}{\numberline {12.1.2}Non-nested Alternatives: RESET}{22}{subsubsection.12.1.2}
+\contentsline {paragraph}{Procedures}{22}{section*.34}
+\contentsline {subsubsection}{\numberline {12.1.3}Non-nested alternatives: Davidson-MacKinnon test}{22}{subsubsection.12.1.3}
+\contentsline {paragraph}{Procedures}{22}{section*.35}
+\contentsline {subsection}{\numberline {12.2}Proxy Variables}{23}{subsection.12.2}
+\contentsline {subsubsection}{\numberline {12.2.1}Procedures}{23}{subsubsection.12.2.1}
+\contentsline {paragraph}{(1) Selecting proxy}{23}{section*.36}
+\contentsline {paragraph}{(2) Plug-in the Proxy}{23}{section*.37}
+\contentsline {subsubsection}{\numberline {12.2.2}Proxy Bias}{24}{subsubsection.12.2.2}
+\contentsline {subsection}{\numberline {12.3}Measurement Error in an Explanatory Variable}{24}{subsection.12.3}
+\contentsline {subsubsection}{\numberline {12.3.1}Case 1: $Cov(x_1, e_1) = 0$}{24}{subsubsection.12.3.1}
+\contentsline {subsubsection}{\numberline {12.3.2}Case 2 $Cov(x_1^{*}, e_1) = 0$: Classical errors-in-variance(CEV)}{25}{subsubsection.12.3.2}
+\contentsline {subsection}{\numberline {12.4}Measurement Error in Dependent Variable}{25}{subsection.12.4}
+\contentsline {section}{\numberline {13}Slide 13: Instrumental Variables}{26}{section.13}
+\contentsline {subsection}{\numberline {13.1}Endogeneity}{26}{subsection.13.1}
+\contentsline {paragraph}{Sources of Endogeneity}{26}{section*.38}
+\contentsline {paragraph}{Remedies}{26}{section*.39}
+\contentsline {subsection}{\numberline {13.2}Instrumental Variables}{26}{subsection.13.2}
+\contentsline {paragraph}{The Problem}{26}{section*.40}
+\contentsline {subsection}{\numberline {13.3}Implementation of IV: Method of Moments}{27}{subsection.13.3}
+\contentsline {paragraph}{Procedure}{27}{section*.41}
+\contentsline {subsubsection}{\numberline {13.3.1}In Simple Regression}{27}{subsubsection.13.3.1}
+\contentsline {paragraph}{Identification}{27}{section*.42}
+\contentsline {paragraph}{Replacement}{28}{section*.43}
+\contentsline {subsubsection}{\numberline {13.3.2}Inference}{28}{subsubsection.13.3.2}
+\contentsline {subsubsection}{\numberline {13.3.3}Properties}{28}{subsubsection.13.3.3}
+\contentsline {subsection}{\numberline {13.4}IV in Multiple Regression}{29}{subsection.13.4}
+\contentsline {paragraph}{Identification}{29}{section*.44}
+\contentsline {paragraph}{Replacement}{29}{section*.45}
+\contentsline {section}{\numberline {14}Slide 14: Two Stage Least Square}{30}{section.14}
+\contentsline {subsection}{\numberline {14.1}Procedure}{30}{subsection.14.1}
+\contentsline {paragraph}{Motivation}{30}{section*.46}
+\contentsline {paragraph}{2SLS Procedures}{30}{section*.47}
+\contentsline {paragraph}{2SLS Procedures: general case}{30}{section*.48}
+\contentsline {subsection}{\numberline {14.2}Equivalence between IV and 2SLS}{31}{subsection.14.2}
+\contentsline {subsection}{\numberline {14.3}Evaluating 2SLS}{31}{subsection.14.3}
+\contentsline {subsubsection}{\numberline {14.3.1}Regressor Endogeneity}{31}{subsubsection.14.3.1}
+\contentsline {paragraph}{Hausman's Test for OLS Consistency}{31}{section*.49}
+\contentsline {subsubsection}{\numberline {14.3.2}Instrument Relevance}{32}{subsubsection.14.3.2}
+\contentsline {subsubsection}{\numberline {14.3.3}Instrument Exogeneity}{32}{subsubsection.14.3.3}
+\contentsline {section}{\numberline {15}Slide 15: Simultaneous Equations}{32}{section.15}
+\contentsline {paragraph}{Motivation}{32}{section*.50}
+\contentsline {subsection}{\numberline {15.1}Simultaneity Bias in OLS}{33}{subsection.15.1}
+\contentsline {subsection}{\numberline {15.2}IV Estimator and 2SLS}{33}{subsection.15.2}
+\contentsline {paragraph}{Key}{33}{section*.51}
+\contentsline {paragraph}{Procedures}{33}{section*.52}
+\contentsline {paragraph}{Special case}{33}{section*.53}
+\contentsline {paragraph}{Exclusion Restriction}{34}{section*.54}
+\contentsline {paragraph}{Rank Condition}{34}{section*.55}
+\contentsline {paragraph}{Order Condition}{34}{section*.56}
+\contentsline {section}{\numberline {17}Slide 17: Intro to Time Series}{34}{section.17}
+\contentsline {subsection}{\numberline {17.1}Random Walk}{35}{subsection.17.1}
+\contentsline {paragraph}{Properties of Random Walker Process}{35}{section*.57}
+\contentsline {subsection}{\numberline {17.2}Trend}{35}{subsection.17.2}
+\contentsline {subsection}{\numberline {17.3}Seasonality}{35}{subsection.17.3}
+\contentsline {paragraph}{Simple Solution}{35}{section*.58}
+\contentsline {subsection}{\numberline {17.4}Serial Correlation}{35}{subsection.17.4}
+\contentsline {paragraph}{Consequences}{36}{section*.59}
+\contentsline {subsection}{\numberline {17.5}Stationarity}{36}{subsection.17.5}
+\contentsline {subsection}{\numberline {17.6}Weakly Dependent Time Series}{36}{subsection.17.6}
+\contentsline {section}{\numberline {18}Slide 18: Asymptotic Analysis}{36}{section.18}
+\contentsline {subsection}{\numberline {18.1}Estimator Properties}{38}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}OLS Consistency}{39}{subsection.18.2}
+\contentsline {subsection}{\numberline {18.3}Asymptotic Normality}{40}{subsection.18.3}
