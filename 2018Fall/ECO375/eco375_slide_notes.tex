@@ -14,6 +14,7 @@
 \usepackage{chngcntr}
 \usepackage{centernot}
 \usepackage{mathtools}
+\usepackage{bm}
 
 
 \counterwithin*{equation}{section}
@@ -519,7 +520,7 @@
     		\begin{enumerate}
     			\item Enlarge $x_j$ by factor $a$: $\hat{\beta}_j$ shrinks by $a$.
     			\item Enlarge $y$ by factor $a$: \textbf{all} $\hat{\beta}_i$ enlarged by $a$.
-    			\item \hls{Test statistic $t = \frac{\hat{\beta}}{s.e.(\hat{\beta})} = \frac{a\hat{\beta}}{s.e.(a \hat{\beta})}$ is unaffected.}
+    			\item \hl{Test statistic $t = \frac{\hat{\beta}}{s.e.(\hat{\beta})} = \frac{a\hat{\beta}}{s.e.(a \hat{\beta})}$ is unaffected.}
     		\end{enumerate}
     	
     		\subsubsection{Standardization}
@@ -965,39 +966,46 @@
 			\end{remark}
 		\subsection{Proxy Variables}
 			\subsubsection{Procedures}
-				\par For the original model
+				\par Consider the true model
 				\begin{equation}
 					y = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k^{*} + u
 				\end{equation}
-				where $x_k^{*}$ is unobserved. \\
+				where $x_k^{*}$ is unobserved.
 				
-				\paragraph{(1)Select proxy} Choose an observed variable $x_k$ is a \textbf{proxy} for $x_k^{uob}$ such that
+				\begin{notation}
+					In this text, we always use starred-variable, $var^*$, to denote the \ul{true} (sometime unobservable) variable.
+				\end{notation}
+				
+				\paragraph{(1) Selecting proxy} Choose an observed variable $x_k$ is a \textbf{proxy} for $x_k^*$ such that
 				
 				\begin{equation}
-					x_k^{*} = \delta_0 + \delta_k x_k + v_3
+					x_k^{*} = \delta_0 + \delta_k x_k + v
 				\end{equation}
-				\begin{assumption}
+				\begin{remark}
 					Typically we want $\delta_k > 0$, and no restriction on $\delta_0$.
-				\end{assumption}
+				\end{remark}
 				
 				
-				\paragraph{(2)Plug-in solution to the omitted variables problem} directly replace $x^*_k$ with $\delta_0 + \delta_k x_k + v_3$
-				\begin{equation}
-					y = (\beta_0 + \beta_k \delta_0) + \beta_1 x_1 + \dots + \textcolor{red}{\beta_k \delta_k x_k} + (u + \beta_k v)
-				\end{equation}
+				\paragraph{(2) Plug-in the Proxy} Direct replacement
+				\begin{gather}
+					y = \beta_0 + \beta_1 x_1 + \dots + \beta_k (\textcolor{red}{\delta_0 + \delta_k x_k + v}) + u\\
+					= (\beta_0 + \textcolor{red}{\beta_k \delta_0}) + \beta_1 x_1 + \dots + \textcolor{red}{\beta_k \delta_k} x_k + (u + \textcolor{red}{\beta_k v})
+				\end{gather}
 				\begin{assumption}
-					For a consistent estimator, we need to assume that
+					For a \emph{consistent} estimator, we need to assume that
 					\begin{enumerate}
-						\item $u$ is uncorrelated with $x_1, x_2, \dots, x_k^{*}, x_k$. 
+						\item $u$ is uncorrelated with $x_1, x_2, \dots, x_k^{*}, x_k$.
 						\item $v$ is uncorrelated with $x_1, x_2, \dots, x_k$.
-						\[
-							\expect{x_k^{*}|x_1,x_2,\dots,x_k} = \expect{\delta_0 + \delta_k x_k + v|x_1,x_2,\dots,x_k} = \delta_0 + \delta_k x_k
-						\]
+						\begin{gather}
+							\implies \expect{x_k^{*}|x_1,x_2,\dots,x_k} \\
+							= \expect{\delta_0 + \delta_k x_k + v|x_1,x_2,\dots,x_k} = \delta_0 + \delta_k x_k
+						\end{gather}
 					\end{enumerate}
+					\hl{To guarantee MLR.4 holds for both true model and the model with proxy substitution.}
 				\end{assumption}
 				\begin{remark}
 					Under above assumptions and regressing $y$ on $x_1, x_2, \dots, \textcolor{red}{x_k}$, the OLS estimator for $(\beta_1, \beta_2, \dots, \beta_{k-1})$ is still \hl{consistent} and \hl{unbiased}.\\
-					 But for intercept and $k^{th}$ coefficient, we are effectively estimating $\beta_0 + \delta_0 \beta_k$ and $\delta_k \beta_k$.
+					 \hl{But} for intercept and $k^{th}$ coefficient, we are effectively estimating $\beta_0 + \delta_0 \beta_k$ and $\delta_k \beta_k$.
 				\end{remark}
 			\subsubsection{Proxy Bias}
 				If $x_k^{*}$ is correlated with all $\{x_1, x_2, \dots, x_k\}$ (collinearity), i.e. 
@@ -1588,9 +1596,9 @@
 				\item $\expect{X_i} = \mu < \infty$ and
 				\item $0 < Var(X_i) = \sigma^2 < \infty$
 			\end{enumerate}
-			Then as $n \to \infty$, the distribution of $\overline{X}_n = \frac{\sum_{i=1}^n X_i}{n}$ converges to the \emph{Normal distribution} with mean $\mu$ and variance $\frac{\sigma^2}{n}$, i.e.
+			Then as $n \to \infty$, the distribution of $\overline{X}_n \equiv \frac{\sum_{i=1}^n X_i}{n}$ converges to the \emph{Normal distribution} with mean $\mu$ and variance $\frac{\sigma^2}{n}$, i.e.
 			\[
-				\overline{X}_n \xrightarrow{d} \mc{N}(\mu, \frac{\sigma^2}{n})
+				\overline{X}_n \xrightarrow{d} \mc{N}(\mu, \frac{\sigma^2}{\textcolor{red}{n}})
 			\]
 			irrespective of the shape of the original distribution of $X_i$.
 		\end{theorem}
@@ -1662,6 +1670,154 @@
 				\frac{Z_n}{U_n} \xrightarrow{d} \frac{Z}{b} \tx{ if } P(U_n = 0) = 0 \land b \neq 0
 			\end{gather*}
 		\end{theorem}
+		
+		\subsection{Estimator Properties}
+			\begin{definition}
+				$\hat{\theta}_n$ is a \textbf{consistent} estimator of $\theta$ if and only if
+				\[
+					\hat{\theta}_n \xrightarrow{p} \theta
+				\]
+			\end{definition}
+			
+			\begin{definition}
+				$\hat{\theta}_n$ is an \textbf{unbiased} estimator of $\theta$ if and only if
+				\[
+					\expect{\hat{\theta}_n} = \theta
+				\]
+			\end{definition}
+			
+			\begin{example}[Unbiased but inconsistent]
+				Let $\{Z_n\}$ be a sequence of random variable, and
+				\begin{gather*}
+					\expect{Z_n} = \mu \\
+					\lim_{n \to \infty} Var(Z_n) \neq 0
+				\end{gather*}
+			\end{example}
+			
+			\begin{example}[Biased but consistent]
+				Let $\{Z_n\}$ be a sequence of random variable, and
+				\begin{gather*}
+					\expect{Z_n} = Z_n + \frac{c}{n},\ c \in \R \\
+					plim(\hat{\theta}_n) = \theta
+				\end{gather*}
+				$Z_n$ is biased for small samples but consistent.
+			\end{example}
+			
+			\begin{proposition}
+				If $\hat{\theta}_n$ is an unbiased estimator for $\theta$ and $\lim_{n \to \infty}{\hat{\theta}_n} = 0$, then $\hat{\theta}_n$ is a consistent estimator for $\theta$, i.e.
+				\[
+					\expect{\hat{\theta}_n} = \theta \land \lim_{n \to \infty} Var(\theta_n) = 0 \implies plim(\hat{\theta}_n) = \theta
+				\]
+			\end{proposition}
+		\subsection{OLS Consistency}
+			\begin{remark}
+				If MLR.6 holds, then the sampling distribution of OLSEs follows \emph{exact} normal distribution, even with finite sample size, $n < \infty$.
+			\end{remark}
+			
+			\begin{assumption}[MLR.4']
+				\begin{gather*}
+					\expect{u} = 0 \\
+					Cov(x_j, u) = 0,\ \forall j = 1,\dots,k
+				\end{gather*}
+			\end{assumption}
+			\begin{proposition}
+				Note that MLR.4 $\implies$ MLR.4', i.e. MLR.4 is an assumption stronger than MLR.4'.
+				\begin{proof}
+				\begin{gather*}
+					\expect{u} = \expect{\expect{u|\textbf{x}}} \\
+					= \expect{0} \tx{ by MLR.4} \\
+					= 0 \\
+					Cov(x_j, u) = \expect{x_j u} - \expect{x_j} \expect{u} \\
+					= \expect{x_j u} \\
+					= \expect{x_j \expect{u|\textbf{x}}} = 0
+				\end{gather*}
+				\end{proof}
+			\end{proposition}
+		\begin{theorem}[OLSE Consistency]
+			Given assumption MLR.1 - MLR.4', the OLSE $\hat{\beta}$ is \textbf{consistent} for $\vec{\beta}$.
+		\end{theorem}
+		
+		\begin{proof}
+			\begin{gather*}
+				\hat{\bm{\beta}} = (\bm{X}' \bm{X})^{-1} \bm{X}' \bm{y} \\
+				= (\bm{X}' \bm{X})^{-1} \bm{X}' (\bm{X}\bm{\beta} + \bm{u}) \\
+				= \bm{\beta} + (\bm{X}' \bm{X})^{-1} \bm{X}' \bm{u} \\
+				= \bm{\beta} + (\frac{1}{n} \bm{X}' \bm{X})^{-1} \frac{1}{n} \bm{X}' \bm{u} \\
+				= \bm{\beta} + (\frac{1}{n} \sum_{t=1}^n \bm{x}_t \bm{x}_t')^{-1} (\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t) 
+			\end{gather*}
+			By law of large number, 
+			\begin{gather*}
+				\frac{1}{n} \sum_{t=1}^n \bm{x}_t \bm{x}_t' \xrightarrow{p} \expect{\bm{x} \bm{x}'} \textcolor{red}{\equiv \bm{A}}
+			\end{gather*}
+			and 
+			\begin{gather*}
+				\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t \xrightarrow{p} \expect{\bm{x} u} = \bm{0}
+			\end{gather*}
+			So by continuous mapping theorem,
+			\begin{gather*}
+				\hat{\bm{\beta}} \xrightarrow{p} \bm{\beta} \bm{A}^{-1} \bm{0} = \bm{\beta}
+			\end{gather*}
+		\end{proof}
+		
+		\begin{remark}
+			To prove the \textbf{unbiasedness}, we need MLR.4.
+		\end{remark}
+		
+		\begin{remark}[On Omitted Variable Bias]
+			Omitted variable bias also violates MLR.4'. So omitted variable bias is called an \textbf{inconsistency bias} or \textbf{asymptotic bias} in $\hat{\bm{\beta}}$.
+		\end{remark}
+		\begin{example}
+			\[
+				\tilde{\beta}_1 \xrightarrow{p} \beta_1 + \beta_2 \frac{Cov(x_1, x_2)}{Var(x_1)}
+			\]
+		\end{example}
+		
+	\subsection{Asymptotic Normality}
+		\begin{theorem}
+			Given assumptions MLR.1-MLR.5 or E.1-E.4, the OLSE, $\bm{\beta}$ is \textbf{asymptotically normal}, and
+			\[
+				\hat{\bm{\beta}} \xrightarrow{ \mc{N}(\bm{\beta}, \frac{\sigma^2 \bm{A}^{-1}}{n})
+			\]
+		\end{theorem}
+			\begin{proof}
+				From the results above in consistency proof, 
+				\begin{gather*}
+					\hat{\bm{\beta}} - \bm{\beta} = (\frac{1}{n} \sum_{t=1}^n \bm{x}_t \bm{x}_t')^{-1} (\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t)  
+				\end{gather*}
+				By law of large number, 
+				\begin{gather*}
+					(\frac{1}{n} \sum_{t=1}^n \bm{x}_t \bm{x}_t')^{-1} \xrightarrow{p} \bm{A}^{-1}
+				\end{gather*}
+				and let $i \neq j \in \{1, 2, \dots n\}$, investigate
+				\begin{gather*}
+					Cov(\bm{x}_i u_i, \bm{x}_j u_j) = \expect{\bm{x}_i u_i  \bm{x}_j u_j} \\
+					= \expect{\bm{x}_i \bm{x}_j \expect{u_i u_j | \bm{x}_i \bm{x}_j}} \\
+					= \expect{0} = 0
+				\end{gather*}
+				and for variance of $\bm{x}_t u_t$ for an arbitrary $t$,
+				\begin{gather*}
+					Var(\bm{x}_t u_t) = \expect{\bm{x}_t \bm{x}_t' u_t^2} \\
+					= \expect{\expect{\bm{x}_t \bm{x}_t' u_t^2 | \bm{x}_t}} \\
+					= \expect{\expect{u_t^2|\bm{x}_t} \bm{x}_t \bm{x}_t'} \\
+					= \expect{\sigma^2 \bm{x}_t \bm{x}_t'} \\
+					= \sigma^2 \expect{\bm{x}_t \bm{x}_t'} \\
+					\equiv \sigma^2 \bm{A}
+				\end{gather*}
+				Therefore, all $\bm{x} u$ are independent and we know $\expect{\bm{x} u} = \bm{0}$. Therefore, by central limit theorem,
+				\[
+					\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t \overset{a}{\sim} \mc{N}(\bm{0}, \frac{\sigma^2 \bm{A}}{n})
+				\] \\
+				By continuous mapping theorem, $\hat{\bm{\beta}} - \bm{\beta}$ is also normally distributed, and has variance
+				\begin{gather*}
+					Var(\hat{\bm{\beta}} - \bm{\beta}) = \bm{A}^{-1} Var(\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t) \bm{A}^{-1} \\
+					= \frac{\sigma^2 \bm{A}^{-1}}{n}
+				\end{gather*}
+				Therefore
+				\begin{gather*}
+					\hat{\bm{\beta}} - \bm{\beta} \xrightarrow{p} \mc{N}(\bm{0}, \frac{\sigma^2 \bm{A}^{-1}}{n}) \\
+					\implies \hat{\bm{\beta}} \xrightarrow{p} \mc{N}(\bm{\beta}, \frac{\sigma^2 \bm{A}^{-1}}{n})
+				\end{gather*}
+			\end{proof}
 \end{document}
 
 
