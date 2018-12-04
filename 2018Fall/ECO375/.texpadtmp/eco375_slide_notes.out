@@ -21,69 +21,70 @@
 \BOOKMARK [2][-]{subsection.8.5}{F-test for general restrictions}{section.8}% 21
 \BOOKMARK [1][-]{section.9}{Slide 9: Multiple Regression - Further Issues}{}% 22
 \BOOKMARK [2][-]{subsection.9.1}{Data Scaling}{section.9}% 23
-\BOOKMARK [3][-]{subsubsection.9.1.1}{Mutiplier}{subsection.9.1}% 24
+\BOOKMARK [3][-]{subsubsection.9.1.1}{Multiplier}{subsection.9.1}% 24
 \BOOKMARK [3][-]{subsubsection.9.1.2}{Standardization}{subsection.9.1}% 25
-\BOOKMARK [2][-]{subsection.9.2}{Logarithmic Function}{section.9}% 26
-\BOOKMARK [2][-]{subsection.9.3}{Quadratics and Polynomials}{section.9}% 27
-\BOOKMARK [2][-]{subsection.9.4}{Interaction Effects}{section.9}% 28
-\BOOKMARK [2][-]{subsection.9.5}{Regression Selection and Adjusted R-square}{section.9}% 29
-\BOOKMARK [2][-]{subsection.9.6}{Causal Mechanism}{section.9}% 30
-\BOOKMARK [2][-]{subsection.9.7}{Confidence Interval for Prediction}{section.9}% 31
-\BOOKMARK [1][-]{section.10}{Slide 10: Multiple Regression - Qualitative Information}{}% 32
-\BOOKMARK [2][-]{subsection.10.1}{Binary predictors}{section.10}% 33
-\BOOKMARK [3][-]{subsubsection.10.1.1}{On Intercept}{subsection.10.1}% 34
-\BOOKMARK [3][-]{subsubsection.10.1.2}{On Slopes}{subsection.10.1}% 35
-\BOOKMARK [3][-]{subsubsection.10.1.3}{F-test\(Chow test\)}{subsection.10.1}% 36
-\BOOKMARK [2][-]{subsection.10.2}{Linear Probability Model}{section.10}% 37
-\BOOKMARK [2][-]{subsection.10.3}{Heterskedasticity of LPM}{section.10}% 38
-\BOOKMARK [1][-]{section.11}{Slide 11: Heteroskedasticity}{}% 39
-\BOOKMARK [2][-]{subsection.11.1}{Robust Standard Errors}{section.11}% 40
-\BOOKMARK [2][-]{subsection.11.2}{Test for Heteroskedasticity}{section.11}% 41
-\BOOKMARK [3][-]{subsubsection.11.2.1}{General Principle}{subsection.11.2}% 42
-\BOOKMARK [3][-]{subsubsection.11.2.2}{Breusch-Pagan test}{subsection.11.2}% 43
-\BOOKMARK [3][-]{subsubsection.11.2.3}{White test version 1}{subsection.11.2}% 44
-\BOOKMARK [3][-]{subsubsection.11.2.4}{White test version 2}{subsection.11.2}% 45
-\BOOKMARK [2][-]{subsection.11.3}{Generalized/Weighted Least Squared}{section.11}% 46
-\BOOKMARK [3][-]{subsubsection.11.3.1}{GLS with Known Functional Form}{subsection.11.3}% 47
-\BOOKMARK [2][-]{subsection.11.4}{Feasible GLS}{section.11}% 48
-\BOOKMARK [1][-]{section.12}{Slide 12: Specification and Data Problems}{}% 49
-\BOOKMARK [2][-]{subsection.12.1}{Regression Specification Error Test \(RESET\)}{section.12}% 50
-\BOOKMARK [3][-]{subsubsection.12.1.1}{RESET: Nested Alternatives}{subsection.12.1}% 51
-\BOOKMARK [3][-]{subsubsection.12.1.2}{Non-nested Alternatives: RESET}{subsection.12.1}% 52
-\BOOKMARK [3][-]{subsubsection.12.1.3}{Non-nested alternatives: Davidson-MacKinnon test}{subsection.12.1}% 53
-\BOOKMARK [2][-]{subsection.12.2}{Proxy Variables}{section.12}% 54
-\BOOKMARK [3][-]{subsubsection.12.2.1}{Procedures}{subsection.12.2}% 55
-\BOOKMARK [3][-]{subsubsection.12.2.2}{Proxy Bias}{subsection.12.2}% 56
-\BOOKMARK [2][-]{subsection.12.3}{Measurement Error in an Explanatory Variable}{section.12}% 57
-\BOOKMARK [3][-]{subsubsection.12.3.1}{Case 1: Cov\(x1, e1\) = 0}{subsection.12.3}% 58
-\BOOKMARK [3][-]{subsubsection.12.3.2}{Case 2 Cov\(x1*, e1\) = 0: Classical errors-in-variance\(CEV\)}{subsection.12.3}% 59
-\BOOKMARK [2][-]{subsection.12.4}{Measurement Error in Dependent Variable}{section.12}% 60
-\BOOKMARK [1][-]{section.13}{Slide 13: Instrumental Variables}{}% 61
-\BOOKMARK [2][-]{subsection.13.1}{Endogeneity}{section.13}% 62
-\BOOKMARK [2][-]{subsection.13.2}{Instrumental Variables}{section.13}% 63
-\BOOKMARK [2][-]{subsection.13.3}{Implementation of IV: Method of Moments}{section.13}% 64
-\BOOKMARK [3][-]{subsubsection.13.3.1}{In Simple Regression}{subsection.13.3}% 65
-\BOOKMARK [3][-]{subsubsection.13.3.2}{Inference}{subsection.13.3}% 66
-\BOOKMARK [3][-]{subsubsection.13.3.3}{Properties}{subsection.13.3}% 67
-\BOOKMARK [2][-]{subsection.13.4}{IV in Multiple Regression}{section.13}% 68
-\BOOKMARK [1][-]{section.14}{Slide 14: Two Stage Least Square}{}% 69
-\BOOKMARK [2][-]{subsection.14.1}{Procedure}{section.14}% 70
-\BOOKMARK [2][-]{subsection.14.2}{Equivalence between IV and 2SLS}{section.14}% 71
-\BOOKMARK [2][-]{subsection.14.3}{Evaluating 2SLS}{section.14}% 72
-\BOOKMARK [3][-]{subsubsection.14.3.1}{Regressor Endogeneity}{subsection.14.3}% 73
-\BOOKMARK [3][-]{subsubsection.14.3.2}{Instrument Relevance}{subsection.14.3}% 74
-\BOOKMARK [3][-]{subsubsection.14.3.3}{Instrument Exogeneity}{subsection.14.3}% 75
-\BOOKMARK [1][-]{section.15}{Slide 15: Simultaneous Equations}{}% 76
-\BOOKMARK [2][-]{subsection.15.1}{Simultaneity Bias in OLS}{section.15}% 77
-\BOOKMARK [2][-]{subsection.15.2}{IV Estimator and 2SLS}{section.15}% 78
-\BOOKMARK [1][-]{section.17}{Slide 17: Intro to Time Series}{}% 79
-\BOOKMARK [2][-]{subsection.17.1}{Random Walk}{section.17}% 80
-\BOOKMARK [2][-]{subsection.17.2}{Trend}{section.17}% 81
-\BOOKMARK [2][-]{subsection.17.3}{Seasonality}{section.17}% 82
-\BOOKMARK [2][-]{subsection.17.4}{Serial Correlation}{section.17}% 83
-\BOOKMARK [2][-]{subsection.17.5}{Stationarity}{section.17}% 84
-\BOOKMARK [2][-]{subsection.17.6}{Weakly Dependent Time Series}{section.17}% 85
-\BOOKMARK [1][-]{section.18}{Slide 18: Asymptotic Analysis}{}% 86
-\BOOKMARK [2][-]{subsection.18.1}{Estimator Properties}{section.18}% 87
-\BOOKMARK [2][-]{subsection.18.2}{OLS Consistency}{section.18}% 88
-\BOOKMARK [2][-]{subsection.18.3}{Asymptotic Normality}{section.18}% 89
+\BOOKMARK [2][-]{subsection.9.2}{Regression Functional Forms}{section.9}% 26
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Logarithmic Function}{subsection.9.2}% 27
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Quadratics and Polynomials}{subsection.9.2}% 28
+\BOOKMARK [2][-]{subsection.9.3}{Interaction Effects}{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.4}{Regression Selection and Adjusted R-Square}{section.9}% 30
+\BOOKMARK [2][-]{subsection.9.5}{Over Controlling}{section.9}% 31
+\BOOKMARK [2][-]{subsection.9.6}{Confidence Interval for Prediction}{section.9}% 32
+\BOOKMARK [1][-]{section.10}{Slide 10: Multiple Regression - Qualitative Information}{}% 33
+\BOOKMARK [2][-]{subsection.10.1}{Binary predictors}{section.10}% 34
+\BOOKMARK [3][-]{subsubsection.10.1.1}{On Intercept}{subsection.10.1}% 35
+\BOOKMARK [3][-]{subsubsection.10.1.2}{On Slopes}{subsection.10.1}% 36
+\BOOKMARK [3][-]{subsubsection.10.1.3}{F-test\(Chow test\)}{subsection.10.1}% 37
+\BOOKMARK [2][-]{subsection.10.2}{Linear Probability Model}{section.10}% 38
+\BOOKMARK [2][-]{subsection.10.3}{Heterskedasticity of LPM}{section.10}% 39
+\BOOKMARK [1][-]{section.11}{Slide 11: Heteroskedasticity}{}% 40
+\BOOKMARK [2][-]{subsection.11.1}{Robust Standard Errors}{section.11}% 41
+\BOOKMARK [2][-]{subsection.11.2}{Test for Heteroskedasticity}{section.11}% 42
+\BOOKMARK [3][-]{subsubsection.11.2.1}{General Principle}{subsection.11.2}% 43
+\BOOKMARK [3][-]{subsubsection.11.2.2}{Breusch-Pagan test}{subsection.11.2}% 44
+\BOOKMARK [3][-]{subsubsection.11.2.3}{White test version 1}{subsection.11.2}% 45
+\BOOKMARK [3][-]{subsubsection.11.2.4}{White test version 2}{subsection.11.2}% 46
+\BOOKMARK [2][-]{subsection.11.3}{Generalized/Weighted Least Squared}{section.11}% 47
+\BOOKMARK [3][-]{subsubsection.11.3.1}{GLS with Known Functional Form}{subsection.11.3}% 48
+\BOOKMARK [2][-]{subsection.11.4}{Feasible GLS}{section.11}% 49
+\BOOKMARK [1][-]{section.12}{Slide 12: Specification and Data Problems}{}% 50
+\BOOKMARK [2][-]{subsection.12.1}{Regression Specification Error Test \(RESET\)}{section.12}% 51
+\BOOKMARK [3][-]{subsubsection.12.1.1}{RESET: Nested Alternatives}{subsection.12.1}% 52
+\BOOKMARK [3][-]{subsubsection.12.1.2}{Non-nested Alternatives: RESET}{subsection.12.1}% 53
+\BOOKMARK [3][-]{subsubsection.12.1.3}{Non-nested alternatives: Davidson-MacKinnon test}{subsection.12.1}% 54
+\BOOKMARK [2][-]{subsection.12.2}{Proxy Variables}{section.12}% 55
+\BOOKMARK [3][-]{subsubsection.12.2.1}{Procedures}{subsection.12.2}% 56
+\BOOKMARK [3][-]{subsubsection.12.2.2}{Proxy Bias}{subsection.12.2}% 57
+\BOOKMARK [2][-]{subsection.12.3}{Measurement Error in an Explanatory Variable}{section.12}% 58
+\BOOKMARK [3][-]{subsubsection.12.3.1}{Case 1: Cov\(x1, e1\) = 0}{subsection.12.3}% 59
+\BOOKMARK [3][-]{subsubsection.12.3.2}{Case 2 Cov\(x1*, e1\) = 0: Classical errors-in-variance\(CEV\)}{subsection.12.3}% 60
+\BOOKMARK [2][-]{subsection.12.4}{Measurement Error in Dependent Variable}{section.12}% 61
+\BOOKMARK [1][-]{section.13}{Slide 13: Instrumental Variables}{}% 62
+\BOOKMARK [2][-]{subsection.13.1}{Endogeneity}{section.13}% 63
+\BOOKMARK [2][-]{subsection.13.2}{Instrumental Variables}{section.13}% 64
+\BOOKMARK [2][-]{subsection.13.3}{Implementation of IV: Method of Moments}{section.13}% 65
+\BOOKMARK [3][-]{subsubsection.13.3.1}{In Simple Regression}{subsection.13.3}% 66
+\BOOKMARK [3][-]{subsubsection.13.3.2}{Inference}{subsection.13.3}% 67
+\BOOKMARK [3][-]{subsubsection.13.3.3}{Properties}{subsection.13.3}% 68
+\BOOKMARK [2][-]{subsection.13.4}{IV in Multiple Regression}{section.13}% 69
+\BOOKMARK [1][-]{section.14}{Slide 14: Two Stage Least Square}{}% 70
+\BOOKMARK [2][-]{subsection.14.1}{Procedure}{section.14}% 71
+\BOOKMARK [2][-]{subsection.14.2}{Equivalence between IV and 2SLS}{section.14}% 72
+\BOOKMARK [2][-]{subsection.14.3}{Evaluating 2SLS}{section.14}% 73
+\BOOKMARK [3][-]{subsubsection.14.3.1}{Regressor Endogeneity}{subsection.14.3}% 74
+\BOOKMARK [3][-]{subsubsection.14.3.2}{Instrument Relevance}{subsection.14.3}% 75
+\BOOKMARK [3][-]{subsubsection.14.3.3}{Instrument Exogeneity}{subsection.14.3}% 76
+\BOOKMARK [1][-]{section.15}{Slide 15: Simultaneous Equations}{}% 77
+\BOOKMARK [2][-]{subsection.15.1}{Simultaneity Bias in OLS}{section.15}% 78
+\BOOKMARK [2][-]{subsection.15.2}{IV Estimator and 2SLS}{section.15}% 79
+\BOOKMARK [1][-]{section.17}{Slide 17: Intro to Time Series}{}% 80
+\BOOKMARK [2][-]{subsection.17.1}{Random Walk}{section.17}% 81
+\BOOKMARK [2][-]{subsection.17.2}{Trend}{section.17}% 82
+\BOOKMARK [2][-]{subsection.17.3}{Seasonality}{section.17}% 83
+\BOOKMARK [2][-]{subsection.17.4}{Serial Correlation}{section.17}% 84
+\BOOKMARK [2][-]{subsection.17.5}{Stationarity}{section.17}% 85
+\BOOKMARK [2][-]{subsection.17.6}{Weakly Dependent Time Series}{section.17}% 86
+\BOOKMARK [1][-]{section.18}{Slide 18: Asymptotic Analysis}{}% 87
+\BOOKMARK [2][-]{subsection.18.1}{Estimator Properties}{section.18}% 88
+\BOOKMARK [2][-]{subsection.18.2}{OLS Consistency}{section.18}% 89
+\BOOKMARK [2][-]{subsection.18.3}{Asymptotic Normality}{section.18}% 90

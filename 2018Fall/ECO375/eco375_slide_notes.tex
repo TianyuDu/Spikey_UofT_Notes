@@ -516,7 +516,7 @@
     	
     \section{Slide 9: Multiple Regression - Further Issues}
     	\subsection{Data Scaling}
-    		\subsubsection{Mutiplier}
+    		\subsubsection{Multiplier}
     		\begin{enumerate}
     			\item Enlarge $x_j$ by factor $a$: $\hat{\beta}_j$ shrinks by $a$.
     			\item Enlarge $y$ by factor $a$: \textbf{all} $\hat{\beta}_i$ enlarged by $a$.
@@ -532,69 +532,70 @@
     				\[
     					\expect{z_j} = 0,\ Var(z_j) = 1
     				\]
-    			\paragraph{Properties} Consider model and find the estimator of regressing standardized $y$ on standardized $x$.
-    				\[
-    					y_i = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \dots + \hat{\beta}_k x_{ik} + \hat{u}_i
-    				\]
-    				Since OLS estimator passes through the mean,
+    			\paragraph{Beta Coefficients} Consider model and find the estimator of regressing standardized $y$ on standardized $x$.
     				\begin{gather*}
-    					\overline{y} = \hat{\beta}_0 + \hat{\beta}_1 \overline{x}_1 + \dots \hat{\beta}_k \overline{x}_k \\
+    					y_i = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \dots + \hat{\beta}_k x_{ik} + \hat{u}_i \\
+    					\land \quad \overline{y} = \hat{\beta}_0 + \hat{\beta}_1 \overline{x}_1 + \dots \hat{\beta}_k \overline{x}_k \\
     					\implies (y_i - \overline{y}) = \hat{\beta}_1 (x_{i1} - \overline{x}_1) + \dots + \hat{\beta}_k (x_{ik} - \overline{x}_k) + \hat{u}_i \\
     					\implies \frac{y_i - \overline{y}}{\sigma_y} = 
     					\frac{\hat{\beta}_1 \sigma_{x_1}}{\sigma_y} \frac{x_{i1} - \overline{x}_1}{\sigma_{x_1}} + \dots + 
     					\frac{\hat{\beta}_k \sigma_{x_k}}{\sigma_y} \frac{x_{ik} - \overline{x}_k}{\sigma_{x_k}} + \frac{\hat{u}_i}{\sigma_y} \\
-    					\implies b_j = \frac{\hat{\beta}_j \sigma_{x_j}}{\sigma_y}
+    					\implies \textcolor{red}{b_j = \frac{\hat{\beta}_j \sigma_{x_j}}{\sigma_y}}
     				\end{gather*}
-    			\begin{remark}[Interpretation]
-    				$x_j$ increases by 1 \textbf{std}, y increases by $b_j = \frac{\hat{\beta}_j \sigma_{x_j}}{\sigma_y}$ \textbf{std}, \emph{ceteris paribus}.
+    			\begin{remark}[\hl{Unit-free} Interpretation]
+    				$x_j$ increases by 1 \textbf{standard deviation}, y increases by $b_j$ \textbf{standard deviation}.
     			\end{remark}
-    	\subsection{Logarithmic Function}
-    		\par \textbf{Exact} interpretation of log transformation.
+    	\subsection{Regression Functional Forms}
+    	\subsubsection{Logarithmic Function}
+    		\paragraph{Exact} interpretation of log transformation.
     			\[
-    				\ln(y_i) = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \dots \hat{\beta}_k x_{ik} + \hat{u}_i
+    				\widehat{\ln(y_i)} = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \dots \hat{\beta}_k x_{ik}
     			\]
-    			\begin{proof}[Derive]
+    			\begin{proof}
 	    			\begin{gather*}
 	    				\ln(y_2) - \ln(y_1) = \hat{\beta}_j \Delta x_j \\
 	    				\implies \ln(\frac{y_2}{y_1}) = \hat{\beta}_j \Delta x_j \\
 	    				\implies \frac{y_2}{y_1} = exp(\hat{\beta}_j \Delta x_j) \\
 	    				\implies \frac{y_2 - y_1}{y_1} 
 	    				= \frac{y_2}{y_1} - 1 \\
-	    				\implies \%\Delta y= exp(\hat{\beta}_j \Delta x_j) - 1
+	    				\implies \textcolor{red}{\%\Delta y= exp(\hat{\beta}_j \Delta x_j) - 1}
 	    			\end{gather*}
     			\end{proof}
-    	\subsection{Quadratics and Polynomials}
+    	\subsubsection{Quadratics and Polynomials}
     		\paragraph{Model}
     			\[
     				y_i = \sum_{p=0}^k {\beta_p x_{i}^p} + u_i
     			\]
     		\begin{remark}
-    			Consider the \textbf{interpretation} and \textbf{turning points}.
+    			Consider the \textbf{interpretation} and \textbf{turning points}. The relation between dependent and independent variables varies across slices of population.
     		\end{remark}
     	\subsection{Interaction Effects}
     		\par Consider model
     		\[
-    			y = \beta_0 + \beta_1 x + \beta_2 z + \beta_3 xz + u
+    			y = \beta_0 + \beta_1 x + \beta_2 z + \textcolor{orange}{\beta_3 x z} + u
     		\]
     		then 
     		\[
-    			\pd{y}{x} = \beta_1 + \beta_3 z
+    			\pd{y}{x} = \beta_1 + \textcolor{orange}{\beta_3 z}
     		\]
     		\begin{enumerate}
     			\item The effects of change of $x$ on $y$ depends on $z$.
-    			\item Interpretation: \emph{evaluate} $\pd{y}{x}$ at a $z$ point that we are interested in.
-    			\item Use \emph{conventional testing} (t-test) to check if interaction term is significant.
+    			\item Interpretation: \hl{evaluate} $\pd{y}{x}$ at a $z$ value that we are interested in.
+    			\item Use \hl{conventional testing} (t-test) to check if interaction term is significant.
     		\end{enumerate}
-    	\subsection{Regression Selection and Adjusted R-square}
+    	\subsection{Regression Selection and Adjusted R-Square}
     		\par The adjusted R-square, $\overline{R^2}$, incorporates a \emph{penalty} for including more regressors (if insignificant).
     		\[
-    			\overline{R^2} = 1 - \frac{(1-R^2)(n-1)}{n-k-1}
+    			\textcolor{red}{\overline{R^2} = 1 - \frac{(1-R^2)(n-1)}{n-k-1}}
     		\]
-    		\begin{remark}
-    			$\overline{R^2}$ increases when adding new regressor(or a group of regressors) if and only if the $t$ value ($F$) for the individual regression(group of regressors) is more than 1.
+    		\begin{remark}[Algebraic Fact]
+    			$\overline{R^2}$ increases when adding new regressor(group of regressors) if and only if the $t$-statistic ($F$-statistic) for the individual regression(group of regressors) is more than 1.
     		\end{remark}
     	
-    	\subsection{Causal Mechanism}
+    	\subsection{Over Controlling}
+    		\begin{example}
+    			If we want to access the indirect effect of $x$ on $y$ \ul{through $z$}. Then if we include $z$ into the regressors, the coefficient of $x$ in MLR would only pick up the \ul{indirect effect} of $x$ on $y$ \textbf{not} associated with $z$. (Partialling out)
+    		\end{example}
     	
     	\subsection{Confidence Interval for Prediction}
     		\par Consider a prediction 
@@ -607,13 +608,13 @@
     		\]
     		Then the estimation of $y$ at \textbf{c} is 
     		\begin{gather*}
-    			\theta_0 = \expect{y|x_1=c_1, x_2=c_2, \dots x_k=c_k} \\
+    			\textcolor{red}{y_c} = \expect{y|x_1=c_1, x_2=c_2, \dots x_k=c_k} \\
     			= \beta_0 + \beta_1 c_1 + \beta_2 c_2 + \dots + \beta_k c_k \\
-    			\implies \beta_0 = \theta_0 - \beta_1 c_1 - \beta_2 c_2 - \dots - \beta_k c_k
+    			\implies \beta_0 = \textcolor{red}{y(c)} - \beta_1 c_1 - \beta_2 c_2 - \dots - \beta_k c_k
     		\end{gather*}
     		substitute back into the model
     		\[
-    			y = \theta_0 + \beta_1 (x_1 - c_1) + \beta_2 (x_2 - c_2) + \dots + \beta_k x_k + u
+    			y = \textcolor{red}{y_c} + \beta_1 (x_1 - c_1) + \beta_2 (x_2 - c_2) + \dots + \beta_k x_k + u
     		\]
     		And the \ul{margin of error} of confidence interval of prediction of $y$ at \textbf{c} can be found by inspecting the \ul{intercept} on above regression.
     		\[
@@ -621,11 +622,11 @@
     		\]
       		The \ul{center} of confidence interval can be found from 
     		\[
-    			\hat{\theta}_0 = \hat{\beta}_0 + \hat{\beta}_1 c_1 + \dots + \hat{\beta}_k x_k
+    			\hat{y}_c = \hat{\beta}_0 + \hat{\beta}_1 c_1 + \dots + \hat{\beta}_k x_k
       		\]
       		The $\alpha$ confidence interval is given by
       		\[
-      			\hat{\theta}_0 \pm ME
+      			\hat{y}_c \pm ME
       		\]
       		
 	\section{Slide 10: Multiple Regression - Qualitative Information}

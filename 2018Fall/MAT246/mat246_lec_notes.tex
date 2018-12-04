@@ -1195,9 +1195,14 @@
 			\mathbb{C} = \{ a + ib : a, b \in \R, i^2 = - 1\}
 		\]
 	\end{notation}
+	
 	\begin{remark}
-		Notice that $\mathbb{C}$ is closed under the 4 basic operations of arithmetics. Anything like this is called a \textbf{field}.
+		Notice that $\mathbb{C}$ is closed under the 4 basic operations of arithmetics.
 	\end{remark}
+	
+	\begin{definition}
+		An algebraic structure on which the four basic arithmetic operations are defined and closed under the four operations is called a \textbf{field}.
+	\end{definition}
 	
 	\begin{example}
 		The irrational set $\mathbb{Q}^c$ is \emph{not} a field.
@@ -1275,7 +1280,7 @@
 		\end{gather*}
 		
 		\begin{example}
-			Every complex number has a square root.
+			Every complex number has a square root. (Generalized idea: \ul{complex field is algebraically closed}.)
 			\begin{proof}
 				Let $z = r(\cos(\theta) + i \sin(\theta)) \in \mathbb{C}$. \\
 				Consider $w = \sqrt{r} (\cos(\frac{\theta}{2}) + i \sin(\frac{\theta}{2}))$ \\
@@ -1327,7 +1332,7 @@
 					= 16
 				\end{gather*}
 			\end{proof}
-			\emph{Geometrically Interpretation: rotates the vector anti-clockwise by $(n-1)\theta$ and enlarge the magnitude by factor of $n$.}
+		\paragraph{Geometrically Interpretation}\hl{rotates the vector anti-clockwise by $(n-1)\theta$-radius and enlarge the magnitude by factor of $n$.}
 		\end{example}
 		
 		\subsection{Roots of Unity}
@@ -1680,7 +1685,7 @@
 		\end{proof}
 		
 		\begin{definition}
-			A set $S$ is \textbf{finite} if there exists some $n\in \mathbb{N}$ such that the elements of $S$ can be paired with the elements in set $\{1, 2, \dots, n\}$. Equivalently, we can label the elements of $S$ as $s_1, s_2, \dots s_n$.
+			A set $S$ is \textbf{finite} if there exists some $n\in \mathbb{N}$ such that the elements of $S$ can be paired with the elements in set $\{1, 2, \dots, \textcolor{red}{n}\}$. Equivalently, we can label the elements of $S$ as $s_1, s_2, \dots s_n$.
 		\end{definition}
 		
 		\begin{definition}
@@ -1700,7 +1705,7 @@
 			Let $S = \mathbb{N}$ and $T = \{2,3,4,\dots\}$, easy to construct a bijective mapping $f:S\to T$ defined as $f(n) = n+1$ to show $S$ and $T$ have the same cardinality.
 		\end{example}
 		
-		\begin{remark}[How to Prove Same Cardinality with Natural Numbers]
+		\begin{remark}[How to prove a set has the same cardinality as natural numbers]
 			If $\abs{\mathbb{N}} = \abs{T}$, then $\exists$ bijection $f:\mathbb{N} \to T$. That's we can \emph{enumerate} elements in $T$ with $f(n)$: 
 			\[
 				t_1 = f(1),\ t_2 = f(2),\dots \quad \forall t_i \in T
@@ -1861,38 +1866,48 @@
 			\end{proof}
 		\end{example}
 		
+		\begin{corollary}
+			As a generalization of above example, the Cartesian product of countable sets is countable.
+		\end{corollary}
+		
 		\begin{theorem}
-			A countable union of sets with cardinality $C$ also have cardinality $C$.
+			A countable union of sets with cardinality $c$ also have cardinality $c$.
 			\[
-				|S_i| = C, \ \forall i = 1,2,3\dots \implies |\cup_{i=1}^\infty S_i| = C
+				|S_i| = c, \ \forall i = 1,2,3\dots \implies |\cup_{i=1}^\infty S_i| = c
 			\]
 			\begin{proof}
-				$S_1 \subseteq \cup_{i=1}^\infty S_i \implies C = |S_1| \leq \cup_{i=1}^\infty S_i$. \\
+				$S_1 \subseteq \cup_{i=1}^\infty S_i \implies c = |S_1| \leq \cup_{i=1}^\infty S_i$. \\
 				WLOG, assume all sets $S_i$ are disjoint. \\
 				(Otherwise, we could construct a new collection of disjoint sets by defining $S_1' = S_1$ and $S_j' = S_j \backslash \cup_{i=1}^{j-1} S_{i}$) \\
-				Since $|S_i| = C$, $|S_i| = |(i, i+1)|$. \\
+				Since $|S_i| = c$, $|S_i| = |(i, i+1)|$. \\
 				Therefore, for every $S_i$, there's a bijection between it and open interval $(i, i+1)$. \\
 				Easy to shown that there exists a bijection between $\cup_{i=1}^\infty S_i$ and $\cup_{i=1}^\infty (i, i+1) \subseteq \R$. \\
-				So, $|\cup_{i=1}^\infty S_i| = |\cup_{i=1}^\infty (i, i+1)| \leq |\R| = C$. \\
-				Thus $|\cup_{i=1}^\infty (i, i+1)| \leq C$. \\
-				By SBC, $|\cup_{i=1}^\infty (i, i+1)| = C$. \\
+				So, $|\cup_{i=1}^\infty S_i| = |\cup_{i=1}^\infty (i, i+1)| \leq |\R| = c$. \\
+				Thus $|\cup_{i=1}^\infty (i, i+1)| \leq c$. \\
+				By SBC, $|\cup_{i=1}^\infty (i, i+1)| = c$. \\
 			\end{proof}
 		\end{theorem}
 		
 		\begin{example}
 			Consider the unit square $S=[0,1]\times [0,1]$. $S$ is an uncountably infinite union of uncountably infinite sets.\\
-			Claim $|S| = C$. \\
+			Claim $|S| = c$. \\
 			\begin{proof}
 				$S = \cup_{x\in [0,1]}\{(x,y):y\in[0,1]\}$. \\
-				Consider $\{(x, 0):x \in [0,1]\} \subseteq S$, which has cardinality $C$. \\
-				Therefore $|S| \geq C$. \\
+				Consider $\{(x, 0):x \in [0,1]\} \subseteq S$, which has cardinality $c$. \\
+				Therefore $|S| \geq c$. \\
 				Consider the function $f: S \to \{(x, 0):x \in [0,1]\}$ \\
 				Consider $(x,y) \in S$ with $x = 0.x_1 x_2 x_3 \dots,\ y=0.y_1 y_2 y_3 \dots$. \\
 				Defined $f$ as $f(x, y) = (0.x_1 y_1 x_2 y_2 x_3 y_3\dots, 0)$.\\
-				$f$ is injective, therefore $|S| \leq C$. \\
-				Thus by SBC, $|S| = C$.
+				$f$ is injective, therefore $|S| \leq c$. \\
+				Thus by SBC, $|S| = c$.
 			\end{proof}
 		\end{example}
+	
+	\begin{corollary}
+		\[
+			|\R^n| = c
+		\]
+	\end{corollary}
 	
 	\section{Lecture 27. Nov. 19 2018}
 		\begin{theorem}
@@ -1905,7 +1920,7 @@
 				Suppose $|S| = |\R|$, then there must exists a bijection $g: \R \to S$. \\
 				Define the set 
 				\[
-					T := \{x \in \R: x \notin g(x)\} \subseteq S
+					\textcolor{red}{T := \{x \in \R: x \notin g(x)\} \subseteq S}
 				\]
 				We claim that $g$ cannot be surjective by showing that $T \notin g(\R)$. \\
 				($g(\R)$ is the image of $g$ on $\R$.) \\
@@ -1937,12 +1952,20 @@
 			\end{proof}
 		\end{theorem}
 		
-		\begin{remark}
-			There is no largest cardinality. We can always find a larger cardinality 
-		\end{remark}
+		\begin{corollary}
+			There is no largest cardinality.
+		\end{corollary}
+		
+		\begin{definition}[10.3.14]
+			Let $\mc{S}$ and $\mc{T}$ be any sets. We will say that $\mc{T}$ \textbf{can be labelled} by set $\mc{S}$ is there is a way of assigning a \hl{finite} sequence of elements of $\mc{S}$ to each element of $\mc{T}$ so that each finite sequence corresponds to at most one element of $\mc{T}$. (i.e. injective assigning)
+		\end{definition}
 		
 		\begin{theorem}[Enumeration Principle]
 			The set of \ul{finite} sequences of (elements from) a \ul{countable} set is countable.
+		\end{theorem}
+		
+		\begin{theorem}[Enumeration Principle]
+			Every set that can be labelled by a countable set is countable.
 		\end{theorem}
 		
 		\begin{example}
@@ -1966,8 +1989,8 @@
 				\]
 				Setup injection $f: \Q^+ \to \N^2$ defined as $f(\frac{m}{n}) = (m,n)$. \\
 				Since $\N^2$ can be considered as a set of tuples(finite sequences of length 2) from $\N$,\\
-				therefore $\N^2$ is countable. \\
-				Therefore $|\Q^+| \leq \aleph_0$.
+				i.e. $\Q^+$ can be labelled using finite sequences from countable set $\N$. \\
+				By enumeration principle, $\Q^+$ is countable, i.e. $|\Q^+| \leq \aleph_0$. 
 			\end{proof}
 		\end{example}
 		
@@ -2059,16 +2082,16 @@
 		\end{theorem}
 		
 		\begin{definition}
-			The \textbf{characteristic function} of set $S \subseteq \N$ is a function $f_S: \N \to \{0,1\}$ defined as 
+			Let $S$ be a set and the \textbf{characteristic function} of set $S_0 \subseteq S$ is a function $f: S \to \{0,1\}$ defined as 
 			\[
 				f_S(n) = \begin{cases}
-					1 &\tx{ if } n \in S \\
-					0 &\tx{ if } n \notin S
+					1 &\tx{ if } n \in S_0 \\
+					0 &\tx{ if } n \notin S_0
 				\end{cases}
 			\]
 		\end{definition}
 		
-		\begin{proof}
+		\begin{proof}[proof. of above theorem]
 			Obviously, we can construct a characteristic function $f_S$ for any set $S \subseteq \N$ and such a constructor is bijective. \\
 			There exists a bijection $\phi: \mc{P}(\N) \to \{char.\ func.\} = T$. \\
 			Therefore $|\mc{P}(\N)| = |\{char.\ func.\}| = |T|$ \\
@@ -2092,7 +2115,7 @@
 		\end{proof}
 		
 		\begin{definition}
-			A real number is \textbf{algebraic} if there exists a non-zero polynomial with \ul{integer} coefficients that has this number as a root. The set of all algebraic numbers is denoted as $\mc{A}$.
+			A real number is \textbf{algebraic} if there exists a non-zero polynomial with \ul{integer coefficients} that has this number as a root. The set of all algebraic numbers is denoted as $\mc{A}$.
 		\end{definition}
 		
 		\begin{theorem}
@@ -2130,6 +2153,7 @@
 			\]
 		\end{theorem}
 		\begin{proof}
+			\textbf{General idea}: we can label each $a \in \mc{A}$ using a finite sequence of integers capturing the coefficients of polynomial having $a$ as a root, altogether with a natural number representing the position order of $a$ as a root. Then $\mc{A}$ can be labelled using countable sets then it's countable.\\
 			Note that $\mc{A}$ can be written as
 			\[
 				\mc{A} = \cup_{i \in \N} \mc{A}_i
@@ -2373,7 +2397,7 @@
 	\section{Lecture 33. Dec. 3 2018}
 	
 		\begin{theorem}
-			If a cubic polynomial with \ul{rational coefficients} has constructible root(s), then is also have rational root(s).
+			If a \ul{cubic} polynomial with \ul{rational coefficients} has constructible root(s), then is also have rational root(s).
 		\end{theorem}
 		
 		\begin{lemma}

@@ -147,7 +147,7 @@
 		\end{theorem}
 		
 		\begin{theorem}[Fermat's Theorem 5.1.2]
-			If $p$ is a prime number and $a$ is any natural not divisible by $p$, then 
+			If $p$ is a prime number and $a$ is any natural \textcolor{red}{not divisible by $p$}, then 
 			\[
 				a^{p-1} \equiv 1 \mod p
 			\]
@@ -196,12 +196,13 @@
 			\]
 		\end{theorem}
 		
+		\textcolor{red}{
 		\begin{theorem}[5.2.2]
 			If $m$ is a composite number larger than $4$, then
 			\[
 				(m-1)! \equiv 0 \mod m
 			\]
-		\end{theorem}
+		\end{theorem}}
 		
 		\begin{theorem}[Extended version of Wilson's theorem 5.2.3]
 			If $m$ is a natural number other than $1$, then $(m-1)! \equiv -1 \mod m$ \ul{if and only if} $m \in \mathbb{P}$.
@@ -258,7 +259,7 @@
 		\end{definition}
 		
 		\begin{theorem}[7.2.14]
-			If $p$ is prime, then $\phi{p} = p-1$.
+			If $p$ is prime, then $\phi(p) = p-1$.
 		\end{theorem}
 		\begin{proof}
 			Directly form the definition of Euler-$\phi$ function.
@@ -271,6 +272,7 @@
 			Consider the multiples of $p$ and $q$ in set $\{1, 2, \dots, pq - 1\}$. \\
 			There would be $p-1$ multiples of $q$ and $q-1$ multiples of $p$. \\
 			Total number of multiples is $(p-1) + (q-1) = p+q-2$. \\
+			Any number other than the multiples above will be relatively prime to $pq$.\\
 			There would be $pq - 1 - p - q + 2 = pq - p - q + 1= (p-1)(q-1)$.  
 		\end{proof}
 		
@@ -292,12 +294,14 @@
 			\]
 		\end{theorem}
 		
+		\textcolor{red}{
 		\begin{theorem}[7.3.Q27]
 			Let $n \in \mathbb{N}$, and suppose $n$ can be factorized into $p_1^{k_1} p_2^{k_2} \cdots p_m^{k_m}$ then
 			\[
 				\phi(n) = (p_1^{k_1} - p_1^{k_1 - 1})(p_2^{k_2} - p_2^{k_2 - 1}) \cdots (p_m^{k_m} - p_m^{k_m - 1})
 			\]
 		\end{theorem}
+		}
 	
 	\section{Rational Numbers and Irrational Numbers}
 		\begin{theorem}[The Rational Roots Theorem 8.1.9]
@@ -305,7 +309,7 @@
 			\[
 				a_k x^k + a_{k-1} x^{k-1} + \cdots + a_1 x + a_0
 			\]
-			where $a_j$ are integers and $m$ and $n$ are relatively prime, then $m | a_0$ and $n | a_k$.
+			where $a_j$ are integers and \ul{$m$ and $n$ are relatively prime}, then $m | a_0$ and $n | a_k$.
 		\end{theorem}
 		
 		\begin{theorem}[8.2.6]
@@ -323,6 +327,14 @@
 		\begin{theorem}[Extended 8.2.8]
 			Let $n \in \mathbb{N}$, then $\sqrt[3]{n} \in \mathbb{Q}$ \ul{if and only if} $n$ is a perfect cube.
 		\end{theorem}
+		
+		\begin{remark}
+			As immediate result from (8.2.8), we can conclude that the square or cubic root is integer.
+			\begin{gather*}
+				\sqrt{n} \in \Q \implies \sqrt{n} \in \Z \\
+				\sqrt[3]{n} \in \Q \implies \sqrt[3]{n} \in \Z
+			\end{gather*}
+		\end{remark}
 		
 		\section*{References}
 			Rosenthal, D., Rosenthal, D., \& Rosenthal, P. (2014). A Readable Introduction to Real Mathematics. Springer.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  3 DEC 2018 18:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  4 DEC 2018 10:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -911,95 +911,91 @@ Underfull \hbox (badness 10000) in paragraph at lines 1046--1051
 [23] [24] <figures/49_polar_representation_of_complex_number.jpg, id=483, 328.97906pt x 254.45062pt>
 File: figures/49_polar_representation_of_complex_number.jpg Graphic file (type jpg)
  <use figures/49_polar_representation_of_complex_number.jpg>
-Package pdftex.def Info: figures/49_polar_representation_of_complex_number.jpg used on input line 1225.
+Package pdftex.def Info: figures/49_polar_representation_of_complex_number.jpg used on input line 1230.
 (pdftex.def)             Requested size: 137.9979pt x 106.73651pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[25] [26 <./figures/49_polar_representation_of_complex_number.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1296--1301
+ [25] [26 <./figures/49_polar_representation_of_complex_number.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1301--1306
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1337--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1342--1346
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1346--1348
+Underfull \hbox (badness 10000) in paragraph at lines 1351--1353
 
  []
 
 [28] [29] [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1589--1591
+Underfull \hbox (badness 10000) in paragraph at lines 1594--1596
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1599--1600
+Underfull \hbox (badness 10000) in paragraph at lines 1604--1605
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1629--1631
+Underfull \hbox (badness 10000) in paragraph at lines 1634--1636
 
  []
 
-[33] [34] <figures/countinfproof.png, id=588, 658.46pt x 462.72874pt>
+[33] [34] <figures/countinfproof.png, id=590, 658.46pt x 462.72874pt>
 File: figures/countinfproof.png Graphic file (type png)
  <use figures/countinfproof.png>
-Package pdftex.def Info: figures/countinfproof.png used on input line 1724.
+Package pdftex.def Info: figures/countinfproof.png used on input line 1729.
 (pdftex.def)             Requested size: 172.5pt x 121.21745pt.
  [35 <./figures/countinfproof.png>] [36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1883--1886
+Underfull \hbox (badness 10000) in paragraph at lines 1892--1895
 
  []
 
 [38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1981--1983
+Underfull \hbox (badness 10000) in paragraph at lines 2004--2006
 
  []
 
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 2072--2082
+[40] [41]
+Underfull \hbox (badness 10000) in paragraph at lines 2095--2105
 
  []
 
-[41] [42] [43] [44] [45] [46]
-Underfull \hbox (badness 10000) in paragraph at lines 2361--2363
+[42] [43] [44] [45] [46]
+Underfull \hbox (badness 10000) in paragraph at lines 2385--2387
 
  []
 
 
-Overfull \hbox (2.94011pt too wide) in paragraph at lines 2376--2377
-[][]\OT1/txr/bx/n/10 Theorem 33.1. []\OT1/txr/m/n/10 If a cu-bic poly-no-mial with []ra[]-[]tio[]-[]nal [][]co[]-[]ef[]-[]fi[]-[]cients has con-structible root(s),
+Overfull \hbox (2.94011pt too wide) in paragraph at lines 2400--2401
+[][]\OT1/txr/bx/n/10 Theorem 33.1. []\OT1/txr/m/n/10 If a []cu[]-[]bic poly-no-mial with []ra[]-[]tio[]-[]nal [][]co[]-[]ef[]-[]fi[]-[]cients has con-structible root(s),
  []
 
 [47]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2442.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2466.
  [48]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2442.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2466.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT246/.texpadtmp/mat246_lec_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2442.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2442.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2466.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2466.
 Package rerunfilecheck Info: File `mat246_lec_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 9766 strings out of 493014
- 137259 string characters out of 6133351
+ 9772 strings out of 493014
+ 137342 string characters out of 6133351
  248564 words of memory out of 5000000
  12730 multiletter control sequences out of 15000+600000
  52886 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,14n,46p,805b,483s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT246/.texpadtmp/mat246_lec_notes.pdf (48 pages, 404613 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT246/.texpadtmp/mat246_lec_notes.pdf (48 pages, 406924 bytes).
 PDF statistics:
- 848 PDF objects out of 1000 (max. 8388607)
- 774 compressed objects within 8 object streams
- 344 named destinations out of 1000 (max. 500000)
+ 855 PDF objects out of 1000 (max. 8388607)
+ 781 compressed objects within 8 object streams
+ 350 named destinations out of 1000 (max. 500000)
  408 words of extra memory for PDF output out of 10000 (max. 10000000)
 
