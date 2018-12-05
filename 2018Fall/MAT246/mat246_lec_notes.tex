@@ -2463,6 +2463,47 @@
 			So if the cubic polynomial has roots in some towers $\mc{F}_{k} \neq \Q$, we can show that this polynomial also have root in $\mc{F}_{k-1}$. \\
 			By applying above argument recursively, we can show that all roots of this cubic polynomial must be rational.
 		\end{proof}
+		
+	\section{Lecture 3 Dec. 5 2018}
+		\begin{example}
+			Given a constructible angle $\theta$ such that $\cos(\theta) = \frac{2}{3}$, show that $\theta$ cannot be trisected.
+			\begin{proof}
+				Recall that $\cos(3\theta) = 4 \cos^3(\theta) - 3 \cos(\theta)$. \\
+				Therefore $\cos(\theta) = 4 \cos^3(\frac{\theta}{3}) - 3 \cos(\frac{\theta}{3})$. \\
+				Then if $\theta$ can be trisected, then $\frac{\theta}{3}$ and $\cos(\frac{\theta}{3})$ are constructible. \\
+				So equation $4x^3 - 3x = \frac{2}{3}$ has constructible solutions. \\
+				So polynomial $12 x^3 - 9 x - 2$ has constructible roots. \\
+				Therefore it also has rational roots. \\
+				Easy to check with rational root theorem, it has no rational roots. \\
+				The contradiction suggests $\frac{\theta}{3}$ and $\cos(\frac{\theta}{3})$ cannot be constructed. \\
+				Thus $\theta$ cannot be trisected.
+			\end{proof}
+		\end{example}
+		
+		\begin{proposition}
+			A point with coordinates $(a, b)$ in a plane if constructible if and only if both $a$ and $b$ are constructible.
+		\end{proposition}
+		
+		\begin{definition}
+			Constructions consist of
+			\begin{enumerate}
+				\item Join 2 constructible points with a line.
+				\item Draw a circle centred at a constructible point with constructible radius.
+				\item Taking intersection of constructed objects above.
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{theorem}
+			The union of all surds, $S$, is equal to the set of all constructible numbers $C$.
+			\begin{proof}
+				We've already shown that $S \subseteq C$. \\
+				Now showing $C \subseteq S$. \\
+				We show that if you start with points whose coordinates are in $S$, then any construction produce points whose coordinate is also in $S$. \\
+				Easy to verify constructions above preserve the property of being surds. \\
+				Clearly $0, 1 \in \Q \subseteq S$, \\
+				therefore, any constructible numbers have the property of being surds.
+			\end{proof}
+		\end{theorem}
 \end{document}
 
 

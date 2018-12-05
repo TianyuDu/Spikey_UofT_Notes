@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 DEC 2018 12:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 DEC 2018 13:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -802,17 +802,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 710--713
 
  []
 
-<figures/4_1.png, id=703, 361.35pt x 223.83624pt>
+<figures/4_1.png, id=713, 361.35pt x 223.83624pt>
 File: figures/4_1.png Graphic file (type png)
  <use figures/4_1.png>
 Package pdftex.def Info: figures/4_1.png used on input line 723.
 (pdftex.def)             Requested size: 251.9989pt x 156.10025pt.
- [22] [23 <./figures/4_1.png (PNG copy)>] [24]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22] [23 <./figures/4_1.png (PNG copy)>] [24]
 Overfull \hbox (83.90746pt too wide) in paragraph at lines 810--810
 [] 
  []
 
-[25] [26] [27] [28] [29] [30]
+[25] [26] [27] [28] [29]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1019.
@@ -821,12 +825,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1019.
 
-<figures/6_1.png, id=786, 436.63126pt x 376.40625pt>
+[30] <figures/6_1.png, id=794, 436.63126pt x 376.40625pt>
 File: figures/6_1.png Graphic file (type png)
  <use figures/6_1.png>
 Package pdftex.def Info: figures/6_1.png used on input line 1036.
 (pdftex.def)             Requested size: 161.9989pt x 139.65294pt.
- <figures/6_2.png, id=787, 419.5675pt x 339.2675pt>
+ <figures/6_2.png, id=795, 419.5675pt x 339.2675pt>
 File: figures/6_2.png Graphic file (type png)
  <use figures/6_2.png>
 Package pdftex.def Info: figures/6_2.png used on input line 1037.
@@ -840,26 +844,26 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1040.
 
-[31 <./figures/6_1.png> <./figures/6_2.png>] <figures/6_3.png, id=797, 416.55624pt x 351.3125pt>
+<figures/6_3.png, id=796, 416.55624pt x 351.3125pt>
 File: figures/6_3.png Graphic file (type png)
  <use figures/6_3.png>
 Package pdftex.def Info: figures/6_3.png used on input line 1056.
 (pdftex.def)             Requested size: 180.0pt x 151.80655pt.
- [32 <./figures/6_3.png>] <figures/6_4.png, id=805, 488.82625pt x 397.485pt>
-File: figures/6_4.png Graphic file (type png)
- <use figures/6_4.png>
-Package pdftex.def Info: figures/6_4.png used on input line 1065.
-(pdftex.def)             Requested size: 180.0pt x 146.36359pt.
- [33 <./figures/6_4.png>] [34] <figures/7_1.png, id=826, 798.985pt x 693.59125pt>
-File: figures/7_1.png Graphic file (type png)
- <use figures/7_1.png>
-Package pdftex.def Info: figures/7_1.png used on input line 1154.
-(pdftex.def)             Requested size: 216.0022pt x 187.50497pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[35] [36 <./figures/7_1.png>]
+[31 <./figures/6_1.png> <./figures/6_2.png>] <figures/6_4.png, id=807, 488.82625pt x 397.485pt>
+File: figures/6_4.png Graphic file (type png)
+ <use figures/6_4.png>
+Package pdftex.def Info: figures/6_4.png used on input line 1065.
+(pdftex.def)             Requested size: 180.0pt x 146.36359pt.
+ [32 <./figures/6_3.png> <./figures/6_4.png>] [33] [34] <figures/7_1.png, id=837, 798.985pt x 693.59125pt>
+File: figures/7_1.png Graphic file (type png)
+ <use figures/7_1.png>
+Package pdftex.def Info: figures/7_1.png used on input line 1154.
+(pdftex.def)             Requested size: 216.0022pt x 187.50497pt.
+ [35 <./figures/7_1.png>]
 Overfull \hbox (87.01883pt too wide) in paragraph at lines 1198--1198
 [] 
  []
@@ -879,37 +883,45 @@ Overfull \hbox (63.38692pt too wide) in paragraph at lines 1211--1211
 [] 
  []
 
-
+[36]
 Overfull \hbox (70.4209pt too wide) in paragraph at lines 1216--1216
 [] 
  []
 
-[37] <figures/7_2.png, id=854, 994.71625pt x 617.30624pt>
+<figures/7_2.png, id=857, 994.71625pt x 617.30624pt>
 File: figures/7_2.png Graphic file (type png)
  <use figures/7_2.png>
 Package pdftex.def Info: figures/7_2.png used on input line 1233.
 (pdftex.def)             Requested size: 288.0011pt x 178.73164pt.
- <figures/8_1.png, id=855, 429.605pt x 564.1075pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/8_1.png, id=858, 429.605pt x 564.1075pt>
 File: figures/8_1.png Graphic file (type png)
  <use figures/8_1.png>
 Package pdftex.def Info: figures/8_1.png used on input line 1242.
 (pdftex.def)             Requested size: 251.9989pt x 330.90105pt.
- [38 <./figures/7_2.png>] [39 <./figures/8_1.png>] [40] [41] [42]
+ [37]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[38 <./figures/7_2.png>] [39 <./figures/8_1.png>] [40] [41]
 Overfull \hbox (1.54259pt too wide) in paragraph at lines 1349--1350
 [][]\OT1/cmr/m/it/10.95 In[]-[]vest[]-[]ment (pri-mar-ily in-ven-to-ries) fluc-tu-ates more than con-sump-
  []
 
-[43] [44] [45] [46] [47] [48] [49]
+[42] [43] [44] [45] [46] [47] [48]
 Overfull \hbox (4.94598pt too wide) in paragraph at lines 1610--1610
 [] 
  []
 
-[50] [51]
+[49] [50]
 Overfull \hbox (44.27145pt too wide) detected at line 1674
 []\OMS/cmsy/m/n/10.95 L \OT1/cmr/m/n/10.95 = \U/msb/m/n/10.95 E[][][][]
  []
 
-[52] [53]
+[51] [52]
 Overfull \hbox (32.36688pt too wide) detected at line 1726
 []\OMS/cmsy/m/n/10.95 L \OT1/cmr/m/n/10.95 = \U/msb/m/n/10.95 E[][][][] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^U[][]K[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]`[]N\OT1/cmr/m/n/10.95 )[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 Nc[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 K[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 K[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 G[][]
  []
@@ -919,17 +931,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 1740--1742
 
  []
 
-[54]
+[53]
 Overfull \hbox (23.7497pt too wide) in paragraph at lines 1780--1780
 [] 
  []
 
-[55] [56]
+[54] [55]
 Overfull \hbox (55.55319pt too wide) in paragraph at lines 1812--1812
 [] 
  []
 
-[57]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
+[56]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1858 					\begin{equation}
@@ -945,7 +957,7 @@ l.1858 					\begin{equation}
 <to be read again> 
                    \relax 
 l.1858 					\begin{equation}
-                             [58]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.2}) has been already used, duplicate ignored
+                             [57]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1865 					\begin{equation}
@@ -1053,7 +1065,7 @@ l.1907 				\end{gather}
 <to be read again> 
                    \relax 
 l.1907 				\end{gather}
-                        [59]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.17}) has been already used, duplicate ignored
+                        [58]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1917 					\end{gather}
@@ -1086,7 +1098,7 @@ Overfull \hbox (39.93053pt too wide) in paragraph at lines 1928--1928
 [] 
  []
 
-[60]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.24}) has been already used, duplicate ignored
+[59]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.24}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1934 					\end{gather}
@@ -1094,9 +1106,9 @@ l.1934 					\end{gather}
 <to be read again> 
                    \relax 
 l.1934 					\end{gather}
-                         [61]
+                         [60]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1994.
- [62]
+ [61]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1994.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1994.
@@ -1106,18 +1118,18 @@ Package rerunfilecheck Info: File `eco325_lec_notes.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1994.
  ) 
 Here is how much of TeX's memory you used:
- 9573 strings out of 493014
- 134925 string characters out of 6133351
- 247893 words of memory out of 5000000
+ 9580 strings out of 493014
+ 135022 string characters out of 6133351
+ 248893 words of memory out of 5000000
  12360 multiletter control sequences out of 15000+600000
  15349 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,17n,46p,921b,552s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,17n,46p,921b,641s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (62 pages, 777690 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (61 pages, 777822 bytes).
 PDF statistics:
- 1374 PDF objects out of 1440 (max. 8388607)
- 1247 compressed objects within 13 object streams
- 567 named destinations out of 1000 (max. 500000)
+ 1379 PDF objects out of 1440 (max. 8388607)
+ 1253 compressed objects within 13 object streams
+ 574 named destinations out of 1000 (max. 500000)
  735 words of extra memory for PDF output out of 10000 (max. 10000000)
 

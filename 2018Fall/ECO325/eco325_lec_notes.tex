@@ -515,16 +515,16 @@
 				\eta \equiv \pd{y^*}{s}\frac{s}{y^*} = f'(k^*) \pd{k^*}{s} \frac{s}{f(k^*)} = \frac{f'(k^*)s}{(n+g+\delta) - sf'(k^*)}
 			\end{equation}
 			Recall that $(n+g+\delta) = \frac{sf(k^*)}{k^*}$ and rearrange the elasticity
-			\begin{gather*}
+			\begin{gather}
 				\eta = \pd{y^*}{s}\frac{s}{y^*} \\
 				= \frac{f'(k^*)s}{(n+g+\delta) - sf'(k^*)} \\
-				= \frac{s f'(k^*)}{\frac{s f(k^*)}{k^*} - sf'(k^*)} \\
+				= \frac{s f'(k^*)}{\textcolor{blue}{\frac{s f(k^*)}{k^*}} - sf'(k^*)} \\
 				= \frac{f'(k^*)}{\frac{f(k^*)}{k^*} - f'(k^*)} \\
 				= \frac{f'(k^*) \frac{k^*}{f(k^*)}}{1 - f'(k^*)\frac{k^*}{f(k^*)}} \\
-				= \textcolor{blue}{
+				= \textcolor{red}{
 					\frac{\alpha_K}{1 - \alpha_K}
-					} \\
-			\end{gather*}
+					}
+			\end{gather}
 			
 			\begin{remark}
 				$\alpha_K$ denotes the elasticity of output per unit of effective unit labor with respect to capital stock per unit of effective labor, along the balanced growth path. And
@@ -546,14 +546,14 @@
 				c^* = f(k^*) - (n+g+\delta)k^*
 			\end{equation}
 			and differentiate with respect to $s$
-			\[
+			\begin{equation}
 				\pd{c^*}{s} = [f'(k^*) - (n+g+\delta)] \pd{k^*}{s}
-			\]
+			\end{equation}
 			And notice that the sign of $\pd{c^*}{s}$ depends on the relative slope of production function and break-even investment.
 			By the first order condition of golden rule level of capital per unit of effective labor, $(n+g+\delta) = f'(k_G)$
-			\begin{gather*}
+			\begin{gather}
 				\pd{c^*}{s} = [f'(k^*) - f'(k_G)]\pd{k^*}{s}
-			\end{gather*}
+			\end{gather}
 			And 
 			\begin{equation*}
 				\begin{cases}
