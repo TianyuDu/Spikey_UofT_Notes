@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  1 DEC 2018 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 DEC 2018 12:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -715,7 +715,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 28.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) <doclicense-CC-by-nc.pdf, id=311, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-nc.pdf, id=339, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 28.
@@ -728,400 +728,396 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 34.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.toc [1
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc.pdf>] [2])
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc.pdf>] [2] [3])
 \tf@toc=\write4
 \openout4 = `eco325_lec_notes.toc'.
 
- [3] [4] [5] [6] [7] [8]
+ [4] [5] [6] [7] [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 252.
+(hyperref)                removing `math shift' on input line 264.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 252.
+(hyperref)                removing `math shift' on input line 264.
 
-[9] <figures/3_1.png, id=504, 355.3275pt x 222.8325pt>
+[9] <figures/convex_prod_func.png, id=564, 194.1654pt x 155.6214pt>
+File: figures/convex_prod_func.png Graphic file (type png)
+ <use figures/convex_prod_func.png>
+Package pdftex.def Info: figures/convex_prod_func.png used on input line 286.
+(pdftex.def)             Requested size: 251.9989pt x 201.98245pt.
+ <figures/3_1.png, id=566, 355.3275pt x 222.8325pt>
 File: figures/3_1.png Graphic file (type png)
  <use figures/3_1.png>
-Package pdftex.def Info: figures/3_1.png used on input line 284.
+Package pdftex.def Info: figures/3_1.png used on input line 303.
 (pdftex.def)             Requested size: 216.0022pt x 135.4618pt.
- <figures/3_2.png, id=506, 429.605pt x 301.125pt>
+ [10 <./figures/convex_prod_func.png>] <figures/3_2.png, id=577, 429.605pt x 301.125pt>
 File: figures/3_2.png Graphic file (type png)
  <use figures/3_2.png>
-Package pdftex.def Info: figures/3_2.png used on input line 290.
+Package pdftex.def Info: figures/3_2.png used on input line 309.
 (pdftex.def)             Requested size: 216.0022pt x 151.40297pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[10 <./figures/3_1.png>] [11 <./figures/3_2.png>] [12] [13] [14]
+ [11 <./figures/3_1.png> <./figures/3_2.png>] [12] [13] [14]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 441.
+(hyperref)                removing `math shift' on input line 467.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 441.
+(hyperref)                removing `subscript' on input line 467.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 441.
+(hyperref)                removing `subscript' on input line 467.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 441.
+(hyperref)                removing `math shift' on input line 467.
 
-<figures/3_3.png, id=575, 420.57124pt x 316.18124pt>
+<figures/3_3.png, id=637, 420.57124pt x 316.18124pt>
 File: figures/3_3.png Graphic file (type png)
  <use figures/3_3.png>
-Package pdftex.def Info: figures/3_3.png used on input line 445.
+Package pdftex.def Info: figures/3_3.png used on input line 471.
 (pdftex.def)             Requested size: 180.0pt x 135.32326pt.
- <figures/3_4.png, id=576, 451.6875pt x 724.7075pt>
+ <figures/3_4.png, id=638, 451.6875pt x 724.7075pt>
 File: figures/3_4.png Graphic file (type png)
  <use figures/3_4.png>
-Package pdftex.def Info: figures/3_4.png used on input line 446.
+Package pdftex.def Info: figures/3_4.png used on input line 472.
 (pdftex.def)             Requested size: 180.0pt x 288.80522pt.
  [15]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 454.
+(hyperref)                removing `math shift' on input line 480.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 454.
+(hyperref)                removing `math shift' on input line 480.
 
 [16 <./figures/3_3.png> <./figures/3_4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 459--460
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 462--464
+Underfull \hbox (badness 10000) in paragraph at lines 485--486
 
  []
 
 [17] [18] [19] [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 670--673
+Underfull \hbox (badness 10000) in paragraph at lines 710--713
 
  []
 
-<figures/4_1.png, id=629, 361.35pt x 223.83624pt>
+<figures/4_1.png, id=703, 361.35pt x 223.83624pt>
 File: figures/4_1.png Graphic file (type png)
  <use figures/4_1.png>
-Package pdftex.def Info: figures/4_1.png used on input line 683.
+Package pdftex.def Info: figures/4_1.png used on input line 723.
 (pdftex.def)             Requested size: 251.9989pt x 156.10025pt.
  [22] [23 <./figures/4_1.png (PNG copy)>] [24]
-Overfull \hbox (83.90746pt too wide) in paragraph at lines 770--770
+Overfull \hbox (83.90746pt too wide) in paragraph at lines 810--810
 [] 
  []
 
 [25] [26] [27] [28] [29] [30]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 979.
+(hyperref)                removing `math shift' on input line 1019.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 979.
+(hyperref)                removing `math shift' on input line 1019.
 
-<figures/6_1.png, id=712, 436.63126pt x 376.40625pt>
+<figures/6_1.png, id=786, 436.63126pt x 376.40625pt>
 File: figures/6_1.png Graphic file (type png)
  <use figures/6_1.png>
-Package pdftex.def Info: figures/6_1.png used on input line 996.
+Package pdftex.def Info: figures/6_1.png used on input line 1036.
 (pdftex.def)             Requested size: 161.9989pt x 139.65294pt.
- <figures/6_2.png, id=713, 419.5675pt x 339.2675pt>
+ <figures/6_2.png, id=787, 419.5675pt x 339.2675pt>
 File: figures/6_2.png Graphic file (type png)
  <use figures/6_2.png>
-Package pdftex.def Info: figures/6_2.png used on input line 997.
+Package pdftex.def Info: figures/6_2.png used on input line 1037.
 (pdftex.def)             Requested size: 161.9989pt x 130.9937pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1000.
+(hyperref)                removing `math shift' on input line 1040.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1000.
+(hyperref)                removing `math shift' on input line 1040.
 
-[31 <./figures/6_1.png> <./figures/6_2.png>] <figures/6_3.png, id=723, 416.55624pt x 351.3125pt>
+[31 <./figures/6_1.png> <./figures/6_2.png>] <figures/6_3.png, id=797, 416.55624pt x 351.3125pt>
 File: figures/6_3.png Graphic file (type png)
  <use figures/6_3.png>
-Package pdftex.def Info: figures/6_3.png used on input line 1016.
+Package pdftex.def Info: figures/6_3.png used on input line 1056.
 (pdftex.def)             Requested size: 180.0pt x 151.80655pt.
- [32 <./figures/6_3.png>] <figures/6_4.png, id=731, 488.82625pt x 397.485pt>
+ [32 <./figures/6_3.png>] <figures/6_4.png, id=805, 488.82625pt x 397.485pt>
 File: figures/6_4.png Graphic file (type png)
  <use figures/6_4.png>
-Package pdftex.def Info: figures/6_4.png used on input line 1025.
+Package pdftex.def Info: figures/6_4.png used on input line 1065.
 (pdftex.def)             Requested size: 180.0pt x 146.36359pt.
- [33 <./figures/6_4.png>] [34] <figures/7_1.png, id=751, 798.985pt x 693.59125pt>
+ [33 <./figures/6_4.png>] [34] <figures/7_1.png, id=826, 798.985pt x 693.59125pt>
 File: figures/7_1.png Graphic file (type png)
  <use figures/7_1.png>
-Package pdftex.def Info: figures/7_1.png used on input line 1114.
+Package pdftex.def Info: figures/7_1.png used on input line 1154.
 (pdftex.def)             Requested size: 216.0022pt x 187.50497pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [35] [36 <./figures/7_1.png>]
-Overfull \hbox (87.01883pt too wide) in paragraph at lines 1158--1158
+Overfull \hbox (87.01883pt too wide) in paragraph at lines 1198--1198
 [] 
  []
 
 
-Overfull \hbox (45.70197pt too wide) in paragraph at lines 1162--1162
+Overfull \hbox (45.70197pt too wide) in paragraph at lines 1202--1202
 [] 
  []
 
 
-Overfull \hbox (46.39163pt too wide) in paragraph at lines 1166--1166
+Overfull \hbox (46.39163pt too wide) in paragraph at lines 1206--1206
 [] 
  []
 
 
-Overfull \hbox (63.38692pt too wide) in paragraph at lines 1171--1171
+Overfull \hbox (63.38692pt too wide) in paragraph at lines 1211--1211
 [] 
  []
 
 
-Overfull \hbox (70.4209pt too wide) in paragraph at lines 1176--1176
+Overfull \hbox (70.4209pt too wide) in paragraph at lines 1216--1216
 [] 
  []
 
-[37] <figures/7_2.png, id=779, 994.71625pt x 617.30624pt>
+[37] <figures/7_2.png, id=854, 994.71625pt x 617.30624pt>
 File: figures/7_2.png Graphic file (type png)
  <use figures/7_2.png>
-Package pdftex.def Info: figures/7_2.png used on input line 1193.
+Package pdftex.def Info: figures/7_2.png used on input line 1233.
 (pdftex.def)             Requested size: 288.0011pt x 178.73164pt.
- <figures/8_1.png, id=780, 429.605pt x 564.1075pt>
+ <figures/8_1.png, id=855, 429.605pt x 564.1075pt>
 File: figures/8_1.png Graphic file (type png)
  <use figures/8_1.png>
-Package pdftex.def Info: figures/8_1.png used on input line 1202.
+Package pdftex.def Info: figures/8_1.png used on input line 1242.
 (pdftex.def)             Requested size: 251.9989pt x 330.90105pt.
  [38 <./figures/7_2.png>] [39 <./figures/8_1.png>] [40] [41] [42]
-Overfull \hbox (1.54259pt too wide) in paragraph at lines 1309--1310
+Overfull \hbox (1.54259pt too wide) in paragraph at lines 1349--1350
 [][]\OT1/cmr/m/it/10.95 In[]-[]vest[]-[]ment (pri-mar-ily in-ven-to-ries) fluc-tu-ates more than con-sump-
  []
 
 [43] [44] [45] [46] [47] [48] [49]
-Overfull \hbox (4.94598pt too wide) in paragraph at lines 1570--1570
+Overfull \hbox (4.94598pt too wide) in paragraph at lines 1610--1610
 [] 
  []
 
 [50] [51]
-Overfull \hbox (44.27145pt too wide) detected at line 1634
+Overfull \hbox (44.27145pt too wide) detected at line 1674
 []\OMS/cmsy/m/n/10.95 L \OT1/cmr/m/n/10.95 = \U/msb/m/n/10.95 E[][][][]
  []
 
 [52] [53]
-Overfull \hbox (32.36688pt too wide) detected at line 1686
+Overfull \hbox (32.36688pt too wide) detected at line 1726
 []\OMS/cmsy/m/n/10.95 L \OT1/cmr/m/n/10.95 = \U/msb/m/n/10.95 E[][][][] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^U[][]K[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]`[]N\OT1/cmr/m/n/10.95 )[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 Nc[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 K[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 K[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 G[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1700--1702
+Underfull \hbox (badness 10000) in paragraph at lines 1740--1742
 
  []
 
 [54]
-Overfull \hbox (23.7497pt too wide) in paragraph at lines 1740--1740
+Overfull \hbox (23.7497pt too wide) in paragraph at lines 1780--1780
 [] 
  []
 
 [55] [56]
-Overfull \hbox (55.55319pt too wide) in paragraph at lines 1772--1772
+Overfull \hbox (55.55319pt too wide) in paragraph at lines 1812--1812
 [] 
  []
 
 [57]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1818 					\begin{equation}
+l.1858 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1818 					\begin{equation}
+l.1858 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1818 					\begin{equation}
+l.1858 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1818 					\begin{equation}
+l.1858 					\begin{equation}
                              [58]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1825 					\begin{equation}
+l.1865 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1825 					\begin{equation}
+l.1865 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1825 					\begin{equation}
+l.1865 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1825 					\begin{equation}
+l.1865 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1829 					\begin{equation}
+l.1869 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1829 					\begin{equation}
+l.1869 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1829 					\begin{equation}
+l.1869 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1829 					\begin{equation}
+l.1869 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1833 					\begin{equation}
+l.1873 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1833 					\begin{equation}
+l.1873 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1833 					\begin{equation}
+l.1873 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1833 					\begin{equation}
+l.1873 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1837 					\begin{equation}
+l.1877 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1837 					\begin{equation}
+l.1877 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1837 					\begin{equation}
+l.1877 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1837 					\begin{equation}
+l.1877 					\begin{equation}
                             pdfTeX warning (ext4): destination with the same identifier (name{equation.10.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1844 					\end{gather}
+l.1884 					\end{gather}
                         pdfTeX warning (ext4): destination with the same identifier (name{equation.10.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1844 					\end{gather}
+l.1884 					\end{gather}
                         pdfTeX warning (ext4): destination with the same identifier (name{equation.10.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867 				\end{gather}
+l.1907 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.9}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867 				\end{gather}
+l.1907 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867 				\end{gather}
+l.1907 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867 				\end{gather}
+l.1907 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.12}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867 				\end{gather}
+l.1907 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.13}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867 				\end{gather}
+l.1907 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.14}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867 				\end{gather}
+l.1907 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.15}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867 				\end{gather}
+l.1907 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1867 				\end{gather}
+l.1907 				\end{gather}
                         [59]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1877 					\end{gather}
+l.1917 					\end{gather}
                         pdfTeX warning (ext4): destination with the same identifier (name{equation.10.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1877 					\end{gather}
+l.1917 					\end{gather}
                         pdfTeX warning (ext4): destination with the same identifier (name{equation.10.19}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1877 					\end{gather}
+l.1917 					\end{gather}
                         pdfTeX warning (ext4): destination with the same identifier (name{equation.10.20}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1888 				\end{gather}
+l.1928 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.21}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1888 				\end{gather}
+l.1928 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.22}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1888 				\end{gather}
+l.1928 				\end{gather}
                        pdfTeX warning (ext4): destination with the same identifier (name{equation.10.23}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1888 				\end{gather}
+l.1928 				\end{gather}
                        
-Overfull \hbox (39.93053pt too wide) in paragraph at lines 1888--1888
+Overfull \hbox (39.93053pt too wide) in paragraph at lines 1928--1928
 [] 
  []
 
 [60]pdfTeX warning (ext4): destination with the same identifier (name{equation.10.24}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1894 					\end{gather}
+l.1934 					\end{gather}
                         pdfTeX warning (ext4): destination with the same identifier (name{equation.10.25}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1894 					\end{gather}
-                        
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1895.
- [61]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1895.
+l.1934 					\end{gather}
+                         [61]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1994.
+ [62]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1994.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1895.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1895.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1994.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1994.
 Package rerunfilecheck Info: File `eco325_lec_notes.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1895.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1994.
  ) 
 Here is how much of TeX's memory you used:
- 9503 strings out of 493014
- 133918 string characters out of 6133351
- 247870 words of memory out of 5000000
- 12349 multiletter control sequences out of 15000+600000
+ 9573 strings out of 493014
+ 134925 string characters out of 6133351
+ 247893 words of memory out of 5000000
+ 12360 multiletter control sequences out of 15000+600000
  15349 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,17n,46p,921b,552s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (61 pages, 735455 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/ECO325/.texpadtmp/eco325_lec_notes.pdf (62 pages, 777690 bytes).
 PDF statistics:
- 1271 PDF objects out of 1440 (max. 8388607)
- 1148 compressed objects within 12 object streams
- 509 named destinations out of 1000 (max. 500000)
- 674 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1374 PDF objects out of 1440 (max. 8388607)
+ 1247 compressed objects within 13 object streams
+ 567 named destinations out of 1000 (max. 500000)
+ 735 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -13,7 +13,7 @@
 \usepackage{xcolor}
 \usepackage{chngcntr}
 
-\counterwithin*{equation}{section}
+\counterwithin{equation}{section}
 \newcommand{\expat}[2]{\mathbb{E}_{#1}\Big[{#2}\Big]}
 
 \usepackage[
@@ -46,25 +46,29 @@
     
     \section{Lecture 1 September 6. 2018}
         \begin{definition}
-            A \textbf{growth miracle} are episodes where thee growth in a country far exceeds the world average over a extended period of time. \ul{Result} the country experiencing the miracle moves up the wold income distribution.
+            A \textbf{growth miracle} are episodes where thee growth in a country far exceeds the world average over an extended period of time. \\
+            \ul{Result}: the country experiencing the miracle \ul{moves up in the} \hl{wold income distribution}.
         \end{definition}
         
         \begin{definition}
-            A \textbf{growth disaster} is an episodes where the growth in a country falls short at the world average for an extended period of time. \ul{Result} the country moves down in the world income distribution.
+            A \textbf{growth disaster} is an episodes where the growth in a country falls short at the world average for an extended period of time. \\
+            \ul{Result}: the country \ul{moves down in the world income distribution}.
         \end{definition}
     
-        \paragraph{Facts}(with corresponding result from Solow growth model.)
+        \paragraph{Economic Growth Facts}(with corresponding result from Solow growth model.)
         \begin{enumerate}
             \item Real output($Y$) grows at a (more or less) constant rate ($n+g$).
             \item Stock of real capital($K$) grows at a (more or less) constant rate($n+g$) (but it grows faster than labor input($L$)($n$).
-            \item Growth rates of real output and the stock of capital are about the same. (both $n+g$)
+            \item Growth rates of real output($Y$) and the stock of capital($K$) are about the same. (both $n+g$)
             \item The rate of growth of output per capita($\frac{Y}{L}$) varies greatly across countries. ($g$ varies across countries)
         \end{enumerate}
         
-        \subsection{Solow Growth Model (continuous time version)}
-            \paragraph{Intro.} Solow growth model decomposes the growth in output per capita into portions accounted for by increase in \ul{inputs} and the portion contributed to increases in \ul{productivity}.
+        \subsection{Solow Growth Model (continuous time)}
+            \paragraph{Introduction} Solow growth model decomposes the growth in output per capita $\frac{Y}{L}$ into portions accounted for by increase in \ul{inputs}($L, K$) and the portion contributed to increases in \ul{productivity} ($A$).
            
-            \paragraph{Notations} In the baseline model we denote $K$ as capital, $L$ as labor and $A$ as technology.
+            \begin{notation}
+            		In the baseline model we denote $K$ as capital, $L$ as labor and $A$ as technology.
+            \end{notation}
             
         \subsubsection{Production Function}
             \begin{remark}
@@ -75,7 +79,7 @@
             \end{definition}
             
             \begin{definition}
-                The production function is defined as a real-valued mapping from input factor space to an output level.
+                The \textbf{production function} is defined as a real-valued mapping from input factor space to an output level $F: \mc{K} \times \mc{A} \times \mc{L} \to \R_{\geq 0}$:
 	            \begin{equation}
                     \textcolor{orange}{Y(t) = F(K(t), A(t)L(t))}
 	            \end{equation}
@@ -83,15 +87,16 @@
             
             \begin{example}
             	    Cobb-Douglas form of production function.
-                \[
+                \begin{equation}
                     Y(t) = K(t)^\alpha (A(t)L(t))^{1 - \alpha},\ \alpha \in (0, 1)
-                \]
+                \end{equation}
             \end{example}
             
             \begin{assumption} The production function is assumed to be \ul{constant return to scale} in $K$ and $AL$.
-            \[
-            	Y(cK, cAL) = cY(K, AL),\ \forall c \geq 0
-            \]
+	            \begin{equation}
+	            		Y(cK, cAL) = cY(K, AL),\ \forall c \geq 0
+	            \end{equation}
+	            
            	This CRS assumption is the result of two separate assumptions.
            	\begin{enumerate}
            		\item \emph{The economy is big enough that the gains from specialization have been exhausted.} $\implies$ There is \textbf{no} increasing return to scale.
@@ -100,11 +105,11 @@
             \end{assumption}
             
             \begin{definition}
-                Define $c := \frac{1}{AL}$, the \textbf{intensive form} of production function is
-                \[
+                Define $c := \frac{1}{AL}$, the \textbf{intensive form of production function} is
+                \begin{equation}
                     y(t) = \frac{Y(t)}{A(t)L(t)} = f(k(t))
-                \]
-                where $y := \frac{Y}{AL}$ denotes the \textbf{output per unit of effective labor} and $k := \frac{K}{AL}$ denote the capital stock per unit of effective labor.
+                \end{equation}
+                where $y := \frac{Y}{AL}$ denotes the output \emph{per unit of effective labor} and $k := \frac{K}{AL}$ denote the capital stock per unit of effective labor.
             \end{definition}
 	
 	\section{Lecture 2 September 13. 2018}
@@ -114,31 +119,36 @@
 				\begin{itemize}
 					\item $K(t) := $ aggregate capital stock at time $t$.
 					\item $L(t) := $ aggregate labor supple at time $t$.
-					\item $A(t) := $ labor argument technology\footnote{Harrod-neutral technology} (\ul{effectiveness of labor}) at time $t$.
+					\item $A(t) := $ labor-argumented technology\footnote{Harrod-neutral technology} (\ul{effectiveness of labor}) at time $t$.
 				\end{itemize} 
 				to output values ($Y(t) := $ aggregate output at time $t$.) The production function takes the form of
-				\[
+				\begin{equation}
 					Y(t) = F(K(t), A(t)L(t))
-				\]
+				\end{equation}
 			\end{definition}
 			
 			\begin{assumption}[Assumptions on Production Function]
 				The production function are assumed to be \ul{constant return to scale} in $A(t)L(t)$ and $K(t)$.
-				\[
+				\begin{equation}
 					cF(K(t), A(t)L(t)) = F(cK(t), cA(t)L(t)),\ \forall c > 0
-				\]
+				\end{equation}
 			\end{assumption}
+			
+			\begin{remark}
+				We assume CRS property on the \emph{aggregate} production function only, but the intensive-form production generally experiences increasing return to scale by Inada Condition.
+			\end{remark}
 			
 			\begin{definition}
 				The \textbf{intensive form of production function} is defined as the output per unit of effective labor. \\
 				Let 
-				\[
+				\begin{equation}
 					f(t) := \frac{Y(t)}{A(t)L(t)}
-				\] 
+				\end{equation}
 				and 
-				\[
+				\begin{equation}
 					k(t) := \frac{K(t)}{A(t)L(t)}
-				\] denote the output and capital per unit of effective labor respectively. By the assumption of \emph{CRS} on \emph{aggregate} production function, take $c = \frac{1}{A(t)L(t)}$. The \emph{intensive form} production function can be expressed as
+				\end{equation}
+				denote the output and capital per unit of effective labor respectively. By the assumption of \emph{CRS} on \emph{aggregate} production function, take $c = \frac{1}{A(t)L(t)}$. The \emph{intensive form} production function can be expressed as
 				\begin{equation}
 					\textcolor{orange}{
 						y(t) = f(k(t))
@@ -146,7 +156,7 @@
 				\end{equation}
 			\end{definition}
 			
-			\begin{assumption}[Assumptions on Intensive Form Production Function] the function $f(\cdot): \R_+ \rightarrow \R_+$ is assumed to satisfy \emph{Inada Conditions}.
+			\begin{assumption}[Assumptions on Intensive Form Production Function] the function $f(\cdot): \R_+ \rightarrow \R_+$ is assumed to satisfy \textbf{Inada Conditions}.
 				\begin{enumerate}
 					\item $f(0) = 0$: capital is necessary for production.
 					\item $f'(k) > 0,\ \forall k \in \R_+$: the marginal return of capital per effective unit of labor is positive.
@@ -160,19 +170,19 @@
 			The role of assumption 2.2 is to ensure that the path of the economy does not diverge.
 			\end{remark}
 			
-			\begin{example}[Cobb-Douglas Production Function]
+			\begin{example}[Cobb-Douglas Production Function is CRS and follows Inada Conditions]
 				Consider the Cobb-Douglas production function
-				\[
+				\begin{equation}
 					Y(t) = K(t)^\alpha (A(t)L(t))^{1 - \alpha},\ \alpha \in (0, 1)
-				\]
+				\end{equation}
 				
-				\begin{proof}[Check]
+				\begin{proof}
 					Let $c \in \R_+$, 
-					\begin{gather*}
+					\begin{gather}
 						F(cK, cAL) = (cK)^\alpha (cAL)^{1 - \alpha} \\
 						= c^\alpha c^{1-\alpha} K^\alpha AL^{1-\alpha} \\
 						= cK^{\alpha} AL^{1-\alpha} = cF(K, AL)
-					\end{gather*}
+					\end{gather}
 					CRS on aggregate form is shown. \\
 					Notice that $f(k) = k^{\alpha}$ \\
 					And 
@@ -191,9 +201,9 @@
 				Assume the initial values of $K, A, L$ are given and strictly positive. Labor and Knowledge are assumed to grow at an exogenously given constant rate, denoted as $n, g$ respective.
 				\begin{gather}
 				\textcolor{orange}{
-					\dot{L(t)} = nL(t),\ n > 0 }\\
+					\dot{L}(t) = nL(t),\ n > 0 }\\
 					\textcolor{orange}{
-						\dot{A(t)} = gA(t),\ g > 0
+						\dot{A}(t) = gA(t),\ g > 0
 					}
 				\end{gather}
 			\end{assumption}
@@ -225,48 +235,57 @@
 				\end{gather}
 			\end{proposition}
 			
-			\par Assume there is \emph{no government} and the Solow economy is a \emph{closed economy}. The output is divided between \emph{consumption} and \emph{investment} as 
-			\[
-				Y(t) = C(t) + I(t)
-			\]
-			And given $\delta$ as depreciation rate of capital, in discrete time (let $\Delta t = 1$)we have 
-			\begin{gather*}
-				K(t+1) = (1-\delta)K(t) + I(t) \\
-				\iff I(t) = K(t+1) - K(t) + \delta K(t) \\
+			\begin{assumption}
+				Assume there is \emph{no government} and the Solow economy is a \emph{closed economy}. The output is divided between \emph{consumption} and \emph{investment} as 
+				\begin{equation}
+					Y(t) = C(t) + I(t)
+				\end{equation}
+			\end{assumption}
+			\par And given $\delta$ as depreciation rate of capital, in discrete time (let $\Delta t = 1$)w e have 
+			\begin{gather}
+				K_{t+1} = (1-\delta)K_t + I_t \\
+				\iff I_t = (K_{t+1} - K_t) + \delta K_t \\
 				\tx{As } \Delta \to 0 \tx{ (convert to continuous time)}\\
 				\textcolor{orange}{I(t) = \dot{K}(t) + \delta K(t)}
-			\end{gather*}
+			\end{gather}
 			
 			\begin{assumption}
-				Assume investment equals saving and a constant friction $s \in [0, 1]$ of output is saved at each epoch. The marginal propensity to save, $s$ is given exogenously.
+				Assume investment equals saving and a \ul{constant friction} $s \in [0, 1]$ of output is saved at each epoch. The marginal propensity to save, $s$ is given exogenously.
 			\end{assumption}
 			
 			\par Therefore,
-			\begin{gather*}
+			\begin{gather}
 				I(t) = sY(t) \implies \dot{K}(t) + \delta K(t) = sY(t) \\
 				\implies \textcolor{orange}{
-					\dot{K}(t) = sY(t) - \delta(K(t))
+					\dot{K}(t) = sY(t) - \delta K(t)
 					}
-			\end{gather*}
+			\end{gather}
 			
 			\subsection{Dynamics of $k(t)$}
 				\par For simplicity, assuming $n, g, \delta > 0$ and the dynamics of capital per effective unit of labor follows: 
-				\begin{gather*}
+				\begin{gather}
 					\dot{k}(t) := \pd{k(t)}{t} = \pd{}{t} \frac{K(t)}{A(t)L(t)} \\
 					= \frac{\dot{K}AL - K(\dot{A}L + A\dot{L})}{(AL)^2} \\
 					= \frac{\dot{K}}{AL} - \frac{K\dot{A}L}{(AL)^2} - \frac{K A\dot{L}}{(AL)^2} \\
 					= \frac{sY - \delta K}{AL} - \frac{\dot{A}}{A}\frac{K}{AL} - \frac{\dot{L}}{L} \frac{K}{AL} \\
 					= sy(t) - (n + g + \delta) k(t)
-				\end{gather*}
-				Where $s y(t)$ is the \textbf{actual investment} per unit of effective labor and $(n + g + \delta) k(t)$ is the \textbf{break-even investment} per unit of effective labor.
+				\end{gather}
+				Where \[s y(t)\] is the \textbf{actual investment} \emph{per unit of effective labor} and \[(n + g + \delta) k(t)\] is the \textbf{break-even investment} per unit of effective labor.
 				
-			\begin{remark}
-				The \textbf{convergence speed} is \ul{inversely} correlated with the value of $| k(t) - k^* |$, where $k^*$ denotes the steady state level of capital stock per effective unit of labor.
-			\end{remark}
-			
-			\begin{remark}
-				With \ul{convex} production function ($f''(k) > 0$), then $k(t) < k^* \implies \dot{k} < 0$ and $k(t) > k^* \implies \dot{k} > 0$. The steady state value $k^*$ is \ul{steady but not stable} (with $k(t) \neq k^*$, $k$ does not automatically converge to $k^*$).
-			\end{remark}
+				\begin{remark}
+					The \textbf{convergence speed} is \ul{inversely} correlated with the value of $| k(t) - k^* |$, where $k^*$ denotes the steady state level of capital stock per effective unit of labor.
+				\end{remark}
+				
+				\begin{remark}
+					\textcolor{blue}{
+					With \ul{convex} production function ($f''(k) > 0$), then $k(t) < k^* \implies \dot{k} < 0$ and $k(t) > k^* \implies \dot{k} > 0$. The steady state value $k^*$ is \ul{steady but not stable} (with $k(t) \neq k^*$, $k$ does not automatically converge to $k^*$).
+					}
+				\end{remark}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.7\linewidth]{figures/convex_prod_func.png}
+					\caption{A Convex Intensive Form Production Function}
+				\end{figure}
 	
 	\section{Lecture 3 September 20. 2018}
 		\subsection{Dynamic Transitions}
@@ -294,15 +313,18 @@
 			\newpage 
 			
 			\begin{definition}
-			\textbf{Steady level of capital per unit of effective labor($k^*$)} is defined as the level of capital per unit of effective labor that equates break-even investment per unit of effective labor and actual investment per unit of effective labor. So that $k$ does not deviate from $k^*$.\footnote{The definition can also be expressed as $k^* := \{k \in \R_{+}: \dot{k}(k) = 0\}$}
-				\[
-					k^* := \{k \in \R_{+}: sf(k) = (n+g+\delta) k\}
-				\]
+			\textbf{Steady level of capital per unit of effective labor($k^*$)} is defined as the level of capital per unit of effective labor that equates break-even investment per unit of effective labor and actual investment per unit of effective labor. So that $k$ does not deviate from $k^*$.\footnote{The definition can also be expressed as $k^* := \{k \in \R_{\geq 0}: \dot{k}(k) = 0\}$}
+				\begin{equation}
+					k^* := \{k \in \R_{\geq 0}: sf(k) = (n+g+\delta) k\}
+				\end{equation}
 			\end{definition}
+			\begin{remark}
+				$k^* = 0$ is a trivial steady state.
+			\end{remark}
 			
 			\begin{remark}
 				The values of other endogenous variables at steady state are derived from $k^*$.
-				\begin{example} Find the steady state growth rate of investment, consumption and output per unit of effective labor.
+				\begin{example} Find the steady state growth rate of investment, consumption and output per unit of effective labor:
 					\begin{gather}
 						y^* = f(k^*) \\
 						i^* = sf(k^*) = (n+g+\delta) k^* \\
@@ -353,7 +375,7 @@
 					= \pd{\ln{k(t)}}{t} + \pd{\ln{A(t)}}{t} \\
 					= \frac{\dot{k}(t)}{k(t)} + g \\
 				\end{gather*}
-				And at the steady state, by definition, $\dot{k}(t)|_{k-k^*} = 0$, therefore 
+				And at the steady state, by definition, $\dot{k}(t)|_{k=k^*} = 0$, therefore 
 				\begin{equation}
 					\textcolor{blue}{
 						g_{\frac{K}{L}}^* = g
@@ -411,14 +433,16 @@
 						g_K^* = n + g
 					}
 				\end{equation}
-				and proof for $C(t)$ and $I(t)$ follows the same path.
+				and proof for $C(t)$ and $I(t)$ are similar. \hl{Take log first, then separate the log and take derivative with respect to $t$.}
 			\end{proof}
 		
 		\begin{definition}
 			The \textbf{golden rule level of capital per unit of effective labor} ($k_G$) is the \ul{steady state level of} capital per unit of effective labor that maximizes steady state consumption per unit of effective labor.
-				\[
+				\begin{equation}
+				\textcolor{red}{
 					k_G = argmax_{k^* \in \textbf{k}^*(\Theta)} \{c^* = f(k^*) - (n+g+ \delta) k^*\}
-				\]
+					}
+				\end{equation}
 		\end{definition}
 		
 		\begin{definition}
@@ -433,7 +457,9 @@
 			\end{gather*}
 			Thus, golden rule level of capital stock per unit of effective labor $k_G$ can be expressed as \footnote{Notice that the zero solution, $k^* = 0$ is a trivial steady state and we ignore this case during this course.}
 			\begin{equation}
+			\textcolor{red}{
 				k_G = \{k \in \R_{+}: f'(k) = (n+g+\delta)\}
+			}
 			\end{equation}
 		\end{proof}
 		
@@ -457,29 +483,37 @@
 			\paragraph{Impact on $k^*$}
 			\begin{proof}[Solution]
 				At any steady state level, $k^*$ satisfies \\
-				\[sf(k^*(n,g,\delta,s)) = (n+g+\delta)k^*(n,g,\delta,s)\] \\
+				\begin{equation}
+					sf(k^*(n,g,\delta,s)) = (n+g+\delta)k^*(n,g,\delta,s)
+				\end{equation}
 				Differentiate both sides with respect to $s$, \\
-				We have \[sf'(k^*)\pd{k^*}{s} + f(k^*) = (n+g+\delta)\pd{k^*}{s}\] \\
-				Rearrange and get \\
-				\[
+				We have 
+				\begin{equation}
+					sf'(k^*)\textcolor{blue}{\pd{k^*}{s}} + f(k^*) = (n+g+\delta)\textcolor{blue}{\pd{k^*}{s}}
+				\end{equation}
+				Rearrange and get 
+				\begin{equation}
 					\pd{k^*}{s} = \frac{f(k^*)}{(n+g+\delta) - sf'(k^*)}
-				\] \\
-				Notice that the slope of break-even investment is greater than the slope of the actual investment at the steady state, therefore \[\pd{k^*}{s} > 0\] \\
+				\end{equation}
+				Notice that the slope of break-even investment is greater than the slope of the actual investment at the steady state, therefore 
+				\begin{equation}
+					\pd{k^*}{s} > 0
+				\end{equation}
 			\end{proof}
 			
 			\paragraph{Impact on $y^*$}
 			\begin{proof}[Solution]
 				Using chain rule we have
-				\begin{gather*}
+				\begin{gather}
 					\pd{y^*}{s} = \pd{f(k^*)}{s} \\
 					= \pd{f(k^*)}{k^*} \pd{k^*}{s} > 0,\ \forall k^* \in \textbf{k}^*({\Theta})
-				\end{gather*}
+				\end{gather}
 			\end{proof}
 			
 			\par To get a sense on how much $y^*$ changes wit respect to change in $s$, we could look at the \ul{elasticity}.
-			\[
-				\eta = \pd{y^*}{s}\frac{s}{y^*} = f'(k^*) \pd{k^*}{s} \frac{s}{f(k^*)} = \frac{f'(k^*)s}{(n+g+\delta) - sf'(k^*)}
-			\]
+			\begin{equation}
+				\eta \equiv \pd{y^*}{s}\frac{s}{y^*} = f'(k^*) \pd{k^*}{s} \frac{s}{f(k^*)} = \frac{f'(k^*)s}{(n+g+\delta) - sf'(k^*)}
+			\end{equation}
 			Recall that $(n+g+\delta) = \frac{sf(k^*)}{k^*}$ and rearrange the elasticity
 			\begin{gather*}
 				\eta = \pd{y^*}{s}\frac{s}{y^*} \\
@@ -565,7 +599,13 @@
 	        \dot{k}(k(t)) \approx (n + g + \delta) (\alpha (k^*) - 1) (k(t) - k^*) \\
 	        \implies \pd{({k - k^*}(k))}{t} = \dot{k}(k(t)) \approx (n + g + \delta) (\alpha (k^*) - 1) (k(t) - k^*)
 	    \end{gather*}
-	    Let $\lambda := (n + g + \delta) (1 - \alpha (k^*))$ then 
+	    Let 
+	    \begin{equation}
+	    		\textbf{color}{red}{
+	    		\lambda \equiv (n + g + \delta) (1 - \alpha (k^*))
+	    		}
+	    \end{equation}
+		then 
 	    \begin{gather}
 	    \textcolor{orange}{
 	        k(t) - k^* \approx e^{-\lambda t}(k(0) - k^*)
@@ -1313,7 +1353,7 @@
 					\begin{enumerate}
 						\item real GPD
 						\item employment
-						\item weekly hours in manufacturing
+						\item \textcolor{red}{weekly hours in manufacturing}
 						\item interest rates and inflation		
 					\end{enumerate} \emph{typically} fall.
 				\item Decline in employment and hours are generally smaller than the fall in output.
@@ -1892,6 +1932,65 @@
 						e^{-\rho t} \frac{1}{c_t} = \lambda_t =  e^{-\rho t} \frac{b}{1 - \ell_t} \frac{1}{w_t} \\
 						\implies \frac{b}{1-\ell_t} = \frac{w_t}{c_t}
 					\end{gather}
+	
+	\section{Some Extensions to the Baseline RBC Model}
+		\setcounter{equation}{0}
+		\subsection{Taxation and Government Bonds}
+			\begin{assumption}
+				Assuming government finances its expenses with \ul{both lump-sum tax and bonds}.
+			\end{assumption}
+			
+			\subsubsection{Setup the Model}
+				\paragraph{Objective Functional}
+					\begin{equation}
+						\expat{\textcolor{red}{0}}{
+							\sum_{t=0}^\infty e^{-\rho t} u(c_t, 1 - \ell_t) \frac{N_t}{H}
+							}
+					\end{equation}
+				\paragraph{Controls} now households have two assets to invest in, capitals and government bonds.\\
+				Household maximize it's expected lifetime budget by choosing
+					\begin{equation}
+						\{c_t, \ell_t, \frac{K_{t+1}}{H}, \frac{B_{t+1}}{H}\}_{t=0}^\infty
+					\end{equation}
+				
+				\paragraph{Household Budget}
+					\begin{gather}
+						\frac{K_{t+1}}{H} - \frac{K_t}{H} + \delta \frac{K_t}{H} + \textcolor{red}{\frac{B_{t+1}}{H} - \frac{B_t}{H}} + c_t \frac{N_t}{H} + \frac{T_t}{H} \leq w_t \ell_t \frac{N_t}{H} + r^k_t \frac{K_t}{H} + \textcolor{red}{r^b_t \frac{B_t}{H}}\\
+						\iff K_{t+1} - K_t + \delta K_t + B_{t+1} - B_t + c_t N_t + T_t \leq w_t \ell_t N_t + r^k_t K_t + r^b_t B_t
+					\end{gather}
+					where $T_t$ denotes the \emph{net} taxation (taxations less subsidies) from government. \\
+					And aggregate investment $I_t$ is defend as
+					\begin{equation}
+						I_t \equiv \underbrace{
+							K_{t+1} - K_t + \delta K_t}_\tx{Investment in Capital}\quad + \underbrace{B_{t+1} - B_t}_\tx{Investment in Bonds}
+					\end{equation}
+					and $r^k_t$, $r^b_t$ denotes the \ul{nominal} interest rate from capital and government bonds respectively.
+					\begin{remark}
+						Under equilibrium, the \ul{read} return on capital and government bond should be equal.
+						\begin{equation}
+							r_t^k - \delta = r_t^b
+						\end{equation}
+					\end{remark}
+				
+				\paragraph{Government Budget}
+					\begin{equation}
+						\overbrace{\underbrace{r^b_t B_t}_\tx{interest on existing bonds} + G_t}^\tx{total expenses} \leq \overbrace{T_t + \underbrace{B_{t+1} - B_t}_\tx{newly issued bonds}}^\tx{total revenue}
+					\end{equation}
+		
+		\setcounter{equation}{0}
+		\subsection{Capital Tax}
+		
+		
+		
+		\setcounter{equation}{0}
+		\subsection{Labor Income Tax}
+		
+		
+		\setcounter{equation}{0}
+		\subsection{Distortionary Income Tax}
+		
+		\setcounter{equation}{0}
+		\subsection{Variations of Utilities}
 \end{document}
 
 
