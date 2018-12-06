@@ -17,7 +17,7 @@
 \usepackage{bm}
 
 
-\counterwithin*{equation}{section}
+\counterwithin{equation}{section}
 
 
 \usepackage[
@@ -630,7 +630,7 @@
       		\]
       		
 	\section{Slide 10: Multiple Regression - Qualitative Information}
-		\subsection{Binary predictors}
+		\subsection{Binary Predictors}
 			\begin{remark}
 				With binary independent variables, $MLR.1 \sim MLR.6$ still holds, but the interpretations are different.
 			\end{remark}
@@ -640,7 +640,7 @@
 				y = \delta_0 + \delta_1 male + \dots + u
 			\]
 			\begin{remark}
-				To avoid perfect multi-collinearity, never include all categories.
+				\textcolor{red}{To avoid perfect multi-collinearity, never include all categories}.
 			\end{remark}
 			
 			\subsubsection{On Slopes}
@@ -659,7 +659,7 @@
 				\]
 			\end{enumerate}
 		\subsection{Linear Probability Model}
-			\emph{Qualitative binary dependent variable}
+			\paragraph{Model} \emph{Qualitative binary dependent variable}
 			\[
 				y = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k + u,\ y \in \{0, 1\}
 			\]
@@ -670,18 +670,31 @@
 						= Pr(y=1|\textbf{x})
 					\end{gather*}
 				\end{proof}
-			\begin{remark}
-				$\beta_j = \pd{P(\textbf{x})}{x_j}$ is the \textbf{response probability}, and $\hat{P}(\textbf{x})$ is the \textbf{predicted probability} of $y$ to be 1.
-			\end{remark}
-			\begin{remark}[Out-of-range predictions]
+				
+			\begin{definition}
+				The \textbf{response probability} of independent variable $x_j$ is defined as
+				\begin{equation}
+					\beta_j = \pd{P(\textbf{x})}{x_j}
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				The \textbf{predicted probability} of $y$ to be 1 is defined as
+				\begin{equation}
+					\hat{P}(\textbf{x}) \equiv \textbf{x}' \hat{\bm{\beta}}
+				\end{equation}
+			\end{definition}
+			
+			\begin{remark}[\textcolor{red}{Out-of-range predictions}]
 				Notice the prediction is not necessarily with the range of $[0,1]$ for some extreme values of \textbf{x}.
 			\end{remark}
-		\subsection{Heterskedasticity of LPM}
+			
+		\subsection{Heteroskedasticity of LPM}
 			\begin{remark}
 				For probability linear models, $MLR.5$(homoskedasticity) fails.
 			\end{remark}
 			\begin{proof}
-				\begin{gather*}
+				\begin{gather}
 					y_i = \beta_0 + \beta_1 x_{i1} + \dots \beta_k x_{ik} + u_i \\
 					\tx{For binary $y$} \\
 					\textcolor{red}{
@@ -693,19 +706,21 @@
 					= \expect{y | \textbf{x}} (1 - \expect{y | \textbf{x}}) \\
 					= (\beta_0 + \beta_1 x_1 + \dots + \beta_k x_k) (1 - \beta_0 - \beta_1 x_1 - \dots - \beta_k x_k) \\
 					\neq \sigma_u^2
-				\end{gather*}
+				\end{gather}
 			\end{proof}
+			
+			
 	\section{Slide 11: Heteroskedasticity}
 		\begin{definition}
 			Consider model 
-			\[
+			\begin{equation}
 				y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \dots + \beta_k x_{ik} + u_i
-			\]
-			the error of above model is heteroskedastic if for each sample point $\textbf{x}_i \in \R^{k+1}$, 
-			\[
+			\end{equation}
+			the error of above model is heteroskedastic if for each \emph{slice} of population captured by $\textbf{x}_i \in \R^{k+1}$, 
+			\begin{equation}
 				Var(u_i | \textbf{x}_i) = \sigma_i^2
-			\]
-			and $\sigma_i^2$ is not the same for all $i$.
+			\end{equation}
+			and \hl{$\sigma_i^2$ is not the same for all $i$}.
 		\end{definition}
 		\begin{remark}[Consequence]
 			Without $MLR.5$, Gauss-Markov theorem does not hold and 
@@ -715,30 +730,30 @@
 			\end{enumerate}
 		\end{remark}
 		\begin{proof}[Proof. unbiasedness, in simple regression]
-			\begin{gather*}
+			\begin{gather}
 				\hat{\beta}_1 = \frac{\sum_i(x_i - \overline{x})(y_i - \overline{y})}{\sum_i(x_i - \overline{x})^2} \\
 				= \frac{\sum_i(x_i - \overline{x})(\beta_0 + \beta_1 x_1 + u_i - \overline{y})}{\sum_i(x_i - \overline{x})^2} \\
 				= \frac{\sum_i(x_i - \overline{x})(\beta_0 + \beta_1 x_1 + \beta_1 \overline{x} - \beta_1 \overline{x} + u_i - \overline{y})}{\sum_i(x_i - \overline{x})^2} \\
 				= \frac{\sum_i \beta_1 (x_i - \overline{x})^2 + (x_i - \overline{x}) (\beta_0 + \beta_1 \overline{x} - \overline{y} + u_i)}{\sum_i(x_i - \overline{x})^2} \\
 				= \beta_1 + \frac{\sum_i (x_i - \overline{x}) (0 + u_i)}{\sum_i (x_i - \overline{x})^2} \\
-				= \beta_1 + \frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2} \\
-				\tx{taking expectation conditional on \textbf{x} on both sides} \\
+				= \beta_1 + \textcolor{orange}{\frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2}} \\
+				\tx{Taking expectation conditional on \textbf{x} on both sides} \\
 				\expect{\hat{\beta}_1|\textbf{x}} = \beta_1 
-			\end{gather*}
+			\end{gather}
 		\end{proof}
 		
 		\begin{proof}[Proof. variance]
-			\begin{gather*}
+			\begin{gather}
 				Var(\hat{\beta}_1 | \textbf{x}) = \expect{(\hat{\beta} - \expect{\hat{\beta}_1 | \textbf{x}})^2 | \textbf{x}} \\
 				= \expect{(\hat{\beta}_1 - \beta_1)^2 | \textbf{x}} \\
-				= \expect{(\frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2})^2|\textbf{x}} \\
+				= \expect{\Big(\textcolor{orange}{\frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2}}\Big)^2|\textbf{x}} \\
 				= \frac{\sum_i(x_i - \overline{x}) \expect{u_i | \textbf{x}}}{\Big( \sum_i (x_i - \overline{x})^2 \Big)^2} \\
 				\neq \frac{\sigma^2}{SST_x}
-			\end{gather*}
+			\end{gather}
 			For multiple regressions
-			\begin{gather*}
+			\begin{gather}
 				Var(\hat{\beta}_j | \textbf{x}) = \frac{\sum_i{\tilde{r}_{ij}^2 \sigma_i^2}}{SSR_j^{\textcolor{red}{2}}} \neq \frac{\sigma^2}{SSR_j} = \frac{\sigma}{(1-R^2_j)SST_j}
-			\end{gather*}
+			\end{gather}
 		\end{proof}
 		
 		\paragraph{Remedies}

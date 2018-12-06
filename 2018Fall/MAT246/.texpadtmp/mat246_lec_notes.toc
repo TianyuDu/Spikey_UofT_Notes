@@ -53,4 +53,5 @@
 \contentsline {section}{\numberline {32}Lecture 32. Nov. 30 2018}{46}{section.32}
 \contentsline {paragraph}{Recall}{46}{section*.6}
 \contentsline {section}{\numberline {33}Lecture 33. Dec. 3 2018}{47}{section.33}
-\contentsline {section}{\numberline {34}Lecture 3 Dec. 5 2018}{49}{section.34}
+\contentsline {section}{\numberline {34}Lecture 34 Dec. 5 2018}{49}{section.34}
+\contentsline {section}{\numberline {35}Lecture 35 Dec. 6 2018}{49}{section.35}

@@ -2464,7 +2464,7 @@
 			By applying above argument recursively, we can show that all roots of this cubic polynomial must be rational.
 		\end{proof}
 		
-	\section{Lecture 3 Dec. 5 2018}
+	\section{Lecture 34 Dec. 5 2018}
 		\begin{example}
 			Given a constructible angle $\theta$ such that $\cos(\theta) = \frac{2}{3}$, show that $\theta$ cannot be trisected.
 			\begin{proof}
@@ -2504,6 +2504,52 @@
 				therefore, any constructible numbers have the property of being surds.
 			\end{proof}
 		\end{theorem}
+		
+	\section{Lecture 35 Dec. 6 2018}
+		\begin{theorem}
+			All constructible numbers and all surds are algebraic.
+			\[
+				C = S \subset \mc{A}
+			\]
+		\end{theorem}
+		\begin{lemma}
+			If $\tilde{x}$ is a root of polynomial of degree $n$, with coefficients in some number field $\mc{F}_k \equiv \mc{F}_{k-1}(\sqrt{r_k})$, then $\tilde{x}$ is also a root of polynomial of degree $2n$ with coefficients in $\mc{F}_{k-1}$.
+		\end{lemma}
+		\begin{proof}
+			Suppose $\tilde{x}$ satisfies
+			\[
+				c_n \tilde{x}^n + c_{n-1} \tilde{x}^{n-1} + \cdots + c_1 \tilde{x} + c_0 = 0,\quad c_i \in \mc{F}_k,\ \forall i
+			\]
+			where 
+			\[
+				c_i = a_i + b_i \sqrt{r_k},\quad a_i, b_i \in \mc{F}_{k-1}
+			\]
+			the equation can be rewritten as 
+			\begin{gather*}
+				\sum_{i=1}^n (a_i + b_i \sqrt{r_k}) \tilde{x}^i = 0 \\
+				\iff \sum_{i=1}^n a_i \tilde{x}^i = \sqrt{r_k} \sum_{i=1}^n b_i \tilde{x}^i 
+			\end{gather*}
+			square both sides 
+			\begin{gather*}
+				(\sum_{i=1}^n a_i \tilde{x}^i)^2 = r_k (\sum_{i=1}^n b_i \tilde{x}^i)^2 \\
+				\iff (\sum_{i=1}^n a_i \tilde{x}^i)^2 - r_k (\sum_{i=1}^n b_i \tilde{x}^i)^2 = 0
+			\end{gather*}
+			Note $r_k \in \mc{F}_{k-1}$. \\
+			And the new equation is a polynomial with degree $2n$ and coefficients in $\mc{F}_{k-1}$ with solution $\tilde{x}$.
+		\end{proof}
+		\begin{proof}
+			Let $\tilde{x} \in C = S$. \\
+			Therefore $\tilde{x} \in \mc{F}_k$ for some tower ending with $\mc{F}_k$. \\
+			So $\tilde{x}$ id a root of polynomial $x - \tilde{x}$, which is a polynomial of degree one with coefficients in $\mc{F}_k$.\\
+			Applying previous lemma recursively till $\Q$. \\
+			We can show that $\tilde{x}$ is also a root of polynomial to degree $2^k$ with rational coefficients. \\
+			Multiplying the polynomial with each denominator of coefficients suggests $\tilde{x}$ is also a root of polynomial with integer coefficients. \\
+			Therefore $\tilde{x} \in \mc{A}$ by definition. \\
+			So 
+			\[
+				C = S \subset \mc{A}
+			\] 
+		\end{proof}
 \end{document}
 
 

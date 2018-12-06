@@ -31,12 +31,12 @@
 \BOOKMARK [2][-]{subsection.9.5}{Over Controlling}{section.9}% 31
 \BOOKMARK [2][-]{subsection.9.6}{Confidence Interval for Prediction}{section.9}% 32
 \BOOKMARK [1][-]{section.10}{Slide 10: Multiple Regression - Qualitative Information}{}% 33
-\BOOKMARK [2][-]{subsection.10.1}{Binary predictors}{section.10}% 34
+\BOOKMARK [2][-]{subsection.10.1}{Binary Predictors}{section.10}% 34
 \BOOKMARK [3][-]{subsubsection.10.1.1}{On Intercept}{subsection.10.1}% 35
 \BOOKMARK [3][-]{subsubsection.10.1.2}{On Slopes}{subsection.10.1}% 36
 \BOOKMARK [3][-]{subsubsection.10.1.3}{F-test\(Chow test\)}{subsection.10.1}% 37
 \BOOKMARK [2][-]{subsection.10.2}{Linear Probability Model}{section.10}% 38
-\BOOKMARK [2][-]{subsection.10.3}{Heterskedasticity of LPM}{section.10}% 39
+\BOOKMARK [2][-]{subsection.10.3}{Heteroskedasticity of LPM}{section.10}% 39
 \BOOKMARK [1][-]{section.11}{Slide 11: Heteroskedasticity}{}% 40
 \BOOKMARK [2][-]{subsection.11.1}{Robust Standard Errors}{section.11}% 41
 \BOOKMARK [2][-]{subsection.11.2}{Test for Heteroskedasticity}{section.11}% 42
