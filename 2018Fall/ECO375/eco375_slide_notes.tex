@@ -747,7 +747,7 @@
 				Var(\hat{\beta}_1 | \textbf{x}) = \expect{(\hat{\beta} - \expect{\hat{\beta}_1 | \textbf{x}})^2 | \textbf{x}} \\
 				= \expect{(\hat{\beta}_1 - \beta_1)^2 | \textbf{x}} \\
 				= \expect{\Big(\textcolor{orange}{\frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2}}\Big)^2|\textbf{x}} \\
-				= \frac{\sum_i(x_i - \overline{x}) \expect{u_i | \textbf{x}}}{\Big( \sum_i (x_i - \overline{x})^2 \Big)^2} \\
+				= \frac{\sum_i(x_i - \overline{x})^2 \expect{u_i^2 | \textbf{x}}}{\Big( \sum_i (x_i - \overline{x})^2 \Big)^2} \\
 				\neq \frac{\sigma^2}{SST_x}
 			\end{gather}
 			For multiple regressions
@@ -775,12 +775,16 @@
 			\[
 				y_i = \beta_0 + \beta_1 x_i + u_i
 			\]
-			OLS estimator is 
+			OLS estimator with it's variance is given as 
 			\begin{gather*}
 				\hat{\beta}_1 = \beta_1 + \frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2} \\
-				Var(\hat{\beta} | \textbf{x}) = \frac{\sum_i(x_i - \overline{x})^2 \sigma_i^2}{\sum_i(x_i - \overline{x})^2} \\
+				Var(\hat{\beta} | \textbf{x}) = \frac{\sum_i(x_i - \overline{x})^2 \sigma_i^2}{\sum_i(x_i - \overline{x})^2} 
+			\end{gather*}
+			And a valid estimate of the variance is
+			\begin{gather*}
 				\widehat{Var}(\hat{\beta} | \textbf{x}) = \frac{\sum_i(x_i - \overline{x})^2 \textcolor{red}{\hat{u}_i^2}}{\sum_i(x_i - \overline{x})^2}
 			\end{gather*}
+			where $\hat{u}_i$ is the residual term while running the OLS.
 		\subsection{Test for Heteroskedasticity}
 		\subsubsection{General Principle}
 			\begin{gather*}
@@ -798,8 +802,8 @@
 			\]
 			then run the proxy hypothesis testing
 			\begin{gather*}
-				H_0': \delta_1 = \delta_2 = \dots = \delta_p = 0, \delta_0 = \sigma^2 \\
-				H_1': \exists j\ s.t.\ \delta_j \neq 0
+				\textcolor{red}{H_0': \delta_1 = \delta_2 = \dots = \delta_p = 0, \delta_0 = \sigma^2} \\
+				\textcolor{red}{H_1': \exists j\ s.t.\ \delta_j \neq 0}
 			\end{gather*}
 			Note that the restricted model is homoskedastic. \\
 			Firstly run the original regression model and get residual $\hat{u}_i$. \\
@@ -880,7 +884,7 @@
 					\iff \ln(u_i^2) = [\ln(\sigma^2) + \delta_0] + [\delta_1 x_{i1} + \dots + \delta_k x_{ik}] + \textcolor{red}{e_i} \\
 					\alpha_0 \equiv \ln(\sigma^2) + \delta_0,\quad e_i \equiv \ln(v_i)
 				\end{gather*}
-			\paragraph{Procedures} of FGLS
+			\paragraph{FGLS Procedures}
 				\begin{enumerate}
 					\item Run OLS regression on the \ul{original} model, then estimate $\hat{u}_i^2$ and $\ln(\hat{u}_i^2)$.
 					\item Estimate model 
@@ -895,7 +899,7 @@
 					\[
 						p_i := \frac{1}{\sqrt{\hat{h}_i}}
 					\]
-					\item Transform the original model using weights $p_i$ and estimate it using OLS. \hl{Note that the transformed model has \textbf{no} constant term. The constant is replaced with $(p_i \beta_0)$, which varies across observations.}
+					\item Transform the original model using weights $p_i$ and estimate it using OLS. \hl{Note that the transformed model has \textbf{no constant term}. The constant is replaced with $(p_i \beta_0)$, which varies across observations.}
 				\end{enumerate}
 	\section{Slide 12: Specification and Data Problems}
 		\paragraph{} A multiple regression model suffers from functional misspecification when it does not properly account for the relationship between the dependent and the observed explanatory variables.
