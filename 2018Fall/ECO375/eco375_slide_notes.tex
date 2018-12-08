@@ -1614,12 +1614,12 @@
 		\end{definition}
 		
 		\begin{theorem}[Classical Central Limit Theorem]
-			Let $\{X_1, \dots, X_n\}$ be a sequence of $n$ iid random variable, with 
+			Let $\{X_1, \dots, X_n\}$ be a sequence of $n$ i.i.d. random variable, with 
 			\begin{enumerate}
 				\item $\expect{X_i} = \mu < \infty$ and
 				\item $0 < Var(X_i) = \sigma^2 < \infty$
 			\end{enumerate}
-			Then as $n \to \infty$, the distribution of $\overline{X}_n \equiv \frac{\sum_{i=1}^n X_i}{n}$ converges to the \emph{Normal distribution} with mean $\mu$ and variance $\frac{\sigma^2}{n}$, i.e.
+			Then as $n \to \infty$, the distribution of $\overline{X}_n \equiv \frac{\sum_{i=1}^n X_i}{n}$ converges to the \emph{normal distribution} with mean $\mu$ and variance $\frac{\sigma^2}{n}$, i.e.
 			\[
 				\overline{X}_n \xrightarrow{d} \mc{N}(\mu, \frac{\sigma^2}{\textcolor{red}{n}})
 			\]
@@ -1799,7 +1799,7 @@
 		\begin{theorem}
 			Given assumptions MLR.1-MLR.5 or E.1-E.4, the OLSE, $\bm{\beta}$ is \textbf{asymptotically normal}, and
 			\begin{equation}
-				\textcolor{orange}{
+				\textcolor{red}{
 				\sqrt{n}(\hat{\bm{\beta}} - \bm{\beta}) \xrightarrow{p} \mc{N}(\textbf{0}, \sigma^2 \bm{A}^{-1})
 				}
 			\end{equation}
@@ -1807,7 +1807,7 @@
 			\begin{proof}
 				From the results above in consistency proof, 
 				\begin{gather*}
-					\sqrt{n}\hat{\bm{\beta}} - \bm{\beta} = (\frac{1}{n} \sum_{t=1}^n \bm{x}_t \bm{x}_t')^{-1} (\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t)  
+					\sqrt{n}(\hat{\bm{\beta}} - \bm{\beta}) = (\frac{1}{n} \sum_{t=1}^n \bm{x}_t \bm{x}_t')^{-1} \sqrt{n} (\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t) 
 				\end{gather*}
 				By law of large number, 
 				\begin{gather*}
@@ -1828,20 +1828,21 @@
 					= \sigma^2 \expect{\bm{x}_t \bm{x}_t'} \\
 					\equiv \sigma^2 \bm{A}
 				\end{gather*}
-				Therefore, all $\bm{x} u$ are independent and we know $\expect{\bm{x} u} = \bm{0}$. Therefore, by central limit theorem,
-				\[
-					\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t \overset{a}{\sim} \mc{N}(\bm{0}, \frac{\sigma^2 \bm{A}}{n})
-				\] \\
+				Therefore, all $\bm{x} u$ are \ul{independent} and we know $\expect{\bm{x} u} = \bm{0}$. Also by MLR.2, they are randomly drawn from population, so they are identically distributed. \\
+				Therefore, by central limit theorem,
+				\begin{gather}
+					\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t \xrightarrow{d} \mc{N}(\bm{0}, \frac{\sigma^2 \bm{A}}{n}) \\
+					\implies \sqrt{n} (\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t) \xrightarrow{d} \mc{N}(\bm{0}, \sigma^2 \bm{A})
+				\end{gather}
 				By continuous mapping theorem, $\hat{\bm{\beta}} - \bm{\beta}$ is also normally distributed, and has variance
-				\begin{gather*}
-					Var(\hat{\bm{\beta}} - \bm{\beta}) = \bm{A}^{-1} Var(\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t) \bm{A}^{-1} \\
-					= \frac{\sigma^2 \bm{A}^{-1}}{n}
-				\end{gather*}
+				\begin{gather}
+					Var(\sqrt{n} (\hat{\bm{\beta}} - \bm{\beta})) = \bm{A}^{-1} Var(\frac{1}{\sqrt{n}} \sum_{t=1}^n \bm{x}_t u_t) \bm{A}^{-1} \\
+					= \sigma^2 \bm{A}^{-1}
+				\end{gather}
 				Therefore
-				\begin{gather*}
-					\hat{\bm{\beta}} - \bm{\beta} \xrightarrow{p} \mc{N}(\bm{0}, \frac{\sigma^2 \bm{A}^{-1}}{n}) \\
-					\implies \hat{\bm{\beta}} \xrightarrow{p} \mc{N}(\bm{\beta}, \frac{\sigma^2 \bm{A}^{-1}}{n})
-				\end{gather*}
+				\begin{gather}
+					\sqrt{n}(\hat{\bm{\beta}} - \bm{\beta}) \xrightarrow{p} \mc{N}(\bm{0}, \sigma^2 \bm{A}^{-1})
+				\end{gather}
 			\end{proof}
 \end{document}
 
