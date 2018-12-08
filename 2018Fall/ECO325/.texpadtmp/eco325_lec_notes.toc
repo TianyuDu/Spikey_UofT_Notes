@@ -156,13 +156,43 @@
 \contentsline {paragraph}{Inter-Temporal Leisure}{61}{section*.80}
 \contentsline {paragraph}{Intra-Temporal Leisure-Consumption}{61}{section*.81}
 \contentsline {section}{\numberline {11}Some Extensions to the Baseline RBC Model}{61}{section.11}
-\contentsline {subsection}{\numberline {11.1}Taxation and Government Bonds}{61}{subsection.11.1}
+\contentsline {subsection}{\numberline {11.1}Taxation altogether with Government Bonds}{61}{subsection.11.1}
 \contentsline {subsubsection}{\numberline {11.1.1}Setup the Model}{61}{subsubsection.11.1.1}
+\contentsline {subsubsection}{\numberline {11.1.2}Solvings the Model}{61}{subsubsection.11.1.2}
 \contentsline {paragraph}{Objective Functional}{61}{section*.82}
 \contentsline {paragraph}{Controls}{61}{section*.83}
 \contentsline {paragraph}{Household Budget}{62}{section*.84}
 \contentsline {paragraph}{Government Budget}{62}{section*.85}
-\contentsline {subsection}{\numberline {11.2}Capital Tax}{62}{subsection.11.2}
-\contentsline {subsection}{\numberline {11.3}Labor Income Tax}{62}{subsection.11.3}
-\contentsline {subsection}{\numberline {11.4}Distortionary Income Tax}{62}{subsection.11.4}
-\contentsline {subsection}{\numberline {11.5}Variations of Utilities}{62}{subsection.11.5}
+\contentsline {subsection}{\numberline {11.2}Tax on Household Capital Earning}{62}{subsection.11.2}
+\contentsline {subsubsection}{\numberline {11.2.1}Setup the Model}{62}{subsubsection.11.2.1}
+\contentsline {paragraph}{Objective Functional}{62}{section*.86}
+\contentsline {paragraph}{Controls}{63}{section*.87}
+\contentsline {paragraph}{Household Budget}{63}{section*.88}
+\contentsline {paragraph}{Government Budget Constraint}{63}{section*.89}
+\contentsline {subsubsection}{\numberline {11.2.2}Solving the Model}{63}{subsubsection.11.2.2}
+\contentsline {paragraph}{Lagrangian}{63}{section*.90}
+\contentsline {paragraph}{FONC}{63}{section*.91}
+\contentsline {paragraph}{Inter-temporal Consumption}{63}{section*.92}
+\contentsline {paragraph}{Inter-temporal Labor}{64}{section*.93}
+\contentsline {paragraph}{Intra-temporal}{64}{section*.94}
+\contentsline {subsection}{\numberline {11.3}Tax on Household Labor Income}{64}{subsection.11.3}
+\contentsline {subsubsection}{\numberline {11.3.1}Setup the Model}{64}{subsubsection.11.3.1}
+\contentsline {paragraph}{Household Budget}{64}{section*.95}
+\contentsline {paragraph}{Government Budget Constraint}{64}{section*.96}
+\contentsline {subsubsection}{\numberline {11.3.2}Solving the Model}{64}{subsubsection.11.3.2}
+\contentsline {paragraph}{Lagrangian}{64}{section*.97}
+\contentsline {paragraph}{FONC}{64}{section*.98}
+\contentsline {paragraph}{Inter-temporal Consumption}{65}{section*.99}
+\contentsline {paragraph}{Inter-temporal Labor}{65}{section*.100}
+\contentsline {paragraph}{Intra-temporal}{65}{section*.101}
+\contentsline {subsection}{\numberline {11.4}Distortionary Income Tax}{65}{subsection.11.4}
+\contentsline {subsubsection}{\numberline {11.4.1}Setup the Model}{65}{subsubsection.11.4.1}
+\contentsline {paragraph}{Household Budget}{65}{section*.102}
+\contentsline {paragraph}{Government Budget Constraint}{65}{section*.103}
+\contentsline {subsubsection}{\numberline {11.4.2}Solving the Model}{65}{subsubsection.11.4.2}
+\contentsline {paragraph}{Lagrangian}{65}{section*.104}
+\contentsline {paragraph}{FONC}{66}{section*.105}
+\contentsline {paragraph}{Inter-temporal Consumption}{66}{section*.106}
+\contentsline {paragraph}{Inter-temporal Labor}{66}{section*.107}
+\contentsline {paragraph}{Intra-temporal}{66}{section*.108}
+\contentsline {subsection}{\numberline {11.5}Variations of Utility functions}{66}{subsection.11.5}

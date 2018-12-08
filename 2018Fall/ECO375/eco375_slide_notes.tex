@@ -747,6 +747,8 @@
 				Var(\hat{\beta}_1 | \textbf{x}) = \expect{(\hat{\beta} - \expect{\hat{\beta}_1 | \textbf{x}})^2 | \textbf{x}} \\
 				= \expect{(\hat{\beta}_1 - \beta_1)^2 | \textbf{x}} \\
 				= \expect{\Big(\textcolor{orange}{\frac{\sum_i (x_i - \overline{x})u_i}{\sum_i (x_i - \overline{x})^2}}\Big)^2|\textbf{x}} \\
+				\tx{Note that } (x_i - \overline{x})u_i (x_j \overline{x})u_j = 0 \tx{ if } i \neq j \\
+				\tx{By multi-nominal theorem, we can expand the square of summation as} \\
 				= \frac{\sum_i(x_i - \overline{x})^2 \expect{u_i^2 | \textbf{x}}}{\Big( \sum_i (x_i - \overline{x})^2 \Big)^2} \\
 				\neq \frac{\sigma^2}{SST_x}
 			\end{gather}
@@ -893,7 +895,7 @@
 						\]
 					\item Compute 
 						\[
-							\hat{h}_i := exp(\widehat{\ln(u_i^2)})
+							\hat{h}_i := exp(\widehat{\ln(\hat{u}s_i^2)})
 						\]
 					using result from above model. And compute 
 					\[
@@ -929,9 +931,10 @@
 			\end{remark}
 			
 			
-			\begin{remark}[Nested Alternatives]
+			\begin{definition}[Nested Alternatives]
 				One model is \textbf{nested} in another if you can always obtain the first model by constraining some of the parameters of the second model.
-			\end{remark}
+			\end{definition}
+			
 			\begin{example}
 				In above example, the original regression is \emph{nested} in the expanded regression. We can recover the original regression by constraining $\delta_1 = \delta_2 = 0$ in the expanded model.
 			\end{example}
@@ -1795,14 +1798,16 @@
 	\subsection{Asymptotic Normality}
 		\begin{theorem}
 			Given assumptions MLR.1-MLR.5 or E.1-E.4, the OLSE, $\bm{\beta}$ is \textbf{asymptotically normal}, and
-			\[
-				\hat{\bm{\beta}} \xrightarrow{p} \mc{N}(\bm{\beta}, \frac{\sigma^2 \bm{A}^{-1}}{n})
-			\]
+			\begin{equation}
+				\textcolor{orange}{
+				\sqrt{n}(\hat{\bm{\beta}} - \bm{\beta}) \xrightarrow{p} \mc{N}(\textbf{0}, \sigma^2 \bm{A}^{-1})
+				}
+			\end{equation}
 		\end{theorem}
 			\begin{proof}
 				From the results above in consistency proof, 
 				\begin{gather*}
-					\hat{\bm{\beta}} - \bm{\beta} = (\frac{1}{n} \sum_{t=1}^n \bm{x}_t \bm{x}_t')^{-1} (\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t)  
+					\sqrt{n}\hat{\bm{\beta}} - \bm{\beta} = (\frac{1}{n} \sum_{t=1}^n \bm{x}_t \bm{x}_t')^{-1} (\frac{1}{n} \sum_{t=1}^n \bm{x}_t u_t)  
 				\end{gather*}
 				By law of large number, 
 				\begin{gather*}

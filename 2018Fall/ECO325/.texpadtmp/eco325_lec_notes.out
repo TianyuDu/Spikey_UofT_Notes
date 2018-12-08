@@ -77,9 +77,16 @@
 \BOOKMARK [3][-]{subsubsection.10.5.1}{Setup the Model}{subsection.10.5}% 77
 \BOOKMARK [3][-]{subsubsection.10.5.2}{Solving the Model}{subsection.10.5}% 78
 \BOOKMARK [1][-]{section.11}{Some Extensions to the Baseline RBC Model}{}% 79
-\BOOKMARK [2][-]{subsection.11.1}{Taxation and Government Bonds}{section.11}% 80
+\BOOKMARK [2][-]{subsection.11.1}{Taxation altogether with Government Bonds}{section.11}% 80
 \BOOKMARK [3][-]{subsubsection.11.1.1}{Setup the Model}{subsection.11.1}% 81
-\BOOKMARK [2][-]{subsection.11.2}{Capital Tax}{section.11}% 82
-\BOOKMARK [2][-]{subsection.11.3}{Labor Income Tax}{section.11}% 83
-\BOOKMARK [2][-]{subsection.11.4}{Distortionary Income Tax}{section.11}% 84
-\BOOKMARK [2][-]{subsection.11.5}{Variations of Utilities}{section.11}% 85
+\BOOKMARK [3][-]{subsubsection.11.1.2}{Solvings the Model}{subsection.11.1}% 82
+\BOOKMARK [2][-]{subsection.11.2}{Tax on Household Capital Earning}{section.11}% 83
+\BOOKMARK [3][-]{subsubsection.11.2.1}{Setup the Model}{subsection.11.2}% 84
+\BOOKMARK [3][-]{subsubsection.11.2.2}{Solving the Model}{subsection.11.2}% 85
+\BOOKMARK [2][-]{subsection.11.3}{Tax on Household Labor Income}{section.11}% 86
+\BOOKMARK [3][-]{subsubsection.11.3.1}{Setup the Model}{subsection.11.3}% 87
+\BOOKMARK [3][-]{subsubsection.11.3.2}{Solving the Model}{subsection.11.3}% 88
+\BOOKMARK [2][-]{subsection.11.4}{Distortionary Income Tax}{section.11}% 89
+\BOOKMARK [3][-]{subsubsection.11.4.1}{Setup the Model}{subsection.11.4}% 90
+\BOOKMARK [3][-]{subsubsection.11.4.2}{Solving the Model}{subsection.11.4}% 91
+\BOOKMARK [2][-]{subsection.11.5}{Variations of Utility functions}{section.11}% 92

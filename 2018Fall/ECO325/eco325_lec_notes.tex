@@ -1949,12 +1949,13 @@
 	
 	\section{Some Extensions to the Baseline RBC Model}
 		\setcounter{equation}{0}
-		\subsection{Taxation and Government Bonds}
+		\subsection{Taxation altogether with  Government Bonds}
+			\subsubsection{Setup the Model}
 			\begin{assumption}
 				Assuming government finances its expenses with \ul{both lump-sum tax and bonds}.
 			\end{assumption}
 			
-			\subsubsection{Setup the Model}
+			\subsubsection{Solvings the Model}
 				\paragraph{Objective Functional}
 					\begin{equation}
 						\expat{\textcolor{red}{0}}{
@@ -1980,7 +1981,7 @@
 					\end{equation}
 					and $r^k_t$, $r^b_t$ denotes the \ul{nominal} interest rate from capital and government bonds respectively.
 					\begin{remark}
-						Under equilibrium, the \ul{read} return on capital and government bond should be equal.
+						Under equilibrium, the \ul{real} return on capital and government bond should be equal.
 						\begin{equation}
 							r_t^k - \delta = r_t^b
 						\end{equation}
@@ -1991,20 +1992,182 @@
 						\overbrace{\underbrace{r^b_t B_t}_\tx{interest on existing bonds} + G_t}^\tx{total expenses} \leq \overbrace{T_t + \underbrace{B_{t+1} - B_t}_\tx{newly issued bonds}}^\tx{total revenue}
 					\end{equation}
 		
-		\setcounter{equation}{0}
-		\subsection{Capital Tax}
+		\subsection{Tax on Household Capital Earning}
+			\subsubsection{Setup the Model}
+			\begin{assumption}
+				Government collects a friction $\tau_t$ on capital earning each period $t$.
+			\end{assumption}
+			\paragraph{Objective Functional}
+				\begin{equation}
+					\expat{0}{\sum_{t=0}^\infty e^{-\rho t} u(c_t, 1 - \ell_t) \frac{N_t}{H}}
+				\end{equation}
+				
+			\paragraph{Controls}
+				\begin{equation}
+					\{c_t, \ell_t, \frac{K_{t+1}}{H}\}_{t=0}^\infty
+				\end{equation}
+			
+			\paragraph{Household Budget} at time period $t$.
+				\begin{equation}
+					K_{t+1} - K_t + \delta K_t + c_t N_t + G_t \leq w_t \ell_t N_t + (\textcolor{red}{1-\tau_t})r_t K_t	
+				\end{equation}
+			
+			\begin{remark}
+				The proportional capital tax is effectively a \ul{reduction in net return on capital}.
+			\end{remark}	
+			
+			\paragraph{Government Budget Constraint} \textcolor{red}{TBC}
+			
+		\subsubsection{Solving the Model}
+			\begin{assumption}
+				Unless stating explicitly, we are using
+				\begin{equation}
+					u(c_t, 1-\ell_t) = \ln(c_t) + b \ln(1-\ell_t)
+				\end{equation}
+			\end{assumption}
+			
+			\paragraph{Lagrangian}
+				\begin{equation}
+					\mc{L} = \expat{0}{ \sum_{t=1}^\infty e^{-\rho t} u(c_t, 1 - \ell_t) \frac{N_t}{H} + \lambda_t \frac{1}{H}
+						\big \{ w_t \ell_t N_t + (\textcolor{red}{1-\tau_t})r_t K_t - K_{t+1} + K_t - \delta K_t - c_t N_t - G_t \big \} }
+				\end{equation}
+			\paragraph{FONC} for all $t \in \N$ and states of world $s \in \mc{S}$:
+				\begin{gather}
+					\pd{\mc{L}}{c_t} = \expat{t}{
+						e^{-\rho t} \frac{1}{c_t} \frac{N_t}{H} - \lambda_t \frac{N_t}{H}
+					} = 0 \\
+					\implies e^{-\rho t} \frac{1}{c_t} = \lambda_t \\
+					\pd{\mc{L}}{\ell_t} = \expat{t}{
+						e^{-\rho t} \frac{-b}{1 - \ell_t}\frac{N_t}{H} - \frac{N_t}{H} \lambda_t w_t
+					} = 0 \\
+					\implies e^{-\rho t} \frac{b}{1 - \ell_t} \frac{1}{w_t} = \lambda_t \\
+					\pd{\mc{L}}{K_{t+1}} = \expat{t}{
+						\frac{-\lambda_t}{H} + \frac{1}{H} \lambda_{t+1} (1 + (1-\tau_{t+1})r_{t+1} - \delta)
+					} = 0 \\
+					\implies \lambda_t = \expat{t}{\lambda_{t+1}(1 + (1-\tau_{t+1})r_{t+1} - \delta)}
+				\end{gather}
+			
+			\paragraph{Inter-temporal Consumption}
+				\begin{equation}
+					\frac{1}{c_t} = e^{-\rho} \expat{t}{
+						\frac{1}{c_{t+1}} \textcolor{red}{(1 + (1-\tau_{t+1})r_{t+1} - \delta)}
+					}
+				\end{equation}
+			
+			\paragraph{Inter-temporal Labor}
+				\begin{equation}
+					\frac{1}{1-\ell_t}\frac{1}{w_t} = e^{-\rho} \expat{t}{
+						\frac{1}{1-\ell_{t+1}} \frac{1}{w_{t+1}} \textcolor{red}{(1 + (1-\tau_{t+1})r_{t+1} - \delta)}
+					}
+				\end{equation}
+				
+			\paragraph{Intra-temporal}
+				\begin{equation}
+					\frac{w_t}{c_t} = \frac{b}{1-\ell_t}
+				\end{equation}
+
+		\subsection{Tax on Household Labor Income}
+			\subsubsection{Setup the Model}
+			\begin{assumption}
+				Government collects a friction $\tau_t$ on labor income in each period $t$.
+			\end{assumption}
+			
+			\paragraph{Household Budget} at time period $t$.
+				\begin{equation}
+					K_{t+1} - K_t + \delta K_t + c_t N_t + G_t \leq (\textcolor{red}{1-\tau_t}) w_t \ell_t N_t + r_t K_t	
+				\end{equation}
+			
+			\begin{remark}[Interpretation]
+				Proportional labor income tax is effectively a \ul{reduction in real wage rate}.
+			\end{remark}
+				
+			\paragraph{Government Budget Constraint} \textcolor{red}{TBC}
+			
+			\subsubsection{Solving the Model}
+			\paragraph{Lagrangian}
+				\begin{equation}
+					\mc{L} = \expat{0}{ \sum_{t=1}^\infty e^{-\rho t} u(c_t, 1 - \ell_t) \frac{N_t}{H} + \lambda_t \frac{1}{H} 
+						\big \{ (\textcolor{red}{1-\tau_t}) w_t \ell_t N_t + r_t K_t - K_{t+1} + K_t - \delta K_t - c_t N_t - G_t \big \} }
+				\end{equation}
+			\paragraph{FONC}
+				\begin{gather}
+					\pd{\mc{L}}{c_t} = 0
+					\implies e^{-\rho t} \frac{1}{c_t} = \lambda_t \\
+					\pd{\mc{L}}{\ell_t} = 0
+					\implies e^{-\rho t} \frac{b}{1 - \ell_t} \frac{1}{\textcolor{red}{(1 - \tau_t)w_t}} = \lambda_t \\
+					\pd{\mc{L}}{K_{t+1}} = 0 \implies \lambda_t = \expat{t}{\lambda_{t+1} (1 + r_{t+1} - \delta)}
+				\end{gather}
+			\paragraph{Inter-temporal Consumption}
+				\begin{equation}
+					\frac{1}{c_t} = e^{-\rho} \expat{t}{
+						\frac{1}{c_{t+1}} (1 + r_{t+1} - \delta)
+					}
+				\end{equation}
+				
+			\paragraph{Inter-temporal Labor}
+				\begin{equation}
+					\frac{1}{1 - \ell_t} \frac{1}{\textcolor{red}{(1 - \tau_t)w_t}} = e^{-\rho} \expat{t}{
+							\frac{1}{1 - \ell_{t+1}}\frac{1}{\textcolor{red}{(1 - \tau_{t+1}) w_{t+1}}} (1 + r_{t+1} - \delta)
+							}
+				\end{equation}
+				
+			\paragraph{Intra-temporal}
+				\begin{equation}
+					\frac{\textcolor{red}{(1-\tau_t)w_t}}{c_t} = \frac{b}{1-\ell_t}
+				\end{equation}
 		
-		
-		
-		\setcounter{equation}{0}
-		\subsection{Labor Income Tax}
-		
-		
-		\setcounter{equation}{0}
 		\subsection{Distortionary Income Tax}
-		
-		\setcounter{equation}{0}
-		\subsection{Variations of Utilities}
+			\subsubsection{Setup the Model}
+			\paragraph{Household Budget}
+				\begin{equation}
+					K_{t+1} - K_t + \delta K_t + c_t N_t + G_t \leq (\textcolor{red}{1-\tau_t}) \Big( w_t \ell_t N_t + r_t K_t \Big)
+				\end{equation}
+			
+			\paragraph{Government Budget Constraint} \textcolor{red}{TBC}
+				
+			\subsubsection{Solving the Model}	
+			\paragraph{Lagrangian}
+				\begin{equation}
+					\mc{L} = \expat{0}{ \sum_{t=1}^\infty e^{-\rho t} u(c_t, 1 - \ell_t) \frac{N_t}{H} + \lambda_t \frac{1}{H}
+						\big \{ (\textcolor{red}{1-\tau_t}) \Big (w_t \ell_t N_t + r_t K_t \Big) - K_{t+1} + K_t - \delta K_t - c_t N_t - G_t \big \}}
+				\end{equation}
+			
+			\paragraph{FONC}
+				\begin{gather}
+					\pd{\mc{L}}{c_t} = \expat{t}{e^{-\rho} \frac{1}{c_t} \frac{N_t}{H} - \lambda_t \frac{N_t}{H}} = 0 \\
+					\implies e^{-\rho t} \frac{1}{c_t} = \lambda_t \\
+					\pd{\mc{L}}{\ell_t} = \expat{t}{e^{-\rho t} \frac{-b}{1 - \ell_t} \frac{N_t}{H} + \lambda_t \textcolor{red}{(1-\tau_t) w_t} \frac{N_t}{H}} = 0 \\
+					\implies e^{-\rho t} \frac{b}{1-\ell_t} \frac{1}{\textcolor{red}{(1-\tau_t) w_t}}= \lambda_t \\
+					\pd{\mc{L}}{K_{t+1}} = \frac{1}{H} \expat{t}{
+						- \lambda_t + \lambda_{t+1}(1 + \textcolor{red}{(1 - \tau_{t+1})r_{t+1}} - \delta) 
+					} = 0 \\
+					\implies \lambda_t = \expat{t}{\lambda_{t+1}(1 + \textcolor{red}{(1 - \tau_{t+1})r_{t+1}} - \delta)}
+				\end{gather}
+			
+			\paragraph{Inter-temporal Consumption}
+				\begin{equation}
+					\frac{1}{c_t} = e^{-\rho} \expat{t}{\frac{1}{c_{t+1}} (1 + \textcolor{red}{(1 - \tau_{t+1})r_{t+1}} - \delta)
+					}
+				\end{equation}
+			
+			\paragraph{Inter-temporal Labor}
+				\begin{equation}
+					\frac{1}{1-\ell_t} \frac{1}{\textcolor{red}{(1-\tau_t)w_t}} = e^{-\rho} \expat{t}{
+						\frac{1}{1-\ell_{t+1}} \frac{1}{\textcolor{red}{(1-\tau_{t+1})w_{t+1}}}(1 + \textcolor{red}{(1 - \tau_{t+1})r_{t+1}} - \delta)
+					}
+				\end{equation}
+				
+			\paragraph{Intra-temporal}
+				\begin{equation}
+					\frac{\textcolor{red}{(1-\tau_t) w_t}}{c_t} = \frac{b}{1-\ell_t}
+				\end{equation}
+				
+		\subsection{Variations of Utility functions}
+			\begin{example}[with government purchases] log-separable utility. 
+				\begin{equation}
+					u(c_t, G_t, 1 - \ell_t)
+				\end{equation}
+			\end{example}
 \end{document}
 
 
