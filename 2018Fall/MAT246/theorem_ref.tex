@@ -336,6 +336,87 @@
 			\end{gather*}
 		\end{remark}
 		
+	
+	\section{The Complex Numbers}
+		\begin{theorem}[9.2.3]
+			The modulus of the product of two complex numbers is the product of their moduli. The argument of the product of two complex numbers is the sum of their arguments.
+		\end{theorem}
+		
+		\begin{theorem}[9.2.5]
+			Every complex number has a complex square root.
+		\end{theorem}
+		
+		\begin{theorem}[De Moivre's Theorem 9.2.6]
+			For every natural number $n$
+			\[
+				(r(\cos \theta + i \sin \theta))^n = r^n (\cos n\theta + i \sin n \theta)
+			\]
+		\end{theorem}
+		
+		\begin{theorem}[The Fundamental Theorem of Algebra 9.3.1]
+			Every non-constant polynomial with complex coefficients has a complex root.
+		\end{theorem}
+		
+		\begin{theorem}[The Factor Theorem 9.3.6]
+			The complex number $r$ is a root of polynomial $p(z)$ if and only if $z-r$ is a factor of $p(z)$. That's 
+			\[
+				\exists f(z),\ p(z) = f(z)(z - r)
+			\]
+		\end{theorem}
+		
+		\begin{theorem}[9.3.8]
+			\textcolor{red}{
+				A polynomial of degree $n$ has at most $n$ complex roots; if "multiplicities" are counted, it has exactly $n$ roots.
+			}
+		\end{theorem}
+	
+	\section{Sizes of Infinite Sets}
+		\begin{definition}[10.1.8]
+			The sets $\mc{S}$ and $\mc{T}$ have the \textbf{same cardinality} if there is a bijective function $f: \mc{S} \to \c{T}$.
+		\end{definition}
+		
+		\begin{theorem}[10.1.13]
+			\[
+				|\N| = |\Q^+|
+			\]
+		\end{theorem}
+		
+		\begin{definition}[10.2.1]
+			A set is \textbf{countable} if it is either finite or has the same cardinality as the set of natural numbers.
+		\end{definition}
+		
+		\begin{theorem}[10.2.2]
+			\[
+				|[0,1]| > \aleph_0
+			\]
+		\end{theorem}
+		
+		\begin{theorem}[10.2.4]
+			Let $a, b \in \R$ and $a < b$, then
+			\[
+				|[a,b]| = |[0,1]|
+			\]
+		\end{theorem}
+		
+		\begin{theorem}[Unnumbered, generalized]
+			All open, half-open and closed intervals in $\R$ have the same cardinality $c$.
+		\end{theorem}
+		
+		\begin{theorem}[10.2.7]
+			If $|\mc{S}| = |\mc{T}|$ and $|\mc{T}| = |\mc{U}|$, then $|\mc{S}| = |\mc{U}|$.
+		\end{theorem}
+		
+		\begin{theorem}[10.2.10]
+			The union of a countable number of countable sets is countable.
+		\end{theorem}
+		
+		\begin{theorem}[The Cantor-Bernstein Theorem 10.3.5] If $\mc{S}$ and $\mc{T}$ are sets such that $|\mc{S}| \leq |\mc{T}|$ and $|\mc{T}| \leq |\mc{S}|$, then $|\mc{S}| = |\mc{T}|$.
+		\end{theorem}
+		
+		\begin{corollary}[10.3.6]
+			If $\mc{S}$ is a subset of $\mc{T}$ and there exists a function $f: \mc{T} \to \mc{S}$ that is injective, then $\mc{S}$ and $\mc{T}$ have the same cardinality
+		\end{corollary}
+		
 		\section*{References}
 			Rosenthal, D., Rosenthal, D., \& Rosenthal, P. (2014). A Readable Introduction to Real Mathematics. Springer.
 \end{document}
