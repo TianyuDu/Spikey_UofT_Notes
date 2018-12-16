@@ -27,19 +27,14 @@
     \maketitle
     \doclicenseThis
     \section*{Notes}
-    	\paragraph{Github} \url{https://github.com/TianyuDu/Spikey_UofT_Notes}
-    	\paragraph{Direct Download} \url{TianyuDu.com/notes}
-    	\paragraph{Color notations}
-    		\begin{itemize}
-    			\item \textcolor{orange}{Important equations for model setup.}
-    			\item \textcolor{blue}{Important equations as results from model.}
-    			\item \textcolor{violet}{Implications of model result.}
-    		\end{itemize}
+    	\texttt{Github Page} \url{https://github.com/TianyuDu/Spikey_UofT_Notes}\\
+    	\texttt{Note Page} \url{TianyuDu.com/notes}
     \paragraph{Revisions}
     \begin{itemize}
     	\item Revise October 2. 2018. Midterm 1. Lec1-Lec4
     	\item Revise October 21. 2018. Lec5-Lec6
     	\item Revise November 27. 2018. Lec9
+    	\item Revise December 15. 2018. Final Revision 1
     \end{itemize}
     \tableofcontents
     \newpage
@@ -96,8 +91,27 @@
 	            \begin{equation}
 	            		Y(cK, cAL) = cY(K, AL),\ \forall c \geq 0
 	            \end{equation}
+	           
+	        \begin{remark}
+	        		You need to be able to verify if a given function is constant return to scale (homogeneous to degree one) and choosing parameters to make certain function CRS.
+	        \end{remark}
+	        
+	        \begin{example}
+	        		For what values of parameters that production function given below is CRS (i.e. homogeneous to degree 1)
+	        		\begin{equation}
+	        			Y(t) = K(t)^\alpha (A(t)L(t))^\gamma + C A(t) + B
+	        		\end{equation}
+	        		\emph{Solution.}
+	        		\[
+	        			\begin{cases}
+	        				\gamma = 1 - \alpha \\
+	        				C = 0 \\
+	        				B = 0
+	        			\end{cases}
+	        		\]
+	        \end{example}
 	            
-           	This CRS assumption is the result of two separate assumptions.
+           	\paragraph{Interpretation} CRS assumption is the result of two separate assumptions.
            	\begin{enumerate}
            		\item \emph{The economy is big enough that the gains from specialization have been exhausted.} $\implies$ There is \textbf{no} increasing return to scale.
            		\item \emph{Inputs other than capital, labor, and the effectiveness of labor are relatively unimportant.} $\implies$ There is \textbf{no} decreasing return to scale.
@@ -119,7 +133,7 @@
 				\begin{itemize}
 					\item $K(t) := $ aggregate capital stock at time $t$.
 					\item $L(t) := $ aggregate labor supple at time $t$.
-					\item $A(t) := $ labor-argumented technology\footnote{Harrod-neutral technology} (\ul{effectiveness of labor}) at time $t$.
+					\item $A(t) := $ \ul{effectiveness} \footnote{Also called labor-argumented technology or Harrod-neutral technology} of labor at time $t$.
 				\end{itemize} 
 				to output values ($Y(t) := $ aggregate output at time $t$.) The production function takes the form of
 				\begin{equation}
@@ -135,7 +149,7 @@
 			\end{assumption}
 			
 			\begin{remark}
-				We assume CRS property on the \emph{aggregate} production function only, but the intensive-form production generally experiences increasing return to scale by Inada Condition.
+				We assume CRS property on the \emph{aggregate} production function \emph{only}, but the intensive-form production generally experiences increasing return to scale by Inada Condition.
 			\end{remark}
 			
 			\begin{definition}
@@ -250,7 +264,7 @@
 			\end{gather}
 			
 			\begin{assumption}
-				Assume investment equals saving and a \ul{constant friction} $s \in [0, 1]$ of output is saved at each epoch. The marginal propensity to save, $s$ is given exogenously.
+				Assume investment equals saving and a \ul{constant friction} $s \in [0, 1]$ of output is saved at each time period $t$. The marginal propensity to save, $s$ is given exogenously.
 			\end{assumption}
 			
 			\par Therefore,
@@ -552,7 +566,7 @@
 			And notice that the sign of $\pd{c^*}{s}$ depends on the relative slope of production function and break-even investment.
 			By the first order condition of golden rule level of capital per unit of effective labor, $(n+g+\delta) = f'(k_G)$
 			\begin{gather}
-				\pd{c^*}{s} = [f'(k^*) - f'(k_G)]\pd{k^*}{s}
+				\pd{c^*}{s} = [\textcolor{red}{f'(k^*) - f'(k_G)}]\pd{k^*}{s}
 			\end{gather}
 			And 
 			\begin{equation*}
@@ -755,6 +769,10 @@
 		\end{itemize}
 	\end{assumption}
 	
+	\begin{remark}[Implicit Assumption]
+		Firms are owned by households and rebate all profits earned (if any) back to households. But since markets are assumed to be competitive, altogether with the assumption of constant return to scale, firms are earning no profit.
+	\end{remark}
+	
 	\subsubsection{Objective Functions}
 	\par Household's \emph{objective function} is given by the \textbf{Lifetime Utility Function}
 	\begin{equation}
@@ -764,7 +782,7 @@
 	\end{equation}
 	where $\rho$ is the \textbf{discount rate} and $C(t)$ is the \textbf{consumption \ul{per person}}.
 	\begin{remark}
-		$\rho$ measures consumers' attitude between present and future utilities.
+		$\rho$ measures \ul{consumers' attitude between present and future utilities}.
 		When $\rho = 0$, household values utility in the future equally. 
 		When $\rho > 0$, household values future utility less than present utility.
 		The greater $\rho$ is, the less value household puts on future consumption/utility (\emph{i.e. consumers are less patient}).
@@ -965,7 +983,7 @@
                     = Af(k) + A^2 L f'(k) \frac{-K}{(AL)^2} \\
                     = Af(k) - k f'(k) \frac{A^2 L}{AL} \\
                     = Af(k) - k f'(k) A \\
-                    \implies w(t) = f(k) - f'(k)
+                    \implies w(t) = f(k) - k f'(k)
                 \end{gather}
 			\end{proof}
 			
@@ -995,10 +1013,11 @@
 				\iff \frac{\dot{c}(t)}{c(t)} = \frac{r(t) - \beta - (n + g)}{\theta} \\
 				\because \beta = \rho - n - (1-\theta) g\\
 				\iff 
-				\textcolor{blue}{
+				\textcolor{red}{
 					\frac{\dot{c}(t)}{c(t)} = \frac{r(t) - \rho - \theta g}{\theta}
 				}
 			\end{gather}
+			
 			\begin{remark}
 				The growth rate of consumption \ul{per person} is given by
 				\begin{equation}
@@ -1096,8 +1115,8 @@
 			\end{enumerate} then the \ul{decentralized equilibrium} is \textbf{Pareto efficient} if the number of agents is finite. So it's impossible to make anyone better off without making someone worse off.
 		
 		\subsection{In the Long Run: Balanced Growth Path}
-			\par The economy demonstrates similar behaviours on GBP as in Solow model. \\
-			\textbf{per unit of effective labor} variables: 
+			\par \hl{The economy demonstrates similar behaviours on GBP as in Solow model}. \\
+			\textbf{Per unit of effective labor} variables: 
 			\begin{itemize}
 				\item $\dot{k}=0\implies$ $k^*$ constant.
 				\item $\dot{c}=0\implies$ $c^*$ constant.
@@ -1367,7 +1386,7 @@
 					\begin{enumerate}
 						\item real GPD
 						\item employment
-						\item \textcolor{red}{weekly hours in manufacturing}
+						\item weekly hours in manufacturing
 						\item interest rates and inflation		
 					\end{enumerate} \emph{typically} fall.
 				\item Decline in employment and hours are generally smaller than the fall in output.
@@ -1436,7 +1455,7 @@
 					\end{equation}
 				The representative household maximizes the \hl{expected} value of
 				\begin{equation}
-					\sum_{t=0}^\infty e^{-\rho t} u(c_t, 1- \ell_t) \frac{N_t}{H}
+					\expat{0}{\sum_{t=0}^\infty e^{-\rho t} u(c_t, 1- \ell_t) \frac{N_t}{H}}
 				\end{equation}
 				where $c_t$ is the consumption \emph{per member} of the household and $1-\ell_t$ is the \emph{fraction} of time that the household devotes to leisure.
 				\begin{remark}
@@ -1450,7 +1469,7 @@
 				\end{gather}
 				And 
 				\begin{equation}
-					\expat{t}{\sum_{i=0}^\infty e^{-\rho t} u(c_t, 1- \ell_t) \frac{N_t}{H}}
+					\expat{t}{\sum_{t=0}^\infty e^{-\rho t} u(c_t, 1- \ell_t) \frac{N_t}{H}}
 				\end{equation}
 				is the expectation of lifetime utility at date $t$.
 				\par Assume each household has $\frac{K_0}{H}$ unit of wealth at the beginning date. \\
@@ -1679,12 +1698,12 @@
 			\end{equation}
 			\paragraph{(Optional)} if we relax the assumption $\delta = 0$, the budget constraint becomes
 			\begin{equation}
-				K_{t+1} - K_t + \textcolor{red}{\delta K_t} + c_t + G_t \leq w_t \ell_t + r_t K_t
+				K_{t+1} - K_t + c_t + G_t \leq w_t \ell_t + r_t K_t
 			\end{equation}
 		\subsubsection{Solving the Model}
 			\paragraph{Lagrangian}
 			\begin{equation}
-				\mc{L} = \expat{\textcolor{red}{0}}{\sum_{t=0}^\infty e^{-\rho t}[\ln(c_t) + b \ln(1-\ell_t)] + \lambda_t [w_t \ell_t + r_t K_t - c_t - K_{t+1} + K_t - \textcolor{red}{\delta K_t} - G_t]}
+				\mc{L} = \expat{\textcolor{red}{0}}{\sum_{t=0}^\infty e^{-\rho t}[\ln(c_t) + b \ln(1-\ell_t)] + \lambda_t [w_t \ell_t + r_t K_t - c_t - K_{t+1} + K_t - G_t]}
 			\end{equation}
 
 			\begin{remark}
@@ -1701,9 +1720,9 @@
 				\iff e^{-\rho t} \frac{1}{c_t} = \lambda_t \\
 				\pd{\mc{L}}{\ell_t} = \expat{t}{e^{-\rho t} \frac{-b}{1-\ell_t} - \lambda_t w_t} = 0 \\
 				\iff e^{-\rho t} \frac{b}{1-\ell_t} = \lambda_t w_t \\
-				\pd{\mc{L}}{K_{t+1}} = \expat{t}{-\lambda_t + \lambda_{t+1}(1 + r_{t+1} - \textcolor{red}{\delta})} = 0 \\
-				\iff \lambda_t = \expat{t}{\lambda_{t+1}(1+r_{t+1} - \textcolor{red}{\delta})} \\
-				\pd{\mc{L}}{\lambda_t} = 0 \iff K_{t+1} - K_t + c_t + G_t - \textcolor{red}{\delta K_t}= w_t \ell_t + r_t K_t
+				\pd{\mc{L}}{K_{t+1}} = \expat{t}{-\lambda_t + \lambda_{t+1}(1 + r_{t+1})} = 0 \\
+				\iff \lambda_t = \expat{t}{\lambda_{t+1}(1+r_{t+1})} \\
+				\pd{\mc{L}}{\lambda_t} = 0 \iff K_{t+1} - K_t + c_t + G_t = w_t \ell_t + r_t K_t
 			\end{gather}
 		\subsubsection{Analysis}
 			\paragraph{Intra-Temporal Consumption-Leisure}
@@ -1713,14 +1732,14 @@
 			
 			\paragraph{Inter-Temporal Consumption}
 			\begin{gather}
-				\frac{1}{c_t} = e^{-\rho} \expat{t}{(1 + r_{t+1} - \textcolor{red}{\delta})\frac{1}{c_{t+1}}} \\
+				\frac{1}{c_t} = e^{-\rho} \expat{t}{(1 + r_{t+1})\frac{1}{c_{t+1}}} \\
 				\equiv e^{-\rho} \expat{t}{1+r_{t+1}-\delta}\expat{t}{\frac{1}{c_{t+1}}} + e^{-\rho} Cov(1+r_{t+1}-\delta, \frac{1}{c_{t+1}})
 			\end{gather}
 			
 			\paragraph{Inter-Temporal Leisure}
 			\begin{gather}
-				e^{-\rho t} \frac{b}{(1-\ell_t) w_t} = e^{-\rho (t+1)} \expat{t}{\frac{b}{(1-\ell_{t+1})w_{t+1}} (1 + r_{t+1} - \textcolor{red}{\delta})} \\
-				\implies \frac{1}{1-\ell_t} \frac{1}{w_t} = e^{-\rho} \expat{t}{\frac{1}{1-\ell_{t+1}}\frac{1}{w_{t+1}} (1 + r_{t+1} - \textcolor{red}{\delta})}
+				e^{-\rho t} \frac{b}{(1-\ell_t) w_t} = e^{-\rho (t+1)} \expat{t}{\frac{b}{(1-\ell_{t+1})w_{t+1}} (1 + r_{t+1})} \\
+				\implies \frac{1}{1-\ell_t} \frac{1}{w_t} = e^{-\rho} \expat{t}{\frac{1}{1-\ell_{t+1}}\frac{1}{w_{t+1}} (1 + r_{t+1})}
 			\end{gather}
 		\subsection{Social Planner Problem}
 			\par The social planner maximize household utility subject to aggregate resource constraint. \hl{We are going to show the solutions to social planner problem and decentralized household optimization problem collides }
@@ -1824,7 +1843,9 @@
 			\implies \frac{\hat{Y}_t - \alpha \hat{Y}_{t-1}}{1-\alpha} = \rho_A (\frac{\hat{Y}_{t-1} - \hat{Y}_{t-2}}{1-\alpha}) + \epsilon_{A, t} \\
 			\implies \hat{Y}_{t} = (\rho_A + \alpha) \hat{Y}_{t-1} - \rho_A \alpha \hat{Y}_{t-2} + (1 - \alpha)\epsilon_{A, t}
 		\end{gather}
-		
+	
+	\section{Some Extensions to the Baseline RBC Model}
+	\paragraph{} Please note that contents in this section is not covered in lecture.
 		\subsection{A More General Case (Optional)}
 			\begin{assumption}
 				In this general case, all restrictions in previous cases are relaxed.
@@ -1946,8 +1967,7 @@
 						e^{-\rho t} \frac{1}{c_t} = \lambda_t =  e^{-\rho t} \frac{b}{1 - \ell_t} \frac{1}{w_t} \\
 						\implies \frac{b}{1-\ell_t} = \frac{w_t}{c_t}
 					\end{gather}
-	
-	\section{Some Extensions to the Baseline RBC Model}
+					
 		\setcounter{equation}{0}
 		\subsection{Taxation altogether with  Government Bonds}
 			\subsubsection{Setup the Model}
@@ -2016,8 +2036,6 @@
 				The proportional capital tax is effectively a \ul{reduction in net return on capital}.
 			\end{remark}	
 			
-			\paragraph{Government Budget Constraint} \textcolor{red}{TBC}
-			
 		\subsubsection{Solving the Model}
 			\begin{assumption}
 				Unless stating explicitly, we are using
@@ -2081,8 +2099,6 @@
 				Proportional labor income tax is effectively a \ul{reduction in real wage rate}.
 			\end{remark}
 				
-			\paragraph{Government Budget Constraint} \textcolor{red}{TBC}
-			
 			\subsubsection{Solving the Model}
 			\paragraph{Lagrangian}
 				\begin{equation}
@@ -2122,8 +2138,6 @@
 				\begin{equation}
 					K_{t+1} - K_t + \delta K_t + c_t N_t + G_t \leq (\textcolor{red}{1-\tau_t}) \Big( w_t \ell_t N_t + r_t K_t \Big)
 				\end{equation}
-			
-			\paragraph{Government Budget Constraint} \textcolor{red}{TBC}
 				
 			\subsubsection{Solving the Model}	
 			\paragraph{Lagrangian}
@@ -2161,13 +2175,6 @@
 				\begin{equation}
 					\frac{\textcolor{red}{(1-\tau_t) w_t}}{c_t} = \frac{b}{1-\ell_t}
 				\end{equation}
-				
-		\subsection{Variations of Utility functions}
-			\begin{example}[with government purchases] log-separable utility. 
-				\begin{equation}
-					u(c_t, G_t, 1 - \ell_t)
-				\end{equation}
-			\end{example}
 \end{document}
 
 

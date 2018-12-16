@@ -1,0 +1,193 @@
+\select@language {english}
+\contentsline {paragraph}{Revisions}{1}{section*.2}
+\contentsline {section}{\numberline {1}Lecture 1 September 6. 2018}{5}{section.1}
+\contentsline {paragraph}{Economic Growth Facts}{5}{section*.4}
+\contentsline {subsection}{\numberline {1.1}Solow Growth Model (continuous time)}{5}{subsection.1.1}
+\contentsline {paragraph}{Introduction}{5}{section*.5}
+\contentsline {subsubsection}{\numberline {1.1.1}Production Function}{5}{subsubsection.1.1.1}
+\contentsline {paragraph}{Interpretation}{6}{section*.6}
+\contentsline {section}{\numberline {2}Lecture 2 September 13. 2018}{7}{section.2}
+\contentsline {subsection}{\numberline {2.1}Solow Growth Model: Setup}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Dynamics of $k(t)$}{10}{subsection.2.2}
+\contentsline {section}{\numberline {3}Lecture 3 September 20. 2018}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Dynamic Transitions}{11}{subsection.3.1}
+\contentsline {paragraph}{}{11}{section*.7}
+\contentsline {subsection}{\numberline {3.2}Balanced Growth Path}{14}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Growth Rates on Balanced Growth Path}{14}{subsubsection.3.2.1}
+\contentsline {paragraph}{Population and Technology}{14}{section*.8}
+\contentsline {paragraph}{Capital per person}{14}{section*.9}
+\contentsline {paragraph}{Output and Consumption per person}{14}{section*.10}
+\contentsline {subsection}{\numberline {3.3}Experiment}{16}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Impact of Change in the Saving Rate ($s_1 > s_0$)}{16}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Derive the Effect of Change in $s$ Mathematically}{18}{subsubsection.3.3.2}
+\contentsline {paragraph}{Goal}{18}{section*.11}
+\contentsline {paragraph}{Impact on $k^*$}{18}{section*.12}
+\contentsline {paragraph}{Impact on $y^*$}{18}{section*.13}
+\contentsline {paragraph}{Impact on $c^*$}{19}{section*.14}
+\contentsline {paragraph}{Interpretation}{20}{section*.15}
+\contentsline {section}{\numberline {4}Lecture 4 September 27. 2018}{20}{section.4}
+\contentsline {subsection}{\numberline {4.1}Speed of Convergence}{20}{subsection.4.1}
+\contentsline {paragraph}{Methodology}{20}{section*.16}
+\contentsline {paragraph}{Recall}{20}{section*.17}
+\contentsline {subsubsection}{\numberline {4.1.1}Convergence of $k$}{21}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Convergence of $y$}{21}{subsubsection.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Implications}{22}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Growth Accounting}{23}{subsection.4.3}
+\contentsline {section}{\numberline {5}Lecture 5 October 11. 2018}{24}{section.5}
+\contentsline {subsection}{\numberline {5.1}Economy Setup}{24}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Households}{25}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Assumptions and Behaviours}{25}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Objective Functions}{25}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Household Budget Constraints}{26}{subsubsection.5.2.3}
+\contentsline {subsection}{\numberline {5.3}Instantaneous Utility Function}{28}{subsection.5.3}
+\contentsline {section}{\numberline {6}Lecture 6 Oct 18. 2018}{29}{section.6}
+\contentsline {subsection}{\numberline {6.1}Firm Setup}{29}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Firm's Optimization}{29}{subsection.6.2}
+\contentsline {paragraph}{Maximization}{29}{section*.18}
+\contentsline {paragraph}{First Order Condition}{30}{section*.19}
+\contentsline {subsection}{\numberline {6.3}Household Behaviour}{31}{subsection.6.3}
+\contentsline {paragraph}{First Order Necessary Conditions}{31}{section*.20}
+\contentsline {subsection}{\numberline {6.4}The Behaviour of Consumption}{32}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Dynamics of the Economy}{33}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Dynamic of $c$}{33}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.2}Dynamic of $k$}{33}{subsubsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.3}Initial Point Problem (Saddle Path)}{34}{subsubsection.6.5.3}
+\contentsline {section}{\numberline {7}Lecture 7 Oct. 25 2018}{34}{section.7}
+\contentsline {subsection}{\numberline {7.1}Welfare}{35}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}In the Long Run: Balanced Growth Path}{35}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Modified Golden Rule Level of Capital}{36}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Experiment: A Fall in the Discount Rate}{36}{subsection.7.4}
+\contentsline {paragraph}{Impact on $k^*$ and $c^*$}{37}{section*.21}
+\contentsline {subsection}{\numberline {7.5}Experiment: The Effects of Government Purchases}{37}{subsection.7.5}
+\contentsline {paragraph}{Impact}{38}{section*.22}
+\contentsline {subsubsection}{\numberline {7.5.1}Permanent Change in Government Purchases}{39}{subsubsection.7.5.1}
+\contentsline {paragraph}{}{39}{section*.23}
+\contentsline {paragraph}{Effect}{39}{section*.24}
+\contentsline {subsubsection}{\numberline {7.5.2}Temporary Change in Government Purchases}{40}{subsubsection.7.5.2}
+\contentsline {paragraph}{}{40}{section*.25}
+\contentsline {subsection}{\numberline {7.6}Extension: Change in Capital Depreciation}{40}{subsection.7.6}
+\contentsline {section}{\numberline {8}Lecture 8 Nov. 1 2018}{42}{section.8}
+\contentsline {subsection}{\numberline {8.1}Government Spending: without bonds}{42}{subsection.8.1}
+\contentsline {paragraph}{Household budget}{42}{section*.26}
+\contentsline {paragraph}{State equation}{42}{section*.27}
+\contentsline {subsection}{\numberline {8.2}Government Spending: with bonds (voluntary taxation)}{42}{subsection.8.2}
+\contentsline {paragraph}{Household Budget Constraint}{42}{section*.28}
+\contentsline {paragraph}{Government Budget Constraint}{42}{section*.29}
+\contentsline {subsection}{\numberline {8.3}Problems of Ricardian Equivalence}{43}{subsection.8.3}
+\contentsline {subsubsection}{\numberline {8.3.1}Turn Over of Population}{43}{subsubsection.8.3.1}
+\contentsline {subsubsection}{\numberline {8.3.2}Liquidity Constraint}{43}{subsubsection.8.3.2}
+\contentsline {subsubsection}{\numberline {8.3.3}No Lump-sum Tax in Real World}{43}{subsubsection.8.3.3}
+\contentsline {subsubsection}{\numberline {8.3.4}Rule of Thumb: Imperfect Foreseeing}{44}{subsubsection.8.3.4}
+\contentsline {section}{\numberline {9}Lecture 9 Nov. 22 2018}{44}{section.9}
+\contentsline {subsection}{\numberline {9.1}Business Cycle Facts}{44}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Baseline Business Cycle Model}{45}{subsection.9.2}
+\contentsline {paragraph}{Firms}{45}{section*.31}
+\contentsline {paragraph}{Output}{45}{section*.32}
+\contentsline {paragraph}{Government Purchases}{45}{section*.33}
+\contentsline {paragraph}{Ricardian Equivalence}{45}{section*.34}
+\contentsline {subsubsection}{\numberline {9.2.1}Firm's Problem}{46}{subsubsection.9.2.1}
+\contentsline {subsubsection}{\numberline {9.2.2}Households}{46}{subsubsection.9.2.2}
+\contentsline {paragraph}{Population}{46}{section*.35}
+\contentsline {subsubsection}{\numberline {9.2.3}Technology Shocks}{47}{subsubsection.9.2.3}
+\contentsline {subsubsection}{\numberline {9.2.4}Government Shock}{47}{subsubsection.9.2.4}
+\contentsline {subsection}{\numberline {9.3}Case 1}{48}{subsection.9.3}
+\contentsline {paragraph}{Assumptions}{48}{section*.36}
+\contentsline {paragraph}{Budget}{48}{section*.37}
+\contentsline {paragraph}{Household's Problem}{48}{section*.38}
+\contentsline {paragraph}{Solving the model}{48}{section*.39}
+\contentsline {subsection}{\numberline {9.4}Case 2}{49}{subsection.9.4}
+\contentsline {paragraph}{Assumptions:}{49}{section*.40}
+\contentsline {paragraph}{Budget Constraint}{49}{section*.41}
+\contentsline {paragraph}{Household's Problem}{49}{section*.42}
+\contentsline {paragraph}{Solving the model}{49}{section*.43}
+\contentsline {paragraph}{Intra-temporal Trade-offs}{50}{section*.44}
+\contentsline {paragraph}{Inter-temporal Trade-offs}{50}{section*.45}
+\contentsline {paragraph}{Observation 1}{50}{section*.46}
+\contentsline {paragraph}{Observation 2}{50}{section*.47}
+\contentsline {paragraph}{Observation 3}{50}{section*.48}
+\contentsline {paragraph}{Observation 4}{50}{section*.49}
+\contentsline {section}{\numberline {10}Lecture 10 Nov. 29 2018}{51}{section.10}
+\contentsline {subsection}{\numberline {10.1}Case 3}{51}{subsection.10.1}
+\contentsline {subsubsection}{\numberline {10.1.1}Setup the Model}{51}{subsubsection.10.1.1}
+\contentsline {paragraph}{Objective Function}{51}{section*.50}
+\contentsline {paragraph}{Controls}{51}{section*.51}
+\contentsline {paragraph}{Budget Constraint}{51}{section*.52}
+\contentsline {subsubsection}{\numberline {10.1.2}Solving the Model}{51}{subsubsection.10.1.2}
+\contentsline {paragraph}{Lagrangian}{51}{section*.53}
+\contentsline {paragraph}{First Order Conditions}{52}{section*.54}
+\contentsline {subsubsection}{\numberline {10.1.3}Analysis}{52}{subsubsection.10.1.3}
+\contentsline {paragraph}{Inter-Temporal Consumption}{52}{section*.55}
+\contentsline {paragraph}{Intra-Temporal Consumption-Leisure}{52}{section*.56}
+\contentsline {paragraph}{Inter-Temporal Leisure}{53}{section*.57}
+\contentsline {subsection}{\numberline {10.2}Case 4}{53}{subsection.10.2}
+\contentsline {subsubsection}{\numberline {10.2.1}Setup the Model}{53}{subsubsection.10.2.1}
+\contentsline {paragraph}{Budget Constraint at $t$}{53}{section*.58}
+\contentsline {paragraph}{(Optional)}{53}{section*.59}
+\contentsline {subsubsection}{\numberline {10.2.2}Solving the Model}{53}{subsubsection.10.2.2}
+\contentsline {paragraph}{Lagrangian}{53}{section*.60}
+\contentsline {paragraph}{First Order Condition with Expectations}{54}{section*.61}
+\contentsline {subsubsection}{\numberline {10.2.3}Analysis}{54}{subsubsection.10.2.3}
+\contentsline {paragraph}{Intra-Temporal Consumption-Leisure}{54}{section*.62}
+\contentsline {paragraph}{Inter-Temporal Consumption}{54}{section*.63}
+\contentsline {paragraph}{Inter-Temporal Leisure}{54}{section*.64}
+\contentsline {subsection}{\numberline {10.3}Social Planner Problem}{54}{subsection.10.3}
+\contentsline {subsubsection}{\numberline {10.3.1}Setup the Model}{55}{subsubsection.10.3.1}
+\contentsline {paragraph}{Optimization}{55}{section*.65}
+\contentsline {subsubsection}{\numberline {10.3.2}Solving the Model}{55}{subsubsection.10.3.2}
+\contentsline {paragraph}{Lagrangian}{55}{section*.66}
+\contentsline {paragraph}{First Order Necessary Conditions}{55}{section*.67}
+\contentsline {subsubsection}{\numberline {10.3.3}Analysis}{56}{subsubsection.10.3.3}
+\contentsline {subsection}{\numberline {10.4}Solving One Model (Optional)}{56}{subsection.10.4}
+\contentsline {paragraph}{Note}{56}{section*.68}
+\contentsline {paragraph}{Equilibrium}{58}{section*.69}
+\contentsline {paragraph}{Impulse Response Function}{58}{section*.70}
+\contentsline {section}{\numberline {11}Some Extensions to the Baseline RBC Model}{58}{section.11}
+\contentsline {paragraph}{}{58}{section*.71}
+\contentsline {subsection}{\numberline {11.1}A More General Case (Optional)}{58}{subsection.11.1}
+\contentsline {subsubsection}{\numberline {11.1.1}Setup the Model}{60}{subsubsection.11.1.1}
+\contentsline {paragraph}{Controls}{60}{section*.72}
+\contentsline {paragraph}{Objective Functional}{60}{section*.73}
+\contentsline {paragraph}{State Equation / Flow Budget Constraint}{60}{section*.74}
+\contentsline {paragraph}{Optimization Problem with Uncertainty}{60}{section*.75}
+\contentsline {paragraph}{Lagrangian}{60}{section*.76}
+\contentsline {subsubsection}{\numberline {11.1.2}Solving the Model}{61}{subsubsection.11.1.2}
+\contentsline {paragraph}{FONC}{61}{section*.77}
+\contentsline {paragraph}{Inter-Temporal Consumption}{61}{section*.78}
+\contentsline {paragraph}{Inter-Temporal Leisure}{62}{section*.79}
+\contentsline {paragraph}{Intra-Temporal Leisure-Consumption}{62}{section*.80}
+\contentsline {subsection}{\numberline {11.2}Taxation altogether with Government Bonds}{62}{subsection.11.2}
+\contentsline {subsubsection}{\numberline {11.2.1}Setup the Model}{62}{subsubsection.11.2.1}
+\contentsline {subsubsection}{\numberline {11.2.2}Solvings the Model}{62}{subsubsection.11.2.2}
+\contentsline {paragraph}{Objective Functional}{62}{section*.81}
+\contentsline {paragraph}{Controls}{62}{section*.82}
+\contentsline {paragraph}{Household Budget}{63}{section*.83}
+\contentsline {paragraph}{Government Budget}{63}{section*.84}
+\contentsline {subsection}{\numberline {11.3}Tax on Household Capital Earning}{63}{subsection.11.3}
+\contentsline {subsubsection}{\numberline {11.3.1}Setup the Model}{63}{subsubsection.11.3.1}
+\contentsline {paragraph}{Objective Functional}{63}{section*.85}
+\contentsline {paragraph}{Controls}{64}{section*.86}
+\contentsline {paragraph}{Household Budget}{64}{section*.87}
+\contentsline {subsubsection}{\numberline {11.3.2}Solving the Model}{64}{subsubsection.11.3.2}
+\contentsline {paragraph}{Lagrangian}{64}{section*.88}
+\contentsline {paragraph}{FONC}{64}{section*.89}
+\contentsline {paragraph}{Inter-temporal Consumption}{64}{section*.90}
+\contentsline {paragraph}{Inter-temporal Labor}{65}{section*.91}
+\contentsline {paragraph}{Intra-temporal}{65}{section*.92}
+\contentsline {subsection}{\numberline {11.4}Tax on Household Labor Income}{65}{subsection.11.4}
+\contentsline {subsubsection}{\numberline {11.4.1}Setup the Model}{65}{subsubsection.11.4.1}
+\contentsline {paragraph}{Household Budget}{65}{section*.93}
+\contentsline {subsubsection}{\numberline {11.4.2}Solving the Model}{65}{subsubsection.11.4.2}
+\contentsline {paragraph}{Lagrangian}{65}{section*.94}
+\contentsline {paragraph}{FONC}{65}{section*.95}
+\contentsline {paragraph}{Inter-temporal Consumption}{65}{section*.96}
+\contentsline {paragraph}{Inter-temporal Labor}{66}{section*.97}
+\contentsline {paragraph}{Intra-temporal}{66}{section*.98}
+\contentsline {subsection}{\numberline {11.5}Distortionary Income Tax}{66}{subsection.11.5}
+\contentsline {subsubsection}{\numberline {11.5.1}Setup the Model}{66}{subsubsection.11.5.1}
+\contentsline {paragraph}{Household Budget}{66}{section*.99}
+\contentsline {subsubsection}{\numberline {11.5.2}Solving the Model}{66}{subsubsection.11.5.2}
+\contentsline {paragraph}{Lagrangian}{66}{section*.100}
+\contentsline {paragraph}{FONC}{66}{section*.101}
+\contentsline {paragraph}{Inter-temporal Consumption}{66}{section*.102}
+\contentsline {paragraph}{Inter-temporal Labor}{67}{section*.103}
+\contentsline {paragraph}{Intra-temporal}{67}{section*.104}
