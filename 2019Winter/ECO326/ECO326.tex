@@ -1,0 +1,155 @@
+\documentclass[11pt]{article}
+
+\title{Game Theory Notes \\ \small A Course in Game Theory}
+
+\author{Tianyu Du}
+\date{\today}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{soul}
+\usepackage{spikey}
+\usepackage{xcolor}
+\usepackage{centernot}
+\usepackage{txfonts}
+\usepackage{graphicx}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Introduction}
+		\begin{assumption}[pg.4]
+			Assume that each decision-maker is \emph{rational} in the sense that he is aware of his alternatives, forms expectation about any unknowns, has clear preferences, and chooses his action deliberately after some process of optimization.
+		\end{assumption}
+		
+		\begin{definition}[pg.4]
+			A model of \textbf{rational choice} consists
+			\begin{itemize}
+				\item A set $A$ of \emph{actions}.
+				\item A set $C$ of \emph{consequences}.
+				\item A \emph{consequence function} $g: A \to C$.
+				\item A \emph{preference relation} $\succsim$ on $C$.
+			\end{itemize}
+		\end{definition}
+		
+		\begin{definition}[pg.7]
+			A \textbf{preference relation} is a complete reflexive transitive binary relation.
+		\end{definition}
+		
+	\section{Nash Equilibrium}
+		\begin{definition}[11.1]
+			A \textbf{strategic game} consists of
+			\begin{itemize}
+				\item a \ul{finite} set of \textbf{players} $N$.
+				\item for each player $i \in N$, an \textbf{actions} $A_i \neq \emptyset$.
+				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \prod_{i\in N}A_i$.
+			\end{itemize}
+			and can be written as a triple $\langle N, (A_i), (\succsim_i) \rangle$.
+		\end{definition}
+		
+		\begin{definition}[pg.11]
+			A strategic game $\langle N, (A_i), (\succsim_i) \rangle$ is \textbf{finite} if 
+			\[
+				|A_i| < \aleph_0\ \forall i \in N
+			\]
+		\end{definition}
+	
+		\begin{definition}[14.1]
+			A \textbf{Nash equilibrium of a strategic game} $\langle N, (A_i), (\succsim_i) \rangle$ is a profile $a^* \in A$ of actions with property that for every player $i \in N$
+			\[
+				(a_i^*, a^*_{-i}) \succsim_i (a_i, a^*_{-i})\ \forall a_i \in A_i
+			\]
+		\end{definition}
+		
+		\begin{definition}[pg.15]
+			The \textbf{best-response function} for a player $i$ is defined as
+			\[
+				B_i(a_{-i}) = \{a_i \in A_i : (a_i, a_{-i}) \succsim_i (a_i', a_{-i})\ \forall a_i' \in A_i \}
+			\]
+		\end{definition}
+		
+		\begin{remark}
+			The best-response of $a_{-i}$ can be written as 
+			\[
+				B_i(a_{-i}) = \bigcap_{a_i' \in A_i} \{a_i \in A_i : (a_i, a_{-i}) \succsim_i (a_i', a_{-i})\}
+			\]
+			where each of them is the upper contour set of $a_i'$. \\
+			Thus, if $\succsim_i$ is quasi-concave, then $B_i(a_{-i})$ is an intersection of convex sets and therefore itself convex.
+		\end{remark}
+		
+		\begin{remark}[pg.15]
+			So a Nash equilibrium is a profile $a^* \in A$ such that
+			\[
+				a^*_i \in B_i(a^*_{-i})\ \forall i \in N
+			\]
+		\end{remark}
+		
+		\begin{lemma}[pg.19]
+			A strategic game $\langle N, (A_i), (\succsim_i) \rangle$ has a Nash equilibrium if equivalent to the following statement:\\
+			Define set-valued function $B: A \to A$ by 
+			\[
+				B(a) = \prod_{i\in N} B_i (a_{-i})
+			\]
+			and there exists $a^* \in A$ such that $a^* \in B(a^*)$.
+		\end{lemma}
+	
+		\begin{lemma}[20.1 Kakutani's fixed point theorem]
+			Let $X$ be a \ul{compact convex subset} of $\R^n$ and let $f: X \to X$ be a set-valued function for which
+			\begin{itemize}
+				\item for all $x \in X$ the set $f(x)$ is non-empty and convex.
+				\item the graph of $f$ is closed. \emph{(i.e. for all sequences $\{x_n\}$ and $\{y_n\}$ such that $y_n \in f(x_n)$ for all $n$, $x_n \to x$ and $y_n \to y$ then $y \in f(x)$)}
+			\end{itemize}
+			Then there exists $x^* \in X$ such that $x^* \in f(x^*)$.
+		\end{lemma}
+		
+		\begin{definition}[pg.20]
+			A preference relation $\succsim_i$ over $A$ is quasi-concave on $A_i$ if for every $a^* \in A$ the upper contour set over $a^*_i$, given other players' strategies
+			\[
+				\{a_i \in A_i: (a^*_{-i}, a_i) \succsim_i a^*\}
+			\]
+			is convex.
+		\end{definition}
+		
+		\begin{proposition}[20.3]
+			The strategic game $\langle N, (A_i), (\succsim_i) \rangle$ has a Nash equilibrium if for all $i \in N$,
+			\begin{itemize}
+				\item the set $A_i$ of actions of player $i$ is a nonempty \ul{compact convex} subset of a Euclidian space
+			\end{itemize}
+			and the preference relation $\succsim_i$ is
+			\begin{itemize}
+				\item continuous
+				\item quasi-concave on $A_i$.
+			\end{itemize}
+		\end{proposition}
+		
+		\begin{proof}
+			Let $B: A \to A$ be a correspondence defined as 
+			\[
+				B(a) := \prod_{i \in N} B_i(a_{-i})
+			\]
+			Note that for each $a \in A$ and for each $i \in N$, \\
+			$B_i(a_{-i}) \neq \emptyset$ since preference $\succsim_i$ is continuous and $A_i$ is compact (EVT). \\
+			Also $B_i(a_{-i})$ is convex since it's basically a intersection of  upper contour sets and each of those upper contour is convex since $\succsim_i$ is quasi-concave. \\
+			So the Cartesian product of the finite collection of $B_i$ is non-empty and convex. \\
+			Also the graph $B$ is closed since $\succsim_i$ is continuous. \\
+			So there exists $a^* \in A$ such that $a^* \in B(a^*)$. \\
+			So Nash equilibrium presents.
+		\end{proof}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
