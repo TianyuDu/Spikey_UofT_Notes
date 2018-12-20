@@ -1,24 +1,37 @@
 \documentclass[11pt]{article}
 
-\title{Game Theory Notes \\ \small A Course in Game Theory}
+\title{ECO326 Advanced Microeconomic Theory \\ \small A Course in Game Theory}
 
 \author{Tianyu Du}
 \date{\today}
 
+\usepackage{spikey}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{float}
 \usepackage{soul}
-\usepackage{spikey}
-\usepackage{xcolor}
-\usepackage{centernot}
-\usepackage{txfonts}
+\usepackage{float}
 \usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+
+\counterwithin{equation}{section}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc},
+    version={4.0},
+]{doclicense}
 
 \begin{document}
 	\maketitle
+	\doclicenseThis
+	\texttt{Github Page} \url{https://github.com/TianyuDu/Spikey_UofT_Notes}\\
+	\texttt{Note Page} \url{TianyuDu.com/notes}
+	\paragraph{Readme} this note is based on the course content of \emph{ECO326 Advanced Microeconomics - Game Theory}, this note contains all materials covered during lectures and mentioned in the course syllabus. However, notations, statements of theorems and proofs are following the book \emph{A Course in Game Theory} by Osborne and Rubinstein, so they might be, to some extent, more mathematical than the required text for ECO326, \emph{An Introduction to Game Theory}.
+	
 	\tableofcontents
-	\section{Introduction}
+	\section{Lecture 1. Games and Dominant Strategies}
 		\begin{assumption}[pg.4]
 			Assume that each decision-maker is \emph{rational} in the sense that he is aware of his alternatives, forms expectation about any unknowns, has clear preferences, and chooses his action deliberately after some process of optimization.
 		\end{assumption}
@@ -34,11 +47,9 @@
 		\end{definition}
 		
 		\begin{definition}[pg.7]
-			A \textbf{preference relation} is a complete reflexive transitive binary relation.
+			A \textbf{preference relation} is a \ul{complete reflexive and transitive} binary relation.
 		\end{definition}
-		
-	\section{Nash Equilibrium}
-		\begin{definition}[11.1]
+\begin{definition}[11.1]
 			A \textbf{strategic game} consists of
 			\begin{itemize}
 				\item a \ul{finite} set of \textbf{players} $N$.
@@ -54,7 +65,26 @@
 				|A_i| < \aleph_0\ \forall i \in N
 			\]
 		\end{definition}
-	
+		
+	\section{Lecture 2. Iterated Elimination and Rationalizability}
+		\subsection{Iterated Elimination of Strictly Dominated Strategies}
+			
+			
+		\subsection{Rationalizability}
+			\begin{definition}[59.1]
+				An action of player $i$ in a strategic game is a \textbf{never best response} if it is not a best response to any \ul{belief} of player $i$.
+			\end{definition}
+			
+			\begin{definition}[59.2]
+				The action $a_i \in A_i$ of player $i$ in the strategic game $\langle N, (A_i), (u_i) \rangle$ is \textbf{strictly dominated} if there is a mixed strategy $\alpha_i$ of player $i$ such that 
+				\[
+					U_i(a_{-i}, \alpha_i) > u_i(a_{-i}, a_i)
+				\]
+				for all $a_{-i} \in A_{-i}$, where $U_i(a_{-i}, \alpha_i)$ is the payoff of player $i$ if he uses the mixed strategy $\alpha_i$ and the other players' vector of actions is $a_{-i}$.
+			\end{definition}
+		
+		
+	\section{Lecture 3. Nash Equilibrium}
 		\begin{definition}[14.1]
 			A \textbf{Nash equilibrium of a strategic game} $\langle N, (A_i), (\succsim_i) \rangle$ is a profile $a^* \in A$ of actions with property that for every player $i \in N$
 			\[
@@ -130,12 +160,23 @@
 			\]
 			Note that for each $a \in A$ and for each $i \in N$, \\
 			$B_i(a_{-i}) \neq \emptyset$ since preference $\succsim_i$ is continuous and $A_i$ is compact (EVT). \\
-			Also $B_i(a_{-i})$ is convex since it's basically a intersection of  upper contour sets and each of those upper contour is convex since $\succsim_i$ is quasi-concave. \\
+			Also $B_i(a_{-i})$ is convex since it's basically an intersection of  upper contour sets and each of those upper contour is convex since $\succsim_i$ is quasi-concave. \\
 			So the Cartesian product of the finite collection of $B_i$ is non-empty and convex. \\
 			Also the graph $B$ is closed since $\succsim_i$ is continuous. \\
 			So there exists $a^* \in A$ such that $a^* \in B(a^*)$. \\
 			So Nash equilibrium presents.
 		\end{proof}
+
+%	\section{Lecture 4. Nash Equilibrium: Examples}
+%	\section{Lecture 5. Mixed Strategies}
+%	\section{Lecture 6. Extensive Form Games and Subgame Perfection}
+%		\subsection{Extensive Form Game}
+%		\subsection{Subgame Perfection}
+%	\section{Lecture 7. Extensive Form Games: Examples}
+%	\section{Lecture 8. Repeated Games}
+%	\section{Lecture 9. Game with Incomplete Information}
+%	\section{Lecture 10. Game with Incomplete Information II}
+%	\section{Lecture 11. Auctions}
 \end{document}
 
 
