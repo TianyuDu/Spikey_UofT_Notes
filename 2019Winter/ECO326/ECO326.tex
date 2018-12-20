@@ -67,8 +67,20 @@
 		\end{definition}
 		
 	\section{Lecture 2. Iterated Elimination and Rationalizability}
-		\subsection{Iterated Elimination of Strictly Dominated Strategies}
+		\subsection{Iterated Elimination of Strictly Dominated Strategies(Actions)}
+			\begin{definition}[60.2]
+				The set $X \subseteq A$ of outcomes of a \ul{finite} strategic game $\langle N, (A_i), (u_i) \rangle$ \textbf{survives iterated elimination of \ul{strictly} dominated actions} if $X = \times_{j \in N} X_j$ and there is a collection $((X_j^t)_{j \in N})_{t=0}^T$ of sets that satisfies the following conditions for each $j \in N$.
+				\begin{itemize}
+					\item $X_j^0 = A_j$ and $X_j^T = X_j$.
+					\item $X_j^{t+1} \subseteq X_j^t$ for each $t = 0, \dots, T - 1$.
+					\item For each $t = 0, \dots, T-1$ every action of player $j$ in $X_j^t \backslash X_j^{t+1}$ is \ul{strictly dominated} in the game $\langle N, (X_i^t), (u_i^t) \rangle$, where $u_i^t$ for each $i \in N$ is the function $u_i$ restricted to $\times_{j \in N} X_j^t$.
+					\item No action in $X_t^T$ is strictly dominated in game $\langle N, (X_i^T), (u_i^T) \rangle$.
+				\end{itemize}
+			\end{definition}
 			
+			\begin{proposition}[61.2]
+				If $X = \times_{j \in N}X_j$ survives iterated elimination of strictly dominated actions in a \ul{finite} strategic game $\langle N, (A_i), (u_i) \rangle$ then $X_j$ is the set of player $j$'s rationalizable actions for each $j \in N$.
+			\end{proposition}
 			
 		\subsection{Rationalizability}
 			\begin{definition}[59.1]

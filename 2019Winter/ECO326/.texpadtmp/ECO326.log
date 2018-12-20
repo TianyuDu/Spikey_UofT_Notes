@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  20 DEC 2018 13:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  20 DEC 2018 14:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -734,34 +734,39 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
 
-Overfull \hbox (21.70401pt too wide) in paragraph at lines 88--89
+Overfull \hbox (35.42087pt too wide) in paragraph at lines 70--70
+[]\OT1/cmr/bx/n/12 Iterated Elim-i-na-tion of Strictly Dom-i-nated Strate-gies(Actions) 
+ []
+
+[2]
+Overfull \hbox (21.70401pt too wide) in paragraph at lines 101--102
 [][]\OT1/cmr/bx/n/10.95 Definition 3.1 \OT1/cmr/m/n/10.95 (14.1)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A \OT1/cmr/bx/n/10.95 Nash equi-lib-rium of a strate-gic game $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 N; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\U/msa/m/n/10.95 %[]
  []
 
-[2] [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 179.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 179.
+[3] [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/ECO326.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 179.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 179.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 192.
 Package rerunfilecheck Info: File `ECO326.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 179.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 192.
  ) 
 Here is how much of TeX's memory you used:
- 8863 strings out of 493014
- 125860 string characters out of 6133351
+ 8866 strings out of 493014
+ 125895 string characters out of 6133351
  241881 words of memory out of 5000000
  12213 multiletter control sequences out of 15000+600000
  12179 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,6n,46p,911b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,6n,46p,911b,555s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/ECO326.pdf (4 pages, 192522 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/ECO326.pdf (5 pages, 197419 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
+ 157 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
