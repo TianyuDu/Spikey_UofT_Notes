@@ -54,7 +54,7 @@
 			\begin{itemize}
 				\item a \ul{finite} set of \textbf{players} $N$.
 				\item for each player $i \in N$, an \textbf{actions} $A_i \neq \emptyset$.
-				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \prod_{i\in N}A_i$.
+				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \times_{i\in N}A_i$.
 			\end{itemize}
 			and can be written as a triple $\langle N, (A_i), (\succsim_i) \rangle$.
 		\end{definition}
@@ -131,7 +131,7 @@
 			A strategic game $\langle N, (A_i), (\succsim_i) \rangle$ has a Nash equilibrium if equivalent to the following statement:\\
 			Define set-valued function $B: A \to A$ by 
 			\[
-				B(a) = \prod_{i\in N} B_i (a_{-i})
+				B(a) = \times_{i\in N} B_i (a_{-i})
 			\]
 			and there exists $a^* \in A$ such that $a^* \in B(a^*)$.
 		\end{lemma}
@@ -168,7 +168,7 @@
 		\begin{proof}
 			Let $B: A \to A$ be a correspondence defined as 
 			\[
-				B(a) := \prod_{i \in N} B_i(a_{-i})
+				B(a) := \times_{i \in N} B_i(a_{-i})
 			\]
 			Note that for each $a \in A$ and for each $i \in N$, \\
 			$B_i(a_{-i}) \neq \emptyset$ since preference $\succsim_i$ is continuous and $A_i$ is compact (EVT). \\
