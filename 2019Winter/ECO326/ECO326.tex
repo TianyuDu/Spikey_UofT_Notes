@@ -184,9 +184,74 @@
 
 %	\section{Lecture 4. Nash Equilibrium: Examples}
 %	\section{Lecture 5. Mixed Strategies}
-%	\section{Lecture 6. Extensive Form Games and Subgame Perfection}
-%		\subsection{Extensive Form Game}
-%		\subsection{Subgame Perfection}
+	\section{Lecture 6. Extensive Form Games and Subgame Perfection}
+		\subsection{Extensive Form Game}
+			\begin{definition}[89.1]
+				An \textbf{extensive game with perfect information} has the following components.
+				\begin{itemize}
+					\item A set $N$ of \textbf{players}.
+					\item A set $H$ of sequences (finite or infinite) of \textbf{histories} with properties:
+						\begin{itemize}
+							\item $\emptyset \in H$.
+							\item For all $L < K$, $(a^k)_{k=1,2,\dots,K} \in H \implies (a^k)_{k=1,2,\dots,L} \in H$.
+							\item For infinite sequence $(a^k)_{k=1}^\infty$,\\ $(a^k)_{k=1,2,\dots,L} \in H,\ \forall L \in \Z_{++} \implies (a^k)_{k=1}^\infty \in H$.
+						\end{itemize} And each component of history $h \in H$ is an \textbf{action} taken by a player.
+					\item A function $P: H \backslash Z \to N$, where for $h \in H$, $P(h) \in N$ is defined by the player who takes an action \ul{after} the history $h$.
+					\item For each player $i \in N$ a \textbf{preference relation} $\succsim_i$ \ul{defined on $Z$}.
+				\end{itemize}
+			\end{definition}
+			
+			\begin{notation}[pg.90]
+				An extensive game with perfect information can be represented by a 4-tuple, $\langle N, H, P, (\succsim_i) \rangle$. \emph{Sometimes it is convenient to specify the structure of an extensive game without specifying the players' preference, as $\langle N, H, P \rangle$}.
+			\end{notation}
+			
+			\begin{definition}[pg.90]
+				A history $(a^k)_{k=1,2,\dots,K} \in H$ is \textbf{terminal} if
+				\begin{enumerate}
+					\item it is infinite,
+					\item \ul{or} (i.e. it cannot be extended to another valid history sequence)
+					\[
+						\forall a^{K+1},\ (a^k)_{k=1,2,\dots,K+1} \notin H
+					\]
+				\end{enumerate}
+				The set of terminal histories is denoted by $Z$.
+			\end{definition}
+			
+			\begin{notation}[pg.90, the action set]
+				After any nonterminal history, $h \in H \backslash Z$, the player $P(h)$ chooses an action from set
+				\[
+					A(h) = \{a: (h, a) \in H\}
+				\]
+			\end{notation}
+			
+			\begin{remark}
+				Note that all player function, action set and player preference relation are defined on $H$. Thus, unlike a normal form game, which was \emph{player oriented}, we'd better consider an extensive form game as \emph{history oriented}.
+			\end{remark}
+			
+			\begin{definition}[pg.90]
+				We refer to the empty set, which is required to be an element of $H$, as the \textbf{initial history}.
+			\end{definition}
+			
+			\begin{definition}[92.1]
+				A \textbf{strategy of player} $i \in N$, $s_i$, in an extensive game with perfect information $\langle N, H, P, (\succsim_i) \rangle$ is a function that assigns an action in $A(h)$ to each nonterminal history $h \in H \backslash Z$ for which $P(h) = i$.
+			\end{definition}
+			
+			\begin{remark}[pg.92]
+				A strategy specifies the action chosen by a player for \emph{every} history after which it is his turn to move, \emph{even for histories that is, if the strategy is followed, are never reached}.
+			\end{remark}
+			
+			\begin{definition}[pg.93]
+				For each strategy profile $s = (s_i)_{i \in N}$ in the extensive game $\langle N, H, P, (\succsim_i) \rangle$, the \textbf{outcome} of $s$, $O(s)$, is defined as the \ul{terminal history} that results when each player $i \in N$ follows the precepts of $s_i$. That is, $O(s)$ is the (possibly infinite) history
+				\[
+					(a^1, \dots, a^K) \in Z
+				\]
+				such that
+				\[
+					\forall k \in \{0, 1, \dots K-1\},\ s_{P(a^1, \dots, a^k)}(a^1, \dots, a^k) = a^{k+1}
+				\]
+			\end{definition}
+			
+		\subsection{Subgame Perfection}
 %	\section{Lecture 7. Extensive Form Games: Examples}
 %	\section{Lecture 8. Repeated Games}
 %	\section{Lecture 9. Game with Incomplete Information}
