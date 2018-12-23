@@ -49,7 +49,8 @@
 		\begin{definition}[pg.7]
 			A \textbf{preference relation} is a \ul{complete reflexive and transitive} binary relation.
 		\end{definition}
-\begin{definition}[11.1]
+		
+		\begin{definition}[11.1]
 			A \textbf{strategic game} consists of
 			\begin{itemize}
 				\item a \ul{finite} set of \textbf{players} $N$.
@@ -251,7 +252,98 @@
 				\]
 			\end{definition}
 			
+			\begin{definition}[93.1] A \textbf{Nash equilibrium of an extensive game with perfect information} $\langle N, H, P, (\succsim_i) \rangle$ is a strategy profile $s^*$ such that for every player $i \in N$ we have
+			\[
+				\forall s_i \in S_i,\ O(s_{-i}^*, s_i^*) \succsim_i O(s_{-i}^*, s_i)
+			\]
+			\end{definition}
+			
+			\begin{definition}[94.1] The \textbf{strategic form of the extensive game with perfect information}, $\Gamma=\langle N, H, P, (\succsim_i) \rangle$, is the strategic game $\langle N, (S_i), (\succsim_i') \rangle$ in which for each player $i \in N$
+				\begin{itemize}
+					\item $S_i$ is the \textbf{set of strategies} of player $i$ in $\Gamma$.
+					\item $\succsim_i'$ is defined on $\times_{i \in N}S_i$ and defined by
+					\[
+						\forall s, s' \in \times_{i \in N}S_i,\ s \succsim_i' s' \iff O(s) \succsim_i O(s')
+					\]
+				\end{itemize}
+			\end{definition}
+			
+			\begin{definition}[pg.94]
+				A \textbf{reduced strategy} of player $i$ is defined to be a function $f_i$ whose domain is a \emph{subset} of $\{h \in H: P(h) = i\}$ and has the following properties
+				\begin{enumerate}
+					\item it associates with every history $h$ in the domain of $f_i$ an action in $A(h)$.
+					\item a history $h$ with $P(h) = i$ is in the domain of $f_i$ if and only if all the actions of player $i$ in $h$ are those dictated by $f_i$. (i.e., for any $h = (a^k)$ and for any $h' = (a^k)_{k=1}^L$ as a subsequence of $h$ such that $P(h')=i$, $f_i(h') = a^{L+1}$.)
+				\end{enumerate}
+			\end{definition}
+			\begin{remark}[pg.94]
+				Each \textbf{reduced strategy} of player $i$ corresponds to a \ul{set of strategies of player $i$}, such that for each vector of strategies of the \ul{other players} each strategy in this set yields the \ul{same outcome}. (strategies in the same set are \textbf{outcome-equivalent}.) \\
+				That's, for each strategy $s_i \in S_i$, its reduced strategy can be defined with an outcome equivalence class, $[s_i]$,
+				\[
+					[s_i] \equiv \{
+					s'_i \in S_i: \forall s_{-i} \in \times_{j \in N \backslash \{i\}} S_j,\ O(s_{-i}, s_i) \textcolor{red}{=} O(s_{-i}, s_i')
+					\}
+				\]
+				But in some other game, the definition of outcome-equivalence is more general and defined by \ul{generating the same payoff} (through possibly difference outcomes), then the reduced strategy is defined as
+				\[
+					[s_i] \equiv \{
+					s'_i \in S_i: \forall s_{-i} \in \times_{j \in N \backslash \{i\}} S_j,\ \forall j \in N,\ O(s_{-i}, s_i) \textcolor{red}{\sim_j} O(s_{-i}, s_i')
+					\}
+				\]
+			\end{remark}
+			
+			\begin{definition}[95.1.1]
+				Let $\Gamma = \langle N, H, P, (\succsim_i) \rangle$ be an extensive game with perfect information and let $\langle N, (S_i), (\succsim_i') \rangle$ be its strategic form. For any $i \in N$ define the strategies $s_i, s_i' \in S_i$ to be \textbf{equivalent} if 
+				\[
+					\forall s_{-i} \in S_{-i},\ \forall j \in N,\ (s_{-i}, s_i) \sim_j' (s_{-i}, s_i')
+				\]
+			\end{definition}
+			
+			\begin{definition}[95.1.2]
+				The \textbf{reduced strategic form of} $\Gamma$ is the strategic game $\langle N, (S_i'), (\succsim_i'') \rangle$ in which for each $i \in N$ each set $S_i'$ contains one member of each set of equivalent strategies in $S_i$ and $\succsim_{i}''$ is the preference ordering over $\times_{j \in N} S_j'$ induced by $\succsim_i'$.
+			\end{definition}
 		\subsection{Subgame Perfection}
+			\begin{definition}[97.1]
+				The \textbf{subgame of extensive game with perfect information $\Gamma = \langle N, H, P, (\succsim_i) \rangle$ that follows the history $h$} is the extensive  game $\Gamma(h) = \langle N, H|_h, P|_h, (\succsim_i|_h) \rangle$ where
+				\begin{itemize}
+					\item $H|_h$ is the set of sequences $h'$ such that $(h, h') \in H$.
+					\item $P|_h$ is defined by $P|_h(h') = P(h, h')$ for each $h' \in H|_h$.
+					\item $\succsim_i|_h$ is defined by $h' \succsim_i|_h h'' \iff (h, h') \succsim_i (h, h'') \in Z$.
+				\end{itemize}
+			\end{definition}
+			
+			\begin{notation}[pg.97]
+				Given strategy $s_i \in S_i$ and $h \in H \in \Gamma$, $s_i|_h$ represents the \textbf{strategy that $s_i$ induces in the subgame $\Gamma(h)$}. That's, for each $h' \in H_h$
+				\[
+					s_i|_h (h') \equiv s_i(h, h')
+				\]
+			\end{notation}
+			
+			\begin{notation}
+				Let $O_h$ denote the \textbf{outcome function of $\Gamma(h)$}, that's, for all $h' \in H|_h$,
+				\[
+					O_h(h') \equiv O(h, h')
+				\]
+			\end{notation}
+			
+			\begin{definition}[97.2]
+				A \textbf{subgame perfect equilibrium of an extensive game with perfect information $\Gamma = \langle N, H, P, (\succsim_i) \rangle$} is a strategy profile $s^*$ such that for every player $i \in N$ and every nonterminal history $h \in H \backslash Z$ for which $P(h) = i$ we have
+				\[
+					O_h (s_{-i}^*|_h, s_{i}^*|_h) \succsim_i|_h O_h (s_{-i}^*|_h, s_{i}|_h)
+				\]
+				for every strategy $s_i$ of player $i$ in the subgame $\Gamma(h)$.
+			\end{definition}
+			
+			\begin{definition}[pg.97]Equivalently, define SPNE to be a strategy profile $s^*$ in $\Gamma$ for which for any history $h \in H$ the strategy profile $s^*|_h$ is a Nash equilibrium of the subgame $\Gamma(h)$.
+				
+			\end{definition}
+			
+			\begin{remark}[pg. 97]
+				The notion of SPNE requires the action prescribed by each player's strategy to be optimal, given other players' strategies, after \emph{every} history.
+			\end{remark}
+			
+			\begin{proposition}[99.2]
+				Every finite extensive game with perfect information has a subgame perfect equilibrium.
+			\end{proposition}
 %	\section{Lecture 7. Extensive Form Games: Examples}
 %	\section{Lecture 8. Repeated Games}
 %	\section{Lecture 9. Game with Incomplete Information}
