@@ -90,7 +90,7 @@
 				\begin{itemize}
 					\item $\mu_i: A_{-i} \to [0,1]$.
 					\item $\mu_i(A_{-i}) = 1$.
-					\item For all countable piece-wise disjoint collection $\{E_i\}_{i\in I}$, it satisfies the \emph{countable additivity property}:
+					\item For all countable piece-wise \ul{disjoint} collection $\{E_i\}_{i\in I}$, it satisfies the \emph{countable additivity property}:
 					\[
 						\mu_i(\bigcup_{i \in I} E_i) = \sum_{i \in I}\mu_i(E_i)
 					\]
@@ -98,7 +98,14 @@
 			\end{definition}
 			
 			\begin{definition}[lec.2]
-				For a player $i \in N$, $a_i \in A_i$ is the \textbf{best response to belief $\mu_i$} in a strategic game $\langle N, (A_i), (u_i) \rangle$ if and only if 
+				For a player $i \in N$, $a_i^* \in A_i$ is the \textbf{best response to belief $\mu_i$} in a strategic game $\langle N, (A_i), (u_i) \rangle$ if and only if 
+				\[
+					\forall a_i \in A_i,\ \sum_{a_{-i} \in A_{-i}} u_i(a_i^*, a_{-i}) \mu_i(a_{-i}) \geq \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \mu_i(a_{-i})
+				\]
+				Equivalently,
+				\[
+					\forall a_i \in A_i,\ \expect{u_i(a_i^*, a_{-i})} \geq \expect{u_i(a_i, a_{-i})}
+				\]
 			\end{definition}
 			
 			\begin{definition}[59.1]
