@@ -1,10 +1,17 @@
 \select@language {english}
 \contentsline {paragraph}{Readme}{1}{section*.1}
 \contentsline {section}{\numberline {1}Lecture 1. Games and Dominant Strategies}{2}{section.1}
-\contentsline {section}{\numberline {2}Lecture 2. Iterated Elimination and Rationalizability}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}Iterated Elimination of Strictly Dominated Strategies(Actions)}{2}{subsection.2.1}
+\contentsline {section}{\numberline {2}Lecture 2. Iterated Elimination and Rationalizability}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Iterated Elimination of Strictly Dominated Strategies(Actions)}{3}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Rationalizability}{3}{subsection.2.2}
-\contentsline {section}{\numberline {3}Lecture 3. Nash Equilibrium}{3}{section.3}
-\contentsline {section}{\numberline {4}Lecture 6. Extensive Form Games and Subgame Perfection}{5}{section.4}
-\contentsline {subsection}{\numberline {4.1}Extensive Form Game}{5}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Subgame Perfection}{6}{subsection.4.2}
+\contentsline {section}{\numberline {3}Lecture 3. Nash Equilibrium}{4}{section.3}
+\contentsline {section}{\numberline {4}Lecture 4. Nash Equilibrium: Examples}{6}{section.4}
+\contentsline {section}{\numberline {5}Lecture 5. Mixed Strategies}{6}{section.5}
+\contentsline {section}{\numberline {6}Lecture 6. Extensive Form Games and Subgame Perfection}{9}{section.6}
+\contentsline {subsection}{\numberline {6.1}Extensive Form Game}{9}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Subgame Perfection}{12}{subsection.6.2}
+\contentsline {section}{\numberline {7}Lecture 7. Extensive Form Games: Examples}{13}{section.7}
+\contentsline {section}{\numberline {8}Lecture 8. Repeated Games}{13}{section.8}
+\contentsline {section}{\numberline {9}Lecture 9. Game with Incomplete Information}{13}{section.9}
+\contentsline {section}{\numberline {10}Lecture 10. Game with Incomplete Information II}{13}{section.10}
+\contentsline {section}{\numberline {11}Lecture 11. Auctions}{13}{section.11}

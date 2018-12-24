@@ -14,6 +14,8 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{chngcntr}
+\usepackage{centernot}
+\usepackage[shortlabels]{enumitem}
 
 \counterwithin{equation}{section}
 
@@ -84,6 +86,21 @@
 			\end{proposition}
 			
 		\subsection{Rationalizability}
+			\begin{definition}[pg.15]
+				The \textbf{best-response function} for a player $i$ is defined as
+				\[
+					B_i(a_{-i}) = \{a_i \in A_i : (a_i, a_{-i}) \succsim_i (a_i', a_{-i})\ \forall a_i' \in A_i \}
+				\]
+			\end{definition}
+			
+			\begin{remark}
+				The best-response of $a_{-i}$ can be written as 
+				\[
+					B_i(a_{-i}) = \bigcap_{a_i' \in A_i} \{a_i \in A_i : (a_i, a_{-i}) \succsim_i (a_i', a_{-i})\}
+				\]
+				where each of them is the upper contour set of $a_i'$. \\
+				Thus, if $\succsim_i$ is quasi-concave, then $B_i(a_{-i})$ is an intersection of convex sets and therefore itself convex.
+			\end{remark}
 			\begin{definition}[pg.54]
 				A \textbf{belief} of player $i$ (about the actions of the other players) is a \ul{probability measure}, $\mu_i$, on $A_{-i}=\times_{j \in N \backslash \{i\}} A_j$. \\
 				$\mu_i$ is a mapping such that
@@ -104,12 +121,16 @@
 				\]
 				Equivalently,
 				\[
-					\forall a_i \in A_i,\ \expect{u_i(a_i^*, a_{-i})} \geq \expect{u_i(a_i, a_{-i})}
+					\forall a_i \in A_i,\ \expect{u_i(a_i^*, a_{-i})|\mu_i} \geq \expect{u_i(a_i, a_{-i})|\mu_i}
 				\]
 			\end{definition}
 			
 			\begin{definition}[59.1]
 				An action of player $i$ in a strategic game is a \textbf{never best response} if it is not a best response to any \ul{belief} of player $i$.
+			\end{definition}
+			
+			\begin{definition}[lec.2]
+				For player $i \in N$, action $a_i \in A_i$ is \textbf{rationalizable} if it survives from the iterated elimination of never best responses.
 			\end{definition}
 			
 			\begin{definition}[59.2]
@@ -129,28 +150,16 @@
 			\]
 		\end{definition}
 		
-		\begin{definition}[pg.15]
-			The \textbf{best-response function} for a player $i$ is defined as
-			\[
-				B_i(a_{-i}) = \{a_i \in A_i : (a_i, a_{-i}) \succsim_i (a_i', a_{-i})\ \forall a_i' \in A_i \}
-			\]
-		\end{definition}
-		
-		\begin{remark}
-			The best-response of $a_{-i}$ can be written as 
-			\[
-				B_i(a_{-i}) = \bigcap_{a_i' \in A_i} \{a_i \in A_i : (a_i, a_{-i}) \succsim_i (a_i', a_{-i})\}
-			\]
-			where each of them is the upper contour set of $a_i'$. \\
-			Thus, if $\succsim_i$ is quasi-concave, then $B_i(a_{-i})$ is an intersection of convex sets and therefore itself convex.
-		\end{remark}
-		
-		\begin{remark}[pg.15]
+		\begin{proposition}[pg.15, equivalent definition of Nash equilibrium]
 			So a Nash equilibrium is a profile $a^* \in A$ such that
 			\[
 				a^*_i \in B_i(a^*_{-i})\ \forall i \in N
 			\]
-		\end{remark}
+		\end{proposition}
+		
+		\begin{proposition}[lec.3]
+			No strategy that is eliminated during iterated deletion of never best response can be played in Nash equilibrium.
+		\end{proposition}
 		
 		\begin{lemma}[pg.19]
 			A strategic game $\langle N, (A_i), (\succsim_i) \rangle$ has a Nash equilibrium if equivalent to the following statement:\\
@@ -203,9 +212,147 @@
 			So there exists $a^* \in A$ such that $a^* \in B(a^*)$. \\
 			So Nash equilibrium presents.
 		\end{proof}
+		
+		\begin{definition}[lec.3]
+			A \textbf{strict Nash equilibrium} is an action profile $a^* \in A$ where all players are playing their \ul{unique} best response. That is, for every player $i \in N$, the image of their best response $B_i(a_{-i}^*)$ is singleton,
+			\[
+				\forall i \in N\ B_i(a_{-i}^*) = \{a_i^*\}
+			\]
+		\end{definition}
+		
+		\begin{definition}[lec.3]
+			Otherwise, a Nash equilibrium is a \textbf{weak Nash equilibrium}.
+		\end{definition}
 
-%	\section{Lecture 4. Nash Equilibrium: Examples}
-%	\section{Lecture 5. Mixed Strategies}
+	\section{Lecture 4. Nash Equilibrium: Examples}
+	\section{Lecture 5. Mixed Strategies}
+		\begin{definition}[lec.5]
+			For player $i \in N$, a \textbf{mixed strategy} $\sigma_i$ is a \ul{probability distribution} over $A_i$.
+		\end{definition}
+		
+		\begin{remark}[lec.5]
+			A pure strategy $a_i \in A_i$ is a mixed strategy with 
+			\[
+				\sigma_i(a_i) = 1
+			\]
+			So mixed strategy is a generalization of pure strategy.
+		\end{remark}
+		
+		\begin{proposition}[lec.5]
+			The \textbf{expected payoff} from mixed strategy profile $(\sigma_i) \equiv (\sigma_i, \sigma_{-i})$ is
+			\[
+				U_i(\sigma_i, \sigma_{-i}) \equiv \expect{u_i(a)|(\sigma_i)} = \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i})
+			\]
+		\end{proposition}
+		
+		\begin{assumption}[lec.5]
+			Assuming all agents follows Von-Neumann Morgenstern theorem. 
+		\end{assumption}
+		
+		\begin{definition}[lec.5]
+			An action $a_i$ is \textbf{strictly dominated} by mixed strategy $\sigma_i$ if and only if
+			\[
+				\forall a_{-i} \in A_{-i} \ u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i})
+			\]
+			where $\sigma_i$ could be a pure strategy.
+		\end{definition}
+		
+		\begin{notation}
+			Let $A$ be a set and let $\Delta(A)$ denote the \ul{set of probability measures} on set $A$.
+		\end{notation}
+		
+		\begin{definition}[lec.5]
+			A mixed strategy $\sigma_i$ is a \textbf{best response} to $\sigma_{-i}$ if and only if
+			\[
+				\forall \sigma_i' \in \Delta(A_i)\ U_i(\sigma_i, \sigma_{-i}) \geq U_i(\sigma_i', \sigma_{-i})
+			\]
+		\end{definition}
+		
+		\begin{definition}[lec.5]
+			The \textbf{support} of a mixed strategy $\sigma_i \in \Delta(A_i)$ is the set
+			\[
+				supp(\sigma_i) = \{a_i \in A_i:\sigma_i(a_i) \neq 0\}
+			\]
+		\end{definition}
+		
+		\begin{proposition}[lec.5]
+			A mixed strategy $\sigma_i$ is a \textbf{best response} to an strategy profile $\sigma_{-i}$ if and only if 
+			\begin{enumerate}[(a)]
+				\item Player $i$ is indifferent between all $a_i$ in the support of $\sigma_i$,
+				\[
+					\forall a_j, a_j' \in supp(\sigma_i)\quad a_j \sim_i a_j'
+				\]
+				\item \ul{and} player $i$ weakly prefers all actions in the support of $\sigma_i$ to those not in the support of $\sigma_i$. That's
+				\[
+					\forall a_j \in supp(\sigma_i),\ \forall a_j' \notin supp(\sigma_i)\quad a_j \succsim_i a_j'
+				\]
+			\end{enumerate}
+		\end{proposition}
+		
+		\begin{proof}
+			($\implies$) show the if parts by proving it's contraposition. \\
+			Suppose (a) is not true, then
+			\[
+				\exists a_i, a_j \in supp(\sigma_i)\ s.t.\ a_i \centernot \sim_i a_j
+			\]
+			WLOG, suppose
+			\[
+				u_i(a_i, \sigma_{-i}) > u_i(a_j, \sigma_{-i})
+			\]
+			then $\sigma_i$ would not be the best response since we can refine it by assigning 
+			\[
+				\begin{cases}
+					\sigma_i' (a_i) = \sigma_i(a_i) + \sigma_i(a_j) \\
+					\sigma_i' (a_j) = 0 \\
+					\sigma_i' (a_k) = \sigma_i(a_k)\ \tx{otherwise}
+				\end{cases}
+			\]
+			and $\sigma_i'$ would provides higher expected payoff. \\
+			Suppose (b) does not hold, \\
+			\[
+				\exists a_i \notin supp(\sigma_i)\ s.t.\ \exists a_j \in supp(\sigma_i)\ s.t\ u_i(a_i, \sigma_{-i}) > u_i(a_j, \sigma_{-i})
+			\]
+			Then $\sigma_i$ could not be a best response since we can construct another mixed strategy $\sigma_i'$ strictly dominating $\sigma_i$ by setting
+			\[
+				\begin{cases}
+					\sigma_i' (a_j) = 0 \\
+					\sigma_i' (a_i) = \sigma_i(a_j) \\
+					\sigma_i' (a_k) = \sigma_i(a_k)\ \tx{otherwise}
+				\end{cases}
+			\] \\
+			($\impliedby$) Assuming $\sigma_i$ is not a best response towards $\sigma_{-i}$,\\
+			then there exists $\sigma_i' \in \Delta(A_i)$ such that\\
+			\begin{gather*}
+				U_i(\sigma_i', \sigma_{-i}) > U_i(\sigma_i, \sigma_{-i}) \\
+				\iff \expect{u_i(a)|(\sigma_i', \sigma_{-i})} > \expect{u_i(a)|(\sigma_i, \sigma_{-i})} \\
+				\iff \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) 
+				> \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i})
+			\end{gather*}
+			Probability measures $\sigma_i$ and $\sigma_i'$ could only be different in two aspects, their supports and the values assigned on elements in their supports, this fails assumption (a). \\
+			\textcolor{red}{The following argument needs to be revised.}\\
+			\textbf{Case 1} suppose $supp(\sigma_i) = supp(\sigma_i')$, then the strictly inequality in expected payoffs implies redistributing probabilities does affect the expected payoffs.\\
+			So player $i$ cannot be indifferent between any two actions in the support. \\
+			\textbf{Case 2} suppose $supp(\sigma_i) \neq supp(\sigma_i')$ and $supp(\sigma_i') \centernot \subseteq supp(\sigma_i)$. That's
+			\[
+				\exists a_i \in supp(\sigma_i') \land \notin supp(\sigma_i)
+			\]
+			Then extending the support to $a_i$ of $\sigma_i$ gives higher expected payoff, this fails the assumption (b). \\
+			\textbf{Case 3} suppose $supp(\sigma_i') \subsetneq supp(\sigma_i)$. Then the expected payoff can be strictly increased by eliminating actions in $supp(\sigma_i) \backslash supp(\sigma_i')$. Then those actions eliminated must be strictly dominated by actions in $supp(\sigma_i')$. This fails assumption (a).
+		\end{proof}
+		
+		
+		\begin{proposition}[lec.5 equivalent proposition]
+			All actions in the support are best responses. (i.e.\emph{best response mixed strategy is a mixture of best response pure actions})
+		\end{proposition}
+		
+		\begin{remark}[lec.5 Intuition of proposition]
+			If the requirements of above proposition are not satisfied, the player can reduce the probability assigned to the non-best-response pure action and better off.
+		\end{remark}
+		
+		\begin{theorem}[lec.5 Nash's Theorem]
+			Any player $i \in N$ in finite game $\langle N, (A_i), (\succsim_i) \rangle$ has a mixed strategy Nash equilibrium.
+		\end{theorem}
+		
 	\section{Lecture 6. Extensive Form Games and Subgame Perfection}
 		\subsection{Extensive Form Game}
 			\begin{definition}[89.1]
@@ -271,6 +418,15 @@
 				\[
 					\forall k \in \{0, 1, \dots K-1\},\ s_{P(a^1, \dots, a^k)}(a^1, \dots, a^k) = a^{k+1}
 				\]
+			\end{definition}
+			
+			\begin{definition}[lec.6]
+				A extensive game $\Gamma = \langle N, H, P, (\succsim_i) \rangle$ is finite if and only if 
+				\begin{enumerate}[(a)]
+					\item $N$ is finite.
+					\item $(A_i)$ are all finite.
+					\item All $h \in H$ reach the terminal state with finite length.
+				\end{enumerate}
 			\end{definition}
 			
 			\begin{definition}[93.1] A \textbf{Nash equilibrium of an extensive game with perfect information} $\langle N, H, P, (\succsim_i) \rangle$ is a strategy profile $s^*$ such that for every player $i \in N$ we have
@@ -365,11 +521,11 @@
 			\begin{proposition}[99.2]
 				Every finite extensive game with perfect information has a subgame perfect equilibrium.
 			\end{proposition}
-%	\section{Lecture 7. Extensive Form Games: Examples}
-%	\section{Lecture 8. Repeated Games}
-%	\section{Lecture 9. Game with Incomplete Information}
-%	\section{Lecture 10. Game with Incomplete Information II}
-%	\section{Lecture 11. Auctions}
+	\section{Lecture 7. Extensive Form Games: Examples}
+	\section{Lecture 8. Repeated Games}
+	\section{Lecture 9. Game with Incomplete Information}
+	\section{Lecture 10. Game with Incomplete Information II}
+	\section{Lecture 11. Auctions}
 \end{document}
 
 
