@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  24 DEC 2018 16:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 DEC 2018 16:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -751,45 +751,60 @@ Overfull \hbox (21.70401pt too wide) in paragraph at lines 147--148
 [][]\OT1/cmr/bx/n/10.95 Definition 3.1 \OT1/cmr/m/n/10.95 (14.1)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A \OT1/cmr/bx/n/10.95 Nash equi-lib-rium of a strate-gic game $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 N; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\U/msa/m/n/10.95 %[]
  []
 
-[4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 309--312
+[4] [5]
+Overfull \hbox (45.0082pt too wide) in paragraph at lines 230--231
+[][]\OT1/cmr/bx/n/10.95 Notation 5.1 \OT1/cmr/m/n/10.95 (pg.32)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 Let $^^A(\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )$ de-note the []set [][]of [][]prob[]-[]a[]-[]bil[]-[]ity [][]mea[]-[]sures/distributions
+ []
 
+[6]
+Overfull \hbox (29.02994pt too wide) in paragraph at lines 267--268
+[][]\OT1/cmr/bx/n/10.95 Definition 5.3 \OT1/cmr/m/n/10.95 (32.1)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 The \OT1/cmr/bx/n/10.95 mixed ex-ten-sion \OT1/cmr/m/n/10.95 of the strate-gic game $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 N; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 i$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--325
-
+Overfull \hbox (0.71277pt too wide) in paragraph at lines 278--279
+[][]\OT1/cmr/bx/n/10.95 Definition 5.4 \OT1/cmr/m/n/10.95 (32.3)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A \OT1/cmr/bx/n/10.95 mixed strat-egy Nash equi-lib-rium of a strate-
  []
 
 [7]
-Overfull \hbox (37.67819pt too wide) in paragraph at lines 330--330
+Underfull \hbox (badness 10000) in paragraph at lines 346--349
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--362
+
+ []
+
+[8]
+Overfull \hbox (37.67819pt too wide) in paragraph at lines 367--367
 [] 
  []
 
-[8] [9] [10] [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 529.
- [12] [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 529.
+[9] [10] [11] [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 566.
+ [13] [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 566.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 529.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 529.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 566.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 566.
 Package rerunfilecheck Info: File `eco326.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 529.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 566.
  ) 
 Here is how much of TeX's memory you used:
- 9239 strings out of 493014
- 131850 string characters out of 6133351
+ 9247 strings out of 493014
+ 131948 string characters out of 6133351
  249169 words of memory out of 5000000
  12511 multiletter control sequences out of 15000+600000
  12179 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,9n,46p,911b,625s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.pdf (13 pages, 247885 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.pdf (14 pages, 251227 bytes).
 PDF statistics:
- 312 PDF objects out of 1000 (max. 8388607)
- 275 compressed objects within 3 object streams
- 98 named destinations out of 1000 (max. 500000)
+ 324 PDF objects out of 1000 (max. 8388607)
+ 286 compressed objects within 3 object streams
+ 106 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

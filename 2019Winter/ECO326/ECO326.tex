@@ -226,8 +226,11 @@
 
 	\section{Lecture 4. Nash Equilibrium: Examples}
 	\section{Lecture 5. Mixed Strategies}
+		\begin{notation}[pg.32]
+			Let $\Delta(A_i)$ denote the \ul{set of probability measures/distributions} on set $A_i$.
+		\end{notation}
 		\begin{definition}[lec.5]
-			For player $i \in N$, a \textbf{mixed strategy} $\sigma_i$ is a \ul{probability distribution} over $A_i$.
+			For player $i \in N$, a \textbf{mixed strategy} $\sigma_i$ is a member in $\Delta(A_i)$ and it is a \ul{probability distribution} over $A_i$.
 		\end{definition}
 		
 		\begin{remark}[lec.5]
@@ -238,12 +241,50 @@
 			So mixed strategy is a generalization of pure strategy.
 		\end{remark}
 		
-		\begin{proposition}[lec.5]
-			The \textbf{expected payoff} from mixed strategy profile $(\sigma_i) \equiv (\sigma_i, \sigma_{-i})$ is
+		\begin{definition}[pg.32]
+			A profile $(\sigma_j)_{j\in N}$ of mixed strategies induces a probability distribution over the set $A$.
+		\end{definition}
+		
+		\begin{proposition}[pg.32]
+			In a finite game,(i.e., each $A_i$ is finite), then given the independence of randomization, the probability of the action profile $a = (a_j)_{j \in N}$ to be realized given mixed strategy profile $(\sigma_j)_{j\in N}$ is
 			\[
-				U_i(\sigma_i, \sigma_{-i}) \equiv \expect{u_i(a)|(\sigma_i)} = \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i})
+				Pr((a_j)_{j \in N}) = \prod_{j \in N} \sigma_j(a_j)
+			\]
+			and for player $i$, the \textbf{expected payoff} on profile $(\sigma_j)_{j\in N}$ is 
+			\[
+				U_i((\sigma_{j})_{j \in N}) = \sum_{a \in A} (\prod_{j \in N} \sigma_j(a_j)) u_i(a) = \expect{u_i(a)|(\sigma_j)_{j \in N}}
 			\]
 		\end{proposition}
+		
+		\begin{proposition}[lec.5, equivalent]
+			The \textbf{expected payoff} from mixed strategy profile $(\sigma_i) \equiv (\sigma_i, \sigma_{-i})$ is
+			\[
+				U_i(\sigma_i, \sigma_{-i}) \equiv \expect{u_i(a)|(\sigma_i)} = \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \sigma_i(a_i)
+			\]
+		\end{proposition}
+		
+		\begin{definition}[32.1]
+			The \textbf{mixed extension} of the strategic game $\langle N, (A_i), (u_i) \rangle$ is the strategic game $\langle N, (\Delta(A_i)), (U_i) \rangle$ in which $\Delta(A_i)$ is the set of probability distributions over $A_i$ and $U_i: \times_{j \in N} \Delta(A_i) \to \R$ assigns to each $(\sigma_i)_{i \in N} \in \times_{j \in N} \Delta(A_i)$ the \ul{expected value} under $u_i$ of the lottery over $A$ that is induced by $(\sigma_i)_{i \in N}$.
+		\end{definition}
+		
+		\begin{remark}[pg.32, notes on above definition]
+			If the game is finite, that is, for each $i \in N$, the set $A_i$ is finite, then
+			\[
+				U_i(\sigma) = \sum_{a \in A} (\prod_{j \in N} \sigma_j(a_j)) u_i(a)
+			\]
+		\end{remark}
+		
+		\begin{definition}[32.3]
+			A \textbf{mixed strategy Nash equilibrium of a strategic game} is a Nash equilibrium of its mixed extension.
+		\end{definition}
+		
+		\begin{proposition}[33.1]
+			Every \ul{finite} strategic game has a mixed strategy Nash equilibrium.
+		\end{proposition}
+		
+		\begin{lemma}[33.2]
+			Let $G = \langle N, (A_i), (u_i) \rangle$ be a \ul{finite} strategic game. Then $\sigma^* \in \times_{i \in N}\Delta(A_i)$ is a mixed strategy Nash equilibrium of $G$ is and only if for every player $i \in N$ every pure strategy in the \ul{support} of $\sigma_i^*$ is a best response to $\sigma_{-i}^*$
+		\end{lemma}
 		
 		\begin{assumption}[lec.5]
 			Assuming all agents follows Von-Neumann Morgenstern theorem. 
@@ -256,10 +297,6 @@
 			\]
 			where $\sigma_i$ could be a pure strategy.
 		\end{definition}
-		
-		\begin{notation}
-			Let $A$ be a set and let $\Delta(A)$ denote the \ul{set of probability measures} on set $A$.
-		\end{notation}
 		
 		\begin{definition}[lec.5]
 			A mixed strategy $\sigma_i$ is a \textbf{best response} to $\sigma_{-i}$ if and only if
