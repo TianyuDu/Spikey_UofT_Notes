@@ -754,7 +754,7 @@
 			\end{gather}
 			For multiple regressions
 			\begin{gather}
-				Var(\hat{\beta}_j | \textbf{x}) = \frac{\sum_i{\tilde{r}_{ij}^2 \sigma_i^2}}{SSR_j^{\textcolor{red}{2}}} \neq \frac{\sigma^2}{SSR_j} = \frac{\sigma}{(1-R^2_j)SST_j}
+				Var(\hat{\beta}_j | \textbf{x}) = \frac{\sum_i{\tilde{r}_{ij}^2 \sigma_i^2}}{SSR_j^{\textcolor{red}{2}}} \neq \frac{\sigma^2}{SSR_j} = \frac{\sigma^2}{(1-R^2_j)SST_j}
 			\end{gather}
 		\end{proof}
 		
@@ -820,7 +820,8 @@
 				Auxiliary regression:
 				\begin{gather*}
 					\hat{u}_i^2 = \delta_0 + \delta_1 x_1 + \dots \delta_k x_k \\
-					n R^2_{\hat{u}^2} \sim \mc{X}_k^2
+					n R^2_{\hat{u}^2} \sim \mc{X}_k^2 \\
+					\tx{(F-test could also be used.)}
 				\end{gather*}
 			\subsubsection{White test version 1}
 				\par Use polynomials of $x_i$ for $z_i$.\\
@@ -870,7 +871,7 @@
 			\subsection{Feasible GLS}
 				Suppose (\hl{central assumption})
 				\[
-					Var(u_i|\textbf{X}) = \expect{u_i^2|\textbf{X}} = \sigma^2 exp(\vec{\delta} \cdot \textbf{x}_i)
+					Var(u_i|\textbf{X}) = \expect{u_i^2|\textbf{X}} = \textcolor{red}{\sigma^2 exp(\vec{\delta} \cdot \textbf{x}_i)}
 				\]
 				for some constant $\sigma$. \\
 				Equivalently,
@@ -895,7 +896,7 @@
 						\]
 					\item Compute 
 						\[
-							\hat{h}_i := exp(\widehat{\ln(\hat{u}s_i^2)})
+							\hat{h}_i := exp(\widehat{\ln(\hat{u}^2)})
 						\]
 					using result from above model. And compute 
 					\[
