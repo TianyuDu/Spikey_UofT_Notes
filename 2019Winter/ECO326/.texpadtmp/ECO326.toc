@@ -1,17 +1,20 @@
 \select@language {english}
 \contentsline {paragraph}{Readme}{1}{section*.1}
-\contentsline {section}{\numberline {1}Lecture 1. Games and Dominant Strategies}{2}{section.1}
-\contentsline {section}{\numberline {2}Lecture 2. Iterated Elimination and Rationalizability}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}Iterated Elimination of Strictly Dominated Strategies(Actions)}{3}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Rationalizability}{3}{subsection.2.2}
-\contentsline {section}{\numberline {3}Lecture 3. Nash Equilibrium}{4}{section.3}
-\contentsline {section}{\numberline {4}Lecture 4. Nash Equilibrium: Examples}{6}{section.4}
-\contentsline {section}{\numberline {5}Lecture 5. Mixed Strategies}{6}{section.5}
-\contentsline {section}{\numberline {6}Lecture 6. Extensive Form Games and Subgame Perfection}{10}{section.6}
-\contentsline {subsection}{\numberline {6.1}Extensive Form Game}{10}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Subgame Perfection}{13}{subsection.6.2}
-\contentsline {section}{\numberline {7}Lecture 7. Extensive Form Games: Examples}{14}{section.7}
-\contentsline {section}{\numberline {8}Lecture 8. Repeated Games}{14}{section.8}
-\contentsline {section}{\numberline {9}Lecture 9. Game with Incomplete Information}{14}{section.9}
-\contentsline {section}{\numberline {10}Lecture 10. Game with Incomplete Information II}{14}{section.10}
-\contentsline {section}{\numberline {11}Lecture 11. Auctions}{14}{section.11}
+\contentsline {section}{\numberline {1}Lecture 1. Games and Dominant Strategies}{3}{section.1}
+\contentsline {paragraph}{Game Theory}{3}{section*.3}
+\contentsline {paragraph}{Claim 1:}{5}{section*.4}
+\contentsline {paragraph}{Claim 2:}{5}{section*.5}
+\contentsline {section}{\numberline {2}Lecture 2. Iterated Elimination and Rationalizability}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}Iterated Elimination of Strictly Dominated Strategies(Actions)}{6}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Rationalizability}{6}{subsection.2.2}
+\contentsline {section}{\numberline {3}Lecture 3. Nash Equilibrium}{7}{section.3}
+\contentsline {section}{\numberline {4}Lecture 4. Nash Equilibrium: Examples}{9}{section.4}
+\contentsline {section}{\numberline {5}Lecture 5. Mixed Strategies}{9}{section.5}
+\contentsline {section}{\numberline {6}Lecture 6. Extensive Form Games and Subgame Perfection}{13}{section.6}
+\contentsline {subsection}{\numberline {6.1}Extensive Form Game}{13}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Subgame Perfection}{16}{subsection.6.2}
+\contentsline {section}{\numberline {7}Lecture 7. Extensive Form Games: Examples}{17}{section.7}
+\contentsline {section}{\numberline {8}Lecture 8. Repeated Games}{17}{section.8}
+\contentsline {section}{\numberline {9}Lecture 9. Game with Incomplete Information}{17}{section.9}
+\contentsline {section}{\numberline {10}Lecture 10. Game with Incomplete Information II}{17}{section.10}
+\contentsline {section}{\numberline {11}Lecture 11. Auctions}{17}{section.11}

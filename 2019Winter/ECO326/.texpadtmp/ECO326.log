@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 DEC 2018 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  7 JAN 2019 13:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -663,20 +663,20 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.aux)
 \openout1 = `eco326.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count134
@@ -702,7 +702,7 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 28.
+Package hyperref Info: Link coloring OFF on input line 30.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -710,24 +710,24 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count140
 )
-LaTeX Info: Redefining \ref on input line 28.
-LaTeX Info: Redefining \pageref on input line 28.
-LaTeX Info: Redefining \nameref on input line 28.
+LaTeX Info: Redefining \ref on input line 30.
+LaTeX Info: Redefining \pageref on input line 30.
+LaTeX Info: Redefining \nameref on input line 30.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.out) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.out)
 \@outlinefile=\write3
 \openout3 = `eco326.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 30.
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) <doclicense-CC-by-nc.pdf, id=66, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
-Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 30.
+Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 32.
 (pdftex.def)             Requested size: 109.50027pt x 38.91324pt.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.toc [1
 
@@ -735,76 +735,77 @@ Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 30.
 \tf@toc=\write4
 \openout4 = `eco326.toc'.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 44.
+ [2] [3] [4]
+Overfull \hbox (35.42087pt too wide) in paragraph at lines 192--192
+[]\OT1/cmr/bx/n/12 Iterated Elim-i-na-tion of Strictly Dom-i-nated Strate-gies(Actions) 
+ []
+
+[5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 196.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 44.
-
-Overfull \hbox (35.42087pt too wide) in paragraph at lines 73--73
-[]\OT1/cmr/bx/n/12 Iterated Elim-i-na-tion of Strictly Dom-i-nated Strate-gies(Actions) 
- []
-
-[2] [3]
-Overfull \hbox (21.70401pt too wide) in paragraph at lines 147--148
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 196.
+ [6]
+Overfull \hbox (21.70401pt too wide) in paragraph at lines 266--267
 [][]\OT1/cmr/bx/n/10.95 Definition 3.1 \OT1/cmr/m/n/10.95 (14.1)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A \OT1/cmr/bx/n/10.95 Nash equi-lib-rium of a strate-gic game $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 N; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\U/msa/m/n/10.95 %[]
  []
 
-[4] [5]
-Overfull \hbox (45.0082pt too wide) in paragraph at lines 230--231
+[7] [8]
+Overfull \hbox (45.0082pt too wide) in paragraph at lines 349--350
 [][]\OT1/cmr/bx/n/10.95 Notation 5.1 \OT1/cmr/m/n/10.95 (pg.32)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 Let $^^A(\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )$ de-note the []set [][]of [][]prob[]-[]a[]-[]bil[]-[]ity [][]mea[]-[]sures/distributions
  []
 
-[6]
-Overfull \hbox (29.02994pt too wide) in paragraph at lines 267--268
+[9]
+Overfull \hbox (29.02994pt too wide) in paragraph at lines 386--387
 [][]\OT1/cmr/bx/n/10.95 Definition 5.3 \OT1/cmr/m/n/10.95 (32.1)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 The \OT1/cmr/bx/n/10.95 mixed ex-ten-sion \OT1/cmr/m/n/10.95 of the strate-gic game $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 N; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 i$
  []
 
 
-Overfull \hbox (0.71277pt too wide) in paragraph at lines 278--279
+Overfull \hbox (0.71277pt too wide) in paragraph at lines 397--398
 [][]\OT1/cmr/bx/n/10.95 Definition 5.4 \OT1/cmr/m/n/10.95 (32.3)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A \OT1/cmr/bx/n/10.95 mixed strat-egy Nash equi-lib-rium of a strate-
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 346--349
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 465--468
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--362
+Underfull \hbox (badness 10000) in paragraph at lines 478--481
 
  []
 
-[8]
-Overfull \hbox (37.67819pt too wide) in paragraph at lines 367--367
+[11]
+Overfull \hbox (37.67819pt too wide) in paragraph at lines 486--486
 [] 
  []
 
-[9] [10] [11] [12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 566.
- [13] [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 566.
+[12] [13] [14] [15]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 685.
+ [16] [17]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 685.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 566.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 566.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 685.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 685.
 Package rerunfilecheck Info: File `eco326.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 566.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 685.
  ) 
 Here is how much of TeX's memory you used:
- 9247 strings out of 493014
- 131948 string characters out of 6133351
- 249169 words of memory out of 5000000
- 12511 multiletter control sequences out of 15000+600000
+ 9278 strings out of 493014
+ 132245 string characters out of 6133351
+ 249181 words of memory out of 5000000
+ 12518 multiletter control sequences out of 15000+600000
  12179 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,9n,46p,911b,625s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,11n,46p,911b,623s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.pdf (14 pages, 251227 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.pdf (17 pages, 258271 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 286 compressed objects within 3 object streams
- 106 named destinations out of 1000 (max. 500000)
+ 363 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 130 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

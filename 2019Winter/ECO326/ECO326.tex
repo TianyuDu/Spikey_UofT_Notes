@@ -19,6 +19,8 @@
 
 \counterwithin{equation}{section}
 
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
 \usepackage[
     type={CC},
     modifier={by-nc},
@@ -33,34 +35,151 @@
 	\paragraph{Readme} this note is based on the course content of \emph{ECO326 Advanced Microeconomics - Game Theory}, this note contains all materials covered during lectures and mentioned in the course syllabus. However, notations, statements of theorems and proofs are following the book \emph{A Course in Game Theory} by Osborne and Rubinstein, so they might be, to some extent, more mathematical than the required text for ECO326, \emph{An Introduction to Game Theory}.
 	
 	\tableofcontents
+	\newpage
+	
 	\section{Lecture 1. Games and Dominant Strategies}
-		\begin{assumption}[pg.4]
-			Assume that each decision-maker is \emph{rational} in the sense that he is aware of his alternatives, forms expectation about any unknowns, has clear preferences, and chooses his action deliberately after some process of optimization.
-		\end{assumption}
+		\paragraph{Game Theory} Choice environment where individual choices impact others.
 		
-		\begin{definition}[pg.4]
-			A model of \textbf{rational choice} consists
-			\begin{itemize}
-				\item A set $A$ of \emph{actions}.
-				\item A set $C$ of \emph{consequences}.
-				\item A \emph{consequence function} $g: A \to C$.
-				\item A \emph{preference relation} $\succsim$ on $C$.
-			\end{itemize}
-		\end{definition}
+		\begin{example}
+			\begin{figure}[h]
+				\centering
+				  \begin{tabular}{c|c|c}
+				    & W & S\\
+				    \hline
+				    W & $(1-c, 1-c)$ & $(\red{1-c}, \red{1})$ \\
+				    \hline
+				    S & $(\red{1}, \red{1-c})$ & $(0, 0)$
+				  \end{tabular}
+				  \caption{Payoff Matrix for Example 1}
+			\end{figure}
+		\end{example}
+		Suppose $c \in (0, 1)$. In this game,
+		\begin{enumerate}[i]
+			\item $N = \{i, j\}$,
+			\item $A_i = A_j = \{W, S\}$,
+		\end{enumerate}
 		
 		\begin{definition}[pg.7]
 			A \textbf{preference relation} is a \ul{complete reflexive and transitive} binary relation.
 		\end{definition}
 		
-		\begin{definition}[11.1]
-			A \textbf{strategic game} consists of
-			\begin{itemize}
-				\item a \ul{finite} set of \textbf{players} $N$.
+		\begin{definition}[11.1, lec.1]
+			A \textbf{(strategic) game} consists of
+			\begin{enumerate}[i]
+				\item a \ul{finite} set of \textbf{players} $N$, with $|N| \geq 2$.
 				\item for each player $i \in N$, an \textbf{actions} $A_i \neq \emptyset$.
-				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \times_{i\in N}A_i$.
-			\end{itemize}
-			and can be written as a triple $\langle N, (A_i), (\succsim_i) \rangle$.
+				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \times_{i\in N}A_i$. Or a real-valued \textbf{utility function}, $u: A \to \R$.
+			\end{enumerate}
+			and can be written as a triple $\langle N, (A_i), (\succsim_i) \rangle$, or $\langle N, (A_i), (u_i) \rangle$
 		\end{definition}
+		
+		\begin{definition}[lec.1]
+			An \textbf{action profile} is a $n$-tuple of actions $a_i \in A_i$ for each player $i \in N$ and denoted as 
+				\[
+					(a_i)_{i \in N} \tx{ or } (a_i)
+				\]
+			The \textbf{action profile space} is defined as 
+				\[
+					A \equiv \times_{i \in N} A_i
+				\]
+		\end{definition}
+		
+		\begin{definition}[lec.1]
+			Action $a_i \in A_i$ is \textbf{strictly dominated} by action $\tilde{a}_i \in A_i$ if
+			\[
+				\forall a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) < u_i(\tilde{a}_i, a_{-i})
+			\]
+			And $a_i$ is \textbf{weakly dominated} by $\tilde{a}_i$ if
+			\[
+				\forall a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) \leq u_i(\tilde{a}_i, a_{-i})
+			\]
+			\ul{and}
+			\[
+				\exists a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) < u_i(\tilde{a}_i, a_{-i})
+			\]
+		\end{definition}
+		
+		\begin{corollary}[Consequence of RCT]
+			It is irrational to play strictly dominated actions. So rational choice theory suggests a player would never play \red{strictly} dominated strategies.
+		\end{corollary}
+		
+		\begin{definition}
+			Action $a_i \in A_i$ is \textbf{strictly dominant} if it strictly dominates all other actions.
+		\end{definition}
+		
+		\begin{definition}
+			Action $a_i \in A_i$ is \textbf{weakly dominant} if it weakly dominates all other actions.
+		\end{definition}
+		
+		\begin{example}[Prisoner Dilemma]
+			\begin{figure}[h]
+				\centering
+				\begin{tabular}{c|c|c}
+					 & S & C \\
+					\hline
+					S & (-1, -1) & (-10, \red{0})\\
+					\hline
+					C & (\red{0}, -10) & (\red{-5}, \red{-5})
+				\end{tabular}
+				\caption{Payoff matrix for example 2}
+			\end{figure}
+			Note that S is strictly dominated by C. Therefore C is strictly dominant for both players.
+		\end{example}
+		
+		\begin{example}
+			\begin{figure}[h]
+				\centering
+				\begin{tabular}{c|c|c|c}
+					 & L & C & R\\
+					\hline
+					U & (2, \red{2}) & (\red{5}, 0) & (\red{3}, 0)\\
+					\hline
+					M & (2, \red{7}) & (2, 5) & (2, 6)\\
+					\hline 
+					D & (\red{5}, \red{3}) & (4, 2) & (\red{3}, 1)
+				\end{tabular}
+				\caption{Payoff matrix for example 2}
+			\end{figure}
+			So in this game, for player 2, L is strictly dominant. \\For player 1, M is strictly dominated by D. And M is weakly dominated by U.
+		\end{example}
+		
+		\begin{example}
+			There are three candidates, $\{A, B, C\}$. And there are 50 players (voters, note that $\emptyset \notin A_i$ since they must vote).
+			And 
+			\[
+				\forall i \in N,\ A_i = \{A, B, C\}
+			\]
+			Each individual has strictly preference over $A, B, C$. If tie is encountered, randomization would be taken.
+			\begin{enumerate}[i]
+				\item $A \succ B \succ C$,
+				\item $A \succ AC_{tie} \succ C$
+			\end{enumerate}
+			\paragraph{Claim 1:}There are no weakly or strictly dominant actions.
+			\begin{proof}
+				Let $n_{-i}^i$ denote the number of voters other than $i$ voting for candidate $j \in \{A, B, C\}$. \\
+				Consider action $A$, if $n_{-i}^A = 1$ and $n_{-i}^B = n_{-i}^C = 24$, then $B$ is strictly preferred than $A$. \\
+				Consider action $B$, if $n_{-i}^A = n_{-i}^C = 24$, then $A$ is strictly preferred than $B$. \\
+				Consider action $C$, if $n_{-i}^B = n_{-i}^C = 24$, then $B$ is strictly preferred than $C $.
+			\end{proof}
+			\paragraph{Claim 2:}Only voting for your least preferred candidate is weakly dominated.
+			\begin{proof}
+				We are going to show there exists a strategy (voting for $B$) weakly dominates voting for $C$.
+				\begin{figure}[H]
+					\centering
+					\begin{tabular}{c|c|c}
+						Vote A & Cases & Vote C \\
+						\hline
+						A & $n_{-i}^A > n_{-i}^B, n_{-i}^C$ & A, AC \\
+						B & $n_{-i}^B > n_{-i}^A, n_{-i}^C$ & B, BC \\
+						C, BC & $n_{-i}^C > n_{-i}^A, n_{-i}^B$ & C\\
+						B & $n_{-i}^A = n_{-i}^B > n_{-i}^C$ & AB\\
+						A & $n_{-i}^A = n_{-i}^C > n_{-i}^B$ & C\\
+						BC & $n_{-i}^C = n_{-i}^B > n_{-i}^A$ & C
+					\end{tabular}
+					\caption{Voting for A versus Voting for C}
+				\end{figure}
+			\end{proof}
+		\end{example}
 		
 		\begin{definition}[pg.11]
 			A strategic game $\langle N, (A_i), (\succsim_i) \rangle$ is \textbf{finite} if 
