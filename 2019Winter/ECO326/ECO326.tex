@@ -158,12 +158,45 @@
 				\item $A \succ B \succ C$,
 				\item $A \succ AC_{tie} \succ C$
 			\end{enumerate}
-			\paragraph{Claim 1:}There are no weakly or strictly dominant actions.
+			\paragraph{Claim 1:}There are no weakly or strictly dominant actions. 
 			\begin{proof}
-				Let $n_{-i}^i$ denote the number of voters other than $i$ voting for candidate $j \in \{A, B, C\}$. \\
-				Consider action $A$, if $n_{-i}^A = 1$ and $n_{-i}^B = n_{-i}^C = 24$, then $B$ is strictly preferred than $A$. \\
-				Consider action $B$, if $n_{-i}^A = n_{-i}^C = 24$, then $A$ is strictly preferred than $B$. \\
-				Consider action $C$, if $n_{-i}^B = n_{-i}^C = 24$, then $B$ is strictly preferred than $C $.
+				Let $a_i \in \{V_A, V_B, V_C\}$ denote the action taken by player $i \in N$, \\
+				Note that weak dominance is a necessary condition for strict dominance, \\
+				So above claim is reduced to \emph{there are no weakly dominant actions}. \\
+				The reduced claim is equivalent to the following statement, \\
+				
+				\begin{gather*}
+					\forall a_i \in A_i,\ \exists \tilde{a}_i \in A_i\ s.t.\ a_i \neq \tilde{a}_i\\
+					s.t.\ \exists a_{-i} \in A_{-i}\ s.t.\ u_i(a_i, a_{-i}) > u_i(\tilde{a}_i, a_{-i}) \lor \forall a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) = u_i(\tilde{a}_i, a_{-i})
+				\end{gather*}
+				Let $n_{-i}^j$ denote the number of voters other than $i$ voting for candidate $j$. Clearly each $a_{-i} \in A_{-i}$ would induce an outcome as a triple $(n_{-i}^A, n_{-i}^B, n_{-i}^C)$.\\
+				Consider action $V_A$, and $a_{-i}$ induces 
+				\[
+					(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (1, 24, 24)
+				\]
+				then 
+				\[
+					(V_B, a_{-i}) \succ_i (V_A, a_{-i})
+				\]
+				So $V_A$ failed to be a dominant strategy of any kind. \\
+				Similarly, consider action $V_B$, if $a_{-i}$ induces
+				\[
+					(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (24, 1, 24)
+				\]
+				then 
+				\[
+					(V_A, a_{-i}) \succsim_i (V_B, a_{-i})
+				\]
+				So $V_B$ failed to be a dominant strategy. \\
+				Similarly, consider action $V_C$, if $a_{-i}$ induces
+				\[
+					(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (24, 24, 1)
+				\]
+				then 
+				\[
+					(V_A, a_{-i}) \succsim_i (V_C, a_{-i})
+				\]
+				So $V_B$ failed to be a dominant strategy.
 			\end{proof}
 			\paragraph{Claim 2:}Only voting for your least preferred candidate is weakly dominated.
 			\begin{proof}

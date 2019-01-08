@@ -3,13 +3,13 @@
 \contentsline {section}{\numberline {1}Lecture 1. Games and Dominant Strategies}{3}{section.1}
 \contentsline {paragraph}{Game Theory}{3}{section*.3}
 \contentsline {paragraph}{Claim 1:}{5}{section*.4}
-\contentsline {paragraph}{Claim 2:}{5}{section*.5}
+\contentsline {paragraph}{Claim 2:}{6}{section*.5}
 \contentsline {section}{\numberline {2}Lecture 2. Iterated Elimination and Rationalizability}{6}{section.2}
 \contentsline {subsection}{\numberline {2.1}Iterated Elimination of Strictly Dominated Strategies(Actions)}{6}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Rationalizability}{6}{subsection.2.2}
-\contentsline {section}{\numberline {3}Lecture 3. Nash Equilibrium}{7}{section.3}
-\contentsline {section}{\numberline {4}Lecture 4. Nash Equilibrium: Examples}{9}{section.4}
-\contentsline {section}{\numberline {5}Lecture 5. Mixed Strategies}{9}{section.5}
+\contentsline {subsection}{\numberline {2.2}Rationalizability}{7}{subsection.2.2}
+\contentsline {section}{\numberline {3}Lecture 3. Nash Equilibrium}{8}{section.3}
+\contentsline {section}{\numberline {4}Lecture 4. Nash Equilibrium: Examples}{10}{section.4}
+\contentsline {section}{\numberline {5}Lecture 5. Mixed Strategies}{10}{section.5}
 \contentsline {section}{\numberline {6}Lecture 6. Extensive Form Games and Subgame Perfection}{13}{section.6}
 \contentsline {subsection}{\numberline {6.1}Extensive Form Game}{13}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Subgame Perfection}{16}{subsection.6.2}
