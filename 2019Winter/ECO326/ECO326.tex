@@ -18,8 +18,10 @@
 \usepackage[shortlabels]{enumitem}
 
 \counterwithin{equation}{section}
+\counterwithin{figure}{section}
 
 \newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
 
 \usepackage[
     type={CC},
@@ -37,7 +39,7 @@
 	\tableofcontents
 	\newpage
 	
-	\section{Lecture 1. Games and Dominant Strategies}
+	\section{Lecture 1. Jan. 7 2019\\Games and Dominant Strategies}
 		\paragraph{Game Theory} Choice environment where individual choices impact others.
 		
 		\begin{example}
@@ -224,9 +226,194 @@
 				|A_i| < \aleph_0\ \forall i \in N
 			\]
 		\end{definition}
+	
+	\section{Lecture 2. Jan. 14 2019\\Iterated Elimination and Rationalizability}
+		\begin{example}[Bubble Game]
+			Consider a player game
+			\begin{equation}
+				\langle N, (A_i), (u_i) \rangle
+			\end{equation}
+			where 
+			\begin{equation}
+				A_i = \{0,\dots,100\},\ \forall i
+			\end{equation}
+			and 
+			\begin{gather}
+				u_i(a_i; a_{-i}) = a_i - penalty_i(a_i, a_{-i}) \\
+				penalty_i = \begin{cases}
+					0 \tx{ if } a_i < \max_{j \neq i} a_j - 1 \\
+					10(a_i - \max_{j \neq i} a_j + 1) \tx{ if } a_i \geq \max_{j \neq i} - 1
+				\end{cases}
+			\end{gather}
+		\end{example}	
 		
-	\section{Lecture 2. Iterated Elimination and Rationalizability}
 		\subsection{Iterated Elimination of Strictly Dominated Strategies(Actions)}
+			\begin{definition}[IESD]
+				Given game 
+				\[
+					G_0 = \langle N, (A^0_i), (u_i) \rangle
+				\] 
+				At stage $k \in \N$, 
+				\[
+					G_k = \langle N, (A^k_i), (u_i) \rangle
+				\]
+				In stage $k$, for all $i \in N$, find the set of \ul{strictly} dominated actions, $D_i^k \subsetneq A_i^k$.
+				\begin{enumerate}[i)]
+					\item If $\forall i \in N\ s.t.\ D_i^k = \emptyset$, conclude the profile
+					\[
+						(A_i^k)
+					\]
+					to be the set of action profiles survive from IESD.
+					\item If $\exists i \in N\ s.t.\ D_i^k \neq \emptyset$	, define
+					\[
+						\forall i \in N,\ A^{k+1}_i := A^k_i \backslash D_i^k
+					\]
+				\end{enumerate}
+			\end{definition}
+			
+			\begin{example}
+				Action profile $(M, R)$ survives the IESD.
+				\begin{proof}
+					\begin{gather*}
+						k=0,\ A_1^0 = \{U, M, D\},\ 
+						A_2^0 = \{L, R\} \\
+						k=1,\ A_1^1 = \{U, M\},\ 
+						A_2^1 = \{L, R\} \\
+						k=2,\ A_1^2 = \{U, M\},\ 
+						A_2^2 = \{R\} \\
+						k=3,\ A_1^3 = \{M\},\ 
+						A_2^3 = \{R\} \\
+					\end{gather*}
+				\end{proof}
+			\end{example}
+			\begin{figure*}[h]
+				\centering
+				\begin{tabular}{l|cc}
+				  & L & R \\
+				  \hline
+				  U & 4,0 & 2,2 \\
+				  M & 1, 2& \red{5,3} \\
+				  D & 0,5 & 1,4 \\
+				\end{tabular}
+				\caption{Game for Example 2.1}
+			\end{figure*}
+			
+			\begin{example}[Hotelling Model of Politics]
+				Players maximize their votes by choosing where to stand along a natural number line.
+				\begin{itemize}
+					\item Player $N = \{1,2\}$
+					\item Action set $A_i = \{1, \dots, M\}$, with $2 \centernot | M$ and $M > 3$.
+					\item Payoff
+					\begin{equation}
+						u_i(a_i; a_{-i}) = \begin{cases}
+							a_i + \frac{1}{2}(a_{-i} - a{i} - 1) \tx{ if } a_i < a_{-i} \\
+							\frac{M}{2} \tx{ if } a_i = a_{-i} \\
+							M - [a_{-i} + \frac{1}{2}(a_{i} - a_{-i} - 1)] \tx{ if } a_i > a_{-i}
+						\end{cases}
+					\end{equation}
+				\end{itemize}
+				\paragraph{Claim i.} $a_i=1$ is strictly dominated by $a_i=2$.
+				\begin{proof}
+					\begin{gather}
+						u_i(a_i=1, a_{-i}) =
+						\begin{cases}
+							\frac{M}{2} \tx{ if } a_{-i} = 1 \\
+							\frac{a_{-i}}{2} \tx{ if } a_{-i} > 1
+						\end{cases} \\
+						u_i(a_i=2, a_{-i}) = 
+						\begin{cases}
+							M - 1 \tx{ if } a_{-i} = 1 \\
+							\frac{M}{2} \tx{ if } a_{-i} = 2 \\
+							\frac{a_{-i}}{2} + \frac{1}{2} \tx{ if } a_{-i} > 2
+						\end{cases}
+					\end{gather}
+				\end{proof}
+				\paragraph{Claim ii.} $\floor{\frac{n}{2}} + 1$ is the only action survives.
+				\begin{proof}
+					Similarly, we can eliminate all edge-values iteratively.
+				\end{proof}
+			\end{example}
+			
+			\begin{definition}
+				For each $i \in N$, the \textbf{best-response function} of this player is a correspondence $B_i: A_{-i} \to A_i$ defined as
+				\begin{equation}
+					B_i(a_{-i}) := \{a_i \in A_i : u_i(a_i, a_{-i}) \geq u_i(a_i', a_{-i})\ \forall a_i' \in A_i \}
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				A \textbf{belief} of player $i$ (about the actions of the other players) is a \ul{probability measure}, $\alpha_i$, on $A_{-i}=\times_{j \in N \backslash \{i\}} A_j$. \\
+				$\alpha_i$ is a mapping such that
+				\begin{itemize}
+					\item $\alpha_i: A_{-i} \to [0,1]$.
+					\item $\alpha_i(A_{-i}) = 1$.
+					\item For all countable piece-wise \ul{disjoint} collection $\{E_i\}_{i\in I}$, it satisfies the \emph{countable additivity property}:
+					\[
+						\alpha_i(\bigcup_{i \in I} E_i) = \sum_{i \in I}\alpha_i(E_i)
+					\]
+				\end{itemize}
+			\end{definition}
+				
+			\begin{definition}
+				$a_i$ is a \textbf{best response} to belief $\alpha_i$ if
+				\begin{equation}
+					\forall a_i' \in A_i,\ \sum_{a_{-i}} u_i(a_i, a_{-i}) \alpha_i(a_{-i}) \geq \sum_{a_{-i}} u_i(a_i', a_{-i}) \alpha_i(a_{-i})
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				$a_i \in A_i$ is a \textbf{never best response} if it is not a best response given any belief $\alpha_i$.
+			\end{definition}
+			
+			\begin{corollary}
+				\emph{Iterative Elimination of Never Best Response}: same procedures but $D_i^k$ is the set of never best responses for player $i$ at game $G^k$.
+			\end{corollary}
+			
+			\begin{example}
+				For player 1, $D$ is not strictly dominated, but it is a never best response.
+				\begin{proof}
+					Let $\alpha$ be a probability measure on $\{L, R\}$ such that $\alpha(L) = p \in [0, 1]$.\\
+					\begin{gather}
+						\expect{u_1|U,\alpha} = 10p \\
+						\expect{u_1|M,\alpha} = 10 - 10p \\
+						\expect{u_1|D,\alpha} = 1
+					\end{gather}
+					\textbf{Case i}
+					\begin{equation}
+						p \geq 0.5 \implies \expect{u_1|U,\alpha} \geq 5
+					\end{equation}
+					\textbf{Case ii}
+					\begin{equation}
+						p < 0.5 \implies \expect{u_1|M,\alpha} > 5
+					\end{equation}
+					Therefore, for any belief $\alpha$, $D$ cannot be a best response.
+				\end{proof}
+			\end{example}
+			\begin{figure}[h]
+				\centering
+				\begin{tabular}{l|cc}
+				  & L & R\\
+				  \hline
+				  U & 10,0 & 0,0 \\
+				  M & 0,0 & 10,0\\
+				  D & 1,0 & 1,0
+				\end{tabular}
+			\end{figure}
+			
+			\begin{definition}
+				An action $a_i \in A_i$ is \textbf{rationalizable} if it survives \emph{iterative elimination of never best responses}.
+			\end{definition}
+			
+			\begin{lemma}[i385.3]
+				In a \ul{two player} game, $a_i$ is strictly dominated if and only if it is a never response.
+			\end{lemma}
+			
+			\begin{definition}
+				\textbf{Common knowledge rationality}
+			\end{definition}
+			
+			\red{\paragraph{NOTE} Lecture Stops Here.}
+			
 			\begin{definition}[60.2]
 				The set $X \subseteq A$ of outcomes of a \ul{finite} strategic game $\langle N, (A_i), (u_i) \rangle$ \textbf{survives iterated elimination of \ul{strictly} dominated actions} if $X = \times_{j \in N} X_j$ and there is a collection $((X_j^t)_{j \in N})_{t=0}^T$ of sets that satisfies the following conditions for each $j \in N$.
 				\begin{itemize}
