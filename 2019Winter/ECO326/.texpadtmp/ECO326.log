@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 JAN 2019 11:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  23 JAN 2019 14:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**ECO326.tex
-(./ECO326.tex
+**eco326.tex
+(./eco326.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
@@ -660,8 +660,8 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 )
 \XKV@depth=\count133
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/ECO326.aux)
-\openout1 = `ECO326.aux'.
+))) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.aux)
+\openout1 = `eco326.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
@@ -713,9 +713,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 32.
 LaTeX Info: Redefining \pageref on input line 32.
 LaTeX Info: Redefining \nameref on input line 32.
- (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/ECO326.out) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/ECO326.out)
+ (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.out) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.out)
 \@outlinefile=\write3
-\openout3 = `ECO326.out'.
+\openout3 = `eco326.out'.
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 34.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -724,16 +724,16 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 34.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) <doclicense-CC-by-nc.pdf, id=66, 121.45375pt x 43.16125pt>
+) <doclicense-CC-by-nc.pdf, id=70, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 34.
 (pdftex.def)             Requested size: 109.50027pt x 38.91324pt.
- (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/ECO326.toc [1
+ (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.toc [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc.pdf>])
 \tf@toc=\write4
-\openout4 = `ECO326.toc'.
+\openout4 = `eco326.toc'.
 
  [2]
 
@@ -741,96 +741,99 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\\' on input line 42.
 
 [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 165--169
+Underfull \hbox (badness 10000) in paragraph at lines 173--177
 
  []
 
 
-Overfull \hbox (30.21222pt too wide) in paragraph at lines 173--173
+Overfull \hbox (30.21222pt too wide) in paragraph at lines 181--181
 [] 
  []
 
 [5]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 230.
+(hyperref)                removing `\\' on input line 238.
 
 
-Overfull \hbox (35.42087pt too wide) in paragraph at lines 250--250
+Overfull \hbox (35.42087pt too wide) in paragraph at lines 258--258
 []\OT1/cmr/bx/n/12 Iterated Elim-i-na-tion of Strictly Dom-i-nated Strate-gies(Actions) 
  []
 
 [6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 304.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 312.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 304.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 312.
  [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 375--376
-
- []
-
-[9] [10]
-Overfull \hbox (21.70401pt too wide) in paragraph at lines 490--491
-[][]\OT1/cmr/bx/n/10.95 Definition 3.1 \OT1/cmr/m/n/10.95 (14.1)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A \OT1/cmr/bx/n/10.95 Nash equi-lib-rium of a strate-gic game $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 N; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\U/msa/m/n/10.95 %[]
- []
-
-[11] [12]
-Overfull \hbox (45.0082pt too wide) in paragraph at lines 573--574
-[][]\OT1/cmr/bx/n/10.95 Notation 5.1 \OT1/cmr/m/n/10.95 (pg.32)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 Let $^^A(\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )$ de-note the []set [][]of [][]prob[]-[]a[]-[]bil[]-[]ity [][]mea[]-[]sures/distributions
- []
-
-[13]
-Overfull \hbox (29.02994pt too wide) in paragraph at lines 610--611
-[][]\OT1/cmr/bx/n/10.95 Definition 5.3 \OT1/cmr/m/n/10.95 (32.1)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 The \OT1/cmr/bx/n/10.95 mixed ex-ten-sion \OT1/cmr/m/n/10.95 of the strate-gic game $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 N; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 i$
- []
-
-
-Overfull \hbox (0.71277pt too wide) in paragraph at lines 621--622
-[][]\OT1/cmr/bx/n/10.95 Definition 5.4 \OT1/cmr/m/n/10.95 (32.3)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A \OT1/cmr/bx/n/10.95 mixed strat-egy Nash equi-lib-rium of a strate-
- []
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 689--692
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--705
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9] [10] [11] [12] [13]
+Overfull \hbox (21.70401pt too wide) in paragraph at lines 596--597
+[][]\OT1/cmr/bx/n/10.95 Definition 4.1 \OT1/cmr/m/n/10.95 (14.1)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A \OT1/cmr/bx/n/10.95 Nash equi-lib-rium of a strate-gic game $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 N; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\U/msa/m/n/10.95 %[]
+ []
+
+[14] [15]
+Overfull \hbox (45.0082pt too wide) in paragraph at lines 679--680
+[][]\OT1/cmr/bx/n/10.95 Notation 6.1 \OT1/cmr/m/n/10.95 (pg.32)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 Let $^^A(\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )$ de-note the []set [][]of [][]prob[]-[]a[]-[]bil[]-[]ity [][]mea[]-[]sures/distributions
+ []
+
+[16]
+Overfull \hbox (29.02994pt too wide) in paragraph at lines 716--717
+[][]\OT1/cmr/bx/n/10.95 Definition 6.3 \OT1/cmr/m/n/10.95 (32.1)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 The \OT1/cmr/bx/n/10.95 mixed ex-ten-sion \OT1/cmr/m/n/10.95 of the strate-gic game $\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 N; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 i$
+ []
+
+
+Overfull \hbox (0.71277pt too wide) in paragraph at lines 727--728
+[][]\OT1/cmr/bx/n/10.95 Definition 6.4 \OT1/cmr/m/n/10.95 (32.3)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A \OT1/cmr/bx/n/10.95 mixed strat-egy Nash equi-lib-rium of a strate-
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 795--798
 
  []
 
 
-Overfull \hbox (37.67819pt too wide) in paragraph at lines 710--710
+Underfull \hbox (badness 10000) in paragraph at lines 808--811
+
+ []
+
+
+Overfull \hbox (37.67819pt too wide) in paragraph at lines 816--816
 [] 
  []
 
-[15] [16] [17] [18] [19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 909.
- [20] [21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 909.
- (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/ECO326.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 909.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 909.
-Package rerunfilecheck Info: File `ECO326.out' has not changed.
+[18] [19] [20] [21] [22]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1015.
+ [23] [24]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1015.
+ (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1015.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1015.
+Package rerunfilecheck Info: File `eco326.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 909.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1015.
  ) 
 Here is how much of TeX's memory you used:
- 9319 strings out of 493014
- 132719 string characters out of 6133351
- 250221 words of memory out of 5000000
- 12521 multiletter control sequences out of 15000+600000
+ 9357 strings out of 493014
+ 133138 string characters out of 6133351
+ 251221 words of memory out of 5000000
+ 12522 multiletter control sequences out of 15000+600000
  12179 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,16n,46p,911b,622s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/ECO326.pdf (21 pages, 273691 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.pdf (24 pages, 286093 bytes).
 PDF statistics:
- 423 PDF objects out of 1000 (max. 8388607)
- 377 compressed objects within 4 object streams
- 168 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 482 PDF objects out of 1000 (max. 8388607)
+ 432 compressed objects within 5 object streams
+ 205 named destinations out of 1000 (max. 500000)
+ 134 words of extra memory for PDF output out of 10000 (max. 10000000)
 

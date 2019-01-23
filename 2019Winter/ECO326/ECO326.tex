@@ -70,9 +70,17 @@
 			\begin{enumerate}[i]
 				\item a \ul{finite} set of \textbf{players} $N$, with $|N| \geq 2$.
 				\item for each player $i \in N$, an \textbf{actions} $A_i \neq \emptyset$.
-				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \times_{i\in N}A_i$. Or a real-valued \textbf{utility function}, $u: A \to \R$.
+				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \times_{i\in N}A_i$.
 			\end{enumerate}
-			and can be written as a triple $\langle N, (A_i), (\succsim_i) \rangle$, or $\langle N, (A_i), (u_i) \rangle$
+			and can be written as a triple $\langle N, (A_i), (\succsim_i) \rangle$.
+		\end{definition}
+		
+		\begin{definition}[Equivalent definition of game]
+			For each player $i \in N$ we can define a \ul{utility function}, $u_i: A \to \R$ such that
+			\begin{equation}
+				\forall (a_i), (a_i)' \in A,\ u_i((a_i)) \geq u_i((a_i)') \iff (a_i) \succsim_i (a_i)'
+			\end{equation}
+			So the game can be defined as a triple $\langle N, (A_i), (u_i) \rangle$.
 		\end{definition}
 		
 		\begin{definition}[lec.1]
@@ -239,7 +247,7 @@
 			\end{equation}
 			and 
 			\begin{gather}
-				u_i(a_i; a_{-i}) = a_i - penalty_i(a_i, a_{-i}) \\
+				u_i(a_i, a_{-i}) = a_i - penalty_i(a_i, a_{-i}) \\
 				penalty_i = \begin{cases}
 					0 \tx{ if } a_i < \max_{j \neq i} a_j - 1 \\
 					10(a_i - \max_{j \neq i} a_j + 1) \tx{ if } a_i \geq \max_{j \neq i} - 1
@@ -249,7 +257,7 @@
 		
 		\subsection{Iterated Elimination of Strictly Dominated Strategies(Actions)}
 			\begin{definition}[IESD]
-				Given game 
+				Given the initial game,
 				\[
 					G_0 = \langle N, (A^0_i), (u_i) \rangle
 				\] 
@@ -264,7 +272,7 @@
 						(A_i^k)
 					\]
 					to be the set of action profiles survive from IESD.
-					\item If $\exists i \in N\ s.t.\ D_i^k \neq \emptyset$	, define
+					\item If $\exists i \in N\ s.t.\ D_i^k \neq \emptyset$, define
 					\[
 						\forall i \in N,\ A^{k+1}_i := A^k_i \backslash D_i^k
 					\]
@@ -305,8 +313,8 @@
 					\item Action set $A_i = \{1, \dots, M\}$, with $2 \centernot | M$ and $M > 3$.
 					\item Payoff
 					\begin{equation}
-						u_i(a_i; a_{-i}) = \begin{cases}
-							a_i + \frac{1}{2}(a_{-i} - a{i} - 1) \tx{ if } a_i < a_{-i} \\
+						u_i(a_i, a_{-i}) = \begin{cases}
+							a_i + \frac{1}{2}(a_{-i} - a_{i} - 1) \tx{ if } a_i < a_{-i} \\
 							\frac{M}{2} \tx{ if } a_i = a_{-i} \\
 							M - [a_{-i} + \frac{1}{2}(a_{i} - a_{-i} - 1)] \tx{ if } a_i > a_{-i}
 						\end{cases}
@@ -335,7 +343,7 @@
 			\end{example}
 			
 			\begin{definition}
-				For each $i \in N$, the \textbf{best-response function} of this player is a correspondence $B_i: A_{-i} \to A_i$ defined as
+				For each $i \in N$, the \textbf{best-response function} of this player is a correspondence $B_i: A_{-i} \rightrightarrows A_i$ defined as
 				\begin{equation}
 					B_i(a_{-i}) := \{a_i \in A_i : u_i(a_i, a_{-i}) \geq u_i(a_i', a_{-i})\ \forall a_i' \in A_i \}
 				\end{equation}
@@ -347,7 +355,11 @@
 				\begin{itemize}
 					\item $\alpha_i: A_{-i} \to [0,1]$.
 					\item $\alpha_i(A_{-i}) = 1$.
-					\item For all countable piece-wise \ul{disjoint} collection $\{E_i\}_{i\in I}$, it satisfies the \emph{countable additivity property}:
+					\item For all countable piece-wise \ul{disjoint} collection 
+					\[
+						\{E_j\}_{j\in \mc{J}} \in \mc{P}(A_{-i})
+					\]
+					$\alpha_i$ satisfies the \emph{countable additivity property}:
 					\[
 						\alpha_i(\bigcup_{i \in I} E_i) = \sum_{i \in I}\alpha_i(E_i)
 					\]
@@ -355,9 +367,13 @@
 			\end{definition}
 				
 			\begin{definition}
-				$a_i$ is a \textbf{best response} to belief $\alpha_i$ if
+				$a_i$ is a \ul{\textbf{best response} to the belief $\alpha_i$} if
 				\begin{equation}
 					\forall a_i' \in A_i,\ \sum_{a_{-i}} u_i(a_i, a_{-i}) \alpha_i(a_{-i}) \geq \sum_{a_{-i}} u_i(a_i', a_{-i}) \alpha_i(a_{-i})
+				\end{equation}
+				or, more generally,
+				\begin{equation}
+					\forall a'_i \in A_i, \expect{u_i(a_i, a_{-i})|\alpha_i} \geq \expect{u_i(a_i', a_{-i})|\alpha_i}
 				\end{equation}
 			\end{definition}
 			
@@ -386,7 +402,7 @@
 					\begin{equation}
 						p < 0.5 \implies \expect{u_1|M,\alpha} > 5
 					\end{equation}
-					Therefore, for any belief $\alpha$, $D$ cannot be a best response.
+					Therefore, for any belief $\alpha$, $D$ cannot be a best response. So $D$ is a never best response.
 				\end{proof}
 			\end{example}
 			\begin{figure}[h]
@@ -405,16 +421,106 @@
 			\end{definition}
 			
 			\begin{lemma}[i385.3]
-				In a \ul{two player} game, $a_i$ is strictly dominated if and only if it is a never response.
+				In a \ul{two player} game, $a_i$ is strictly dominated 
+				\ul{if and only if} it is a never best response.
 			\end{lemma}
 			
-			\begin{definition}
-				\textbf{Common knowledge rationality}
-			\end{definition}
+			\begin{assumption}[Common knowledge rationality]
+				We assume our players of game all acknowledge that other players are playing the game in rational ways.
+			\end{assumption}
+		
+	\section{Lecture 3. Jan. 21 2019}
+		\begin{definition}
+			A \textbf{pure strategy Nash equilibrium} is a \ul{strategy profile} $(a_i)$ such that 
+			\begin{equation}
+				\forall i \in N,\ a_i \in Br_i(a_{-i})
+			\end{equation}
+		\end{definition}
 			
-			\red{\paragraph{NOTE} Lecture Stops Here.}
+		\begin{remark}
+			That's, a NE is a situation that if player $i$ knows what other players do, the action given by the NE profile is still a best response.
+		\end{remark}
+		
+		\begin{remark}[Interpretations]
+			A Nash equilibrium is 
+			\begin{enumerate}[i)]
+				\item An action profile induces a \ul{stable outcome},
+				\item A \ul{creditable agreement}, such that no player has incentive to break the agreement.
+			\end{enumerate}
+		\end{remark}
+		
+		\begin{example}[Cournot Duopoly]
+			Consider a game with
+			\begin{enumerate}[i)]
+				\item Player $N = \{1,2\}$
+				\item Action set $A_i = [0, \infty)\ \forall i \in N$
+			\end{enumerate}
+			And revenue $R_i$ defined by 
+			\begin{equation}
+				R_i = p_i q_i
+			\end{equation}
+			where price is linear in quantity supplied,
+			\begin{equation}
+				p_i = \alpha - (q_i + q_{-i}),\ \alpha \in \R
+			\end{equation}
+			and firms face fixed cost $c \in \R$, with the assumption that $\alpha > c$. So the cost function is given by
+			\begin{equation}
+				C_i(q_i) = c q_i 
+			\end{equation}
+			The profit function is given by
+			\begin{gather}
+				\Pi_i(q_i, q_{-i}) = (\alpha - (q_i + q_{-i}) - c) q_i \\
+				= (\alpha-c-q_{-i})q_i - q_i^2
+			\end{gather}
+			Given $q_{-i} \in A_{-i}$, the best response is given by
+			\begin{gather}
+				Br_i(q_{-i}) = \tx{argmax}_{q_i \in [0, \infty)} \Pi_i(q_i, q_{-i}) \\
+				= \max\{0, \frac{\alpha - c - q_{-i}}{2}\}\ \forall i \in N
+			\end{gather}
+			Considering the case that both players are producing positive quantities, we can solve $q_i^*$ by
+			\begin{gather}
+				Br_i \circ Br_{-i}(q_i) = \frac{\alpha - c - \frac{\alpha - c - q_i}{2}}{2} = q_i \\
+				\implies 2 q_i - \frac{q_i}{2} = \frac{\alpha - c}{2} \\
+				\implies q_i^* = \frac{\alpha - c}{3}
+			\end{gather}
 			
-			\begin{definition}[60.2]
+			\begin{remark}
+				If fixed cost presents, even if the game is symmetric, the Nash equilibrium could be asymmetric. (e.g. one firm is out of market and the other firm produces the monopoly amount)
+			\end{remark}
+		\end{example}
+		
+		\begin{remark}
+			Nash equilibrium induces an \emph{individual level optimality} instead of the common wealth optimality.
+		\end{remark}
+		
+		\begin{example}[Continue Cournot Duopoly]
+			Note that in the Cournot Duopoly game, for each $i \in N$, the Nash equilibrium profit is
+			\begin{gather}
+				\Pi_{NE}^* = (\alpha - c - \frac{2(\alpha - c)}{3}) \frac{\alpha - c}{3} \\
+				= \frac{(\alpha - c)^2}{9}
+			\end{gather}
+			So the total profit for the two firms is $\frac{2(\alpha - c)^2}{9}$. \\
+			Now considering if the two firms form a Cartel, the \emph{aggregate} quantity produced is
+			\begin{gather}
+				Q^* = \tx{argmax}_{Q \in \R_{\geq 0}} (\alpha - c - Q) Q \\
+				= \frac{\alpha - c}{2} \\
+				\implies \Pi_{Cartel}^* = (\alpha - c - \frac{\alpha - c}{2}) \frac{\alpha - c}{2} \\
+				= \frac{(\alpha - c)^2}{4} > \frac{2(\alpha - c)^2}{9}
+			\end{gather}
+			The fact $\Pi_{Cartel}^* > 2 \times \Pi_{NE}^*$ suggests the Nash equilibrium action profile did not induce the optimal common wealth outcome. However, the Cartel action profile is not a stable outcome since every player has incentive to increase their production level.
+		\end{example}
+		
+		\begin{example}[Prisoner's Dilemma]
+			The Nash equilibrium(Confess, Confess) is \ul{not} the best outcome for the two players as a group. The optimal action profile \ul{for a group} is (Silent, Silent).
+		\end{example}
+		
+		\begin{proposition}
+			No strategy that is eliminated during iterated elimination of \emph{never best response} can be played in a Nash equilibrium.
+		\end{proposition}
+	
+	\newpage
+	\section*{\red{CONTENTS NOT COVERED IN LECTURE}}
+	\begin{definition}[60.2]
 				The set $X \subseteq A$ of outcomes of a \ul{finite} strategic game $\langle N, (A_i), (u_i) \rangle$ \textbf{survives iterated elimination of \ul{strictly} dominated actions} if $X = \times_{j \in N} X_j$ and there is a collection $((X_j^t)_{j \in N})_{t=0}^T$ of sets that satisfies the following conditions for each $j \in N$.
 				\begin{itemize}
 					\item $X_j^0 = A_j$ and $X_j^T = X_j$.
