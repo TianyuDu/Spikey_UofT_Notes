@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+
+\title{ECO475H1 S\\ Applied Econometrics II}
+
+\author{Tianyu Du}
+\date{\today}
+
+\usepackage{spikey}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+\usepackage{centernot}
+\usepackage[shortlabels]{enumitem}
+
+\counterwithin{equation}{section}
+\counterwithin{figure}{section}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc},
+    version={4.0},
+]{doclicense}
+
+\begin{document}
+	\maketitle
+	\doclicenseThis
+	\texttt{Github Page} \url{https://github.com/TianyuDu/Spikey_UofT_Notes}\\
+	\texttt{Note Page} \url{TianyuDu.com/notes}
+	
+	\tableofcontents
+	\newpage
+	
+	\section{Lecture 3. Jan. 24 2019}
+		\subsection{Two Side Censoring MLE}
+		\par Consider the latent dependent variable
+		\begin{equation}
+			Y^* = \textbf{x}' \bm{\beta} + \epsilon
+		\end{equation}
+		where $\epsilon_i \sim \mc{N}(0, \red{\sigma^2})$. \\
+		Therefore, given fixed $\textbf{x}$,
+		\begin{equation}
+			Y^* \sim \mc{N}(\textbf{x}' \bm{\beta}, \sigma^2)
+		\end{equation}
+		Define parameter set 
+		\begin{equation}
+			\bm{\theta} \equiv (\bm{\beta}, \sigma)
+		\end{equation}
+		The observable variable is 
+		\begin{gather}
+			Y = \begin{cases}
+				U &\tx{if } Y^* \geq U \\
+				Y^* &\tx{if } Y^* \in (L, U) \\
+				L &\tx{if } Y^* \leq L
+			\end{cases}
+		\end{gather}
+		Let $f_Y(y|\textbf{x}, \bm{\beta}): [L, U] \to [0, 1]$ be the probability measure of $Y$. \\
+		Let $y \in [L, U]$, 
+		\begin{gather}
+			f_Y(y|\textbf{x}, \bm{\beta}) = \begin{cases}
+				\mathbb{P}(Y^* \geq U|\textbf{x}, \bm{\beta}) &\tx{if } y \geq U \\
+				f_{Y^*}(y|\textbf{x}, \bm{\beta}) &\tx{if } y \in (L, U) \\
+				\mathbb{P}(Y^* \leq L|\textbf{x}, \bm{\beta}) &\tx{if } y \leq L
+			\end{cases} \\
+			= \begin{cases}
+				1 - F_{Y^*}(U|\textbf{x}, \bm{\beta}) &\tx{if } y \geq U \\
+				f_{Y^*}(y|\textbf{x}, \bm{\beta}) &\tx{if } y \in (L, U) \\
+				F_{Y^*}(L|\textbf{x}, \bm{\beta}) &\tx{if } y \leq L
+			\end{cases}
+		\end{gather}
+		Define indicator $(d_1(y), d_2(y), d_3(y))$ as 
+		\begin{gather}
+			d_1(y) \equiv \mc{I}(y \geq U) \\
+			d_2(y) \equiv \mc{I}(y \in (L, U)) \\
+			d_3(y) \equiv \mc{I}(y \leq L)
+		\end{gather}
+		Then the probability measure of $Y$ can be expressed as
+		\begin{gather}
+			f_Y(y|\textbf{x}, \bm{\beta}) 
+			= (1 - F_{Y^*}(U|\textbf{x}, \bm{\beta}))^{d_1} 
+			\times f_{Y^*}(y|\textbf{x}, \bm{\beta}) ^ {d_2} 
+			\times F_{Y^*}(L|\textbf{x}, \bm{\beta})^{d_3}
+		\end{gather}
+		Suppose samples are i.i.d., the joint density is
+		\begin{gather}
+			f_{Y_1, \dots, Y_N}(y_1, \dots, y_N|\textbf{X}, \bm{\beta}) = \prod_{i=1}^N f_Y (y_i|\textbf{x}_i, \bm{\beta})
+		\end{gather}
+		The log-likelihood is
+		\begin{gather}
+			\mc{L}_N (\bm{\theta}|\textbf{X}) = \sum_{i=1}^N \Big\{
+			d_{1,i} \times \ln(1 - F_{Y^*}(U|\textbf{x}_i, \bm{\beta})) + d_{2,i} \times \ln(f_{Y^*}(y|\textbf{x}_i, \bm{\beta})) + d_{3,i} \times \ln(F_{Y^*}(L|\textbf{x}_i, \bm{\beta}))
+			\Big\}
+		\end{gather}
+		Finally, solving
+		\begin{equation}
+			\hat{\bm{\theta}}_{MLE}
+			= (\hat{\bm{\beta}}_{MLE}, \hat{\sigma}_{MLE}) = \argmax_{\bm{\theta} \in \Theta} \mc{L}_N (\bm{\theta})
+		\end{equation}
+		
+		\subsection{Two Side Truncated MLE}
+		\par Suppose the observations are truncated with lower and upper bounds $L$ and $U$. \\
+		Let the latent dependent variable be 
+		\begin{equation}
+			Y^* = \textbf{x}' \bm{\beta} + \epsilon
+		\end{equation}
+		and 
+		\begin{equation}
+			\epsilon \sim \mc{N}(0, \sigma^2)
+		\end{equation}
+		which implies, for given $\textbf{x}$,
+		\begin{equation}
+			Y^* \sim \mc{N}(\textbf{x}' \bm{\beta}, \sigma^2)
+		\end{equation}
+		Define parameter set 
+		\begin{equation}
+			\bm{\theta} \equiv \{\bm{\beta}, \sigma\}	
+		\end{equation}
+		Observable random variable $Y$ is 
+		\begin{equation}
+			Y = \begin{cases}
+				Y^* &\tx{if } Y^* \in (L, U) \\
+				-- &\tx{if } Y^* \notin (L, U)
+			\end{cases}
+		\end{equation}
+		Constructing the distribution for $Y$, note that $F_Y$ is only defined on $y \in (L, U)$,
+		\begin{gather}
+			F_Y(y|\textbf{x}, \bm{\theta}) = \mathbb{P}(Y<y|\textbf{x}, \bm{\theta})\\
+			= \frac{\mathbb{P}(Y^* < y \land Y^* \in (L, U) | \textbf{x}, \bm{\theta})}{\mathbb{P}(Y^* \in (L, U)|\textbf{x}, \bm{\theta})} \\
+			= \frac{\mathbb{P}(Y^* \in (L, y)|\textbf{x}, \bm{\theta})}{\mathbb{P}(Y^* \in (L,U)|\textbf{x}, \bm{\theta})} \\
+			= \frac{F_{Y^*}(y|\textbf{x}, \bm{\theta}) - F_{Y^*}(L|\textbf{x}, \bm{\theta})}{F_{Y^*}(U|\textbf{x}, \bm{\theta}) - F_{Y^*}(L|\textbf{x}, \bm{\theta})}
+		\end{gather}
+		Then construct the density of $Y$ 
+		\begin{gather}
+			f_Y(y|\textbf{x}, \bm{\theta}) = \pd{F_Y(y|\textbf{x}, \bm{\theta})}{y} \\
+			= \frac{f_{Y^*}(y|\textbf{x}, \bm{\theta})}{F_{Y^*}(U|\textbf{x}, \bm{\theta}) - F_{Y^*}(L|\textbf{x}, \bm{\theta})}
+		\end{gather}
+		The sample log-likelihood is
+		\begin{gather}
+			\mc{L}_N(\bm{\theta}) = \sum_{i=1}^N \ln(f_{Y^*}(y_i|\textbf{x}_i, \theta)) - \ln(F_{Y^*}(U|\textbf{x}_i, \bm{\theta}) - F_{Y^*}(L|\textbf{x}_i, \bm{\theta}))
+		\end{gather}
+		and the estimator is given by
+		\begin{gather}
+			\hat{\bm{\theta}}_{MLE} = \{
+			\hat{\bm{\beta}}_{MLE}, \hat{\sigma}_{MLE}
+			\} = \argmax_{\bm{\theta} \in \Theta} \mc{L}_N(\bm{\theta})
+		\end{gather}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
