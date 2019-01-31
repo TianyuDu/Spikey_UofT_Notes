@@ -518,6 +518,269 @@
 			No strategy that is eliminated during iterated elimination of \emph{never best response} can be played in a Nash equilibrium.
 		\end{proposition}
 	
+	\section{Lecture 4. Jan. 28. 2019}
+	\begin{example}[From last lecture]
+		Consider the payoff matrix
+		\begin{figure*}[h]
+			\centering
+			\begin{tabular}{c|c|c}
+				 & A & B \\
+				\hline
+				A & (\red{1},\red{1}) & (\red{0},0) \\
+				B & (0,\red{0}) & (\red{0},\red{0}) \\
+			\end{tabular}
+		\end{figure*}
+		Both $(A,A)$ and $(B,B)$ are Nash equilibria. But in the former NE, for each $i \in N$,
+		\begin{equation}
+			Br_i(a_{-i}=A) = \{A\}
+		\end{equation}
+		which is a singleton. \\
+		In the second NE, for each $i \in N$,
+		\begin{equation}
+			Br_i(a_{-i}=B) = \{A, B\}
+		\end{equation}
+		We call Nash equilibria of the first type \emph{strict Nash equilibria} and the later one \emph{weak Nash equilibria}. More formal definitions of these two types of Nash equilibria are given below.
+	\end{example}
+	
+	\begin{definition}
+		A \textbf{strict Nash equilibrium} is an action profile $(a_i)$ such that
+		\[
+			\forall i \in N,\ |Br_i(a_{-i})| = 1
+		\]
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{weak Nash equilibrium} is a Nash equilibrium that is not strict. That's, a weak Nash equilibrium is an action profile $(a_i)$ such that
+		\[
+			\exists i \in N,\ |Br_i(a_{-i})| > 1
+		\]
+	\end{definition}
+	
+	\begin{example}[Cournot with $n$ firms]
+		Consider the game 
+		\begin{equation}
+			\langle N, (\R_{\geq 0}), (\pi_i) \rangle
+		\end{equation}
+		Where $|N| = n$ and each firm picks a quantity $q_i \in A_i \equiv \R_{\geq 0}$. \\
+		Define 
+		\begin{equation}
+			Q \equiv \sum_j q_j
+		\end{equation}
+		For each $i \in N$, define 
+		\begin{equation}
+			Q_{-i} \equiv \sum_{j\neq i} q_j
+		\end{equation}
+		And the market has \emph{linear demand curve}
+		\begin{equation}
+			P(\{q_i\}_{i\in N}) = \alpha - \sum_{j}q_j = \alpha - Q
+		\end{equation}
+		And firms face fixed cost
+		\begin{equation}
+			\forall i \in N,\ C(q_i) = c q_i \tx{ where } 0 < c < \alpha
+		\end{equation}
+		The profit function is
+		\begin{equation}
+			\forall i \in N,\ \pi_i(q_i, Q_{-i}) = (\alpha - c - Q_{-i})q_i - q_i^2
+		\end{equation}
+		\paragraph{Question}What are the Nash equilibria in this environment? \\
+		For each firm $i \in N$, the best response correspondence is
+		\begin{gather}
+			Br_i(Q_{-i}) = \max\{0, \argmax_{q_i \in \nnr} \pi_{i}(q_i, Q_{-i}) \} \\
+			= \max\{0, \frac{\alpha - c - Q_{-i}}{2}\}
+		\end{gather}
+		\paragraph{Assume}We have a symmetric Nash equilibrium, 
+		\begin{gather}
+			\forall i \in N,\ q^*_i = q^* = \frac{Q}{n} \\
+			\implies q^* = Br_i(\frac{n-1}{n}Q) \\
+			\implies 2 q^* = \alpha - c - (n-1) q^* \\
+			\implies q^* = \frac{\alpha - c}{n + 1}
+		\end{gather}
+		\paragraph{Check}Then check the validity of symmetric Nash equilibrium by asserting for every player, if all other players are playing the action suggested by the symmetric Nash equilibrium, then this player should also play it. That's
+		\begin{gather}
+			q^* = Br_i(\{q_j\}_{j\neq i}) \\
+			= \frac{\alpha - c}{2} - \frac{1}{2} \frac{n-1}{n+1} (\alpha - c) \\
+			= \frac{1}{2}((\alpha - c) - \frac{n-1}{n+1}(\alpha - c)) \\
+			= \frac{1}{2} \frac{2}{n+1}(\alpha - c) \\
+			= \frac{\alpha - c}{n + 1} 
+			= q^*
+		\end{gather}
+		\paragraph{Uniqueness} We are going to show the symmetric Nash equilibrium is the only possible equilibrium action profile. \\
+		\begin{proof}
+			Suppose there exists some non-symmetric Nash equilibrium. \\
+			For concreteness, assuming there exists $\epsilon > 0$ such that
+			\begin{equation}
+				\exists i, j \in N,\ q_i = q_j + \epsilon
+			\end{equation}
+			Define $Q_{-ij} \equiv Q - q_i - q_j$.\\
+			For firm $i$,
+			\begin{gather}
+				q_i = Br_i(Q_{-i}) = \frac{1}{2} (\alpha - c - Q_{-i}) \\
+				= \frac{1}{2}(\alpha - c - Q_{-ij} - q_{j}) \\
+				= \frac{1}{2}(\alpha - c - Q_{-ij} - q_i + \epsilon) \\
+				\implies 3 q_i = \alpha - c - Q_{-ij} + \epsilon \\
+				\implies 3 q_i = \alpha - c - Q_{-j} + q_i + \epsilon \\
+				\implies 2 q_i - \epsilon = \alpha - c - Q_{-j} \\
+				\implies  q_i - \frac{\epsilon}{2} = Br(Q_{-j}) = q_j \\
+				= q_i - \epsilon \\
+				\implies \epsilon = 2 \epsilon
+			\end{gather}
+			which contradicts the assumption that $\epsilon > 0$. \\
+			Therefore we conclude that the symmetric Nash equilibrium is the only Nash equilibrium in this environment.
+		\end{proof}
+	\end{example}
+	
+	\begin{example}[Cournot duopoly with fixed cost]
+		Consider the game 
+		\begin{equation}
+			\mc{G} = \langle N = (1,2), (A_i = \nnr), (\pi_i) \rangle
+		\end{equation}
+		Where the cost function is defined as
+		\begin{equation}
+			C_i(q_i) = \begin{cases}
+				c q_i + f &\tx{ if } q_i > 0 \\
+				0 &\tx{ if } q_i = 0
+			\end{cases}
+		\end{equation}
+		where $\alpha > c > 0$. \\
+		For each firm $i \in N$, the best response function, conditioned on $q_i > 0$, is
+		\begin{equation}
+			q_i = Br_i(q_{-i}) = \frac{\alpha - c - q_{-i}}{2}
+		\end{equation}
+		We have to \textbf{check the profit} to assert the profit is non-negative while firm $i$ is producing above quantity. Because, otherwise, this firm could always derivate to $q_i = 0$ to avoid loss (earning zero profit).
+		\begin{gather}
+			\pi_i(Br_{q_{-i}}, q_{-i}) = (\alpha - q_{-i} - \frac{\alpha - c - q_{-i}}{2} - c)\frac{\alpha - c - q_{-i}}{2} - f \\
+			= \frac{(\alpha - c - q_{-i})^2}{4} - f \\
+			\pi_i(q_{-i}) \geq 0 \iff \alpha - c - q_{-i} \geq 2\sqrt{f} \\
+			\iff q_{-i} \leq \alpha - c - 2\sqrt{f}
+		\end{gather}
+		Therefore we can modify our \textbf{best response correspondence} to
+		\begin{gather}
+			Br_i(q_{-i}) = 
+			\begin{cases}
+				\frac{\alpha - c - q_{-i}}{2} &\tx{ if }  q_{-i} \leq \alpha - c - 2\sqrt{f} \\
+				0 &\tx{ if } q_{-i} \geq \alpha - c - 2\sqrt{f}
+			\end{cases}
+		\end{gather}
+		\textbf{Monopoly}: the monopoly amount, conditioned on the firm decides to produce, is $\frac{\alpha - c}{2}$. In the monopoly case, suppose the NE action profile is (the opposite case can be shown by symmetry)
+		\begin{equation}
+			(\frac{\alpha - c}{2}, 0)
+		\end{equation}
+		We have to assert both 
+		\begin{gather}
+			\begin{cases}
+				\frac{\alpha - c}{2} \in Br_1(0) \\
+				0 \in Br_2(\frac{\alpha - c}{2})
+			\end{cases} \\
+			\implies
+			\begin{cases}
+				0 \leq \alpha - c - 2\sqrt{f} &\tx{ for firm 1 to produce positive amount.}\\
+				\frac{\alpha - c}{2} \geq \alpha - c - 2\sqrt{f} &\tx{ for firm 2 to produce zero.}
+			\end{cases} \\
+			\implies 0 \leq \alpha - c - 2\sqrt{f} \leq \frac{\alpha - c}{2} \\
+			\implies -(\alpha - c) \leq - 2\sqrt{f} \leq -\frac{\alpha - c}{2} \\
+			\implies \red{\sqrt{f} \in [\frac{\alpha-c}{4}, \frac{\alpha - c}{2}]}
+		\end{gather}
+		\textbf{Positive symmetric equilibrium}: we've proven, in the general case, it's impossible for both firms to produce positive but different amounts. Therefore we have to assert 
+		\begin{gather}
+			\frac{\alpha - c}{3} \in Br_i(\frac{\alpha - c}{3})\ \forall i \in N \\
+			\implies \frac{\alpha - c}{3} \leq \alpha - c - 2\sqrt{f} \\
+			\implies \sqrt{f} \leq \frac{1}{3} (\alpha - c)
+		\end{gather}
+		\textbf{Zero symmetric equilibrium}: we have to assert
+		\begin{gather}
+			0 \in Br_i(0)\ \forall i \in N\\
+			\implies 0 \geq \alpha - c - 2\sqrt{f} \\
+			\implies \sqrt{f} \geq \frac{\alpha - c}{2}
+		\end{gather}
+	\end{example}
+	
+	\begin{example}[Discrete price Bertrand duopoly]
+		Consider the following game
+		\begin{gather}
+			\mc{G} = \langle N=\{1,2\}, (A_i = \{k \epsilon: k \in \Z_{\geq 0}\}), (\pi_i) \rangle
+		\end{gather}
+		The profit function can be derived as
+		\begin{gather}
+			\pi_i(p_i, p_{-i}) = \begin{cases}
+				(\alpha - p_i)(p_i - c)&\tx{ if } p_i < p_{-i} \\
+				\frac{\alpha - p_i}{2}(p_i - c) &\tx{ if } p_i = p_{-i} \\
+				0 &\tx{ if } p_i > p_{-i}
+			\end{cases}
+		\end{gather}
+		\textbf{Claim} the only Nash equilibria are $(c, c)$ and $(c+\epsilon, c+\epsilon)$. \\
+		\textbf{Justify} $(c, c)$, consider any firm $i \in N$, currently $\pi_i = 0$ 
+		\begin{gather}
+			\uparrow p_i \implies \pi_i \leftarrow \pi_i' = 0 \tx{ \xmark} \\
+			\downarrow p_i \implies \pi_i \leftarrow \pi_i' < 0 \tx{ \xmark}
+		\end{gather}
+		So no firm has incentive to derivate from this action profile, so $(c, c)$ is a Nash equilibrium by definition. \\
+		Consider the action profile $(c+\epsilon, c+\epsilon)$, both firms are earning a positive profit $\pi_i > 0$. For any firm $i \in N$,
+		\begin{gather}
+			\uparrow p_i \implies \pi_i \leftarrow \pi_i' = 0 \tx{ \xmark} \\
+			\downarrow p_i \implies \pi_i \leftarrow \pi_i' = 0 \tx{ \xmark}
+		\end{gather}
+		So $(c+\epsilon, c+\epsilon)$ is a Nash equilibrium by definition. \\
+		\textbf{No other Nash equilibrium} \\
+		\textbf{Claim}: $(p_1, p_2)$ cannot be a Nash equilibrium if any $p_i < c$. \\
+		Obviously, set $p_i < c$ would induce negative profit and firm $i$ do better off by setting $p_i \leftarrow c$. \\
+		\textbf{Claim}: the symmetric profit $(p, p)$ with $p > c + \epsilon$ cannot be a Nash equilibrium. For both firms, the current profit is
+		\begin{equation}
+			\pi_1 = \pi_2 = \frac{1}{2}(\alpha - c - k\epsilon) k \epsilon
+		\end{equation}
+		And reducing price by $\epsilon$ leads to a profit of
+		\begin{equation}
+			\pi_i ' = (\alpha - c - k \epsilon + \epsilon) (k-1)\epsilon > \pi_i
+		\end{equation}
+		so such action profile cannot be Nash equilibrium. \\
+		\textbf{Claim} $(p_1, p_2)$ with $p_1 \neq p_2$ and $p_1, p_2 > c$ cannot be a Nash equilibrium. The firm charges higher price can always reduce it's price to the price charged by the other firm and gain a positive profit. \\
+		\textbf{Claim} $(c, p_2)$ with $p_2 \geq c + \epsilon$ cannot be a Nash equilibrium. The firm charging $p = c $ can always increase its price to $c + \epsilon$ to earn positive profit. \\
+		Therefore there's no Nash equilibrium other than $(c,c)$ and $(c+\epsilon, c+\epsilon)$.
+	\end{example}
+	
+	\begin{example}[Bertrand duopoly with differentiated products]
+		Consumers are \ul{uniformly distributed} on a preference line $[0,1]$.\\
+		For a firm $i \in N$, let $x_i \in [0,1]$ measure consumer's preference towards firm $i$'s products. \\
+		Define 
+		\begin{equation}
+			x_{-i} \equiv 1 - x_i \sim Unif(0,1)
+		\end{equation}
+		Consumer buy product $i$ if 
+		\begin{gather}
+			x_i - p_i \geq x_{-i} - p_{-i}
+		\end{gather}
+		and purchases product 1 if
+		\begin{gather}
+			x_i - p_i \leq x_{-i} - p_{-i}
+		\end{gather}
+		Then solve the boundary $x^* \in [0, 1]$ such that consumers at $x^*$ are indifferent between  two products.
+		\begin{gather}
+			x + p_i = (1 - x) + p_{-i} \\
+			\implies x^* = \frac{1 - p_i + p_{-i}}{2}
+		\end{gather}
+		So any consumer with $x_i > x^*$ would choose firm $i$'s product, also because consumers are uniformly distributed on $x_i \in [0,1]$. So the portion of consumers buying firm $i$'s product is
+		\begin{equation}
+			1 - x_i = \frac{1 + p_i - p_{-i}}{2}
+		\end{equation}
+		And, clearly, 
+		The demand function for firm $i$ is
+		\begin{gather}
+			D_i(q_i, q_{-i}) = \begin{cases}
+				0 &\tx{ if } p_i \geq p_{-i} + 1 \\
+				\frac{1 + p_i - p_{-i}}{2} &\tx{ if } p_i \in [p_{-i}-1, p_{-i}+1]\\
+				1 &\tx{ if } p_i \leq p_{-i} - 1\\
+			\end{cases}
+		\end{gather}
+		Consider the case where $|p_i - p_{-i}| \leq 1$, 
+		\begin{gather}
+			\pi_i = D_i(p_i) (p_i - c) = \frac{1 + p_i - p_{-i}}{2} (p_i - c)
+		\end{gather}
+		Take the first order condition
+		\begin{gather}
+			\pd{\pi_i}{p_i} = 0 \\
+			\implies p_i = \frac{p_{-i} + c - 1}{2}
+		\end{gather}
+	\end{example}
+	
 	\newpage
 	\section*{\red{CONTENTS NOT COVERED IN LECTURE}}
 	\begin{definition}[60.2]
