@@ -1,0 +1,399 @@
+\documentclass[11pt]{article}
+\usepackage{spikey}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+\usepackage{centernot}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[margin=1truein]{geometry}
+
+\title{MAT237: Multivariable Calculus}
+\date{\today}
+\author{Tianyu Du}
+
+\counterwithin{equation}{subsection}
+\counterwithin{theorem}{subsection}
+\counterwithin{lemma}{subsection}
+\counterwithin{corollary}{subsection}
+\counterwithin{proposition}{subsection}
+\counterwithin{remark}{subsection}
+\counterwithin{example}{subsection}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	\section{Limits, continuity, and related topics}
+	\section{Differentiation and related topics}
+		\subsection{}
+		\subsection{}
+		\subsection{}
+		\subsection{}
+		\subsection{}
+		\subsection{}
+		\subsection{}
+		\subsection{Optimization}
+			\begin{theorem}
+				Let $S \subset \R^n$ be an open set and $f, g: S \to \R$ be $C^1$ functions. If $\tbf{x}$ is a local extremal satisfying $g(\tbf{x}) = 0$, and \red{$\nabla g(\tbf{x}) \neq 0$}, then
+				\begin{equation}
+					\exists \lambda \in \R\ s.t.\ \begin{cases}
+						\nabla f(\tbf{x}) = \lambda \nabla g(\tbf{x}) \\
+						g(\tbf{x}) = 0
+					\end{cases}
+				\end{equation}
+			\end{theorem}
+			
+			\begin{lemma}
+				$\nabla g(\tbf{x})$ is \ul{orthogonal} to the constraint set $g^{-1}(0)$.
+			\end{lemma}
+			
+			\begin{proposition}
+				Equations (2.8.1) $\implies$ $\nabla f(\tbf{x}) \perp g^{-1}(0)$ at \tbf{x}.
+			\end{proposition}
+			
+			\begin{theorem}
+				Let $S \subseteq \R^n$ be an open set, and $f, \{g_i\}_{i=1}^k : S \to \R$ be $C^1$ functions. Define $\textbf{g}(\textbf{x}): \R^n \to \R^k \equiv (g_1(\textbf{x}), g_2(\textbf{x}), \dots, g_k(\textbf{x}))$. \\
+				If $\textbf{x} \in S$ is a local minimizer or maximizer of $f$ such that $\textbf{g}(\textbf{x}) = \textbf{0}$, and $\{\nabla g_i(\textbf{x})\}$ are \ul{linearly independent} (i.e. $rank(D\textbf{g}(\textbf{x})) = k$), then
+				\begin{equation}
+					\exists \boldsymbol{\lambda} \in \R^k\ s.t.\ \begin{cases}
+						\nabla f(\textbf{x}) = \boldsymbol{\lambda}^T D\textbf{g}(\textbf{x}) \\
+						\textbf{g}(\textbf{x}) =\textbf{0}
+					\end{cases}
+				\end{equation}
+			\end{theorem}
+			
+			\begin{remark}Procedure of optimization on open sets:
+				\begin{enumerate}[(i)]
+					\item Find all critical points.
+					\item Find optimizers among critical points.
+				\end{enumerate}
+			\end{remark}
+			
+			\begin{remark}Procedure of optimization with inequality constraints:
+				\begin{enumerate}[(i)]
+					\item Find critical points without the constraints.
+					\item Find critical points on the constraints.
+					\item Find optimizers among candidates.
+				\end{enumerate}
+			\end{remark}
+	
+	\section{The Implicit and Inverse Function Theorems}
+		\subsection{The Implicit Function Theorem I}
+			\begin{theorem}[Implicit Function Theorem]
+				Let $S \subseteq \R^{n+k}$ be an open set, and function $F: S \to \R^k$ be a $C^1$ function. Suppose there exists point $\textbf{a} \in \R^n, \textbf{b} \in \R^k$ such that 
+				\begin{equation}
+					F(\textbf{a}, \textbf{b}) = \textbf{0}
+				\end{equation}
+				If 
+				\begin{equation}
+					det(D_{\textbf{y}}(F(\textbf{a}, \textbf{b}))) \neq 0
+				\end{equation}
+				then there exists $r_0, r_1 > 0$ and a $C^1$ function $\textbf{f}$ such that
+				\begin{gather}
+					\forall \textbf{x} \in \mc{B}(r_0, \textbf{a}),\ \textbf{f}(\textbf{x}) \in \mc{B}(r_1, \textbf{a}) \land F(\textbf{x}, \textbf{f}(\textbf{x})) = \textbf{0}
+				\end{gather}
+				and define $\textbf{y} \equiv \textbf{f}(\textbf{x})$, the derivative of $\textbf{f}$ can be found as
+				\begin{equation}
+					D\textbf{f}(\textbf{x}) = -[D_{\textbf{y}}F(\textbf{x}, \textbf{y})]^{-1} D_{\textbf{x}}F(\textbf{x}, \textbf{y})
+				\end{equation}
+			\end{theorem}
+			\begin{remark}
+				Procedure to prove solvability of non-linear equations
+				\begin{equation}
+					\ve{F}(\ve{x}, \ve{y}) = \ve{0}
+				\end{equation}
+				near $(\ve{a}, \ve{b})$.
+				\begin{enumerate}[(i)]
+					\item Verify $\ve{F}(\ve{a}, \ve{b}) = \ve{0}$.
+					\item Assert
+					\begin{equation}
+						det(D_\ve{y}\ve{F}(\ve{a}, \ve{b})) \neq 0
+					\end{equation}
+					\item Approximate solution $\ve{y} = \ve{f}(\ve{x})$ using 
+					\begin{gather}
+						\ve{f}(\ve{x} + \ve{h}) \approx \ve{a} + D\ve{f}(\ve{a}) \ve{h} \\
+						= \ve{a}
+						- [D_\ve{y} \ve{F}(\ve{a}, \ve{b})]^{-1}
+						D_\ve{x} \ve{F}(\ve{a}, \ve{b})
+					\end{gather}
+				\end{enumerate}
+			\end{remark}
+		\subsection{Geometric content of the Implicit Function Theorem}
+			\begin{definition}
+				Let $S \subseteq \R^n$ and $\ve{a} \in S$. $S$ is \textbf{singular} at $\ve{a}$ if 
+				\begin{equation}
+					\forall r > 0\ S \cap \mc{B}(r, \ve{a}) \tx{ cannot be represented as a $C^1$ graph.}
+				\end{equation}
+				$S$ is \textbf{regular} at $\ve{a}$ is its not singular there.
+			\end{definition}
+			
+			\begin{theorem}[$k$ dimensional manifold as level set]
+				Let $U \subseteq \R^n$ and let $\ve{F}: U \to \R^{n-k}$ be a $C^1$ function.
+				\begin{equation}
+					S \equiv \ve{F}^{-1}(\ve{0})
+				\end{equation}
+				Let $\ve{a} \in U$, if 
+				\begin{equation}
+					rank(D\ve{F}(\ve{a})) = n - k
+				\end{equation}
+				then $\exists r > 0$ such that
+				\begin{equation}
+					\mc{B}(r, \ve{a}) \cap S
+				\end{equation}
+				can be represented as a $C^1$ graph.
+			\end{theorem}
+			
+			\begin{theorem}[$k$ dimensional manifold as parameterization]
+				Let $T \subseteq \R^k$ and let $\ve{f}: U \to \R^n$ be a $C^1$ function.
+				\begin{equation}
+					S \equiv \ve{f}(T)
+				\end{equation}
+				Let $\ve{t} \in T$, if
+				\begin{equation}
+					rank(\ve{f}(\ve{t})) = k
+				\end{equation}
+				then $\exists r > 0$ such that
+				\begin{equation}
+					\ve{f}(T \cap \mc{B}(r, \ve{t}))
+				\end{equation}
+				can be represented as a $C^1$ graph.
+			\end{theorem}
+		\subsection{Transformations, and the Inverse Function Theorem}
+			\begin{example}[Polar coordinate in $\R^2$]
+				Let
+				\begin{gather}
+					U \equiv \{(r, \theta): r > 0 \land \theta \in (-\pi, \pi)\} \\
+					V \equiv \R^2 \backslash \{(x,0): x \leq 0\}
+				\end{gather}
+				Define $\ve{f}: U \to V$ as
+				\begin{equation}
+					\ve{f}(r, \theta) \equiv \begin{pmatrix}
+ 						r\cos(\theta) \\
+ 						r\sin(\theta)
+ 					\end{pmatrix}
+				\end{equation}
+			\end{example}
+			
+			\begin{example}[Spherical coordinate in $\R^3$]
+				Define
+				\begin{equation}
+					\ve{f}(r, \theta, \varphi) = \begin{pmatrix}
+						r \cos(\theta) \sin(\varphi) \\
+						r \sin(\theta) \sin(\varphi) \\
+						r\cos(\theta)
+					\end{pmatrix}
+				\end{equation}
+			\end{example}
+			
+			\begin{example}[Cylindrical coordinate in $\R^3$]
+				Define
+				\begin{equation}
+					\ve{f}(r, \theta, z) = \begin{pmatrix}
+						r \cos(\theta) \\
+						r \sin(\theta) \\
+						z
+					\end{pmatrix}
+				\end{equation}
+			\end{example}
+			
+			\begin{theorem}[Inverse Function Theorem]
+				Let $U$ and $V$ be open subsets in $\R^n$, and $\ve{f}: U \to V$. Let $\ve{a} \in U$ and define $\ve{b} \equiv \ve{f}(\ve{a}) \in V$. If
+				\begin{equation}
+					det(D\ve{f}(\ve{a})) \neq 0
+				\end{equation}
+				then there exists $M \subseteq U$ and $N \subseteq V$ such that
+				\begin{enumerate}[(i)]
+					\item $\ve{a} \in M$ and $\ve{b} \in N$,
+					\item $\ve{f}$ is bijective between $M$ and $N$,
+					\item $\ve{f}^{-1}: N \to M$ is $C^1$ 
+				\end{enumerate}
+					and \red{for all $\ve{x} \in M$ and $\ve{y} \equiv \ve{f}(\ve{x}) \in N$},
+					\begin{equation}
+						D \ve{f}^{-1} (\ve{y}) = [D \ve{f} (\ve{x})]^{-1}
+					\end{equation}
+			\end{theorem}
+	
+	\section{Integration}
+		\subsection{Basics}
+			\begin{theorem}[\red{Properties of infimum and supremum}]
+				Let $A \subseteq \R^n$ and $A \neq \emptyset$, and $f, g: A \to \R$ are bounded functions. Let $m$ and $M$ denote the infimum and supremum respectively, then
+				\begin{enumerate}[(i)]
+					\item $m_A f + m_A g \leq m_A (f+g) \leq M_A (f+g) \leq M_A f + M_A g$
+					\item If $A' \subseteq A$, then $m_A f \leq m_{A'} f \leq M_{A'} f\leq M_A f$
+					\item If $f(\ve{x}) \leq g(\ve{x})\ \forall \ve{x} \in A$, then $m_A f \leq m_A g$ and $M_A f \leq M_A g$
+					\item $M_A |f| \geq |M_A f|$
+					\item $M_A |f| - m_A |f| \leq M_A f - m_A f$
+					\item $\forall c \in \R$, $M_A (cf) - m_A (cf) = |c| (M_A f - m_A f)$
+					\item $M_A f - m_A f = sup\{f(x) - f(y): x, y \in A\}$
+				\end{enumerate}
+			\end{theorem}
+			
+		\subsection{Integration on Higher Dimensions}
+			\begin{definition}
+				A \textbf{rectangle} $\mc{R} \subseteq \R^n$ is defined as
+				\begin{equation}
+					\mc{R} \equiv \prod_{i=1}^n [a_i, b_i]
+				\end{equation}
+				where $a_i, b_i \in \R$ and $a_i < b_i$.
+			\end{definition}
+			
+			\begin{definition}
+				A \textbf{partition} $P$ of rectangle $\mc{R} = \prod_{i=1}^n [a_i, b_i]$ is a list of $n$ \red{finite} and increasing list of real numbers
+				\begin{equation}
+					P = \{L_1, L_2, \dots, L_n\}
+				\end{equation}
+				where $L_i = \{e_j\}_{j=0}^{T_i}$ such that
+				\begin{equation}
+					a_i = e_0 < e_1 < \cdots < e_{T_i} = b_i
+				\end{equation}
+				and such partition induces a set of rectangles(boxes) $\mc{B}(P) \equiv \{B_j\}_{j=1}^J \subseteq \mc{R}$.
+			\end{definition}
+			
+			\begin{definition}
+				Let $P$ and $P'$ be two partitions of $\mc{R}$. Then $P'$ is a \textbf{refinement} of $P$ if 
+				\begin{equation}
+					\forall B_j \in \mc{B}(P), B_j' \in \mc{B}(P')\quad B_j' \subseteq B_j \lor B_j^{' int} \cap B_j^{int} = \emptyset
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				Define the \textbf{volume} of rectangle $\mc{R} = \prod_{i=1}^n [a_i, b_i]$ as
+				\begin{equation}
+					V^n(\mc{R}) \equiv \prod_{i=1}^n (b_i - a_i)
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				The \textbf{lower Riemann sum} of $f$ with partition $P$ on $\mc{R}$ is defined as
+				\begin{equation}
+					L_P f \equiv \sum_{B_j \in \mc{B}(P)} \inf_{\ve{x} \in B_j} f(\ve{x}) V^n(B_j)
+				\end{equation}
+				and the \textbf{upper Riemann sum} is defined as
+				\begin{equation}
+					U_P f \equiv \sum_{B_j \in \mc{B}(P)} \sup_{\ve{x} \in B_j} f(\ve{x}) V^n(B_j)
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				The \textbf{upper integral} and \textbf{lower integral} of $f$ on $\mc{R}$ are defined as
+				\begin{gather}
+					\bar{I}_{\mc{R}} f \equiv \inf_{P} U_P f \\
+					\underline{I}_{\mc{R}} f \equiv \sup_{P} L_P f
+				\end{gather}
+			\end{definition}
+			
+			\begin{definition}
+				A bounded real-valued function $f$ defined on $\mc{R}$ is \textbf{integrable} if
+				\begin{equation}
+					\underline{I}_{\mc{R}} f = \bar{I}_{\mc{R}} f
+				\end{equation}
+				and the integral is defined as
+				\begin{equation}
+					\int \cdots \int_\mc{R} f\ dV^n \equiv \underline{I}_{\mc{R}} f = \bar{I}_{\mc{R}} f
+				\end{equation}
+			\end{definition}
+			
+			\begin{lemma}
+				Let $f$ be a bounded real-valued function defined on $\mc{R}$, $f$ is integrable if and only if $\forall \epsilon > 0$, there exists a partition $P$ of $\mc{R}$ such that
+				\begin{equation}
+					U_P f - L_P f < \epsilon
+				\end{equation}
+			\end{lemma}
+			
+			\begin{theorem}
+				Let $f$ and $g$ be two integrable functions on $\mc{R} \subseteq \R^n$, let $c \in \R$, 
+				\begin{enumerate}[(i)]
+					\item $f+g:\mc{R} \to \R$ is integrable and $\int_\mc{R} (f+g) = \int_\mc{R} f + \int_\mc{R} g$
+					\item $c \cdot f$ is integrable and $\int_\mc{R} c \cdot f = c \int_\mc{R} f$
+					\item $f(\ve{x}) \geq g(\ve{x})\ \forall \ve{x} \in \mc{R} \implies \int_\mc{R} f \geq \int_\mc{R} g$
+					\item $|f|$ is integrable and $|\int_{R} f| \leq \int_{R} |f|$
+				\end{enumerate}
+			\end{theorem}
+			
+			\begin{definition}
+				Let $S \subseteq \R^n$ be a bounded set, and there exists rectangle $\mc{R}$ covers $S$, the \textbf{indicator function} of $S$ is $\chi_S: \mc{R} \to \{0, 1\}$, defined as
+				\begin{equation}
+					\chi_S (\ve{x}) \equiv \mathbb{I}(\ve{x} \in S)
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				Let $S \subseteq \R^n$ be a bounded set, and there exists rectangle $\mc{R}$ covers $S$. Let $f: \mc{R} \to \R$ be a bounded function, then $f$ is \textbf{integrable on $S$} if $\chi_S f$ is integrable on $\mc{R}$. And
+				\begin{equation}
+					\int \cdots \int_S f\ dV^n \equiv \int \cdots \int_\mc{R} \chi_S f\ dV^n
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				Let $Z \subseteq \R^n$, $Z$ has \textbf{zero content} if for all $\epsilon > 0$, there exists a \ul{finite} set of rectangles $\{R_\ell\}_{\ell=1}^L$ covers $Z$ and
+				\begin{equation}
+					\sum_{\ell=1}^L V^n (R_\ell) < \epsilon
+				\end{equation}
+			\end{definition}
+			
+			\begin{proposition}
+				Let $Z \subseteq \R^n$ has zero content, then
+				\begin{enumerate}[(i)]
+					\item For any $Z' \subseteq Z$, $Z'$ has zero content.
+					\item \ul{Finite} union of content zero sets has zero content.
+					\item \red{Let $f: [a, b] \to \R$ be a $C^1$ function, it's graph $\{(x, f(x)): x \in [a, b]\}$ has zero content.}
+					\item \red{Let $\ve{f}: [a, b] \to \R^2$, the parameterization $\ve{f}([a,b])$ has zero content.}
+				\end{enumerate}
+			\end{proposition}
+			
+			\begin{theorem}
+				Let $\mc{R}$ be a rectangle in $\R^n$ and $f$ is integrable on $\mc{R}$ if
+				\begin{equation}
+					\{\ve{x} \in \mc{R}: f \tx{ is discontinuous at \ve{x}}\}
+				\end{equation}
+				has zero content.
+			\end{theorem}
+			
+			\begin{proposition}[Folland 4.22]
+				Suppose $Z \subseteq \R^n$ has zero content. If $f: \R^n \to \R$ is bounded, then $f$ is integrable on $Z$ and $\int_Z f\ dV^n = 0$.
+			\end{proposition}
+			
+		\subsection{Iterated Integrals}
+			\begin{theorem}[Fubini's Theorem]
+				Let $\mc{R} = [a,b] \times [c,d] \subseteq \R^2$ and $f: \mc{R} \to \R$ is bounded. Assuming that
+				\begin{enumerate}[(i)]
+					\item $f$ is integrable on $\mc{R}$.
+					\item for each $y \in [c,d]$, the function $f_y(x) \equiv f(x,y)$ is integrable on $[a,b]$.
+					\item Define $g(y) \equiv \int_a^b f(x, y) dy$ is integrable on $[c,d]$.
+				\end{enumerate}
+				Then 
+				\begin{equation}
+					\iint_\mc{R} f\ dA = \int_c^d \Big ( \int_a^b f(x,y)\ dx\Big)dy
+				\end{equation}
+			\end{theorem}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
