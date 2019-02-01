@@ -41,7 +41,7 @@
 		\subsection{}
 		\subsection{Optimization}
 			\begin{theorem}
-				Let $S \subset \R^n$ be an open set and $f, g: S \to \R$ be $C^1$ functions. If $\tbf{x}$ is a local extremal satisfying $g(\tbf{x}) = 0$, and \red{$\nabla g(\tbf{x}) \neq 0$}, then
+				Let $S \subset \R^n$ be an open set and $f, g: S \to \R$ be $C^1$ functions. If $\tbf{x}$ is a \emph{local extremal} satisfying $g(\tbf{x}) = 0$, and \red{$\nabla g(\tbf{x}) \neq 0$}, then
 				\begin{equation}
 					\exists \lambda \in \R\ s.t.\ \begin{cases}
 						\nabla f(\tbf{x}) = \lambda \nabla g(\tbf{x}) \\
@@ -59,8 +59,8 @@
 			\end{proposition}
 			
 			\begin{theorem}
-				Let $S \subseteq \R^n$ be an open set, and $f, \{g_i\}_{i=1}^k : S \to \R$ be $C^1$ functions. Define $\textbf{g}(\textbf{x}): \R^n \to \R^k \equiv (g_1(\textbf{x}), g_2(\textbf{x}), \dots, g_k(\textbf{x}))$. \\
-				If $\textbf{x} \in S$ is a local minimizer or maximizer of $f$ such that $\textbf{g}(\textbf{x}) = \textbf{0}$, and $\{\nabla g_i(\textbf{x})\}$ are \ul{linearly independent} (i.e. $rank(D\textbf{g}(\textbf{x})) = k$), then
+				Let $S \subseteq \R^n$ be an open set, and $f, \{g_i\}_{i=1}^k : S \to \R$ be $C^1$ functions. Define $\ve{g}(\ve{x}): \R^n \to \R^k \equiv (g_1(\ve{x}), g_2(\textbf{x}), \dots, g_k(\ve{x}))$. \\
+				If $\textbf{x} \in S$ is a \emph{local extremal} of $f$ such that $\textbf{g}(\textbf{x}) = \textbf{0}$, and $\{\nabla g_i(\textbf{x})\}$ are \ul{linearly independent} (i.e. $rank(D\textbf{g}(\textbf{x})) = k$), then
 				\begin{equation}
 					\exists \boldsymbol{\lambda} \in \R^k\ s.t.\ \begin{cases}
 						\nabla f(\textbf{x}) = \boldsymbol{\lambda}^T D\textbf{g}(\textbf{x}) \\
@@ -69,14 +69,14 @@
 				\end{equation}
 			\end{theorem}
 			
-			\begin{remark}Procedure of optimization on open sets:
+			\begin{remark}Procedure of optimization on \emph{open sets}:
 				\begin{enumerate}[(i)]
 					\item Find all critical points.
 					\item Find optimizers among critical points.
 				\end{enumerate}
 			\end{remark}
 			
-			\begin{remark}Procedure of optimization with inequality constraints:
+			\begin{remark}Procedure of optimization with \emph{inequality constraints}:
 				\begin{enumerate}[(i)]
 					\item Find critical points without the constraints.
 					\item Find critical points on the constraints.
@@ -87,7 +87,7 @@
 	\section{The Implicit and Inverse Function Theorems}
 		\subsection{The Implicit Function Theorem I}
 			\begin{theorem}[Implicit Function Theorem]
-				Let $S \subseteq \R^{n+k}$ be an open set, and function $F: S \to \R^k$ be a $C^1$ function. Suppose there exists point $\textbf{a} \in \R^n, \textbf{b} \in \R^k$ such that 
+				Let $S \subseteq \R^{n+k}$ be an open set, and function $F: S \to \R^k$ be a $C^1$ function. Suppose there exists point $\textbf{a} \in \R^n, \ve{b} \in \R^k$ such that 
 				\begin{equation}
 					F(\textbf{a}, \textbf{b}) = \textbf{0}
 				\end{equation}
@@ -95,9 +95,9 @@
 				\begin{equation}
 					det(D_{\textbf{y}}(F(\textbf{a}, \textbf{b}))) \neq 0
 				\end{equation}
-				then there exists $r_0, r_1 > 0$ and a $C^1$ function $\textbf{f}$ such that
+				then there exists $r_0, r_1 > 0$ and a $C^1$ function $\ve{f}: \R^n \to \R^k$ such that
 				\begin{gather}
-					\forall \textbf{x} \in \mc{B}(r_0, \textbf{a}),\ \textbf{f}(\textbf{x}) \in \mc{B}(r_1, \textbf{a}) \land F(\textbf{x}, \textbf{f}(\textbf{x})) = \textbf{0}
+					\forall \ve{x} \in \mc{B}(r_0, \ve{a}),\ \ve{f}(\ve{x}) \in \mc{B}(r_1, \ve{b}) \land F(\ve{x}, \ve{f}(\ve{x})) = \ve{0}
 				\end{gather}
 				and define $\textbf{y} \equiv \textbf{f}(\textbf{x})$, the derivative of $\textbf{f}$ can be found as
 				\begin{equation}
@@ -143,7 +143,7 @@
 				\begin{equation}
 					rank(D\ve{F}(\ve{a})) = n - k
 				\end{equation}
-				then $\exists r > 0$ such that
+				then $\exists r > 0$ such that the \emph{level set of $\ve{F}$ near $\ve{a}$}
 				\begin{equation}
 					\mc{B}(r, \ve{a}) \cap S
 				\end{equation}
@@ -159,7 +159,7 @@
 				\begin{equation}
 					rank(\ve{f}(\ve{t})) = k
 				\end{equation}
-				then $\exists r > 0$ such that
+				then $\exists r > 0$ such that the \emph{parameterization of $\ve{f}$ near $\ve{t}$}
 				\begin{equation}
 					\ve{f}(T \cap \mc{B}(r, \ve{t}))
 				\end{equation}
@@ -212,9 +212,9 @@
 				\begin{enumerate}[(i)]
 					\item $\ve{a} \in M$ and $\ve{b} \in N$,
 					\item $\ve{f}$ is bijective between $M$ and $N$,
-					\item $\ve{f}^{-1}: N \to M$ is $C^1$ 
+					\item $\ve{f}^{-1}: N \to M$ is $C^1$,
 				\end{enumerate}
-					and \red{for all $\ve{x} \in M$ and $\ve{y} \equiv \ve{f}(\ve{x}) \in N$},
+					and \red{for all $\ve{x} \in M$} such $\ve{y} \equiv \ve{f}(\ve{x}) \in N$,
 					\begin{equation}
 						D \ve{f}^{-1} (\ve{y}) = [D \ve{f} (\ve{x})]^{-1}
 					\end{equation}
@@ -228,7 +228,7 @@
 					\item $m_A f + m_A g \leq m_A (f+g) \leq M_A (f+g) \leq M_A f + M_A g$
 					\item If $A' \subseteq A$, then $m_A f \leq m_{A'} f \leq M_{A'} f\leq M_A f$
 					\item If $f(\ve{x}) \leq g(\ve{x})\ \forall \ve{x} \in A$, then $m_A f \leq m_A g$ and $M_A f \leq M_A g$
-					\item $M_A |f| \geq |M_A f|$
+					\item $|M_A f| \leq M_A |f|$
 					\item $M_A |f| - m_A |f| \leq M_A f - m_A f$
 					\item $\forall c \in \R$, $M_A (cf) - m_A (cf) = |c| (M_A f - m_A f)$
 					\item $M_A f - m_A f = sup\{f(x) - f(y): x, y \in A\}$
@@ -343,8 +343,8 @@
 				\begin{enumerate}[(i)]
 					\item For any $Z' \subseteq Z$, $Z'$ has zero content.
 					\item \ul{Finite} union of content zero sets has zero content.
-					\item \red{Let $f: [a, b] \to \R$ be a $C^1$ function, it's graph $\{(x, f(x)): x \in [a, b]\}$ has zero content.}
-					\item \red{Let $\ve{f}: [a, b] \to \R^2$, the parameterization $\ve{f}([a,b])$ has zero content.}
+					\item \red{Let $f: [a, b] \to \R$ be an integrable function, it's graph $\{(x, f(x)): x \in [a, b]\}$ has zero content.}
+					\item \red{Let $\ve{f}: [a, b] \to \R^2$ be a $C^1$ function, the parameterization $\ve{f}([a,b])$ has zero content.}
 				\end{enumerate}
 			\end{proposition}
 			
