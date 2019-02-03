@@ -13,7 +13,7 @@
 
 \usepackage[margin=1truein]{geometry}
 
-\title{Notes on Probability Theory}
+\title{Notes on Probability Theory \\ 18.175}
 \date{\today}
 \author{Tianyu Du}
 
@@ -93,6 +93,22 @@
 		
 		\begin{definition}
 			A collection of sets $\mc{L}$ is a \textbf{$\lambda$-system} if
+		\end{definition}
+	
+	\section{Random Variables}
+		\begin{definition}
+			A \textbf{measurable space} is a tuple $(S, \Sigma)$ where $\Sigma$ is a $\sigma$-algebra on $S$.
+		\end{definition}
+		\begin{definition}
+			Let $(X, \Sigma)$ and $(Y, \Pi)$ be two measurable spaces, and function $f: X \to Y$ is a \textbf{measurable function} if 
+			\[
+				\forall \mc{E} \in \Pi,\ f^{-1}(\mc{E}) \in \Sigma
+			\]
+			Denoted as $f: (X, \Sigma) \to (Y, \Pi)$.
+		\end{definition}
+		
+		\begin{definition}
+			A \textbf{random variable} is a measurable function $X: (\Omega, \mc{F}) \to (\R, \mc{B})$. We say $X$ is $\mc{F}$ measurable.
 		\end{definition}
 \end{document}
 
