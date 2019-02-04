@@ -24,6 +24,7 @@
 \counterwithin{proposition}{section}
 \counterwithin{remark}{section}
 \counterwithin{example}{section}
+\counterwithin{figure}{section}
 
 \begin{document}
 	\maketitle
@@ -97,9 +98,183 @@
 		\end{remark}
 		
 	\section{Statistics and Time Series}
-		\begin{definition}
-			
+		\subsection{Stochastic Processes}
+		\begin{definition}[1.1]
+			A \textbf{stochastic process} (or \textbf{time series process}) is a family (collection) random variables indexed by $t \in \mc{T}$ and defined on some given probability space $(\Omega, \mc{F}, P)$.
+			\begin{equation}
+				\{Y_t\} = Y_1, \dots, Y_T
+			\end{equation}
 		\end{definition}
+		
+		\begin{definition}[1.2]
+			The function $t \to y_t$ which assigns to each point in time $t \in \mc{T}$ the realization of the random variable $Y_t$, $y_t$ is called a \textbf{realization} or a \textbf{trajectory} or an \textbf{outcome} of the stochastic process.
+		\end{definition}
+		
+		\begin{definition}
+			An \emph{outcome} of a stochastic process 
+			\begin{equation}
+				\{y_t\} = y_1, \dots, y_T
+			\end{equation}
+			is a \textbf{time series}.
+		\end{definition}
+		
+		\begin{definition}[1.3]
+			A \textbf{time series model} or a \textbf{model} for the observations (data), $\{y_t\}$, is a specification of the \emph{joint distribution} of $\{Y_t\}$ for which $\{y_t\}$ is a realization.
+		\end{definition}
+		
+		\begin{assumption}
+			The \textbf{ergodicity} assumption requires the observations cover in principle all possible events.
+		\end{assumption}
+		
+		\begin{definition}
+			A stochastic process $\{Y_t\}$ is \textbf{first order strongly stationary} if all random variables $Y_t \in \{Y_t\}$ has the \emph{same probability density function}.
+		\end{definition}
+		
+		\begin{definition}[1.7]
+			A stochastic process $\{Y_t\}$ is \textbf{strictly stationary} if for all $h, n \geq 1$, $(X_1,\dots,X_n)$ and $(X_{1+h}, \dots, X_{n+h}$ have the same distribution.
+		\end{definition}
+		
+		\begin{definition}
+			A stochastic process $\{Y_t\}$ is \textbf{first order weakly stationary} if
+			\begin{equation}
+				\forall t \in \mc{T},\ \mu_{Y_t} \equiv \expect{Y_t} = \bar{\mu}
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}
+			A stochastic process $\{Y_t\}$ is \textbf{second order weakly stationary}, or \textbf{covariance stationary} if all random variables $\{Y_t\}$ have the same mean and variance. And the covariances do not depend on $t$.
+			That's, for all $t \in \mc{T}$,
+			\begin{enumerate}[(i)]
+				\item $\expect{Y_t} = \mu\ \forall t$
+				\item $\var{Y_t} = \sigma^2 < \infty\ \forall t$
+				\item $Cov(Y_t, Y_s) = Cov(Y_{t+r}, Y_{s+r})\ \forall t,s,r\in \Z$
+			\end{enumerate}
+		\end{definition}
+		
+		\subsection{Auto-correlations}
+		
+		\begin{definition}
+			Let $\{Y_t\}$ be a stochastic process with $\var{Y_t} < \infty\ \forall t \in \mc{T}$, the \textbf{auto-covariance function} is defined as
+			\begin{gather}
+				\gamma_Y(t, s) \equiv Cov(Y_t, Y_s) \\
+				= \expect{(Y_t - \expect{Y_t})(Y_s - \expect{Y_s})} \\
+				= \expect{Y_t Y_s} - \expect{Y_t} \expect{Y_s}
+			\end{gather}
+		\end{definition}
+		
+		\begin{lemma}
+			If $\{Y_t\}$ is stationary, then the auto-covariance function does not depend on specific time point $t$. We can write the $h \in \Z$ degree auto-covariance as 
+			\begin{equation}
+				\gamma_Y(h) \equiv \gamma_X(t, t+h)\ \forall t \in \mc{T}
+			\end{equation}
+		\end{lemma}
+	
+		\begin{proposition}
+			By the symmetry of covariance, 
+			\begin{equation}
+				\gamma_Y(h) = \gamma_Y(-h)
+			\end{equation}
+		\end{proposition}
+		
+		\begin{definition}
+			The \textbf{auto-correlation coefficient} of order $k$ is given by
+			\begin{equation}
+				\rho_{Y_t, Y_{t-k}} = \frac{Cov(Y_t, Y_{t-k})}{\sqrt{\var{Y_t}}\sqrt{\var{Y_{t-k}}}}
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}
+			Let $\{Y_t\}$ be a \emph{stationary process} and the \textbf{auto-correlation function} (ACF) is a mapping from \emph{order} of auto-correlation coefficient to the coefficient $\rho_Y: k \to \rho_{Y_t, Y_{t-k}}$, defined as
+			\begin{equation}
+				\rho_Y(k) \equiv \frac{\gamma(k)}{\gamma(0)} = corr(Y_{t + k}, Y_t)
+			\end{equation}
+		\end{definition}
+		
+		\begin{proposition}
+			Note that 
+			\begin{equation}
+				\rho_k = \rho_{-k} = \rho_{|k|}
+			\end{equation}
+			so the ACF for stationary process can be simplified to a mapping 
+			\begin{equation}
+				\rho: k \to \rho_{|k|}
+			\end{equation}
+		\end{proposition}
+		
+		\begin{remark}
+			Strong stationarity is difficult to test so we will focus on weak stationarity only.
+		\end{remark}
+		
+		\begin{proposition}
+			For a non-stationary stochastic process $\{Y_t\}$, $\{\Delta Y_t\}$ becomes \emph{first order weakly stationary} and $\{\Delta \log(Y_t)\}$ becomes \emph{second order weakly stationary}.
+			\begin{figure}[h]
+				\centering
+				\includegraphics{figures/2_1}
+			\end{figure}
+		\end{proposition}
+		
+		\begin{definition}[1.8]
+			A stochastic process $\{Y_t\}$ is called a \textbf{Gaussian process} if all \emph{finite} dimensional distribution from the process are multivariate normally distributed. That's
+			\begin{gather}
+				\forall n \in \Z_{>0},\ \forall (t_1, \dots, t_n) \in \mc{T}^n, (Y_{t_1}, \dots, Y_{t_n}) \sim \mc{N}(\bs{\mu}, \Sigma)
+			\end{gather}
+		\end{definition}
+		
+		\begin{notation}
+			Consider the problem of forecasting $Y_{T+1}$ from observations $\{Y_t\}_{t=1}^{T}$, the \emph{best linear predictor} is denoted as
+			\begin{equation}
+				\mathbb{P}_T Y_{T+1} = \sum_{i=1}^{T} a_i L^i Y_{T+1}
+			\end{equation}
+			And $Y_{T+1}$ can be expressed as
+			\begin{equation}
+				Y_{T+1} = \mathbb{P}_T Y_{T+1} + Z_{T+1}
+			\end{equation}
+			where $Z_{T+1}$ denotes the forecast error which is \emph{uncorrelated} with $X_T, \dots, X_1$.
+		\end{notation}
+		
+		\begin{definition}[3.3]
+			The \textbf{partial auto-correlation function} (PACT) $\alpha(h)$ with $h \in \Z_{\geq 0}$ of a \emph{stationary} process is defined as 
+			\begin{gather}
+				\alpha(0) = 1 \\
+				\alpha(1) = corr(Y_2, Y_1) = \rho(1) \\
+				\alpha(h) = corr\Big(Y_{h+1} - \mathbb{P}(Y_{h+1}|1,Y_2, \dots, Y_h), X_1 - \mathbb{P}(Y_1|1,Y_2,\dots,Y_h)\Big)
+			\end{gather}
+		\end{definition}
+		
+		\begin{remark}[Interpretation of PACF] partial auto-correlation $r_k$ only measures correlation between two variables $Y_t$ and $Y_{t+k}$ while controlling $(Y_{t+1}, \dots, Y_{t+k-1})$.
+		\end{remark}
+		
+		\begin{remark}Properties of ACF and PACF
+			\begin{table}[h]
+				\centering
+				\begin{tabular}{l|c|c}
+					processes & ACF & PACF \\
+					\hline
+						$AR(p)$ & 
+						\begin{tabular}{@{}c@{}}Declines exponentially \\(monotonic or oscillating) to zero\end{tabular} & 
+						$\alpha(h) = 0\ \forall h > p$\\
+					\hline
+						$MA(q)$ &
+						$\rho(h) = 0\ \forall h > q$ &
+						\begin{tabular}{@{}c@{}}Declines exponentially \\(monotonic or oscillating) to zero\end{tabular}
+				\end{tabular}
+			\end{table}
+		\end{remark}
+		
+		\paragraph{Test for Auto-correlation}To test single auto-correlation with 
+		\begin{equation}
+			H_0: \rho_k = 0
+		\end{equation}
+		we can use usual t-statistic. While testing the joint hypothesis
+		\begin{equation}
+			H_0: \rho_1 = \rho_2 = \dots = \rho_k = 0
+		\end{equation}
+		we are using the \textbf{Ljung-Box Q-statistic}:
+		\begin{equation}
+			Q_k = T(T+1) \sum_{j=1}^k \frac{\hat{\rho}_j^2}{T-j} \sim \chi_k^2
+		\end{equation}
+	
+	\section{Forecasting Tools}
 \end{document}
 
 
