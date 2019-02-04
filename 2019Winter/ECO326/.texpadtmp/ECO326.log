@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  1 FEB 2019 01:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  3 FEB 2019 22:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -623,7 +623,22 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layouthoffset=\dimen129
 \Gm@layoutvoffset=\dimen130
 \Gm@dimlist=\toks36
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/doclicense.sty
+)
+
+./eco326.tex:24: LaTeX Error: Command \red already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \newcommand{\red}[1]{\textcolor{red}{#1}}
+                                              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/doclicense.sty
 Package: doclicense 2016/04/24 v1.5.0 Support for putting documents under a license
  (/usr/local/texlive/2016/texmf-dist/tex/latex/xifthen/xifthen.sty
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
@@ -855,15 +870,15 @@ Package rerunfilecheck Info: File `eco326.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1279.
  ) 
 Here is how much of TeX's memory you used:
- 9922 strings out of 493014
- 141226 string characters out of 6133351
- 264692 words of memory out of 5000000
- 12992 multiletter control sequences out of 15000+600000
+ 9925 strings out of 493014
+ 141233 string characters out of 6133351
+ 264718 words of memory out of 5000000
+ 12995 multiletter control sequences out of 15000+600000
  13589 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,16n,46p,911b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.pdf (24 pages, 304135 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.pdf (24 pages, 304355 bytes).
 PDF statistics:
  587 PDF objects out of 1000 (max. 8388607)
  535 compressed objects within 6 object streams

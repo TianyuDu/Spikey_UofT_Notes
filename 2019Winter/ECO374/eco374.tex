@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage{spikey}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+\usepackage{centernot}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[margin=1truein]{geometry}
+
+\title{Forecasting and Time Series Econometrics \\ ECO374 Winter 2019}
+\date{\today}
+\author{Tianyu Du}
+
+\counterwithin{equation}{section}
+\counterwithin{theorem}{section}
+\counterwithin{lemma}{section}
+\counterwithin{corollary}{section}
+\counterwithin{proposition}{section}
+\counterwithin{remark}{section}
+\counterwithin{example}{section}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	
+	\section{Introduction and Statistics Review}
+		\begin{definition}
+			Given random variable $X$, the $k^{th}$ \textbf{non-central moment} is defined as
+			\begin{equation}
+				\expect{X^k}
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}
+			Given random variable $X$, the $k^{th}$ \textbf{central moment} is defined as
+			\begin{equation}
+				\expect{(X - \expect{X})^k}
+			\end{equation}
+		\end{definition}
+		
+		\begin{remark}
+			Moments of order higher than a certain $k$ may not exist for certain distribution.
+		\end{remark}
+		
+		\begin{definition}
+			Given the \textbf{joint density} $f(X,Y)$ of two \emph{continuous} random variables, the \textbf{conditional density} of random $Y$ conditioned on $X$ is 
+			\begin{equation}
+				f_{Y|X}(y|x) = \frac{f_{Y,X}(y,x)}{f_X(x)}
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}
+			Given discrete variables $X$ and $Y$, the \textbf{conditional density} of $Y$ conditioned on $X$ is defined as 
+			\begin{equation}
+				P(Y=y|X=x) = \frac{P(Y=y \land X=x)}{P(X=x)}
+			\end{equation}
+		\end{definition}
+		
+		\begin{assumption} Assumptions on linear regression on time series data:
+			\begin{enumerate}[(i)]
+				\item \textbf{Linearity}
+					\begin{equation}
+						Y = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k + u
+					\end{equation}
+				\item \textbf{Zero Conditional Mean}
+					\begin{equation}
+						\expect{u|X_1, X_2, \dots, X_k} = 0
+					\end{equation}
+				\item \textbf{Homoscedasitcity}
+					\begin{equation}
+						\var{u|X_1, X_2, \dots, X_k} = \sigma^2_u
+					\end{equation}
+				\item \textbf{No Serial Correlation}
+					\begin{equation}
+						Cov(u_t, u_s) = 0\ \forall t \neq s \in \Z
+					\end{equation}
+				\item \textbf{No Perfect Collinearity}
+				\item \textbf{Sample Variation in Regressors}
+					\begin{equation}
+						\var{X_j} > 0\ \forall j
+					\end{equation}
+			\end{enumerate}
+		\end{assumption}
+		
+		\begin{theorem}[Gauss-Markov Theorem]
+			Under assumptions 1.1, the OLS estimators $\hat{\beta}_j$ are \emph{best linear unbiased estimators} of the unknown population regression coefficients $\beta_j$.
+		\end{theorem}
+		
+		\begin{remark}
+			The \emph{no serial correlation} assumption is typically not satisfied for time series data. And the \emph{linearity} assumption is also too restrictive for time series featuring complex dynamics. Hence, for time series data we typically use other models than linear regression with OLS.
+		\end{remark}
+		
+	\section{Statistics and Time Series}
+		\begin{definition}
+			
+		\end{definition}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
