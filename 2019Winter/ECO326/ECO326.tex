@@ -782,6 +782,77 @@
 		\end{gather}
 	\end{example}
 	
+	\section{Lecture 5 Feb. 7 2019}
+		\begin{example}Matching pennies: an example of game without pure strategy Nash equilibrium.
+			\begin{figure}[h]
+				\centering
+				\begin{game}{2}{2}
+					& $H$ & $T$ \\
+					$H$ & (\red{1},-1) & (-1,\red{1}) \\
+					$L$ & (-1,\red{1}) & (\red{1},-1) \\
+				\end{game}
+			\end{figure}
+		\end{example}
+		
+		\begin{definition}
+			Suppose player $i$ has a \emph{finite} set of pure strategies $A_i$, then a \textbf{mixed strategy} $\sigma_i \in \Delta (A_i)$ is a probability distribution over $A_i$.
+		\end{definition}
+		
+		\begin{definition}
+			The \textbf{support} of $\sigma_i$ is defined as
+			\begin{equation}
+				\mc{S}(\sigma_i) \equiv \{a \in A_i: \sigma_i(a) > 0\}
+			\end{equation}
+		\end{definition}
+		
+		\begin{notation}
+			Given action set $A_i \equiv \{a_i\}$, a mixed strategy can be denoted as $A_i^\alpha$ where $\alpha$ is a multi-index.
+		\end{notation}
+		
+		\begin{remark}
+			A pure strategy $a_i \in A_i$ is a mixed strategy with 
+			\begin{equation}
+				\sigma_i(a_i) = 1
+			\end{equation}
+			So mixed strategy is a generalization of pure strategy.
+		\end{remark}
+		
+		\begin{proposition}
+			In a finite game, given the independence of randomization, the probability of the action profile $a = (a_i)$ to be realized given mixed strategy profile $(\sigma_i)$ is
+			\begin{equation}
+				\sigma (a) \equiv \prob{(a_j)_{j \in N}} = \prod_{j \in N} \sigma_j(a_j)
+			\end{equation}
+			and for player $i$, the \textbf{expected payoff} on profile $(\sigma_j)_{j\in N}$ is 
+			\begin{equation}
+				U_i((\sigma_{j})_{j \in N}) = 
+				\sum_{a \in A} (\prod_{j \in N} \sigma_j(a_j)) u_i(a) = \expect{u_i(a)|(\sigma_j)_{j \in N}}
+			\end{equation}
+		\end{proposition}
+		
+		\begin{proposition}
+			The \textbf{expected payoff} from mixed strategy profile $(\sigma_i) \equiv (\sigma_i, \sigma_{-i})$ is
+			\[
+				U_i(\sigma_i, \sigma_{-i}) \equiv \expect{u_i(a)|(\sigma_i)} = \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \sigma_i(a_i)
+			\]
+		\end{proposition}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	\newpage
 	\section*{\red{CONTENTS NOT COVERED IN LECTURE}}
 	\begin{definition}[60.2]
