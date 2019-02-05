@@ -820,534 +820,166 @@
 		\begin{proposition}
 			In a finite game, given the independence of randomization, the probability of the action profile $a = (a_i)$ to be realized given mixed strategy profile $(\sigma_i)$ is
 			\begin{equation}
-				\sigma (a) \equiv \prob{(a_j)_{j \in N}} = \prod_{j \in N} \sigma_j(a_j)
+				\sigma (a) \equiv \prob{(a_i)|(\sigma_i)} = \prod_{i \in N} \sigma_i(a_i)
 			\end{equation}
-			and for player $i$, the \textbf{expected payoff} on profile $(\sigma_j)_{j\in N}$ is 
+			and for player $i$, the \textbf{expected payoff} from mixed strategy profile $(\sigma_i)$ is 
 			\begin{equation}
-				U_i((\sigma_{j})_{j \in N}) = 
-				\sum_{a \in A} (\prod_{j \in N} \sigma_j(a_j)) u_i(a) = \expect{u_i(a)|(\sigma_j)_{j \in N}}
+				U_i((\sigma_{i})) = 
+				\sum_{a \in A} \big[\prod_{j \in N} \sigma_j(a_j)\big] u_i(a) = \expect{u_i(a)|(\sigma_i)}
 			\end{equation}
 		\end{proposition}
 		
 		\begin{proposition}
 			The \textbf{expected payoff} from mixed strategy profile $(\sigma_i) \equiv (\sigma_i, \sigma_{-i})$ is
-			\[
+			\begin{equation}
 				U_i(\sigma_i, \sigma_{-i}) \equiv \expect{u_i(a)|(\sigma_i)} = \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \sigma_i(a_i)
-			\]
+			\end{equation}
 		\end{proposition}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	\newpage
-	\section*{\red{CONTENTS NOT COVERED IN LECTURE}}
-	\begin{definition}[60.2]
-				The set $X \subseteq A$ of outcomes of a \ul{finite} strategic game $\langle N, (A_i), (u_i) \rangle$ \textbf{survives iterated elimination of \ul{strictly} dominated actions} if $X = \times_{j \in N} X_j$ and there is a collection $((X_j^t)_{j \in N})_{t=0}^T$ of sets that satisfies the following conditions for each $j \in N$.
-				\begin{itemize}
-					\item $X_j^0 = A_j$ and $X_j^T = X_j$.
-					\item $X_j^{t+1} \subseteq X_j^t$ for each $t = 0, \dots, T - 1$.
-					\item For each $t = 0, \dots, T-1$ every action of player $j$ in $X_j^t \backslash X_j^{t+1}$ is \ul{strictly dominated} in the game $\langle N, (X_i^t), (u_i^t) \rangle$, where $u_i^t$ for each $i \in N$ is the function $u_i$ restricted to $\times_{j \in N} X_j^t$.
-					\item No action in $X_t^T$ is strictly dominated in game $\langle N, (X_i^T), (u_i^T) \rangle$.
-				\end{itemize}
-			\end{definition}
-			
-			\begin{proposition}[61.2]
-				If $X = \times_{j \in N}X_j$ survives iterated elimination of strictly dominated actions in a \ul{finite} strategic game $\langle N, (A_i), (u_i) \rangle$ then $X_j$ is the set of player $j$'s rationalizable actions for each $j \in N$.
-			\end{proposition}
-			
-		\subsection{Rationalizability}
-			\begin{definition}[pg.15]
-				The \textbf{best-response function} for a player $i$ is defined as
-				\[
-					B_i(a_{-i}) = \{a_i \in A_i : (a_i, a_{-i}) \succsim_i (a_i', a_{-i})\ \forall a_i' \in A_i \}
-				\]
-			\end{definition}
-			
-			\begin{remark}
-				The best-response of $a_{-i}$ can be written as 
-				\[
-					B_i(a_{-i}) = \bigcap_{a_i' \in A_i} \{a_i \in A_i : (a_i, a_{-i}) \succsim_i (a_i', a_{-i})\}
-				\]
-				where each of them is the upper contour set of $a_i'$. \\
-				Thus, if $\succsim_i$ is quasi-concave, then $B_i(a_{-i})$ is an intersection of convex sets and therefore itself convex.
-			\end{remark}
-			\begin{definition}[pg.54]
-				A \textbf{belief} of player $i$ (about the actions of the other players) is a \ul{probability measure}, $\mu_i$, on $A_{-i}=\times_{j \in N \backslash \{i\}} A_j$. \\
-				$\mu_i$ is a mapping such that
-				\begin{itemize}
-					\item $\mu_i: A_{-i} \to [0,1]$.
-					\item $\mu_i(A_{-i}) = 1$.
-					\item For all countable piece-wise \ul{disjoint} collection $\{E_i\}_{i\in I}$, it satisfies the \emph{countable additivity property}:
-					\[
-						\mu_i(\bigcup_{i \in I} E_i) = \sum_{i \in I}\mu_i(E_i)
-					\]
-				\end{itemize}
-			\end{definition}
-			
-			\begin{definition}[lec.2]
-				For a player $i \in N$, $a_i^* \in A_i$ is the \textbf{best response to belief $\mu_i$} in a strategic game $\langle N, (A_i), (u_i) \rangle$ if and only if 
-				\[
-					\forall a_i \in A_i,\ \sum_{a_{-i} \in A_{-i}} u_i(a_i^*, a_{-i}) \mu_i(a_{-i}) \geq \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \mu_i(a_{-i})
-				\]
-				Equivalently,
-				\[
-					\forall a_i \in A_i,\ \expect{u_i(a_i^*, a_{-i})|\mu_i} \geq \expect{u_i(a_i, a_{-i})|\mu_i}
-				\]
-			\end{definition}
-			
-			\begin{definition}[59.1]
-				An action of player $i$ in a strategic game is a \textbf{never best response} if it is not a best response to any \ul{belief} of player $i$.
-			\end{definition}
-			
-			\begin{definition}[lec.2]
-				For player $i \in N$, action $a_i \in A_i$ is \textbf{rationalizable} if it survives from the iterated elimination of never best responses.
-			\end{definition}
-			
-			\begin{definition}[59.2]
-				The action $a_i \in A_i$ of player $i$ in the strategic game $\langle N, (A_i), (u_i) \rangle$ is \textbf{strictly dominated} if there is a mixed strategy $\alpha_i$ of player $i$ such that 
-				\[
-					U_i(a_{-i}, \alpha_i) > u_i(a_{-i}, a_i)
-				\]
-				for all $a_{-i} \in A_{-i}$, where $U_i(a_{-i}, \alpha_i)$ is the payoff of player $i$ if he uses the mixed strategy $\alpha_i$ and the other players' vector of actions is $a_{-i}$.
-			\end{definition}
-		
-		
-	\section{Lecture 3. Nash Equilibrium}
-		\begin{definition}[14.1]
-			A \textbf{Nash equilibrium of a strategic game} $\langle N, (A_i), (\succsim_i) \rangle$ is a profile $a^* \in A$ of actions with property that for every player $i \in N$
-			\[
-				(a_i^*, a^*_{-i}) \succsim_i (a_i, a^*_{-i})\ \forall a_i \in A_i
-			\]
+		\begin{definition}
+			A pure strategy $a_i \in A_i$ is \textbf{strictly dominated} by a mixed strategy $\sigma_i \in \Delta(A_i)$ if
+			\begin{equation}
+				\forall a_{-i} \in A_{-i}\ u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i})
+			\end{equation}
 		\end{definition}
 		
-		\begin{proposition}[pg.15, equivalent definition of Nash equilibrium]
-			So a Nash equilibrium is a profile $a^* \in A$ such that
-			\[
-				a^*_i \in B_i(a^*_{-i})\ \forall i \in N
-			\]
+		\begin{proposition}
+			We can also define the strict dominance by replacing $\forall a_{-i} \in A_{-i}$ with $\forall \sigma_{-i} \in \Delta A_{-i}$ since
+			\begin{equation}
+				\forall a_{-i} \in A_{-i}\ u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i}) \iff \forall \sigma_{-i} \in \Delta(A_{-i})\ U_i(a_i, \sigma_{-i}) < U_i(\sigma_i, \sigma_{-i})
+			\end{equation}
+			\begin{proof}
+				($\implies$) Suppose 
+				\begin{equation}
+					\forall a_{-i} \in A_{-i}\ u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i})
+				\end{equation}
+				Let $\sigma_{-i} \in \Delta(A_{-i})$,
+				\begin{gather}
+					U_i(a_i, \sigma_{-i}) = \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \\
+					< \sum_{a_{-i} \in A_{-i}} U_i(\sigma_i, a_{-i}) \sigma_{-i}(a_{-i}) \\
+					= U_i(\sigma_i, \sigma_{-i})
+				\end{gather}
+				Thus 
+				\begin{equation}
+					\forall \sigma_{-i} \in \Delta(A_{-i})\ U_i(a_i, \sigma_{-i}) < U_i(\sigma_i, \sigma_{-i})
+				\end{equation} \\
+				($\impliedby$) Suppose
+				\begin{equation}
+					\forall \sigma_{-i} \in \Delta(A_{-i})\ U_i(a_i, \sigma_{-i}) < U_i(\sigma_i, \sigma_{-i})
+				\end{equation}
+				Let $a_{-i} \in A_{-i}$, consider $\sigma_{-i}$ defined as $\sigma^*_{-i}(x) \equiv \mathbb{I}(x = a_{-i})$
+				so that
+				\begin{gather}
+					U_i(a_i, \sigma^*_{-i}) < U_i(\sigma_i, \sigma^*_{-i}) \\
+					\implies u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i})
+				\end{gather}
+				The equivalence is shown.
+			\end{proof}
 		\end{proposition}
 		
-		\begin{proposition}[lec.3]
-			No strategy that is eliminated during iterated deletion of never best response can be played in Nash equilibrium.
-		\end{proposition}
-		
-		\begin{lemma}[pg.19]
-			A strategic game $\langle N, (A_i), (\succsim_i) \rangle$ has a Nash equilibrium if equivalent to the following statement:\\
-			Define set-valued function $B: A \to A$ by 
-			\[
-				B(a) = \times_{i\in N} B_i (a_{-i})
-			\]
-			and there exists $a^* \in A$ such that $a^* \in B(a^*)$.
-		\end{lemma}
-	
-		\begin{lemma}[20.1 Kakutani's fixed point theorem]
-			Let $X$ be a \ul{compact convex subset} of $\R^n$ and let $f: X \to X$ be a set-valued function for which
-			\begin{itemize}
-				\item for all $x \in X$ the set $f(x)$ is non-empty and convex.
-				\item the graph of $f$ is closed. \emph{(i.e. for all sequences $\{x_n\}$ and $\{y_n\}$ such that $y_n \in f(x_n)$ for all $n$, $x_n \to x$ and $y_n \to y$ then $y \in f(x)$)}
-			\end{itemize}
-			Then there exists $x^* \in X$ such that $x^* \in f(x^*)$.
-		\end{lemma}
-		
-		\begin{definition}[pg.20]
-			A preference relation $\succsim_i$ over $A$ is quasi-concave on $A_i$ if for every $a^* \in A$ the upper contour set over $a^*_i$, given other players' strategies
-			\[
-				\{a_i \in A_i: (a^*_{-i}, a_i) \succsim_i a^*\}
-			\]
-			is convex.
+		\begin{definition}
+			The \textbf{best response} to a mixed strategy $\sigma_{-i} \in \Delta{A_{-i}}$ is defined as
+			\begin{equation}
+				Br_i(\sigma_{-i}) \equiv \{\sigma_i \in \Delta(A_i): 
+					\forall \tilde{\sigma}_i \in \Delta(A_i),\ U_i(\sigma_i, \sigma_{-i}) \geq U_i(\tilde{\sigma}_i, \sigma_{-i})
+				\}
+			\end{equation}
 		\end{definition}
 		
-		\begin{proposition}[20.3]
-			The strategic game $\langle N, (A_i), (\succsim_i) \rangle$ has a Nash equilibrium if for all $i \in N$,
-			\begin{itemize}
-				\item the set $A_i$ of actions of player $i$ is a nonempty \ul{compact convex} subset of a Euclidian space
-			\end{itemize}
-			and the preference relation $\succsim_i$ is
-			\begin{itemize}
-				\item continuous
-				\item quasi-concave on $A_i$.
-			\end{itemize}
-		\end{proposition}
-		
-		\begin{proof}
-			Let $B: A \to A$ be a correspondence defined as 
-			\[
-				B(a) := \times_{i \in N} B_i(a_{-i})
-			\]
-			Note that for each $a \in A$ and for each $i \in N$, \\
-			$B_i(a_{-i}) \neq \emptyset$ since preference $\succsim_i$ is continuous and $A_i$ is compact (EVT). \\
-			Also $B_i(a_{-i})$ is convex since it's basically an intersection of  upper contour sets and each of those upper contour is convex since $\succsim_i$ is quasi-concave. \\
-			So the Cartesian product of the finite collection of $B_i$ is non-empty and convex. \\
-			Also the graph $B$ is closed since $\succsim_i$ is continuous. \\
-			So there exists $a^* \in A$ such that $a^* \in B(a^*)$. \\
-			So Nash equilibrium presents.
-		\end{proof}
-		
-		\begin{definition}[lec.3]
-			A \textbf{strict Nash equilibrium} is an action profile $a^* \in A$ where all players are playing their \ul{unique} best response. That is, for every player $i \in N$, the image of their best response $B_i(a_{-i}^*)$ is singleton,
-			\[
-				\forall i \in N\ B_i(a_{-i}^*) = \{a_i^*\}
-			\]
-		\end{definition}
-		
-		\begin{definition}[lec.3]
-			Otherwise, a Nash equilibrium is a \textbf{weak Nash equilibrium}.
-		\end{definition}
-
-	\section{Lecture 4. Nash Equilibrium: Examples}
-	\section{Lecture 5. Mixed Strategies}
-		\begin{notation}[pg.32]
-			Let $\Delta(A_i)$ denote the \ul{set of probability measures/distributions} on set $A_i$.
-		\end{notation}
-		\begin{definition}[lec.5]
-			For player $i \in N$, a \textbf{mixed strategy} $\sigma_i$ is a member in $\Delta(A_i)$ and it is a \ul{probability distribution} over $A_i$.
-		\end{definition}
-		
-		\begin{remark}[lec.5]
-			A pure strategy $a_i \in A_i$ is a mixed strategy with 
-			\[
-				\sigma_i(a_i) = 1
-			\]
-			So mixed strategy is a generalization of pure strategy.
-		\end{remark}
-		
-		\begin{definition}[pg.32]
-			A profile $(\sigma_j)_{j\in N}$ of mixed strategies induces a probability distribution over the set $A$.
-		\end{definition}
-		
-		\begin{proposition}[pg.32]
-			In a finite game,(i.e., each $A_i$ is finite), then given the independence of randomization, the probability of the action profile $a = (a_j)_{j \in N}$ to be realized given mixed strategy profile $(\sigma_j)_{j\in N}$ is
-			\[
-				Pr((a_j)_{j \in N}) = \prod_{j \in N} \sigma_j(a_j)
-			\]
-			and for player $i$, the \textbf{expected payoff} on profile $(\sigma_j)_{j\in N}$ is 
-			\[
-				U_i((\sigma_{j})_{j \in N}) = \sum_{a \in A} (\prod_{j \in N} \sigma_j(a_j)) u_i(a) = \expect{u_i(a)|(\sigma_j)_{j \in N}}
-			\]
-		\end{proposition}
-		
-		\begin{proposition}[lec.5, equivalent]
-			The \textbf{expected payoff} from mixed strategy profile $(\sigma_i) \equiv (\sigma_i, \sigma_{-i})$ is
-			\[
-				U_i(\sigma_i, \sigma_{-i}) \equiv \expect{u_i(a)|(\sigma_i)} = \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \sigma_i(a_i)
-			\]
-		\end{proposition}
-		
-		\begin{definition}[32.1]
-			The \textbf{mixed extension} of the strategic game $\langle N, (A_i), (u_i) \rangle$ is the strategic game $\langle N, (\Delta(A_i)), (U_i) \rangle$ in which $\Delta(A_i)$ is the set of probability distributions over $A_i$ and $U_i: \times_{j \in N} \Delta(A_i) \to \R$ assigns to each $(\sigma_i)_{i \in N} \in \times_{j \in N} \Delta(A_i)$ the \ul{expected value} under $u_i$ of the lottery over $A$ that is induced by $(\sigma_i)_{i \in N}$.
-		\end{definition}
-		
-		\begin{remark}[pg.32, notes on above definition]
-			If the game is finite, that is, for each $i \in N$, the set $A_i$ is finite, then
-			\[
-				U_i(\sigma) = \sum_{a \in A} (\prod_{j \in N} \sigma_j(a_j)) u_i(a)
-			\]
-		\end{remark}
-		
-		\begin{definition}[32.3]
-			A \textbf{mixed strategy Nash equilibrium of a strategic game} is a Nash equilibrium of its mixed extension.
-		\end{definition}
-		
-		\begin{proposition}[33.1]
-			Every \ul{finite} strategic game has a mixed strategy Nash equilibrium.
-		\end{proposition}
-		
-		\begin{lemma}[33.2]
-			Let $G = \langle N, (A_i), (u_i) \rangle$ be a \ul{finite} strategic game. Then $\sigma^* \in \times_{i \in N}\Delta(A_i)$ is a mixed strategy Nash equilibrium of $G$ is and only if for every player $i \in N$ every pure strategy in the \ul{support} of $\sigma_i^*$ is a best response to $\sigma_{-i}^*$
-		\end{lemma}
-		
-		\begin{assumption}[lec.5]
-			Assuming all agents follows Von-Neumann Morgenstern theorem. 
-		\end{assumption}
-		
-		\begin{definition}[lec.5]
-			An action $a_i$ is \textbf{strictly dominated} by mixed strategy $\sigma_i$ if and only if
-			\[
-				\forall a_{-i} \in A_{-i} \ u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i})
-			\]
-			where $\sigma_i$ could be a pure strategy.
-		\end{definition}
-		
-		\begin{definition}[lec.5]
-			A mixed strategy $\sigma_i$ is a \textbf{best response} to $\sigma_{-i}$ if and only if
-			\[
-				\forall \sigma_i' \in \Delta(A_i)\ U_i(\sigma_i, \sigma_{-i}) \geq U_i(\sigma_i', \sigma_{-i})
-			\]
-		\end{definition}
-		
-		\begin{definition}[lec.5]
-			The \textbf{support} of a mixed strategy $\sigma_i \in \Delta(A_i)$ is the set
-			\[
-				supp(\sigma_i) = \{a_i \in A_i:\sigma_i(a_i) \neq 0\}
-			\]
-		\end{definition}
-		
-		\begin{proposition}[lec.5]
-			A mixed strategy $\sigma_i$ is a \textbf{best response} to an strategy profile $\sigma_{-i}$ if and only if 
-			\begin{enumerate}[(a)]
-				\item Player $i$ is indifferent between all $a_i$ in the support of $\sigma_i$,
-				\[
-					\forall a_j, a_j' \in supp(\sigma_i)\quad a_j \sim_i a_j'
-				\]
-				\item \ul{and} player $i$ weakly prefers all actions in the support of $\sigma_i$ to those not in the support of $\sigma_i$. That's
-				\[
-					\forall a_j \in supp(\sigma_i),\ \forall a_j' \notin supp(\sigma_i)\quad a_j \succsim_i a_j'
-				\]
+		\begin{proposition}
+			Let $(\sigma_i, \sigma_{-i}) \in \Delta(A)$ then $\sigma_i \in Br_i(\sigma_{-i})$ \emph{if and only if}
+			\begin{enumerate}
+				\item $\forall a_j, a_k \in \mc{S}(\sigma_i),\ a_j \sim_i a_k$,
+				\item \ul{and} $\forall a_j \in \mc{S}(\sigma_i)\ a_k \notin \mc{S}(\sigma_i),\ a_j \succsim_i a_k$
 			\end{enumerate}
+			\begin{proof}
+				($\implies$) case 1: suppose (1) is false, for concreteness, assume
+				\begin{equation}
+					\exists a_j, a_k \in \mc{S}(\sigma_i)\ s.t.\ U_i(a_j, \sigma_{-i}) > U_i(a_k, \sigma_{-i})
+				\end{equation}\\
+				Define
+				\begin{gather}
+					\mc{U}_j \equiv U_i(a_j, \sigma_{-i}) = \sum_{a_{-i} \in A_{-i}} u_i(a_j, a_{-i}) \sigma_{-i}(a_{-i}) \\
+					\mc{U}_k \equiv U_i(a_k, \sigma_{-i}) = \sum_{a_{-i} \in A_{-i}} u_i(a_k, a_{-i}) \sigma_{-i}(a_{-i})
+				\end{gather}
+				And $\mc{U}_j > \mc{U}_k$ by assumption. Consider $\sigma_i'$ defined with 
+				\begin{equation}
+					\sigma_i'(a) = 
+					\begin{cases}
+						\sigma_i(a_j) + \sigma_i(a_k) &\tx{ if } a = a_j \\
+						0 &\tx{ if } a = a_k \\
+						\sigma_i(a) &\tx{ otherwise}
+					\end{cases}
+				\end{equation}
+				Therefore 
+				\begin{gather}
+					U_i(\sigma_i', \sigma_{-i}) \equiv \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) \\
+					= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) + \sigma_i'(a_j) \mc{U}_j + \sigma_i'(a_k) \mc{U}_k \\
+					= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + \sigma_i(a_j) \mc{U}_j + \sigma_i(a_k) \mc{U}_j \\
+					> \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + \sigma_i(a_j) \mc{U}_j + \sigma_i(a_k) \mc{U}_k \\
+				= \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i})
+				\equiv U_i(\sigma_i, \sigma_{-i})
+				\end{gather}
+				So that $\sigma_i'$ strictly dominates $\sigma_i$, so $\sigma_i \notin Br_i(\sigma_{-i})$. \\
+				case 2: suppose (2) is false, for concreteness, assume
+				\begin{equation}
+					\exists a_j \in \mc{S}(\sigma_i),\ a_k \notin \mc{S}(\sigma_i)\ s.t.\ U_i(a_k, \sigma_{-i}) > U_i(a_j, \sigma_{-i})
+				\end{equation}
+				Consider mixed strategy $\sigma'_i$ defined as
+				\begin{equation}
+					\sigma_i'(a) = \begin{cases}
+						0 &\tx{ if } a = \sigma_j \\
+						\sigma_i(a_j) &\tx{ if } a = \sigma_k \\
+						\sigma_i(a) &\tx{ otherwise}
+					\end{cases}
+				\end{equation}
+				By previous definitions, $\mc{U}_k > \mc{U}_j$.\\
+				Then
+				\begin{gather}
+					U_i(\sigma_i', \sigma_{-i}) \equiv \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) \\
+					= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) + \sigma_i'(a_j) \mc{U}_j + \sigma_i'(a_k) \mc{U}_k\\
+					= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + 0\  \mc{U}_j + \sigma_i(a_j) \mc{U}_k \\
+					> \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + \sigma_i(a_j) \mc{U}_j \\
+					= U_i(\sigma_i, \sigma_{-i})
+				\end{gather}
+				Therefore $\sigma_i \notin Br_i(\sigma_{-i})$, \emph{modus tollens}. \\
+				($\impliedby$) suppose $\sigma_i \notin Br_i(\sigma_{-i})$, that's
+				\begin{equation}
+					\exists \sigma'_i \in \Delta(A_i)\ s.t.\ U_i(\sigma_i', \sigma_{-i}) > U_i(\sigma_i, \sigma_{-i})
+				\end{equation}
+				Therefore
+				\begin{gather}
+					\exists \bar{a}_i, \underline{a}_i \in \mc{S}(\sigma_i)\ s.t.\ U_i(\bar{a}_i, \sigma_{-i}) \geq U_i(\sigma_i, \sigma_{-i}) \geq U_i(\underline{a}_i, \sigma_{-i})\\
+					\land \exists \bar{a}'_i, \underline{a}'_i \in \mc{S}(\sigma_i')\ s.t.\ U_i(\bar{a}_i', \sigma_{-i}) \geq U_i(\sigma_i', \sigma_{-i}) \geq U_i(\underline{a}_i', \sigma_{-i})\\
+					\implies U_i(\bar{a}_i', \sigma_{-i}) \geq U_i(\sigma_i', \sigma_{-i}) > U_i(a_i, \sigma_{-i}) \geq U_i(\underline{a}_i, \sigma_{-i}) \\
+					\implies U_i(\bar{a}_i', \sigma_{-i}) > U_i(\underline{a}_i, \sigma_{-i}) \\
+					\implies \bar{a}_i' \succ_i \underline{a}_i \in \mc{S}(\sigma_i)
+				\end{gather}
+				In both cases, $\overline{a}_i' \in \mc{S}(\sigma_i)$ and $\overline{a}_i' \notin \mc{S}(\sigma_i)$, the two requirements are falsified, \emph{modus tollens}.
+			\end{proof}
 		\end{proposition}
 		
-		\begin{proof}
-			($\implies$) show the if parts by proving it's contraposition. \\
-			Suppose (a) is not true, then
-			\[
-				\exists a_i, a_j \in supp(\sigma_i)\ s.t.\ a_i \centernot \sim_i a_j
-			\]
-			WLOG, suppose
-			\[
-				u_i(a_i, \sigma_{-i}) > u_i(a_j, \sigma_{-i})
-			\]
-			then $\sigma_i$ would not be the best response since we can refine it by assigning 
-			\[
-				\begin{cases}
-					\sigma_i' (a_i) = \sigma_i(a_i) + \sigma_i(a_j) \\
-					\sigma_i' (a_j) = 0 \\
-					\sigma_i' (a_k) = \sigma_i(a_k)\ \tx{otherwise}
-				\end{cases}
-			\]
-			and $\sigma_i'$ would provides higher expected payoff. \\
-			Suppose (b) does not hold, \\
-			\[
-				\exists a_i \notin supp(\sigma_i)\ s.t.\ \exists a_j \in supp(\sigma_i)\ s.t\ u_i(a_i, \sigma_{-i}) > u_i(a_j, \sigma_{-i})
-			\]
-			Then $\sigma_i$ could not be a best response since we can construct another mixed strategy $\sigma_i'$ strictly dominating $\sigma_i$ by setting
-			\[
-				\begin{cases}
-					\sigma_i' (a_j) = 0 \\
-					\sigma_i' (a_i) = \sigma_i(a_j) \\
-					\sigma_i' (a_k) = \sigma_i(a_k)\ \tx{otherwise}
-				\end{cases}
-			\] \\
-			($\impliedby$) Assuming $\sigma_i$ is not a best response towards $\sigma_{-i}$,\\
-			then there exists $\sigma_i' \in \Delta(A_i)$ such that\\
-			\begin{gather*}
-				U_i(\sigma_i', \sigma_{-i}) > U_i(\sigma_i, \sigma_{-i}) \\
-				\iff \expect{u_i(a)|(\sigma_i', \sigma_{-i})} > \expect{u_i(a)|(\sigma_i, \sigma_{-i})} \\
-				\iff \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) 
-				> \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i})
-			\end{gather*}
-			Probability measures $\sigma_i$ and $\sigma_i'$ could only be different in two aspects, their supports and the values assigned on elements in their supports, this fails assumption (a). \\
-			\textcolor{red}{The following argument needs to be revised.}\\
-			\textbf{Case 1} suppose $supp(\sigma_i) = supp(\sigma_i')$, then the strictly inequality in expected payoffs implies redistributing probabilities does affect the expected payoffs.\\
-			So player $i$ cannot be indifferent between any two actions in the support. \\
-			\textbf{Case 2} suppose $supp(\sigma_i) \neq supp(\sigma_i')$ and $supp(\sigma_i') \centernot \subseteq supp(\sigma_i)$. That's
-			\[
-				\exists a_i \in supp(\sigma_i') \land \notin supp(\sigma_i)
-			\]
-			Then extending the support to $a_i$ of $\sigma_i$ gives higher expected payoff, this fails the assumption (b). \\
-			\textbf{Case 3} suppose $supp(\sigma_i') \subsetneq supp(\sigma_i)$. Then the expected payoff can be strictly increased by eliminating actions in $supp(\sigma_i) \backslash supp(\sigma_i')$. Then those actions eliminated must be strictly dominated by actions in $supp(\sigma_i')$. This fails assumption (a).
-		\end{proof}
-		
-		
-		\begin{proposition}[lec.5 equivalent proposition]
-			All actions in the support are best responses. (i.e.\emph{best response mixed strategy is a mixture of best response pure actions})
-		\end{proposition}
-		
-		\begin{remark}[lec.5 Intuition of proposition]
-			If the requirements of above proposition are not satisfied, the player can reduce the probability assigned to the non-best-response pure action and better off.
+		\begin{remark}
+			Procedure to solve Nash equilibria for two player finite games,
+			\begin{enumerate}[(i)]
+				\item Solve for pure strategy Nash equilibria.
+				\item Eliminate \ul{strictly dominated} strategies.
+				\item For player $i$, solve a mixed strategy scheme $\sigma_j$ so that player $i$ is indifferent between actions in a non-singleton subset of his/her action set, $A_i^*$.
+				\item Player $i$ would play \ul{any} mixed strategy with support $A_i^*$.
+				\item Repeat (iii) and (iv) for player $j$.
+			\end{enumerate}
 		\end{remark}
-		
-		\begin{theorem}[lec.5 Nash's Theorem]
-			Any player $i \in N$ in finite game $\langle N, (A_i), (\succsim_i) \rangle$ has a mixed strategy Nash equilibrium.
-		\end{theorem}
-		
-	\section{Lecture 6. Extensive Form Games and Subgame Perfection}
-		\subsection{Extensive Form Game}
-			\begin{definition}[89.1]
-				An \textbf{extensive game with perfect information} has the following components.
-				\begin{itemize}
-					\item A set $N$ of \textbf{players}.
-					\item A set $H$ of sequences (finite or infinite) of \textbf{histories} with properties:
-						\begin{itemize}
-							\item $\emptyset \in H$.
-							\item For all $L < K$, $(a^k)_{k=1,2,\dots,K} \in H \implies (a^k)_{k=1,2,\dots,L} \in H$.
-							\item For infinite sequence $(a^k)_{k=1}^\infty$,\\ $(a^k)_{k=1,2,\dots,L} \in H,\ \forall L \in \Z_{++} \implies (a^k)_{k=1}^\infty \in H$.
-						\end{itemize} And each component of history $h \in H$ is an \textbf{action} taken by a player.
-					\item A function $P: H \backslash Z \to N$, where for $h \in H$, $P(h) \in N$ is defined by the player who takes an action \ul{after} the history $h$.
-					\item For each player $i \in N$ a \textbf{preference relation} $\succsim_i$ \ul{defined on $Z$}.
-				\end{itemize}
-			\end{definition}
-			
-			\begin{notation}[pg.90]
-				An extensive game with perfect information can be represented by a 4-tuple, $\langle N, H, P, (\succsim_i) \rangle$. \emph{Sometimes it is convenient to specify the structure of an extensive game without specifying the players' preference, as $\langle N, H, P \rangle$}.
-			\end{notation}
-			
-			\begin{definition}[pg.90]
-				A history $(a^k)_{k=1,2,\dots,K} \in H$ is \textbf{terminal} if
-				\begin{enumerate}
-					\item it is infinite,
-					\item \ul{or} (i.e. it cannot be extended to another valid history sequence)
-					\[
-						\forall a^{K+1},\ (a^k)_{k=1,2,\dots,K+1} \notin H
-					\]
-				\end{enumerate}
-				The set of terminal histories is denoted by $Z$.
-			\end{definition}
-			
-			\begin{notation}[pg.90, the action set]
-				After any nonterminal history, $h \in H \backslash Z$, the player $P(h)$ chooses an action from set
-				\[
-					A(h) = \{a: (h, a) \in H\}
-				\]
-			\end{notation}
-			
-			\begin{remark}
-				Note that all player function, action set and player preference relation are defined on $H$. Thus, unlike a normal form game, which was \emph{player oriented}, we'd better consider an extensive form game as \emph{history oriented}.
-			\end{remark}
-			
-			\begin{definition}[pg.90]
-				We refer to the empty set, which is required to be an element of $H$, as the \textbf{initial history}.
-			\end{definition}
-			
-			\begin{definition}[92.1]
-				A \textbf{strategy of player} $i \in N$, $s_i$, in an extensive game with perfect information $\langle N, H, P, (\succsim_i) \rangle$ is a function that assigns an action in $A(h)$ to each nonterminal history $h \in H \backslash Z$ for which $P(h) = i$.
-			\end{definition}
-			
-			\begin{remark}[pg.92]
-				A strategy specifies the action chosen by a player for \emph{every} history after which it is his turn to move, \emph{even for histories that is, if the strategy is followed, are never reached}.
-			\end{remark}
-			
-			\begin{definition}[pg.93]
-				For each strategy profile $s = (s_i)_{i \in N}$ in the extensive game $\langle N, H, P, (\succsim_i) \rangle$, the \textbf{outcome} of $s$, $O(s)$, is defined as the \ul{terminal history} that results when each player $i \in N$ follows the precepts of $s_i$. That is, $O(s)$ is the (possibly infinite) history
-				\[
-					(a^1, \dots, a^K) \in Z
-				\]
-				such that
-				\[
-					\forall k \in \{0, 1, \dots K-1\},\ s_{P(a^1, \dots, a^k)}(a^1, \dots, a^k) = a^{k+1}
-				\]
-			\end{definition}
-			
-			\begin{definition}[lec.6]
-				A extensive game $\Gamma = \langle N, H, P, (\succsim_i) \rangle$ is finite if and only if 
-				\begin{enumerate}[(a)]
-					\item $N$ is finite.
-					\item $(A_i)$ are all finite.
-					\item All $h \in H$ reach the terminal state with finite length.
-				\end{enumerate}
-			\end{definition}
-			
-			\begin{definition}[93.1] A \textbf{Nash equilibrium of an extensive game with perfect information} $\langle N, H, P, (\succsim_i) \rangle$ is a strategy profile $s^*$ such that for every player $i \in N$ we have
-			\[
-				\forall s_i \in S_i,\ O(s_{-i}^*, s_i^*) \succsim_i O(s_{-i}^*, s_i)
-			\]
-			\end{definition}
-			
-			\begin{definition}[94.1] The \textbf{strategic form of the extensive game with perfect information}, $\Gamma=\langle N, H, P, (\succsim_i) \rangle$, is the strategic game $\langle N, (S_i), (\succsim_i') \rangle$ in which for each player $i \in N$
-				\begin{itemize}
-					\item $S_i$ is the \textbf{set of strategies} of player $i$ in $\Gamma$.
-					\item $\succsim_i'$ is defined on $\times_{i \in N}S_i$ and defined by
-					\[
-						\forall s, s' \in \times_{i \in N}S_i,\ s \succsim_i' s' \iff O(s) \succsim_i O(s')
-					\]
-				\end{itemize}
-			\end{definition}
-			
-			\begin{definition}[pg.94]
-				A \textbf{reduced strategy} of player $i$ is defined to be a function $f_i$ whose domain is a \emph{subset} of $\{h \in H: P(h) = i\}$ and has the following properties
-				\begin{enumerate}
-					\item it associates with every history $h$ in the domain of $f_i$ an action in $A(h)$.
-					\item a history $h$ with $P(h) = i$ is in the domain of $f_i$ if and only if all the actions of player $i$ in $h$ are those dictated by $f_i$. (i.e., for any $h = (a^k)$ and for any $h' = (a^k)_{k=1}^L$ as a subsequence of $h$ such that $P(h')=i$, $f_i(h') = a^{L+1}$.)
-				\end{enumerate}
-			\end{definition}
-			\begin{remark}[pg.94]
-				Each \textbf{reduced strategy} of player $i$ corresponds to a \ul{set of strategies of player $i$}, such that for each vector of strategies of the \ul{other players} each strategy in this set yields the \ul{same outcome}. (strategies in the same set are \textbf{outcome-equivalent}.) \\
-				That's, for each strategy $s_i \in S_i$, its reduced strategy can be defined with an outcome equivalence class, $[s_i]$,
-				\[
-					[s_i] \equiv \{
-					s'_i \in S_i: \forall s_{-i} \in \times_{j \in N \backslash \{i\}} S_j,\ O(s_{-i}, s_i) \textcolor{red}{=} O(s_{-i}, s_i')
-					\}
-				\]
-				But in some other game, the definition of outcome-equivalence is more general and defined by \ul{generating the same payoff} (through possibly difference outcomes), then the reduced strategy is defined as
-				\[
-					[s_i] \equiv \{
-					s'_i \in S_i: \forall s_{-i} \in \times_{j \in N \backslash \{i\}} S_j,\ \forall j \in N,\ O(s_{-i}, s_i) \textcolor{red}{\sim_j} O(s_{-i}, s_i')
-					\}
-				\]
-			\end{remark}
-			
-			\begin{definition}[95.1.1]
-				Let $\Gamma = \langle N, H, P, (\succsim_i) \rangle$ be an extensive game with perfect information and let $\langle N, (S_i), (\succsim_i') \rangle$ be its strategic form. For any $i \in N$ define the strategies $s_i, s_i' \in S_i$ to be \textbf{equivalent} if 
-				\[
-					\forall s_{-i} \in S_{-i},\ \forall j \in N,\ (s_{-i}, s_i) \sim_j' (s_{-i}, s_i')
-				\]
-			\end{definition}
-			
-			\begin{definition}[95.1.2]
-				The \textbf{reduced strategic form of} $\Gamma$ is the strategic game $\langle N, (S_i'), (\succsim_i'') \rangle$ in which for each $i \in N$ each set $S_i'$ contains one member of each set of equivalent strategies in $S_i$ and $\succsim_{i}''$ is the preference ordering over $\times_{j \in N} S_j'$ induced by $\succsim_i'$.
-			\end{definition}
-		\subsection{Subgame Perfection}
-			\begin{definition}[97.1]
-				The \textbf{subgame of extensive game with perfect information $\Gamma = \langle N, H, P, (\succsim_i) \rangle$ that follows the history $h$} is the extensive  game $\Gamma(h) = \langle N, H|_h, P|_h, (\succsim_i|_h) \rangle$ where
-				\begin{itemize}
-					\item $H|_h$ is the set of sequences $h'$ such that $(h, h') \in H$.
-					\item $P|_h$ is defined by $P|_h(h') = P(h, h')$ for each $h' \in H|_h$.
-					\item $\succsim_i|_h$ is defined by $h' \succsim_i|_h h'' \iff (h, h') \succsim_i (h, h'') \in Z$.
-				\end{itemize}
-			\end{definition}
-			
-			\begin{notation}[pg.97]
-				Given strategy $s_i \in S_i$ and $h \in H \in \Gamma$, $s_i|_h$ represents the \textbf{strategy that $s_i$ induces in the subgame $\Gamma(h)$}. That's, for each $h' \in H_h$
-				\[
-					s_i|_h (h') \equiv s_i(h, h')
-				\]
-			\end{notation}
-			
-			\begin{notation}
-				Let $O_h$ denote the \textbf{outcome function of $\Gamma(h)$}, that's, for all $h' \in H|_h$,
-				\[
-					O_h(h') \equiv O(h, h')
-				\]
-			\end{notation}
-			
-			\begin{definition}[97.2]
-				A \textbf{subgame perfect equilibrium of an extensive game with perfect information $\Gamma = \langle N, H, P, (\succsim_i) \rangle$} is a strategy profile $s^*$ such that for every player $i \in N$ and every nonterminal history $h \in H \backslash Z$ for which $P(h) = i$ we have
-				\[
-					O_h (s_{-i}^*|_h, s_{i}^*|_h) \succsim_i|_h O_h (s_{-i}^*|_h, s_{i}|_h)
-				\]
-				for every strategy $s_i$ of player $i$ in the subgame $\Gamma(h)$.
-			\end{definition}
-			
-			\begin{definition}[pg.97]Equivalently, define SPNE to be a strategy profile $s^*$ in $\Gamma$ for which for any history $h \in H$ the strategy profile $s^*|_h$ is a Nash equilibrium of the subgame $\Gamma(h)$.
-				
-			\end{definition}
-			
-			\begin{remark}[pg. 97]
-				The notion of SPNE requires the action prescribed by each player's strategy to be optimal, given other players' strategies, after \emph{every} history.
-			\end{remark}
-			
-			\begin{proposition}[99.2]
-				Every finite extensive game with perfect information has a subgame perfect equilibrium.
-			\end{proposition}
-	\section{Lecture 7. Extensive Form Games: Examples}
-	\section{Lecture 8. Repeated Games}
-	\section{Lecture 9. Game with Incomplete Information}
-	\section{Lecture 10. Game with Incomplete Information II}
-	\section{Lecture 11. Auctions}
 \end{document}
+
+
+
+
+
+
+
+
+
+
 
 
 
