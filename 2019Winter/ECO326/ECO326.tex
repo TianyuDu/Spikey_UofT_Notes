@@ -783,6 +783,7 @@
 	\end{example}
 	
 	\section{Lecture 5 Feb. 7 2019}
+		\subsection{Lecture Content}
 		\begin{example}Matching pennies: an example of game without pure strategy Nash equilibrium.
 			\begin{figure}[h]
 				\centering
@@ -835,6 +836,15 @@
 				U_i(\sigma_i, \sigma_{-i}) \equiv \expect{u_i(a)|(\sigma_i)} = \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \sigma_i(a_i)
 			\end{equation}
 		\end{proposition}
+		
+		\begin{definition}[Osborne 2030 lec2]
+			The \textbf{mixed extension} of the strategic game $\langle N, (A_i)_{i\in N}, (u_i)_{i\in N} \rangle$ is the following strategic game:
+			\begin{enumerate}[(i)]
+				\item \textbf{Players} $N$
+				\item \textbf{Action sets} $\Delta(A_i)$ for player $i$
+				\item \textbf{Preferences} Represented by $U_i: \prod_{j \in N} \Delta(A_j) \to \R$, where $U_i(\alpha)$ is the \ul{expected value} under $u_i$ of the lottery over $\prod_{j \in N} \Delta(A_j)$ induced by $\alpha$.
+			\end{enumerate}
+		\end{definition}
 		
 		\begin{definition}
 			A pure strategy $a_i \in A_i$ is \textbf{strictly dominated} by a mixed strategy $\sigma_i \in \Delta(A_i)$ if
@@ -969,6 +979,117 @@
 				\item Repeat (iii) and (iv) for player $j$.
 			\end{enumerate}
 		\end{remark}
+	\subsection{Some Propositions and Proofs}
+		\begin{proposition}[Nash]
+			Every strategic game in which each player has finitely many actions has a mixed strategy Nash equilibrium.
+		\end{proposition}
+		\begin{proposition}
+			Let $\sigma_{-i} \in \Delta(A_{-i})$, if a pure strategy $a_i \in A_i$ is \ul{strictly dominated} by another \ul{pure strategy} $\tilde{a}_i \in A_i$, then
+			\begin{equation}
+				\forall \sigma_{i} \in Br_i(\sigma_{-i})\ a_i \notin \mc{S}(\sigma_i)
+			\end{equation}
+			\begin{proof}
+				
+			\end{proof}
+		\end{proposition}
+		
+		\begin{proposition}
+			Let $\sigma_{-i} \in \Delta(A_{-i})$, if a pure strategy $a_i \in A_i$ is \ul{strictly dominated} by another \ul{mixed strategy} $\tilde{\sigma}_i \in \Delta(A_i)$, then
+			\begin{equation}
+				\forall \sigma_{i} \in Br_i(\sigma_{-i})\ a_i \notin \mc{S}(\sigma_i)
+			\end{equation}
+			\begin{proof}
+				
+			\end{proof}
+		\end{proposition}
+		
+		\begin{proposition}
+			For pure strategy $a_i \in A_i$, if there exists $a_{-i} \in A_{-i}$ such that
+			\begin{equation}
+				u_i(a_i, a_{-i}) \geq u_i(\tilde{a}_i, a_{-i})\ \forall \tilde{a}_i \in A_i
+			\end{equation}
+			then $a_i$ is \textbf{not} strictly dominated (by pure strategies or mixed strategies).
+			\begin{proof}
+				
+			\end{proof}
+		\end{proposition}
+		
+		\begin{proposition}
+			Let $a_i \in A_i$, then the following statements are equivalent
+			\begin{enumerate}[(i)]
+				\item \begin{equation}
+					\exists \sigma_i \in \Delta(A_i)\ s.t.\ a_i \in \mc{S}(\sigma_i) \land U_i(a_i, \sigma_{-i}) < U_i(\sigma_i, \sigma_{-i})
+				\end{equation}
+				\item \begin{equation}
+					\exists \tilde{\sigma}_i \in \Delta(A_i)\ s.t.\ a_i \notin \mc{S}(\tilde{\sigma}_i) \land U_i(a_i, \sigma_{-i}) < U_i(\tilde{\sigma}_i, \sigma_{-i})
+				\end{equation}
+			\end{enumerate}
+			\begin{proof}
+				($\implies$) Suppose there exists $\sigma_i$ satisfies (i), \\
+				Note that $\sigma_i(a_i) \neq 1$, define $\tilde{\sigma}_i$ as 
+				\begin{equation}
+					\tilde{\sigma}_i(a) = \begin{cases}
+						\frac{\sigma_i(a)}{1 - \sigma_i(a_i)} &\tx{ if } a \in \mc{S}(\sigma_i) \backslash \{a_i\} \\
+						0 &\tx{ otherwise}
+					\end{cases}
+				\end{equation}
+				And $\mc{S}(\tilde{\sigma}_i) = \mc{S}(\sigma_i) \backslash \{a_i\}$.\\
+				Then, by (i), 
+				\begin{gather}
+					U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\sigma_i)} U_i(a_j, \sigma_{-i})\sigma_i(a_j) \\
+					\implies (1 - \sigma_i(a_i)) U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\sigma_i) \backslash \{a_i\}} U_i(a_j, \sigma_{-i})\sigma_i(a_j) \\
+					\implies U_i(a_i, \sigma_{-i}) < \frac{1}{1 - \sigma_i(a_i)} \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i})\sigma_i(a_j) \\
+					\implies U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \frac{\sigma_i(a_j)}{1 - \sigma_i(a_i)} \\
+					\implies U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \tilde{\sigma}_i(a_j) \equiv U_i(\tilde{\sigma}_i, \sigma_{-i})
+				\end{gather}
+				($\impliedby$) Suppose there exists $\tilde{\sigma}_i$ satisfies (ii).
+				Take $\eta \in \R_+$, define $\sigma_i$ as
+				\begin{equation}
+					\sigma_i(a) = \begin{cases}
+						\frac{\tilde{\sigma}_i(a)}{1+\eta} &\tx{ if } a \in \mc{S}(\tilde{\sigma}_i) \\
+						\frac{\eta}{1+\eta} &\tx{ if } a = a_i \\
+						0 &\tx{ otherwise}
+					\end{cases}
+				\end{equation}
+				Note that $\mc{S}(\sigma_i) = \mc{S}(\tilde{\sigma}_i) \cup \{a_i\}$.\\
+				By (ii), 
+				\begin{gather}
+					U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \tilde{\sigma}_i(a_j) \\
+					\implies (1+\eta) U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \tilde{\sigma}_i(a_j) + U_i(a_i, \sigma_{-i}) \eta \\
+					\implies U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \frac{\tilde{\sigma}_i(a_j)}{1+\eta} + \frac{\eta}{1+\eta} U_i(a_i, \sigma_{-i}) \\
+					= \sum_{a_j \in \mc{S}(\sigma_i)} U_i(a_j, \sigma_{-i} \sigma_i(a_j) \equiv U_i(\sigma_i, \sigma_{-i})
+				\end{gather}
+			\end{proof}
+		\end{proposition}
+		\begin{remark}
+			With above proposition, while we are checking if $a_i \in A_i$ is strictly dominated by some mixed strategies, we don't have to include $a_i$ in the support of potential $\sigma_i$.
+		\end{remark}
+		
+		\begin{proposition}[Osborne 2030 lec2]
+			Let $\mc{G} = \langle N, (A_i), (u_i) \rangle$ and $\mc{G}' = \langle N, (\Delta(A_i)), (U_i) \rangle$. \\
+			Then any Nash equilibrium of $\mc{G}$ is a mixed strategy Nash equilibrium(in which each player's strategy is pure) of $\mc{G}'$.
+		\end{proposition}
+		
+		\begin{remark}
+			Hence mixed strategy may do \emph{as well as} a pure strategy but can never \emph{do strictly better} than \emph{all} pure strategy. Consequently pure strategy remains optimal when mixed strategies are allowed.
+		\end{remark}
+		
+		\begin{proposition}[Osborne 2030 lec2]
+			For any mixed strategy Nash equilibrium of $\mc{G}'$ in which each player's strategy is pure is a Nash equilibrium.
+		\end{proposition}
+		
+		\begin{remark}
+			If player optimally chooses a pure strategy when she is allowed to randomize, then when she is prohibited from randomizing the pure strategy remains optimal.
+		\end{remark}
+		
+		\begin{proposition}[Osborne 2030 lec2, lemma 33.2]
+			The following statements are equivalent:
+			\begin{enumerate}[(i)]
+				\item $(\sigma^*_i)$ is a mixed strategy Nash equilibrium.
+				\item $\forall i \in N,\ \sigma^*_i \in Br_i(\sigma_{-i}^*)$.
+				\item $\forall i \in N$, every action in support of $\sigma^*_i$ is a best response to $\sigma_{-i}^*$.
+			\end{enumerate} 
+		\end{proposition}
 \end{document}
 
 
