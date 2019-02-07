@@ -16,16 +16,13 @@
 \usepackage{chngcntr}
 \usepackage{centernot}
 \usepackage[shortlabels]{enumitem}
+\usepackage[margin=1truein]{geometry}
 
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
 
-\newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\floor}[1]{\lfloor #1 \rfloor}
 \newcommand{\bm}[1]{\boldsymbol{#1}}
-
-\DeclareMathOperator*{\argmax}{argmax}
-\DeclareMathOperator*{\argmin}{argmin}
 
 \usepackage[
     type={CC},
@@ -155,6 +152,118 @@
 			\hat{\bm{\beta}}_{MLE}, \hat{\sigma}_{MLE}
 			\} = \argmax_{\bm{\theta} \in \Theta} \mc{L}_N(\bm{\theta})
 		\end{gather}
+		
+	\section{Lecture 4. Jan. 31 2019}
+		\subsection{Tobit and Sample Selection}
+			\paragraph{Model} the \emph{observable} variables in Tobit model with sample selection are determined by both \orange{\textbf{outcome equation}} and \blue{\textbf{selection equation}}.
+			\begin{gather}
+				y_i = \begin{cases}
+					\orange{\ve{x}_i' \beta + \epsilon_i} &\tx{ if } \blue{\ve{w}_i' \gamma + v_i} > 0 \\
+					$\xmark$ &\tx{ otherwise}
+				\end{cases}
+			\end{gather}
+			where \textbf{unmeasurable errors} are assumed to follow joint normal distribution,
+			\begin{gather}
+				\begin{pmatrix}
+					\epsilon_i \\ v_i	
+				\end{pmatrix}
+				\sim \mc{N}(\ve{0},
+				\begin{pmatrix}
+					\sigma_{\epsilon}^2 & \rho \sigma^2 \\
+					\rho \sigma^2 & 1
+				\end{pmatrix})
+			\end{gather}
+			
+			\begin{lemma}
+				If $(\epsilon, v)$ follows joint normal distribution, then there exists $e \perp v$ and $e \sim \mc{N}(0,1)$ such that
+				\begin{gather}
+					\frac{\epsilon}{\sigma_{\epsilon}} = \rho v + e
+				\end{gather}
+			\end{lemma}
+			\paragraph{Expectation} Define $\tilde{\ve{x}}_i \equiv [\ve{x}_i, \ve{w}_i]$, then the expected \emph{observed} dependent variable is \footnote{For each variable, the $i$ subscript is omitted in the derivation}
+			\begin{gather}
+				\expect{y | \ve{w}_i' \gamma + v_i > 0, \tilde{\ve{x}}} \\
+				= \expect{\ve{x}'\beta + \epsilon | \ve{w}_i' \gamma + v_i > 0, \tilde{\ve{x}}} \\
+				= \ve{x}'\beta + \expect{\epsilon | \ve{w}_i' \gamma + v_i > 0, \tilde{\ve{x}}} \\
+				= \ve{x}'\beta + \expect{\rho v \sigma_\epsilon + e \sigma_\epsilon | \ve{w}_i' \gamma + v_i > 0, \tilde{\ve{x}}} \\
+				= \ve{x}'\beta + \rho \sigma_\epsilon \expect{v | \ve{w}_i' \gamma + v_i > 0, \tilde{\ve{x}}} + \sigma_\epsilon \expect{e | \ve{w}_i' \gamma + v_i > 0, \tilde{\ve{x}}} \\
+				= \ve{x}'\beta + \rho \sigma_\epsilon \expect{v | \ve{w}_i' \gamma + v_i > 0, \tilde{\ve{x}}}
+			\end{gather}
+			\begin{remark}
+				If $\rho = 0$ in equation (2.9), there is no sample selection problem and we can use OLS to estimate the outcome equation.
+			\end{remark}
+			\begin{lemma}
+				If $X \sim \mc{N}(\mu, \sigma^2)$ then
+				\begin{gather}
+					\expect{X|X>\alpha} = \mu + \sigma \frac{\phi(\frac{x - \mu}{\sigma})}{1 - \Phi(\frac{x-\mu}{\sigma})}
+				\end{gather}
+			\end{lemma}
+			(continue)
+			\begin{gather}
+				\dots = \ve{x}'\beta + \rho \sigma_\epsilon \expect{v | v > - \ve{w}' \gamma, \tilde{\ve{x}}} \\
+				= \ve{x}'\beta + \rho \sigma_\epsilon \frac{\phi(-\ve{w}'\gamma)}{1 - \Phi(-\ve{w}'\gamma)} \\
+				= \ve{x}' \beta + \rho \sigma_\epsilon \frac{\phi(\ve{w}'\gamma)}{\Phi(\ve{w}'\gamma)} \\
+				= \ve{x}' \beta + \rho \sigma_\epsilon \lambda(\ve{w}'\gamma)
+			\end{gather}
+			where $\lambda(x)$ is the \textbf{inverse Mill's ratio} of standard normal at $x$.
+			\paragraph{Marginal Effect} Consider the case 
+			\begin{equation}
+				\exists x_k \in \ve{x} \cap \ve{w}
+			\end{equation}
+			for instance, $x_k$ can be \emph{wage taxation}. The marginal effect of $x_k$ is
+			\begin{gather}
+				\pd{\expect{y|\ve{w}'\gamma + v > 0, \tilde{\ve{x}}}}{x_k} = \pd{\ve{x}' \beta + \rho \sigma_\epsilon \lambda(\ve{w}'\gamma)}{x_k} \\
+				= \beta_k + \rho \sigma_\epsilon \lambda'(\ve{w}'\gamma) \gamma_k \\
+			\end{gather}
+			where $\beta_k$ measures the \textbf{direct effect} and $\lambda'(\ve{w}'\gamma) \gamma_k$ measures the \textbf{indirect effect} of $x_k$.
+		\subsection{Heckman Estimation (Two-Step Procedure)}
+			\paragraph{Step 1} Run a \emph{probit} estimation on the selection equation.\\
+			MLE gives
+			\begin{enumerate}[(i)]
+				\item An estimation $\hat{\gamma}_{MLE}$ captures the \emph{indirect effect} of regressors in $\ve{w}$ on $y$ through the selection equation.
+			\end{enumerate}
+			And compute
+			\begin{gather}
+				\hat{\lambda}(\ve{w}'\hat{\gamma}_{MLE}) \equiv \frac{\phi(\ve{w}'\hat{\gamma}_{MLE})}{\Phi(\ve{w}'\hat{\gamma}_{MLE})}
+			\end{gather}
+			\paragraph{Step 2} Run OLS
+			\begin{gather}
+				y = \ve{x}' \beta + \rho \sigma_\epsilon \hat{\lambda} + \eta \tx{ where } \expect{\eta | \ve{x}, \hat{\lambda}} = 0
+			\end{gather}
+			OLS gives
+			\begin{enumerate}[(i)]
+				\item An estimation $\hat{\beta}_{OLS}$ measures the \emph{direct effect} of regressors in $\ve{x}$ on $y$ through the outcome equation.
+				\item An estimation of $\widehat{\rho \sigma_\epsilon}$, given $\sigma_\epsilon > 0$, we can estimate the \emph{sign} of $\rho$.
+			\end{enumerate}
+			
+			\paragraph{Special Case (i)} Consider the special case where
+			\begin{gather}
+				\ve{w} = \ve{x} \\
+				\lambda(x) \tx{ is linear}
+			\end{gather}
+			then (2.14) and regression (2.20) can be written as 
+			\begin{gather}
+				y = \ve{x}' \beta + \rho \sigma_\epsilon \ve{x}' \lambda(\gamma) + \eta \\
+				= \ve{x}' [\beta + \rho \sigma_\epsilon \lambda(\gamma)] + \eta
+			\end{gather}
+			where $\beta + \rho \sigma_\epsilon \lambda(\gamma)$ represents the \emph{mixed and non-separable} effect. \\
+			\paragraph{Special Case (ii)} If
+			\begin{gather}
+				\ve{w} = [\ve{x}, z] \\
+				\lambda(x) \tx{ is linear} \\
+			\end{gather}
+			Let the coefficients of $\ve{w}$ be $[\gamma, \theta]$, then
+			\begin{gather}
+				\lambda(\ve{w}[\gamma, \theta]) = \lambda(\ve{x} \gamma) + \lambda(z \theta) \\
+				= \ve{x} \lambda(\gamma) + z \lambda(\theta)
+			\end{gather}
+			Then the regression can be rewritten as
+			\begin{gather}
+				y = \ve{x}' [\beta + \rho \sigma_\epsilon \lambda(\gamma)] + \rho \sigma_\epsilon z \lambda(\theta) + \eta
+			\end{gather}
+			\begin{remark}
+				Therefore, if $\lambda$ is linear, we need at least one exclusion variable to identify the direct and indirect effects. If $\lambda$ is non-linear, it's \emph{probably} fine.
+			\end{remark}
 \end{document}
 
 

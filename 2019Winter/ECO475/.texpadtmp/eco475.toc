@@ -2,3 +2,13 @@
 \contentsline {section}{\numberline {1}Lecture 3. Jan. 24 2019}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}Two Side Censoring MLE}{2}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Two Side Truncated MLE}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}Lecture 4. Jan. 31 2019}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Tobit and Sample Selection}{4}{subsection.2.1}
+\contentsline {paragraph}{Model}{4}{section*.2}
+\contentsline {paragraph}{Expectation}{4}{section*.3}
+\contentsline {paragraph}{Marginal Effect}{5}{section*.4}
+\contentsline {subsection}{\numberline {2.2}Heckman Estimation (Two-Step Procedure)}{5}{subsection.2.2}
+\contentsline {paragraph}{Step 1}{5}{section*.5}
+\contentsline {paragraph}{Step 2}{5}{section*.6}
+\contentsline {paragraph}{Special Case (i)}{5}{section*.7}
+\contentsline {paragraph}{Special Case (ii)}{6}{section*.8}
