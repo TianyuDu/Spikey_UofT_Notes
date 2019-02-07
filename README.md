@@ -4,11 +4,31 @@ Spikey's Notes for courses at University of Toronto
 
 ## Contents
 
+### Second Yr, Winter 2019
+#### ECO475H1 S (Winter) Applied Econometrics II
+* Contents: Lecture notes on models.
+
+* Lecture Section: LEC 0101
+
+#### ECO326H1 S (Winter) Advanced Microeconomics - Game Theory
+* Contents: Lecture notes.
+
+* Lecture Section: LEC 0101
+
+#### ECO374H1 S (Winter) Forecasting and Time Series Econometrics
+* Contents: Lecture notes, based on lecture slides.
+
+* Lecture Section: LEC 0201
+
+#### MAT237Y1 Y (Full Session) Multivariable Calculus
+* Contents: Outlines based on textbook and online notes.
+
 ### Second Yr, Fall 2018
 
 #### MAT246H1 F (Fall) Concepts in Abstract Mathematics
 
 * Contents: Lecture Notes
+
 * Lecture Section: LEC 0101
 
 #### ECO325H1 F (Fall) Advanced Economic Theory - Macro
