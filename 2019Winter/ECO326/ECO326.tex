@@ -71,9 +71,20 @@
 			\begin{enumerate}[i]
 				\item a \ul{finite} set of \textbf{players} $N$, with $|N| \geq 2$.
 				\item for each player $i \in N$, an \textbf{actions} $A_i \neq \emptyset$.
-				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \times_{i\in N}A_i$.
+				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \prod_{i\in N}A_i$.
 			\end{enumerate}
 			and can be written as a triple $\langle N, (A_i), (\succsim_i) \rangle$.
+		\end{definition}
+
+		\begin{definition}
+			An \textbf{action profile} is a $n$-tuple of actions $a_i \in A_i$ for each player $i \in N$ and denoted as 
+				\[
+					(a_i)_{i \in N} \tx{ or } (a_i)
+				\]
+			The \textbf{action profile space} is defined as 
+				\[
+					A \equiv \prod_{i \in N} A_i
+				\]
 		\end{definition}
 		
 		\begin{definition}[Equivalent definition of game]
@@ -84,18 +95,7 @@
 			So the game can be defined as a triple $\langle N, (A_i), (u_i) \rangle$.
 		\end{definition}
 		
-		\begin{definition}[lec.1]
-			An \textbf{action profile} is a $n$-tuple of actions $a_i \in A_i$ for each player $i \in N$ and denoted as 
-				\[
-					(a_i)_{i \in N} \tx{ or } (a_i)
-				\]
-			The \textbf{action profile space} is defined as 
-				\[
-					A \equiv \times_{i \in N} A_i
-				\]
-		\end{definition}
-		
-		\begin{definition}[lec.1]
+		\begin{definition}
 			Action $a_i \in A_i$ is \textbf{strictly dominated} by action $\tilde{a}_i \in A_i$ if
 			\[
 				\forall a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) < u_i(\tilde{a}_i, a_{-i})
@@ -229,16 +229,13 @@
 			\end{proof}
 		\end{example}
 		
-		\begin{definition}[pg.11]
-			A strategic game $\langle N, (A_i), (\succsim_i) \rangle$ is \textbf{finite} if 
-			\[
-				|A_i| < \aleph_0\ \forall i \in N
-			\]
+		\begin{definition}
+			A strategic game $\langle N, (A_i), (\succsim_i) \rangle$ is \textbf{finite} if for every $i \in N$, $A_i$ is finite.
 		\end{definition}
 	
 	\section{Lecture 2. Jan. 14 2019\\Iterated Elimination and Rationalizability}
 		\begin{example}[Bubble Game]
-			Consider a player game
+			Consider a strategic game
 			\begin{equation}
 				\langle N, (A_i), (u_i) \rangle
 			\end{equation}
@@ -272,10 +269,10 @@
 					\[
 						(A_i^k)
 					\]
-					to be the set of action profiles survive from IESD.
+					to be the \textbf{set of action profiles survive from IESD}.
 					\item If $\exists i \in N\ s.t.\ D_i^k \neq \emptyset$, define
 					\[
-						\forall i \in N,\ A^{k+1}_i := A^k_i \backslash D_i^k
+						\forall i \in N,\ A^{k+1}_i \leftarrow A^k_i \backslash D_i^k
 					\]
 				\end{enumerate}
 			\end{definition}
@@ -344,14 +341,14 @@
 			\end{example}
 			
 			\begin{definition}
-				For each $i \in N$, the \textbf{best-response function} of this player is a correspondence $B_i: A_{-i} \rightrightarrows A_i$ defined as
+				For each $i \in N$, the \textbf{best-response function} of this player is a correspondence $Br_i: A_{-i} \rightrightarrows A_i$ defined as
 				\begin{equation}
-					B_i(a_{-i}) := \{a_i \in A_i : u_i(a_i, a_{-i}) \geq u_i(a_i', a_{-i})\ \forall a_i' \in A_i \}
+					Br_i(a_{-i}) \equiv \{a_i \in A_i : u_i(a_i, a_{-i}) \geq u_i(a_i', a_{-i})\ \forall a_i' \in A_i \}
 				\end{equation}
 			\end{definition}
 			
 			\begin{definition}
-				A \textbf{belief} of player $i$ (about the actions of the other players) is a \ul{probability measure}, $\alpha_i$, on $A_{-i}=\times_{j \in N \backslash \{i\}} A_j$. \\
+				A \textbf{belief} of player $i$ (about the actions of the other players) is a \ul{probability measure}, $\alpha_i$, on $A_{-i}=\prod_{j \in N \backslash \{i\}} A_j$. \\
 				$\alpha_i$ is a mapping such that
 				\begin{itemize}
 					\item $\alpha_i: A_{-i} \to [0,1]$.
