@@ -980,8 +980,16 @@
 			\end{enumerate}
 		\end{remark}
 	\subsection{Some Propositions and Proofs}
+		\begin{proposition}[exer.120.3]
+			A mixed strategy that assigns positive probability of a \ul{strictly} dominated action is strictly dominated. That's, suppose $\tilde{a}_i \in A_i$ is strictly dominated, then for any $\sigma_i \in \Delta(A_i)$,
+			\begin{equation}
+				\tilde{a}_i \in \mc{S}(\sigma_i) \implies \sigma_i \tx{ strictly dominated}
+			\end{equation}
+			Note that the converse is \textbf{not} true.
+		\end{proposition}
+	
 		\begin{proposition}[Nash]
-			Every strategic game in which each player has finitely many actions has a mixed strategy Nash equilibrium.
+			Every strategic game in which each player has \ul{finitely many actions} has a mixed strategy Nash equilibrium.
 		\end{proposition}
 		\begin{proposition}
 			Let $\sigma_{-i} \in \Delta(A_{-i})$, if a pure strategy $a_i \in A_i$ is \ul{strictly dominated} by another \ul{pure strategy} $\tilde{a}_i \in A_i$, then
