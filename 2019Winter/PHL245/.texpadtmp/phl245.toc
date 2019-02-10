@@ -1,0 +1,9 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Lecture 1}{1}{section.1}
+\contentsline {section}{\numberline {2}Lecture 2}{1}{section.2}
+\contentsline {section}{\numberline {3}Lecture 3}{2}{section.3}
+\contentsline {section}{\numberline {4}Lecture 4}{3}{section.4}
+\contentsline {section}{\numberline {5}Lecture 5}{3}{section.5}
+\contentsline {section}{\numberline {6}Lecture 6}{4}{section.6}
+\contentsline {section}{\numberline {7}Lecture 8}{6}{section.7}
+\contentsline {section}{\numberline {8}Lecture 9}{6}{section.8}

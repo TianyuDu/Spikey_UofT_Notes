@@ -1023,10 +1023,12 @@
 			Let $a_i \in A_i$, then the following statements are equivalent
 			\begin{enumerate}[(i)]
 				\item \begin{equation}
-					\exists \sigma_i \in \Delta(A_i)\ s.t.\ a_i \in \mc{S}(\sigma_i) \land U_i(a_i, \sigma_{-i}) < U_i(\sigma_i, \sigma_{-i})
+					\exists \sigma_i \in \Delta(A_i)\ s.t.\ a_i \in \mc{S}(\sigma_i) \land 
+					\forall \sigma_{-i} \in \Delta(A_{-i}),\ U_i(a_i, \sigma_{-i}) < U_i(\sigma_i, \sigma_{-i})
 				\end{equation}
 				\item \begin{equation}
-					\exists \tilde{\sigma}_i \in \Delta(A_i)\ s.t.\ a_i \notin \mc{S}(\tilde{\sigma}_i) \land U_i(a_i, \sigma_{-i}) < U_i(\tilde{\sigma}_i, \sigma_{-i})
+					\exists \tilde{\sigma}_i \in \Delta(A_i)\ s.t.\ a_i \notin \mc{S}(\tilde{\sigma}_i) \land
+					\forall \sigma_{-i} \in \Delta(A_{-i}),\ U_i(a_i, \sigma_{-i}) < U_i(\tilde{\sigma}_i, \sigma_{-i})
 				\end{equation}
 			\end{enumerate}
 			\begin{proof}
