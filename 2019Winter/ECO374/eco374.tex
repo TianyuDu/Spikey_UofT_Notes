@@ -781,7 +781,109 @@
 						\Phi_p(L) \Phi_p'(L^{s_1}) Y_t = c +  \Theta_q(L) \Theta_q'(L^{s_2}) \varepsilon_t
 					\end{equation}
 				\end{proposition}
+	\section{Model Assessment and Asymmetric Loss}
+		\subsection{Model Assessment}
+			\begin{definition}
+				\textbf{Akaike information criterion}(AIC) of a model with $k$ parameters is defined as
+				\begin{equation}
+					AIC \equiv -2 \ln(\mc{L}) + 2k
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				\textbf{Bayes information criterion}(BIC)/\textbf{Schwarz information criterion}(SIC) of a model with $k$ parameters and fitted on the sample with size $N$ is defined as
+				\begin{equation}
+					BIC \equiv -2 \ln(\mc{L}) + 2 \ln(N) k
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				Given time series data sample with size $T$, and use the \emph{recursive scheme} starting from $t < T$, with forecasting horizon $h$, given sequence of \emph{ground truth}
+				\begin{equation}
+					\mc{Y} = (y_j)_{j=t+h}^T
+				\end{equation}
+				we can construct a sequence of forecast
+				\begin{equation}
+					\mc{F} = (f_{t, h}, f_{t+1, h}, f_{t+2, h}, \dots, f_{T-h, h})
+				\end{equation}
+				and a sequence of forecasting errors
+				\begin{equation}
+					\mc{E} = (e_{j, t})_{j=t+h}^T
+				\end{equation}
+				then,
+				\begin{gather}
+					\tx{MSE} \equiv \frac{1}{|\mc{F}|} \sum_{e \in \mc{E}} e^2 \\
+					\tx{MAE} \equiv \frac{1}{|\mc{F}|} \sum_{e \in \mc{E}} \norm{e} \\
+					\tx{MAPE} \equiv \frac{1}{|\mc{F}|} \sum_{(y,e) \in (\mc{Y}, \mc{E})} \norm{\frac{e}{y}}
+				\end{gather}
+			\end{definition}
+		\subsection{Asymmetric Loss}
+			\begin{definition}[Log-Normal Distribution]
+				Let $X$ be a Gaussian random variable with mean $\mu$ and variance $\sigma^2$. Define $Y \equiv \exp(X)$, then $Y$ follows \textbf{log-normal distribution}, with 
+				\begin{equation}
+					\expect{Y} = \exp(\mu + \frac{\sigma^2}{2})
+				\end{equation}
+			\end{definition}
+			
+			\begin{example}
+				Consider the Lin-ex loss function
+				\begin{equation}
+					L(e) = \exp(ae) - ae - 1
+				\end{equation}
+				then the expected loss for $h$ step forecasting made at $t$ is 
+				\begin{gather}
+					\expect{L(e_{t,h})|I_t} \\
+					= \expect{\exp(a(y_{t+h} - f_{t,h})) - a(y_{t+h} - f_{t,h}) - 1|I_t} \\
+					= \expect{\exp(a y_{t+h}) \exp(-a f_{t,h})|I_t} - \expect{a y_{t+h}|I_t} + a f_{t,h} - 1 \\ 
+					= \exp(-a f_{t,h}) \expect{\exp(a y_{t+h})|I_t} - a \expect{y_{t+h}|I_t} + a f_{t,h} - 1 \\
+				\end{gather}
+				To find the optimal forecasting, take the FOC
+				\begin{gather}
+					\pd{\expect{L(e_{t,h})|I_t}}{f_{t,h}} = 0\\
+					\implies -a \exp(-a f_{t,h}) \expect{\exp(a y_{t+h})|I_t} + a = 0 \\
+					\implies \exp(-a f_{t, h}) \expect{\exp(a y_{t+h})|I_t} = 1 \\
+					\implies - a f_{t, h} + \log(\expect{\exp(a y_{t+h})|I_t}) = 0 \\
+					\implies f_{t, h} = \frac{1}{a} \log(\expect{\exp(a y_{t+h})|I_t})
+				\end{gather}
+				Assuming $y_{t+h} \sim \mc{N}(\mu_{t+h|t}, \sigma_{t+h|t}^2)$, 
+				\begin{gather}
+					\implies f_{t, h} = \frac{1}{a} \log(\exp(
+						a \expect{y_{t+h}|I_t} + \frac{a^2 \sigma_{t+h|t}^2}{2}
+					)) \\
+					\implies f_{t, h} = \expect{y_{t+h}|I_t} + \red{\frac{a \sigma^2_{t+h|t}}{2}}
+				\end{gather} 
+				So if $a < 0$, the penalty on making negative error is higher than positive error, and the optimal forecast would be \emph{pushed down} to less than the conditional mean.
+				\begin{figure}[H]
+					\centering
+					\includegraphics{figures/asym_loss_forecast}
+					\caption{Illustration of the Optimal Forecast with Lin-Ex loss and $a < 0$}
+				\end{figure}
+				\paragraph{Forecasting} Assuming AR(1) process. \\
+				\textbf{Error with $h=1$}
+					\begin{gather}
+						e_{t+1, t} = c + \phi Y_t + \varepsilon_{t+1} - f_{t,1} \\
+						= \varepsilon_{t+1} -\frac{a \sigma_{t+1|t}^2}{2} \\
+						\expect{e_{t+1, t}} = - \frac{a \sigma_{t+1|t}^2}{2} \\
+						\var{e_{t+1,t}|I_t} = \sigma_\varepsilon^2
+					\end{gather}
+				\textbf{Error with $h=2$}
+					\begin{gather}
+						e_{t+2, t} = Y_{t+2} - f_{t, 2} \\
+						= c + \phi(Y_{t+1}) + \varepsilon_{t+2} - f_{t,2} \\
+						= c + \phi c + \phi \varepsilon_{t+1} + \phi Y_t + \varepsilon_{t+2} - f_{t,2} \\
+						= c + \phi c + \phi \varepsilon_{t+1} + \phi Y_t + \varepsilon_{t+2} - \expect{Y_{t+2}|I_t} - \frac{a \sigma_{t+2|t}^2}{2} \\
+						= \phi \varepsilon_{t+1} + \varepsilon_{t+2} -  \frac{a \sigma_{t+2|t}^2}{2}
+					\end{gather}
+					Note that for every $h > 0$, the term $\sigma_{t+h|t}$ is constant conditioned on $I_t$.
+					\begin{gather}
+						\expect{e_{t+2,t}|I_t} = - \frac{a \sigma_{t+2|t}^2}{2} \\
+						\var{e_{t+2,t}|I_t} = (1 + \phi^2) \sigma_\varepsilon^2
+					\end{gather}
+			\end{example}
 \end{document}
+
+
+
 
 
 
