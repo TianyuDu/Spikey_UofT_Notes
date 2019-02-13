@@ -563,6 +563,87 @@
 					f_{t, 2} = \mu + \theta_2 \varepsilon_t \\
 					f_{t, h} = \mu\ \forall h > 2
 				\end{gather}
+	
+	\section{Auto-regressive Process and Seasonality}
+		\subsection{AR Process}
+			\begin{definition}
+				An \textbf{auto-regressive} model of order $p$ is taken in the form of 
+				\begin{equation}
+					Y_t = c + \sum_{j=1}^p \phi_j L^j Y_t + \varepsilon_t
+				\end{equation}
+				or equivalently
+				\begin{equation}
+					\Phi_p(L) Y_t = c + \varepsilon_t
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				An \textbf{auto-regressive} process of order 1 takes the form of stochastic difference equation
+				\begin{equation}
+					Y_t = c + \phi Y_{t-1} + \varepsilon_t
+				\end{equation}
+				where $\phi$ is called the \textbf{persistence parameter}.
+			\end{definition}
+		
+		\begin{proposition}
+			AR(1) process is stationary if and only if $|\phi| < 1$.
+		\end{proposition}
+		
+		\paragraph{ACF and PACF}
+			\begin{gather}
+				\rho_1 = r_1 = \phi \\
+				r_k = 0\ \forall k > 1
+			\end{gather}
+			
+		\subsubsection{Forecasting with AR(1) and $h=1$}\footnote{While examining the optimal forecast in this section, we are assuming the loss function is \emph{symmetric}.}
+			\textbf{Point Estimate}
+				\begin{gather}
+					f_{t,1} = \expect{Y_{t+1}|I_t} \\
+					= c + \phi Y_t
+				\end{gather}
+			\textbf{Forecast Variance(Uncertainty)}
+				\begin{gather}
+					\var{Y_{t+1}|I_t} = \var{c + \phi Y_t + \varepsilon_{t+1}|I_t}
+					= \sigma_\varepsilon^2
+				\end{gather}
+			\textbf{Density Forecast}
+				\begin{gather}
+					\mc{F} = \mc{N}(c + \phi Y_t, \sigma_\varepsilon^2)
+				\end{gather}
+		\subsubsection{Forecasting with AR(1) and $h=s>1$}
+			\textbf{Point Estimate}
+				\begin{gather}
+					f_{t,s} = \expect{Y_{t+s}|I_t} \\
+					= c + \expect{\phi Y_{t+s-1}|I_t} \\
+					= (1 + \phi + \dots + \phi^{s-1}) c + \phi^s Y_t
+				\end{gather}
+			\textbf{Forecasting Uncertainty}
+				\begin{gather}
+					\var{Y_{t+s}|I_t} = \var{\varepsilon_{t+s} + \phi \varepsilon_{t+s-1} + \dots + \phi^{s-1} \varepsilon_{t+1} | I_t} \\
+					= \sum_{j=0}^{s-1} \phi^{\red{2j}} \sigma_\varepsilon^2
+				\end{gather}
+		\subsubsection{Forecasting with AR(1) and $h \to \infty$}
+			\begin{assumption}
+				For this subsection, assuming the AR(1) process is \hl{stationary}, that's, $|\phi| < 1$.
+			\end{assumption}
+			\textbf{Point Estimate}
+				\begin{gather}
+					\lim_{h \to \infty} f_{t, h} = \frac{c}{1 - \phi}
+				\end{gather}
+			\textbf{Forecasting Uncertainty}
+				\begin{gather}
+					\lim_{h \to \infty} \var{Y_{t+h}|I_t} = \frac{\sigma_\varepsilon^2}{1 - \phi^2}
+				\end{gather}
+			\begin{remark}
+				The convergences demonstrated above suggest auto-regressive process is still a \textbf{short memory} process.
+			\end{remark}
+			
+		\subsubsection{Forecasting with AR(2) process}
+		
+		\subsubsection{AP($p$) process}
+%			\begin{definition}
+%				Let $\Phi(L)Y_t = c + \varepsilon_t$ be an AR($p$) process, then $\Phi(\cdot)$ is 
+%			\end{definition}
 \end{document}
 
 
