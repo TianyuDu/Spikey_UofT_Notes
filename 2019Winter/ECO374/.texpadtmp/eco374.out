@@ -11,3 +11,9 @@
 \BOOKMARK [2][-]{subsection.3.3}{Loss Function}{section.3}% 11
 \BOOKMARK [2][-]{subsection.3.4}{Optimal Forecast}{section.3}% 12
 \BOOKMARK [1][-]{section.4}{Moving Average Process}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Wold Decomposition Theorem}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{Moving Average Process}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.3}{Forecasting with MA\(1\)}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Forecasting with Horizon h=1}{subsection.4.3}% 17
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Forecasting with Horizon h=2}{subsection.4.3}% 18
+\BOOKMARK [2][-]{subsection.4.4}{Properties of MA\(2\) Process}{section.4}% 19

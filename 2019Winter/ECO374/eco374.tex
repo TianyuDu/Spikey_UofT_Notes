@@ -383,7 +383,190 @@
 		\end{proposition}
 		
 	\section{Moving Average Process}
+		\subsection{Wold Decomposition Theorem}
+			\begin{theorem}[Wold Decomposition Theorem]
+				Every covariance stationary stochastic process $\{Y_t\}$ with mean zero and finite positive variance can be \emph{uniquely} represented as
+				\begin{equation}
+					Y_t = V_t + \sum_{j=0}^\infty \psi_j L^j \varepsilon_t = V_t + \Psi(L)\varepsilon_t
+				\end{equation}
+				where 
+				\begin{enumerate}[(i)]
+					\item $\{V_t\}$ is a \emph{deterministic component} (e.g. trend or cycle);
+					\item $\varepsilon_t \sim \tx{WN}(0, \sigma^2)$ is the \emph{stochastic component};
+					\item $\psi_0 = 1$\footnote{We can always normalize $\psi_0$ to 1.} and $\sum_{j=0}^\infty \psi_j^2 < \infty$;
+					\item $\expect{\varepsilon_t, V_s} = 0\ \forall t, s \in \mc{T}$.
+				\end{enumerate}
+			\end{theorem}
+			\begin{definition}
+				The stochastic component $\{\varepsilon_t\}$ in the decomposition is called \textbf{random shocks} or \textbf{innovations}.
+			\end{definition}
+			
+			\begin{lemma}
+				Given $\sum_{j=0}^\infty \psi_j^2 < \infty$, then for all $\varepsilon > 0$ there exists a natural number $J$ such that
+				\begin{equation}
+					\sum_{j=J}^\infty \psi_j^2 < \varepsilon
+				\end{equation}
+			\end{lemma}
+			
+			\begin{corollary}
+				By above lemma, assuming $V_t = 0$, we can approximate the decomposition by a linear combination of finite innovations.
+				\begin{equation}
+					Y_t \approx \hat{Y}_t = \sum_{j=0}^n \psi_j L^j \varepsilon_t
+				\end{equation}
+				and the approximation is \emph{accurate in Euclidean norm}, that's,
+				\begin{equation}
+					\expect{Y_t -\sum_{j=0}^n \psi_j L^j \varepsilon_t}^2 \rightarrow 0 \tx{ as } n \to 0
+				\end{equation}
+			\end{corollary}
+		\subsection{Moving Average Process}
+			\begin{definition}
+				The \textbf{Moving Average} of order $q$ with deterministic trend, MA($q$), process is defined by the following stochastic difference equation
+				\begin{equation}
+					Y_t = \mu + \Theta(L) \varepsilon_t = \mu + \theta_0 \varepsilon_t + \theta_1 \varepsilon_{t-1} + \dots + \theta_q \varepsilon_{t-q} \tx{ where } \theta_0 = 1, \theta_q \neq 0
+				\end{equation}
+				where $\{\varepsilon_t\}$ is innovations.
+			\end{definition}
+			
+			\begin{lemma}
+				The infinite lag polynomial in $\Psi(L)$ can be approximated by
+				\begin{equation}
+					\Psi(L) \approx \frac{\Theta_q(L)}{\Phi_p(L)}
+				\end{equation}
+			\end{lemma}
+			
+			\begin{definition}
+				MA(1) process takes the form of 
+				\begin{equation}
+					Y_t = \mu + \varepsilon_t + \theta \varepsilon_{t-1}
+				\end{equation}
+			\end{definition}
+			
+			\paragraph{Unconditional Moments of MA(1)}
+				\begin{align}
+					\expect{Y_t} = \expect{\mu + \varepsilon_t + \theta \varepsilon_{t-1}} &= \mu 
+				\end{align}
+				\begin{align}
+					\var{Y_t} &= \expect{(\varepsilon_t + \theta \varepsilon_{t-1})^2} \\
+					&= \var{\varepsilon_t} + \theta^2 \var{\varepsilon_{t-1}} \\
+					&= (1 + \theta^2) \sigma_\varepsilon^2
+				\end{align}
+			\paragraph{Auto-covariance}
+				\begin{align}
+					\gamma_0 &= \var{Y_t} = (1 + \theta^2) \sigma_\varepsilon^2\\
+					\gamma_1 &= \expect{(Y_t - \mu) (Y_{t-1} - \mu)} \\
+					&= \expect{(\varepsilon_t + \theta \varepsilon_{t-1})(\varepsilon_{t-1} + \theta \varepsilon_{t-2})} \\
+					&= \theta \sigma_\varepsilon^2 \\
+					\gamma_k &= 0\ \forall k > 1
+				\end{align}
+			\paragraph{Auto-correlation}
+				\begin{align}
+					\rho_1 &= \frac{\gamma_1}{\gamma_0}
+					= \frac{\theta}{1 + \theta^2} \\
+					\rho_k &= 0\ \forall k > 1
+				\end{align}
+				
+			\begin{definition}
+				A MA(1) process is \textbf{invertible} if $|\theta| < 1$, so that it can be written as an AR($\infty$) process.
+			\end{definition}
+			\begin{proof}[Inverting]
+				Let 
+				\begin{equation}
+					Y_t = \mu + \varepsilon_t + \theta \varepsilon_{t+1}
+				\end{equation}
+				where $|\theta| < 1$.
+				Then, 
+				\begin{gather}
+					Y_t = \mu + \varepsilon_t + \theta \varepsilon_{t+1} \\
+					\implies Y_t - \mu = (1 + \theta L) \varepsilon_t \\ 
+					\implies \frac{Y_t - \mu}{1 - (- \theta L)} = \varepsilon_t \\
+					\implies \varepsilon_t = (Y_t - \mu) \sum_{j=0}^\infty (-\theta L)^j
+				\end{gather}
+			\end{proof}
+			
+			\paragraph{Equivalence} note that for MA(1) process,
+				\begin{equation}
+					r_1 = \rho_1 = \frac{\theta}{1 + \theta^2}
+				\end{equation}
+				and for any $\theta$, $\frac{1}{\theta}$ will generate the same auto-correlation. \hl{We always choose the invertible MA representation with $|\theta| < 1$}.
+				
+		\subsection{Forecasting with MA(1)}
+			\subsubsection{Forecasting with Horizon $h=1$}
+				\textbf{Point estimate}
+					\begin{gather}
+						f_{t,1} = \expect{Y_{t+1}|I_t} \\
+						= \expect{\mu + \theta \varepsilon_{t} + \varepsilon_{t+1}|I_t} \\
+						= \mu + \theta \varepsilon_t
+					\end{gather}
+				\textbf{Forecasting error}
+					\begin{gather}
+						e_{t,1} = Y_{t+1} - f_{t,1} = \varepsilon_{t+1}
+					\end{gather}
+				\textbf{Forecasting uncertainty}
+					\begin{gather}
+						\red{\sigma_{t+1|t}^2} = \var{Y_{t+1}|I_t} \\
+						= \expect{\varepsilon_{t+1}^2|I_t} \\
+						= \sigma^2_\varepsilon
+					\end{gather}
+				\textbf{Density forecast} assuming \emph{normality} of $\varepsilon$
+					\begin{gather}
+						\mc{F} \equiv \mc{N}(\mu_{t+1|t}, \sigma_{t+1|t}^2) \\
+						\mu_{t+1|t} = \mu + \theta \varepsilon_t \\
+						\sigma_{t+1|t}^2 =  \sigma^2_\varepsilon
+					\end{gather}
+			\subsubsection{Forecasting with Horizon $h=2$}
+				\textbf{Point estimate}
+					\begin{gather}
+						f_{t,2} = \expect{Y_{t+2} | I_t} \\
+						= \expect{\mu + \theta \varepsilon_{t+1} + \varepsilon_{t+2} | I_t} \\
+						= \mu
+					\end{gather}
+				\textbf{Forecasting Error}
+					\begin{gather}
+						Y_{t+2} - f{t,2} = \theta \varepsilon_{t+1} + \varepsilon_{t+2}
+					\end{gather}
+				\textbf{Forecasting Uncertainty}
+					\begin{gather}
+						\sigma_{t+2|t}^2 \equiv \var{Y_{t+2} | I_t} \\
+						= (1 + \theta^2) \sigma_{\varepsilon}^2 
+					\end{gather}
+				\textbf{Density forecast}
+					\begin{gather}
+						\mc{F} = \mc{N}(\mu, (1 + \theta^2)\sigma_{\varepsilon}^2)
+					\end{gather}
+				\begin{remark}
+					Since for any $h > 1$, MA(1) only generates the unconditional mean $\mu$ as the point estimate, we say MA(1) process is \textbf{short memory}.
+				\end{remark}
+		\subsection{Properties of MA(2) Process}
+			\textbf{Model}
+				\begin{equation}
+					Y_t = \mu + \varepsilon_t + \theta_1 \varepsilon_{t-1} + \theta_2 \varepsilon_{t-2}
+				\end{equation}
+			\textbf{Unconditional Moments}
+				\begin{gather}
+					\expect{Y_t} = \mu \\
+					\var{Y_t} = (1 + \theta_1^2 + \theta_2^2) \sigma_\varepsilon^2
+				\end{gather}
+			\textbf{Auto-covariance}
+				\begin{gather}
+					\gamma_0 = \var{Y_t} = (1 + \theta_1^2 + \theta_2^2) \sigma_\varepsilon^2 \\
+					\gamma_1 = (\theta_1 + \theta_1 \theta_2) \sigma_\varepsilon^2 \\
+					\gamma_2 = \theta_2 \sigma_\varepsilon^2
+				\end{gather}
+			\textbf{Auto-correlation}
+				\begin{gather}
+					\rho_1 \equiv \frac{\gamma_1}{\gamma_0} = \frac{\theta_1 + \theta_1 \theta_2}{1 + \theta_1^2 + \theta_2^2} \\
+					\rho_2 \equiv \frac{\gamma_2}{\gamma_0} = \frac{\theta_2}{1 + \theta_1^2 + \theta_2^2}
+				\end{gather}
+			\textbf{Optimal Forecasting}
+				\begin{gather}
+					f_{t, 1} = \mu + \theta_1 \varepsilon_t + \theta_2 \varepsilon_{t-1} \\
+					f_{t, 2} = \mu + \theta_2 \varepsilon_t \\
+					f_{t, h} = \mu\ \forall h > 2
+				\end{gather}
 \end{document}
+
+
+
 
 
 
