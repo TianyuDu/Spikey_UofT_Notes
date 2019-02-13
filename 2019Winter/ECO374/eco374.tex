@@ -639,11 +639,148 @@
 			\end{remark}
 			
 		\subsubsection{Forecasting with AR(2) process}
-		
+			\begin{definition}
+				AR(2) process
+				\begin{equation}
+					Y_t = c + \phi_1 Y_{t-1} + \phi_2 Y_{t-2} + \varepsilon_t
+				\end{equation}
+			\end{definition}
+			\textbf{Unconditional Moments}
+				\begin{gather}
+					\expect{Y_t} = c + \phi_1 \expect{Y_{t-1}} + \phi_2 \expect{Y_{t-2}} \\
+					\implies \red{\mu_Y = \frac{c}{1 - \phi_1 - \phi_2}}
+%					\var{Y_t} = \sigma_\varepsilon^2
+				\end{gather}
+			\textbf{Auto-covariance and Auto-correlation}
+				\begin{gather}
+					\rho_1 = r_1 \\
+					r_2 = \phi_2 + \red{\text{ sampling error}}
+				\end{gather}
+			\textbf{Optimal Forecasts $h=1$}
+				\begin{gather}
+					f_{t,1} = \expect{Y_{t+1}|I_t} \\
+					= \expect{c + \phi_1 Y_t + \phi_2 Y_{t-1} + \varepsilon_{t+1}|I_t} \\
+					= c + \phi_1 Y_t + \phi_2 Y_{t-1}
+				\end{gather}
+				\begin{gather}
+					e_{t,1} = \varepsilon_{t+1}
+				\end{gather}
+				\begin{gather}
+					\sigma_{t+1|t}^2 = \var{Y_{t+1}|I_t} = \sigma_\varepsilon^2
+				\end{gather}
+			\textbf{Optimal Forecasts $h=2$}
+				\begin{gather}
+					f_{t,2} = \expect{Y_{t+2}|I_t} \\
+					= \expect{c + \phi_1 Y_{t+1} + \phi_2 Y_t + \varepsilon_{t+2}|I_t} \\
+					= c + \phi_1 \red{f_{t,1}} + \phi_2 Y_t 
+				\end{gather}
+				\begin{gather}
+					e_{t,2} = Y_{t+2} - f_{t,2} \\
+					= \phi_1 (Y_{t+1} - f_{t,1}) + \varepsilon_{t+2} \\
+					= \phi_1 e_{t,1} + \varepsilon_{t+2}
+				\end{gather}
+				\begin{gather}
+					\sigma_{t+2|t}^2 = \var{Y_{t+2}|I+t} \\
+					= \phi_1^2 \sigma_{t+1|t}^2 + \sigma_\varepsilon^2 \\
+					= (1 + \phi_1^2) \sigma_\varepsilon^2
+				\end{gather}
+			\textbf{Optimal Forecasts $h=s>2$}
+				\begin{gather}
+					f_{t, s} = \expect{Y_{t+s}|I_t} \\
+					= c + \phi_1 f_{t, s-1} + \phi_2 f_{t, s-2}
+				\end{gather}
+				
+				\begin{gather}
+					e_{t, s} = \phi_1 e_{t, s-1} + \phi_2 e_{t, s-2} + \varepsilon_{t+s}
+				\end{gather}
+				
+				\begin{gather}
+					\sigma_{t+s|t}^2 = \var{Y_{t+s}|I_t} \\
+					= \var{e_{t,s}|I_t} \\
+					= \phi_1 \sigma_{t+s-1|t}^2 + \phi_2 \sigma_{t+s-2|t}^2 + \sigma_\varepsilon^2
+				\end{gather}
+			\begin{remark}
+				AR(2) is still classified as \emph{short memory processes} as 
+				\begin{gather}
+					\lim_{s \to \infty} f_{t, s} = \mu \\
+					\lim_{s \to \infty} \sigma_{t+2|t}^2 = \sigma_Y^2
+				\end{gather}
+			\end{remark}
+			
 		\subsubsection{AP($p$) process}
-%			\begin{definition}
-%				Let $\Phi(L)Y_t = c + \varepsilon_t$ be an AR($p$) process, then $\Phi(\cdot)$ is 
-%			\end{definition}
+			\begin{definition}
+				Let $\Phi(L)Y_t = c + \varepsilon_t$ be an AR($p$) process with trend $c$, then $\Phi(\cdot)$ is called the \textbf{characteristic polynomial} of this stochastic process.
+			\end{definition}
+			
+			\begin{theorem}
+				An autoregressive process is stationary if and only if all roots of its characteristic polynomial are \hl{outside} the unit circle on $\C$.
+			\end{theorem}
+			
+			\paragraph{Forecasting with AR($p$) Process} we apply a \hl{recursive} scheme, or \hl{\textbf{chain rule of forecasting}}, in which the we use the \emph{forecasted} values to make prediction on even further values.
+			\begin{example}[AP($p$) chain rule of forecasting]
+				\begin{align}
+					\red{f_{t,1}} &= c + \sum_{j=1}^p \phi_j L^j Y_{t+1} \\
+					\orange{f_{t,2}} &= c + \phi_1 \red{f_{t,1}} + \sum_{j=2}^p \phi_j L^j Y_{t+2} \\
+					\blue{f_{t,3}} &= c + \phi_1 \orange{f_{t,2}} + \phi_2 \red{f_{t,1}} + \sum_{j=3}^p \phi_j L^j Y_{t+3}\\
+					f_{t, s} &= c + \sum_{j=1}^p \phi_j f_{t, s-j}\ \forall s > p
+				\end{align}
+			\end{example}
+		\subsection{Seasonality}
+			\subsubsection{Deterministic Seasonality}
+				\begin{definition}
+					The seasonality is \textbf{deterministic} if the regressors indicating seasons are always exactly predictable.
+				\end{definition}
+			\subsubsection{Stochastic Seasonality}
+				\begin{definition}
+					The seasonality os \textbf{stochastic} if the seasonal component is driven by random variables.
+				\end{definition}
+				
+				\begin{definition}
+					A seasonal AP($p$) model, S-AR($p$), is defined by
+					\begin{gather}
+						Y_t = c + \phi_s Y_{t-s} + \phi_{2s} + Y_{t-2s} + \dots + \phi_{ps} Y_{t - ps} + \varepsilon_t \\
+						\Phi_{p}(L^s) Y_t = c + \varepsilon_t
+					\end{gather}
+					where $s$ refers to the \textbf{data frequency}. Such model seeks to explain the \textbf{dynamics across seasons}.
+				\end{definition}
+				
+				\begin{definition}
+					Characteristics of realizations from S-AR($p$) process:
+					\begin{enumerate}[(i)]
+						\item ACF decays slowly with spikes at multiples of $s$.
+						\item PACF \hl{only} spikes at multiples of $s$.
+					\end{enumerate}
+				\end{definition}
+				
+				\begin{definition}
+					A seasonal MA($q$) model, S-MA($q$), is given by
+					\begin{equation}
+						Y_t = \mu + \Theta_q(L^s) \varepsilon_t
+					\end{equation}
+				\end{definition}
+				
+				\begin{remark}
+					Characteristics of realizations from S-MA($q$) process:
+					\begin{enumerate}[(i)]
+						\item ACF \hl{only} spikes at multiples of $s$.
+						\item PACF decays slowly with spikes at multiples of $s$.
+					\end{enumerate}
+				\end{remark}
+				
+				\begin{proposition}[Combing ARMA and S-ARMA]
+					Given ARMA 
+					\begin{equation}
+						\Phi_p(L) Y_t = c + \Theta_q(L) \varepsilon_t
+					\end{equation}
+					and S-ARMA
+					\begin{equation}
+						\Phi_p'(L^{s_1}) Y_t = c + \Theta_q'(L^{s_2}) \varepsilon_t
+					\end{equation}
+					The combined model is given by \hl{multiplying the lag polynomials}
+					\begin{equation}
+						\Phi_p(L) \Phi_p'(L^{s_1}) Y_t = c +  \Theta_q(L) \Theta_q'(L^{s_2}) \varepsilon_t
+					\end{equation}
+				\end{proposition}
 \end{document}
 
 
