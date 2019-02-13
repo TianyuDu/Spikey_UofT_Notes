@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Introduction and Statistics Review}{}% 1
+\BOOKMARK [1][-]{section.2}{Statistics and Time Series}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Stochastic Processes}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Auto-correlations}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Forecasting Tools}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Information Set}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Forecast Horizon}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Forecasting Environments: Recursive}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Forecasting Environments: Rolling}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Forecasting Environments: Fixed}{subsection.3.2}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Loss Function}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.4}{Optimal Forecast}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Moving Average Process}{}% 13

@@ -70,7 +70,7 @@
 			A \textbf{(strategic) game} consists of
 			\begin{enumerate}[i]
 				\item a \ul{finite} set of \textbf{players} $N$, with $|N| \geq 2$.
-				\item for each player $i \in N$, an \textbf{actions} $A_i \neq \emptyset$.
+				\item for each player $i \in N$, an \textbf{action set} $A_i \neq \emptyset$.
 				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \prod_{i\in N}A_i$.
 			\end{enumerate}
 			and can be written as a triple $\langle N, (A_i), (\succsim_i) \rangle$.
@@ -115,15 +115,11 @@
 		\end{corollary}
 		
 		\begin{definition}
-			Action $a_i \in A_i$ is \textbf{strictly dominant} if it strictly dominates \red{all} other actions.
+			Action $a_i \in A_i$ is \textbf{strictly(weakly) dominant} if it strictly(weakly) dominates \red{all} other actions.
 		\end{definition}
 		
 		\begin{definition}
-			Action $a_i \in A_i$ is \textbf{weakly dominant} if it weakly dominates \red{all} other actions.
-		\end{definition}
-		
-		\begin{definition}
-			Action $a_i \in A_i$ is \textbf{weakly/strictly dominated} if \red{there exists} another strategy weakly/strictly dominates $a_i$.
+			Action $a_i \in A_i$ is \textbf{strictly(weakly) dominated} if \red{there exists} another strategy strictly(weakly) dominates $a_i$.
 		\end{definition}
 		
 		\begin{example}[Prisoner Dilemma]
@@ -158,76 +154,76 @@
 			So in this game, for player 2, L is strictly dominant. \\For player 1, M is strictly dominated by D. And M is weakly dominated by U.
 		\end{example}
 		
-		\begin{example}
-			There are three candidates, $\{A, B, C\}$. And there are 50 players (voters, note that $\emptyset \notin A_i$ since they must vote).
-			And 
-			\[
-				\forall i \in N,\ A_i = \{A, B, C\}
-			\]
-			Each individual has strictly preference over $A, B, C$. If tie is encountered, randomization would be taken.
-			\begin{enumerate}[i]
-				\item $A \succ B \succ C$,
-				\item $A \succ AC_{tie} \succ C$
-			\end{enumerate}
-			\paragraph{Claim 1:}There are no weakly or strictly dominant actions. 
-			\begin{proof}
-				Let $a_i \in \{V_A, V_B, V_C\}$ denote the action taken by player $i \in N$, \\
-				Note that weak dominance is a necessary condition for strict dominance, \\
-				So above claim is reduced to \emph{there are no weakly dominant actions}. \\
-				The reduced claim is equivalent to the following statement, \\
+		% \begin{example}
+		% 	There are three candidates, $\{A, B, C\}$. And there are 50 players (voters, note that $\emptyset \notin A_i$ since they must vote).
+		% 	And 
+		% 	\[
+		% 		\forall i \in N,\ A_i = \{A, B, C\}
+		% 	\]
+		% 	Each individual has strictly preference over $A, B, C$. If tie is encountered, randomization would be taken.
+		% 	\begin{enumerate}[i]
+		% 		\item $A \succ B \succ C$,
+		% 		\item $A \succ AC_{tie} \succ C$
+		% 	\end{enumerate}
+		% 	\paragraph{Claim 1:}There are no weakly or strictly dominant actions. 
+		% 	\begin{proof}
+		% 		Let $a_i \in \{V_A, V_B, V_C\}$ denote the action taken by player $i \in N$, \\
+		% 		Note that weak dominance is a necessary condition for strict dominance, \\
+		% 		So above claim is reduced to \emph{there are no weakly dominant actions}. \\
+		% 		The reduced claim is equivalent to the following statement, \\
 				
-				\begin{gather*}
-					\forall a_i \in A_i,\ \exists \tilde{a}_i \in A_i\ s.t.\ a_i \neq \tilde{a}_i\\
-					s.t.\ \exists a_{-i} \in A_{-i}\ s.t.\ u_i(a_i, a_{-i}) > u_i(\tilde{a}_i, a_{-i}) \lor \forall a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) = u_i(\tilde{a}_i, a_{-i})
-				\end{gather*}
-				Let $n_{-i}^j$ denote the number of voters other than $i$ voting for candidate $j$. Clearly each $a_{-i} \in A_{-i}$ would induce an outcome as a triple $(n_{-i}^A, n_{-i}^B, n_{-i}^C)$.\\
-				Consider action $V_A$, and $a_{-i}$ induces 
-				\[
-					(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (1, 24, 24)
-				\]
-				then 
-				\[
-					(V_B, a_{-i}) \succ_i (V_A, a_{-i})
-				\]
-				So $V_A$ failed to be a dominant strategy of any kind. \\
-				Similarly, consider action $V_B$, if $a_{-i}$ induces
-				\[
-					(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (24, 1, 24)
-				\]
-				then 
-				\[
-					(V_A, a_{-i}) \succsim_i (V_B, a_{-i})
-				\]
-				So $V_B$ failed to be a dominant strategy. \\
-				Similarly, consider action $V_C$, if $a_{-i}$ induces
-				\[
-					(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (24, 24, 1)
-				\]
-				then 
-				\[
-					(V_A, a_{-i}) \succsim_i (V_C, a_{-i})
-				\]
-				So $V_B$ failed to be a dominant strategy.
-			\end{proof}
-			\paragraph{Claim 2:}Only voting for your least preferred candidate is weakly dominated.
-			\begin{proof}
-				We are going to show there exists a strategy (voting for $B$) weakly dominates voting for $C$.
-				\begin{figure}[H]
-					\centering
-					\begin{tabular}{c|c|c}
-						Vote A & Cases & Vote C \\
-						\hline
-						A & $n_{-i}^A > n_{-i}^B, n_{-i}^C$ & A, AC \\
-						B & $n_{-i}^B > n_{-i}^A, n_{-i}^C$ & B, BC \\
-						C, BC & $n_{-i}^C > n_{-i}^A, n_{-i}^B$ & C\\
-						B & $n_{-i}^A = n_{-i}^B > n_{-i}^C$ & AB\\
-						A & $n_{-i}^A = n_{-i}^C > n_{-i}^B$ & C\\
-						BC & $n_{-i}^C = n_{-i}^B > n_{-i}^A$ & C
-					\end{tabular}
-					\caption{Voting for A versus Voting for C}
-				\end{figure}
-			\end{proof}
-		\end{example}
+		% 		\begin{gather*}
+		% 			\forall a_i \in A_i,\ \exists \tilde{a}_i \in A_i\ s.t.\ a_i \neq \tilde{a}_i\\
+		% 			s.t.\ \exists a_{-i} \in A_{-i}\ s.t.\ u_i(a_i, a_{-i}) > u_i(\tilde{a}_i, a_{-i}) \lor \forall a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) = u_i(\tilde{a}_i, a_{-i})
+		% 		\end{gather*}
+		% 		Let $n_{-i}^j$ denote the number of voters other than $i$ voting for candidate $j$. Clearly each $a_{-i} \in A_{-i}$ would induce an outcome as a triple $(n_{-i}^A, n_{-i}^B, n_{-i}^C)$.\\
+		% 		Consider action $V_A$, and $a_{-i}$ induces 
+		% 		\[
+		% 			(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (1, 24, 24)
+		% 		\]
+		% 		then 
+		% 		\[
+		% 			(V_B, a_{-i}) \succ_i (V_A, a_{-i})
+		% 		\]
+		% 		So $V_A$ failed to be a dominant strategy of any kind. \\
+		% 		Similarly, consider action $V_B$, if $a_{-i}$ induces
+		% 		\[
+		% 			(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (24, 1, 24)
+		% 		\]
+		% 		then 
+		% 		\[
+		% 			(V_A, a_{-i}) \succsim_i (V_B, a_{-i})
+		% 		\]
+		% 		So $V_B$ failed to be a dominant strategy. \\
+		% 		Similarly, consider action $V_C$, if $a_{-i}$ induces
+		% 		\[
+		% 			(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (24, 24, 1)
+		% 		\]
+		% 		then 
+		% 		\[
+		% 			(V_A, a_{-i}) \succsim_i (V_C, a_{-i})
+		% 		\]
+		% 		So $V_B$ failed to be a dominant strategy.
+		% 	\end{proof}
+		% 	\paragraph{Claim 2:}Only voting for your least preferred candidate is weakly dominated.
+		% 	\begin{proof}
+		% 		We are going to show there exists a strategy (voting for $B$) weakly dominates voting for $C$.
+		% 		\begin{figure}[H]
+		% 			\centering
+		% 			\begin{tabular}{c|c|c}
+		% 				Vote A & Cases & Vote C \\
+		% 				\hline
+		% 				A & $n_{-i}^A > n_{-i}^B, n_{-i}^C$ & A, AC \\
+		% 				B & $n_{-i}^B > n_{-i}^A, n_{-i}^C$ & B, BC \\
+		% 				C, BC & $n_{-i}^C > n_{-i}^A, n_{-i}^B$ & C\\
+		% 				B & $n_{-i}^A = n_{-i}^B > n_{-i}^C$ & AB\\
+		% 				A & $n_{-i}^A = n_{-i}^C > n_{-i}^B$ & C\\
+		% 				BC & $n_{-i}^C = n_{-i}^B > n_{-i}^A$ & C
+		% 			\end{tabular}
+		% 			\caption{Voting for A versus Voting for C}
+		% 		\end{figure}
+		% 	\end{proof}
+		% \end{example}
 		
 		\begin{definition}
 			A strategic game $\langle N, (A_i), (\succsim_i) \rangle$ is \textbf{finite} if for every $i \in N$, $A_i$ is finite.
@@ -247,8 +243,8 @@
 			\begin{gather}
 				u_i(a_i, a_{-i}) = a_i - penalty_i(a_i, a_{-i}) \\
 				penalty_i = \begin{cases}
-					0 \tx{ if } a_i < \max_{j \neq i} a_j - 1 \\
-					10(a_i - \max_{j \neq i} a_j + 1) \tx{ if } a_i \geq \max_{j \neq i} - 1
+					0 &\tx{ if } a_i < \max_{j \neq i} a_j - 1 \\
+					10(a_i - \max_{j \neq i} a_j + 1) &\tx{ if } a_i \geq \max_{j \neq i} - 1
 				\end{cases}
 			\end{gather}
 		\end{example}	
@@ -301,7 +297,6 @@
 				  M & 1, 2& \red{5,3} \\
 				  D & 0,5 & 1,4 \\
 				\end{tabular}
-				\caption{Game for Example 2.1}
 			\end{figure*}
 			
 			\begin{example}[Hotelling Model of Politics]
@@ -380,25 +375,25 @@
 			\end{definition}
 			
 			\begin{corollary}
-				\emph{Iterative Elimination of Never Best Response}: same procedures but $D_i^k$ is the set of never best responses for player $i$ at game $G^k$.
+				[\emph{Iterative Elimination of Never Best Response}] Same procedures but $D_i^k$ is the set of never best responses for player $i$ at game $G^k$.
 			\end{corollary}
 			
 			\begin{example}
 				For player 1, $D$ is not strictly dominated, but it is a never best response.
 				\begin{proof}
 					Let $\alpha$ be a probability measure on $\{L, R\}$ such that $\alpha(L) = p \in [0, 1]$.\\
-					\begin{gather}
-						\expect{u_1|U,\alpha} = 10p \\
-						\expect{u_1|M,\alpha} = 10 - 10p \\
-						\expect{u_1|D,\alpha} = 1
-					\end{gather}
+					\begin{align}
+						\expect{u_1(U)|\alpha} &= 10p \\
+						\expect{u_1(M)|\alpha} &= 10 - 10p \\
+						\expect{u_1(D)|\alpha} &= 1
+					\end{align}
 					\textbf{Case i}
 					\begin{equation}
-						p \geq 0.5 \implies \expect{u_1|U,\alpha} \geq 5
+						p \geq 0.5 \implies \expect{u_1(U)|\alpha} \geq 5 > \expect{u_1(D)|\alpha}
 					\end{equation}
 					\textbf{Case ii}
 					\begin{equation}
-						p < 0.5 \implies \expect{u_1|M,\alpha} > 5
+						p < 0.5 \implies \expect{u_1(M)|\alpha} > 5 > \expect{u_1(D)|\alpha}
 					\end{equation}
 					Therefore, for any belief $\alpha$, $D$ cannot be a best response. So $D$ is a never best response.
 				\end{proof}
@@ -418,18 +413,13 @@
 				An action $a_i \in A_i$ is \textbf{rationalizable} if it survives \emph{iterative elimination of never best responses}.
 			\end{definition}
 			
-			\begin{lemma}[i385.3]
-				In a \ul{two player} game, $a_i$ is strictly dominated 
-				\ul{if and only if} it is a never best response.
+			\begin{lemma}[60.1]
+				An action of a player in a \emph{finite} strategic game is a never-best response \emph{if and only if} it is strictly dominated. \footnote{The concept of \emph{strict domination} will be introduced in section 5.}
 			\end{lemma}
-			
-			\begin{assumption}[Common knowledge rationality]
-				We assume our players of game all acknowledge that other players are playing the game in rational ways.
-			\end{assumption}
 		
 	\section{Lecture 3. Jan. 21 2019}
 		\begin{definition}
-			A \textbf{pure strategy Nash equilibrium} is a \ul{strategy profile} $(a_i)$ such that 
+			A \textbf{pure strategy Nash equilibrium} is an \ul{action profile} $(a_i)$ such that 
 			\begin{equation}
 				\forall i \in N,\ a_i \in Br_i(a_{-i})
 			\end{equation}
@@ -542,16 +532,13 @@
 	
 	\begin{definition}
 		A \textbf{strict Nash equilibrium} is an action profile $(a_i)$ such that
-		\[
-			\forall i \in N,\ |Br_i(a_{-i})| = 1
-		\]
+		\begin{equation}
+			\forall i \in N,\ Br_i(a_{-i}) \tx{ is a singleton.}
+		\end{equation}
 	\end{definition}
 	
 	\begin{definition}
-		A \textbf{weak Nash equilibrium} is a Nash equilibrium that is not strict. That's, a weak Nash equilibrium is an action profile $(a_i)$ such that
-		\[
-			\exists i \in N,\ |Br_i(a_{-i})| > 1
-		\]
+		A \textbf{weak Nash equilibrium} is a Nash equilibrium that is not strict.
 	\end{definition}
 	
 	\begin{example}[Cournot with $n$ firms]
@@ -780,7 +767,7 @@
 	\end{example}
 	
 	\section{Lecture 5 Feb. 7 2019}
-		\subsection{Lecture Content}
+		\subsection{Lecture Contents}
 		\begin{example}Matching pennies: an example of game without pure strategy Nash equilibrium.
 			\begin{figure}[h]
 				\centering
@@ -791,6 +778,10 @@
 				\end{game}
 			\end{figure}
 		\end{example}
+		
+		\begin{assumption}
+			We assume that the preference relation of each player $i$ satisfies the assumptions of \emph{von Neumann and Morgenstern}, so that it can be represented by the expected value of some function $u_i: A \to \R$.
+		\end{assumption}
 		
 		\begin{definition}
 			Suppose player $i$ has a \emph{finite} set of pure strategies $A_i$, then a \textbf{mixed strategy} $\sigma_i \in \Delta (A_i)$ is a probability distribution over $A_i$.
@@ -803,27 +794,27 @@
 			\end{equation}
 		\end{definition}
 		
-		\begin{notation}
-			Given action set $A_i \equiv \{a_i\}$, a mixed strategy can be denoted as $A_i^\alpha$ where $\alpha$ is a multi-index.
-		\end{notation}
+		\begin{definition}
+			A mixed strategy $\sigma_i$ is \textbf{degenerate} if 
+			\begin{equation}
+				\exists a_i \in A_i\ s.t.\ \sigma_i(a_i) = 1
+			\end{equation}
+			and such degenerated mixed strategy is denoted as $e(a_i)$.
+		\end{definition}
 		
 		\begin{remark}
-			A pure strategy $a_i \in A_i$ is a mixed strategy with 
-			\begin{equation}
-				\sigma_i(a_i) = 1
-			\end{equation}
-			So mixed strategy is a generalization of pure strategy.
+			A pure strategy $a_i \in A_i$ is equivalent to a degenerated mixed strategy $e(a_i)$.
 		\end{remark}
 		
 		\begin{proposition}
-			In a finite game, given the independence of randomization, the probability of the action profile $a = (a_i)$ to be realized given mixed strategy profile $(\sigma_i)$ is
+			In a finite game, given the independence of randomization, the probability of the action profile $a \equiv (a_i)$ to be realized given mixed strategy profile $\sigma \equiv (\sigma_i)$ is
 			\begin{equation}
-				\sigma (a) \equiv \prob{(a_i)|(\sigma_i)} = \prod_{i \in N} \sigma_i(a_i)
+				\sigma (a) \equiv \prob{a|\sigma} = \prod_{i \in N} \sigma_i(a_i)
 			\end{equation}
 			and for player $i$, the \textbf{expected payoff} from mixed strategy profile $(\sigma_i)$ is 
 			\begin{equation}
-				U_i((\sigma_{i})) = 
-				\sum_{a \in A} \big[\prod_{j \in N} \sigma_j(a_j)\big] u_i(a) = \expect{u_i(a)|(\sigma_i)}
+				U_i(\sigma_{i}, \sigma_{-i}) = 
+				\sum_{a \in A} \big[\prod_{j \in N} \sigma_j(a_j)\big] u_i(a) = \expect{u_i|\sigma}
 			\end{equation}
 		\end{proposition}
 		
@@ -848,6 +839,7 @@
 			\begin{equation}
 				\forall a_{-i} \in A_{-i}\ u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i})
 			\end{equation}
+			We say $a_i$ is strictly dominated.
 		\end{definition}
 		
 		\begin{proposition}

@@ -26,6 +26,7 @@
 \counterwithin{example}{section}
 \counterwithin{figure}{section}
 
+
 \begin{document}
 	\maketitle
 	\tableofcontents
@@ -276,13 +277,117 @@
 	
 	\section{Forecasting Tools}
 	\subsection{Information Set}
-	
+		\begin{definition}
+			For stochastic process $\{Y_t\}$, the \textbf{information set} $I_t$ is the \emph{known time series} up to time $t$.
+		\end{definition}
+		
+		\begin{definition}
+			A \textbf{forecast} $f_{t,h}$ the image of a \emph{time series model} $g$ under given information set $I_t$. Specifically,
+			\begin{equation}
+				f_{t,h} = g(I_t) \in \Omega
+			\end{equation}
+		\end{definition}
 	\subsection{Forecast Horizon}
-	
+		\begin{remark}
+			\emph{Covariance stationary} processes are \textbf{short-memory processes}. More recent observation contains information far more relevant for the future than older information.
+		\end{remark}
+		
+		\begin{remark}
+			\emph{Non-stationary} processes are \textbf{long-memory processes} and older information is as relevant for the forecast as more recent information.
+		\end{remark}
+		\subsubsection{Forecasting Environments: \emph{Recursive}}
+			\begin{enumerate}[(i)]
+				\item \emph{Updating} with \emph{flexible} information set.
+				\item Advantageous if model is \emph{stable over time}.
+				\item Not robust to \emph{structural break}. 
+			\end{enumerate}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.5\linewidth]{figures/recursive_forecast}
+				\caption{Recursive Forecasting Scheme}
+			\end{figure}
+		\subsubsection{Forecasting Environments: \emph{Rolling}}
+			\begin{enumerate}[(i)]
+				\item \emph{Updating} with \emph{fixed-size} information set.
+				\item Robust against \emph{structural breaks}.
+				\item Not fully exploit information available.
+			\end{enumerate}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.5\linewidth]{figures/rolling_forecast}
+				\caption{Rolling Forecasting Scheme}
+			\end{figure}
+		\subsubsection{Forecasting Environments: \emph{Fixed}}
+			\begin{enumerate}[(i)]
+				\item \emph{One estimation} and forecast with \emph{fixed-size but updated} information set.
+				\item Computationally cheap.
+			\end{enumerate}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.5\linewidth]{figures/fixed_forecast}
+				\caption{Fixed Forecasting Scheme}
+			\end{figure}
 	\subsection{Loss Function}
-	
+		\begin{definition}
+			A loss function $L(e)$ is a real-valued function defined on the space of \emph{forecast errors}, $\mc{E}$, and satisfies the following properties
+			\begin{enumerate}[(i)]
+				\item $L(e) = 0 \iff ||e|| = 0$;
+				\item $\forall e \in \mc{E}, L(e) \geq 0$\footnote{Since forecasting here can be considered as an optimization process, with $L$ as the objective function. It's fine for $L$ not satisfying the non-negativity condition. However, by convention, we assume $L$ to be non-negative.};
+				\item $L$ is \emph{monotonically increasing} in the norm of forecast error.
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{example}[Symmetric Loss Functions with $\mc{E} = \R$]
+			\begin{align}
+				L(e) = a e^2,\ a > 0 \\
+				L(e) = a |e|,\ a > 0
+			\end{align}
+		\end{example}
+		
+		\begin{example}[Asymmetric Loss Functions with $\mc{E} = \R$]
+			\begin{align}
+				L(e) = exp(ae) - ae - 1,\ a > 0 & \tx{ Linex Function} \\
+				L(e) = a\ |e|\ \mathbb{I}(e \geq 0) + b\ |e|\ \mathbb{I}(e < 0) &\tx{ Lin-lin Function}
+			\end{align}
+		\end{example}
+		
 	\subsection{Optimal Forecast}
+		\begin{definition}
+			Based on information set $I_t$, the optimal forecast for future value $y_{t+h}$ is the $f^*_{t,h}$ minimize the \hl{expected loss function}
+			\begin{equation}
+				\expect{L|I_t} = \int L(y_{t+h} - \red{f_{t,h}}) f(y_{t+h})\ dy_{t+h}
+			\end{equation}
+		\end{definition}
+		
+		\begin{assumption}
+			Assuming the forecast $f(y_{t+h}|I_t)$ follows
+			\begin{equation}
+				f(y_{t+h}|I_t) \sim \mc{N}(\expect{Y_{t+h}|I_t}, \var{Y_{t+h}|I_t})
+			\end{equation}
+		\end{assumption}
+		
+		\begin{proposition}
+			Given symmetric quadratic $L$, the optimal forecast $f^*_{t,h}$ is 
+			\begin{equation}
+				\mu_{t+h|t} \equiv \expect{Y_{t+h}|I_t}
+			\end{equation}
+			\begin{proof}
+				\begin{gather}
+					\min_{f_{t, h} \in \R} L \equiv \int (y_{t+h} - f_{t, h})^2 f(y_{t+h}|I_t)\ dy_{t+h} \\
+					\pd{L}{f_{t, h}} = -2 \int (y_{t+h} - f_{t, h}) f(y_{t+h}|I_t)\ dy_{t+h} = 0 \\
+					\implies \int (y_{t+h} - f_{t, h}) f(y_{t+h}|I_t)\ dy_{t+h} = 0 \\
+					\implies \int y_{t+h} f(y_{t+h}|I_t)\ dy_{t+h} = f_{t, h} \int  f(y_{t+h}|I_t)\ dy_{t+h} \\
+					\implies f_{t, h} = \expect{y_{t+h}|I_t} \equiv \mu_{t+h|t}
+				\end{gather}
+			\end{proof}
+		\end{proposition}
+		
+	\section{Moving Average Process}
 \end{document}
+
+
+
+
 
 
 

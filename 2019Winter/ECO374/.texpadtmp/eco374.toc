@@ -1,0 +1,15 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction and Statistics Review}{1}{section.1}
+\contentsline {section}{\numberline {2}Statistics and Time Series}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Stochastic Processes}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Auto-correlations}{3}{subsection.2.2}
+\contentsline {paragraph}{Test for Auto-correlation}{5}{section*.2}
+\contentsline {section}{\numberline {3}Forecasting Tools}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Information Set}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Forecast Horizon}{5}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Forecasting Environments: \emph {Recursive}}{5}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Forecasting Environments: \emph {Rolling}}{6}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Forecasting Environments: \emph {Fixed}}{6}{subsubsection.3.2.3}
+\contentsline {subsection}{\numberline {3.3}Loss Function}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Optimal Forecast}{7}{subsection.3.4}
+\contentsline {section}{\numberline {4}Moving Average Process}{8}{section.4}
