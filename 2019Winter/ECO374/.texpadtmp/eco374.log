@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 FEB 2019 13:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 FEB 2019 14:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -730,119 +730,119 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `eco374.toc'.
 
  [2]
-Overfull \hbox (10.16061pt too wide) in paragraph at lines 135--136
-[][]\OT1/cmr/bx/n/10.95 Definition 2.6 \OT1/cmr/m/n/10.95 (1.7)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A stochas-tic pro-cess $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 Y[]\OMS/cmsy/m/n/10.95 g$ \OT1/cmr/m/n/10.95 is \OT1/cmr/bx/n/10.95 strictly sta-tion-ary \OT1/cmr/m/n/10.95 if for all $\OML/cmm/m/it/10.95 h; n \OMS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 1$, $(\OML/cmm/m/it/10.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 )$
+Overfull \hbox (4.73123pt too wide) in paragraph at lines 131--132
+[][]\OT1/cmr/bx/n/10.95 Definition 2.5 \OT1/cmr/m/n/10.95 (1.7)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 A stochas-tic pro-cess $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 Y[]\OMS/cmsy/m/n/10.95 g$ \OT1/cmr/m/n/10.95 is \OT1/cmr/bx/n/10.95 strictly sta-tion-ary \OT1/cmr/m/n/10.95 if for all $\OML/cmm/m/it/10.95 h; n \OMS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 1$, $(\OML/cmm/m/it/10.95 Y[]; [] ; Y[]\OT1/cmr/m/n/10.95 )$
  []
 
-[3] <figures/2_1.jpg, id=239, 189.3944pt x 154.84662pt>
+[3] <figures/2_1.jpg, id=245, 189.3944pt x 154.84662pt>
 File: figures/2_1.jpg Graphic file (type jpg)
  <use figures/2_1.jpg>
-Package pdftex.def Info: figures/2_1.jpg used on input line 213.
+Package pdftex.def Info: figures/2_1.jpg used on input line 210.
 (pdftex.def)             Requested size: 189.39392pt x 154.84622pt.
- [4 <./figures/2_1.jpg>] [5] <figures/recursive_forecast.jpg, id=283, 220.15248pt x 194.61708pt>
+ [4 <./figures/2_1.jpg>] [5] [6] <figures/recursive_forecast.jpg, id=307, 220.15248pt x 194.61708pt>
 File: figures/recursive_forecast.jpg Graphic file (type jpg)
  <use figures/recursive_forecast.jpg>
-Package pdftex.def Info: figures/recursive_forecast.jpg used on input line 351.
+Package pdftex.def Info: figures/recursive_forecast.jpg used on input line 358.
 (pdftex.def)             Requested size: 234.8775pt x 207.64427pt.
- [6] <figures/rolling_forecast.jpg, id=303, 219.73091pt x 192.9609pt>
+ <figures/rolling_forecast.jpg, id=308, 219.73091pt x 192.9609pt>
 File: figures/rolling_forecast.jpg Graphic file (type jpg)
  <use figures/rolling_forecast.jpg>
-Package pdftex.def Info: figures/rolling_forecast.jpg used on input line 362.
+Package pdftex.def Info: figures/rolling_forecast.jpg used on input line 369.
 (pdftex.def)             Requested size: 234.8775pt x 206.27179pt.
- [7 <./figures/recursive_forecast.jpg>] <figures/fixed_forecast.jpg, id=317, 219.4599pt x 181.72894pt>
+ [7 <./figures/recursive_forecast.jpg>] <figures/fixed_forecast.jpg, id=322, 219.4599pt x 181.72894pt>
 File: figures/fixed_forecast.jpg Graphic file (type jpg)
  <use figures/fixed_forecast.jpg>
-Package pdftex.def Info: figures/fixed_forecast.jpg used on input line 372.
+Package pdftex.def Info: figures/fixed_forecast.jpg used on input line 379.
 (pdftex.def)             Requested size: 234.8775pt x 194.50072pt.
  [8 <./figures/rolling_forecast.jpg> <./figures/fixed_forecast.jpg>] [9] [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 538.
+(hyperref)                removing `math shift' on input line 545.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 538.
+(hyperref)                removing `math shift' on input line 545.
 
 [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 561.
+(hyperref)                removing `math shift' on input line 568.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 561.
+(hyperref)                removing `math shift' on input line 568.
 
 [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 643.
+(hyperref)                removing `math shift' on input line 650.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 643.
+(hyperref)                removing `math shift' on input line 650.
 
 [13]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 658.
+(hyperref)                removing `math shift' on input line 665.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 658.
+(hyperref)                removing `math shift' on input line 665.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 670.
+(hyperref)                removing `math shift' on input line 677.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\to' on input line 670.
+(hyperref)                removing `\to' on input line 677.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 670.
+(hyperref)                removing `\infty' on input line 677.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 670.
+(hyperref)                removing `math shift' on input line 677.
 
 [14] [15]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 755.
+(hyperref)                removing `math shift' on input line 762.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 755.
+(hyperref)                removing `math shift' on input line 762.
 
-[16] [17] [18] <figures/asym_loss_forecast.jpg, id=570, 280.04625pt x 111.41624pt>
+[16] [17] [18] <figures/asym_loss_forecast.jpg, id=575, 280.04625pt x 111.41624pt>
 File: figures/asym_loss_forecast.jpg Graphic file (type jpg)
  <use figures/asym_loss_forecast.jpg>
-Package pdftex.def Info: figures/asym_loss_forecast.jpg used on input line 903.
+Package pdftex.def Info: figures/asym_loss_forecast.jpg used on input line 910.
 (pdftex.def)             Requested size: 280.04555pt x 111.41597pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 928.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 935.
  [19 <./figures/asym_loss_forecast.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 928.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 935.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO374/.texpadtmp/eco374.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 928.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 928.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 935.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 935.
 Package rerunfilecheck Info: File `eco374.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 928.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 935.
  ) 
 Here is how much of TeX's memory you used:
- 8685 strings out of 493014
- 122180 string characters out of 6133351
+ 8687 strings out of 493014
+ 122215 string characters out of 6133351
  229976 words of memory out of 5000000
- 11712 multiletter control sequences out of 15000+600000
+ 11713 multiletter control sequences out of 15000+600000
  18057 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,15n,35p,322b,574s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO374/.texpadtmp/eco374.pdf (19 pages, 4400341 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO374/.texpadtmp/eco374.pdf (19 pages, 4401745 bytes).
 PDF statistics:
- 739 PDF objects out of 1000 (max. 8388607)
- 684 compressed objects within 7 object streams
- 361 named destinations out of 1000 (max. 500000)
- 290 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 744 PDF objects out of 1000 (max. 8388607)
+ 689 compressed objects within 7 object streams
+ 362 named destinations out of 1000 (max. 500000)
+ 298 words of extra memory for PDF output out of 10000 (max. 10000000)
 
