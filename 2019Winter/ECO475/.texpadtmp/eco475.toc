@@ -12,3 +12,12 @@
 \contentsline {paragraph}{Step 2}{5}{section*.6}
 \contentsline {paragraph}{Special Case (i)}{5}{section*.7}
 \contentsline {paragraph}{Special Case (ii)}{6}{section*.8}
+\contentsline {section}{\numberline {3}Binary Outcome with Continuous Endogenous Regressors:\\Control Function Approach}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Model}{6}{subsection.3.1}
+\contentsline {paragraph}{}{6}{section*.9}
+\contentsline {subsection}{\numberline {3.2}Maximum Likelihood Estimator}{7}{subsection.3.2}
+\contentsline {paragraph}{}{7}{section*.10}
+\contentsline {subsection}{\numberline {3.3}Control Function}{7}{subsection.3.3}
+\contentsline {paragraph}{Step 1}{7}{section*.11}
+\contentsline {paragraph}{Step 2}{8}{section*.12}
+\contentsline {paragraph}{Step 3}{8}{section*.13}

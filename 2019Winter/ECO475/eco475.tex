@@ -264,6 +264,106 @@
 			\begin{remark}
 				Therefore, if $\lambda$ is linear, we need at least one exclusion variable to identify the direct and indirect effects. If $\lambda$ is non-linear, it's \emph{probably} fine.
 			\end{remark}
+			
+	\section{Binary Outcome with Continuous Endogenous Regressors:\\Control Function Approach}
+		\subsection{Model}
+			\paragraph{}In ordinary binary outcome models, like Probit models, we assumed all regressors are \emph{exogenous} ($Cov(x, \varepsilon) = 0$). But in many cases, we have some of the explanatory variables are endogenous. In this section, we are going to consider the case where the endogenous regressors are \hl{continuous}.
+			\textbf{Outcome Equation}
+			\begin{gather}
+				y = \mathbb{I}\{\ve{x}_y \theta + \ve{w} \gamma + \varepsilon > 0\}
+			\end{gather}
+			where 
+			\begin{enumerate}[(i)]
+				\item $\ve{x}_y$: exogenous observable characteristics.
+				\item $\ve{w}$: endogenous observable regressors, which are continuous.
+			\end{enumerate}
+			Similarly to the IV approach, we use another "auxiliary equation" to estimate $\ve{w}$:
+			\begin{equation}
+				\ve{w} = \ve{x}_w \eta + \sigma_w v
+			\end{equation}
+			where the error terms in (3.1) and (3.2) follows
+			\begin{equation}
+				\begin{pmatrix} \varepsilon \\ v \end{pmatrix}
+				\sim \mc{N}
+				\Big(
+				\ve{0},\ 
+				\begin{bmatrix}1 & \rho \\ 
+				\rho & 1\end{bmatrix}
+				\Big)
+			\end{equation}
+			Define $\tilde{\ve{x}} \equiv [\ve{x}_y, \ve{x}_w]$ as the set of usable regressors.
+		\subsection{Maximum Likelihood Estimator}
+			\paragraph{}To estimate the model using MLE, we need to construct the likelihood function. By Bayesian Theorem,  
+			\begin{gather}
+				f(y|\ve{w}, \tilde{\ve{x}}) = \frac{f(y, \ve{w}|\tilde{\ve{x}})}{f(\ve{w}|\tilde{\ve{x}})} \\
+				\iff f(y, \ve{w} | \tilde{\ve{x}}) = f(y|\ve{w}, \tilde{\ve{x}}) f(\ve{w}|\tilde{\ve{x}})
+			\end{gather}
+			By equation (3.2)
+			\begin{gather}
+				w|_{\tilde{\ve{x}}} \sim \mc{N} \Big(\ve{x}_w \eta, \sigma_w^2 \Big) \\
+				\implies f(w|\tilde{\ve{x}}) = \frac{1}{\sqrt{2\pi}\sigma_w}e^{\frac{-(w - \ve{x}_w \eta)^2}{2\sigma_w^2}}
+			\end{gather}
+			and to compute $f(y|w, \ve{x}_w \eta)$, since $y$ is binary, we are going to compute $\prob{y=1|w, \tilde{\ve{x}}}$ first.
+			\begin{gather}
+				\prob{y=1|w, \tilde{\ve{x}}} = \prob{-\varepsilon < \ve{x}_y \theta + w \gamma | w, \tilde{\ve{x}}} \\
+				= \prob{-\varepsilon < \ve{x}_y \theta + w \gamma | \red{v}, \tilde{\ve{x}}}
+			\end{gather}
+			\begin{lemma}
+				Given joint normal variables $(\varepsilon, v)$ conditioned on $\tilde{\ve{x}}$ following
+				\begin{equation}
+					\begin{pmatrix} \varepsilon \\ v \end{pmatrix}\vert_{\tilde{\ve{x}}}
+					\sim \mc{N}
+					\Big(
+					\ve{0},\ 
+					\begin{bmatrix}1 & \rho \\ 
+					\rho & 1\end{bmatrix}
+					\Big)
+				\end{equation}
+				then 
+				\begin{equation}
+					\varepsilon|_{v, \tilde{\ve{x}}} \sim \mc{N}(\rho v,\ 1 - \rho^2)
+				\end{equation}
+				which implies
+				\begin{gather}
+					\frac{\varepsilon - \rho v}{\sqrt{1 - \rho^2}} \sim \mc{N}(0,\ 1) \\
+					\implies \frac{- \varepsilon + \rho v}{\sqrt{1 - \rho^2}} \sim \mc{N}(0,\ 1)
+				\end{gather}
+				by the symmetry of standard normal distribution.
+			\end{lemma}
+			\par Therefore,
+			\begin{gather}
+				\prob{-\varepsilon < \ve{x}_y \theta + w \gamma | v, \tilde{\ve{x}}} \\
+				= \prob{-\varepsilon + \red{\rho v} < \ve{x}_y \theta + w \gamma + \red{\rho v}|v, \tilde{\ve{x}}} \\
+				= \prob{\frac{-\varepsilon + \rho v}{\red{\sqrt{1 - \rho^2}}} < \frac{\ve{x}_y \theta + w \gamma + \rho v}{\red{\sqrt{1 - \rho^2}}} |v, \tilde{\ve{x}}} \\
+				= \Phi(\frac{\ve{x}_y \theta + w \gamma + \rho v}{\sqrt{1 - \rho^2}})
+			\end{gather}
+			
+		\subsection{Control Function}
+			\paragraph{Step 1} Run OLS on $w = \ve{x}_w \eta + \sigma_w v$, Obtain estimations $\hat{\eta}_{OLS}$, $\hat{\sigma_w}_{OLS}$.
+			\paragraph{Step 2} Obtain estimation of $v$ using the error terms and standard deviation in OLS results.
+				\begin{equation}
+					\hat{v} = \frac{w - \ve{x}_w \hat{\eta}_{OLS}}{\hat{\sigma}_{OLS}}
+				\end{equation}
+			\paragraph{Step 3} Plug in $\hat{v}$ and run \textbf{probit} model in (3.17),
+				\begin{gather}
+					\Phi(\frac{\ve{x}_y \theta + w \gamma + \rho v}{\sqrt{1 - \rho^2}}) \\
+					= \Phi(\frac{\ve{x}_y \theta}{\sqrt{1 - \rho^2}} + \frac{w \gamma}{\sqrt{1 - \rho^2}} + \frac{\rho v}{\sqrt{1 - \rho^2}})
+				\end{gather}
+				Define
+				\begin{gather}
+					\theta^* \equiv \frac{\theta}{\sqrt{1 - \rho^2}} \\
+					\gamma^* \equiv \frac{\gamma}{\sqrt{1 - \rho^2}} \\
+					\alpha^* \equiv \frac{\alpha}{\sqrt{1 - \rho^2}}
+				\end{gather}
+				So the probit model can be written as
+				\begin{equation}
+					y = \mathbb{I}\{-\tilde{u} < \ve{x}_y \theta^* + w \gamma^* + v \alpha^*\}
+				\end{equation}
+				where $\tilde{u} \sim \mc{N}(0,1)$.\\
+				\par Once we have an estimation on $\alpha^*$, $\rho$ can be calculated with
+				\begin{equation}
+					\rho = \pm \sqrt{\frac{\alpha^*}{1 + \alpha^{*2}}}
+				\end{equation}
 \end{document}
 
 

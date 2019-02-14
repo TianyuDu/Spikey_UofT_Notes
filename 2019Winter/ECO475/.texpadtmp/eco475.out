@@ -4,3 +4,7 @@
 \BOOKMARK [1][-]{section.2}{Lecture 4. Jan. 31 2019}{}% 4
 \BOOKMARK [2][-]{subsection.2.1}{Tobit and Sample Selection}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.2}{Heckman Estimation \(Two-Step Procedure\)}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Binary Outcome with Continuous Endogenous Regressors:Control Function Approach}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Model}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Maximum Likelihood Estimator}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Control Function}{section.3}% 10
