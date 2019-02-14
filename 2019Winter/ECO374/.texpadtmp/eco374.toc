@@ -4,38 +4,39 @@
 \contentsline {subsection}{\numberline {2.1}Stochastic Processes}{3}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Auto-correlations}{3}{subsection.2.2}
 \contentsline {paragraph}{Test for Auto-correlation}{5}{section*.2}
-\contentsline {section}{\numberline {3}Forecasting Tools}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Information Set}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {2.3}Causality and Inevitability}{5}{subsection.2.3}
+\contentsline {section}{\numberline {3}Forecasting Tools}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Information Set}{6}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Forecast Horizon}{6}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Forecasting Environments: \emph {Recursive}}{6}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Forecasting Environments: \emph {Rolling}}{6}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}Forecasting Environments: \emph {Fixed}}{7}{subsubsection.3.2.3}
-\contentsline {subsection}{\numberline {3.3}Loss Function}{7}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Optimal Forecast}{8}{subsection.3.4}
-\contentsline {section}{\numberline {4}Moving Average Process}{9}{section.4}
-\contentsline {subsection}{\numberline {4.1}Wold Decomposition Theorem}{9}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Moving Average Process}{9}{subsection.4.2}
-\contentsline {paragraph}{Unconditional Moments of MA(1)}{10}{section*.3}
-\contentsline {paragraph}{Auto-covariance}{10}{section*.4}
-\contentsline {paragraph}{Auto-correlation}{10}{section*.5}
-\contentsline {paragraph}{Equivalence}{10}{section*.6}
-\contentsline {subsection}{\numberline {4.3}Forecasting with MA(1)}{11}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Forecasting with Horizon $h=1$}{11}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Forecasting with Horizon $h=2$}{11}{subsubsection.4.3.2}
-\contentsline {subsection}{\numberline {4.4}Properties of MA(2) Process}{12}{subsection.4.4}
-\contentsline {section}{\numberline {5}Auto-regressive Process and Seasonality}{12}{section.5}
-\contentsline {subsection}{\numberline {5.1}AR Process}{12}{subsection.5.1}
-\contentsline {paragraph}{ACF and PACF}{12}{section*.7}
-\contentsline {subsubsection}{\numberline {5.1.1}Forecasting with AR(1) and $h=1$}{13}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Forecasting with AR(1) and $h=s>1$}{13}{subsubsection.5.1.2}
-\contentsline {subsubsection}{\numberline {5.1.3}Forecasting with AR(1) and $h \to \infty $}{13}{subsubsection.5.1.3}
-\contentsline {subsubsection}{\numberline {5.1.4}Forecasting with AR(2) process}{14}{subsubsection.5.1.4}
-\contentsline {subsubsection}{\numberline {5.1.5}AP($p$) process}{15}{subsubsection.5.1.5}
-\contentsline {paragraph}{Forecasting with AR($p$) Process}{15}{section*.8}
-\contentsline {subsection}{\numberline {5.2}Seasonality}{15}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Deterministic Seasonality}{15}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Stochastic Seasonality}{16}{subsubsection.5.2.2}
-\contentsline {section}{\numberline {6}Model Assessment and Asymmetric Loss}{16}{section.6}
-\contentsline {subsection}{\numberline {6.1}Model Assessment}{16}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Asymmetric Loss}{17}{subsection.6.2}
-\contentsline {paragraph}{Forecasting}{18}{section*.9}
+\contentsline {subsubsection}{\numberline {3.2.1}Forecasting Environments: \emph {Recursive}}{7}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Forecasting Environments: \emph {Rolling}}{7}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Forecasting Environments: \emph {Fixed}}{8}{subsubsection.3.2.3}
+\contentsline {subsection}{\numberline {3.3}Loss Function}{8}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Optimal Forecast}{9}{subsection.3.4}
+\contentsline {section}{\numberline {4}Moving Average Process}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Wold Decomposition Theorem}{10}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Moving Average Process}{10}{subsection.4.2}
+\contentsline {paragraph}{Unconditional Moments of MA(1)}{11}{section*.3}
+\contentsline {paragraph}{Auto-covariance}{11}{section*.4}
+\contentsline {paragraph}{Auto-correlation}{11}{section*.5}
+\contentsline {paragraph}{Equivalence}{11}{section*.6}
+\contentsline {subsection}{\numberline {4.3}Forecasting with MA(1)}{12}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Forecasting with Horizon $h=1$}{12}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}Forecasting with Horizon $h=2$}{12}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Properties of MA(2) Process}{13}{subsection.4.4}
+\contentsline {section}{\numberline {5}Auto-Regression Process and Seasonality}{13}{section.5}
+\contentsline {subsection}{\numberline {5.1}AR Process}{13}{subsection.5.1}
+\contentsline {paragraph}{ACF and PACF}{13}{section*.7}
+\contentsline {subsubsection}{\numberline {5.1.1}Forecasting with AR(1) and $h=1$}{14}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Forecasting with AR(1) and $h=s>1$}{14}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Forecasting with AR(1) and $h \to \infty $}{14}{subsubsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.4}Forecasting with AR(2) process}{15}{subsubsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.5}AP($p$) process}{16}{subsubsection.5.1.5}
+\contentsline {paragraph}{Forecasting with AR($p$) Process}{16}{section*.8}
+\contentsline {subsection}{\numberline {5.2}Seasonality}{16}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Deterministic Seasonality}{16}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Stochastic Seasonality}{17}{subsubsection.5.2.2}
+\contentsline {section}{\numberline {6}Model Assessment and Asymmetric Loss}{17}{section.6}
+\contentsline {subsection}{\numberline {6.1}Model Assessment}{17}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Asymmetric Loss}{18}{subsection.6.2}
+\contentsline {paragraph}{Forecasting}{19}{section*.9}

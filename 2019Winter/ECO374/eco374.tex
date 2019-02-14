@@ -132,7 +132,7 @@
 		\end{definition}
 		
 		\begin{definition}[1.7]
-			A stochastic process $\{Y_t\}$ is \textbf{strictly stationary} if for all $h, n \geq 1$, $(X_1,\dots,X_n)$ and $(X_{1+h}, \dots, X_{n+h}$ have the same distribution.
+			A stochastic process $\{Y_t\}$ is \textbf{strictly stationary} if for all $h, n \geq 1$, $(X_1,\dots,X_n)$ and $(X_{1+h}, \dots, X_{n+h})$ have the same distribution.
 		\end{definition}
 		
 		\begin{definition}
@@ -143,7 +143,7 @@
 		\end{definition}
 		
 		\begin{definition}
-			A stochastic process $\{Y_t\}$ is \textbf{second order weakly stationary}, or \textbf{covariance stationary} if all random variables $\{Y_t\}$ have the same mean and variance. And the covariances do not depend on $t$.
+			A stochastic process $\{Y_t\}$ is \textbf{second order weakly stationary}, or \hl{\textbf{covariance stationary}} if all random variables $\{Y_t\}$ have the same mean and variance. And the covariances do not depend on $t$.
 			That's, for all $t \in \mc{T}$,
 			\begin{enumerate}[(i)]
 				\item $\expect{Y_t} = \mu\ \forall t$
@@ -274,6 +274,51 @@
 		\begin{equation}
 			Q_k = T(T+1) \sum_{j=1}^k \frac{\hat{\rho}_j^2}{T-j} \sim \chi_k^2
 		\end{equation}
+	\subsection{Causality and Inevitability}
+		\begin{definition}[Causality]
+			An $ARMA(p, q)$ process $\{Y_t\}$ with 
+			\begin{equation}
+				\Phi(L)Y_t = \Theta(L)\varepsilon_t
+			\end{equation}
+			is called \textbf{causal with respect to} $\{\varepsilon_t\}$ if there exists a sequence $\{\psi_j\}$ with the property $\sum_j^\infty |\psi_j| < \infty$ such that 
+			\begin{equation}
+				Y_t = \Psi(L) \varepsilon_t\ \tx{ with } \psi_0 = 1
+			\end{equation}
+			where $\Psi(L) \equiv \sum_{j=0}^\infty \psi_j L^j$. The above equation is referred to as the \textbf{causal representation} of $\{Y_t\}$ with respect to $\{\varepsilon_t\}$.
+		\end{definition}
+		
+		\begin{theorem}
+			Let $\{Y_t\}$ be an $ARMA(p, q)$ process with 
+			\begin{equation}
+				\Phi(L)Y_t = \Theta(L)\varepsilon_t
+			\end{equation}
+			such that polynomials $\Phi(z)$ and $\Theta(z)$ have no common roots.\\
+			Then $\{Y_t\}$ is causal with respect to $\{\varepsilon_t\}$ \ul{if and only if} all roots of the equation $\Phi(z) = 0$ are outside the unit circle. The coefficients $\Psi$ are then uniquely defined by identity
+			\begin{equation}
+				\Psi(z) = \sum_{j=0}^\infty \psi_j z^j = \frac{\Theta(z)}{\Phi(z)}
+			\end{equation}
+		\end{theorem}
+	\begin{definition}[Invertibility]
+		An $ARMA(p, q)$ process for $\{Y_t\}$ satisfying
+		\begin{equation}
+			\Phi(L)Y_t = \Theta(L)\varepsilon_t
+		\end{equation}
+		is called \textbf{invertible} with respect to $\{\varepsilon\}$ if and only if there exists a sequence $\Pi$ with the property $\sum_{j=0}^\infty |\pi_j| < \infty$ such that
+		\begin{equation}
+			\varepsilon_t = \sum_{j=0}^\infty \pi_j L^j Y_t
+		\end{equation}
+	\end{definition}
+	
+	\begin{theorem}
+		Let $\{Y_t\}$ be an $ARMA(p, q)$ process with 
+		\begin{equation}
+			\Phi(L)Y_t = \Theta(L)\varepsilon_t
+		\end{equation}
+		Then $\{Y_t\}$ is invertible with  respect to $\{\varepsilon_t\}$ \ul{if and only if} all roots of $\Theta(z)$ are outside the unit circle. And the coefficients of $\Pi$ are then uniquely determined by the relation
+		\begin{equation}
+			\Pi(z) = \sum_{j=0}^\infty \pi_j z^j = \frac{\Phi(z)}{\Theta(z)}
+		\end{equation}
+	\end{theorem}
 	
 	\section{Forecasting Tools}
 	\subsection{Information Set}
@@ -564,7 +609,7 @@
 					f_{t, h} = \mu\ \forall h > 2
 				\end{gather}
 	
-	\section{Auto-regressive Process and Seasonality}
+	\section{Auto-Regression Process and Seasonality}
 		\subsection{AR Process}
 			\begin{definition}
 				An \textbf{auto-regressive} model of order $p$ is taken in the form of 
