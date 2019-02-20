@@ -102,6 +102,58 @@
 					\end{gather}
 				\end{enumerate}
 			\end{example}
+			
+		\begin{definition}
+			Define a \textbf{plane} as $\Z^2$, then a \textbf{lattice path} in the plane is a \emph{sequence} of elements in $\Z^2$
+			\begin{equation}
+				((x_i, y_i))_{i=1}^t
+			\end{equation}
+			such that for every $i \in \{1,\dots,t-1\}$, either
+			\begin{enumerate}[(i)]
+				\item (\emph{Horizontal move}) $x_{i+1} = x_i + 1 \land y_{i+1} = y_i$
+				\item Or (\emph{vertical move}) $x_{i+1} = x_i \land y_{i+1} = y_i + 1$
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{lemma}
+			Let $(p, q), (m, n) \in \Z^2$, then the number of lattice paths from $(p, q)$ to $(m, n)$ is 
+			\begin{equation}
+				\bi{(p-m) + (q-n)}{p-m}
+			\end{equation}
+			\begin{proof}
+				The lattice is isomorphic to a ${H, V}$-string with length $(p-m)+(q-n)$. There are exactly $p-m$ horizontal moves as well as exactly $q-n$ vertical moves.
+			\end{proof}
+		\end{lemma}
+		
+		\begin{theorem}
+			Given $n \in \Z_+$, the number of lattice paths from $(0,0)$ to $(n,n)$ which \emph{never go above the diagonal line} is the \textbf{Catalan number}
+			\begin{equation}
+				C(n) \equiv \frac{1}{n+1} \bi{2n}{n}
+			\end{equation}
+			\begin{proof}
+				Omitted
+			\end{proof}
+		\end{theorem}
+		
+		\begin{theorem}[Binomial Theorem]
+			Let $x, y \in \R$, then $\forall n \in \Z_+$
+			\begin{equation}
+				(x + y)^n = \sum_{i=0}^n \bi{n}{i} x^{n-i} y^i
+			\end{equation}
+		\end{theorem}
+		
+		\begin{theorem}[Multinomial Theorem]
+			Let $r \in \Z_+$, $\{x_i\}_{i=1}^r \in \mc{P}(\R)$. Then for every $n \in \Z_+$,
+			\begin{equation}
+				(\sum_{i=1}^r x_i)^n = \sum_{|\alpha|\red{=}n} \bi{n}{\alpha} (x_i)^\alpha
+			\end{equation}
+			where $\alpha \equiv (\alpha_i)_{i=1}^r,\ \alpha_i \in \Z_{++}\ \forall i$ is a \textbf{multi-index}, and 
+			\begin{gather}
+				(x_i)^\alpha \equiv \sum_{i=1}^r x_i^{\alpha_i} \\
+				|\alpha| \equiv \sum_{i=1}^r \alpha_i \\
+				\bi{n}{\alpha} \equiv \frac{n!}{\alpha_1!\alpha_2!\dots\alpha_r!}
+			\end{gather}
+		\end{theorem}
 \end{document}
 
 
