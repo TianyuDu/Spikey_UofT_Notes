@@ -154,6 +154,140 @@
 				\bi{n}{\alpha} \equiv \frac{n!}{\alpha_1!\alpha_2!\dots\alpha_r!}
 			\end{gather}
 		\end{theorem}
+		
+	\section{Induction}
+		\begin{theorem}[Well-Ordering Principle]
+			Every non-empty set of $Z_{++}$ has a least element.
+			\begin{proof}
+				Prove using principle of mathematical induction and contradiction.
+			\end{proof}
+		\end{theorem}
+		
+		\begin{definition}
+			\textbf{Recursive definition}
+		\end{definition}
+		
+		\begin{theorem}[The Principle of Mathematical Induction]
+			If $S$ is any set of natural numbers with properties that
+			\begin{enumerate}
+				\item 1 is in $S$, and
+				\item $k+1$ is in $S$ whenever $k$ is any number in $S$.
+			\end{enumerate}
+			then $S = \Z_+$.
+		\end{theorem}
+		
+		\begin{remark}
+			\textbf{Recursive definitions} can also be recast as \textbf{inductive definitions}.
+		\end{remark}
+		
+		\begin{definition}[Summation]
+			Summation operator beginning with index 1, $\sum: \mc{F}_1 \times Z_{++} \to \R$, where $\mc{F}_1$ is the set of unary real-valued functions, is defined inductively as
+			\begin{align}
+				\sum_{i=1}^1 f(i) &\equiv f(1) \\
+				\sum_{i=1}^{k+1} f(i) &\equiv \sum_{i=1}^k f(i) + f(k+1)
+			\end{align}
+		\end{definition}
+		
+		
+		\begin{theorem}[The Principle of Complete Mathematical Induction]
+			If $S$ is any set of natural numbers with the properties that
+			\begin{enumerate}
+				\item $1 \in S$, and
+				\item $\{1, 2, \dots, k\} \subset S \implies k+1 \in S$,
+			\end{enumerate}
+			then $S = \Z_+$.
+		\end{theorem}
+	
+	\section{Pigeon Hole Principle and Complexity}
+		\subsection{Pigeon Hole Principle}
+			\begin{theorem}
+				Let $f: X \to Y$ be a function, then 
+				\begin{equation}
+					f \tx{ injective} \implies |X| \leq |Y|
+				\end{equation}
+			\end{theorem}
+			
+			\begin{theorem}[Pigeon Hole Principle]
+				Let $f: X \to Y$, and suppose $|X| > |Y|$, then $f$ is not injective, that's
+				\begin{equation}
+					\exists x_1 \neq x_2 \in X\ s.t.\ f(x_1) = f(x_2)
+				\end{equation}
+				\begin{proof}
+					Contrapositive form of the theorem 3.1
+				\end{proof}
+			\end{theorem}
+			
+			\begin{theorem}[Erods/Szekeres]
+				Let $m, n \in \Z_+$, then any sequence of $mn + 1$ \emph{distinct} real numbers either
+				\begin{enumerate}[(i)]
+					\item has an increasing subsequence of $m+1$ terms,
+					\item or it has a decreasing subsequence of $n+1$ terms.
+				\end{enumerate}
+				\begin{proof}
+					Let $\sigma = (x_1, x_2, \dots, x_{mn+1})$ be a sequence with length $mn+1$ consisting of distinct reals.\\
+					For each $i \in [mn+1]$ define $a_i$ as the maximum length of an increasing subsequence of $\sigma$ \emph{beginning with} $x_i$. \\
+					Define $b_i$ as the maximum length of a decreasing subsequence of $\sigma$ \emph{ending with} $x_i$. \\
+					\textbf{Case (i)}
+					\begin{gather}
+						\exists i \in [mn+1]\ s.t.\ a_i \geq m+1 \lor b_i \geq n+1
+					\end{gather}
+					then the theorem is proven. \\
+					\textbf{Case (ii)} Suppose otherwise
+					\begin{gather}
+						\forall i \in [mn+1]\ a_i \leq m \land b_i \leq n
+					\end{gather}
+					construct function $f: [mn+1] \to [m]\times[n]$ defined as
+					\begin{equation}
+						f(i) \equiv (a_i, b_i)
+					\end{equation}
+					Note that $|[mn+1]| > |[m]\times[n]|$ so $f$ cannot be injective, so there exists $j\neq k \in [mn+1]$ such that $(a_j, b_j) = (a_k, b_k)$. \\
+					WLOG, assume $j < k$.\\
+					Since all elements in $\sigma$ are distinct, $j \neq k \implies x_j \neq x_k$. \\
+					\textbf{Sub-case (i)} $x_j < x_k$, then any increasing subsequence beginning with $x_k$ can be extended by prepending $x_j$, so $a_j > a_k$. \\
+					\textbf{Sub-case (ii)} $x_j > x_k$, then any decreasing subsequence ending with $x_j$ can be extended by appending $x_k$, so $b_k > b_j$. \\
+					Either sub-case leads to a contradiction, so \textbf{case (ii)} is impossible.
+				\end{proof}
+			\end{theorem}
+		\subsection{Complexity}
+			\begin{definition}
+				Let $f, g: \N \to \R$ be a function, then the \textbf{big oh} $\mc{O}(f)$ is a collection of functions such that, for every $g \in \mc{O}(f)$
+				\begin{gather}
+					\exists c \in \R, n^* \in \N\ s.t.\ \forall n \in \N, n \geq n^* \implies g(n) \leq c f(n)
+				\end{gather}
+			\end{definition}
+			
+			\begin{definition}
+				Let $f, g: \N \to \R$ be a function. If $f(n) > 0\ \forall n \in \N$,
+				then the \textbf{little oh} $o(f)$ is the collection of functions such that, for every $g \in o(f)$, 
+				\begin{equation}
+					\lim_{n \to \infty} \frac{g(n)}{f(n)} = 0
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				Let $f, g: \N \to \R$, then the \textbf{little oh}, $o(f)$ is defined as the collection of functions such that $g \in o(f)$ if and only if
+				\begin{gather}
+					\exists c \in \R, n^* \in \N,\ s.t.\ \forall n \in \N, n \geq n^* \implies |g(n)| < c|f(n)|
+				\end{gather}
+			\end{definition}
+			
+			\begin{definition}
+				Define $\pi: \Z_{++} \to \Z_+$ as $\pi(n) \equiv$ \emph{the number of primes among the first $n$ positive integers}.
+			\end{definition}
+			
+			\begin{theorem}[Prime Number Theorem] $\pi(n)$ grows at a rate the same as $\frac{n}{\ln(n)}$. That's
+				\begin{equation}
+					\lim_{n \to \infty} \pi(n) \frac{\ln(n)}{n} = 1
+				\end{equation}
+			\end{theorem}
+			
+			\begin{definition}
+				The class of \textbf{polynomial time} problems, denoted as $\mc{P}$, is the set of decision problems for which there exists one polynomial run time algorithm as the solution.
+			\end{definition}
+			
+			\begin{definition}
+				The class of \textbf{nondeterministic polynomial time} problems, denoted as $\mc{NP}$, is the set of decision problems for which there is a certificate for a yes answer whose correctness can be verified in polynomial time.
+			\end{definition}
 \end{document}
 
 

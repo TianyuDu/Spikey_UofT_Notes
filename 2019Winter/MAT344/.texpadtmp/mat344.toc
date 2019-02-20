@@ -1,3 +1,7 @@
 \select@language {english}
 \contentsline {section}{\numberline {1}Strings, Sets, and Binomial Coefficients}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}Strings and Sets}{2}{subsection.1.1}
+\contentsline {section}{\numberline {2}Induction}{3}{section.2}
+\contentsline {section}{\numberline {3}Pigeon Hole Principle and Complexity}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Pigeon Hole Principle}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Complexity}{5}{subsection.3.2}
