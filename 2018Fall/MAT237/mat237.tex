@@ -188,7 +188,7 @@
 					\ve{f}(r, \theta, \varphi) = \begin{pmatrix}
 						r \cos(\theta) \sin(\varphi) \\
 						r \sin(\theta) \sin(\varphi) \\
-						r\cos(\theta)
+						r\cos(\varphi)
 					\end{pmatrix}
 				\end{equation}
 			\end{example}
@@ -374,6 +374,11 @@
 					\iint_\mc{R} f\ dA = \int_c^d \Big ( \int_a^b f(x,y)\ dx\Big)dy
 				\end{equation}
 			\end{theorem}
+		
+		\begin{proposition}
+			Let $S \subseteq \R^n$ be an unbounded set, and $f: S \to \R$.
+			Then improper integral $\idotsint_{S} f\ d^n \ve{x}$ is absolutely convergent on $\R^n$ \ul{if and only if} $\idotsint_{\R^n} \chi_S f\ d^n \ve{x}$ is absolutely convergent.
+		\end{proposition}
 \end{document}
 
 

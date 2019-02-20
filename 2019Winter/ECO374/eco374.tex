@@ -231,26 +231,26 @@
 		\end{notation}
 		
 		\begin{definition}[3.3]
-			The \textbf{partial auto-correlation function} (PACF) $\alpha(h)$ with $h \in \Z_{\geq 0}$ of a \emph{stationary} process is defined as 
+			The \textbf{partial auto-correlation function} (PACF) $r(h)$ with $h \in \Z_{\geq 0}$ of a \emph{stationary} process is defined as 
 			\begin{gather}
-				\alpha(0) = 1 \\
-				\alpha(1) = corr(Y_2, Y_1) = \rho(1) \\
-				\alpha(h) = corr\Big(Y_{h+1} - \mathbb{P}(Y_{h+1}|1,Y_2, \dots, Y_h), X_1 - \mathbb{P}(Y_1|1,Y_2,\dots,Y_h)\Big)
+				r(0) = 1 \\
+				r(1) = corr(Y_2, Y_1) = \rho(1) \\
+				r(h) = corr\Big(Y_{h+1} - \mathbb{P}(Y_{h+1}|1,Y_2, \dots, Y_h), X_1 - \mathbb{P}(Y_1|1,Y_2,\dots,Y_h)\Big)
 			\end{gather}
 		\end{definition}
 		
-		\begin{remark}[Interpretation of PACF] partial auto-correlation $r_k$ only measures correlation between two variables $Y_t$ and $Y_{t+k}$ while controlling $(Y_{t+1}, \dots, Y_{t+k-1})$.
+		\begin{remark}[Interpretation of PACF] partial auto-correlation $r(k)$ only measures correlation between two variables $Y_t$ and $Y_{t+k}$ while \emph{controlling intermediate variables} $(Y_{t+1}, \dots, Y_{t+k-1})$.
 		\end{remark}
 		
-		\begin{remark}Properties of ACF and PACF
+		\begin{remark}AR and MA signatures on ACF and PACF plot.
 			\begin{table}[h]
 				\centering
 				\begin{tabular}{l|c|c}
-					processes & ACF & PACF \\
+					processes & ACF ($\rho$) & PACF ($r$) \\
 					\hline
 						AR($p$) & 
 						\begin{tabular}{@{}c@{}}Declines exponentially \\(monotonic or oscillating) to zero\end{tabular} & 
-						$\alpha(h) = 0\ \forall h > p$\\
+						$r(h) = 0\ \forall h > p$\\
 					\hline
 						MA($q$) &
 						$\rho(h) = 0\ \forall h > q$ &
@@ -273,13 +273,14 @@
 		\begin{equation}
 			Q_k = T(T+1) \sum_{j=1}^k \frac{\hat{\rho}_j^2}{T-j} \sim \chi_k^2
 		\end{equation}
-	\subsection{Causality and Inevitability}
+	\subsection{Causality and Invertibility}
+	\subsubsection{Causality}
 		\begin{definition}[Causality]
-			An $ARMA(p, q)$ process $\{Y_t\}$ with 
+			An ARMA($p, q$) process $\{Y_t\}$ with 
 			\begin{equation}
 				\Phi(L)Y_t = \Theta(L)\varepsilon_t
 			\end{equation}
-			is called \textbf{causal with respect to} $\{\varepsilon_t\}$ if there exists a sequence $\{\psi_j\}$ with the property $\sum_j^\infty |\psi_j| < \infty$ such that 
+			is called \textbf{causal with respect to} $\{\varepsilon_t\}$ if there exists a sequence $\Psi \equiv \{\psi_j\}$ with the property $\sum_{j=0}^\infty |\psi_j| < \infty$ such that 
 			\begin{equation}
 				Y_t = \Psi(L) \varepsilon_t\ \tx{ with } \psi_0 = 1
 			\end{equation}
@@ -291,18 +292,19 @@
 		\end{proposition}
 		
 		\begin{theorem}
-			Let $\{Y_t\}$ be an $ARMA(p, q)$ process with 
+			Let $\{Y_t\}$ be an ARMA($p, q$) process with 
 			\begin{equation}
 				\Phi(L)Y_t = \Theta(L)\varepsilon_t
 			\end{equation}
 			such that polynomials $\Phi(z)$ and $\Theta(z)$ have no common roots.\\
-			Then $\{Y_t\}$ is causal with respect to $\{\varepsilon_t\}$ \ul{if and only if} all roots $\red{\Phi(z)}$ are outside the unit circle. The coefficients $\Psi$ are then uniquely defined by identity
+			Then $\{Y_t\}$ is causal with respect to $\{\varepsilon_t\}$ \ul{if and only if} \hl{all roots of $\red{\Phi(z)}$ are \textbf{outside} the unit circle}. The coefficients $\Psi$ are then uniquely defined by identity
 			\begin{equation}
 				\Psi(z) = \sum_{j=0}^\infty \psi_j z^j = \frac{\Theta(z)}{\Phi(z)}
 			\end{equation}
 		\end{theorem}
+	\subsubsection{Invertibility}
 	\begin{definition}[Invertibility]
-		An $ARMA(p, q)$ process for $\{Y_t\}$ satisfying
+		An ARMA($p, q$) process for $\{Y_t\}$ satisfying
 		\begin{equation}
 			\Phi(L)Y_t = \Theta(L)\varepsilon_t
 		\end{equation}
@@ -317,11 +319,11 @@
 	\end{proposition}
 	
 	\begin{theorem}
-		Let $\{Y_t\}$ be an $ARMA(p, q)$ process with 
+		Let $\{Y_t\}$ be an ARMA($p, q$) process with 
 		\begin{equation}
 			\Phi(L)Y_t = \Theta(L)\varepsilon_t
 		\end{equation}
-		Then $\{Y_t\}$ is invertible with  respect to $\{\varepsilon_t\}$ \ul{if and only if} all roots of $\red{\Theta(z)}$ are outside the unit circle. And the coefficients of $\Pi$ are then uniquely determined by the relation
+		Then $\{Y_t\}$ is invertible with  respect to $\{\varepsilon_t\}$ \ul{if and only if} \hl{all roots of $\red{\Theta(z)}$ are \textbf{outside} the unit circle}. And the coefficients of $\Pi \equiv \{\pi_j\}$ are then uniquely determined by the relation
 		\begin{equation}
 			\Pi(z) = \sum_{j=0}^\infty \pi_j z^j = \frac{\Phi(z)}{\Theta(z)}
 		\end{equation}
@@ -330,13 +332,13 @@
 	\section{Forecasting Tools}
 	\subsection{Information Set}
 		\begin{definition}
-			For stochastic process $\{Y_t\}$, the \textbf{information set} $I_t$ is the \emph{known time series} up to time $t$.
+			For stochastic process $\{Y_t\}$, the \textbf{information set} $I_t$ is the \emph{known time series} up to time $t$. It takes the form of a $n$-tuple $(y_{t_0}, y_{t_1}, \dots, y_{t_n})$ such that $t_n \leq t$ so the information set is certain at time $t$.
 		\end{definition}
 		
 		\begin{definition}
 			A \textbf{forecast} $f_{t,h}$ the image of a \emph{time series model} $g$ under given information set $I_t$. Specifically,
 			\begin{equation}
-				f_{t,h} = g(I_t) \in \Omega
+				f_{t,h} = g(I_t) \in \R
 			\end{equation}
 		\end{definition}
 	\subsection{Forecast Horizon}
@@ -351,7 +353,7 @@
 			\begin{enumerate}[(i)]
 				\item \emph{Updating} with \emph{flexible} information set.
 				\item Advantageous if model is \emph{stable over time}.
-				\item Not robust to \emph{structural break}. 
+				\item Not robust to \hl{\emph{structural break}}. 
 			\end{enumerate}
 			\begin{figure}[H]
 				\centering
@@ -361,7 +363,7 @@
 		\subsubsection{Forecasting Environments: \emph{Rolling}}
 			\begin{enumerate}[(i)]
 				\item \emph{Updating} with \emph{fixed-size} information set.
-				\item Robust against \emph{structural breaks}.
+				\item Robust against \hl{\emph{structural breaks}}.
 				\item Not fully exploit information available.
 			\end{enumerate}
 			\begin{figure}[H]
@@ -419,7 +421,7 @@
 		\end{assumption}
 		
 		\begin{proposition}
-			Given symmetric quadratic $L$, the optimal forecast $f^*_{t,h}$ is 
+			Given \hl{symmetric} quadratic $L$, the optimal forecast $f^*_{t,h}$ is 
 			\begin{equation}
 				\mu_{t+h|t} \equiv \expect{Y_{t+h}|I_t}
 			\end{equation}
@@ -540,7 +542,12 @@
 					r_1 = \rho_1 = \frac{\theta}{1 + \theta^2}
 				\end{equation}
 				and for any $\theta$, $\frac{1}{\theta}$ will generate the same auto-correlation. \hl{We always choose the invertible MA representation with $|\theta| < 1$}.
-				
+			\begin{proposition}
+				For any process, $\rho_1 = r_1$.
+			\end{proposition}
+			\begin{remark}
+				If the $MA$ process is invertible, we can always find an autoregressive representation in which the present is a function of the past.
+			\end{remark}
 		\subsection{Forecasting with MA(1)}
 			\subsubsection{Forecasting with Horizon $h=1$}
 				\textbf{Point estimate}
@@ -615,6 +622,11 @@
 					f_{t, 2} = \mu + \theta_2 \varepsilon_t \\
 					f_{t, h} = \mu\ \forall h > 2
 				\end{gather}
+			
+		\subsection{MA Forecasting Procedure}
+			\begin{remark}
+				Assuming the MA process used is invertible, we use its inverting representation to recover $\hat{\varepsilon}_t$.
+			\end{remark}
 	
 	\section{Auto-Regression Process and Seasonality}
 		\subsection{AR Process}
@@ -674,6 +686,9 @@
 					\var{Y_{t+s}|I_t} = \var{\varepsilon_{t+s} + \phi \varepsilon_{t+s-1} + \dots + \phi^{s-1} \varepsilon_{t+1} | I_t} \\
 					= \sum_{j=0}^{s-1} \phi^{\red{2j}} \sigma_\varepsilon^2
 				\end{gather}
+			\begin{remark}
+				ACF and PACF are estimated functions subject to sampling error, so the estimated ACF and PACF from sample might be different from their theoretical values.
+			\end{remark}
 		\subsubsection{Forecasting with AR(1) and $h \to \infty$}
 			\begin{assumption}
 				For this subsection, assuming the AR(1) process is \hl{stationary}, that's, $|\phi| < 1$.
@@ -777,6 +792,22 @@
 					f_{t, s} &= c + \sum_{j=1}^p \phi_j f_{t, s-j}\ \forall s > p
 				\end{align}
 			\end{example}
+		
+		\subsection{AR Forecasting Procedures}
+			\begin{enumerate}[(i)]
+				\item \textbf{Estimate} $\hat{\Phi}$ and $\hat{\sigma}_\varepsilon^2$ and $\hat{\mu}$(unconditional mean). 
+				\item Calculate $\hat{c}$(intercept) from $\hat{\Phi}$ and $\hat{\mu}$.
+				\item Construct forecast $f_{t, h}$ with \textbf{chain rule of forecasting}.
+				\item \textbf{Density forecast}, under normality assumption of $\varepsilon$ is
+				\begin{equation}
+					\mc{N}(f_{t,h}, \hat{\sigma}^2_{t+h|t})
+				\end{equation}
+				\item 95\% confidence interval of forecasting is
+				\begin{equation}
+					(f_{t,h} \pm 1.96 \times \hat{\sigma}_{t+h|t})
+				\end{equation}
+			\end{enumerate}
+		
 		\subsection{Seasonality}
 			\subsubsection{Deterministic Seasonality}
 				\begin{definition}

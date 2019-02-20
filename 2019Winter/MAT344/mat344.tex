@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage{spikey}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+\usepackage{centernot}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1truein]{geometry}
+\usepackage{tkz-graph}
+%\GraphInit[vstyle = Shade]
+
+\counterwithin{equation}{section}
+\counterwithin{figure}{section}
+
+\def\Z{{\mathbb Z}}
+\def\Q{{\mathbb Q}}
+\def\R{{\mathbb R}}
+\def\C{{\mathbb C}}
+
+\newcommand{\bi}[2]{\begin{pmatrix}{#1}\\{#2}\end{pmatrix}}
+%\counterwithin{equation}{section}
+
+
+\title{MAT 344 Lecture Notes}
+\date{\today}
+\author{Tianyu Du}
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	\section{Strings, Sets, and Binomial Coefficients}
+		\subsection{Strings and Sets}
+			\begin{notation}
+				Let $n \in \Z_{++}$, and we use $[n]$ to denote the $n$-element set $\{1,2,\dots,n\}$.
+			\end{notation}
+			
+			\begin{definition}
+				Let $X$ be a set, then an $X$-\textbf{string of length} (or a \textbf{word}/\textbf{array}) $n$ is a function $s:[n] \to X$, and $X$ is called the \textbf{alphabet} of the string, and each $x \in X$ is called a \textbf{character} or \text{letter}.
+			\end{definition}
+			
+			\begin{remark}
+				An $X$-string defined by $s: [n] \to X$ with length $n$ can be equivalently defined as a \textbf{sequence} consisting elements in $X$.
+				\begin{equation}
+					s(1)s(2)\dots s(n)
+				\end{equation}
+			\end{remark}
+			
+			\begin{definition}
+				In the case $X = \{0, 1\}$, strings generated from $X$ are called \textbf{binary strings}. When $X = \{0,1,2\}$, strings are called \textbf{ternary strings}.
+			\end{definition}
+			
+			\begin{definition}
+				Let $X$ be a \emph{finite} set and let $n \in \Z_{++}$. An $X$-string $s = x_1 x_2 \dots x_n$ is a \textbf{permutation} of size $m$ if $x_i \neq x_j\ \forall x_i, x_j \in s$.
+			\end{definition}
+			
+			\begin{proposition}
+				If $X$ is an $m$-element set and $m \geq n \in \Z_{++}$, then the number of $X$-strings of length $n$ that are permutations is 
+				\begin{equation}
+					P(m, n) \equiv \frac{m!}{(m-n)!}
+				\end{equation}
+			\end{proposition}
+			
+			\begin{definition}
+				Let $X$ be a \emph{finite} set and let $0 \leq k \leq |X|$. Then $S \subseteq X$ with $|S| = k$ is a \textbf{combination} of size $k$.
+			\end{definition}
+			
+			\begin{proposition}
+				Let $n, k \in \Z$ such that $0 \leq k \leq n$, then the number of combinations is
+				\begin{equation}
+					\bi{n}{k} \equiv \frac{P(n, k)}{n!} = \frac{n!}{k!(n-k)!}
+				\end{equation}
+			\end{proposition}
+			
+			\begin{proposition}
+				For all integers $n$ and $k$ with $0 \leq k \leq n$
+				\begin{equation}
+					\bi{n}{k} = \bi{n}{n-k}
+				\end{equation}
+			\end{proposition}
+			
+			\begin{example}
+				Binomial coefficients can be used to find the number of integer solutions of
+				\begin{equation}
+					\sum_{i=1}^k x_i \leq N
+				\end{equation}
+				given appropriate integers $k, N \in \Z$.
+				\begin{enumerate}[(i)]
+					\item $x_i > 0\ \forall i \in [k]$ and equality holds, then $C(N-1, k-1)$.
+					\item $x_i \geq 0\ \forall i \in [k]$ and equality holds, then $C(N+k-1, k-1)$.\footnote{Simulate choosing $x_i + 1$ instead of $x_i$.}
+					\item $x_i > 0\ \forall i \neq j, x_j = Z$ and equality holds, then $C(N-Z+k-2,k-2)$.
+					\item $x_i > 0\ \forall i \in [k]$ and strict inequality holds, then $C(N-1, k)$.\footnote{Image there is a placeholder $x_{k+1} > 0$.}
+					\item $x_i \geq 0\ \forall i \in [k]$ and strict inequality holds, then $C(N+k-1, k)$.
+					\item $x_i \geq 0\ \forall i \in [k]$ and \emph{weak} inequality holds, $C(N+k, k)$ \footnote{This can be calculated by adding case (ii) and case (v) together, and apply Pascal's identity}.
+					\begin{gather}
+						\bi{N+k-1}{k-1} + \bi{N+k-1}{k} = \bi{N+k}{k}
+					\end{gather}
+				\end{enumerate}
+			\end{example}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

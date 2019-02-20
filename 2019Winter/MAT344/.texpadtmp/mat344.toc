@@ -1,0 +1,3 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Strings, Sets, and Binomial Coefficients}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Strings and Sets}{2}{subsection.1.1}
