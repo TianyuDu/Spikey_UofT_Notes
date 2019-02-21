@@ -25,12 +25,21 @@
 \newcommand{\bi}[2]{\begin{pmatrix}{#1}\\{#2}\end{pmatrix}}
 %\counterwithin{equation}{section}
 
+\usepackage[
+    type={CC},
+    modifier={by-nc},
+    version={4.0},
+]{doclicense}
 
 \title{MAT 344 Lecture Notes}
 \date{\today}
 \author{Tianyu Du}
 \begin{document}
 	\maketitle
+	\doclicenseThis
+	\texttt{Github Page} \url{https://github.com/TianyuDu/Spikey_UofT_Notes}\\
+	\texttt{Note Page} \url{TianyuDu.com/notes}
+	
 	\tableofcontents
 	\newpage
 	
@@ -288,6 +297,172 @@
 			\begin{definition}
 				The class of \textbf{nondeterministic polynomial time} problems, denoted as $\mc{NP}$, is the set of decision problems for which there is a certificate for a yes answer whose correctness can be verified in polynomial time.
 			\end{definition}
+	
+	\section{Graph Theory}
+		\begin{definition}
+			A graph $\mc{G}$ is defined as an order pair of sets $(V, E)$. \textbf{Vertex} set $V$ is a set consisting of \textbf{vertex} objects. \textbf{Edge set} $E$ contains \textbf{edges} as pairs of elements in $E$.
+		\end{definition}
+		
+		\begin{definition}
+			A graph $\mc{G}$ is called a \textbf{simple graph} if it is unweighted, undirected and contains no loop or multiple edges. That's, if $\mc{G} \equiv (V, E)$ is a simple graph, then
+			\begin{enumerate}
+				\item (Undirected) $\forall x, y \in V,\ xy \in E \iff yx \in E$.
+				\item (No loop) $\forall xy \in E, x \neq y$.
+				\item (No multiple edge) all elements in $E$ are distinct.
+				\item Vertices or edges in $\mc{G}$ have no weight.
+			\end{enumerate}
+			Graphs with multiple edges or loops are called \textbf{multi-graphs}.
+		\end{definition}
+		
+		\begin{remark}
+			In this course, unless explicitly mentioned, we consider simple graphs only.
+		\end{remark}
+		
+		\begin{definition}
+			Let $x, y \in V$, if $xy \in E$, then $x$ and $y$ are \textbf{adjacent}, and edge $xy$ is \textbf{incident to} vertices $x$ and $y$. If $xy \notin E$, we say $x$ and $y$ are \textbf{non-adjacent}.
+		\end{definition}
+		
+		\begin{definition}
+			Let $\mc{G} \equiv (V, E)$ and $x \in V$, then the \textbf{neighbourhood} of $x$ is defined as
+			\begin{equation}
+				\mc{N}(x) \equiv \{v \in V: xy \in E\}
+			\end{equation}
+			Then the \textbf{degree} of $x$ in graph $\mc{G}$ is defined as
+			\begin{equation}
+				\tx{deg}_{\mc{G}}(x) \equiv |\mc{N}(x)|
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}
+			Let $\mc{G} \equiv (V, E)$ and $\mc{H} \equiv (W, F)$, we say $\mc{H}$ is a \textbf{subgraph} of $\mc{G}$ when $W \subseteq V$ and $F \subseteq E$. $\mc{H}$ is an \textbf{induced subgraph} if
+			\begin{equation}
+				F = \{xy \in E: x, y \in W\}	
+			\end{equation}
+			$\mc{H}$ is a \textbf{spanning subgraph} if $W = V$.
+		\end{definition}
+		
+		\begin{definition}
+			$\mc{G} \equiv (V, E)$ is a \textbf{complete graph} ($\ve{K}_n$) if 
+			\begin{equation}
+				E = \{xy: \tx{ distinct pair } x, y \in V\}
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}
+			A graph $\mc{G} \equiv (V, E)$ is a \textbf{independent graph} ($\ve{I}_n$) if for every distinct pair $(x, y) \subset V$, $xy \notin E$.
+		\end{definition}
+		
+		\begin{definition}
+			A \textbf{walk} in graph $\mc{G} \equiv (V, E)$ is a \emph{sequence of vertices} $(x_1, x_2, \dots, x_n)$ such that 
+			\begin{equation}
+				x_ix_{i+1} \in E\  \forall i \in \{1,\dots,n-1\}
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}
+			A \textbf{path} is a walk with \emph{distinct} vertices. The length of path is defined as the \hl{number of edges} in it.
+		\end{definition}
+		
+		\begin{definition}
+			A \textbf{cycle} is a \emph{path} $(x_1, x_2, \dots, x_n)$ with $n \neq 3$ such that $x_1x_n \in E$.
+		\end{definition}
+		
+		\begin{definition}
+			Two graphs $\mc{G} \equiv (V, E)$ and $\mc{H} \equiv (W, F)$ are \textbf{isomorphic}, denoted as $\mc{G} \cong \mc{H}$, if there exists a bijection $f: V \to W$ such that
+			\begin{equation}
+				\forall x, y \in V,\ xy \in E \iff f(x)f(y) \in F
+			\end{equation}
+			And we say $\mc{G}$ \emph{contains} $\mc{H}$ is there is a subgraph of $\mc{G}$ isomorphic to $\mc{H}$.
+		\end{definition}
+		
+		\begin{definition}
+			A graph $\mc{G}$ is \textbf{connected} when for every distinct pair $x, y \in V$, there exists a path from $x$ to $y$. Otherwise, $\mc{G}$ is \textbf{disconnected}.
+		\end{definition}
+		
+		\begin{definition}
+			Provided $\mc{G}$ is disconnected, then a \textbf{component} of $\mc{G}$ is a \emph{maximal connect subgraph} of $\mc{G}$. That's, if $\mc{H}$ is a component, it is connected and any super-graph of $\mc{H}$ is disconnected.
+		\end{definition}
+		
+		\begin{definition}
+			A graph $\mc{G}$ is \textbf{acyclic} when it does not contain any cycle on three or more vertices. An acyclic graph is also called \textbf{forests}. Further, if a acyclic graph is connected, it's called a \textbf{tree}.
+		\end{definition}
+		
+		\begin{definition}
+			Given $\mc{G}$ is connected\footnote{If $\mc{G}$ is disconnected, it's impossible for any of its spanning subgraph to be connected.}, a subgraph $\mc{H} \equiv (W, F)$ of $\mc{G}$ is a \textbf{spanning graph} if both $V = W$ and $\mc{H}$ is a tree.
+		\end{definition}
+		
+		\begin{theorem}
+			Let $\mc{G} \equiv (V, E)$ be a graph, then
+			\begin{equation}
+				\sum_{v \in V}\tx{deg}_\mc{G}(v) = 2 |E|
+			\end{equation}
+		\end{theorem}
+		
+		\begin{corollary}
+			For any graph, the number of vertices with odd degree is even.
+		\end{corollary}
+		
+		\begin{definition}
+			Let $\mc{T}$ be a tree, a vertex $v$ is a \textbf{leaf} if $\tx{deg}_\mc{G}(v)=1$.
+		\end{definition}
+		
+		\begin{proposition}
+			Every tree with $|V| \geq 2$ has at least two leaves.
+			\begin{proof}
+				Let $\mc{T}$ be a tree. The corollary above suggests that it cannot have one leaf. Consider the case it has no leaf, then since every vertex has at least degree of 2 and $\mc{T}$ is connected, there must exist a cycle, which leads to a contradiction.
+			\end{proof}
+		\end{proposition}
+		
+		\subsection{Eulerian Graphs}
+			\begin{definition}
+				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0,v_1,\dots v_t)$ is an \textbf{Eulerian circuit} if 
+				\begin{enumerate}[(i)]
+					\item $v_0 = v_t$;
+					\item $v_i v_{i+1} \in E\ \forall i \in \{0, \dots, t-1\}$;
+					\item $\forall e \in E, \exists\ ! i \in \Z\ s.t.\ v_i v_{i+1} = e$.
+				\end{enumerate}
+				That's, it is a graph cycle which uses each graph edge exactly once.
+			\end{definition}
+			
+			\begin{definition}
+				A graph is \textbf{Eulerian} if it contains an eulerian circuit.
+			\end{definition}
+			
+			\begin{remark}
+				\hl{Some definitions require Eulerian graph to be connected but some don't, check with the lecture notes.}
+			\end{remark}
+			
+			\begin{definition}
+				A \textbf{circuit} is a walk with $x_0 = x_n$.
+			\end{definition}
+			
+			\begin{theorem}
+				A graph $\mc{G}$ is Eulerian \ul{if and only if} it is connected and every vertex has even degree.
+			\end{theorem}
+		
+		\subsection{Hamiltonian Graphs}
+			\begin{definition}
+				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0, v_1, \dots, v_t)$ is a \textbf{Hamiltonian cycle} if 
+				\begin{enumerate}
+					\item $v_0 v_t \in E$;
+					\item $v_i v_{i+1} \in E\ \forall i \in \{0, \dots, t-1\}$;
+					\item $\forall v \in V, \exists\ i \in \Z\ s.t.\ v_i = v$.
+				\end{enumerate}
+			\end{definition}
+			
+			\begin{definition}
+				A graph containing Hamiltonian cycle is \textbf{Hamiltonian}.
+			\end{definition}
+			
+			\begin{theorem}
+				If $\mc{G}$ is a graph with $n$ vertices, and $\tx{deg}_\mc{G}(v) \geq \lceil \frac{n}{2} \rceil\ \forall v \in V$, then $\mc{G}$ is Hamiltonian.
+			\end{theorem}
+			
+		\subsection{Graph Colouring}
+	
+	\newpage
+	\section*{References}
+		\par Keller, M. T., \& Trotter, W. T. (2017). \emph{Applied combinatorics}: Mitchel T. Keller, William T. Trotter. \texttt{https://www.rellek.net/appcomb}
 \end{document}
 
 
