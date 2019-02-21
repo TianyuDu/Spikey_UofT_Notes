@@ -12,6 +12,7 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[margin=1truein]{geometry}
 \usepackage{tkz-graph}
+\usepackage{dsfont}
 %\GraphInit[vstyle = Shade]
 
 \counterwithin{equation}{section}
@@ -459,7 +460,150 @@
 			\end{theorem}
 			
 		\subsection{Graph Colouring}
-	
+			\begin{definition}
+				Let $\mc{G} \equiv (V, E)$, and $C$ is a set of elements called \textbf{colours}. Then a \textbf{proper colouring} of $\mc{G}$ is a function $\phi:V \to C$ such that 
+				\begin{equation}
+					\forall x, y \in V,\ xy \in E \implies \phi(x) \neq \phi(y)
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				The least size of $C$ such that we can construct a proper colouring with it is defined as the \textbf{chromatic number} of $\mc{G}$, denoted as $\chi(\mc{G})$.
+			\end{definition}
+			
+			\begin{definition}
+				A graph $\mc{G} \equiv (V, E)$ with $\chi(\mc{G}) \leq 2$ is called \textbf{2-colourable graph}.
+			\end{definition}
+			
+			\begin{theorem}
+				A graph is 2-colourable \ul{if and only if} it does \emph{not} contain an odd cycle.
+				\begin{proof}\quad \\
+					($\implies$) Let $\mc{G} \equiv (V, E)$ be a 2-clourable graph with proper colouring $\phi: V \to \{\alpha, \beta\}$. \\
+					Define $V_1 \equiv \phi^{-1}(\alpha)$ and $V_2 \equiv \phi^{-1}(\beta)$. Clearly those two sets are disjoint and $V = V_1 \cup V_2$. \\
+					By definition of proper colouring, for every pair of $x_1, x_2 \in V_1$, $x_1 x_2 \notin E$. The same holds for $V_2$. \\
+					Therefore subgraphs of $\mc{G}$ induced from $V_1$ and $V_2$ are themselves independent, and $\mc{G}$ it bipartite. \\
+					We've shown the equivalence between bipartite and 2-colourable. \\
+					Suppose there's an odd cycle in $\mc{G}$, $C = (x_1, x_2, \dots, x_n)$, where $n$ is odd. \\
+					WLOG, assume $x_1 \in V_1$, by nature of bipartite graph, $x_i \in V_2\ \iff i \tx{ even}$. Therefore $x_n \in V_1$, and for $C$ to be a cycle, we require $x_1 x_n \in E$, which contradicts the fact that $\mc{G}$ is bipartite and 2-colourable. \\\emph{Modus Tollens} \\
+					($\impliedby$) Suppose there exists an odd cycle $C = (x_1, x_2, \dots, x_n)$ in $\mc{G}$, it's easy to show, by induction,  that for any proper colouring $\phi$ of $\mc{G}$, $|\phi(C)| \geq 3$. This implies $|\phi(V)| \geq 3$, so $\mc{G}$ is not 2-colourable. \\
+					\emph{Modus Tollens}
+				\end{proof}
+			\end{theorem}
+			
+			\begin{definition}
+				A graph $\mc{G} = (V, E)$ is a \textbf{bipartite graph} when $V$ can be partitioned into two sets $V_1, V_2$, such that subgraphs \emph{induced} by $V_1$ and $V_2$ are \emph{independent graphs}.
+			\end{definition}
+			
+			\begin{remark}
+				Bipartite graphs are 2-colourable. Simply define $\phi: V \to \{\alpha, \beta\}$ as 
+				\begin{equation}
+					\phi(v) = \alpha \mathds{1}\{v \in V_1\} + \beta \mathds{1}\{v \in V_2\}
+				\end{equation}
+			\end{remark}
+			
+			\begin{definition}
+				A \textbf{clique} in a graph $\mc{G} \equiv (V, E)$ is a set $K \subseteq V$ such that the subgraph induced by $K$ is isomorphic to the $|K|$-complete graph $\ve{K}_{|K|}$. (Equivalently, vertices in $K$ are \emph{pair-wise adjacent})
+			\end{definition}
+			
+			\begin{definition}
+				The \textbf{maximum clique size} or \textbf{clique number} of graph $\mc{G}$, denoted as $\omega(\mc{G})$ is the largest $t$ such that there exists a clique with $t$ vertices.
+			\end{definition}
+			
+			\begin{proposition}
+				For any graph $\mc{G}$, 
+				\begin{equation}
+					\chi(\mc{G}) \geq \omega(\mc{G})
+				\end{equation}
+			\end{proposition}
+			
+			\begin{proposition}[Generalized Pigeon Hole Principle]
+				Let $f: X \to Y$ be a mapping such that 
+				\begin{equation}
+					|X| \red{>} (m-1)|Y|
+				\end{equation}
+				then there exists $\{x_1, \dots, x_m\} \subseteq X$ such that $f(x_i) = f(x_j)\ \forall i, j$.
+				\begin{proof}
+					For each $y \in Y$, we can divide $X$ into $|Y|$ partitions, where each partition is defined as the pre-image of one particular $y \in Y$. Let $\{X_i\}$ denote the set of partitions. \\
+					We are trying to find the minimum value of $\max_i\{|X_i|\}_{i=1}^{|Y|}$, that's
+					\begin{equation}
+						\min_{\tx{valid partition}} \max_i\{|X_i|\}_{i=1}^{|Y|}
+					\end{equation}
+					the minimum is attained when each partition of $X$ has the same cardinality, which is strictly greater than $m-1$. \\
+					For each of those partitions, it's a pre-image for some value $y \in Y$ with size at least $m$.
+				\end{proof}
+			\end{proposition}
+			
+			\begin{proposition}
+				For every $t \geq 3$, there exists a graph $\mc{G}_t$ so that $\chi(\mc{G}_t) = t$ and $\omega(\mc{G}_t) = 2$. \emph{So the difference between $\chi$ and $\omega$ can be arbitrarily large and this inequality in proposition 4.2 cannot always be tight.}
+			\end{proposition}
+			
+			\begin{definition}
+				Let $\mc{F} = \{S_\alpha: \alpha \in V\}$ be an indexed family of sets, define a graph $\mc{G}$ in the following such that 
+				\begin{equation}
+					S_x \cap S_y \neq \emptyset \iff xy \in E
+				\end{equation}
+				Then we call $\mc{G}$ an \textbf{intersection graph} (representing $\mc{F}$).
+			\end{definition}
+			
+			\begin{remark}
+				Every graph is an intersection graph since we can explicitly construct a collection of sets from the adjacency matrix of the given graph.
+			\end{remark}
+			
+			\begin{definition}
+				$\mc{G}$ is an \textbf{interval graph} if it is the intersection graph of \emph{a collection of closed intervals in $\R$}.
+			\end{definition}
+			
+			\begin{theorem}
+				If $\mc{G}$ is an interval graph, then $\chi(\mc{G}) = \omega(\mc{G})$.
+			\end{theorem}
+			
+			\begin{definition}
+				A graph $\mc{G}$ is \textbf{perfect} if $\chi(\mc{H}) = \omega(\mc{H})$ for every \emph{induced subgraph} $\mc{H}$ of $\mc{G}$.
+			\end{definition}
+			
+			\begin{corollary}
+				Since every induced subgraph of interval graph is also an interval graph, therefore \emph{every interval graph is perfect}.
+			\end{corollary}
+		
+		\subsection{Planer Graphs}
+			\begin{definition}
+				A \textbf{drawing} of a graph is a way of associating its vertices with points in $\R^2$ and its edges with simple polygonal arcs whose endpoints are the coordinates associated to the vertices that are the endpoints of the edge.
+			\end{definition}
+			
+			\begin{definition}
+				A \textbf{planar drawing} of a graph is on in which arcs corresponding to two edges intersect only at a point corresponding to a vertex to which they are both incident.
+			\end{definition}
+
+			\begin{definition}
+				A graph $\mc{G}$ is \textbf{planar} if it has a planar drawing.
+			\end{definition}
+			
+			\begin{definition}
+				A \textbf{face} of a \emph{planar drawing} of a graph is a region bounded by edges and vertices and not containing any other vertices or edges.
+			\end{definition}
+
+			\begin{theorem}[Euler's Formula]
+				Let $\mc{G}$ be a \emph{connected planer graph} with $V$ vertices and $E$ edges. Then $\mc{G}$ has $f$ faces where 
+				\begin{equation}
+					V - E + f = 2
+				\end{equation}
+			\end{theorem}
+			
+			\begin{theorem}
+				A planar graph with $n$ vertices has at most $3n - 6$ edges when $n \geq 3$.
+			\end{theorem}
+			
+			\begin{theorem}[Kuratowski's Theorem]
+				A graph is planar \ul{if and only if} it does not contain either $\ve{K}_5$ or $\ve{K}_{3,3}$.
+			\end{theorem}
+			
+			\begin{theorem}[Four Colour Theorem]
+				Every planar graph has chromatic number at most four.
+			\end{theorem}
+
+
+
+
 	\newpage
 	\section*{References}
 		\par Keller, M. T., \& Trotter, W. T. (2017). \emph{Applied combinatorics}: Mitchel T. Keller, William T. Trotter. \texttt{https://www.rellek.net/appcomb}
