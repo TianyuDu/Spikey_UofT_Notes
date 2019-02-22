@@ -39,13 +39,135 @@
 	\tableofcontents
 	\newpage
 	
+	\section{Topic 1 Binary Outcome Model}
+		\subsection{Lecture 1. Jan. 10 2019}
+			\subsubsection{Model}
+				\paragraph{Interpretation} Binary outcome models can be interpreted as rational individuals are making binary decisions by comparing the utilities resulting from each decision.
+				\begin{equation}
+					\begin{cases}
+						u_1(\ve{x}, \varepsilon_1) &\tx{ utility from decision 1} \\
+						u_0(\ve{x}, \varepsilon_0) &\tx{ utility from decision 0}
+					\end{cases}
+				\end{equation}
+				and rationality of individuals suggests
+				\begin{equation}
+					y = \begin{cases}
+						1 &\tx{ if } u_1(\ve{x}_i, \varepsilon_1) \red{\geq} u_0(\ve{x}_i, \varepsilon_0) \\
+						0 &\tx{ otherwise}
+					\end{cases}
+				\end{equation}
+				\begin{assumption}
+					By convention, the edge case that $u_0 = u_1$ is modelled and classified to be in the first case, but $\prob{u_1 - u_0 = 0|\ve{x}} =0$ for continuous utilities, so the edge does not really matter.
+				\end{assumption}
+				
+				\begin{assumption}
+					The difference in utilities can be captured by a linear function, and we define the \textbf{latent variable} $y^*$ as
+					\begin{align}
+						y^*(\ve{x}) &\equiv u_1(\ve{x}, \varepsilon_1) - u_0(\ve{x}, \varepsilon_0) \\
+						&= \ve{x}' \beta + \varepsilon
+					\end{align}
+				\end{assumption}
+				
+				\begin{remark}[About shapes of variables]
+					\begin{gather}
+						\ve{x},\ \beta \in \mathbb{M}_{k \times 1};\ y,\ d \in \R
+					\end{gather}
+				\end{remark}
+				\paragraph{Reduced Model} Then the primary model (1.2) is reduced to
+				\begin{equation}
+					y = \id{y^*(\ve{x}) \geq 0}
+				\end{equation}
+			
+			\subsubsection{Data Structure}
+				\par For each individual, the observation contains two \emph{primary variables}, $(\ve{x}_i, y_i)$. So the dataset would look like
+					\begin{gather}
+						\{(\ve{x}_i, y_i)\}_{i=1}^N
+					\end{gather}
+			
+			\subsubsection{Linear Probability Model}
+				\paragraph{Problems} \quad
+				\begin{enumerate}
+					\item Out-of-range prediction;
+					\item Homogeneous marginal effect;
+					\item (Potentially) heteroskedasticity.	
+				\end{enumerate}
+			\subsubsection{Model with Binomial Distribution}
+				\paragraph{Procedures} \quad
+					\begin{enumerate}
+						\item Construct distribution and density functions.
+						\item Construct likelihood from density function, assuming iid of observations.
+						\item (MLE) estimates model parameters.
+						\item Predictions, both individual and average effect.
+					\end{enumerate}
+				\paragraph{Conditional Density}
+					\begin{gather}
+						f_Y(y|\ve{x}) = \begin{cases}
+							P(\ve{x}) &\tx{ if } y = 1 \\
+							1 - P(\ve{x}) &\tx{ if } y = 0
+						\end{cases} \\
+						= P(\ve{x})^{d} [1 - P(\ve{x})]^{1-d} 
+					\end{gather}
+					
+				\begin{assumption}[Distributions of $\varepsilon$]
+					Generally, there are two assumptions regarding to the distribution of $\varepsilon$,
+					\begin{enumerate}[(i)]
+						\item \textbf{Standard Normal} $\varepsilon \sim \mc{N}(0, 1)$\footnote{\hl{In the normal distribution case, we cannot estimate the variance of $\hat{\beta}_{MLE}$ laster if we do not assume the variance to be 1.}}.
+						\item \textbf{Gumbel Distribution} $F_\varepsilon(x) = \frac{e^x}{1 + e^x}$.
+					\end{enumerate}
+					Note that, in either case, $\varepsilon$ is symmetrically distributed, which means $\varepsilon$ and $-\varepsilon$ have the identical density and distribution.
+				\end{assumption}
+				
+					\begin{gather}
+						P(\ve{x}) \equiv \prob{y^* \geq 0|\ve{x}} = \prob{-\varepsilon \leq \ve{x}' \beta | \ve{x}} \equiv F_{\varepsilon}(\ve{x}'\beta) \\
+						\implies f_Y(y|\ve{x}) = (F_{\varepsilon}(\ve{x}'\beta))^y (1 - F_{\varepsilon}(\ve{x}'\beta))^{1-y}
+					\end{gather}
+					
+				\paragraph{Likelihood} assuming observations are iid, the joint density, conditioned on model parameter $\beta$, of the \ul{collection of observations} $\{(y_i)\}_{i=1}^N$ is
+					\begin{gather}
+						f_{\{(Y_i)\}_{i=1}^N}(\{(y_i)\}_{i=1}^N|\beta, \{(\ve{x}_i)\}_{i=1}^N) = \prod_{i=1}^N f_Y(y_i|\ve{x}_i, \beta) \\
+						= \prod_{i=1}^N F_\varepsilon(\ve{x}_i' \beta)^{y_i} (1 - F_\varepsilon(\ve{x}_i' \beta))^{1 - y_i}
+					\end{gather}
+					and the likelihood of collection of observations $\{(\ve{x}_i, y_i, d_i)\}_{i=1}^N$ is given parameter $\beta$ is 
+					\begin{gather}
+						\mc{L}(\beta|\{(\ve{x}_i, y_i, d_i)\}_{i=1}^N) = \prod_{i=1}^N F_\varepsilon(\ve{x}_i' \beta)^{y_i} (1 - F_\varepsilon(\ve{x}_i' \beta))^{1 - y_i} \\
+						\implies \ln \mc{L} = \sum_{i=1}^N y_i \ln F_\varepsilon(\ve{x}_i' \beta) + (1 - y_i) \ln (1 - F_\varepsilon(\ve{x}_i' \beta))
+					\end{gather}
+					
+				\paragraph{Maximum Likelihood Estimation} First order conditions
+					\begin{gather}
+						\pd{\ln \mc{L}}{\beta} = \sum_{i=1}^N y_i \frac{F'_\varepsilon(\ve{x}_i' \beta)}{F_\varepsilon(\ve{x}_i' \beta)} \ve{x}'_i 
+						- (1 - y_i) \frac{F'_\varepsilon(\ve{x}_i' \beta)}{1 - F_\varepsilon(\ve{x}_i' \beta)}\ve{x}'_i \\
+						= \sum_{i=1}^N \frac{y_i F'_\varepsilon(\ve{x}_i' \beta) - F'_\varepsilon(\ve{x}_i' \beta)F_\varepsilon(\ve{x}_i' \beta)}{F_\varepsilon(\ve{x}_i' \beta)(1-F_\varepsilon(\ve{x}_i' \beta))} \ve{x}'_i = 0
+					\end{gather}
+					
+				\paragraph{Prediction - Marginal Effect} With binary outcome model, according to mean of Binomial distribution, 
+					\begin{gather}
+						\expect{y|\ve{x}} = P(\ve{x}) \equiv F_\varepsilon(\ve{x}' \hat{\beta}_{MLE})
+					\end{gather}
+					Then the marginal effect is
+					\begin{gather}
+						\pd{\expect{y|\ve{x}}}{x_k} = F'_\varepsilon(\ve{x}' \hat{\beta}_{MLE}) \hat{\beta}_{j, MLE}
+					\end{gather}
+					In contrast to the linear probability model, in which the marginal effect is assumed to be homogeneous. In BOM prediction, the $F'_\varepsilon(\ve{x}' \hat{\beta}_{MLE})$ term in the marginal effect acts as a source of \textbf{heterogeneity} marginal effect.
+				
+				\begin{remark}
+					Given $f_\varepsilon \geq 0$, $\hat{\beta}_{MLE}$ reports the \textbf{sign} of marginal effect, but it \hl{provides no quantitative implication}.
+				\end{remark}
+				
+				\paragraph{Prediction - Average Marginal Effect}
+					There are two methods to estimate the average marginal effect, these two methods generate different estimations unless the density function of $\varepsilon$ is linear.
+					\begin{enumerate}[(i)]
+						\item $\overline{ME}_j = \frac{1}{N} \sum_{i=1}^N F'_\varepsilon(\ve{x}_i \hat{\beta}) \hat{\beta}_j$
+						\item $\overline{ME}_j = F'_\varepsilon(\overline{\ve{x}}_i \hat{\beta}) \hat{\beta}_j$
+					\end{enumerate}
+			
 	\section{Lecture 3. Jan. 24 2019}
 		\subsection{Two Side Censoring MLE}
 		\par Consider the latent dependent variable
 		\begin{equation}
 			Y^* = \textbf{x}' \bm{\beta} + \epsilon
 		\end{equation}
-		where $\epsilon_i \sim \mc{N}(0, \red{\sigma^2})$. \\
+		where $\epsilon_i \sim \mc{N}(0, \red{\sigma^2})$\footnote{In general, we can assume the error variance to be $\sigma^2$ when the dependent variable is \emph{quantitive}, but with \emph{qualitative} dependent variables, we assume $\varepsilon \sim \mc{N}(0, 1)$ since we don't have sufficient information to estimate the error variance.}. \\
 		Therefore, given fixed $\textbf{x}$,
 		\begin{equation}
 			Y^* \sim \mc{N}(\textbf{x}' \bm{\beta}, \sigma^2)

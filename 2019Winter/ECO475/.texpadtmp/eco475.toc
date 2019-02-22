@@ -1,23 +1,38 @@
 \select@language {english}
-\contentsline {section}{\numberline {1}Lecture 3. Jan. 24 2019}{2}{section.1}
-\contentsline {subsection}{\numberline {1.1}Two Side Censoring MLE}{2}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Two Side Truncated MLE}{3}{subsection.1.2}
-\contentsline {section}{\numberline {2}Lecture 4. Jan. 31 2019}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Tobit and Sample Selection}{4}{subsection.2.1}
-\contentsline {paragraph}{Model}{4}{section*.2}
-\contentsline {paragraph}{Expectation}{4}{section*.3}
-\contentsline {paragraph}{Marginal Effect}{5}{section*.4}
-\contentsline {subsection}{\numberline {2.2}Heckman Estimation (Two-Step Procedure)}{5}{subsection.2.2}
-\contentsline {paragraph}{Step 1}{5}{section*.5}
-\contentsline {paragraph}{Step 2}{5}{section*.6}
-\contentsline {paragraph}{Special Case (i)}{5}{section*.7}
-\contentsline {paragraph}{Special Case (ii)}{6}{section*.8}
-\contentsline {section}{\numberline {3}Binary Outcome with Continuous Endogenous Regressors:\\Control Function Approach}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Model}{6}{subsection.3.1}
-\contentsline {paragraph}{}{6}{section*.9}
-\contentsline {subsection}{\numberline {3.2}Maximum Likelihood Estimator}{7}{subsection.3.2}
-\contentsline {paragraph}{}{7}{section*.10}
-\contentsline {subsection}{\numberline {3.3}Control Function}{7}{subsection.3.3}
-\contentsline {paragraph}{Step 1}{7}{section*.11}
-\contentsline {paragraph}{Step 2}{8}{section*.12}
-\contentsline {paragraph}{Step 3}{8}{section*.13}
+\contentsline {section}{\numberline {1}Topic 1 Binary Outcome Model}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Lecture 1. Jan. 10 2019}{2}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Model}{2}{subsubsection.1.1.1}
+\contentsline {paragraph}{Interpretation}{2}{section*.2}
+\contentsline {paragraph}{Reduced Model}{2}{section*.3}
+\contentsline {subsubsection}{\numberline {1.1.2}Data Structure}{2}{subsubsection.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.3}Linear Probability Model}{2}{subsubsection.1.1.3}
+\contentsline {paragraph}{Problems}{2}{section*.4}
+\contentsline {subsubsection}{\numberline {1.1.4}Model with Binomial Distribution}{3}{subsubsection.1.1.4}
+\contentsline {paragraph}{Procedures}{3}{section*.5}
+\contentsline {paragraph}{Conditional Density}{3}{section*.6}
+\contentsline {paragraph}{Likelihood}{3}{section*.7}
+\contentsline {paragraph}{Maximum Likelihood Estimation}{4}{section*.8}
+\contentsline {paragraph}{Prediction - Marginal Effect}{4}{section*.9}
+\contentsline {paragraph}{Prediction - Average Marginal Effect}{4}{section*.10}
+\contentsline {section}{\numberline {2}Lecture 3. Jan. 24 2019}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Two Side Censoring MLE}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Two Side Truncated MLE}{5}{subsection.2.2}
+\contentsline {section}{\numberline {3}Lecture 4. Jan. 31 2019}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Tobit and Sample Selection}{6}{subsection.3.1}
+\contentsline {paragraph}{Model}{6}{section*.11}
+\contentsline {paragraph}{Expectation}{7}{section*.12}
+\contentsline {paragraph}{Marginal Effect}{7}{section*.13}
+\contentsline {subsection}{\numberline {3.2}Heckman Estimation (Two-Step Procedure)}{7}{subsection.3.2}
+\contentsline {paragraph}{Step 1}{7}{section*.14}
+\contentsline {paragraph}{Step 2}{8}{section*.15}
+\contentsline {paragraph}{Special Case (i)}{8}{section*.16}
+\contentsline {paragraph}{Special Case (ii)}{8}{section*.17}
+\contentsline {section}{\numberline {4}Binary Outcome with Continuous Endogenous Regressors:\\Control Function Approach}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Model}{8}{subsection.4.1}
+\contentsline {paragraph}{}{8}{section*.18}
+\contentsline {subsection}{\numberline {4.2}Maximum Likelihood Estimator}{9}{subsection.4.2}
+\contentsline {paragraph}{}{9}{section*.19}
+\contentsline {subsection}{\numberline {4.3}Control Function}{10}{subsection.4.3}
+\contentsline {paragraph}{Step 1}{10}{section*.20}
+\contentsline {paragraph}{Step 2}{10}{section*.21}
+\contentsline {paragraph}{Step 3}{10}{section*.22}
