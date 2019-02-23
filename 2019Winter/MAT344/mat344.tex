@@ -389,8 +389,16 @@
 		\end{definition}
 		
 		\begin{definition}
-			Given $\mc{G}$ is connected\footnote{If $\mc{G}$ is disconnected, it's impossible for any of its spanning subgraph to be connected.}, a subgraph $\mc{H} \equiv (W, F)$ of $\mc{G}$ is a \textbf{spanning graph} if both $V = W$ and $\mc{H}$ is a tree.
+			Given $\mc{G}$ is connected\footnote{If $\mc{G}$ is disconnected, it's impossible for any of its spanning subgraph to be connected.}, a subgraph $\mc{H} \equiv (W, F)$ of $\mc{G}$ is a \textbf{spanning tree} if both $V = W$ and $\mc{H}$ is a tree.
 		\end{definition}
+		
+		\begin{proposition}
+			Every connected graph has a spanning tree.
+		\end{proposition}
+		
+		\begin{theorem}
+			$\ve{K}_n$ has $n^{n-2}$ \textbf{labelled spanning trees}.
+		\end{theorem}
 		
 		\begin{theorem}
 			Let $\mc{G} \equiv (V, E)$ be a graph, then
@@ -589,13 +597,34 @@
 				\end{equation}
 			\end{theorem}
 			
+			\begin{theorem}[Generalization of Euler's Formula]
+				If a graph $\mc{G}$ is planar, then
+				\begin{equation}
+					V - E + F = 1 + \tx{\# of components}
+				\end{equation}
+				\begin{proof}
+					Induction on $E$.\\
+					\textbf{Base Case} $E=0$, there are 1 face and $V$ components, above formula holds. \\
+					\textbf{Inductive Step} Adding one edge either
+					\begin{enumerate}
+						\item Eliminate one component,
+						\item Or increase one face.
+					\end{enumerate}
+					Suppose the new edge $e$ reduces number of component by 1, it must be the case that it connects two components in the original graph, and there is only one edge between those two components, it's impossible for such single edge to form one extra face.
+				\end{proof}
+			\end{theorem}
+			
 			\begin{theorem}
 				A planar graph with $n$ vertices has at most $3n - 6$ edges when $n \geq 3$.
 			\end{theorem}
 			
 			\begin{theorem}[Kuratowski's Theorem]
-				A graph is planar \ul{if and only if} it does not contain either $\ve{K}_5$ or $\ve{K}_{3,3}$.
+				A graph is planar \ul{if and only if} it does not \emph{contain} either $\ve{K}_5$ or $\ve{K}_{3,3}$.
 			\end{theorem}
+			
+			\begin{definition}
+				Graph $\mc{G}$ \textbf{Contain} $\mc{H}$ means $\mc{G}$ has a subgraph that is homeomorphic to $\mc{H}$.
+			\end{definition}
 			
 			\begin{theorem}[Four Colour Theorem]
 				Every planar graph has chromatic number at most four.
