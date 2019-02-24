@@ -424,7 +424,7 @@
 		
 		\subsection{Eulerian Graphs}
 			\begin{definition}
-				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0,v_1,\dots v_t)$ is an \textbf{Eulerian circuit} if 
+				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0,v_1,\dots v_t)$ is an \textbf{Eulerian circuit} if (\hl{\textbf{Unique edge}})
 				\begin{enumerate}[(i)]
 					\item $v_0 = v_t$;
 					\item $v_i v_{i+1} \in E\ \forall i \in \{0, \dots, t-1\}$;
@@ -451,11 +451,11 @@
 		
 		\subsection{Hamiltonian Graphs}
 			\begin{definition}
-				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0, v_1, \dots, v_t)$ is a \textbf{Hamiltonian cycle} if 
+				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0, v_1, \dots, v_t)$ is a \textbf{Hamiltonian cycle} if (\hl{\textbf{Unique vertex}})
 				\begin{enumerate}
 					\item $v_0 v_t \in E$;
 					\item $v_i v_{i+1} \in E\ \forall i \in \{0, \dots, t-1\}$;
-					\item $\forall v \in V, \exists\ i \in \Z\ s.t.\ v_i = v$.
+					\item $\forall v \in V, \exists!\ i \in \Z\ s.t.\ v_i = v$.
 				\end{enumerate}
 			\end{definition}
 			
@@ -600,7 +600,7 @@
 			\begin{theorem}[Generalization of Euler's Formula]
 				If a graph $\mc{G}$ is planar, then
 				\begin{equation}
-					V - E + F = 1 + \tx{\# of components}
+					\red{V - E + F = 1 + \tx{\# of components}}
 				\end{equation}
 				\begin{proof}
 					Induction on $E$.\\
@@ -615,7 +615,7 @@
 			\end{theorem}
 			
 			\begin{theorem}
-				A planar graph with $n$ vertices has at most $3n - 6$ edges when $n \geq 3$.
+				\hl{A planar graph with $n$ vertices has at most $3n - 6$ edges when $n \geq 3$.}
 			\end{theorem}
 			
 			\begin{theorem}[Kuratowski's Theorem]

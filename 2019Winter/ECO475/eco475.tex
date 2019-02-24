@@ -290,18 +290,83 @@
 					\epsilon_i \\ v_i	
 				\end{pmatrix}
 				\sim \mc{N}(\ve{0},
-				\begin{pmatrix}
-					\sigma_{\epsilon}^2 & \rho \sigma^2 \\
-					\rho \sigma^2 & 1
-				\end{pmatrix})
+				\begin{bmatrix}
+					\sigma_{\epsilon}^2 & \rho \sigma_\varepsilon \\
+					\rho \sigma_\varepsilon & 1
+				\end{bmatrix})
 			\end{gather}
 			
 			\begin{lemma}
-				If $(\epsilon, v)$ follows joint normal distribution, then there exists $e \perp v$ and $e \sim \mc{N}(0,1)$ such that
+				\hl{Pending Review, the variance of decomposed $e$} If $(\epsilon, v)$ follows joint normal distribution, then there exists $e \perp v$ and $e \sim \mc{N}(0,1)$ such that
 				\begin{gather}
 					\frac{\epsilon}{\sigma_{\epsilon}} = \rho v + e
 				\end{gather}
 			\end{lemma}
+
+			
+			\begin{theorem}
+				Let 
+				\begin{equation}
+					(X, Y) \sim \mc{N}(\ve{0}, \begin{bmatrix}1 & \rho \sigma_Y \\ \rho \sigma_Y & \sigma_Y^2 \end{bmatrix})	
+				\end{equation}
+				Then $Y$ can be decomposed into
+				\begin{equation}
+					Y = \rho \sigma_Y X + \eta
+				\end{equation}
+				where $\eta \perp X$ and $\eta \sim \mc{N}(0, \sigma_Y^2 - \rho^2 \sigma_Y^2)$.
+				\begin{proof}
+					Let 
+					\begin{gather}
+						\begin{pmatrix}
+							\eta \\ X
+						\end{pmatrix} 
+						= \begin{pmatrix}
+							- \rho \sigma_Y & 1 \\
+							1 & 0
+						\end{pmatrix}
+						\begin{pmatrix}
+							X \\ Y
+						\end{pmatrix}
+					\end{gather}
+					Note that, given $\ve{x} \sim \mc{N}(\bm{\mu}, \Sigma)$, $\ve{A}\ve{x} \sim \mc{N}(\ve{A} \bm{\mu}, \ve{A}\Sigma \ve{A}')$. Therefore
+					\begin{gather}
+						\begin{pmatrix}
+							\eta \\ X
+						\end{pmatrix} \sim \mc{N}(
+							\ve{0},
+							\begin{pmatrix}
+							- \rho \sigma_Y & 1 \\
+							1 & 0
+						\end{pmatrix} \begin{pmatrix}1 & \rho \sigma_Y \\ \rho \sigma_Y & \sigma_Y^2 \end{pmatrix}
+						\begin{pmatrix}
+							- \rho \sigma_Y & 1 \\
+							1 & 0
+						\end{pmatrix}
+						) \\
+						= \mc{N}(
+							\ve{0},
+							\begin{pmatrix}
+								0 & \sigma_Y^2 -\rho^2 \sigma_Y^2 \\
+								1 & \rho \sigma_Y
+							\end{pmatrix}
+						\begin{pmatrix}
+							- \rho \sigma_Y & 1 \\
+							1 & 0
+						\end{pmatrix}
+						) \\
+						= \mc{N}(
+							\ve{0},
+							\begin{pmatrix}
+								\sigma_Y^2 -\rho^2 \sigma_Y^2 & 0 \\
+								0 & 1
+							\end{pmatrix}
+						)
+					\end{gather}
+					Since the off-diagonal elements of $\ve{A}\Sigma \ve{A}'$ are all zero, therefore $\eta \perp X$, and $\var{\eta} = (1 - \rho^2) \sigma_Y^2$.
+				\end{proof}
+			\end{theorem}
+						
+
 			\paragraph{Expectation} Define $\tilde{\ve{x}}_i \equiv [\ve{x}_i, \ve{w}_i]$, then the expected \emph{observed} dependent variable is \footnote{For each variable, the $i$ subscript is omitted in the derivation}
 			\begin{gather}
 				\expect{y | \ve{w}_i' \gamma + v_i > 0, \tilde{\ve{x}}} \\
@@ -479,13 +544,121 @@
 				\end{gather}
 				So the probit model can be written as
 				\begin{equation}
-					y = \mathbb{I}\{-\tilde{u} < \ve{x}_y \theta^* + w \gamma^* + v \alpha^*\}
+					y = \mathds{1} \{-\tilde{u} < \ve{x}_y \theta^* + w \gamma^* + v \alpha^*\}
 				\end{equation}
 				where $\tilde{u} \sim \mc{N}(0,1)$.\\
 				\par Once we have an estimation on $\alpha^*$, $\rho$ can be calculated with
 				\begin{equation}
 					\rho = \pm \sqrt{\frac{\alpha^*}{1 + \alpha^{*2}}}
 				\end{equation}
+
+	\section{Treatment Effect and Potential Outcome Model}
+		\subsection{Lecture 6. Fen. 18 2019}
+			\subsubsection{Model}
+				\begin{gather}
+					Y = \begin{cases}
+						Y_1 &\tx{ if } D = 1 \\
+						Y_0 &\tx{ if } D = 0
+					\end{cases}
+				\end{gather}
+				which is equivalent to
+				\begin{gather}
+					Y = Y_1 D + Y_0 (1 - D)
+				\end{gather}
+				
+				\begin{definition}
+					$(Y_0, Y_1)$ are called \textbf{potential outcomes}, only one of them will be realized and observed, depends on the \emph{decision}, $D$, of individuals.
+				\end{definition}
+				
+				\begin{remark}
+					Rationality of individuals suggests that while people are making decision, they will choose the one associated with higher potential outcome. But in this model, individuals might not be perfectly informed about the potential outcomes.
+				\end{remark}
+				
+				\begin{definition}
+					\textbf{Individual treatment effect} is defined as
+					\begin{gather}
+						Y_1 - Y_0
+					\end{gather} Each individual is associated with one realization of above random variable. So the individual treatment effect depends on individual characteristics $X$, and can be written as $(Y_1 - Y_0)(X)$.
+					\textbf{Average treatment effect (ATE)} is defined as
+					\begin{gather}
+						\expect{Y_1 - Y_0}
+					\end{gather}
+					And \textbf{Conditional ATE} is defined as 
+					\begin{gather}
+						\expect{Y_1(X) - Y_2(X) | X = x} \equiv \alpha(x)
+					\end{gather}
+				\end{definition}
+				
+				\subsubsection{Data Structure}
+					\begin{gather}
+						(X, D, Y) \rightarrow \{(x_i, d_i, y_i)\}_{i=1}^N
+					\end{gather}
+				
+				\subsubsection{Linear Models: Homogeneous Treatment Effect Problem}
+					\par Model (5.2) can be rewritten as 
+					\begin{gather}
+						Y = (Y_1 - Y_0)D + Y_0
+					\end{gather}
+					the $D$ and $Y$ are observable, an OLS linear model would give
+					\begin{gather}
+						Y = \alpha D + \varepsilon \\
+						\tx{where }\alpha \equiv Y_1 - Y_0,\ \varepsilon \equiv Y_0
+					\end{gather}
+					OLS methods treat the individual treatment effect as a constant $\alpha$. Thus linear models assume a \emph{homogenous treatment effect}, which is unrealistic.
+					\begin{remark}
+						Homogeneous treatment effect is more realistic if the decision is made on macro level.
+					\end{remark}
+					
+					\begin{remark}
+						If we only wish to extract the \emph{correlation} instead of the \emph{causal effect}, using OLS is fine.
+					\end{remark}
+				
+				\subsubsection{Linear Models: Endogeneity Problem}
+				\begin{remark}
+					\hl{This section needs to be revised, equation 5.11, 5.12}
+				\end{remark}
+					\par Suppose the treatment effect is heterogeneous, we can write (5.2) as 
+					\begin{gather}
+						Y = (Y_1 - Y_0) D + Y_0 = \alpha(\red{X}) D + Y_0(X)
+					\end{gather}
+					assuming both potential outcomes are linear in individual characteristics 
+					\begin{gather}
+						Y_1 = \alpha_1 + \beta_1 x + \varepsilon_1 \\
+						Y_0 = \alpha_0 + \beta_0 x + \varepsilon_0
+					\end{gather}
+					then (5.10) becomes 
+					\begin{gather}
+						Y = [(\alpha_1 - \alpha_0) + (\beta_1 - \beta_0)x + (\varepsilon_1 - \varepsilon_0)]D + \alpha_0 + \beta_0 x + \varepsilon_0 \\
+						= \alpha^*(x) D  + \alpha_0 + \beta_0 x + \underbrace{\blue{[\varepsilon_1 D + \varepsilon_0(1 - D)]}}_{\varepsilon^*} \\
+						\tx{where } \alpha^*(x) \equiv (\alpha_1 - \alpha_0) + (\beta_1 - \beta_0)x
+					\end{gather}
+					Unless $\varepsilon_0 = \varepsilon_1$, the $\varepsilon^*$ is correlated with $D$, which causes endogeneity problem.
+					\begin{remark}
+						In Linear models, we assumed $\expect{\varepsilon|\ve{X}} = 0$, this is \textbf{not} a standard assumption, we can assume this because of the constant term in the linear model, which offsets the mean of error term.
+					\end{remark}
+				\subsubsection{Comparing Two Models}
+					\begin{gather}
+						\begin{cases}
+							\tx{POM: } &Y = \red{\alpha(X)} D + \orange{Y_0(X)} \\
+							\tx{LM: } &Y = \red{\alpha} D + \orange{\beta x + \varepsilon}
+						\end{cases}
+					\end{gather}
+					
+				\subsubsection{POM Assumptions}
+					\begin{assumption}[Conditional Independent Assumption; Randomized Assignment]
+						\begin{gather}
+							\{(Y_1, Y_0) \perp D\}|_{X}
+						\end{gather}
+						\textbf{Interpretation (i)}(CIA Aspect) For each individual/batch of individuals with the same characteristics $X = x^*$, the two potential outcomes are independent to their decision $D$. \\
+						\textbf{Interpretation (ii)}(RA Aspect) As mentioned before, rationality of individuals suggests individual will choose the decision associated with higher potential payoff. But we assume it's \textbf{not} the case, within each batch of individuals, each individual is assigned a random $D$, and is forced to take it.
+					\end{assumption}
+					
+					\begin{assumption}[Overlapping Matching Condition]
+						\begin{equation}
+							0 < \prob{D=1|X=\ve{x}} < 1\ \forall \ve{x} \in \mc{D}(X)
+						\end{equation}
+						\textbf{Interpretation} For every possible individual characteristics $\ve{x}^*$, there exists realizations of both potential outcomes. So the batch of observations $\{(\ve{x}, d, y)|\ve{x} = \ve{x}^*\}$ is inter-comparable. That is, for each $\ve{x}^*$, we have at least one realization with $d=0$ and $d=1$, so we can \emph{construct the counterfactual}.
+					\end{assumption}
 \end{document}
 
 
