@@ -1,0 +1,1613 @@
+% egameps.sty
+% <title>LaTeX style file for typesetting extensive games (using Postscript)</title>
+% Macros to draw extensive games, using the PSTricks package
+% macros (but retaining TeX's integer arithmetic).
+%
+% See egameps.pdf for documentation.
+% By Martin J. Osborne
+% martin.osborne@utoronto.ca
+% http://www.economics.utoronto.ca/osborne
+% Version 1.11, 2018/3/18
+%
+\RequirePackage{pstricks}
+%
+% Defaults. (Changes made here will be global.  To change locally, use
+% optional arguments of functions.)
+\def\@branchcolor{black} % color of branches
+\def\@branchstyle{solid} % style of branches
+\def\@branchwidth{0.8pt} % width of branches
+%
+% Style of arcs in \ctmbarc
+\def\egarclinestyle{solid}
+\def\egarclinewidth{0.6pt}
+\def\egarclinecolor{black}
+%
+\newgray{verylightgray}{.9}
+\def\ctmfillcolor{verylightgray} % color of triangle for continuum of branches
+\def\egnode{\pscircle*{5}} % node
+\def\eginode{\pscircle[linewidth=0.4pt]{5}} % initial node
+\def\infosetdot{\pscircle*{2.5}}
+\def\infosetdotsep{20} % dot spacing (n means: n times unitlength)
+\newdimen\egplayerlabelsep
+\egplayerlabelsep=1mm
+\newdimen\egplayerboxsep
+\egplayerboxsep=0mm
+\newdimen\egactionlabelsep
+\egactionlabelsep=0.7mm
+\newdimen\egactionboxsep
+\egactionboxsep=0mm
+\newdimen\egpayoffboxsep
+\egpayoffboxsep=0mm
+\newdimen\egpayofflabelsep
+\egpayofflabelsep=2mm
+\def\egalboxlinestyle{none}
+\def\egalboxlinecolor{black}
+\def\egalboxfillstyle{none}
+\def\egalboxfillcolor{white}
+\def\egpayboxlinestyle{none}
+\def\egpayboxlinecolor{black}
+\def\egpayboxfillstyle{none}
+\def\egpayboxfillcolor{white}
+\def\egplboxlinestyle{none}
+\def\egplboxlinecolor{black}
+\def\egplboxfillstyle{none}
+\def\egplboxfillcolor{white}
+
+\def\egalpos{o} % position of action labels: offset
+\def\egalbox{f}  % box for action labels: framebox
+\def\egpaybox{f}  % box for payoff labels: framebox
+\def\egplbox{f}  % box for player labels: framebox
+\def\egarrowstyle{n} % style of arrows on branches: none
+
+\newif\ifinitial
+
+\newpsobject{branchline}{psline}%
+   {linecolor=\@branchcolor,linestyle=\@branchstyle,linewidth=\@branchwidth}
+
+\newcount\@egxnum
+\newcount\@egxxnum
+\newcount\@egxxxnum
+\newcount\@egxxxxnum
+\newcount\@egynum
+\newcount\@egyynum
+\newcount\@egyyynum
+\newcount\@egyyyynum
+\newdimen\@egrad
+\newdimen\@egxdim
+\newdimen\@egydim
+\newcount\@@egxnum
+\newcount\@@egxxnum
+\newcount\@@egxxxnum
+\newcount\@@egynum
+\newcount\@@egyynum
+\newcount\@@egyyynum
+\newcount\@eghnum
+\newcount\@egvnum
+\newcount\@egabshnum
+\newcount\@egabsvnum
+\newcount\@eghdistance
+\newcount\@tempcntx
+\newcount\@tempcnty
+\newcount\egalhshift
+\newcount\egalvshift
+ 
+% Command to change default direction
+\newcommand{\egdirection}[1]{%
+	\if#1d\def\@egdefdirection{d}
+	\else\if#1u\def\@egdefdirection{u}
+	\else\if#1r\def\@egdefdirection{r}
+	\else\if#1l\def\@egdefdirection{l}
+	\else\@egame@warning{egdirection '#1' undefined; using 'd'}
+	   \def\@egdefdirection{d}
+	\fi\fi\fi\fi%
+}
+% Default direction is down
+\def\@egdefdirection{d}
+
+\def\@egame@warning#1{%
+   \GenericWarning{%
+      \space\space\space\@spaces\@spaces\@spaces
+   }{%
+      egameps warning: #1%
+   }%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%   Draw a branch
+%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% draw a branch in PSTricks style #1 from (#2,#3) to (#4,#5), putting the 
+% action label #6 above the branch if #7 is u (to the right if vertical
+% branch) and below it if #7 is d (to the left if vertical branch), and the
+% payoff label #8 according in the appropriate position given \egdirection
+
+\def\@egdrawbranch{%
+	\@ifnextchar[{\@drawbrancho}{\@drawbranchn}
+}
+
+% #1: PSTricks style (linestyle, linecolor, etc.)
+% (#2,#3): starting point
+% (#4,#5): ending point
+% #6: action label
+% #7: action label position (c (center), o (outside), i (inside))
+% #8: payoff label
+\def\@drawbrancho[#1](#2,#3)(#4,#5)#6#7{%
+	\@@egxnum=#2\@@egynum=#3
+	\@@egxxnum=#4\@@egyynum=#5
+	\if\egarrowstyle e
+	   \branchline[#1]{->}(\@@egxnum,\@@egynum)(\@@egxxnum,\@@egyynum)
+	\else
+	   \branchline[#1](\@@egxnum,\@@egynum)(\@@egxxnum,\@@egyynum)
+	   \if\egarrowstyle m
+	      \@@egxxxnum=\@@egxnum
+	      \advance\@@egxxxnum by\@@egxxnum
+	      \divide\@@egxxxnum by2
+	      \@@egyyynum=\@@egynum
+	      \advance\@@egyyynum by\@@egyynum
+	      \divide\@@egyyynum by2
+	      \branchline[#1]{->}(\@@egxnum,\@@egynum)(\@@egxxxnum,\@@egyyynum)
+	   \fi
+	\fi
+	\@drawactionlabel{#6}{#7}
+	\@ifnextchar[{\@drawpayoffs}{}
+}
+
+\def\@drawbranchn(#1,#2)(#3,#4)#5#6{%
+	\@@egxnum=#1\@@egynum=#2
+	\@@egxxnum=#3\@@egyynum=#4
+	\if\egarrowstyle e
+	   \branchline{->}(\@@egxnum,\@@egynum)(\@@egxxnum,\@@egyynum)
+	\else
+	   \branchline(\@@egxnum,\@@egynum)(\@@egxxnum,\@@egyynum)
+	   \if\egarrowstyle m
+	      \@@egxxxnum=\@@egxnum
+	      \advance\@@egxxxnum by\@@egxxnum
+	      \divide\@@egxxxnum by2
+	      \@@egyyynum=\@@egynum
+	      \advance\@@egyyynum by\@@egyynum
+	      \divide\@@egyyynum by2
+	      \branchline{->}(\@@egxnum,\@@egynum)(\@@egxxxnum,\@@egyyynum)
+	   \fi
+	\fi
+	\@drawactionlabel{#5}{#6}
+	\@ifnextchar[{\@drawpayoffs}{}
+}
+
+% #1: action label
+% #2: action label position
+% position action label relative to reference point (\@@egxnum, \@@egynum)
+\def\@drawactionlabel#1#2{%
+     \psset{framesep=\egactionboxsep}
+     \fboxrule 0pt\fboxsep\egactionlabelsep
+	\advance\@@egxnum by\@@egxxnum
+	\divide\@@egxnum by2
+	\advance\@@egynum by\@@egyynum
+	\divide\@@egynum by2
+% shifts
+	\@tempcntx=\@@egxnum% procedure changes \@@egxnum and \@@egynum, so
+	\@tempcnty=\@@egynum% save their original values
+	\ifnum\egalvshift=0
+	   \ifnum\@@egxxnum=\@tempcntx
+	   \else\ifnum\@@egxxnum>\@tempcntx
+	      \advance\@@egxnum by\egalhshift
+	      \@tempcnta=\egalhshift
+	      \multiply\@tempcnta by\@egabsvnum
+	      \divide\@tempcnta by\@egabshnum
+	      \ifnum\@@egyynum>\@tempcnty
+	         \advance\@@egynum by\@tempcnta
+	      \else
+	         \advance\@@egynum by-\@tempcnta
+	      \fi
+	   \else\ifnum\@@egxxnum<\@tempcntx
+	      \if\@egdirection l
+	         \advance\@@egxnum by\egalhshift
+	      \else
+	         \advance\@@egxnum by-\egalhshift
+	      \fi
+	      \@tempcnta=\egalhshift
+	      \multiply\@tempcnta by\@egabsvnum
+	      \divide\@tempcnta by\@egabshnum
+	      \if\@egdirection l
+	         \ifnum\@@egyynum>\@tempcnty
+	            \advance\@@egynum by-\@tempcnta
+	         \else
+	            \advance\@@egynum by\@tempcnta
+	         \fi
+	      \else
+	         \ifnum\@@egyynum>\@tempcnty
+	            \advance\@@egynum by\@tempcnta
+	         \else
+	            \advance\@@egynum by-\@tempcnta
+	         \fi
+	      \fi
+	   \fi\fi\fi
+	\else\ifnum\egalhshift=0
+	   \ifnum\@@egyynum=\@tempcnty
+	   \else\ifnum\@@egyynum>\@tempcnty
+	      \advance\@@egynum by\egalvshift
+	      \@tempcnta=\egalvshift
+	      \multiply\@tempcnta by\@eghnum
+	      \divide\@tempcnta by\@egvnum
+	      \ifnum\@@egxxnum>\@tempcntx
+	         \advance\@@egxnum by\@tempcnta
+	      \else
+	         \advance\@@egxnum by-\@tempcnta
+	      \fi
+	   \else\ifnum\@@egyynum<\@tempcnty
+	      \if\@egdirection d
+	         \advance\@@egynum by\egalvshift
+	      \else
+	         \advance\@@egynum by-\egalvshift
+	      \fi
+	      \@tempcnta=\egalvshift
+	      \multiply\@tempcnta by\@eghnum
+	      \divide\@tempcnta by\@egvnum
+	      \if\@egdirection d
+	         \ifnum\@@egxxnum>\@tempcntx
+	            \advance\@@egxnum by-\@tempcnta
+	         \else
+	            \advance\@@egxnum by\@tempcnta
+	         \fi
+	      \else
+	         \ifnum\@@egxxnum>\@tempcntx
+	            \advance\@@egxnum by\@tempcnta
+	         \else
+	            \advance\@@egxnum by-\@tempcnta
+	         \fi
+	      \fi
+	   \fi\fi\fi
+	\else
+	   \if\@egdirection d
+	      \ifnum\@@egxxnum>\@tempcntx
+	         \advance\@@egxnum by\egalhshift
+	      \else
+	         \advance\@@egxnum by-\egalhshift
+	      \fi
+	   \else\if\@egdirection u
+	      \ifnum\@@egxxnum>\@tempcntx
+	         \advance\@@egxnum by\egalhshift
+	      \else
+	         \advance\@@egxnum by-\egalhshift
+	      \fi
+	   \else\if\@egdirection r
+	      \advance\@@egxnum by\egalhshift
+	   \else\if\@egdirection l
+	      \advance\@@egxnum by\egalhshift
+	   \fi\fi\fi\fi
+	   \if\@egdirection d
+	      \advance\@@egynum by\egalvshift
+	   \else\if\@egdirection u
+	      \advance\@@egynum by\egalvshift
+	   \else\if\@egdirection r
+	      \ifnum\@@egyynum>\@tempcnty
+	         \advance\@@egynum by\egalvshift
+	      \else
+	         \advance\@@egynum by-\egalvshift
+	      \fi
+	   \else\if\@egdirection l
+	      \ifnum\@@egyynum>\@tempcnty
+	         \advance\@@egynum by\egalvshift
+	      \else
+	         \advance\@@egynum by-\egalvshift
+	      \fi
+	   \fi\fi\fi\fi
+	\fi\fi
+%
+	\if\egalbox f
+	   \def\@egalbox{\psframebox[linestyle=\egalboxlinestyle,%
+                  linecolor=\egalboxlinecolor,fillstyle=\egalboxfillstyle,%
+	             fillcolor=\egalboxfillcolor]}
+	\else\if\egalbox c
+	   \def\@egalbox{\pscirclebox[linestyle=\egalboxlinestyle,%
+                  linecolor=\egalboxlinecolor,fillstyle=\egalboxfillstyle,%
+	             fillcolor=\egalboxfillcolor]}
+	\fi\fi
+	\if#2c
+	   \setbox0\hbox{\fbox{\@egalbox{#1}}}
+	   \psset{framesep=\egactionlabelsep}
+	   \rput*(\@@egxnum,\@@egynum){\box0}
+	\else\if#2o % outside
+	   \if\@egdirection d
+	      \ifnum\@tempcntx<\@@egxxnum
+		\ifnum\@tempcnty=\@@egyynum
+		   \rput[b](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[bl](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcntx>\@@egxxnum
+		\ifnum\@tempcnty=\@@egyynum
+		   \rput[b](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[br](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcntx=\@@egxxnum
+		\rput[l](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+	      \fi\fi\fi
+	   \else\if\@egdirection u
+	      \ifnum\@tempcntx<\@@egxxnum
+		\ifnum\@tempcnty=\@@egyynum
+		   \rput[t](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[tl](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcntx>\@@egxxnum
+		\ifnum\@tempcnty=\@@egyynum
+		   \rput[t](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[tr](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcntx=\@@egxxnum
+		\rput[l](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+	      \fi\fi\fi
+	   \else\if\@egdirection r
+	      \ifnum\@tempcnty<\@@egyynum
+		\ifnum\@tempcntx=\@@egxxnum
+		   \rput[r](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[br](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcnty>\@@egyynum
+		\ifnum\@tempcntx=\@@egxxnum
+		   \rput[r](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[tr](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcnty=\@@egyynum
+		\rput[b](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+	      \fi\fi\fi
+	   \else\if\@egdirection l
+	      \ifnum\@tempcnty<\@@egyynum
+		\ifnum\@tempcntx=\@@egxxnum
+		   \rput[l](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[bl](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcnty>\@@egyynum
+		\ifnum\@tempcntx=\@@egxxnum
+		   \rput[l](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[tl](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcnty=\@@egyynum
+		\rput[b](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+	      \fi\fi\fi
+	   \fi\fi\fi\fi
+	\else\if#2i % inside
+	   \if\@egdirection d
+	      \ifnum\@tempcntx<\@@egxxnum
+		\ifnum\@tempcnty=\@@egyynum
+		   \rput[t](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[tr](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcntx>\@@egxxnum
+		\ifnum\@tempcnty=\@@egyynum
+		   \rput[t](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[tl](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcntx=\@@egxxnum
+		\rput[r](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+	      \fi\fi\fi
+	   \else\if\@egdirection u
+	      \ifnum\@tempcntx<\@@egxxnum
+		\ifnum\@tempcnty=\@@egyynum
+		   \rput[b](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[br](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcntx>\@@egxxnum
+		\ifnum\@tempcnty=\@@egyynum
+		   \rput[b](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[bl](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcntx=\@@egxxnum
+		\rput[r](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+	      \fi\fi\fi
+	   \else\if\@egdirection r
+	      \ifnum\@tempcnty<\@@egyynum
+		\ifnum\@tempcntx=\@@egxxnum
+		   \rput[l](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[tl](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcnty>\@@egyynum
+		\ifnum\@tempcntx=\@@egxxnum
+		   \rput[l](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[bl](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcnty=\@@egyynum
+		\rput[t](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+	      \fi\fi\fi
+	   \else\if\@egdirection l
+	      \ifnum\@tempcnty<\@@egyynum
+		\ifnum\@tempcntx=\@@egxxnum
+		   \rput[r](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[tr](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcnty>\@@egyynum
+		\ifnum\@tempcntx=\@@egxxnum
+		   \rput[r](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\else
+		   \rput[br](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+		\fi
+	      \else\ifnum\@tempcnty=\@@egyynum
+		\rput[t](\@@egxnum,\@@egynum){\fbox{\@egalbox{#1}}}
+	      \fi\fi\fi
+	   \fi\fi\fi\fi
+	\fi\fi\fi
+}
+
+\def\@drawpayoffs[#1]{%
+	\ifx#1\@empty
+	\else
+	   \psset{framesep=\egpayoffboxsep}
+	   \fboxrule 0pt\fboxsep\egpayofflabelsep
+	   \if\egpaybox f
+	      \def\@egpaybox{\psframebox[linestyle=\egpayboxlinestyle,%
+                  linecolor=\egpayboxlinecolor,fillstyle=\egpayboxfillstyle,%
+	             fillcolor=\egpayboxfillcolor]}
+	   \else\if\egpaybox c
+	      \def\@egpaybox{\pscirclebox[linestyle=\egpayboxlinestyle,%
+                  linecolor=\egpayboxlinecolor,fillstyle=\egpayboxfillstyle,%
+	             fillcolor=\egpayboxfillcolor]}
+	   \fi\fi
+	   \if\@egdirection d
+	      \rput[t](\@@egxxnum,\@@egyynum){\fbox{\@egpaybox{#1}}}
+	   \else\if\@egdirection u
+	      \rput[b](\@@egxxnum,\@@egyynum){\fbox{\@egpaybox{#1}}}
+	   \else\if\@egdirection r
+	      \rput[l](\@@egxxnum,\@@egyynum){\fbox{\@egpaybox{#1}}}
+	   \else\if\@egdirection l
+	      \rput[r](\@@egxxnum,\@@egyynum){\fbox{\@egpaybox{#1}}}
+	   \fi\fi\fi\fi
+	\fi
+}
+
+\def\@egdrawnode#1{
+	\psset{framesep=1pt}
+	\ifinitial\rput*(\@egxnum,\@egynum){\eginode}\initialfalse
+	\else\rput*(\@egxnum,\@egynum){\egnode}%
+	\fi
+	\psset{framesep=\egplayerboxsep}
+	\fboxrule 0pt\fboxsep\egplayerlabelsep
+	\if\@branchplp o
+	   \rput*(\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+	\else\if\@egdirection d
+        \if\@branchplp l
+           \rput[br](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \else\if\@branchplp r
+           \rput[bl](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \else
+           \rput[b](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \fi\fi
+     \else\if\@egdirection u
+        \if\@branchplp l
+           \rput[tr](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \else\if\@branchplp r
+           \rput[tl](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \else
+           \rput[t](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \fi\fi
+     \else\if\@egdirection r
+        \if\@branchplp u
+           \rput[br](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \else\if\@branchplp d
+           \rput[tr](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \else
+           \rput[r](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \fi\fi
+     \else\if\@egdirection l
+        \if\@branchplp u
+           \rput[bl](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \else\if\@branchplp d
+           \rput[tl](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \else
+           \rput[l](\@egxnum,\@egynum){\fbox{\@egplbox{#1}}}
+        \fi\fi
+     \fi\fi\fi\fi\fi
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%   \putbranch
+%%%%%%%%%%%%%%%%%%%%%
+
+% \putbranch and the two macros it calls define the parameters
+%	\@egxnum
+%	\@egynum
+%	\@eghnum
+%	\@egvnum
+%	\@egabshnum (absolute value of \@eghnum)
+%	\@egabsvnum (absolute value of \@egvnum)
+%	\@egdirection
+%	\@eghdistance (for direction d, horizontal distance from node to outer
+%	   branch (the single branch in the case of one, and either branch in
+%	   the case of two))
+% to be used by \ib, \iib, \iiib, and \ctmb.
+
+\def\putbranch(#1,#2)(#3,#4){%
+	\egalhshift=0%
+	\egalvshift=0%
+	\@egxnum=#1\@egynum=#2\@eghnum=#3\@egvnum=#4%
+% define absolute values of \@eghnum and \@egvnum
+	\ifnum\@eghnum<0
+	   \@egabshnum=-\@eghnum
+	\else\@egabshnum=\@eghnum\fi
+	\ifnum\@egvnum<0
+	   \@egabsvnum=-\@egvnum
+	\else\@egabsvnum=\@egvnum\fi
+%% player label box
+	\if\egplbox f
+	   \gdef\@egplbox{\psframebox[linestyle=\egplboxlinestyle,%
+                  linecolor=\egplboxlinecolor,fillstyle=\egplboxfillstyle,%
+	             fillcolor=\egplboxfillcolor]}
+	\else\if\egplbox c
+	   \gdef\@egplbox{\pscirclebox[linestyle=\egplboxlinestyle,%
+                  linecolor=\egplboxlinecolor,fillstyle=\egplboxfillstyle,%
+	             fillcolor=\egplboxfillcolor]}
+	\else
+	   \@egame@warning{egplbox style '\egplbox' undefined; using c}
+	   \gdef\@egplbox{\pscirclebox[linestyle=\egplboxlinestyle,%
+                  linecolor=\egplboxlinecolor,fillstyle=\egplboxfillstyle,%
+	             fillcolor=\egplboxfillcolor]}
+	\fi\fi
+%%
+	\@ifnextchar[{\@putbrancho(#1,#2)(#3,#4)}{\@putbranch(#1,#2)(#3,#4)}%
+}
+
+\def\@putbrancho(#1,#2)(#3,#4)[#5]#6{%
+	\def\@egdirection{#5}\@eghdistance=#6%
+}
+
+\def\@putbranch(#1,#2)(#3,#4)#5{%
+	\def\@egdirection{\@egdefdirection}\@eghdistance=#5%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%    ONE BRANCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% One branch
+
+\def\ib{%
+	\if\@egdirection d
+	   \@egvnum=-\@egabsvnum
+	\else\if\@egdirection u
+	   \@egvnum=\@egabsvnum
+	\else\if\@egdirection r
+	   \@eghnum=\@egabshnum
+	\else\if\@egdirection l
+	   \@eghnum=-\@egabshnum
+	\fi\fi\fi\fi
+	\@egxxnum=\@egxnum
+	\ifnum\@eghnum=0
+	   \@egyynum=\@egynum
+	   \ifnum\@egvnum<0
+	      \advance\@egyynum by-\@eghdistance
+	   \else
+	      \advance\@egyynum by\@eghdistance
+	   \fi
+	\else
+	   \@egyynum=\@egabsvnum
+	   \multiply\@egyynum by\@eghdistance
+	   \divide\@egyynum by\@egabshnum
+	   \ifnum\@egvnum<0
+	      \advance\@egyynum by-\@egynum
+	      \multiply\@egyynum by-1
+	   \else
+	      \advance\@egyynum by\@egynum
+	   \fi
+	   \ifnum\@eghnum<0
+	      \advance\@egxxnum by-\@eghdistance
+	   \else
+	      \advance\@egxxnum by\@eghdistance
+	   \fi
+	\fi
+	\@ifnextchar[{\@ibpsto}{\@ibpstno}
+}
+
+%%% first argument is option list
+
+% #1: list of options to be ultimately passed to \psline (via \branchline)
+% #2: player label
+\def\@ibpsto[#1]#2{%
+	\@ifnextchar[{\@ibo{#1}{#2}}{\@ib{#1}{#2}}%
+}
+
+% #1: list of options
+% #2: player label
+% #3: player label position
+% #4: action label
+\def\@ibo#1#2[#3]#4{%
+	\def\@branchplp{#3}
+	\@ifnextchar[{\@ibot{#1}{#2}{#4}}{\@ibotn{#1}{#2}{#4}}%
+}
+
+% #1: list of options
+% #2: player label
+% #3: action label
+\def\@ib#1#2#3{%
+	\def\@branchplp{t}
+	\@ifnextchar[{\@ibot{#1}{#2}{#3}}{\@ibotn{#1}{#2}{#3}}%
+}
+
+% #1: list of options
+% #2: player label
+% #3: action label
+\def\@ibotn#1#2#3{%
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#3}{\egalpos}
+	\@egdrawnode{#2}%
+}
+
+% #1: list of options
+% #2: player label
+% #3: action label
+% #4: action label position OR payoffs
+\def\@ibot#1#2#3[#4]{%
+	\if#4c\def\@tempegalpos{1}
+	\else\if#4o\def\@tempegalpos{1}
+	\else\if#4i\def\@tempegalpos{1}
+	\else\def\@tempegalpos{0} % last argument is payoffs, not label position
+	\fi\fi\fi
+	\@ifnextchar[{\@ibt{#1}{#2}{#3}{#4}}{\@ibtn{#1}{#2}{#3}{#4}}%
+}
+
+% #1: list of options
+% #2: player label
+% #3: action label
+% #4: action label position
+% #5: payoffs
+\def\@ibt#1#2#3#4[#5]{%
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#3}%
+	     {#4}[#5]
+	\@egdrawnode{#2}%
+}
+
+% #1: list of options
+% #2: player label
+% #3: action label
+% #4: action label position if \@tempalpos=1, otherwise payoff
+\def\@ibtn#1#2#3#4{%
+	\if\@tempegalpos 0
+	   \@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#3}%
+            {\egalpos}[#4]
+	   \@egdrawnode{#2}%
+	\else
+	   \@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#3}{#4}
+	   \@egdrawnode{#2}%
+	\fi
+}
+
+%%% first argument not an option list
+
+% #1: player label
+\def\@ibpstno#1{%
+	\@ifnextchar[{\@ibox{#1}}{\@ibx{#1}}%
+}
+
+% #1: player label
+% #2: player label position
+% #3: action label
+\def\@ibox#1[#2]#3{%
+	\def\@branchplp{#2}
+	\@ifnextchar[{\@ibotx{#1}{#3}}{\@ibotnx{#1}{#3}}%
+}
+
+% #1: player label
+% #2: action label
+\def\@ibx#1#2{%
+	\def\@branchplp{t}
+	\@ifnextchar[{\@ibotx{#1}{#2}}{\@ibotnx{#1}{#2}}%
+}
+
+% #1: player label
+% #2: action label
+\def\@ibotnx#1#2{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#2}{\egalpos}
+	\@egdrawnode{#1}%
+}
+
+% #1: player label
+% #2: action label
+% #3: action label position OR payoffs
+\def\@ibotx#1#2[#3]{%
+	\if#3c\def\@tempegalpos{1}
+	\else\if#3o\def\@tempegalpos{1}
+	\else\if#3i\def\@tempegalpos{1}
+	\else\def\@tempegalpos{0} % last argument is payoffs, not label position
+	\fi\fi\fi
+	\@ifnextchar[{\@ibtx{#1}{#2}{#3}}{\@ibtnx{#1}{#2}{#3}}%
+}
+
+% #1: player label
+% #2: action label
+% #3: action label position
+% #4: payoffs
+\def\@ibtx#1#2#3[#4]{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#2}%
+	     {#3}[#4]
+	\@egdrawnode{#1}%
+}
+
+% #1: player label
+% #2: action label
+% #3: payoff
+\def\@ibtnx#1#2#3{%
+	\if\@tempegalpos 0
+	   \@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#2}%
+            {\egalpos}[#3]
+	   \@egdrawnode{#1}%
+	\else
+	   \@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#2}{#3}
+	   \@egdrawnode{#1}%
+	\fi
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%    TWO BRANCHES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Two branches
+
+% calculate \@egxxnum, \@egxxxnum, \@egyynum, and \@egyyynum from \@egxnum etc.
+% (used also in \ctmb)
+\def\@egxyiicalc{
+	\@eghnum=\@egabshnum
+	\@egvnum=\@egabsvnum
+	\@egxxnum=\@egxnum
+	\@egxxxnum=\@egxnum
+	\ifnum\@eghnum=0
+	   \@egyynum=\@egynum
+	   \@egyyynum=\@egynum
+	   \if\@egdirection d
+	      \advance\@egyynum by-\@eghdistance
+	      \advance\@egyyynum by-\@eghdistance
+	   \else\if\@egdirection u
+	      \advance\@egyynum by\@eghdistance
+	      \advance\@egyyynum by\@eghdistance
+	   \else
+	      \advance\@egyynum by-\@eghdistance
+	      \advance\@egyyynum by\@eghdistance
+	   \fi\fi
+	\else
+	   \@egyynum=\@egabsvnum
+	   \multiply\@egyynum by\@eghdistance
+	   \divide\@egyynum by\@egabshnum
+	   \if\@egdirection d
+	      \advance\@egyynum by-\@egynum
+	      \multiply\@egyynum by-1
+	      \@egyyynum=\@egyynum
+	      \advance\@egxxnum by\@eghdistance
+	      \advance\@egxxxnum by-\@eghdistance
+	   \else\if\@egdirection u
+	      \advance\@egyynum by\@egynum
+	      \@egyyynum=\@egyynum
+	      \advance\@egxxnum by\@eghdistance
+	      \advance\@egxxxnum by-\@eghdistance
+	   \else\if\@egdirection r
+	      \@egyyynum=\@egyynum
+	      \advance\@egyynum by-\@egynum
+	      \multiply\@egyynum by-1
+	      \advance\@egyyynum by\@egynum
+	      \advance\@egxxnum by\@eghdistance
+	      \advance\@egxxxnum by\@eghdistance
+	   \else\if\@egdirection l
+	      \@egyyynum=\@egyynum
+	      \advance\@egyynum by-\@egynum
+	      \multiply\@egyynum by-1
+	      \advance\@egyyynum by\@egynum
+	      \advance\@egxxnum by-\@eghdistance
+	      \advance\@egxxxnum by-\@eghdistance
+	   \fi\fi\fi\fi
+	\fi
+}
+
+\def\iib{%
+	\@egxyiicalc
+	\@ifnextchar[{\@iibpsto}{\@iibpstno}
+}
+
+%%% options present
+
+% #1: list of options to be ultimately passed to \psline (via \branchline)
+\def\@iibpsto[#1]{%
+	\@ifnextchar[{\@iibao{#1}}{\@iiba{#1}}%
+}
+
+% #1: list of options for one branch
+% #2: list of options for other branch
+% #3: player label
+\def\@iibao#1[#2]#3{%
+	\@ifnextchar[{\@iibo{#1}{#2}{#3}}{\@iib{#1}{#2}{#3}}%
+}
+
+% #1: list of options for both branches
+% #2: player label
+\def\@iiba#1#2{%
+	\@ifnextchar[{\@iibo{#1}{#1}{#2}}{\@iib{#1}{#1}{#2}}%
+}
+
+% #1: list of options for one branch
+% #2: list of options for other branch
+% #3: player label
+% #4: player label position
+% #5: action label 1
+% #6: action label 2
+\def\@iibo#1#2#3[#4]#5#6{%
+	\def\@branchplp{#4}
+	\@ifnextchar[{\@iibot{#1}{#2}{#3}{#5}{#6}}{\@iibotn{#1}{#2}{#3}{#5}{#6}}%
+}
+
+% #1: list of options for one branch
+% #2: list of options for other branch
+% #3: player label
+% #4: action label 1
+% #5: action label 2
+\def\@iib#1#2#3#4#5{%
+	\def\@branchplp{t}
+	\@ifnextchar[{\@iibot{#1}{#2}{#3}{#4}{#5}}{\@iibotn{#1}{#2}{#3}{#4}{#5}}%
+}
+
+% #1: list of options for one branch
+% #2: list of options for other branch
+% #3: player label
+% #4: action label 1
+% #5: action label 2
+\def\@iibotn#1#2#3#4#5{%
+	\@egdrawbranch[#2](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#5}{\egalpos}
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#4}{\egalpos}
+	\@egdrawnode{#3}%
+}
+
+% #1: list of options
+% #2: list of options
+% #3: player label
+% #4: action label 1
+% #5: action label 2
+% #6: action label position OR payoffs
+\def\@iibot#1#2#3#4#5[#6]{%
+	\@ifnextchar[{\@iibt{#1}{#2}{#3}{#4}{#5}{#6}}{\@iibtn{#1}{#2}{#3}{#4}%
+{#5}{#6}}%
+}
+
+% if at least two optional arguments at end, check for third argument
+% #1: list of options for one branch
+% #2: list of options for other branch
+% #3: player label
+% #4: action label 1
+% #5: action label 2
+% #6: action label position or payoffs
+% #7: payoffs
+\def\@iibt#1#2#3#4#5#6[#7]{%
+	\@ifnextchar[{\@iibtz{#1}{#2}{#3}{#4}{#5}{#6}{#7}}{\@iibtnz{#1}{#2}{#3}%
+{#4}{#5}{#6}{#7}}%
+}
+
+% 3 arguments at end
+% #1: list of options for one branch
+% #2: list of options for other branch
+% #3: player label
+% #4: action label 1
+% #5: action label 2
+% #6: action label position
+% #7: payoffs
+% #8: payoffs
+\def\@iibtz#1#2#3#4#5#6#7[#8]{%
+	\@egdrawbranch[#2](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#5}%
+	     {#6}[#8]
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#4}%
+	     {#6}[#7]
+	\@egdrawnode{#3}%
+}
+
+% 2 arguments at end, so must be payoffs
+% #1: list of options for one branch
+% #2: list of options for other branch
+% #3: player label
+% #4: action label 1
+% #5: action label 2
+% #6: payoffs
+% #7: payoffs
+\def\@iibtnz#1#2#3#4#5#6#7{%
+	\@egdrawbranch[#2](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#5}%
+	     {\egalpos}[#7]
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#4}%
+	     {\egalpos}[#6]
+	\@egdrawnode{#3}%
+}
+
+% 1 argument at end, so must be egalpos
+% #1: list of options for one branch
+% #2: list of options for one branch
+% #3: player label
+% #4: action label 1
+% #5: action label 2
+% #6: action label position
+\def\@iibtn#1#2#3#4#5#6{%
+	\@egdrawbranch[#2](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#5}{#6}
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#4}{#6}
+	\@egdrawnode{#3}%
+}
+
+%%% no options present
+
+% #1: player label
+\def\@iibpstno#1{%
+	\@ifnextchar[{\@iibox{#1}}{\@iibx{#1}}%
+}
+
+% #1: player label
+% #2: player label position
+% #3: action label 1
+% #4: action label 2
+\def\@iibox#1[#2]#3#4{%
+	\def\@branchplp{#2}
+	\@ifnextchar[{\@iibotx{#1}{#3}{#4}}{\@iibotnx{#1}{#3}{#4}}%
+}
+
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+\def\@iibx#1#2#3{%
+	\def\@branchplp{t}
+	\@ifnextchar[{\@iibotx{#1}{#2}{#3}}{\@iibotnx{#1}{#2}{#3}}%
+}
+
+% #1: player label
+% #2: action label
+% #3: action label
+\def\@iibotnx#1#2#3{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#3}{\egalpos}
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#2}{\egalpos}
+	\@egdrawnode{#1}%
+}
+
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label position OR payoffs
+\def\@iibotx#1#2#3[#4]{%
+	\@ifnextchar[{\@iibtx{#1}{#2}{#3}{#4}}{\@iibtnx{#1}{#2}{#3}{#4}}%
+}
+
+% at least 2 arguments at end, so check for third
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label position or payoffs
+% #5: payoffs
+\def\@iibtx#1#2#3#4[#5]{%
+	\@ifnextchar[{\@iibtxz{#1}{#2}{#3}{#4}{#5}}{\@iibtnxz{#1}{#2}{#3}%
+{#4}{#5}}%
+}
+
+% 2 arguments at end
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: payoffs
+% #5: payoffs
+\def\@iibtnxz#1#2#3#4#5{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#3}%
+	     {\egalpos}[#5]
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#2}%
+	     {\egalpos}[#4]
+	\@egdrawnode{#1}%
+}
+
+% 3 arguments at end
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label position
+% #5: payoffs
+% #6: payoffs
+\def\@iibtxz#1#2#3#4#5[#6]{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#3}{#4}[#6]
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#2}{#4}[#5]
+	\@egdrawnode{#1}%
+}
+
+% 1 argument at end, so must be egalpos
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label position
+\def\@iibtnx#1#2#3#4{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#3}%
+	       {#4}
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#2}%
+	       {#4}
+	\@egdrawnode{#1}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%    THREE BRANCHES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% calculate coordinates for third (middle) branch
+\def\@egxyiiicalc{%
+	\if\@egdirection d
+	   \@egxxxxnum=\@egxnum
+	   \ifnum\@eghnum=0
+	      \@egyyyynum=\@egynum
+	      \advance\@egyyyynum by-\@eghdistance
+	   \else
+	      \@egyyyynum=\@eghdistance
+	      \multiply\@egyyyynum by\@egabsvnum
+	      \divide\@egyyyynum by\@egabshnum
+	      \advance\@egyyyynum by-\@egynum
+	      \multiply\@egyyyynum by-1
+	   \fi
+	\else\if\@egdirection u
+	   \@egxxxxnum=\@egxnum
+	   \ifnum\@eghnum=0
+	      \@egyyyynum=\@egynum
+	      \advance\@egyyyynum by\@eghdistance
+	   \else
+	      \@egyyyynum=\@eghdistance
+	      \multiply\@egyyyynum by\@egabsvnum
+	      \divide\@egyyyynum by\@egabshnum
+	      \advance\@egyyyynum by\@egynum
+	   \fi
+	\else\if\@egdirection r
+	   \@egyyyynum=\@egynum
+	   \@egxxxxnum=\@egxnum
+	   \advance\@egxxxxnum by\@eghdistance
+	\else\if\@egdirection l
+	   \@egyyyynum=\@egynum
+	   \@egxxxxnum=\@egxnum
+	   \advance\@egxxxxnum by-\@eghdistance
+	\fi\fi\fi\fi
+}
+
+\def\iiib{%
+	\@egxyiicalc
+	\@egxyiiicalc
+	\@ifnextchar[{\@iiibpsto}{\@iiibpstno}
+}
+
+%%% options present
+
+% #1: list of options to be ultimately passed to \psline (via \branchline)
+% #2: player label
+\def\@iiibpsto[#1]#2{%
+	\@ifnextchar[{\@iiibo{#1}{#2}}{\@iiib{#1}{#2}}%
+}
+
+% #1: list of options
+% #2: player label
+% #3: player label position
+% #4: action label 1
+% #5: action label 2
+% #6: action label 3
+\def\@iiibo#1#2[#3]#4#5#6{%
+	\def\@branchplp{#3}
+	\@ifnextchar[{\@iiibot{#1}{#2}{#4}{#5}{#6}}{\@iiibotn{#1}{#2}{#4}%
+{#5}{#6}}%
+}
+
+% #1: list of options for one branch
+% #2: player label
+% #3: action label 1
+% #4: action label 2
+% #5: action label 3
+\def\@iiib#1#2#3#4#5{%
+	\def\@branchplp{t}
+	\@ifnextchar[{\@iiibot{#1}{#2}{#3}{#4}{#5}}{\@iiibotn{#1}{#2}{#3}%
+{#4}{#5}}%
+}
+
+% #1: list of options for one branch
+% #2: player label
+% #3: action label 1
+% #4: action label 2
+% #5: action label 3
+\def\@iiibotn#1#2#3#4#5{%
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#5}{\egalpos}
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#3}{\egalpos}
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxxnum,\@egyyyynum){#4}%
+{\egalpos}
+	\@egdrawnode{#2}%
+}
+
+% #1: list of options
+% #2: player label
+% #3: action label 1
+% #4: action label 2
+% #5: action label 3
+% #6: action label position OR payoffs
+\def\@iiibot#1#2#3#4#5[#6]{%
+	\@ifnextchar[{\@iiibt{#1}{#2}{#3}{#4}{#5}{#6}}{\@iiibtn{#1}{#2}{#3}{#4}%
+{#5}{#6}}%
+}
+
+% if at least two optional arguments at end, check for third argument
+% #1: list of options
+% #2: player label
+% #3: action label 1
+% #4: action label 2
+% #5: action label 3
+% #6: action label position or payoffs
+% #7: payoffs
+% #8: payoffs
+\def\@iiibt#1#2#3#4#5#6[#7][#8]{%
+	\@ifnextchar[{\@iiibtz{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+{\@iiibtnz{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+}
+
+% 4 arguments at end
+% #1: list of options
+% #2: player label
+% #3: action label 1
+% #4: action label 2
+% #5: action label 3
+% #6: action label position
+% #7: payoffs
+% #8: payoffs
+% #9: payoffs
+\def\@iiibtz#1#2#3#4#5#6#7#8[#9]{%
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#5}%
+	     {#6}[#9]
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#3}%
+	     {#6}[#7]
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxxnum,\@egyyyynum){#4}%
+	     {#6}[#8]
+	\@egdrawnode{#2}%
+}
+
+% 3 arguments at end, so must be payoffs
+% #1: list of options
+% #2: player label
+% #3: action label 1
+% #4: action label 2
+% #5: action label 3
+% #6: payoffs
+% #7: payoffs
+% #8: payoffs
+\def\@iiibtnz#1#2#3#4#5#6#7#8{%
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#5}%
+	     {\egalpos}[#8]
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#3}%
+	     {\egalpos}[#6]
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxxnum,\@egyyyynum){#4}%
+	     {\egalpos}[#7]
+	\@egdrawnode{#2}%
+}
+
+% 1 argument at end, so must be egalpos
+% #1: list of options for one branch
+% #2: player label
+% #3: action label 1
+% #4: action label 2
+% #5: action label 3
+% #6: action label position
+\def\@iiibtn#1#2#3#4#5#6{%
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#5}{#6}
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#3}{#6}
+	\@egdrawbranch[#1](\@egxnum,\@egynum)(\@egxxxxnum,\@egyyyynum){#4}{#6}
+	\@egdrawnode{#1}%
+}
+
+%%% no options present
+
+% #1: player label
+\def\@iiibpstno#1{%
+	\@ifnextchar[{\@iiibox{#1}}{\@iiibx{#1}}%
+}
+
+% #1: player label
+% #2: player label position
+% #3: action label 1
+% #4: action label 2
+% #5: action label 2
+\def\@iiibox#1[#2]#3#4#5{%
+	\def\@branchplp{#2}
+	\@ifnextchar[{\@iiibotx{#1}{#3}{#4}{#5}}{\@iiibotnx{#1}{#3}{#4}{#5}}%
+}
+
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label 3
+\def\@iiibx#1#2#3#4{%
+	\def\@branchplp{t}
+	\@ifnextchar[{\@iiibotx{#1}{#2}{#3}{#4}}{\@iiibotnx{#1}{#2}{#3}{#4}}%
+}
+
+% #1: player label
+% #2: action label
+% #3: action label
+% #4: action label
+\def\@iiibotnx#1#2#3#4{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#4}{\egalpos}
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#2}{\egalpos}
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxxnum,\@egyyyynum){#3}{\egalpos}
+	\@egdrawnode{#1}%
+}
+
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label 3
+% #5: action label position OR payoffs
+\def\@iiibotx#1#2#3#4[#5]{%
+	\@ifnextchar[{\@iiibtx{#1}{#2}{#3}{#4}{#5}}{\@iiibtnx{#1}{#2}{#3}%
+{#4}{#5}}%
+}
+
+% at least 2 arguments at end, so check for third
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label 3
+% #5: action label position or payoffs
+% #6: payoffs
+% #7: payoffs
+\def\@iiibtx#1#2#3#4#5[#6][#7]{%
+	\@ifnextchar[{\@iiibtxz{#1}{#2}{#3}{#4}{#5}{#6}{#7}}%
+{\@iiibtnxz{#1}{#2}{#3}{#4}{#5}{#6}{#7}}%
+}
+
+% 3 arguments at end
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label 3
+% #5: payoffs
+% #6: payoffs
+% #7: payoffs
+\def\@iiibtnxz#1#2#3#4#5#6#7{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#4}%
+	     {\egalpos}[#7]
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#2}%
+	     {\egalpos}[#5]
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxxnum,\@egyyyynum){#3}%
+	     {\egalpos}[#6]
+	\@egdrawnode{#1}%
+}
+
+% 4 arguments at end
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label 3
+% #5: action label position
+% #6: payoffs
+% #7: payoffs
+% #8: payoffs
+\def\@iiibtxz#1#2#3#4#5#6#7[#8]{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#4}{#5}[#8]
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#2}{#5}[#6]
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxxnum,\@egyyyynum){#3}{#5}[#7]
+	\@egdrawnode{#1}%
+}
+
+% 1 argument at end, so must be egalpos
+% #1: player label
+% #2: action label 1
+% #3: action label 2
+% #4: action label 3
+% #5: action label position
+\def\@iiibtnx#1#2#3#4#5{%
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxnum,\@egyynum){#4}{#5}
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum){#2}{#5}
+	\@egdrawbranch(\@egxnum,\@egynum)(\@egxxxxnum,\@egyyyynum){#3}{#5}
+	\@egdrawnode{#1}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%    CONTINUUM OF BRANCHES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% continuum of branches
+
+% reset \@eghnum and \@egvnum, and for u and d directions, reset \@eghdistance
+\def\@egctmsethv#1#2{%
+	\if\@egdirection d
+	   \multiply\@eghdistance by\@egabsvnum
+	   \divide\@eghdistance by\@egabshnum
+	\else\if\@egdirection u
+	   \multiply\@eghdistance by\@egabsvnum
+	   \divide\@eghdistance by\@egabshnum
+	\fi\fi
+	\@eghnum=#1\@egvnum=#2
+	\ifnum\@eghnum<0
+	   \@egabshnum=-\@eghnum
+	\else\@egabshnum=\@eghnum\fi
+	\ifnum\@egvnum<0
+	   \@egabsvnum=-\@egvnum
+	\else\@egabsvnum=\@egvnum\fi
+	\if\@egdirection d
+	   \ifnum\@eghnum=0
+	   \else
+	   \multiply\@eghdistance by\@egabshnum
+	   \divide\@eghdistance by\@egabsvnum
+	   \fi
+	\else\if\@egdirection u
+	   \multiply\@eghdistance by\@egabshnum
+	   \divide\@eghdistance by\@egabsvnum
+	\fi\fi%
+}
+
+% Draw shaded triangle (using parameters from \putbranch)
+\def\ctmb{%
+	\@egxyiicalc
+	\psline[linestyle=none,fillstyle=solid,fillcolor=\ctmfillcolor]%
+		(\@egxnum,\@egynum)(\@egxxnum,\@egyynum)(\@egxxxnum,\@egyyynum)%
+	\@ifnextchar[{\@ctmbpsto}{\@ctmbpstno}
+}
+
+\def\ctmbarc{%
+	\@egxyiicalc
+	\psline(\@egxnum,\@egynum)(\@egxxnum,\@egyynum)%
+	\psline(\@egxnum,\@egynum)(\@egxxxnum,\@egyyynum)%
+	\@tempcntx=\@egxnum%
+	\advance\@tempcntx by-\@egxxnum%
+	\divide\@tempcntx by2
+	\@tempcnty=\@egynum%
+	\advance\@tempcnty by-\@egyynum%
+	\divide\@tempcnty by2
+	\@egxdim=\@tempcntx\psxunit%
+	\@egydim=\@tempcnty\psyunit%
+% see pst-3d.tex for \pst@pyth and pstricks.tex for its use
+	\pst@pyth\@egxdim\@egydim\@egrad%
+	\psclip%
+       {\psline[linestyle=none](\@egxnum,\@egynum)(\@egxxnum,\@egyynum)%
+			(\@egxxxnum,\@egyyynum)}
+	  \pscircle[linestyle=\egarclinestyle,linewidth=\egarclinewidth,%
+           linecolor=\egarclinecolor](\@egxnum,\@egynum){\@egrad}
+	\endpsclip
+	\@ifnextchar[{\@ctmbpsto}{\@ctmbpstno}
+}
+
+% first argument is option
+%
+% #1: list of options
+% #2: player name
+\def\@ctmbpsto[#1]#2{%
+	\@ifnextchar[{\@ctmbo{#1}{#2}}{\@ctmb{#1}{#2}}%
+}
+
+% #1 is option list
+% #2 is player name
+% #3 is player label position
+% (#4,#5) is direction of single branch
+% #6 is action label
+\def\@ctmbo#1#2[#3](#4,#5)#6{%
+	\@egctmsethv{#4}{#5}
+	\@ifnextchar[{\@ctmbot{#1}{#2}{#3}{#6}}{\@ctmbotn{#1}{#2}{#3}{#6}}%
+}
+
+% #1 is option list
+% #2 is player name
+% (#3,#4) direction of branch
+% #5 is action label
+\def\@ctmb#1#2(#3,#4)#5{%
+	\@egctmsethv{#3}{#4}
+	\@ifnextchar[{\@ctmbot{#1}{#2}{t}{#5}}{\@ctmbotn{#1}{#2}{t}{#5}}%
+}
+
+% #1: option list
+% #2: player name
+% #3: player label position
+% #4: action label
+% #5: action label position OR payoff
+\def\@ctmbot#1#2#3#4[#5]{%
+	\@ifnextchar[{\@ctmbt{#1}{#2}{#3}{#4}{#5}}{\@ctmbtn{#1}{#2}{#3}%
+{#4}{#5}}%
+}
+
+% #1: option list
+% #2: player name
+% #3: player label position
+% #4: action label
+% #5: action label position
+% #6: payoff
+\def\@ctmbt#1#2#3#4#5[#6]{
+% need to recalculate \@eghdistance for u and d directions
+	\ib[#1]{#2}[#3]{#4}[#5][#6]
+}
+
+% #1: option list
+% #2: player name
+% #3: player label position
+% #4: action label
+% #5: action label position OR payoff
+\def\@ctmbtn#1#2#3#4#5{
+	\ib[#1]{#2}[#3]{#4}[#5]
+}
+
+% #1: option list
+% #2: player name
+% #3: player label position
+% #4: action label
+\def\@ctmbotn#1#2#3#4{%
+	\ib[#1]{#2}[#3]{#4}
+}
+
+% first argument is not option
+%
+% #1: player name
+\def\@ctmbpstno#1{%
+	\@ifnextchar[{\@ctmbox{#1}}{\@ctmbx{#1}}%
+}
+
+% #1: player name
+% #2: player label position
+% (#3,#4): direction of branch
+% #5: action label
+\def\@ctmbox#1[#2](#3,#4)#5{%
+	\@egctmsethv{#3}{#4}
+	\@ifnextchar[{\@ctmbotx{#1}{#2}{#5}}{\@ctmbotnx{#1}{#2}{#5}}%
+}
+
+% #1: player name
+% (#2,#3): direction of branch
+% #4: action label
+\def\@ctmbx#1(#2,#3)#4{%
+	\@egctmsethv{#2}{#3}
+	\@ifnextchar[{\@ctmbotx{#1}{t}{#4}}{\@ctmbotnx{#1}{t}{#4}}%
+}
+
+% #1: player name
+% #2: player label position
+% #3: action label
+% #4: action label position
+\def\@ctmbotx#1#2#3[#4]{%
+	\@ifnextchar[{\@ctmbtx{#1}{#2}{#3}{#4}}{\@ctmbtnx{#1}{#2}{#3}{#4}}%
+}
+
+% #1: player name
+% #2: player label position
+% #3: action label
+\def\@ctmbotnx#1#2#3{%
+	\ib{#1}[#2]{#3}
+}
+
+% #1: player name
+% #2: player label position
+% #3: action label
+% #4: action label position
+% #5: payoffs
+\def\@ctmbtx#1#2#3#4[#5]{%
+	\ib{#1}[#2]{#3}[#4][#5]
+}
+
+% #1: player name
+% #2: player label position
+% #3: action label
+% #4: payoffs
+\def\@ctmbtnx#1#2#3#4{%
+	\ib{#1}[#2]{#3}[#4]
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%    INFORMATION SETS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Information set
+% \infoset(x,y)[direction]{length}{name of player}[player label position]
+%
+\def\infoset(#1,#2){%
+	\def\@egdirection{\@egdefdirection} % in case reset by earlier \putbranch
+	\@ifnextchar[{\@infoseto(#1,#2)}{\@infoset(#1,#2)}%
+}
+
+\def\@infoseto(#1,#2)[#3]#4#5{%
+	\def\@infosetdir{#3}%
+	\@ifnextchar[{\@infos(#1,#2){#4}{#5}}{\@infosn(#1,#2){#4}{#5}}%
+}
+
+\def\@infoset(#1,#2)#3#4{%
+	\if\@egdirection d
+	   \def\@infosetdir{h}%
+	\else\if\@egdirection u
+	   \def\@infosetdir{h}%
+	\else\if\@egdirection r
+	   \def\@infosetdir{v}%
+	\else\if\@egdirection l
+	   \def\@infosetdir{v}%
+	\fi\fi\fi\fi
+	\@ifnextchar[{\@infos(#1,#2){#3}{#4}}{\@infosn(#1,#2){#3}{#4}}%
+}
+
+\def\@infos(#1,#2)#3#4[#5]{%
+	\def\@branchplp{#5}
+	\@infosetx(#1,#2){#3}{#4}%
+}
+
+\def\@infosn(#1,#2)#3#4{%
+	\if\@egdirection d
+	   \if\@infosetdir h
+	      \def\@branchplp{u}
+	   \else
+	      \def\@branchplp{r}
+	   \fi
+	\else\if\@egdirection u
+	   \if\@infosetdir h
+	      \def\@branchplp{d}
+	   \else
+	      \def\@branchplp{r}
+	   \fi
+	\else\if\@egdirection r
+	   \if\@infosetdir v
+	      \def\@branchplp{l}
+	   \else
+	      \def\@branchplp{u}
+	   \fi
+	\else\if\@egdirection l
+	   \if\@infosetdir v
+	      \def\@branchplp{r}
+	   \else
+	      \def\@branchplp{u}
+	   \fi
+	\fi\fi\fi\fi
+	\@infosetx(#1,#2){#3}{#4}%
+}
+
+\def\@infosetx(#1,#2)#3#4{%
+     \fboxrule 0pt\fboxsep\egplayerlabelsep
+	\@egxnum=#1\@egxxnum=#1\@egynum=#2\@egyynum=#2\@eghnum=#3\@egvnum=#3
+	\divide\@egvnum by\infosetdotsep% space between dots (not a vnum at all)
+	\advance\@egvnum by-1% because won't put dots at nodes
+	\if\@infosetdir h
+% \multips doesn't start at right point
+	   \advance\@egxxnum by\infosetdotsep% put first dot @ next pt after node
+	   \multiput(\@egxxnum,\@egynum)(\infosetdotsep,0){\@egvnum}{\infosetdot}
+	\else\if\@infosetdir v%
+	   \advance\@egyynum by\infosetdotsep
+	   \multiput(\@egxnum,\@egyynum)(0,\infosetdotsep){\@egvnum}{\infosetdot}
+	\fi\fi
+% \psline doesn't allow control of dot style, it seems
+%	\psline[linestyle=dotted](\@egxnum,\@egynum)(\@egxxnum,\@egyynum)
+     \psset{framesep=\egplayerboxsep}
+     \fboxrule 0pt\fboxsep\egplayerlabelsep
+	\divide\@eghnum by2
+	\if\@infosetdir h
+	   \advance\@egxnum by\@eghnum
+	   \if\@branchplp o
+	      \rput*(\@egxnum,\@egynum){\fbox{\@egplbox{#4}}}
+        \else\if\@branchplp u
+           \rput[b](\@egxnum,\@egynum){\fbox{\@egplbox{#4}}}
+        \else\if\@branchplp d
+           \rput[t](\@egxnum,\@egynum){\fbox{\@egplbox{#4}}}
+	   \fi\fi\fi
+	\else\if\@infosetdir v
+	   \advance\@egynum by\@eghnum
+	   \if\@branchplp o
+	      \rput*(\@egxnum,\@egynum){\fbox{\@egplbox{#4}}}
+        \else\if\@branchplp l
+           \rput[r](\@egxnum,\@egynum){\fbox{\@egplbox{#4}}}
+        \else\if\@branchplp r
+           \rput[l](\@egxnum,\@egynum){\fbox{\@egplbox{#4}}}
+	   \fi\fi\fi
+	\fi\fi
+}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% egame environment
+%%%%%%%%%%%%%%%%%%%%%%
+
+\def\egame(#1,#2){%
+	\initialtrue
+	\@ifnextchar[{\@egulo(#1,#2)}{\@egul(#1,#2)}%
+}
+
+% set unit length for game
+
+\def\@egulo(#1,#2)[#3]{%
+	\psset{unit=#3}
+	\begin{pspicture}(#1,#2)
+}
+
+\def\@egul(#1,#2){%
+	\psset{unit=0.1mm}
+	\begin{pspicture}(#1,#2)
+}
+
+\def\endegame{\end{pspicture}}
+

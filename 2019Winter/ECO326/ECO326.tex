@@ -18,6 +18,7 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[margin=1truein]{geometry}
 \usepackage{sgame}
+\usepackage{egameps}
 
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
@@ -32,7 +33,7 @@
 
 \begin{document}
 	\maketitle
-	\doclicenseThis
+%	\doclicenseThis
 	\texttt{Github Page:} \url{https://github.com/TianyuDu/Spikey_UofT_Notes}\\
 	\texttt{Note Page:} \url{TianyuDu.com/notes}
 	\paragraph{Readme} this note is based on the course content of \emph{ECO326 Advanced Microeconomics - Game Theory}, this note contains all materials covered during lectures and mentioned in the course syllabus. However, notations, statements of theorems and proofs are following the book \emph{A Course in Game Theory} by Osborne and Rubinstein, so they might be, to some extent, more mathematical than the required text for ECO326, \emph{An Introduction to Game Theory}.
@@ -1089,6 +1090,108 @@
 				\item $\forall i \in N$, every action in support of $\sigma^*_i$ is a best response to $\sigma_{-i}^*$.
 			\end{enumerate} 
 		\end{proposition}
+	
+	\section{Lecture 6 Feb. 25 2019}
+		\subsection{An Introductory Example}
+			\begin{figure}[htb]
+			\hspace*{\fill}
+			\begin{egame}(600,280)
+			\putbranch(300,240)(2,1){200}
+			\iib{Google}{$enter$}{$not$}[][$(0,2)$]
+			\putbranch(100,140)(1,1){100}
+			\iib{Apple}[l]{$fight$}{$not$}[$(-1,0)$][$(1,1)$]
+			\end{egame}
+			\hspace*{\fill}
+			\caption[]{Market Entry game}
+		\end{figure}
+		\subsection{Extensive Form Game: Assumptions and Terminologies}
+			\begin{assumption}
+				All games considered in the section are \textbf{pure sequential games}, in which, for each sub-history, \emph{exactly} one player gets action. 
+			\end{assumption}
+			
+			\begin{assumption}
+				We assume all players have \textbf{perfect information}, they can observe all previous actions. \footnote{This assumption will be relaxed in Bayesian games.}
+			\end{assumption}
+			
+			\begin{definition}
+				A sequence of actions is called a \textbf{history}. For example, $h = (a_1,\dots, a_t$ would be a history at period $t+1$.
+			\end{definition}
+			
+			\begin{definition}
+				A history $h$ belongs to \textbf{terminal histories}, $T$, if the game is over and payoff is generated. That's, there's no action $a$ such that appending $a$ to $h$ would generate another valid history.
+			\end{definition}
+			
+			\begin{definition}
+				The \textbf{sub-histories}, $S$, are histories that are not terminal.
+			\end{definition}
+			
+			\begin{definition}
+				Conventionally, the initial history is defined as the empty set.
+				\begin{equation}
+					h_0 = \emptyset \in S
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				Let $h \in S$, then $\tilde{h} = h \oplus a \in S \cup T$ is a \textbf{continuation} of $h = (a_1, \dots, a_t)$.
+			\end{definition}
+			
+			\begin{definition}[Extensive Form Game]
+				An \textbf{extensive form game} $\Gamma = \langle N, P, H, (u_i) \rangle$ consists
+				\begin{enumerate}[(a)]
+					\item A \ul{finite} set of \textbf{players} $N$.
+					\item A set of \textbf{histories} $H = S \cup T$ with \textbf{initial history} $h_0 = \emptyset$\footnote{$S$ and $T$ are \textbf{subhistories} and \textbf{terminal histories} sets defined above}.
+					\item \textbf{Player function} $P: S \to N$ assigns \ul{one player} $P(h)$ (in pure sequential games) to act after history $h$. And an \textbf{action set} $A(h)$ for player $P(h)$ is defined by
+						\begin{equation}
+							A(h) \equiv \{a \in A_{P(h)}: h \oplus \{a\} \in H\}
+						\end{equation}
+					\item \textbf{Payoff functions} $u_i: T \to \R$ derived from preferences by
+						\begin{equation}
+							\forall z_1, z_2 \in T,\ u_i(z_1) \geq u_i(z_2) \iff z_1 \succsim_i z_2
+						\end{equation}
+				\end{enumerate}
+			\end{definition}
+			
+			\begin{definition}
+				A \textbf{strategy} $s_i$ for player $i \in N$ is a mapping from $\{h \in S: P(h) = i\}$ to valid actions in $A_i$ for each specific $h$.
+			\end{definition}
+			
+			\begin{remark}
+				A strategy is a \ul{complete contingency plan} assigns an action to every subhistories such that $P(h) = i$, \emph{even if those subhistories cannot be reached}.
+			\end{remark}
+			
+			\begin{definition}
+				A \textbf{Nash equilibrium} is a \ul{strategy profile} such that each player's strategy is a best response to strategies of other players.
+			\end{definition}
+			
+			\begin{definition}
+				For each $h \in S$, a \textbf{subgame} following subhistory $h$ is a 4-tuple $\langle N, P, H', (u_i) \rangle$ where $H'$ is the set of continuations of $h$. And everything else are inherited from the original game.
+			\end{definition}
+			
+			\begin{definition}
+				A \textbf{subgame perfect Nash equilibrium} for $\Gamma$ is a strategy profile such that there's a Nash equilibrium in \ul{every} subgame of $\Gamma$, \emph{including those never reached}. This means players are best responding in every subgame.
+			\end{definition}
+			
+			\begin{lemma}
+				\begin{equation}
+					(s_i) \in \tx{SPNE} \implies (s_i) \in \tx{NE}
+				\end{equation}
+				\begin{proof}
+					By the definition of SPNE, take subgame after history $h = \emptyset$.
+				\end{proof}
+			\end{lemma}
+			
+			\begin{proposition}
+				The set of strategy profiles found by the procedure of backward induction in a \ul{finite horizon} game is the set of subgame perfect equilibria.
+			\end{proposition}
+			
+			\begin{definition}
+				An extensive form game $\Gamma$ is \textbf{finite} if the set $H$ is finite.
+			\end{definition}
+			
+			\begin{theorem}
+				Every \ul{finite} extensive game with perfect information has a subgame perfect equilibrium.
+			\end{theorem}
 \end{document}
 
 
