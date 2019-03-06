@@ -102,7 +102,7 @@
 				\begin{enumerate}[(i)]
 					\item $x_i > 0\ \forall i \in [k]$ and equality holds, then $C(N-1, k-1)$.
 					\item $x_i \geq 0\ \forall i \in [k]$ and equality holds, then $C(N+k-1, k-1)$.\footnote{Simulate choosing $x_i + 1$ instead of $x_i$.}
-					\item $x_i > 0\ \forall i \neq j, x_j = Z$ and equality holds, then $C(N-Z+k-2,k-2)$.
+					\item $x_i > 0\ \forall i \neq j, x_j = Z$ and equality holds, then $C(N-Z-2,k-2)$.
 					\item $x_i > 0\ \forall i \in [k]$ and strict inequality holds, then $C(N-1, k)$.\footnote{Image there is a placeholder $x_{k+1} > 0$.}
 					\item $x_i \geq 0\ \forall i \in [k]$ and strict inequality holds, then $C(N+k-1, k)$.
 					\item $x_i \geq 0\ \forall i \in [k]$ and \emph{weak} inequality holds, $C(N+k, k)$ \footnote{This can be calculated by adding case (ii) and case (v) together, and apply Pascal's identity}.
@@ -166,7 +166,7 @@
 		
 	\section{Induction}
 		\begin{theorem}[Well-Ordering Principle]
-			Every non-empty set of $Z_{++}$ has a least element.
+			Every non-empty set of $\Z_{++}$ has a least element.
 			\begin{proof}
 				Prove using principle of mathematical induction and contradiction.
 			\end{proof}
@@ -190,7 +190,7 @@
 		\end{remark}
 		
 		\begin{definition}[Summation]
-			Summation operator beginning with index 1, $\sum: \mc{F}_1 \times Z_{++} \to \R$, where $\mc{F}_1$ is the set of unary real-valued functions, is defined inductively as
+			Summation operator beginning with index 1, $\sum: \mc{F}_1 \times \Z_{++} \to \R$, where $\mc{F}_1$ is the set of unary real-valued functions, is defined inductively as
 			\begin{align}
 				\sum_{i=1}^1 f(i) &\equiv f(1) \\
 				\sum_{i=1}^{k+1} f(i) &\equiv \sum_{i=1}^k f(i) + f(k+1)
@@ -325,7 +325,7 @@
 		\begin{definition}
 			Let $\mc{G} \equiv (V, E)$ and $x \in V$, then the \textbf{neighbourhood} of $x$ is defined as
 			\begin{equation}
-				\mc{N}(x) \equiv \{v \in V: xy \in E\}
+				\mc{N}(x) \equiv \{y \in V: xy \in E\}
 			\end{equation}
 			Then the \textbf{degree} of $x$ in graph $\mc{G}$ is defined as
 			\begin{equation}
@@ -364,7 +364,7 @@
 		\end{definition}
 		
 		\begin{definition}
-			A \textbf{cycle} is a \emph{path} $(x_1, x_2, \dots, x_n)$ with $n \neq 3$ such that $x_1x_n \in E$.
+			A \textbf{cycle} is a \emph{path} $(x_1, x_2, \dots, x_n)$ with $n \geq 3$ such that $x_1x_n \in E$.
 		\end{definition}
 		
 		\begin{definition}
@@ -372,7 +372,7 @@
 			\begin{equation}
 				\forall x, y \in V,\ xy \in E \iff f(x)f(y) \in F
 			\end{equation}
-			And we say $\mc{G}$ \emph{contains} $\mc{H}$ is there is a subgraph of $\mc{G}$ isomorphic to $\mc{H}$.
+%			And we say $\mc{G}$ \emph{contains} $\mc{H}$ is there is a subgraph of $\mc{G}$ isomorphic to $\mc{H}$.
 		\end{definition}
 		
 		\begin{definition}
@@ -429,7 +429,7 @@
 					\item $v_i v_{i+1} \in E\ \forall i \in \{0, \dots, t-1\}$;
 					\item $\forall e \in E, \exists\ ! i \in \Z\ s.t.\ v_i v_{i+1} = e$.
 				\end{enumerate}
-				That's, it is a graph cycle which uses each graph edge exactly once.
+				That's, it is a graph circuit which uses each graph edge exactly once.
 			\end{definition}
 			
 			\begin{definition}
