@@ -379,6 +379,285 @@
 			Let $S \subseteq \R^n$ be an unbounded set, and $f: S \to \R$.
 			Then improper integral $\idotsint_{S} f\ d^n \ve{x}$ is absolutely convergent on $\R^n$ \ul{if and only if} $\idotsint_{\R^n} \chi_S f\ d^n \ve{x}$ is absolutely convergent.
 		\end{proposition}
+	
+	
+	\section{Vector Calculus}
+		\subsection{Line Integrals}
+		\subsubsection{Arc Length}
+			\begin{definition}
+				Let $C$ be a smooth curve in $\R^n$ parameterized by $C^1$ function $\ve{g}$ such that $\ve{g}'(t) \neq \ve{0}$ for every appropriate $t$.
+				\begin{equation}
+					C \equiv \{\ve{g}(t): t \in [a, b]\}
+				\end{equation}
+				and the \textbf{arc length} of $C$ is defined as
+				\begin{gather}
+					\int_C d^n\ve{x} \equiv \int_C ds \equiv \int_a^b ||\ve{g}'(t)||\ dt
+				\end{gather}
+			\end{definition}
+			
+			\begin{proposition}
+				The arc length of a curve $C$ is an intrinsic property of the geometric object $C$ and should not depend on the particular parameterization we use.
+				\begin{proof}
+					Let $\varphi:[c,d] \to [a,b]$ be a bijection, so that $\ve{h} \equiv \ve{g} \circ \varphi$ is also a valid parameterization of $C$ such that
+					\begin{equation}
+						C \equiv \{\ve{h}(u): u \in [c, d]\}
+					\end{equation}
+					The arc length of $C$ can be computed using
+					\begin{gather}
+						\int_C ds = \int_c^d ||\ve{h}'(u)||\ du \\
+						= \int_c^d ||\ve{g}'(\varphi(u))|| \times ||\varphi'(u)||\ du \\
+						= \int_a^b ||\ve{g}'(t)||\ dt \tx{ by change of variable formula.}
+					\end{gather}
+				\end{proof}
+			\end{proposition}
+			
+			\begin{remark}[Interpretations]Suppose $\ve{g}$ is a parameterization of $C$.
+				\begin{enumerate}[(i)]
+					\item $\int_a^b \ve{g}'(t)\ dt = \ve{g}(b) - \ve{g}(a)$ measures the distance between two endpoints of $C$. 
+					\item Choosing a parameterization is effectively choosing an \textbf{orientation} for the curve $C$.
+				\end{enumerate}
+			\end{remark}
+			
+			\begin{definition}
+				A function $\ve{g}: [a, b] \to \R^n$ is called \textbf{piecewise smooth} if 
+				\begin{enumerate}[(i)]
+					\item it's \emph{continuous}, and 
+					\item it's derivate exists and is continuous except at finitely many points $t_j$, at which the one-sided limits exists.
+				\end{enumerate}
+			\end{definition}
+		
+		\subsubsection{Line Integrals of Scalar Functions}
+			\begin{definition} Let smooth curve $C \subseteq \R^n$, $f: C \to \R$ and $\ve{g}$ be a parameterization of $C$, then 
+				\begin{equation}
+					\int_C f\ ds = \int_a^b f(\ve{g}(t))\ ||\ve{g}'(t)||\ dt
+				\end{equation}
+			\end{definition}
+			
+			\begin{remark}
+				The line integrals of scalar functions are also independent from the choices of parameterizations.
+			\end{remark}
+			
+			\begin{definition}
+				\begin{equation}
+					\tx{Average of $f$ over $C$} \equiv \frac{\int_C f\ ds}{\int_C\ ds}
+				\end{equation}
+			\end{definition}
+			
+		\subsubsection{Line Integrals of Vector Fields}
+			\begin{definition} Let smooth $C \in \R^n$ with parameterization $\ve{g}$ and $\ve{F}: C \to \R^n$ defined on it, the \textbf{line integral} of $\ve{F}$ over $C$ is defined as 
+				\begin{equation}
+					\int_C \ve{F}\cdot d\ve{x} = \int_a^b \ve{F}(\ve{g}(t)) \cdot \ve{g}'(t)\ dt
+				\end{equation}
+			\end{definition}
+			
+			\begin{proposition}
+				The line integral $\int_C \ve{F}\cdot d\ve{x}$ is independent of the parameterization \emph{as long as the orientation is unchanged}.
+			\end{proposition}
+			
+		\subsubsection{Rectifiable Curves}
+			\begin{remark}
+				Let $C$ be a curve in $\R^n$ parameterized by injection $\ve{g}: [a, b] \to \R^n$ such that $\ve{g}'(t) \neq \ve{0}$. Let $P$ be a partition of $[a, b]$. Denote
+				\begin{equation}
+					L_P(C) \equiv \sum_{j} ||\ve{g}(t_j) - \ve{g}(t_{j-})||
+				\end{equation}
+			\end{remark}
+			
+			\begin{definition}
+				A curve $C$ is \textbf{rectifiable} if the set $\{L_P(C):P\}$ is bounded. And the arc length of $C$ s defined as 
+				\begin{equation}
+					L(C) \equiv \sup \{L_P(C):P\}
+				\end{equation}
+			\end{definition}
+			
+			\begin{theorem}
+				The supremum found above, $L(C)$ is the precisely the arc length of $C$:
+				\begin{equation}
+					L(C) = \int_a^b ||\ve{g}'(t)||\ dt
+				\end{equation}
+			\end{theorem}
+		
+		\subsection{Green's Theorem}
+			\subsubsection{Preliminary Definitions}
+				\begin{definition}
+					A \textbf{simple closed curve} is a curve with parameterization $\ve{g}: [a, b] \to \R^n$ where
+					\begin{enumerate}[(i)]
+						\item $\ve{g}$ is continuous;
+						\item $\ve{g}(a) = \ve{g}(b)$;
+						\item $\ve{g}$ is injective with its domain restricted to $(a, b)$.
+					\end{enumerate}
+				\end{definition}
+				
+				\begin{definition}
+					A \emph{simple closed curve} is \textbf{piecewise smooth} if it has a parameterization $\ve{g}$ such that
+					\begin{enumerate}[(i)]
+						\item $\ve{g}$ is continuously differentiable with $\ve{g}'(t) \neq \ve{0}$ except finitely many breakpoints;
+						\item $\ve{g}'(t)$ is \emph{one side continuous} at breakpoints of the curve.
+					\end{enumerate}
+				\end{definition}
+				
+				\begin{definition}
+					A \textbf{regular region} $S \subseteq \R^n$ is a set satisfying both
+					\begin{enumerate}[(i)]
+						\item $S$ is compact;
+						\item $\overline{S^{int}} = S$.
+					\end{enumerate}
+				\end{definition}
+				
+				\begin{definition}
+					Let $S \subseteq \R^2$, $S$ has \textbf{piecewise smooth boundary} if $\partial S$ consists of one or more \emph{disjoint, piecewise smooth, simple closed curve}.
+				\end{definition}
+				
+				\begin{definition}
+					Let $S \subseteq \R^2$, then \textbf{positive orientation} on $\partial S$ is the orientation on each of the closed curves that make up the boundary such that the region is on the \emph{left} with respect to the positive direction on the curve.
+				\end{definition}
+				
+				\begin{theorem}[Green's Theorem]
+					Suppose $S \subseteq \R^2$ is a regular region with piecewise smooth region $\partial S$. Suppose $\ve{F}$ is a $C^1$ vector field defined on $\overline{S}$, then
+					\begin{equation}
+						\int_{\partial S} \ve{F}\cdot d\ve{x} = \iint_S \Big(\pd{F_2}{x_1} - \pd{F_1}{x_2}\Big)\ dA
+					\end{equation}
+				\end{theorem}
+				
+				\begin{corollary}
+					Suppose $S$ is a regular region in $\R^2$ with piecewise smooth boundary $\partial S$, and let $\ve{n}(\ve{x})$ be the \emph{unit outward normal} vector to $\partial S$ at $\ve{x} \in \partial S$. Suppose also that $\ve{F}$ is a vector field defined on $\overline{S}$, then
+					\begin{equation}
+						\int_{\partial S} \ve{F} \cdot \ve{n}\ ds = \iint_S \Big(\pd{F_1}{x_1}  + \pd{F_2}{x_2}\Big)\ dA
+					\end{equation}
+%						\begin{proof}
+%							
+%						\end{proof}
+				\end{corollary}
+		\subsection{Surface Integrals}
+			\subsubsection{Surface Areas and Surface Integrals}
+				\begin{definition}
+					Suppose $S$ is a surface in $\R^3$ and parameterized by
+					\begin{equation}
+						\ve{G}(\ve{u}): R \to S
+					\end{equation}
+					where $rank(D\ve{G}(\ve{u}))=2$ for every $\ve{u} \in R \backslash Z$ where $Z$ is a probably empty set with zero content. If $\norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}$ is integrable, then
+					\begin{equation}
+						Area(S) \equiv \iint_{\red{R}} \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta
+					\end{equation}
+				\end{definition}
+				
+				\begin{definition}
+					Let $f: S \to \R$ be a real-valued continuous function defined on a super set of $S$, the \textbf{integral of a real-valued function on a surface} is defined as
+					\begin{equation}
+						\iint_{S}f(\ve{x})\ dA 
+						\equiv \iint_{\red{R}} f(\ve{G}(\ve{u}))\norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta
+					\end{equation}
+				\end{definition}
+				
+				\begin{definition}
+					Let $\ve{F}: S \to \R^3$ be a continuous vector field defined on a super set of $S$, the \textbf{integral of vector field on a surface} is defined as
+					\begin{equation}
+						\iint_{S}\ve{F}(\ve{x}) \cdot \ve{n}\ dA
+						\equiv \iint_{\red{R}} \ve{F}(\ve{G}(\ve{u}))\cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta
+					\end{equation} 
+				\end{definition}
+				
+				\begin{remark}
+					Surface integrals of \hl{real-valued functions} are independent of the choice of parametrization.
+				\end{remark}
+				
+				\begin{remark}
+					But the choice of parameterization can change the sign of surface integrals of \hl{vector fields}. We need to \hl{choose the direction of the normal, $\ve{n}$}.
+				\end{remark}
+				
+				\begin{definition}
+					Let $S \subseteq \R^3$ be a two dimensional sub-manifold, and $f$ is a real-valued function defined on a super set of $S$. Define the \textbf{average of $f$ over $S$} as
+					\begin{equation}
+						\tx{aver of $f$ over $S$} \equiv \frac{\iint_S f\ dA}{\iint_S1\ dA}
+					\end{equation}
+				\end{definition}
+				
+				\begin{remark}
+					A note on the relation between integrals of a vector field and a real-valued function. The surface of vector field $\ve{F}$ on $S$ is defined by \emph{reducing $\ve{F}$ to a real-valued function $\ve{F}\cdot \ve{n}$} and then follow the definition of ordinary real-valued function on $S$. Define $h \equiv \ve{F} \cdot \ve{n}$,
+					\begin{gather}
+						\iint_S \ve{F} \cdot \ve{n}\ dA = \iint_S h\ dA \\
+						\equiv \iint_R h(\ve{G}(\ve{u})) \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
+						= \iint_R \ve{F}(\ve{G}(\ve{u})) \cdot \ve{n}(\ve{G}(\ve{u})) \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
+						= \iint_R \ve{F}(\ve{G}(\ve{u})) \cdot \frac{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}{\norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}} \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
+						= \iint_R \ve{F}(\ve{G}(\ve{u})) \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta
+					\end{gather}
+				\end{remark}
+			\subsubsection{An invariance property}
+				\begin{remark}
+					As mentioned above, given $\ve{n}(\ve{x})$ fixed, we can define the surface integral of \ul{vector field} as the surface integral of a \ul{real-valued function} defined as $h(\ve{x}) \equiv \ve{F}(\ve{x}) \cdot \ve{n}(\ve{x})$. And as argued before, one $\ve{n}$ is fixed (i.e. orientation is fixed), the value of integral is deterministic. Therefore we can conclude \hl{the integral of a vector field $\ve{F}$ over a surface $S$ depends on the \textbf{orientation} of $S$ but otherwise independent of the parameterization}.
+				\end{remark}
+				
+				\begin{remark}
+					Let $S \subseteq \R^2$ be a two dimensional sub-manifold parameterized by $\ve{G}: R \subseteq \R^2 \to \R^3$ such that $rank(\ve{G}(\ve{u})) = 2$ for all but zero-content sets on its domain. \\
+					Let $\varphi: W\subseteq \R^2 \to R$ be a bijection such that $\ve{H} \equiv \ve{G} \circ \varphi: W \to \R^3$ is another parameterization of $S$. \\
+					Now consider the integral of vector field $\ve{F}$ under parameterization $\ve{H}$,
+					\begin{gather}
+						\iint_S \ve{F} \cdot \ve{u}\ dA = \iint_W \ve{F}(\ve{H}) \cdot (\pd{\ve{H}}{s} \times \pd{\ve{H}}{t})\ d\Theta \\
+						= \iint_W \ve{F}\circ\ve{G}\circ\varphi \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}) \red{det\ D\varphi}\ d\Theta \\
+						= \pm \iint_R \ve{F}\circ \ve{G} \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta \tx{ (change of variable)}
+					\end{gather}
+				\end{remark}
+				
+				\begin{theorem}[Invariance]
+					Let $\ve{G}: R \to \R^3$ and $\ve{H} \equiv \ve{G}\circ\varphi: W \to \R^3$ be two parameterizations of $S$, then
+					\begin{equation}
+						\iint_R f\circ \ve{G} \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta = \iint_W f\circ \ve{H} \norm{\pd{\ve{H}}{s} \times \pd{\ve{H}}{t}}\ d\Theta
+					\end{equation}
+					and 
+					\begin{equation}
+						\iint_R \ve{F}\circ \ve{G} \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta 
+						= \red{\pm}\iint_W \ve{F}\circ \ve{H} \cdot (\pd{\ve{H}}{u} \times \pd{\ve{H}}{v})\ d\Theta
+					\end{equation}
+				\end{theorem}
+				
+			\subsubsection{Volume and Area}
+				\begin{theorem}
+					Let $R$ be an arbitrary regular region in $\R^3$, and let $S$ be the boundary surface of $R$, define
+					\begin{equation}
+						S_h \equiv \{
+							\ve{x} + \delta \ve{n}: \ve{x} \in S \land \delta \in [0, h]
+						\}
+					\end{equation}
+					where $S_h$ can be interpreted as \emph{a shell of region $R$ with thickness $h$}. Then the surface area of $S$ is 
+					\begin{equation}
+						\tx{area}(S) = \lim_{h \to 0} \frac{|S_h|}{h}
+					\end{equation}
+				\end{theorem}
+		\subsection{Divergence, Gradient and Curl}
+			\begin{definition}
+				Let $U \subseteq \R^n$ be an open set, and define real-valued function $f: U \to \R$ and vector field $\ve{F}: U \to \R^n$. Then we define
+				\begin{enumerate}
+					\item The \textbf{gradient} of $f$ as $\nabla f$;
+					\item The \textbf{divergence} of $\ve{F}$ as $\nabla \cdot \ve{F}$;
+					\item The \textbf{curl} of $\ve{F}$ as $\nabla \times \ve{F}$.
+				\end{enumerate}
+			\end{definition}
+			
+			\begin{definition}
+				Let $f: \R^n \to \R$ be a $C^1$ real-valued function, define the \textbf{Laplacian} of $f$ as a mapping from \emph{real-valued functional space} to \emph{real-valued functional space} defined as
+				\begin{equation}
+					\tx{div(grad)} f \equiv \sum_{j} \partial_j^2 f = \Delta f = \nabla^2 f
+				\end{equation}
+			\end{definition}
+			
+			\begin{theorem}
+				For every $C^2$ real valued function $f: \R^3 \to \R$,
+				\begin{equation}
+					\curl(\grad f) = \ve{0}
+				\end{equation}
+				For every $C^2$ vector field defined in $\R^3$ or a subset of it, 
+				\begin{equation}
+					\dive (\curl \ve{F}) = 0
+				\end{equation}
+				Note that \hl{the domain of $f$ and $\ve{F}$ must be $\R^3$ or a subset of it, otherwise the curl operation is not well-defined.}\\
+			\end{theorem}
+			
+			\begin{theorem}[Product rules]
+				\begin{align}
+					\grad (fg) &= f \grad g + g \grad f \\
+					\dive (f \ve{G}) &= f \dive{G} + \grad f \cdot \ve{G} \\
+					\curl (f \ve{G}) &= f \curl{G} + \grad f \times \ve{G}
+				\end{align}
+			\end{theorem}
 \end{document}
 
 
