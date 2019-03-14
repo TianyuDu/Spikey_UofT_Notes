@@ -16,16 +16,17 @@
 \BOOKMARK [2][-]{subsection.4.1}{Basics}{section.4}% 16
 \BOOKMARK [2][-]{subsection.4.2}{Integration on Higher Dimensions}{section.4}% 17
 \BOOKMARK [2][-]{subsection.4.3}{Iterated Integrals}{section.4}% 18
-\BOOKMARK [1][-]{section.5}{Vector Calculus}{}% 19
-\BOOKMARK [2][-]{subsection.5.1}{Line Integrals}{section.5}% 20
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Arc Length}{subsection.5.1}% 21
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Line Integrals of Scalar Functions}{subsection.5.1}% 22
-\BOOKMARK [3][-]{subsubsection.5.1.3}{Line Integrals of Vector Fields}{subsection.5.1}% 23
-\BOOKMARK [3][-]{subsubsection.5.1.4}{Rectifiable Curves}{subsection.5.1}% 24
-\BOOKMARK [2][-]{subsection.5.2}{Green's Theorem}{section.5}% 25
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Preliminary Definitions}{subsection.5.2}% 26
-\BOOKMARK [2][-]{subsection.5.3}{Surface Integrals}{section.5}% 27
-\BOOKMARK [3][-]{subsubsection.5.3.1}{Surface Areas and Surface Integrals}{subsection.5.3}% 28
-\BOOKMARK [3][-]{subsubsection.5.3.2}{An invariance property}{subsection.5.3}% 29
-\BOOKMARK [3][-]{subsubsection.5.3.3}{Volume and Area}{subsection.5.3}% 30
-\BOOKMARK [2][-]{subsection.5.4}{Divergence, Gradient and Curl}{section.5}% 31
+\BOOKMARK [2][-]{subsection.4.4}{Change of Variables}{section.4}% 19
+\BOOKMARK [1][-]{section.5}{Vector Calculus}{}% 20
+\BOOKMARK [2][-]{subsection.5.1}{Line Integrals}{section.5}% 21
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Arc Length}{subsection.5.1}% 22
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Line Integrals of Scalar Functions}{subsection.5.1}% 23
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Line Integrals of Vector Fields}{subsection.5.1}% 24
+\BOOKMARK [3][-]{subsubsection.5.1.4}{Rectifiable Curves}{subsection.5.1}% 25
+\BOOKMARK [2][-]{subsection.5.2}{Green's Theorem}{section.5}% 26
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Preliminary Definitions}{subsection.5.2}% 27
+\BOOKMARK [2][-]{subsection.5.3}{Surface Integrals}{section.5}% 28
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Surface Areas and Surface Integrals}{subsection.5.3}% 29
+\BOOKMARK [3][-]{subsubsection.5.3.2}{An invariance property}{subsection.5.3}% 30
+\BOOKMARK [3][-]{subsubsection.5.3.3}{Volume and Area}{subsection.5.3}% 31
+\BOOKMARK [2][-]{subsection.5.4}{Divergence, Gradient and Curl}{section.5}% 32

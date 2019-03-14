@@ -380,6 +380,58 @@
 			Then improper integral $\idotsint_{S} f\ d^n \ve{x}$ is absolutely convergent on $\R^n$ \ul{if and only if} $\idotsint_{\R^n} \chi_S f\ d^n \ve{x}$ is absolutely convergent.
 		\end{proposition}
 	
+		\subsection{Change of Variables}
+			\begin{theorem}[Change of Variable]
+				Let $U$ and $V$ be two open subsets of $\R^n$, and let $\ve{G}: U \to V$ be a $C^1$ bijection. Let $T \subset U$ and $S \subset V$. Suppose $\ve{G}(T) = S$, then
+				\begin{equation}
+					\int \cdots \int_S f\ d\Omega = \int \cdots \int_T f\circ\ve{G}\ |\tx{det}D\ve{G}|\ d\Theta
+				\end{equation}
+			\end{theorem}
+			
+			\begin{corollary}
+				Let $S$ be a region in $\R^n$, suppose $S$ can be parameterized by $\ve{G}: T \to S$. By the change of variable formula, consider the special case $f(\ve{x})=1$, 
+				\begin{equation}
+					|S| = \int \cdots \int_S 1\ d\Omega = \int \cdots \int_T 1\ |\tx{det }D\ve{G}(\ve{u})|\ d\Theta
+				\end{equation}
+			\end{corollary}
+			
+			\begin{example}[Polar Coordinate]
+				Define the coordinate transformation mapping from polar to Cartesian,
+				\begin{equation}
+					\ve{P}(r, \theta) \equiv (x, y) = 
+					\begin{pmatrix}
+						r \cos{\theta} \\
+						r \sin{\theta}
+					\end{pmatrix},\ \theta \in [0, 2\pi]\ r \in \R_{+}
+				\end{equation}
+				and $|\tx{det }D\ve{P}(r, \theta)| = r$.
+			\end{example}
+			
+			\begin{example}[Cylindrical Coordinate]
+				Define the coordinate transformation mapping from cylindrical to Cartesian as
+				\begin{equation}
+					\ve{C}(r, \theta, z) \equiv (x, y, z) = 
+					\begin{pmatrix}
+						r \cos{\theta} \\
+						r \sin{\theta} \\
+						z
+					\end{pmatrix},\ \theta \in [0, 2\pi]\ r \in \R_{+}\ z \in \R
+				\end{equation}
+				and $|\tx{det }D\ve{C}(r, \theta, z)| = r$.
+			\end{example}
+			
+			\begin{example}[Spherical Coordinate]
+				Define the coordinate transformation mapping from spherical to Cartesian as
+				\begin{equation}
+					\ve{S}(r, \theta, \varphi) = 
+					\begin{pmatrix}
+						r \cos{\theta} \sin{\varphi} \\
+						r \sin{\theta} \sin{\varphi} \\
+						r \cos{\varphi}
+					\end{pmatrix}
+				\end{equation}
+				and $|\tx{det }D\ve{S}(r, \theta, \varphi)| = \red{r^2 \sin{\varphi}}$
+			\end{example}
 	
 	\section{Vector Calculus}
 		\subsection{Line Integrals}
