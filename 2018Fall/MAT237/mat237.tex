@@ -433,6 +433,97 @@
 				and $|\tx{det }D\ve{S}(r, \theta, \varphi)| = \red{r^2 \sin{\varphi}}$
 			\end{example}
 	
+		\subsection{Further Aspects}
+			\subsubsection{Exchanging Differentiation and Integration}
+			
+			\begin{theorem}[Exchanging Differentiation and Integration]
+				Let $f(\ve{x}, \ve{t}): S \times T \to \R$ and define $F(\ve{x}): S \to \R$ as 
+				\begin{equation}
+					F(\ve{x}) \equiv \int \cdots \int_T f(\ve{x}, \ve{t})\ d\Omega
+				\end{equation}
+				If both
+				\begin{enumerate}[(i)]
+					\item $f$ and $F$ are continuous on their domains;
+					\item and $\forall\ x_j \in \ve{x}$, $\pd{f(\ve{x}, \ve{t})}{x_j}$ is continuous,
+				\end{enumerate}
+				then $F$ is $C^1$ in $S$ and for every $j$,
+				\begin{equation}
+					\pd{F(\ve{x})}{x_j} = \idotsint_T \pd{f(\ve{x}, \ve{t})}{x_j}\ d\Omega
+				\end{equation}
+			\end{theorem}
+	
+			\begin{corollary}
+				By the definition of partial derivative, above theorem is equivalent to 
+				\begin{equation}
+					\lim_{h \to 0} \idotsint_T \frac{f(\ve{x}, \ve{t})}{h}\ d\Omega = \idotsint_T \lim_{h \to 0} \frac{f(\ve{x}, \ve{t})}{h}\ d\Omega
+				\end{equation}
+			\end{corollary}
+			
+			\subsubsection{Improper Integrals}
+				\begin{definition}[Unbounded Domains]
+					An \textbf{improper integral} with unbounded domain $\idotsint_{\R^n} f\ d\Omega$ is \textbf{absolutely convergent} if there exists $L \in \R$ such that
+					\begin{equation}
+						\forall \varepsilon > 0\ \exists R > 0\ s.t.\ \forall S \subseteq \R^n\ B(R, \ve{0}) \subset S \implies \Big|\idotsint_S f\ d\Omega - L \Big| < \varepsilon
+					\end{equation}
+				\end{definition}
+				
+				\begin{theorem}
+					Let $f: \R^n \to \R$ be a continuous function, and that 
+					\begin{equation}
+						\lim_{R \to \infty} \idotsint_{B(R, \ve{0})}\red{|}f\red{|}\ d\Omega \tx{ exists}
+					\end{equation}
+					then $\idotsint_{\R^n}f\ d\Omega$ is absolutely convergent.
+				\end{theorem}
+				
+				\begin{corollary}[Equivalence]
+					Above improper integral $\idotsint_{\R^n}f\ d\Omega$ is absolutely convergent if set
+					\begin{equation}
+						\{\idotsint_{B(R, \ve{0})}\red{|}f\red{|}\ d\Omega: R \in \R_{++}\}
+					\end{equation}
+					is bounded.
+				\end{corollary}
+				
+				\begin{corollary}
+					Let $f: \R^n \to \R$ be an continuous function, if 
+					\begin{equation}
+						\exists p > n,\ C > 0\ s.t.\ |f(\ve{x})| \leq \frac{1}{\norm{\ve{x}}^p}\ \forall \ve{x} \in \R^n
+					\end{equation}
+					then $\idotsint_{\R^n}f\ d\Omega$ is absolutely convergent.
+				\end{corollary}
+	
+				\begin{definition}[Unbounded Function]
+					Let $S \subset \R^n$, $\ve{a} \in \R^n$. Consider a function $f: S \backslash \{\ve{a}\} \to \R$. Then the improper integral $\idotsint_{\red{S}}f d\Omega$ is absolutely convergent if 
+					\begin{equation}
+						\exists L \in \R\ s.t\ \forall \varepsilon > 0\ \exists r > 0\ s.t.\ \forall U \subset S\ s.t.\ \ve{a} \in U^{int} \land U \subset B(r, \ve{a}),\ \Big|
+							\idotsint_{S \backslash U}f\ d\Omega - L
+						\Big| < \varepsilon
+					\end{equation}
+				\end{definition}
+				
+				\begin{theorem}
+					Let $f: S\backslash \{\ve{a}\} \to \R$, if
+					\begin{equation}
+						\lim_{r\to 0}\idotsint_{S \backslash B(r, \ve{a})}\red{|}f\red{|}\ d\Omega \tx{ exists}
+					\end{equation}
+					then $\idotsint_S f\ d\Omega$ is absolutely convergent.
+				\end{theorem}
+				
+				\begin{corollary}[Equivalence]
+					If the set
+					\begin{equation}
+						\{\iint_{S \backslash B(r, \ve{a})} \red{|}f\red{|}\ d\Omega: r \in \R_{++}\}
+					\end{equation}
+					is bounded, then $\idotsint_S f\ d\Omega$ is absolutely convergent.
+				\end{corollary}
+				
+				\begin{corollary}
+					Let $f: S\backslash \{\ve{a}\} \to \R$, if 
+					\begin{equation}
+						\exists p < n,\ C > 0\ s.t. |f(\ve{x})| \leq \frac{C}{\norm{\ve{x} - \ve{a}}^p}\ \forall \ve{x} \in S \backslash \{\ve{a}\}
+					\end{equation}
+					then the improper integral $\idotsint_S f\ d\Omega$ is absolutely convergent.
+				\end{corollary}
+				
 	\section{Vector Calculus}
 		\subsection{Line Integrals}
 		\subsubsection{Arc Length}
