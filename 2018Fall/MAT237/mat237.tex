@@ -441,8 +441,9 @@
 				\begin{equation}
 					F(\ve{x}) \equiv \int \cdots \int_T f(\ve{x}, \ve{t})\ d\Omega
 				\end{equation}
-				If both
+				If
 				\begin{enumerate}[(i)]
+					\item $S$ is open and $T$ is compact and bounded;
 					\item $f$ and $F$ are continuous on their domains;
 					\item and $\forall\ x_j \in \ve{x}$, $\pd{f(\ve{x}, \ve{t})}{x_j}$ is continuous,
 				\end{enumerate}
@@ -455,7 +456,7 @@
 			\begin{corollary}
 				By the definition of partial derivative, above theorem is equivalent to 
 				\begin{equation}
-					\lim_{h \to 0} \idotsint_T \frac{f(\ve{x}, \ve{t})}{h}\ d\Omega = \idotsint_T \lim_{h \to 0} \frac{f(\ve{x}, \ve{t})}{h}\ d\Omega
+					\lim_{h \to 0} \idotsint_T \frac{f(\ve{x} + h \ve{e}_j, \ve{t})}{h}\ d\Omega = \idotsint_T \lim_{h \to 0} \frac{f(\ve{x} + h \ve{e}_j, \ve{t})}{h}\ d\Omega
 				\end{equation}
 			\end{corollary}
 			
@@ -494,7 +495,7 @@
 				\begin{definition}[Unbounded Function]
 					Let $S \subset \R^n$, $\ve{a} \in \R^n$. Consider a function $f: S \backslash \{\ve{a}\} \to \R$. Then the improper integral $\idotsint_{\red{S}}f d\Omega$ is absolutely convergent if 
 					\begin{equation}
-						\exists L \in \R\ s.t\ \forall \varepsilon > 0\ \exists r > 0\ s.t.\ \forall U \subset S\ s.t.\ \ve{a} \in U^{int} \land U \subset B(r, \ve{a}),\ \Big|
+						\exists L \in \R\ s.t\ \forall \varepsilon > 0\ \exists r > 0\ s.t.\ \forall U \subset S\ s.t.\ \ve{a} \in U^{\red{int}} \land U \subset B(r, \ve{a}),\ \Big|
 							\idotsint_{S \backslash U}f\ d\Omega - L
 						\Big| < \varepsilon
 					\end{equation}
@@ -597,11 +598,26 @@
 				The line integral $\int_C \ve{F}\cdot d\ve{x}$ is independent of the parameterization \emph{as long as the orientation is unchanged}.
 			\end{proposition}
 			
+			\begin{theorem}[The Fundamental Theorem of Line Integral]
+				Let $f: C \to \R$ defined on smooth curve $C$ parameterized by $\ve{g}:[a, b] \to \R^n$, then
+				\begin{equation}
+					\int_C \nabla f(\ve{x}) \cdot d^n\ve{x} = f(\ve{g}(b)) - f(\ve{g}(a))
+				\end{equation}
+				\begin{proof}
+					\begin{gather}
+						\int_C \nabla f(\ve{x}) \cdot d^n\ve{x} 
+						= \int_a^b \pd{f(\ve{g}(t))}{\ve{g}(t)} \cdot \ve{g}'(t)\ dt \\
+						= \int_a^b \pd{f(\ve{g}(t))}{t}\ dt
+						= f(\ve{g}(b)) - f(\ve{g}(a))
+					\end{gather}
+				\end{proof}
+			\end{theorem}
+			
 		\subsubsection{Rectifiable Curves}
 			\begin{remark}
 				Let $C$ be a curve in $\R^n$ parameterized by injection $\ve{g}: [a, b] \to \R^n$ such that $\ve{g}'(t) \neq \ve{0}$. Let $P$ be a partition of $[a, b]$. Denote
 				\begin{equation}
-					L_P(C) \equiv \sum_{j} ||\ve{g}(t_j) - \ve{g}(t_{j-})||
+					L_P(C) \equiv \sum_{j} ||\ve{g}(t_j) - \ve{g}(t_{j-1})||
 				\end{equation}
 			\end{remark}
 			
@@ -666,9 +682,16 @@
 					\begin{equation}
 						\int_{\partial S} \ve{F} \cdot \ve{n}\ ds = \iint_S \Big(\pd{F_1}{x_1}  + \pd{F_2}{x_2}\Big)\ dA
 					\end{equation}
-%						\begin{proof}
-%							
-%						\end{proof}
+						\begin{proof}
+							Let $\ve{g}(t)$ be a parameterization of boundary $\partial S$. Then the tangent vector would be $\ve{g}'(t)$ and we can conclude the \emph{outer normal vector} $\ve{n}$ is $\frac{(g'_2(t), -g'_1(t))}{||(g'_2(t), - g'_1(t))||}$. Then 
+							\begin{gather}
+								\int_{\partial S}\ve{F} \cdot \ve{n}\ ds = \int_{T}\ve{F}\circ \ve{g} \cdot \frac{(g'_2(t), -g'_1(t))}{||(g'_2(t), -g'_1(t))||} ||\ve{g}'(t)||\ dt \\
+								=  \int_T F_1 g'_2(t) - F_2 g'_1(t)\ dt \\
+								= \int_T \begin{pmatrix}-F_2 \\F_1 \end{pmatrix} \cdot \begin{pmatrix} g'_1(t) \\ g'_2(t) \end{pmatrix}\ dt \\
+								= \int_{\partial S} \begin{pmatrix}-F_2 \\F_1 \end{pmatrix} \cdot\ d^2\ve{x} \\
+								= \iint_{S} \pd{F_1}{x} + \pd{F_2}{y}\ dA \tx{ By Green's Theorem}
+							\end{gather}
+						\end{proof}
 				\end{corollary}
 		\subsection{Surface Integrals}
 			\subsubsection{Surface Areas and Surface Integrals}
@@ -715,7 +738,7 @@
 				\end{definition}
 				
 				\begin{remark}
-					A note on the relation between integrals of a vector field and a real-valued function. The surface of vector field $\ve{F}$ on $S$ is defined by \emph{reducing $\ve{F}$ to a real-valued function $\ve{F}\cdot \ve{n}$} and then follow the definition of ordinary real-valued function on $S$. Define $h \equiv \ve{F} \cdot \ve{n}$,
+					A note on the relation between integrals of a vector field and a real-valued function. The surface of vector field $\ve{F}$ on $S$ is defined by \emph{reducing $\ve{F}$ to a real-valued function $\ve{F}\cdot \ve{n}$} and then follow the definition of conventional real-valued function on $S$. Define $h \equiv \ve{F} \cdot \ve{n}$,
 					\begin{gather}
 						\iint_S \ve{F} \cdot \ve{n}\ dA = \iint_S h\ dA \\
 						\equiv \iint_R h(\ve{G}(\ve{u})) \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
@@ -796,9 +819,9 @@
 			
 			\begin{theorem}[Product rules]
 				\begin{align}
-					\grad (fg) &= f \grad g + g \grad f \\
-					\dive (f \ve{G}) &= f \dive{G} + \grad f \cdot \ve{G} \\
-					\curl (f \ve{G}) &= f \curl{G} + \grad f \times \ve{G}
+					\grad (fg) &= f\ \grad g + \grad f\ g \\
+					\dive (f \ve{G}) &= f\ \dive{G} + \grad f \cdot \ve{G} \\
+					\curl (f \ve{G}) &= f\ \curl{G} + \grad f \times \ve{G}
 				\end{align}
 			\end{theorem}
 \end{document}
