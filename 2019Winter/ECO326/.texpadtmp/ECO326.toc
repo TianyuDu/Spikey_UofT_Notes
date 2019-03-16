@@ -18,3 +18,7 @@
 \contentsline {section}{\numberline {6}Lecture 6 Feb. 25 2019}{18}{section.6}
 \contentsline {subsection}{\numberline {6.1}An Introductory Example}{18}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Extensive Form Game: Assumptions and Terminologies}{18}{subsection.6.2}
+\contentsline {section}{\numberline {7}Lecture 7 Mar.4 2019}{20}{section.7}
+\contentsline {section}{\numberline {8}Lecture 8 Mar.11 2019}{20}{section.8}
+\contentsline {subsection}{\numberline {8.1}Finite Repeated Games}{20}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Infinitely Repeated Games}{20}{subsection.8.2}
