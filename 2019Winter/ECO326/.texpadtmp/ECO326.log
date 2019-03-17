@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  16 MAR 2019 02:07
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.5.22)  17 MAR 2019 17:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -669,18 +669,18 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 ) [21]
 File: fig/3punishment.png Graphic file (type QTm)
  <use  "fig/3punishment.png" > [22]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1355.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1360.
  [23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1355.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1360.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/ECO326/.texpadtmp/eco326.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1355.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1355.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1355.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1360.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1360.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1360.
  ) 
 Here is how much of TeX's memory you used:
  18993 strings out of 493591
  299240 string characters out of 6143546
- 405148 words of memory out of 5000000
+ 405149 words of memory out of 5000000
  22112 multiletter control sequences out of 15000+600000
  17080 words of font info for 65 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
