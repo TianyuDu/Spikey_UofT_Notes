@@ -824,6 +824,167 @@
 					\curl (f \ve{G}) &= f\ \curl{G} + \grad f \times \ve{G}
 				\end{align}
 			\end{theorem}
+			
+		\subsection{Divergence Theorem}
+			\begin{remark}
+				vector field integral on boundary (2-dimensional sub-manifold) of region in $\R^3$ ($\ve{F} \cdot \ve{n}\ dA$ 2-form) and scalar valued function ($\dive (\ve{F})\ dV$3-form) in a region (3-dimensional sub-manifold).
+			\end{remark}
+			
+			\begin{theorem}[Divergence Theorem]
+				Let $R \subseteq \R^3$ be a \emph{regular region} with \emph{piece-wise smooth boundary} $\partial S$. And $\ve{n}$ is the \emph{outer normal vector} on $\partial S$, then,
+				\begin{equation}
+					\iint_{\partial S} \ve{F} \cdot \ve{n}\ dA = \iiint_S \dive (\ve{F})\ dV
+				\end{equation}
+				\begin{proof}[Proof]
+					\begin{definition}
+						A region $R \subseteq \R^3$ is said to be \textbf{$xy$-simple} if and only if it can be expressed as the following form
+						\begin{equation}
+							R = \{(x,y,z)\in \R^3: (x, y) \in W,\varphi_1(x, y) \leq z \leq \varphi_2(x, y)\}
+						\end{equation}
+					\end{definition}
+				Suppose $S$ is simple in terms of all combinations of $x, y, z$. \\
+				Then
+				\begin{gather}
+					\iint_{\partial S} \ve{F} \cdot \ve{n}\ dA 
+					= \iint_{\partial S} F_1 n_1 + F_2 n_2 + F_3 n_2\ dA
+				\end{gather}
+				Consider $\iint_{\partial S} F_3 n_3\ dA$, since $R$ is $xy$-simple, 
+				\begin{gather}
+					\iint_{\partial S} F_3 n_3\ dA = \iint_{\partial S} F_3 \ve{k} \cdot \ve{n}\ dA
+				\end{gather}
+				Note that except the bottom and top sides, which are parameterized by $\ve{G}_1(x, y) = (x, y, \varphi_1(x, y))$ and $\ve{G}_2(x, y) = (x, y, \varphi_2(x, y))$,
+				 the outer normal vector of those region has form $(\cdot, \cdot, 0)$, and therefore $\ve{n}\cdot \ve{k} = 0$ for every $\ve{x}$ on those regions, and contribute nothing to the integral. \\
+				 Therefore, to evaluate $\iint_{\partial S} F_3 \ve{k} \cdot \ve{n}\ dA$, we only need to consider the upper and bottom surfaces. Also note that $\ve{n}$ has opposite $z$ component on those two surfaces. \\
+				 Moreover, the undirected $\ve{n}$ on those two surfaces is
+				 \begin{gather}
+				 	\tilde{\ve{n}} = \begin{pmatrix} 1 \\ 0 \\ \partial_x \varphi_i \end{pmatrix} \times \begin{pmatrix} 0 \\ 1 \\ \partial_y \varphi_i \end{pmatrix} = \begin{pmatrix} - \partial_x \varphi_i \\ \partial_x \varphi_i - \partial_y \varphi_i \\ 1 \end{pmatrix} \\
+				 	\implies \iint_{\partial S} F_3 \ve{k} \cdot \ve{n}\ dA = \iint_{\partial S} F_3\ dA \\
+				 	= \iint_{upper\ \partial S} F_3\ dA - \iint_{lower\ \partial S} F_3\ dA \\
+				 	= \iint_{W} F_3 (x, y, \varphi_2(x, y))\ dx dy -  \iint_{W} F_3 (x, y, \varphi_1(x, y))\ dx dy \\
+				 	= \iint_W \int_{\varphi_1(x, y)}^{\varphi_2(x, y)} \partial_3 F_3\ dz dx dy 
+				 	= \iiint_S \partial_3 F_3 \ dV
+				 \end{gather}
+				 We can prove the equalities involving the other two components, and the proof is completed by the fact that any open set in $\R^n$ can be written as a countable union of \emph{almost disjoint} cubes, which are simple and the boundary of $S$ has zero content.
+				\end{proof}
+			\end{theorem}
+			
+			\begin{proposition}[Geometric Interpretation of Divergence]
+				Let $S \subset \R^3$, $\ve{F}: S \to \R^3$, $\ve{a} \in S$, 
+				\begin{gather}
+					\dive(\ve{F})(\ve{a}) = \lim_{r \to 0} \frac{3}{4 \pi r^2} \iiint_{\mc{B}(\ve{a}, r)} \dive(\ve{F})(\ve{x})\ d\ve{x} \\
+					= \lim_{r \to 0} \frac{3}{4 \pi r^2} \underbrace{\iint_{\partial \mc{B}(\ve{a}, r)} \ve{F} \cdot \ve{n}\ d\ve{x}}_{\tx{flux through boundary}}
+				\end{gather}
+				thus $\dive(\ve{F})(\ve{a}) > 0$ if and only if at point $\ve{a}$, matters are flowing away from this point.
+			\end{proposition}
+			
+			\begin{corollary}[Green's Formula]
+				Suppose $R \subset \R^3$ and $f, g: R \to \R$ are $C^2$ functions, then 
+				\begin{gather}
+					\iint_{\partial S} f \nabla g \cdot \ve{n}\ dA = \iiint_S \nabla f \cdot \nabla g + f \nabla^2 g\ dV \\
+					\iint_{\partial S} (f \nabla g - g \nabla f)\ dA = \iiint_S (f \nabla^2 g - g \nabla^2)\ dV
+				\end{gather}
+				\begin{proof}
+					\begin{gather}
+						\iint_{\partial S} f \nabla g \cdot \ve{n}\ dA = \iiint_S \dive(f \nabla g)\ dA \\
+						= \iiint_S f \dive (\nabla g) + \nabla f \cdot \nabla g\ dV 
+						= \iiint_S f \nabla f \cdot \nabla g + \nabla^2 g\ dV
+					\end{gather}
+					The second formula can be proved directly using divergence theorem the first formula.
+				\end{proof}
+			\end{corollary}
+			
+		\subsection{Stokes Theorem}
+			\subsubsection{Stokes Theorem in $\R^3$}
+			\begin{theorem}[Stokes Theorem, Special Case]
+				Let $S$ be a 2 dimensional sub-manifold in $\R^3$, and let $\ve{F}$ be a vector field defined on some neighbour of $S$, then
+				\begin{equation}
+					\int_{\partial S} \ve{F}\cdot d\ve{x} = \iint_S \curl(\ve{F})\cdot \ve{n}\ dA
+				\end{equation}
+			\end{theorem}
+			
+			\begin{remark}
+				In above theorem, $\omega \equiv \ve{F} \cdot d \ve{x}$ is a 1-form in $\R^3$ and $d \omega \equiv \curl(\ve{F}) \cdot \ve{n}\ dA$ is a 2-form in $\R^3$.
+			\end{remark}
+			
+			\begin{corollary}
+				Let $S$ be a closed surface in $\R^3$, that's, $\partial S = \varnothing$, and let $\ve{n}$ denote the outer normal vector, and $\ve{F}$ is a $C^1$ vector field. Then
+				\begin{equation}
+					\iint_S \curl(\ve{F}) \cdot \ve{n}\ dA = 0
+				\end{equation}
+				\begin{proof}
+					We can construct a \emph{small} simple closed curve $C$ on $S$ and divide $S$ into two regions sharing the same boundary. And note that given orientation fixed on $S$, the orientation on $\partial S_1$ and $\partial S_2$ are opposite. Then
+					\begin{gather}
+						\iint_S \curl(\ve{F})\cdot \ve{n}\ dA = \iint_{S_1} \curl(\ve{F})\cdot \ve{n}\ dA + \iint_{S_2} \curl(\ve{F})\cdot \ve{n}\ dA \\
+						= \int_{\partial S_1} \ve{F} \cdot d\ve{x} - \int_{\partial S_2} \ve{F} \cdot d\ve{x}
+						= \int_{C} \ve{F} \cdot d\ve{x} - \int_{C} \ve{F} \cdot d\ve{x} = 0
+					\end{gather}
+				\end{proof}
+			\end{corollary}
+			
+			\begin{proposition}[Geometric Interpretation of Curl]
+				Let $R \subset \R^3$ be a 2 dimensional sub-manifold with $\ve{n}$ as outer normal vector on it, and $\ve{a} \in R$, 
+				\begin{gather}
+					\curl(F)(\ve{a}) \cdot \ve{n}(\ve{a}) 
+					= \lim_{r \to 0} \frac{1}{2\pi r^2} \iint_{\mc{D}(\ve{a}, r)} \curl(F)(\ve{x}) \cdot \ve{n}(\ve{x})\ dA \\
+					= \lim_{r \to 0} \frac{1}{2\pi r^2} \int_{\partial \mc{D}(\ve{a}, r)} \ve{F} \cdot d\ve{x} \\
+				\end{gather}
+				If we think of $\ve{F}$ as a force field, then $\int_{\partial \mc{D}(\ve{a}, r)} \ve{F} \cdot d\ve{x}$ represents the work done by $\ve{F}$ on a particle moves around $\partial \mc{D}(\ve{a}, r)$. Thus $\curl(\ve{F}) \cdot \ve{u}$ represents the \hl{tendency of the force $\ve{F}$ to push the particle around $\partial \mc{D}(\ve{a}, r)$ in a direction compatible with $\ve{n}$}.
+			\end{proposition}
+			
+			\subsubsection{The Generalization}
+			
+			\begin{definition}[Convention]
+				A 0-form on $\R^n$ is a real valued function $f$.
+			\end{definition}
+			
+			\begin{definition}
+				A $k$-form in $\R^n$ takes the expression of linear combination of $C(n, k)$ basis elements $\{\beta_i\}_i$.
+			\end{definition}
+			
+			\begin{example}
+				A 2-form $\omega$ in $\R^3$ can be expressed using a 3-element basis 
+				\begin{gather}
+					\omega = \sum_{1 \leq i < j \leq 3} C_{ij}(\ve{x}) \beta_{ij} \\
+					\beta_{ij} \in \{dx \land dy, dy \land dz, dx \land dz\}
+				\end{gather}
+			\end{example}
+			
+			\begin{definition}
+				Let $\omega = \sum_{j=1}^{C(n,k)} f_j \beta_j$ be a $k$-form in $\R^n$, then it's \textbf{exterior derivative} is defined to be the $(k+1)$-form in $\R^n$ defined as 
+				\begin{gather}
+					d\omega \equiv \sum_{j} df_j \land \beta_j
+				\end{gather}
+				where $df_j$ can be computed using \emph{total derivative}.
+			\end{definition}
+			
+			\begin{theorem}[Stokes Theorem, 5.77]
+				Let $M$ be a smooth, oriented $k$ dimensional sub-manifold of $\R^n$ with a piecewise smooth boundary $\partial M$, and let $\partial M$ carry the orientation that is (in a suitable sense) compatible with the one on $M$. If $\omega$ is a $(k-1)$-form of class $C^1$ on an open set containing $M$, then
+				\begin{equation}
+					\idotsint_{\partial M} \omega = \iint \cdots \int_M d\omega
+				\end{equation}
+			\end{theorem}
+			
+			\begin{theorem}
+				The \emph{boundary} of a (smoothly bounded) region $M$ in a $k$ dimensional manifold is a $(k-1)$ dimensional manifold with no boundary. \\
+				That's let $M$ be a $k$ dimensional manifold with piecewise smooth boundary $\partial M$, then
+				\begin{equation}
+					\partial (\partial M) = \varnothing
+				\end{equation}
+			\end{theorem}
+			
+			\begin{theorem}
+				For any $k$-form $\omega$ on $\R^n$,
+				\begin{equation}
+					d(d\omega) = 0
+				\end{equation}
+				
+				\begin{proof}
+					Let $M$ be a $k$ dimensional sub-manifold in $\R^n$ with piecewise smooth boundary, and $\omega$ is a $(k-2)$-form on $\R^n$, so $d(d\omega)$ is a $k$-form on $\R^n$. And
+					\begin{gather}
+						\iiint \cdots \int_M d(d \omega)
+					\end{gather}
+				\end{proof}
+			\end{theorem}
 \end{document}
 
 

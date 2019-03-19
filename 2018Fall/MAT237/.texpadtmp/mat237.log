@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  15 MAR 2019 16:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  19 MAR 2019 12:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -747,26 +747,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 816--818
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 827.
+
+./mat237.tex:828: Package inputenc Error: Unicode char 、 (U+3001)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.828 		、
+           s
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 829.
 [15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 827.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 829.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT237/.texpadtmp/mat237.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 827.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 827.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 829.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 829.
 Package rerunfilecheck Info: File `mat237.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 827.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 829.
  ) 
 Here is how much of TeX's memory you used:
- 8587 strings out of 493014
- 120908 string characters out of 6133351
+ 8588 strings out of 493014
+ 120914 string characters out of 6133351
  238118 words of memory out of 5000000
- 11699 multiletter control sequences out of 15000+600000
+ 11700 multiletter control sequences out of 15000+600000
  17586 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,14n,35p,561b,566s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT237/.texpadtmp/mat237.pdf (15 pages, 272337 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2018Fall/MAT237/.texpadtmp/mat237.pdf (15 pages, 272123 bytes).
 PDF statistics:
  623 PDF objects out of 1000 (max. 8388607)
  580 compressed objects within 6 object streams
