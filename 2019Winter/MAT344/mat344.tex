@@ -629,9 +629,78 @@
 				Every planar graph has chromatic number at most four.
 			\end{theorem}
 
-
-
-
+		\section{Recurrence}
+			\subsection{Solving Recurrence Relations (Mar. 20 2019)}
+				\begin{definition}
+					A \textbf{linear recurrence relation (LRR) of degree $k$} is a sequence $\{a_n\}$ such that for every $n$, 
+					\begin{equation}
+						\sum_{i=0}^k c_i a_{n+i} = g(n),\ c_i \in \R,\ c_0, c_k \neq 0
+					\end{equation}
+				\end{definition}
+				
+				\begin{definition}
+					A linear recurrence relation is said to be \textbf{homogenous} if $g(n) = 0$ for every $n$.
+				\end{definition}
+				
+				\begin{remark}
+					A recurrence relation sequence can be extended to both directions, so it can be defined as a function $f: \Z \to \R$ (instead of being only defined on $\N$).
+				\end{remark}
+				
+				\begin{definition}
+					The \textbf{advancement operator} $A: \R^{\Z} \to \R^{\Z}$ is defined as
+					\begin{equation}
+						A f(n) := f(n+1)\ \forall n \in \Z
+					\end{equation}
+				\end{definition}
+				
+				\begin{proposition}
+					In general, a degree $k$ LRR can be expressed using a degree $k$ polynomial on $A$ as
+					\begin{equation}
+						P(A) f(n) = g(n)
+					\end{equation}
+				\end{proposition}
+				
+				\begin{remark}Procedure to solve for the closed form of a LRR:
+					\begin{enumerate}[(i)]
+						\item Solve for the \textbf{general solution}, note that there are infinitely many general solutions upon some \emph{free parameters}.
+						\item Using the given \emph{initial conditions}, we can find exact values of those free parameters and construct \textbf{particular solutions}.
+					\end{enumerate}
+				\end{remark}
+				
+				\subsubsection{Preliminary Case: Distinct Real Roots}
+					\begin{remark}
+						Given that the roots of $P(A)$ are all distinct and real, for example
+						\begin{gather}
+							P(A) = (A - \alpha) (A - \beta)
+						\end{gather}
+						then we can solve them separately
+						\begin{gather}
+							\begin{cases}
+								(A - \alpha) f_1 = 0 \implies f_1(n) = \alpha^n b_1 \\
+								(A - \beta) f_2 = 0 \implies f_1(n) = \beta^n b_2
+							\end{cases}
+						\end{gather}
+						Note that any $f_1$ satisfying $(A - \alpha) f_1 = 0$ automatically satisfies $P(A) f_1 = 0$, and the same holds for $f_2$.\\
+						So we can combine the solutions to construct the general solution.
+					\end{remark}
+				
+				\subsubsection{Generalized Case: Real Roots with Multiplicity}
+					\begin{remark}
+						Let $P(A)$ be a degree $k$ polynomial, let $\{r_i\}$ denote the set of roots of $P(A)$. For those roots with multiplicity one, they contribute exactly one basis
+						\begin{equation}
+							b_i r_i^n	
+						\end{equation}
+						to the general solution. \\For those roots with multiplicity higher than one, for example, the multiplicity of $r_j$ is $d > 1$. Then $r_j$ contributes $k$ basis elements
+						\begin{equation}
+							\{b_{\ell} n^{\ell} r_j^n\}_{\ell = 0}^{d-1}
+						\end{equation}
+						while constructing the general solution
+					\end{remark}
+				
+				\subsubsection{Complex Roots}
+					\begin{remark}
+						Generally, the \hl{existence of complex roots implies alternating patterns in sequence}. And when aggregating basis of general solution together, $i$ would be cancelled out.
+					\end{remark}
 	\newpage
 	\section*{References}
 		\par Keller, M. T., \& Trotter, W. T. (2017). \emph{Applied combinatorics}: Mitchel T. Keller, William T. Trotter. \texttt{https://www.rellek.net/appcomb}
