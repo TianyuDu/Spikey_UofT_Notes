@@ -895,7 +895,7 @@
 			\end{corollary}
 			
 		\subsection{Stokes Theorem}
-			\subsubsection{Stokes Theorem in $\R^3$}
+		\subsubsection{Stokes Theorem in $\R^3$}
 			\begin{theorem}[Stokes Theorem, Special Case]
 				Let $S$ be a 2 dimensional sub-manifold in $\R^3$, and let $\ve{F}$ be a vector field defined on some neighbour of $S$, then
 				\begin{equation}
@@ -932,11 +932,44 @@
 				If we think of $\ve{F}$ as a force field, then $\int_{\partial \mc{D}(\ve{a}, r)} \ve{F} \cdot d\ve{x}$ represents the work done by $\ve{F}$ on a particle moves around $\partial \mc{D}(\ve{a}, r)$. Thus $\curl(\ve{F}) \cdot \ve{u}$ represents the \hl{tendency of the force $\ve{F}$ to push the particle around $\partial \mc{D}(\ve{a}, r)$ in a direction compatible with $\ve{n}$}.
 			\end{proposition}
 			
-			\subsubsection{The Generalization}
+		\subsubsection{The Generalization}
+			\begin{proposition}[Properties of Exterior Products] Let $\alpha_1, \alpha_2$ and $\beta$ be 1-forms on $\R^n$ and $f_1, f_2$ are continuous functions defined on $\R^n$,
+				\begin{enumerate}
+					\item \textbf{Distributive}
+					\begin{gather}
+						(f_1 \alpha_1 + f_2 \alpha_2) \land \beta = f_1(\alpha_1 \land \beta) + f_2 (\alpha_2 \land \beta) \\
+						\beta \land (f_1 \alpha_1 + f_2 \alpha_2) = f_1 (\beta \land \alpha_1) + f_2 (\beta \land \alpha_2)
+					\end{gather}
+					\item \textbf{Anti-commutative}
+					\begin{equation}
+						\beta \land \alpha = \red{-} \alpha \land \beta
+					\end{equation}
+				\end{enumerate}
+			\end{proposition}
 			
-			\begin{definition}[Convention]
+			\begin{theorem}[Divergence Theorem in $\R^n$]
+				Let $R$ be a regular region in $\R^n$ bounded by a piecewise smooth hyper-surface $\partial R$. Note here $R$ is a $n$ dimensional sub-manifold and $\partial R$ is a $n-1$ dimension sub-manifold. Then
+				\begin{gather}
+					\idotsint_{\partial R} \ve{F} \cdot \ve{n} dV^{n-1} = \iint \cdots \int_R \dive(\ve{F})\ dV^n
+				\end{gather}
+				where if $\partial R$ is parameterized by $\ve{G}(u_1, \dots, u_{n-1})$, then
+				\begin{gather}
+					\ve{n}dV^{n-1} = \det \begin{pmatrix}
+						\ve{e}_1 & \dots & \ve{e}_n \\
+						\partial_1 G_1 & \dots & \partial_1 G_n \\
+						\vdots & & \vdots \\
+						\partial_{n-1} G_1 & \dots & \partial_{n-1} G_n
+					\end{pmatrix}
+				\end{gather}
+			\end{theorem}
+			
+			\begin{definition}
 				A 0-form on $\R^n$ is a real valued function $f$.
 			\end{definition}
+			
+			\begin{remark}
+				While writing the basis elements $dx_i \land dx_j$ with the variables in \emph{cyclic order}. That's $dx$ before $dy$ before $dz$ before $dx$ in $\R^3$ case.
+			\end{remark}
 			
 			\begin{definition}
 				A $k$-form in $\R^n$ takes the expression of linear combination of $C(n, k)$ basis elements $\{\beta_i\}_i$.
@@ -957,6 +990,31 @@
 				\end{gather}
 				where $df_j$ can be computed using \emph{total derivative}.
 			\end{definition}
+			
+			\begin{example}
+				In $\R^3$, the \emph{exterior derivative} for a 0-form $f$ is its \textbf{gradient}, which is a 1-form. \\
+				And the exterior derivate of a 1-form in $\R^3$ is its curl 
+				\begin{gather}
+					\omega := F_1 dx + F_2 dy + F_3 dz \\
+					\implies d\omega = dF_1 \land dx + dF_2 \land dy + dF_3 \land dz \\
+					= (\partial_1 F_1 dx + \partial_2 F_1 dy + \partial_3 F_1 dz) \land dx \\
+					+ (\partial_1 F_2 dx + \partial_2 F_2 dy + \partial_3 F_2 dz) \land dy \\
+					+ (\partial_1 F_3 dx + \partial_2 F_3 dy + \partial_3 F_3 dz) \land dz \\
+					= (\partial_1 F_2 - \partial_2 F_1) dx \land dy 
+					+ (\partial_2 F_3 - \partial_3 F_2) dy \land dz
+					+ (\partial_3 F_1 - \partial_1 F_3) dz \land dx \\
+					= \curl(\ve{F})
+				\end{gather}
+				The exterior derivate of a 2-form in $\R^3$ is its divergence
+				\begin{gather}
+					\omega := A dy \land dz + B dz \land dx + C dx \land dy\\
+					\implies d \omega = (\partial_1 A dx + \partial_2 A dy + \partial_3 A dz) \land dy \land dz \\
+					+ (\partial_1 B dx + \partial_2 B dy + \partial_3 B dz) \land dz \land dx \\
+					+ (\partial_1 C dx + \partial_2 C dy + \partial_3 C dz) \land dx \land dy \\
+					= (\partial_1 A + \partial_2 B + \partial_3 C) dx \land dy \land dz \\
+					= \dive(\ve{F})
+				\end{gather}
+			\end{example}
 			
 			\begin{theorem}[Stokes Theorem, 5.77]
 				Let $M$ be a smooth, oriented $k$ dimensional sub-manifold of $\R^n$ with a piecewise smooth boundary $\partial M$, and let $\partial M$ carry the orientation that is (in a suitable sense) compatible with the one on $M$. If $\omega$ is a $(k-1)$-form of class $C^1$ on an open set containing $M$, then
@@ -982,7 +1040,9 @@
 				\begin{proof}
 					Let $M$ be a $k$ dimensional sub-manifold in $\R^n$ with piecewise smooth boundary, and $\omega$ is a $(k-2)$-form on $\R^n$, so $d(d\omega)$ is a $k$-form on $\R^n$. And
 					\begin{gather}
-						\iiint \cdots \int_M d(d \omega)
+						\iiint \cdots \int_M d(d \omega) 
+						= \iint \cdots \int_{\partial M} d\omega \\
+						= \idotsint_{\partial(\partial M)} \omega = \idotsint_{\varnothing} \omega = 0
 					\end{gather}
 				\end{proof}
 			\end{theorem}
