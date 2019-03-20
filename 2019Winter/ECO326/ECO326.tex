@@ -19,9 +19,11 @@
 \usepackage[margin=1truein]{geometry}
 \usepackage{sgame}
 \usepackage{egameps}
+\usepackage[perpage]{footmisc}
 
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
+
 
 \newcommand{\floor}[1]{\lfloor #1 \rfloor}
 
@@ -1355,9 +1357,60 @@
 					
 					\begin{proposition}
 						For any value of $k \geq 1$, \emph{strategy pair} in which each player punishes other for $k$ periods in event of deviation is Nash equilibrium of infinitely repeated game if $\delta$ is \emph{close enough to 1}. The large $k$ is, the \emph{smaller lower bound on $\delta$}, that's, the \emph{mutually desirable outcome} $(C,C)$ is sustained by short punishment only if players are relatively patient.
-					\end{proposition}	
-				
+					\end{proposition}
+					
+	\section{Lecture 9 Mar. 18 2019}
+		\subsection{Bayesian Games: Introduction}
+			\begin{definition}[Informal Definition]
+				A \textbf{Bayesian Equilibrium} is a strategy profile where \hl{each type of each player} is best responding given their \emph{beliefs}.
+			\end{definition}
+			
+			\begin{remark}[Complication on Belief System]
+				Here we assume individuals have \hl{exogenous beliefs}. In more complicated models, beliefs are endogenous, and beliefs change based on \emph{other players' (previous) actions}, and beliefs can be \emph{updated iteratively} in multi-period games.
+			\end{remark}
+		
+		\subsection{Formal Definitions}
+			\begin{definition}[Bayesian Game] A \textbf{Bayesian Game} consists the following components
+				\begin{enumerate}[(i)]
+					\item A \textbf{player} set $N$;
+					\item For each player $i$, an \textbf{action} set $A_i$;
+					\item A set of \textbf{states} $\Omega$\footnote{$\Omega$ could be uncountably infinite.}, in which each $\omega \in \Omega$ represents one realization determines \emph{players' types}, \hl{$\Omega$ is assumed to be known by all players};
+					\item For each player, a set of \textbf{types} $T_i$, where $t_i \in T_i$ represents one potential type of player $i$ and determines the payoff for each player, and \ul{may contains information about other players' types}. Note that $\Omega \equiv \prod_{i \in N} T_i$.
+					\item For each player $i$, based on his or her type, a \textbf{belief} function $\pi_i(\omega|t_i)$ or $\pi_i(t_{-i}|t_i)$, which can be expressed as a probability distribution on $\Omega$. And \textbf{payoff} $u_i(a_i, a_{-i}, t_i, t_{-i})$, and here \ul{we may assume $u_i$ does \emph{not} depend on $t_i$}.
+				\end{enumerate}
+			\end{definition}
+			
+			\begin{definition}[Strategy]
+				A (mixed) \textbf{strategy}\footnote{This also covers the \emph{pure strategy} case since any pure strategy can be considered as a \emph{degenerate} mixed strategy.} for player $i$ in a Bayesian game is a function defined on $T_i$
+				\begin{equation}
+					\sigma_i: T_i \to \Delta(A_i)
+				\end{equation}
+				where $\sigma_i(a_i|t_i)$\footnote{More rigorously, $\sigma_i(a_i|t_i) \equiv \sigma_i(t_i)(a_i)$} denotes the chance of player $i$ playing $a_i$ given this player is in type $t_i$.
+			\end{definition}
+			
+			\begin{definition}
+				The \textbf{expected payoff}, given player $i$ is type $t_i$ and based on player $i$'s own belief $\pi_i$, from action $a_i$ is 
+				\begin{gather}
+					\mc{U}_i(a_i, \sigma_{-i}| t_i) 
+					= \sum_{\omega \in \Omega} u_i(a_i, \sigma_{-i}(\omega))\pi_i(\omega|t_i) \\
+					= \int_{\Omega} u_i(a_i, \sigma_{-i}(\omega))\ d\pi_i(\omega|t_i)
+				\end{gather}
+			\end{definition}
+			
+			\begin{definition}
+				An action $a_i \in A_i$ is a \textbf{best response} to $\sigma_i$, given player type $t_i$, if
+				\begin{equation}
+					\mc{U}_i(a_i, \sigma_{-i}|t_i) \geq \mc{U}_i(\tilde{a}_i, \sigma_{-i}|t_i)\ \forall \tilde{a}_i \in A_i
+				\end{equation}
+				\emph{The definition for a mixed strategy $\sigma_i \in \Delta(A_i)$ is similar}.
+			\end{definition}
+			
+			\begin{definition}
+				A Bayesian Nash equilibrium is a strategy profile for each player such that the strategy for \hl{each type} of \hl{each player} is a best response given the strategies for the other players.
+			\end{definition}
 \end{document}
+
+
 
 
 
