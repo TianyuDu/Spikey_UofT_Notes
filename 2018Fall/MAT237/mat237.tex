@@ -33,6 +33,96 @@
 	\newpage
 	
 	\section{Limits, continuity, and related topics}
+		\subsection{Open and Closed Sets, Boundary, Interior and Closure}
+			\begin{definition}
+				Let $\ve{a} \in \R^n$, and $r > 0$. The \textbf{open ball with centre $\ve{a}$ and radius $r$} is defined as
+				\begin{gather}
+					\mc{B}(r, \ve{a}) := \{ \ve{x} \in \R^n : \norm{\ve{x} - \ve{a}}< r\}.
+				\end{gather}
+			\end{definition}
+			
+			\begin{definition}
+				The \textbf{sphere with centre $\ve{a}$ and radius $r$} is defined as
+				\begin{gather}
+					\partial \mc{B}(r, \ve{a}) := \{\ve{x} \in \R^n: \norm{\ve{x} - \ve{a}} = r\}
+				\end{gather}
+			\end{definition}
+			
+			\begin{definition}
+				Let $S \subset \R^n$, $S$ is \textbf{bounded} if 
+				\begin{gather}
+					\exists r > 0\ s.t.\ S \subset \mc{B}(r, \ve{0})
+				\end{gather}
+			\end{definition}
+			
+			\begin{definition}
+				Let $S \subset \R^n$, then the \textbf{complement} of $S$ is defined as 
+				\begin{gather}
+					S^c := \{\ve{x} \in \R^n: \ve{x} \notin S\}
+				\end{gather}
+			\end{definition}
+			
+			\begin{definition}
+				Let $S \subset \R^n$, the \textbf{interior} of $S$ is defined as
+				\begin{gather}
+					S^{int} := \{\ve{x} \in \R^n: \exists \varepsilon > 0\ s.t.\ \mc{B}(\varepsilon, \ve{x}) \subset S\}
+				\end{gather}
+			\end{definition}
+			
+			\begin{definition}
+				The \textbf{boundary} of $S$ is defined as
+				\begin{gather}
+					\partial S := \{\ve{x} \in \R^n: \forall \varepsilon > 0\ \mc{B}(\varepsilon, \ve{x}) \cap S \neq \varnothing \land \mc{B}(\varepsilon, \ve{x}) \cap S^c \neq \varnothing \}
+				\end{gather}
+			\end{definition}
+			
+			\begin{proposition}
+				A point $\ve{x} \in S$ is either a \emph{boundary point} or a \emph{interior point}.
+			\end{proposition}
+			
+			\begin{definition}
+				The \textbf{closure} of $S$ is defined as 
+				\begin{gather}
+					\overline{S} := S^{int} \cup \partial S
+				\end{gather}
+			\end{definition}
+			
+			\begin{theorem}
+				For any $S \subset \R^n$
+				\begin{gather}
+					S^{int} \subset S \subset \overline{S}
+				\end{gather}
+			\end{theorem}
+			
+			\begin{theorem}
+				For any $S \subset \R^n$
+				\begin{gather}
+					\partial S = \partial (S^c)
+				\end{gather}
+			\end{theorem}
+			
+			\begin{definition}
+				A set $S \subset \R^n$ is \textbf{open} if $S = S^{int}$. $S$ is \textbf{closed} if $S = \overline{S}$.
+			\end{definition}
+			
+			\begin{theorem}
+				\begin{gather}
+					S \tx{ is closed} \iff S^c \tx{ is open}
+				\end{gather}
+				\begin{proof}
+					\begin{gather}
+						S \tx{ is closed} \iff \partial S \subset S
+						\iff \partial (S^c) \subset S \\
+						\iff \tx{no point of $S^c$ is a boundary point}
+						\iff S^c \tx{ is open}
+					\end{gather}
+				\end{proof}
+			\end{theorem}
+		
+		\subsection{Limits and Continuity}
+		\subsection{Sequences and Completeness}
+		\subsection{Compactness}
+		\subsection{the Intermediate Value Theorem}
 	\section{Differentiation and related topics}
 		\subsection{}
 		\subsection{}
