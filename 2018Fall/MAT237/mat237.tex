@@ -27,6 +27,14 @@
 \counterwithin{example}{subsection}
 \counterwithin{definition}{subsection}
 
+\newcommand{\vex}[0]{\ve{x}}
+\newcommand{\vea}[0]{\ve{a}}
+\newcommand{\veb}[0]{\ve{b}}
+\newcommand{\vef}[0]{\ve{f}}
+\newcommand{\veg}[0]{\ve{g}}
+\newcommand{\veF}[0]{\ve{F}}
+\newcommand{\veG}[0]{\ve{G}}
+
 \begin{document}
 	\maketitle
 	\tableofcontents
@@ -76,9 +84,9 @@
 				\end{gather}
 			\end{definition}
 			
-			\begin{proposition}
+			\begin{theorem}
 				A point $\ve{x} \in S$ is either a \emph{boundary point} or a \emph{interior point}.
-			\end{proposition}
+			\end{theorem}
 			
 			\begin{definition}
 				The \textbf{closure} of $S$ is defined as 
@@ -120,6 +128,98 @@
 			\end{theorem}
 		
 		\subsection{Limits and Continuity}
+			\subsection{Limits of Multivariable Functions}
+			\begin{definition}
+				Let $S \subset \R^n$, $\ve{f}: S \to \R^k$, and $\ve{a} \in S$, then
+				\begin{equation}
+					\lim_{\ve{x} \to \ve{a}} \ve{f}(\ve{x}) = \ve{L} \in \R^k
+				\end{equation}
+				is defined as
+				\begin{gather}
+					\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ \forall \ve{x} \in S,\ \red{0 <} \norm{\ve{x} - \ve{a}} < \delta \implies \norm{\ve{f}(\ve{x}) - \ve{L}} < \varepsilon
+				\end{gather}
+				For this definition to be non-trivial, we need $\ve{a}$ not be an isolated point,
+				\begin{equation}
+					\forall \delta > 0,\ \exists \ve{x} \in S\ s.t.\ \norm{\ve{x} - \ve{a}} \in (0, \delta)
+				\end{equation}
+			\end{definition}
+			
+			\begin{theorem}[Limit Laws]
+				Let $S \subset \R^n$ and $\ve{a} \in \R^n$ satisfying (1.3.3)
+				And $f, g: S \to \R$, $L, M \in \R$ such that
+				\begin{gather}
+					\lim_{\ve{x} \to \ve{a}} f(\ve{x}) = L \\
+					\lim_{\ve{x} \to \ve{a}} f(\ve{x}) = M
+				\end{gather}
+				then 
+				\begin{gather}
+					\lim_{\ve{x} \to \ve{a}} [f(\ve{x})	+ g(\ve{x})] = L + M\\
+					\lim_{\ve{x} \to \ve{a}} [f(\ve{x}) \cdot g(\ve{x})] = LM
+				\end{gather}
+			\end{theorem}
+			
+			\begin{theorem}[Squeeze Theorem]
+				Let $S \subset \R^n$, $\ve{a} \in \R^n$ satisfies (1.3.3). Suppose that $f, g, h: S \to \R$ and there exists $p > 0$ and $L \in \R$ such that
+				\begin{equation}
+					\forall \ve{x} \in S \cap \mc{B}(p, \ve{a})\ f(\ve{x}) \leq g(\ve{x}) \leq h(\ve{x})
+				\end{equation}
+				and 
+				\begin{equation}
+					\lim_{\ve{x} \to \ve{a}} f(\ve{x}) = \lim_{\ve{x} \to \ve{a}} h(\ve{x}) = L
+				\end{equation}
+				then 
+				\begin{equation}
+					\lim_{\ve{x} \to \ve{a}} g(\ve{x}) = L
+				\end{equation}
+			\end{theorem}
+			
+			\begin{corollary}
+				Let $g, h: S \to \R$ and
+				\begin{gather}
+					|g(\ve{x})| \leq h(\ve{x})\ \forall \ve{x} \in S \\
+					\tx{and } \lim_{\vex \to \vea} h(\vex) = 0
+				\end{gather}
+				then 
+				\begin{gather}
+					\lim_{\vex \to \ve{a}} g(\vex) = 0
+				\end{gather}
+			\end{corollary}
+			
+			\begin{theorem}
+				Assume that $S \subset \R^n$ and let $\vea \in \R^n$ satisfying (1.3.3). Let $\vef: S \to \R^k$, then
+				\begin{equation}
+					\lim_{\vex \to \vea} \vef(\vex) = \ve{L} \iff \lim_{\vex \to \vea} f_j(\vex) = L_j\ \forall j
+				\end{equation}
+			\end{theorem}
+			
+			\subsubsection{Continuity}
+				\begin{definition}
+					Let $S \subset \R^n$ and $\vef: S \to \R^k$. $\vef$ is \textbf{continuous at $\vea \in S$} if 
+					\begin{equation}
+						\lim_{\vex \to \vea}\vef(\vex) = \vef(\vea)
+					\end{equation}
+					and $\vef$ is \textbf{continuous} if $\vef$ is continuous at every point in $S$.
+				\end{definition}
+			
+				\begin{theorem}[Basic Properties of Continuity]
+					Assume that $S \subset \R^n$ and $\vea \in S$,
+					\begin{enumerate}[(i)]
+						\item If $\vef: S \to \R^k$ is continuous at $\vea$, then every component of $\vef$, $f_j: S \to \R$, is continuous at $\vea$.
+						\item If $\vef, \veg: S \to \R^k$ are continuous at $\vea$, then $\vef + \veg$ is continuous at $\vea$.
+						\item If $f, g: S \to \R$ continuous, then $fg$ is continuous and $\frac{f}{g}$ is continuous given $g(\vea) \neq 0$.
+						\item A composition of continuous functions is continuous.
+						\item The elementary functions of a single variable (trigonometric functions and their inverses, polynomials, exponential and log) are continuous on their domains.
+					\end{enumerate}
+				\end{theorem}
+			\subsubsection{Continuous Functions and Open Sets}
+				\begin{theorem}
+					Assume that $\vef: \R^n \to \R^k$, then the following are equivalent
+					\begin{enumerate}[(i)]
+						\item $\vef$ is continuous;
+						\item For every open set $\mc{O} \subset \R^k$, $\vef^{-1}(\mc{O})$ is also open;
+						\item For every closed set $\mc{C} \subset \R^k$, $\vef^{-1}(\mc{C})$ is also closed.
+					\end{enumerate}
+				\end{theorem}
 		\subsection{Sequences and Completeness}
 		\subsection{Compactness}
 		\subsection{the Intermediate Value Theorem}
