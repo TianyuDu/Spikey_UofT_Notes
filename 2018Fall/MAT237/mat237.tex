@@ -28,6 +28,7 @@
 \counterwithin{definition}{subsection}
 
 \newcommand{\vex}[0]{\ve{x}}
+\newcommand{\vey}[0]{\ve{y}}
 \newcommand{\vea}[0]{\ve{a}}
 \newcommand{\veb}[0]{\ve{b}}
 \newcommand{\vef}[0]{\ve{f}}
@@ -305,8 +306,109 @@
 		        \end{proof}
 		    \end{theorem}
 		    
-		    
 		\subsection{Compactness}
+			\subsubsection{Compactness}
+				\begin{definition}[Heine-Borel Property]
+					A set $S$ is \textbf{compact} if every \emph{open} covering of $S$ has a \emph{finite} sub-covering.
+				\end{definition}
+				
+				\begin{definition}[Sequentially Compact]
+					A set $S\ \red{\subset \R^n}$ is \textbf{compact} if every sequence in $S$ has a subsequence that converges to a limit in $S$.
+				\end{definition}
+				
+				\begin{proposition}
+					If $\{\vex_j\}_j$ is a \emph{convergent} sequence in a \emph{closed} set $S \subset \R^n$, the then limit of this sequence is in $S$.
+					\begin{proof}[Proof Idea]
+						Let $\vex := \lim_{j \to \infty} \vex_j$, and we wish to show $\vex \in S$. \\
+						Equivalently, we can show $\vex \in \overline{S}$, and that's 
+						\begin{equation}
+							\forall \varepsilon >0\ \mc{B}(\varepsilon, \ve{x}) \cap S \neq \varnothing
+						\end{equation}
+						this is immediately true by the definition of sequence convergence. There must be some points in the sequence, thus in $S$, belongs to $\mc{B}(\varepsilon, \ve{x})$.
+					\end{proof}
+				\end{proposition}
+			
+				\begin{theorem}[Bolzano-Weierstrass] Let $S\ \red{\subset \R^n}$,
+					\begin{equation}
+						S \tx{ is compact} \iff S \tx{ is closed and bounded}
+					\end{equation}
+					\begin{proof}[Proof Idea] \quad \\
+						($\impliedby$) Suppose $S$ is closed and bounded, boundedness ensures such sequence converges, and closeness ensures the limit point of sequence is in $S$. \\
+						($\implies$) Prove by \emph{modus tollens}. \\
+						\textbf{Case (i): }$S$ is not bounded, then
+						\begin{equation}
+							\forall R > 0\ \exists \vex \in S \backslash \mc{B}(R,\ve{0})
+						\end{equation}
+						and above $\vex(R)$ depends on $R$, we can construct a sequence using $\vex(j)$ such that the $\norm{\vex}$ is ever increasing and it does not have a limit. \\
+						\textbf{Case (ii):} $S$ is not closed, we can construct a sequence with subsequence converges to $\vex \in \partial S \backslash S$, which is nonempty because $S$ is not closed.
+					\end{proof}
+				\end{theorem}
+			
+			\subsubsection{the Extreme Value Theorem}
+				\begin{theorem}[the Extreme Value Theorem]
+					Assume $K$ is a \hl{compact} subset of $\R^n$ and $f: K \to \R$ is \hl{continuous}. \\
+					Then (i) 
+					\begin{equation}
+						f(K) \tx{ is compact}
+					\end{equation}
+					and (ii) the infimum and supremum of $f(\vex)$ on $K$ are attainable.
+					\begin{equation}
+						\exists\ \overline{\vex}, \underbar{\vex} \in K\ s.t.\ 
+						\begin{cases}
+							f(\overline{\vex}) = \sup_{\vex \in K} f(\vex)\\
+							f(\underbar{\vex}) = \inf_{\vex \in K} f(\vex)
+						\end{cases}
+					\end{equation}
+					\begin{proof}
+						Let $\{y_j\}_j$ be a sequence in $f(K)$, and we can find a sequence $\{\ve{z}_j\}_j$ in $K$ such that $y_j = f(\ve{z}_j)$ (by definition of image). Because $K$ is compact, there exists a subsequence of $\{\ve{z}_j\}_j$ converges to $\ve{z}^* \in K$. Since $f$ is continuous, we can conclude there a subsequence, sharing the same indices, such that $f(\ve{z}_j) \to f(\ve{z}^*)$ (\emph{Proposition 1.5.2}). Obviously $f(\ve{z}^*) \in f(K)$, \emph{so $f(K)$ is compact}. \\
+						Since $f(K)$ is compact, by \emph{Proposition 1.5.3}, $\sup_{\vex \in K} f(\vex) \in f(K)$. By definition of image, $\exists \vex \in K$ such that $f(\vex) = \sup_{\vex \in K} f(\vex)$, \emph{supremum attainability shown}.\\
+						Proof for infimum attainability is the same.
+					\end{proof}
+				\end{theorem}
+				
+				\begin{proposition}
+					Assume that $\{\ve{z}_j\}_j$ is a sequence in a set $S \subset \R^k$, and $f$ is a continuous real-valued function defined on $S$, then
+					\begin{equation}
+						\ve{z}_j \to \ve{z} \implies f(\ve{z}_j) \to f(\ve{z})
+					\end{equation}
+				\end{proposition}
+				
+				\begin{proposition}
+					If $S$ is a compact set in $\R$, then $\sup S$ and $\inf S$ both in $S$.
+					\begin{proof}[Proof Idea]
+						Suppose $\sup S \notin S$, by definition of supremum,
+						\begin{equation}
+							\forall \varepsilon\ \exists x \in S\ s.t\ \sup S - \varepsilon < x \leq \sup S
+						\end{equation}
+						note that such $x \in \mc{B}(\varepsilon, \sup S)$. Also, similarly,
+						\begin{equation}
+							\forall \varepsilon > 0\ \exists x \notin S\ s.t.\ \sup S < x < \sup S + \varepsilon
+						\end{equation}
+						so such $x \in \mc{B}(\varepsilon, \sup S)$. We conclude
+						\begin{equation}
+							\forall \varepsilon > 0\ \mc{B}(\varepsilon, \sup S) \cap S \neq \varnothing \land \mc{B}(\varepsilon, \sup S) \cap S^c \neq \varnothing
+						\end{equation} 
+						which means $\sup S \in \partial S$. Thus if $\sup S \notin S$, $S$ cannot be closed and this contradicts our assumption that $S$ is compact. \\
+						The proof for $\inf S \in S$ is similar.
+					\end{proof}
+				\end{proposition}
+				
+			\subsubsection{Uniform Continuity}
+				\begin{definition}
+					Let $S \subset \R^n$, a function $\ve{f}: S \to \R^k$ is \textbf{uniformly continuous} if 
+					\begin{equation}
+						\forall \varepsilon\ \exists \delta > 0\ s.t.\ \forall \vex,\ \vey \in S,\ \norm{\vex - \vey} < \delta \implies \norm{\vef(\vex) - \vef(\vey)} < \varepsilon
+					\end{equation}
+				\end{definition}
+				
+				\begin{remark}
+					In the definition of \emph{continuity}, value of $\delta$ can depend on $\vex$. But in the definition of \emph{uniform continuity}, one $\delta$ has to work for every $\vex$. 
+				\end{remark}
+				
+				\begin{theorem}
+					If $K$ is a compact subset of $\R^n$, and $\vef: K \to R^k$ is continuous, then $\vef$ is uniformly continuous.
+				\end{theorem}
+				
 		\subsection{the Intermediate Value Theorem}
 	\section{Differentiation and related topics}
 		\subsection{}
