@@ -221,12 +221,91 @@
 					\end{enumerate}
 				\end{theorem}
 		\subsection{Sequences and Completeness}
-		    \begin{theorem}[Bounded Sequence Theorem]
-		        
-		    \end{theorem}
-		    \begin{definition}
-		        
+			\begin{definition}
+		    	    A sequence $\{\vea_j\}_j$ in $\R^n$ \textbf{converges to the limit $\ve{L} \in \R^n$} if 
+		    	    \begin{equation}
+		    	    	\forall \varepsilon > 0\ \exists J \in \N,\ s.t.\ \forall j \geq J \implies \norm{\vea_j - \ve{L}} < \varepsilon
+		    	    \end{equation}
 		    \end{definition}
+		    
+		    \begin{theorem}
+		    		\begin{equation}
+		    			\lim_{j \to \infty} \vea _j = \ve{L} \iff \lim_{j \to \infty} \norm{\vea_j - \ve{L}} = 0
+		    		\end{equation}
+		    \end{theorem}
+		    
+		    \begin{theorem}
+		    		Let $\{a_{jk}\}_j$ be a sequence in $\R^n$ where $k \in [n]$, and let $\ve{L} = (L_1, \dots, L_n) \in \R^n$, then
+		    		\begin{equation}
+		    			\lim_{j \to \infty} \vea _j = \ve{L} \iff \lim_{j \to \infty} a_{jk} = L_k\ \forall k \in [n]
+		    		\end{equation}
+		    		\begin{proof}[Proof Idea.]
+		    			\begin{equation}
+		    				\forall j \in [n],\ |a_j - L_j| \leq \norm{\vea - \ve{L}} \leq n \max_{k \in [n]} |a_k - L_k|
+		    			\end{equation}
+		    		\end{proof}
+		    \end{theorem}
+		    
+		    \begin{axiom}[the Completeness Axiom]
+		    		Every \emph{bounded} and \emph{nonempty} set of \emph{real numbers} has a \emph{least upper bound} (\textbf{supremum}) and a \emph{greatest lower bound} (\textbf{infimum}).
+		    \end{axiom}
+		    
+		    \begin{theorem}[Monotone Sequence Theorem]
+		    		Every bounded nondecreasing sequence of real numbers converges to a limit.
+		    		\begin{proof}[Proof Idea.]
+		    			Note that such sequence converges to its supremum $S$.\\
+		    			Let $\varepsilon > 0$, there exists $j^*$ such that
+		    			\begin{equation}
+		    				S - \varepsilon < a_{j^*} \leq S
+		    			\end{equation}
+		    			take such $j^*$ and by the nondecreasing property,
+		    			\begin{equation}
+		    				\forall j \geq j^*\ a_j > S - \varepsilon
+		    			\end{equation}
+		    			which implies $|S - a_j| < \varepsilon$.
+		    		\end{proof}
+		    \end{theorem}
+		    
+		    \begin{definition}
+		    		A \textbf{subsequence} of a sequence $\{\vea_j\}_{j \geq j_0}$ in $\R^n$ is a sequence constructed as $\{a_{k_j}\}_j$, such that $\{k_j\}_j$ is a \emph{strictly increasing} sequence bounded below by $j_0$.
+		    \end{definition}
+		    
+		    \begin{remark}
+		    		Subsequences can be constructed using strictly increasing transformations.
+		    \end{remark}
+		    
+		    \begin{proposition}
+			    	If $\{\vea_j\}_j$ is a sequence in $\R^n$ converges to $\ve{L}$, then (i) any subsequence of it converges to the (ii) same limit.
+			    	\begin{proof}[Proof Idea]
+			    		Suppose not and reach a contradiction.
+			    	\end{proof}
+		    \end{proposition}
+		    
+		    \begin{theorem}[Bounded Sequence Theorem in $\R$]
+		    		Every bounded sequence in $\R$ has a convergent subsequence.
+		    		\begin{proof}
+		    			Let $\{a_j\}_j$ be a bounded sequence. \\
+		    			For each $j \in \N$, define $b_{k_j} := \inf_{k > k_j} a_k$. \\
+		    			Note that $\{b_j\}$ is non-decreasing and bounded, so it converges to some limit $\ell$. \\
+		    			Let $\{a_{k_j}\}_j$ denote a subsequence of the original sequence, define $k_0 = j_0$, and indices are constructed in a recurrent way. \\
+		    			Suppose every index before $k_j$ has been chosen, we choose $k_{j+1}$  to be the index such that 
+		    			\begin{equation}
+		    				b_{k_j} \leq a_{k_{j+1}} < b_{k_j} + \frac{1}{j}
+		    			\end{equation}
+		    			by construction, $\{a_{k_j}\}_j$ is bounded by both $\{b_{k_j}\}_j$ and $\{b_{k_j} + \frac{1}{j}\}_j$, and both bounding sequences converge to $\ell$. So $\{a_{k_j}\}_j$ converges to $\ell$ by \emph{squeeze theorem}.
+		    		\end{proof}
+		    \end{theorem}
+		    
+		    \begin{theorem}[Bounded Sequence Theorem]
+		        Every bounded sequence in $\R^n$ has a convergent subsequence.
+		        \begin{proof}
+		        	Let $\{\vea_j\}_j$ be a bounded sequence. \\
+		        	Applying the previous theorem iteratively, we can construct a subsequence of $\{\vea_{k_j}\}_j$ such that $\{\vea_{k_j} \cdot \ve{e}_1\}_{j}$ is bounded and convergent. \\
+		        	Then we apply the previous theorem iteratively on the constructed convergent subsequences to construct new subsequences with more convergent components.
+		        \end{proof}
+		    \end{theorem}
+		    
+		    
 		\subsection{Compactness}
 		\subsection{the Intermediate Value Theorem}
 	\section{Differentiation and related topics}
