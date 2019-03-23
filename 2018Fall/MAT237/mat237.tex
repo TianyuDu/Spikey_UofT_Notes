@@ -129,7 +129,7 @@
 			\end{theorem}
 		
 		\subsection{Limits and Continuity}
-			\subsection{Limits of Multivariable Functions}
+			\subsubsection{Limits of Multivariable Functions}
 			\begin{definition}
 				Let $S \subset \R^n$, $\ve{f}: S \to \R^k$, and $\ve{a} \in S$, then
 				\begin{equation}
@@ -410,6 +410,40 @@
 				\end{theorem}
 				
 		\subsection{the Intermediate Value Theorem}
+			\begin{definition}
+				A set $S \subset \R^n$ is \textbf{path-connected} (\textbf{arcwise connected/ pathwise connected}) if for every $\vex, \vey \in S$, there exists a \hl{continuous} function $\gamma: [0, 1] \to \red{S}$ such that
+				\begin{equation}
+					\gamma(0) = \vex,\ \gamma(1) = \vey
+				\end{equation}
+			\end{definition}
+			
+			\begin{example}
+				Convex sets are path-connected, a path can be constructed using the convex combination,
+				\begin{equation}
+					\gamma(t) := (1 - t) \vex + t \vey
+				\end{equation}
+			\end{example}
+			
+			\begin{proposition}
+				Let $S_1, S_2 \subset \R^n$ be two path-connected sets, and $S_1 \cap S_2 \neq \varnothing$. Then $S_1 \cup S_2$ is path-connected.
+				\begin{proof}
+					Take $\ve{z} \in S_1 \cap S_2$, and let $\tilde{\gamma}_1$ and $\tilde{\gamma}_2$ be two connecting paths between $\vex, \ve{z}$ and $\ve{z}, \vey$ respectively. Then define $\gamma: [0, 1] \to S_1 \cup S_2$ as 
+					\begin{equation}
+						\gamma(t) := \mathds{1}\{t \in [0, \frac{1}{2})\} \times \tilde{\gamma}_1(2t) + \mathds{1}\{t \in [\frac{1}{2}, 1]\} \times \tilde{\gamma}_2(2(t-\frac{1}{2}))
+					\end{equation}
+				\end{proof}
+			\end{proposition}
+			
+			\begin{theorem}[the intermediate Value Theorem]
+				Assume that $S$ is a \hl{path-connected} subset of $\R^n$ and that $f: S \to \R$ is \hl{continuous}. Let $\vea, \veb \in S$.\\
+				Then for every $t \in (\min\{f(\vea), f(\veb)\}, \max\{f(\vea), f(\veb)\})$, there exists $\ve{c} \in S$ such that $f(\ve{c}) = t$.
+				\begin{proof}
+					Let $\vea, \veb \in S$. WLOG, assume $f(\vea) < f(\veb)$. Let $t$ be an arbitrary value in $(f(\vea), f(\veb))$.\\
+					Since $S$ is path-connected, let $\vec{\varphi}: [0, 1] \to S$ be a continuous function such that $\vec{\varphi}(0) = \vea$ and $\vec{\varphi}(1) = \veb$. \\
+					Then we can construct composite $f \circ \vec{\varphi}: [0, 1] \to \R$, then apply the Intermediate Value Theorem in $\R$. We can conclude that $\exists \eta \in (0,1)\ s.t.\ f \circ \vec{\varphi}(\eta) = t$. And $\vec{\varphi}(\eta) \in S$ is the point desired.
+				\end{proof}
+			\end{theorem}
+			
 	\section{Differentiation and related topics}
 		\subsection{}
 		\subsection{}
