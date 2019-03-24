@@ -447,7 +447,79 @@
 	\section{Differentiation and related topics}
 		\subsection{}
 		\subsection{}
-		\subsection{}
+		\subsection{the Chain Rule}
+			\begin{theorem}[the Chain Rule]
+				Let $S_n \subset \R^n$ and $T_m \subset \R^m$, given functions $\veg: S_n \to \R^m$ and $\vef: T_m \to \R^{\ell}$. Also let $\vea \in S_n$ such that $\veg$ is differentiable at $\vea$ and $\vef$ is differentiable at $\veg(\vea)$\footnote{Also all functions $\vef$ and $\veg$ and $\vef \circ \veg$ are well-defined near $\vea$ and $\veg(\vea)$.}. Then
+				\begin{equation}
+					\underbrace{D(\vef \circ \veg)(\vea)}_{\ell \times n} 
+					= \underbrace{D(\vef)(\veg(\vea))}_{\ell \times m} \underbrace{D\veg(\vea)}_{m \times n}
+				\end{equation}
+			\end{theorem}
+			
+			\begin{example}
+				\begin{equation}
+					\frac{d}{d\vex} \norm{\vex} = \frac{\vex}{\norm{\vex}}
+				\end{equation}
+			\end{example}
+			
+			\begin{definition}
+				A function $f: \R^n \to \R$ is called \textbf{homogeneous of degree} $\alpha$ if
+				\begin{equation}
+					f(\lambda \vex) = \lambda^\alpha f(\vex)\ \forall \vex \neq \ve{0},\ \lambda \in \R_{++}
+				\end{equation}
+			\end{definition}
+			
+			\begin{theorem}[the Euler's Theorem of Homogeneous Functions]
+				If $f: \R^n \to \R$ is a homogeneous equation of degree $\alpha$, then 
+				\begin{equation}
+					\nabla f(\vex) \cdot \vex = \alpha f(\vex)
+				\end{equation}
+				\begin{proof}
+					\begin{gather}
+						\begin{cases}
+							\pd{f(\lambda \vex)}{\lambda} = \nabla f(\lambda \vex) \cdot \vex \\
+							\pd{f(\lambda \vex)}{\lambda} = \pd{\lambda^\alpha f(\vex)}{\lambda} = \alpha \lambda^{\alpha - 1} f(\vex)
+						\end{cases} \\
+						\implies \nabla f(\lambda \vex) \cdot \vex = \alpha \lambda^{\alpha - 1} f(\vex) \\
+						\implies \nabla f(\vex) \cdot \vex = \alpha f(\vex) \tx{ evaluated at } \lambda = 1
+					\end{gather}
+				\end{proof}
+			\end{theorem}
+			
+			\begin{definition}
+				Let $C$ be the level set of $f: S \to \R$ at $\vea \in S$ defined as 
+				\begin{equation}
+					C := \{\vex \in S: f(\vex) = f(\vea)\}
+				\end{equation}
+				and a vector $\ve{v}$ is \textbf{tangent to $C$ at $\vea$} if there exists a function $\gamma: I \to C$ defined on interval $I$ containing $0$, such that
+				\begin{equation}
+					\gamma(0) = \vea
+				\end{equation}
+				and 
+				\begin{equation}
+					\ve{v} = \gamma'(0)
+				\end{equation}
+			\end{definition}
+			
+			\begin{theorem}
+				Let $S \subset \R^n$ be an open set, and $f: S \to \R$ is differentiable at $\vea$. Then $\nabla f(\vea)$ is orthogonal to the level set of $f$ passes through $\vea$.
+				\begin{proof}[Proof Idea]
+					Let $\ve{v}$ be an arbitrary tangent vector to $C$ at $\vea$, there must exists a function $\gamma: I \to C$. And define 
+					\begin{equation}
+						h(t) := f \circ \gamma (t)
+					\end{equation}
+					by definition of $\gamma$, $h(I) = \{f(\vea)\}$. Thus
+					\begin{gather}
+						\frac{d}{dt}h(t) = \frac{d}{dt} f \circ \gamma (t) \\
+						= \nabla f (\gamma(0)) \cdot \gamma'(0) \\
+						= \nabla f(\vea) \cdot \gamma'(0) \\
+						= \nabla f(\vea) \cdot \ve{v} = 0
+					\end{gather}
+					So $\nabla f(\vea)$ is orthogonal to any tangent vector of $C$ at $\vea$, which means $\nabla f(\vea)$ is orthogonal to $C$.
+				\end{proof}
+			\end{theorem}
+			
+			
 		\subsection{}
 		\subsection{}
 		\subsection{}
