@@ -445,8 +445,131 @@
 			\end{theorem}
 			
 	\section{Differentiation and related topics}
-		\subsection{}
-		\subsection{}
+		\subsection{Differentiation of Real-Valued Functions}
+			\subsubsection{Single Variable Case}
+				\begin{definition}[Equivalent Definitions of Differentiability]
+					Let $S \subset \R$ open, and $f: S \to \R$ is said to be \textbf{differentiable at $x \in S$} if 
+					\begin{equation}
+						\lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \tx{ exists}
+					\end{equation}
+					or there exists $m \in \R$ such that
+					\begin{equation}
+						\lim_{h \to 0} \frac{f(x+h) - f(x) - mh}{h} = 0
+					\end{equation}
+					or there exists $m \in \R$ and $E(h): \R \to \R$ such that
+					\begin{equation}
+						f(x+h) = f(x) + mh + E(h),\ \lim_{h \to 0} \frac{E(h)}{h} = 0
+					\end{equation}
+					If $f$ is differentiable at $x$, we define the \textbf{derivative} $f'(x) := m$.
+				\end{definition}
+			
+			\subsubsection{Differentiability of Real-valued Functions Defined on $\R^n$}
+				\begin{definition}
+					Let $S$ be an open subset of $\R^n$, and $f: S \to \R$ is \textbf{differentiable at $\vex \in S$} if 
+					\begin{equation}
+						\lim_{\ve{h} \to \ve{0}} \frac{
+							f(\vex + \ve{h}) - f(\vex)
+						}{\norm{\ve{h}}} \tx{ exists}
+					\end{equation}
+					or there exists $\ve{m} \in M_{1\times n}$ such that
+					\begin{equation}
+						\lim_{\ve{h} \to \ve{0}} \frac{
+							f(\vex + \ve{h}) - f(\vex) - \ve{m} \cdot \ve{h}
+						}{\norm{\ve{h}}} = 0
+					\end{equation}
+					or there exists $\ve{m} \in M_{1\times n}$ and $E(\ve{h})$ such that
+					\begin{equation}
+						f(\vex + \ve{h}) = f(\vex) + \ve{m} \cdot \ve{h} + E(\ve{h}),\ \lim_{\ve{h} \to \ve{0}} \frac{E(\ve{h})}{\norm{\ve{h}}} = 0
+					\end{equation}
+					If $f$ is differentiable at $\vex$, we define its gradient as $\nabla f(\vea) := \ve{m}$.
+				\end{definition}
+
+				\begin{theorem}
+					Assume that $f: S \to \R$, where $S$ is an open subset of $\R^n$, and that $\vex \in S$. If $f$ is \emph{differentiable} at $\vex$, then $f$ is continuous at $\vex$.
+					\begin{proof}
+						\begin{gather}
+							f(\vex + \ve{h}) - f(\vex) = \ve{m} \cdot \ve{h} + E(\ve{h})
+						\end{gather}
+						Note that when $\norm{\ve{h}} \leq 1$,
+						\begin{gather}
+							E(\ve{h}) \leq \frac{|E(\ve{h})|}{\norm{\ve{h}}}
+						\end{gather}
+						By the \emph{Squeeze Theorem}, $\lim_{\ve{h} \to \ve{0}} E(\ve{h}) = 0$. Also, $\lim_{\ve{h} \to \ve{0}} \ve{m} \cdot \ve{h} = 0$. Thus 
+						\begin{gather}
+							\lim_{\ve{h} \to \ve{0}} f(\vex + \ve{h}) - f(\vex) = 0
+						\end{gather}
+						so $f$ is continuous at $\vex$.
+					\end{proof}
+				\end{theorem}
+				
+			\subsubsection{Partial Differentiability}
+				\begin{definition}
+					Let $S$ be an open subset of $\R^n$, and $f: S \to \R$. The \textbf{$j$-th partial derivative of $f$ at $\vex$} is defined as 
+					\begin{equation}
+						\pd{f(\vex)}{x_j} := \lim_{h \to 0} \frac{f(\vex + h \ve{e}_j) - f(\vex)}{h}
+					\end{equation}
+				\end{definition}
+				
+				\begin{theorem}
+					Let $f$ be a function $S \to \R$, where $S$ is an open subset of $\R^n$. If $f$ is differentiable at a point $\vex \in S$, then (i) $\pd{f}{x_j}$ exists at $\vex$ for every $j \in [n]$ and (ii) 
+					\begin{equation}
+						\nabla f(\vex) = (\pd{f}{x_1}, \dots, \pd{f}{x_n})(\vex)
+					\end{equation}
+				\end{theorem}
+				
+				\begin{theorem}
+					Assume $f$ is a function $S \to \R$ for some open $S \subset \R^n$. If all partial derivatives of $f$ \hl{exist and are continuous} at every point of $S$, then $f$ is differentiable in $S$.
+				\end{theorem}
+				
+				\begin{definition}
+					A function $f: S \to R$ is said to be \textbf{of class $C^1$} if all partial derivatives of $f$ exist and continuous at every point of $S$.
+				\end{definition}
+								
+			\subsubsection{Directional Derivatives}
+				\begin{definition}
+					A \textbf{direction} in $\R^n$ is represented by a unit vector $\ve{u}$. And given such a unit vector, the \textbf{directional derivative of $f$ at $\vex$ in the direction of $\ve{u}$} is defined as
+					\begin{equation}
+						\partial_{\ve{u}} f(\vex) := \lim_{h \to 0} \frac{f(\vex + h \ve{u}) - f(\vex)}{h}
+					\end{equation}
+				\end{definition}
+				
+				\begin{theorem}
+					If $f$ is differentiable at a point $\vex$, then $\partial_{\ve{u}} f(\vex)$ exists for every unit vector $\ve{u}$, and moreover
+					\begin{equation}
+						\partial_{\ve{u}} f(\vex) = \ve{u} \cdot \nabla f(\vex)
+					\end{equation}
+				\end{theorem}
+		
+		\subsection{Differentiation}
+			\begin{definition}
+				Assume $S$ is an open subset of $\R^n$. Given function $\vef: S \to \R^m$, we say that $\ve{f}$ is differentiable at a point $\vea \in S$ if there exists $M \in M_{m \times n}$ such that
+				\begin{equation}
+					\vef(\vea + \ve{h}) - \vef(\vea) = M \ve{h} + \ve{E}(\ve{h}),\ \lim_{\ve{h} \to \ve{0}} \frac{\ve{E}(\ve{h})}{\norm{\ve{h}}} = \ve{0} \in \R^m
+				\end{equation}
+				If such $M$ exists, we define the \textbf{Jacobian matrix} of $\vef$ at $\vea$ as 
+				\begin{equation}
+					D\vef(\vea) := M
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				Given a differentiable function $f: S \to \R$, where $S$ is an open subset of $\R^n$, at a point $\vea$ we define the \textbf{differential of $f$ at $\vea$} as 
+				\begin{equation}
+					df|_{\vea}(\ve{h}) := \nabla f(\vea) \cdot \ve{h}
+				\end{equation}
+			\end{definition}
+			
+			\begin{remark}
+				The differential is discussed only for real-valued functions here.
+			\end{remark}
+			
+			\begin{remark}
+				The differential can be used for linear approximations for small $\ve{h}$.
+				\begin{equation}
+					f(\vex + \ve{h}) \approx f(\vex) + df|_{\vea}(\ve{h})
+				\end{equation}
+			\end{remark}
+			
 		\subsection{the Chain Rule}
 			\begin{theorem}[the Chain Rule]
 				Let $S_n \subset \R^n$ and $T_m \subset \R^m$, given functions $\veg: S_n \to \R^m$ and $\vef: T_m \to \R^{\ell}$. Also let $\vea \in S_n$ such that $\veg$ is differentiable at $\vea$ and $\vef$ is differentiable at $\veg(\vea)$\footnote{Also all functions $\vef$ and $\veg$ and $\vef \circ \veg$ are well-defined near $\vea$ and $\veg(\vea)$.}. Then
