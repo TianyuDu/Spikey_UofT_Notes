@@ -696,7 +696,49 @@
 				\end{proof}
 			\end{theorem}
 			
-		\subsection{}
+		\subsection{Higher Order Derivatives}
+			\begin{definition}
+				A function $f$ defined on $S$ is \textbf{of class} $C^k$ if all of its $k^{th}$ order partial derivatives exists and continuous everywhere in $S$.
+			\end{definition}
+			
+			\begin{theorem}
+				Assume that $S$ is an open subset of $\R^n$ and that $f: S \to \R$ is $C^k$. Let $\alpha \in [n]^k$, and let $\beta$ be any permutation of $\alpha$,
+				\begin{equation}
+					\partial^{\alpha} f = \partial^{\beta} f
+				\end{equation}
+			\end{theorem}
+			
+			\begin{definition}
+				A \textbf{multi-index} is an $n$-tuple of nonnegative integers. And we define
+				\begin{equation}
+					\partial^\alpha f := (\frac{\partial}{\partial x_1 })^{\alpha_1}(\frac{\partial}{\partial x_{2} })^{\alpha_{2}}\cdots (\frac{\partial}{\partial x_n })^{\alpha_n}f, \quad\mbox{ for }\alpha = (\alpha_1,\ldots, \alpha_n)
+				\end{equation}
+				where the \textbf{order} of multi-index is defined as
+				\begin{equation}
+					|\alpha| := \alpha_1 + \alpha_2 + \dots + \alpha_n
+				\end{equation}
+			\end{definition}
+			
+			\begin{theorem}[the Multinomial Theorem]
+				\begin{equation}
+					(x_1 + x_2 + \cdots + x_n)^k = \sum_{|\alpha| = k} \frac{k!}{\alpha !} \vex^\alpha
+				\end{equation}
+				\begin{proof}[Proof Idea]
+					Prove by induction on $n$, with Binomial Theorem.
+				\end{proof}
+			\end{theorem}
+			
+			\begin{definition}
+				Let $f: \R^n \to \R$ be a $C^2$ function, then its \textbf{Hessian matrix} is defined as
+				\begin{equation}
+					H_f := \left(\begin{array}{ccc}
+					\partial_1\partial_1 f & \cdots & \partial_n\partial_1 f \\
+					\vdots & \ddots & \vdots \\
+					\partial_1\partial_n f & \cdots & \partial_n\partial_n f 
+					\end{array}\right)
+				\end{equation}
+			\end{definition}
+			
 		\subsection{}
 		\subsection{}
 		\subsection{Optimization}
