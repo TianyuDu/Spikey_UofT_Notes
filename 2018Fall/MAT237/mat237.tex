@@ -739,7 +739,70 @@
 				\end{equation}
 			\end{definition}
 			
-		\subsection{}
+		\subsection{Taylor's Theorem}
+			\begin{definition}
+				Let $f: I \to \R$, where $I$ is an open subset of $\R$, be $C^k$. Let $a \in I$. then the \textbf{$k^{th}$ order Taylor polynomial of $f$ at $a$} is the \ul{unique} polynomial of order at most $k$, denoted $P_{a, k}(h)$ such that 
+				\begin{equation}
+					f^{(j)}(a) = P^{(j)}_{a, k}(0)\ \forall j \in \{0, 1, \dots, k\}
+				\end{equation}
+				Note 
+				\begin{equation}
+					P^{(j)}_{a, k}(h) = \sum_{j=0}^k \frac{h^j}{j!} f^{(j)} (a)
+				\end{equation}
+			\end{definition}
+			
+			\begin{theorem}[Taylor's Theorem in 1 Dimension]
+				Assume that $I \subset \R$ is an open interval and that $f: I \to \R$ is a function of class $C^k$ on $I$. For $a \in I$ and $h \in \R$ such that $a + h \in I$. Define the \textbf{reminder} 
+				\begin{equation}
+					R_{a, k}(h) := f(a+h) - P_{a,k}(h)
+				\end{equation} 
+				Then
+				\begin{equation}
+					\lim_{h \to 0} \frac{R_{a, k}(h)}{h^{\red{k}}} = 0
+				\end{equation}
+			\end{theorem}
+			
+			\begin{proposition}
+				Assume that $I \subset \R$ is an open interval and that $f: I \to \R$ is a function of class $C^k$ on $I$. For $a \in I$ and $h \in \R$ such that $a + h \in I$, there exists some $\theta \in (0, 1)$ such that
+					\begin{equation}
+						f(a+h) = f(a) + h f'(a) + \frac {h^2}{2}f''(a) + \cdots + \frac {h^{k-1}}{(k-1)!} f^{(k-1)}(a) +
+						\frac {h^k}{k!} f^{(k)}(a+\theta h)
+					\end{equation}
+			\end{proposition}
+			
+			\begin{definition}
+				Assume that $S \subset \R^n$ is an open interval and that $f: S \to \R$ is a function of class $C^k$ on $S$. For a point $\vea \in S$, the \textbf{$k^{th}$ order Taylor polynomial of $f: S \to \R$} is a \hl{polynomial of order at most $k$}, denoted $P_{\vea, k}(\ve{h})$ satisfying
+				\begin{gather}
+					f(\vea) = P_{\vea, k}(\ve{0}) \\
+					\partial^\alpha f(\vea) = \partial^\alpha P_{\vea, k}(\ve{0})\ \forall \alpha\ s.t.\ |\alpha| \leq k
+				\end{gather}
+			\end{definition}
+			
+			\begin{theorem}[Taylor's Theorem in $n$ Dimensions]
+				Assume that $S \subset \R^n$ is an open set and that $f: S \to \R$ is a function of class $C^k$ on $S$. For $\vea \in S$ and $\ve{h} \in \R^n$ such that $\vea + \ve{h} \in S$. Define the \textbf{reminder}
+				\begin{equation}
+					R_{\vea, k}(\ve{h}) := f(\vex + \ve{h}) - P_{\vea, k}(\ve{h})
+				\end{equation}
+				Then 
+				\begin{equation}
+					\lim_{\ve{h} \to \ve{0}} \frac{R_{\vea, k}(\ve{h})}{\norm{\ve{h}}^{\red{k}}} = 0
+				\end{equation}
+			\end{theorem}
+			
+			\begin{theorem}[the Quadratic Case]
+				\begin{gather}
+					P_{\vea, 2}(\ve{h}) = f(\vea) + \nabla f(\vea) \cdot \ve{h} + \frac{1}{2} \ve{h}^T H_f(\vea) \ve{h} \\
+					\exists \theta \in (0, 1)\ s.t.\ f(\vea+\ve{h}) = f(\vea) + \nabla f(\vea) \cdot \ve{h} + \frac{1}{2} \ve{h}^T H_f(\vea + \theta \ve{h}) \ve{h} \\
+					\lim_{\ve{h} \to \ve{0}} \frac{R_{\vea, 2}(\ve{h})}{\norm{\ve{h}}^2} = 0
+				\end{gather}
+			\end{theorem}
+			
+			\begin{definition}[the General Taylor's Polynomial]
+				\begin{equation}
+					P_{\vea, k}(\ve{h}) = \sum_{\{\alpha : |\alpha| \leq k\}}\frac {\ve{h}^\alpha}{\alpha!}{\partial^\alpha f(\vea)}
+				\end{equation}
+			\end{definition}
+			
 		\subsection{}
 		\subsection{Optimization}
 			\begin{theorem}
