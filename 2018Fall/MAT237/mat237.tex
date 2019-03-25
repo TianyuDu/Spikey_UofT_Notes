@@ -643,7 +643,59 @@
 			\end{theorem}
 			
 			
-		\subsection{}
+		\subsection{the Mean Value Theorem}
+			\begin{theorem}[the Mean Value Theorem]
+				Assume $f: S \to \R$, where $S$ is a \hl{convex} and \hl{open} subset of $\R^n$, of class $C^1$, then
+				\begin{gather}
+					\forall \vea, \veb \in S,\ \exists \lambda \in [0, 1]\ s.t.\ \ve{c} = \lambda \vea + (1 - \lambda) \veb \\
+					\nabla f(\ve{c}) \cdot (\veb - \vea) = f(\veb) - f(\vea)
+				\end{gather}
+				\begin{proof}[Proof Idea]
+					Define $\gamma(t) := t \vea + (1-t)\veb$.
+					Construct $h: [0, 1] \to \R$ defined as $h := f(\gamma(t))$
+					then apply one dimensional mean value theorem on $h$.
+				\end{proof}
+			\end{theorem}
+			
+			\begin{definition}
+				A set $S \subset \R^n$ is \textbf{convex} if
+				\begin{equation}
+					\forall \vea, \veb \in S, \lambda \in [0, 1],\ \lambda \vea + (1 - \lambda) \veb \in S
+				\end{equation}				
+			\end{definition}
+			
+			\begin{theorem}
+				Assume that $S$ is an \ul{open and convex} subset of $\R^n$ and that $f: \R^n \to \R$ is differentiable in $S$ such that
+				\begin{equation}
+					\norm{\nabla f(\vex)} \leq M\ \forall \vex \in S
+				\end{equation}
+				then for every $\vea, \veb \in S$,
+				\begin{equation}
+					|f(\veb) - f(\vea)| \leq M \norm{\veb - \vea}
+				\end{equation}
+				\begin{proof}[Proof Idea]
+					Use \emph{Cauchy's Inequality}.
+				\end{proof}
+			\end{theorem}
+			
+			\begin{theorem}
+				Assume that $S$ is an \ul{open and convex} subset of $\R^n$, and $f: S \to \R$ is a function differentiable on $S$. If $\nabla f(\vex) = \ve{0}\ \forall \vex \in S$, then $f$ is constant on $S$.
+				\begin{proof}[Proof Idea]
+					Take two arbitrary $\vea, \veb \in S$, then use mean value theorem to show $f(\vea) = f(\veb)$.
+				\end{proof}
+			\end{theorem}
+			
+			\begin{theorem}
+				Assume that $S$ is an \ul{open and path-connected} subset of $\R^n$, and $f: S \to \R$ is a function differentiable on $S$. If $\nabla f(\vex) = \ve{0}\ \forall \vex \in S$, then $f$ is constant on $S$.
+				\begin{proof}
+					Any path-connected set can be written as a countable union of convex sets $S = \cup_{i \in \mc{A}} C_i$ such that
+					\begin{equation}
+						\forall \alpha \subset \mc{A}\ s.t.\ \alpha \neq \varnothing,\ \cup_{i \in \alpha} C_i \cap \cup_{i \in \alpha^c} C_i \neq \varnothing
+					\end{equation}
+					then apply the previous theorem.
+				\end{proof}
+			\end{theorem}
+			
 		\subsection{}
 		\subsection{}
 		\subsection{}
