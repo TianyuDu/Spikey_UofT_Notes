@@ -1907,6 +1907,69 @@
 					\end{gather}
 				\end{proof}
 			\end{theorem}
+	\section{Further Topics}
+		\subsection{Fourier Analysis}
+			\begin{definition}
+				A function $f: \R \to \R$ is \textbf{periodic with period $p$} if\footnote{Here $p$ is not necessarily the least period of $f$.} 
+				\begin{equation}
+					f(x) = f(x+p)\ \forall x \in \R
+				\end{equation}
+			\end{definition}
+			
+			\begin{assumption}
+				WLOG, we can assume $p = 2\pi$ for every periodic function encountered.
+				\begin{proof}
+					If $f$ is periodic with period $p$, we can transform it into a function with period $2 \pi$ by defining $\tilde{f}(x) := f(x \frac{p}{2\pi})$ such that
+					\begin{gather}
+						\tilde{f}(x + 2 \pi) = f(x \frac{p}{2\pi} + p) \\
+						= f(x \frac{p}{2\pi}) = \tilde{f}(x)
+					\end{gather}
+				\end{proof}
+			\end{assumption}
+			
+			\begin{theorem}[Fourier Decomposition]
+				Let $f: \R \to \R$ be a function continuous everywhere but finitely many points on its domain, then it can be expressed as 
+				\begin{equation}
+					f(x) = a_0 + \sum_{n=1}^\infty \{a_n \cos(nx) + b_n \sin(nx)\}
+				\end{equation}
+			\end{theorem}
+			
+			\begin{lemma}
+				\begin{equation}
+					\cos(a)\cos(b) = \frac{1}{2}[\cos(a+b) + \cos(a-b)]
+				\end{equation}
+				\begin{proof}
+					\begin{gather}
+						\cos(a)\cos(b) = \cos(a+b) + \sin(a)\sin(b) \\
+						\cos(a)\cos(b) = \cos(a-b) - \sin(a)\sin(b)
+					\end{gather}
+				\end{proof}
+				\begin{equation}
+					\sin(a)\sin(b) = \frac{1}{2}[\cos(a-b) - \cos(a+b)]
+				\end{equation}
+				\begin{proof}
+					\begin{gather}
+						\sin(a)\sin(b) = \cos(a)\cos(b) - \cos(a+b) \\
+						- \sin(a)\sin(b) = \sin(a)\sin(-b) = \cos(a)\cos(b) - \cos(a-b)
+					\end{gather}
+				\end{proof}
+			\end{lemma}
+			
+			\begin{lemma}
+				\begin{gather}
+					\int_{-\pi}^\pi \cos(nx) \sin(mx)\ dx = 0\ \forall n, m \in \N \\
+					\frac{1}{\pi} \int_{-\pi}^\pi \cos(nx) \cos(mx)\ dx = \mathds{1}\{n = m\} \\
+					\frac{1}{\pi} \int_{-\pi}^\pi \sin(nx) \sin(mx)\ dx = \mathds{1}\{n = m\} \\
+				\end{gather}
+			\end{lemma}
+			
+			\begin{proposition}[Finding the Coefficients]
+				\begin{align}
+					a_m &= \frac{1}{\pi} \int_{-\pi}^\pi f(x) \cos(mx)\ dx \\
+					b_m &= \frac{1}{\pi} \int_{-\pi}^\pi f(x) \sin(mx)\ dx \\
+					a_0 &= \frac{1}{2\pi} \int_{-\pi}^\pi f(x)\ dx
+				\end{align}
+			\end{proposition}
 \end{document}
 
 
