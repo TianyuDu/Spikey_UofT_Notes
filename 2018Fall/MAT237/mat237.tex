@@ -803,7 +803,105 @@
 				\end{equation}
 			\end{definition}
 			
-		\subsection{}
+		\subsection{Critical Points}
+			\begin{definition}
+				A \hl{symmetric} $n \times n$ matrix $A$ is said to be
+				\begin{itemize}
+					\item \textbf{Positive definite} if $\vex^T A \vex > 0$ for all $\vex \in \R^n \backslash \{\ve{0}\}$.
+					\item \textbf{Non-negative definite} if $\vex^T A \vex \geq 0$ for all $\vex \in \R^n$.
+					\item \textbf{Negative definite} if $\vex^T A \vex < 0$ for all $\vex \in \R^n \backslash \{\ve{0}\}$.
+					\item \textbf{Non-positive definite} if $\vex^T A \vex \leq 0$ for all $\vex \in \R^n$.
+				\end{itemize}
+				and \textbf{indefinite} otherwise.
+			\end{definition}
+			
+			\begin{theorem}
+				Assume $A$ is a symmetric matrix. Then
+				\begin{align}
+					A\mbox{ is positive definite }
+					&\iff \mbox{ all its eigenvalues are positive }\nonumber \\
+					&\iff \exists\lambda_i>0\mbox{ such that }\vex^T A\vex \geq \lambda_i \norm{\vex}^2 \mbox{ for all }\vex\in \R^n.\nonumber
+				\end{align}
+				and
+				\begin{align}
+					A\mbox{ is nonnegative definite } \iff \mbox{ all its eigenvalues are nonnegative.}
+				\end{align}
+				and 
+				\begin{align}
+					A\mbox{ is indefinite } \iff \mbox{ $A$ has both positive and negative eigenvalues.}
+				\end{align}
+			\end{theorem}
+			
+			\begin{lemma}
+				Let $A$ be a symmetric matrix, then
+				\begin{equation}
+					\mbox{the smallest eigenvalue of }A = \min_{\{\ve{u}\in \R^n : |\ve{u}|=1\} } \ve{u}^T A\ve{u}
+				\end{equation}
+			\end{lemma}
+			
+			\begin{definition}
+				A point $\vea \in S$ is a \textbf{local minimum point} for $f: S \to \R$ if 
+				\begin{equation}
+					\exists \varepsilon > 0\ s.t.\ \forall \vex \in \mc{B}(\varepsilon, \vea)\ f(\vea) \leq f(\vex)
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				A point $\vea \in S$ is a \textbf{local maximum point} for $f: S \to \R$ if 
+				\begin{equation}
+					\exists \varepsilon > 0\ s.t.\ \forall \vex \in \mc{B}(\varepsilon, \vea)\ f(\vea) \geq f(\vex)
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				Let $f: S \to \R$ is differentiable on the open sub $S \subset \R^n$, then a point $\vea \in S$ is a \textbf{critical point} if 
+				\begin{equation}
+					\nabla f(\vea) = \ve{0}
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				Let $\vea \in S$ be a \ul{critical point} of $f$, then $\vea$ is a \textbf{saddle point} if $H_f(\vea)$ is indefinite.
+			\end{definition}
+			
+			\begin{theorem}[First Derivative Test]
+				If $f: S \to R$ is differentiable, then 
+				\begin{equation}
+					\tx{local extremum} \implies \tx{critical point}
+				\end{equation}
+			\end{theorem}
+			
+			\begin{theorem}[Necessary Condition for a Local Minimum]
+				If $f: S \to \R$ is $C^2$ and $\vea$ is a local minimum point for $f$, then
+				\begin{enumerate}[(i)]
+					\item $\vea$ is critical point of $f$;
+					\item $H_f(\vea)$ is positive semi-definite.
+				\end{enumerate}
+			\end{theorem}
+			
+			\begin{theorem}[Sufficient Condition for a Local Minimum]
+				If 
+				\begin{enumerate}[(i)]
+					\item $\vea$ is a critical point of $f$;
+					\item $H_f(\vea)$ is positive definite.
+				\end{enumerate}
+				Then $\vea$ is a local minimum for $f$.
+			\end{theorem}
+			
+			\begin{corollary}
+				Assume $f$ is $C^2$ and $\nabla f(\vea) = \ve{0}$, then
+				\begin{enumerate}[(i)]
+					\item If $H_f(\vea)$ is positive definite, then $\vea$ is a local minimum;
+					\item If $H_f(\vea)$ is negative definite, then $\vea$ is a local maximum;
+					\item If $H_f(\vea)$ is indefinite, then $\vea$ is a saddle point.
+				\end{enumerate}
+				\emph{If none of the above hold, then we cannot determine the character of the critical point without further thought.}
+			\end{corollary}
+			
+			\begin{definition}
+				A critical point $\vea$ of $f$ is \textbf{degenerate} if $\det H_f(\vea) = 0$, and \textbf{non-degenerate} if $\det H_f(\vea) \neq 0$.
+			\end{definition}
+		
 		\subsection{Optimization}
 			\begin{theorem}
 				Let $S \subset \R^n$ be an open set and $f, g: S \to \R$ be $C^1$ functions. If $\tbf{x}$ is a \emph{local extremal} satisfying $g(\tbf{x}) = 0$, and \red{$\nabla g(\tbf{x}) \neq 0$}, then
