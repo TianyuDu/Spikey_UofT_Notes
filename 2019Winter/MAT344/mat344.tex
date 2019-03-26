@@ -701,6 +701,48 @@
 					\begin{remark}
 						Generally, the \hl{existence of complex roots implies alternating patterns in sequence}. And when aggregating basis of general solution together, $i$ would be cancelled out.
 					\end{remark}
+	
+	\section{Probability}
+		\subsection{Discrete Probability Theorem}
+			\begin{example}
+				Roll two dice,
+				\begin{itemize}
+					\item What's the probability that the sum is even? ($1/2$)
+					\item What's the probability that the sum is exactly 8? ($5/36$)
+				\end{itemize}
+			\end{example}
+			
+			\begin{definition}[Probability Space]
+				A \textbf{probability space} is a triple $(\Omega, \mc{F}, P)$, where $\Omega$ denotes the \emph{sample space}, $\mc{F}$ is a $\sigma$-algebra representing the \emph{event space}. And $P: \mc{F} \to [0, 1]$ is a \emph{probability measure} such that
+				\begin{gather}
+					P(\varnothing) = 0,\ 
+					P(\Omega) = 1 \\
+					P(\cup_{i=1}^\infty E_i) = \sum_{i=1}^\infty P(E_i)\ \forall \tx{ pair-wise disjoint } \{E_i\}_{i=1}^\infty \subset \mc{F}
+				\end{gather}
+			\end{definition}
+			
+			\begin{proposition}
+				On discrete probability space, the probability measure $P: \mc{F} \to [0, 1]$ can be induced from $p: \Omega \to [0, 1]$.
+			\end{proposition}
+			
+			\begin{definition}
+				Given probability space $(\Omega, \mc{F}, P)$, two events $E_1, E_2 \in \mc{F}$ are \textbf{independent} if 
+				\begin{gather}
+					P(A \cap B) = P(A) P(B)
+				\end{gather}
+			\end{definition}
+			
+			\begin{proposition}
+				Let $E_1, E_2 \in \mc{F}$ such that $E_1, E_2 \neq \varnothing$, then $E_1 \centernot \perp E_2$.
+				\begin{proof}
+					Note $P(A \cap B) = 0$.
+				\end{proof}
+			\end{proposition}
+			
+			\begin{definition}
+				A \textbf{Bernoulli Trial} is a sequence of \emph{independent and identical experiments} with two outcomes.
+			\end{definition}
+			
 	\newpage
 	\section*{References}
 		\par Keller, M. T., \& Trotter, W. T. (2017). \emph{Applied combinatorics}: Mitchel T. Keller, William T. Trotter. \texttt{https://www.rellek.net/appcomb}

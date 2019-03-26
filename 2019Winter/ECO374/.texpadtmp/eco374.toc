@@ -44,3 +44,4 @@
 \contentsline {subsection}{\numberline {6.1}Model Assessment}{17}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Asymmetric Loss}{18}{subsection.6.2}
 \contentsline {paragraph}{Forecasting}{19}{section*.8}
+\contentsline {section}{\numberline {7}Volatility III: Applications}{20}{section.7}

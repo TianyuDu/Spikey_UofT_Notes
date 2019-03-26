@@ -963,6 +963,49 @@
 						\var{e_{t+2,t}|I_t} = (1 + \phi^2) \sigma_\varepsilon^2
 					\end{gather}
 			\end{example}
+	
+	\section{Volatility III: Applications}
+		\begin{definition}
+			The \textbf{$\alpha$-Value at Risk (VaR)}, $r_t^{VaR(\alpha)}$, is the $\alpha$-quantile of $r_t$.
+		\end{definition}
+		
+		\begin{remark}[Interpretation]
+			$r_t^{VaR(\alpha)}$ is the value in the domain of $r_t$ such that \emph{the possibility of obtaining an equal or smaller value than $r_t$ is $\alpha \%$}.
+			\begin{equation}
+				\prob{r_t \leq r_t^{VaR(\alpha)}} = \alpha
+			\end{equation}
+		\end{remark}
+
+		\paragraph{Model Setup}
+			\begin{gather}
+				r_t = \mu_{t|t-1} + \sigma_{t|t-1}z_t \\
+				z_t \sim \mc{N}(0, 1) \\
+				\mu_{t|t-1} \sim \tx{ARMA} \\
+				\sigma_{t|t-1} \sim \tx{GARCH} \\
+				\implies r_t \sim \mc{N}(\mu_{t|t-1}, \sigma_{t|t-1}^2) \\
+				\implies r_t^{VaR(\alpha)} = \mu_{t|t-1} + \Phi^{-1}(\alpha) \sigma_{t|t-1}
+			\end{gather}
+			
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.7\linewidth]{figures/lec12.png}
+			\caption{VaR and Expected Shortfall}
+		\end{figure}
+		
+		\begin{definition}
+			The \textbf{expected shortfall} measures the average value of such loss,
+			\begin{equation}
+				ES(\alpha) := \expect{r_t|r_t < r_t^{VaR(\alpha)}}
+			\end{equation}
+		\end{definition}
+		
+		\begin{lemma}[Expected of Truncated Normal Distribution]
+			\begin{gather}
+				X \sim \mc{N}(\mu, \sigma^2) \\
+				\implies \expect{X|a < X < b} = \mu + \sigma \frac{\phi(\frac{a - \mu}{\sigma}) - \phi(\frac{b - \mu}{\sigma})}{\Phi(\frac{b - \mu}{\sigma}) - \Phi(\frac{a - \mu}{\sigma})} \\
+				= \red{\mu + \sigma \frac{\phi(\alpha) - \phi(\beta)}{\Phi(\beta) - \Phi(\alpha)}}
+			\end{gather}
+		\end{lemma}
 \end{document}
 
 
