@@ -964,48 +964,112 @@
 					\end{gather}
 			\end{example}
 	
+	\section{Trends}
+	
+	\section{Vector Auto-regression Model}
+	
+	\section{Vector Error Correction Model}
+			
+	\section{Volatility I}
+	
+	\section{Volatility II}
+	
 	\section{Volatility III: Applications}
-		\begin{definition}
-			The \textbf{$\alpha$-Value at Risk (VaR)}, $r_t^{VaR(\alpha)}$, is the $\alpha$-quantile of $r_t$.
-		\end{definition}
+		\subsection{Risk Management}
+			\begin{definition}
+				The \textbf{$\alpha$-Value at Risk (VaR)}, $r_t^{VaR(\alpha)}$, is the $\alpha$-quantile of $r_t$.
+			\end{definition}
+			
+			\begin{remark}[Interpretation]
+				$r_t^{VaR(\alpha)}$ is the value in the domain of $r_t$ such that \emph{the possibility of obtaining an equal or smaller value than $r_t$ is $\alpha \%$}.
+				\begin{equation}
+					\prob{r_t \leq r_t^{VaR(\alpha)}} = \alpha
+				\end{equation}
+			\end{remark}
+	
+			\paragraph{Model Setup}
+				\begin{gather}
+					r_t = \mu_{t|t-1} + \sigma_{t|t-1}z_t \\
+					z_t \sim \mc{N}(0, 1) \\
+					\mu_{t|t-1} \sim \tx{ARMA} \\
+					\sigma_{t|t-1} \sim \tx{GARCH} \\
+					\implies r_t \sim \mc{N}(\mu_{t|t-1}, \sigma_{t|t-1}^2) \\
+					\implies \red{r_t^{VaR(\alpha)} = \mu_{t|t-1} + \Phi^{-1}(\alpha) \sigma_{t|t-1}}
+				\end{gather}
+				
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.7\linewidth]{figures/lec12.png}
+				\caption{VaR and Expected Shortfall}
+			\end{figure}
+			
+			\begin{definition}
+				The \textbf{expected shortfall} measures the average value of such loss,
+				\begin{equation}
+					ES(\alpha) := \expect{r_t|r_t < r_t^{VaR(\alpha)}}
+				\end{equation}
+			\end{definition}
+			
+			\begin{lemma}[Expected of Truncated Normal Distribution]
+				\begin{gather}
+					X \sim \mc{N}(\mu, \sigma^2) \\
+					\implies \expect{X|a < X < b} = \mu + \sigma \frac{\phi(\frac{a - \mu}{\sigma}) - \phi(\frac{b - \mu}{\sigma})}{\Phi(\frac{b - \mu}{\sigma}) - \Phi(\frac{a - \mu}{\sigma})} \\
+					= \red{\mu + \sigma \frac{\phi(\alpha) - \phi(\beta)}{\Phi(\beta) - \Phi(\alpha)}}
+				\end{gather}
+			\end{lemma}
+			
+			\begin{proposition}
+				Computing the \emph{expected shortfall} with \ul{normality assumption}.
+				\begin{gather}
+					r_t \sim \mc{N}(\mu_{t|t-1}, \sigma_{t|t-1}^2) \\
+					\implies \red{\expect{r_t|r_t < r_t^{VaR(\red{\alpha})}}}  = \mu_{t|t-1} + \sigma_{t|t-1} 
+					\frac{-\phi \left( 
+						\frac{r_t^{VaR(\alpha)} - \mu_{t|t-1}}{\sigma_{t|t-1}}
+					\right)}
+					{\Phi \left(
+						\frac{r_t^{VaR(\alpha)} - \mu_{t|t-1}}{\sigma_{t|t-1}} 
+					\right)} \tx{ (by equation (7.7))}\\
+					= \red{\mu_{t|t-1} - \sigma_{t|t-1} \frac{\phi(\Phi^{-1}(\alpha))}{\alpha}}
+				\end{gather}
+				with R-code \texttt{coef <- dnorm(pnorm(alpha))/alpha}.
+			\end{proposition}
 		
-		\begin{remark}[Interpretation]
-			$r_t^{VaR(\alpha)}$ is the value in the domain of $r_t$ such that \emph{the possibility of obtaining an equal or smaller value than $r_t$ is $\alpha \%$}.
-			\begin{equation}
-				\prob{r_t \leq r_t^{VaR(\alpha)}} = \alpha
-			\end{equation}
-		\end{remark}
-
-		\paragraph{Model Setup}
+		\subsection{Portfolio Allocation}
+			\paragraph{The Problem}Suppose there are two assets (can be easily extend to the general case, let $N$ denote the set of assets). Returns associated with those assets have mean $\mu_i$ and variance $\sigma_i^2$ for each $i \in N$. For given level of $\overline{\mu}_p$, one has to choose $(w_i)_{i \in N}$ such that the risk, $\sigma^2_p$, is minimized.
+			
+			\begin{assumption}
+				\begin{gather}
+					Cov(r_i, r_j) = 0\ \forall i \neq j \in N
+				\end{gather}
+			\end{assumption}
+			
+			\paragraph{Solution}
 			\begin{gather}
-				r_t = \mu_{t|t-1} + \sigma_{t|t-1}z_t \\
-				z_t \sim \mc{N}(0, 1) \\
-				\mu_{t|t-1} \sim \tx{ARMA} \\
-				\sigma_{t|t-1} \sim \tx{GARCH} \\
-				\implies r_t \sim \mc{N}(\mu_{t|t-1}, \sigma_{t|t-1}^2) \\
-				\implies r_t^{VaR(\alpha)} = \mu_{t|t-1} + \Phi^{-1}(\alpha) \sigma_{t|t-1}
+				\min_{(w_i)_{i \in N}} \sigma_p^2 \equiv \sum_{i \in N} w_i^2 \sigma_i^2 \\
+				s.t.\ \overline{\mu}_p = \sum_{i \in N} w_i \mu_i \\
+				\implies w_i^* = \frac{
+					\mu_i/\sigma_i^2
+				}{
+					\sum_{j \in N} \mu_j/\sigma_j^2
+				}\overline{\mu}_p
 			\end{gather}
 			
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=0.7\linewidth]{figures/lec12.png}
-			\caption{VaR and Expected Shortfall}
-		\end{figure}
+			\begin{remark}
+				The means and variances of assets can be estimated \emph{conditionally on $t$} using the hybrid $ARMA-GARCH$ model.
+			\end{remark}
 		
-		\begin{definition}
-			The \textbf{expected shortfall} measures the average value of such loss,
-			\begin{equation}
-				ES(\alpha) := \expect{r_t|r_t < r_t^{VaR(\alpha)}}
-			\end{equation}
-		\end{definition}
-		
-		\begin{lemma}[Expected of Truncated Normal Distribution]
-			\begin{gather}
-				X \sim \mc{N}(\mu, \sigma^2) \\
-				\implies \expect{X|a < X < b} = \mu + \sigma \frac{\phi(\frac{a - \mu}{\sigma}) - \phi(\frac{b - \mu}{\sigma})}{\Phi(\frac{b - \mu}{\sigma}) - \Phi(\frac{a - \mu}{\sigma})} \\
-				= \red{\mu + \sigma \frac{\phi(\alpha) - \phi(\beta)}{\Phi(\beta) - \Phi(\alpha)}}
-			\end{gather}
-		\end{lemma}
+		\subsection{Asset Pricing: Classical Capital Asset Pricing Model}
+			\begin{definition}
+				A \textbf{market portfolio} is a theoretical bundle of investments that includes every type of asset available in the world financial market, with each asset weighted in proportion to its total presence in the market.
+			\end{definition}
+			
+			\begin{proposition}
+				\begin{gather}
+					\expect{r_i} = r_f + \beta_i \expect{r_m - r_f} \\
+					\beta_i := \frac{Cov(r_i, r_m)}{Var(r_m)} \equiv \frac{\rho_{im}\sigma_i \sigma_m}{\sigma_m^2}
+				\end{gather}
+				and if $\beta_i > 1$, the asset $i$ is more \emph{risky} than the market risk. In practice, $\beta_i$ is estimated with $\rho_{im}$ estimated directly from samples and $\sigma^2_{i, t|t-1}, \sigma^2_{mz, t|t-1}$ estimated using $GARCH$.
+			\end{proposition}
 \end{document}
 
 
