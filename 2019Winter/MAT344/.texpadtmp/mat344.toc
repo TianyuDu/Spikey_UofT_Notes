@@ -10,10 +10,16 @@
 \contentsline {subsection}{\numberline {4.2}Hamiltonian Graphs}{7}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Graph Colouring}{7}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Planer Graphs}{9}{subsection.4.4}
-\contentsline {section}{\numberline {5}Recurrence}{9}{section.5}
-\contentsline {subsection}{\numberline {5.1}Solving Recurrence Relations (Mar. 20 2019)}{9}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Preliminary Case: Distinct Real Roots}{10}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Generalized Case: Real Roots with Multiplicity}{10}{subsubsection.5.1.2}
-\contentsline {subsubsection}{\numberline {5.1.3}Complex Roots}{10}{subsubsection.5.1.3}
-\contentsline {section}{\numberline {6}Probability}{10}{section.6}
-\contentsline {subsection}{\numberline {6.1}Discrete Probability Theorem}{10}{subsection.6.1}
+\contentsline {section}{\numberline {5}Inclusion-Exclusion Principle}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}Counting Surjections}{9}{subsection.5.1}
+\contentsline {section}{\numberline {6}Derangements and Euler's $\phi $}{10}{section.6}
+\contentsline {subsection}{\numberline {6.1}Derangements}{10}{subsection.6.1}
+\contentsline {section}{\numberline {7}Generating Function}{10}{section.7}
+\contentsline {section}{\numberline {8}Recurrences}{10}{section.8}
+\contentsline {subsection}{\numberline {8.1}Solving Recurrence Relations (Mar. 20 2019)}{10}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}Preliminary Case: Distinct Real Roots}{11}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}Generalized Case: Real Roots with Multiplicity}{11}{subsubsection.8.1.2}
+\contentsline {subsubsection}{\numberline {8.1.3}Complex Roots}{11}{subsubsection.8.1.3}
+\contentsline {section}{\numberline {9}Probability}{11}{section.9}
+\contentsline {subsection}{\numberline {9.1}Discrete Probability Theorem}{11}{subsection.9.1}
+\contentsline {section}{\numberline {10}Discrete Random Variables and Ramsey Theory}{12}{section.10}

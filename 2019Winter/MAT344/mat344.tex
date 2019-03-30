@@ -628,8 +628,38 @@
 			\begin{theorem}[Four Colour Theorem]
 				Every planar graph has chromatic number at most four.
 			\end{theorem}
+		
+		\section{Inclusion-Exclusion Principle}
+			\begin{theorem}[Generalized Inclusion-Exclusion Principle]
+				Let $\{S_i\}_{i=1}^N$ be a collection of $N$ sets, then
+				\begin{equation}
+				\red{
+					\left\vert \bigcup_{i=1}^N S_i \right\vert = \sum_{\varnothing \neq J \subseteq [N]} (-1)^{|J|+1} \bigcap_{i \in J} \left\vert S_i \right\vert
+				}
+				\end{equation}
+			\end{theorem}
+		
+			\subsection{Counting Surjections}
+				\begin{theorem}
+					The number of \ul{surjections} $f: [n] \to [m]$ can be computed using principle of inclusion-exclusion. Let $S(n, m)$ denote the number of surjections from $[n]$ to $[m]$. We first count the \emph{number of functions that's not surjections}.
+					\begin{gather}
+						N(S) = \underbrace{\binom{m}{1} (m-1)^n}_{f \tx{ omit one element}} 
+						- \underbrace{\binom{m}{2} (m-2)^n}_{f \tx{ omit two elements}}
+						+ \underbrace{\binom{m}{3} (m-3)^n}_{f \tx{ omit three elements}} - \dots \\
+						= \sum_{k=1}^m (-1)^{k+1} \underbrace{\binom{m}{k} (m-k)^n}_{f \tx{ omit $k$ elements}} \\
+					\implies S(n, m) = \underbrace{m^n}_{\tx{all } f} - N(S) = \sum_{k=\red{0}}^m (-1)^{k} \binom{m}{k} (m-k)^n
+					\end{gather}
+				\end{theorem}
+				
+		\section{Derangements and Euler's $\phi$}
+			\subsection{Derangements}
+				\begin{definition}
+					
+				\end{definition}
+		\section{Generating Function}
 
-		\section{Recurrence}
+
+		\section{Recurrences}
 			\subsection{Solving Recurrence Relations (Mar. 20 2019)}
 				\begin{definition}
 					A \textbf{linear recurrence relation (LRR) of degree $k$} is a sequence $\{a_n\}$ such that for every $n$, 
@@ -742,6 +772,8 @@
 			\begin{definition}
 				A \textbf{Bernoulli Trial} is a sequence of \emph{independent and identical experiments} with two outcomes.
 			\end{definition}
+			
+	\section{Discrete Random Variables and Ramsey Theory}
 			
 	\newpage
 	\section*{References}
