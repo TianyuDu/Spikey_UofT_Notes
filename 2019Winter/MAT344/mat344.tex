@@ -634,7 +634,7 @@
 				Let $\{S_i\}_{i=1}^N$ be a collection of $N$ sets, then
 				\begin{equation}
 				\red{
-					\left\vert \bigcup_{i=1}^N S_i \right\vert = \sum_{\varnothing \neq J \subseteq [N]} (-1)^{|J|+1} \bigcap_{i \in J} \left\vert S_i \right\vert
+					\left\vert \bigcup_{i=1}^N S_i \right\vert = \sum_{\varnothing \neq J \subseteq [N]} (-1)^{|J|+1} \left\vert \bigcap_{i \in J} S_i \right\vert
 				}
 				\end{equation}
 				where $\bigcap_{i \in J} \left\vert S_i \right\vert$ represents the number of elements satisfying \hl{at least} $|J|$ conditions (where each one condition is specified by one $S_i$).
@@ -790,46 +790,84 @@
 					\end{remark}
 	
 	\section{Probability}
-		\subsection{Discrete Probability Theorem}
-			\begin{example}
-				Roll two dice,
-				\begin{itemize}
-					\item What's the probability that the sum is even? ($1/2$)
-					\item What's the probability that the sum is exactly 8? ($5/36$)
-				\end{itemize}
-			\end{example}
-			
-			\begin{definition}[Probability Space]
-				A \textbf{probability space} is a triple $(\Omega, \mc{F}, P)$, where $\Omega$ denotes the \emph{sample space}, $\mc{F}$ is a $\sigma$-algebra representing the \emph{event space}. And $P: \mc{F} \to [0, 1]$ is a \emph{probability measure} such that
-				\begin{gather}
-					P(\varnothing) = 0,\ 
-					P(\Omega) = 1 \\
-					P(\cup_{i=1}^\infty E_i) = \sum_{i=1}^\infty P(E_i)\ \forall \tx{ pair-wise disjoint } \{E_i\}_{i=1}^\infty \subset \mc{F}
-				\end{gather}
-			\end{definition}
-			
-			\begin{proposition}
-				On discrete probability space, the probability measure $P: \mc{F} \to [0, 1]$ can be induced from $p: \Omega \to [0, 1]$.
-			\end{proposition}
-			
-			\begin{definition}
-				Given probability space $(\Omega, \mc{F}, P)$, two events $E_1, E_2 \in \mc{F}$ are \textbf{independent} if 
-				\begin{gather}
-					P(A \cap B) = P(A) P(B)
-				\end{gather}
-			\end{definition}
-			
-			\begin{proposition}
-				Let $E_1, E_2 \in \mc{F}$ such that $E_1, E_2 \neq \varnothing$, then $E_1 \centernot \perp E_2$.
-				\begin{proof}
-					Note $P(A \cap B) = 0$.
-				\end{proof}
-			\end{proposition}
-			
-			\begin{definition}
-				A \textbf{Bernoulli Trial} is a sequence of \emph{independent and identical experiments} with two outcomes.
-			\end{definition}
-			
+		\begin{definition}[Probability Space]
+			A \textbf{probability space} is a triple $(\Omega, \mc{F}, P)$, where $\Omega$ denotes the \emph{sample space}, $\mc{F}$ is a $\sigma$-algebra representing the \emph{event space}. And $P: \mc{F} \to [0, 1]$ is a \emph{probability measure} such that
+			\begin{gather}
+				P(\varnothing) = 0,\ 
+				P(\Omega) = 1 \\
+				P(\cup_{i=1}^\infty E_i) = \sum_{i=1}^\infty P(E_i)\ \forall \tx{ pair-wise disjoint } \{E_i\}_{i=1}^\infty \subset \mc{F}
+			\end{gather}
+		\end{definition}
+		
+		\begin{proposition}
+			On discrete probability space, the probability measure $P: \mc{F} \to [0, 1]$ can be induced from $p: \Omega \to [0, 1]$.
+		\end{proposition}
+		
+		\begin{assumption}
+			In this course, while we are constructing the probability space, we always assume 
+			\begin{equation}
+				\mc{F} := \mc{P}(\Omega)
+			\end{equation}
+		\end{assumption}
+		
+		\begin{definition}
+			Given probability space $(\Omega, \mc{F}, P)$, two events $E_1, E_2 \in \mc{F}$ are \textbf{independent} if and only if 
+			\begin{gather}
+				P(E_1 \cap E_2) = P(E_1) P(E_2)
+			\end{gather}
+		\end{definition}
+		
+		\begin{proposition}
+			Let $E_1, E_2 \in \mc{F}$ such that $E_1, E_2 \neq \varnothing$ and $E_1 \cap E_2 = \varnothing$, then $E_1 \centernot \perp E_2$.
+			\begin{proof}
+				Note $0 = P(E_1 \cap E_2) = P(E_1)P(E_2) \neq 0$.
+			\end{proof}
+			\emph{Mutually exclusive non-empty events cannot be independent}.
+		\end{proposition}
+		
+		\begin{definition}
+			A \textbf{Bernoulli Trial} is a sequence of \emph{independent and identical experiments} with two outcomes.
+		\end{definition}
+		
+		\begin{definition}
+			\textbf{Conditional probability} of event $F \in \mc{P}(\Omega)$ conditioned on event $E$ is defined as 
+			\begin{equation}
+				P(F|E) := \frac{P(F \cap E)}{P(E)}
+			\end{equation}
+		\end{definition}
+		
+		\begin{theorem}[Bayes' Theorem]
+			\begin{equation}
+				P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+			\end{equation}
+		\end{theorem}
+		
+		\begin{definition}
+			A \textbf{random variable} $X$ on probability space is defined as a function $X: \Omega \to \R$.
+		\end{definition}
+		
+		\begin{definition}
+			The \textbf{expected value} of a random variable $X$ defined on discrete probability space is defined as 
+			\begin{equation}
+				\expect{X} := \sum_{\omega \in \Omega} P(\{\omega\})X(\omega)
+			\end{equation}
+		\end{definition}
+		
+		\begin{proposition}
+			Expectation operator is linear.
+		\end{proposition}
+		
+		\begin{proposition}[Binary/Indicator Random Variable]
+			\begin{gather}
+				\mathds{1}(\mc{P}(\Omega)) = \{0, 1\} \\
+				\expect{\mathds{1}} = P(\mathds{1} = 1)
+			\end{gather}
+		\end{proposition}
+		
+		\begin{definition}
+			A game is \textbf{fair} if the money wined/lost from this game has expected value zero.
+		\end{definition}
+		
 	\section{Discrete Random Variables and Ramsey Theory}
 			
 	\newpage
