@@ -712,9 +712,20 @@
 					\phi(n) = (p_1^{k_1} - p_1^{k_1 - 1})(p_2^{k_2} - p_2^{k_2 - 1}) \cdots (p_m^{k_m} - p_m^{k_m - 1})
 				\]
 			\end{theorem}
-				
+			
 		\section{Generating Function}
-
+			\begin{theorem}
+				Let 
+				\begin{gather}
+					A(n) := \sum_{n=0}^\infty a_n x^n \\
+					B(n) := \sum_{n=0}^\infty b_n x^n \\
+					C(n) := A(n) B(n)
+				\end{gather}
+				then
+				\begin{gather}
+					c_n = \sum_{k=j}^n a_j b_{n-j}
+				\end{gather}
+			\end{theorem}
 
 		\section{Recurrences}
 			\subsection{Solving Recurrence Relations (Mar. 20 2019)}

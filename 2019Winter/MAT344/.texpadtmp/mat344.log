@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  31 MAR 2019 14:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  31 MAR 2019 14:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1024,28 +1024,28 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 700.
 
 [10] [11] [12] [13] [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 876.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 876.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 887.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 887.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/MAT344/.texpadtmp/mat344.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 876.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 876.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 887.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 887.
 Package rerunfilecheck Info: File `mat344.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 876.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 887.
  ) 
 Here is how much of TeX's memory you used:
- 20288 strings out of 493014
- 367993 string characters out of 6133351
+ 20293 strings out of 493014
+ 368052 string characters out of 6133351
  463554 words of memory out of 5000000
  23154 multiletter control sequences out of 15000+600000
  15558 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,16n,56p,911b,618s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/MAT344/.texpadtmp/mat344.pdf (14 pages, 323217 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Winter/MAT344/.texpadtmp/mat344.pdf (14 pages, 323682 bytes).
 PDF statistics:
- 586 PDF objects out of 1000 (max. 8388607)
- 538 compressed objects within 6 object streams
- 261 named destinations out of 1000 (max. 500000)
+ 592 PDF objects out of 1000 (max. 8388607)
+ 544 compressed objects within 6 object streams
+ 266 named destinations out of 1000 (max. 500000)
  210 words of extra memory for PDF output out of 10000 (max. 10000000)
 
