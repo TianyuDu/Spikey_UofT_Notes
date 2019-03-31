@@ -637,16 +637,17 @@
 					\left\vert \bigcup_{i=1}^N S_i \right\vert = \sum_{\varnothing \neq J \subseteq [N]} (-1)^{|J|+1} \bigcap_{i \in J} \left\vert S_i \right\vert
 				}
 				\end{equation}
+				where $\bigcap_{i \in J} \left\vert S_i \right\vert$ represents the number of elements satisfying \hl{at least} $|J|$ conditions (where each one condition is specified by one $S_i$).
 			\end{theorem}
 		
 			\subsection{Counting Surjections}
 				\begin{theorem}
 					The number of \ul{surjections} $f: [n] \to [m]$ can be computed using principle of inclusion-exclusion. Let $S(n, m)$ denote the number of surjections from $[n]$ to $[m]$. We first count the \emph{number of functions that's not surjections}.
 					\begin{gather}
-						N(S) = \underbrace{\binom{m}{1} (m-1)^n}_{f \tx{ omit one element}} 
-						- \underbrace{\binom{m}{2} (m-2)^n}_{f \tx{ omit two elements}}
-						+ \underbrace{\binom{m}{3} (m-3)^n}_{f \tx{ omit three elements}} - \dots \\
-						= \sum_{k=1}^m (-1)^{k+1} \underbrace{\binom{m}{k} (m-k)^n}_{f \tx{ omit $k$ elements}} \\
+						N(S) = \underbrace{\binom{m}{1} (m-1)^n}_{f \tx{ omit at least 1 element}} 
+						- \underbrace{\binom{m}{2} (m-2)^n}_{f \tx{ omit at least 2 elements}}
+						+ \underbrace{\binom{m}{3} (m-3)^n}_{f \tx{ omit at least 3 elements}} - \dots \\
+						= \sum_{k=1}^m (-1)^{k+1} \underbrace{\binom{m}{k} (m-k)^n}_{f \tx{ omit at least $k$ elements}} \\
 					\implies S(n, m) = \underbrace{m^n}_{\tx{all } f} - N(S) = \sum_{k=\red{0}}^m (-1)^{k} \binom{m}{k} (m-k)^n
 					\end{gather}
 				\end{theorem}
@@ -654,8 +655,49 @@
 		\section{Derangements and Euler's $\phi$}
 			\subsection{Derangements}
 				\begin{definition}
-					
+					\textbf{Derangements} are \emph{bijective} functions $f:[n] \to [n]$ (rearrangements of $n$ integers) such that 
+					\begin{equation}
+						\forall i\ f(i) \neq i
+					\end{equation}
+					and the number of derangements is denoted as $d_n$.
 				\end{definition}
+				
+				\begin{theorem}
+					\begin{gather}
+						d_n = 
+						\underbrace{n!}_{\tx{all }f}
+						- \underbrace{\binom{n}{1} (n-1)!}_{\tx{at least 1 }f(i) = i}
+						+ \underbrace{\binom{n}{2} (n-2)!}_{\tx{at least 2 }f(i) = i}
+						- \underbrace{\binom{n}{3} (n-3)!}_{\tx{at least 3 }f(i) = i} + \dots \\
+						= \sum_{k=0}^n (-1)^k \binom{n}{k}(n-k)! \\
+						= \red{\sum_{k=0}^n (-1)^k \frac{n!}{k!}}
+					\end{gather}
+				\end{theorem}
+				
+				\begin{theorem}[Portion of Derangements]
+					Find the percentage of functions from $[n]$ to $[n]$ that are derangements.
+					\begin{gather}
+						\frac{d_n}{n!} = \sum_{k=0}^n (-1)^k \frac{1}{k!} \\
+						\implies \lim_{n\to \infty} \frac{d_n}{n!} = \frac{1}{e}
+					\end{gather}
+					By Taylor's sereis $e^x = \sum_{n=0}^\infty \frac{x^n}{n!}$
+				\end{theorem}
+				
+				\begin{proposition}
+					\begin{equation}
+						d_n = \begin{cases}
+							n \cdot d_{n-1} - 1 \tx{ if $n$ is odd} \\
+							n \cdot d_{n-1} + 1 \tx{ if $n$ is even}
+						\end{cases}
+					\end{equation}
+				\end{proposition}
+				
+				\begin{proposition}
+					\begin{equation}
+						d_n = (n-1)(d_{n-1} + d_{n-2})
+					\end{equation}
+				\end{proposition}
+				
 		\section{Generating Function}
 
 
