@@ -226,6 +226,23 @@
 				\end{proof}
 			\end{theorem}
 			
+			\begin{proposition}[Generalized Pigeon Hole Principle]
+				Let $f: X \to Y$ be a mapping such that 
+				\begin{equation}
+					|X| \red{>} (m-1)|Y|
+				\end{equation}
+				then there exists $\{x_1, \dots, x_m\} \subseteq X$ such that $f(x_i) = f(x_j)\ \forall i, j$.
+				\begin{proof}
+					For each $y \in Y$, we can divide $X$ into $|Y|$ partitions, where each partition is defined as the pre-image of one particular $y \in Y$. Let $\{X_i\}$ denote the set of partitions. \\
+					We are trying to find the minimum value of $\max_i\{|X_i|\}_{i=1}^{|Y|}$, that's
+					\begin{equation}
+						\min_{\tx{valid partition}} \max_i\{|X_i|\}_{i=1}^{|Y|}
+					\end{equation}
+					the minimum is attained when each partition of $X$ has the same cardinality, which is strictly greater than $m-1$. \\
+					For each of those partitions, it's a pre-image for some value $y \in Y$ with size at least $m$.
+				\end{proof}
+			\end{proposition}
+			
 			\begin{theorem}[Erods/Szekeres]
 				Let $m, n \in \Z_+$, then any sequence of $mn + 1$ \emph{distinct} real numbers either
 				\begin{enumerate}[(i)]
@@ -299,6 +316,7 @@
 			\end{definition}
 	
 	\section{Graph Theory}
+		\subsection{Definitions}
 		\begin{definition}
 			A graph $\mc{G}$ is defined as an order pair of sets $(V, E)$. \textbf{Vertex} set $V$ is a set consisting of \textbf{vertex} objects. \textbf{Edge set} $E$ contains \textbf{edges} as pairs of elements in $E$.
 		\end{definition}
@@ -368,36 +386,43 @@
 		\end{definition}
 		
 		\begin{definition}
+			A \textbf{circuit} is a closed \emph{walk}.
+		\end{definition}
+		
+		\begin{definition}
 			Two graphs $\mc{G} \equiv (V, E)$ and $\mc{H} \equiv (W, F)$ are \textbf{isomorphic}, denoted as $\mc{G} \cong \mc{H}$, if there exists a bijection $f: V \to W$ such that
 			\begin{equation}
 				\forall x, y \in V,\ xy \in E \iff f(x)f(y) \in F
 			\end{equation}
-%			And we say $\mc{G}$ \emph{contains} $\mc{H}$ is there is a subgraph of $\mc{G}$ isomorphic to $\mc{H}$.
 		\end{definition}
 		
 		\begin{definition}
-			A graph $\mc{G}$ is \textbf{connected} when for every distinct pair $x, y \in V$, there exists a path from $x$ to $y$. Otherwise, $\mc{G}$ is \textbf{disconnected}.
+			A graph $\mc{G}$ is \textbf{connected} when for every distinct pair $x, y \in V$, there exists a \hl{path} from $x$ to $y$. Otherwise, $\mc{G}$ is \textbf{disconnected}.
 		\end{definition}
 		
 		\begin{definition}
-			Provided $\mc{G}$ is disconnected, then a \textbf{component} of $\mc{G}$ is a \emph{maximal connect subgraph} of $\mc{G}$. That's, if $\mc{H}$ is a component, it is connected and any super-graph of $\mc{H}$ is disconnected.
+			Provided $\mc{G}$ is disconnected, then a \textbf{component} of $\mc{G}$ is a \hl{maximal connect subgraph} of $\mc{G}$. That's, if $\mc{H}$ is a component, it is connected and any super-graph of $\mc{H}$ is disconnected.
 		\end{definition}
 		
 		\begin{definition}
-			A graph $\mc{G}$ is \textbf{acyclic} when it does not contain any cycle on three or more vertices. An acyclic graph is also called \textbf{forests}. Further, if a acyclic graph is connected, it's called a \textbf{tree}.
+			A graph $\mc{G}$ is \textbf{acyclic} when it does not contain any cycle on three or more vertices. 
 		\end{definition}
 		
 		\begin{definition}
-			Given $\mc{G}$ is connected\footnote{If $\mc{G}$ is disconnected, it's impossible for any of its spanning subgraph to be connected.}, a subgraph $\mc{H} \equiv (W, F)$ of $\mc{G}$ is a \textbf{spanning tree} if both $V = W$ and $\mc{H}$ is a tree.
+			A \textbf{forecast} is an acyclic graph.
 		\end{definition}
 		
-		\begin{proposition}
-			Every connected graph has a spanning tree.
-		\end{proposition}
+		\begin{definition}
+			A \textbf{tree} is a connected acyclic graph.
+		\end{definition}
 		
-		\begin{theorem}
-			$\ve{K}_n$ has $n^{n-2}$ \textbf{labelled spanning trees}.
-		\end{theorem}
+%		\begin{definition}
+%			Given $\mc{G}$ is connected\footnote{If $\mc{G}$ is disconnected, it's impossible for any of its spanning subgraph to be connected.}, a subgraph $\mc{H} \equiv (W, F)$ of $\mc{G}$ is a \textbf{spanning tree} if both $V = W$ and $\mc{H}$ is a tree.
+%		\end{definition}
+%		
+%		\begin{proposition}
+%			Every connected graph has a spanning tree.
+%		\end{proposition}
 		
 		\begin{theorem}
 			Let $\mc{G} \equiv (V, E)$ be a graph, then
@@ -423,7 +448,7 @@
 		
 		\subsection{Eulerian Graphs}
 			\begin{definition}
-				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0,v_1,\dots v_t)$ is an \textbf{Eulerian circuit} if (\hl{\textbf{Unique edge}})
+				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0,v_1,\dots v_t)$ is an \textbf{Eulerian circuit} if (\hl{\textbf{transverse all edge once}})
 				\begin{enumerate}[(i)]
 					\item $v_0 = v_t$;
 					\item $v_i v_{i+1} \in E\ \forall i \in \{0, \dots, t-1\}$;
@@ -445,12 +470,12 @@
 			\end{definition}
 			
 			\begin{theorem}
-				A graph $\mc{G}$ is Eulerian \ul{if and only if} it is connected and every vertex has even degree.
+				A graph $\mc{G}$ is Eulerian \ul{if and only if} it is 1) \hl{connected} and 2) \hl{every vertex has even degree}.
 			\end{theorem}
 		
 		\subsection{Hamiltonian Graphs}
 			\begin{definition}
-				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0, v_1, \dots, v_t)$ is a \textbf{Hamiltonian cycle} if (\hl{\textbf{Unique vertex}})
+				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0, v_1, \dots, v_t)$ is a \textbf{Hamiltonian cycle} if (\hl{\textbf{transverse all vertices once}})
 				\begin{enumerate}
 					\item $v_0 v_t \in E$;
 					\item $v_i v_{i+1} \in E\ \forall i \in \{0, \dots, t-1\}$;
@@ -463,7 +488,7 @@
 			\end{definition}
 			
 			\begin{theorem}
-				If $\mc{G}$ is a graph with $n$ vertices, and $\tx{deg}_\mc{G}(v) \geq \lceil \frac{n}{2} \rceil\ \forall v \in V$, then $\mc{G}$ is Hamiltonian.
+				\red{If $\mc{G}$ is a graph with $n$ vertices, and $\tx{deg}_\mc{G}(v) \geq \lceil \frac{n}{2} \rceil\ \forall v \in V$, then $\mc{G}$ is Hamiltonian.}
 			\end{theorem}
 			
 		\subsection{Graph Colouring}
@@ -475,102 +500,83 @@
 			\end{definition}
 			
 			\begin{definition}
-				The least size of $C$ such that we can construct a proper colouring with it is defined as the \textbf{chromatic number} of $\mc{G}$, denoted as $\chi(\mc{G})$.
+				The \hl{least} size of $C$ such that we can construct a proper colouring with it is defined as the \textbf{chromatic number} of $\mc{G}$, denoted as $\chi(\mc{G})$.
 			\end{definition}
 			
 			\begin{definition}
 				A graph $\mc{G} \equiv (V, E)$ with $\chi(\mc{G}) \leq 2$ is called \textbf{2-colourable graph}.
 			\end{definition}
 			
-			\begin{theorem}
-				A graph is 2-colourable \ul{if and only if} it does \emph{not} contain an odd cycle.
-				\begin{proof}\quad \\
-					($\implies$) Let $\mc{G} \equiv (V, E)$ be a 2-clourable graph with proper colouring $\phi: V \to \{\alpha, \beta\}$. \\
-					Define $V_1 \equiv \phi^{-1}(\alpha)$ and $V_2 \equiv \phi^{-1}(\beta)$. Clearly those two sets are disjoint and $V = V_1 \cup V_2$. \\
-					By definition of proper colouring, for every pair of $x_1, x_2 \in V_1$, $x_1 x_2 \notin E$. The same holds for $V_2$. \\
-					Therefore subgraphs of $\mc{G}$ induced from $V_1$ and $V_2$ are themselves independent, and $\mc{G}$ it bipartite. \\
-					We've shown the equivalence between bipartite and 2-colourable. \\
-					Suppose there's an odd cycle in $\mc{G}$, $C = (x_1, x_2, \dots, x_n)$, where $n$ is odd. \\
-					WLOG, assume $x_1 \in V_1$, by nature of bipartite graph, $x_i \in V_2\ \iff i \tx{ even}$. Therefore $x_n \in V_1$, and for $C$ to be a cycle, we require $x_1 x_n \in E$, which contradicts the fact that $\mc{G}$ is bipartite and 2-colourable. \\\emph{Modus Tollens} \\
-					($\impliedby$) Suppose there exists an odd cycle $C = (x_1, x_2, \dots, x_n)$ in $\mc{G}$, it's easy to show, by induction,  that for any proper colouring $\phi$ of $\mc{G}$, $|\phi(C)| \geq 3$. This implies $|\phi(V)| \geq 3$, so $\mc{G}$ is not 2-colourable. \\
-					\emph{Modus Tollens}
-				\end{proof}
-			\end{theorem}
-			
+		\subsection{Bipartite Graph}
 			\begin{definition}
 				A graph $\mc{G} = (V, E)$ is a \textbf{bipartite graph} when $V$ can be partitioned into two sets $V_1, V_2$, such that subgraphs \emph{induced} by $V_1$ and $V_2$ are \emph{independent graphs}.
 			\end{definition}
 			
-			\begin{remark}
-				Bipartite graphs are 2-colourable. Simply define $\phi: V \to \{\alpha, \beta\}$ as 
-				\begin{equation}
-					\phi(v) = \alpha \mathds{1}\{v \in V_1\} + \beta \mathds{1}\{v \in V_2\}
-				\end{equation}
-			\end{remark}
+			\begin{theorem}
+				A graph is 2-colourable \ul{if and only if} it's bipartite.
+			\end{theorem}
 			
+			\begin{theorem}
+				A graph is 2-colourable/bipartite \ul{if and only if} it \hl{does \emph{not} contain an odd cycle}.
+			\end{theorem}
+			\begin{proof}\quad \\
+				($\implies$) Let $\mc{G} \equiv (V, E)$ be a 2-clourable graph with proper colouring $\phi: V \to \{\alpha, \beta\}$. \\
+				Define $V_1 \equiv \phi^{-1}(\alpha)$ and $V_2 \equiv \phi^{-1}(\beta)$. Clearly those two sets are disjoint and $V = V_1 \cup V_2$. \\
+				By definition of proper colouring, for every pair of $x_1, x_2 \in V_1$, $x_1 x_2 \notin E$. The same holds for $V_2$. \\
+				Therefore subgraphs of $\mc{G}$ induced from $V_1$ and $V_2$ are themselves independent, and $\mc{G}$ it bipartite. \\
+				We've shown the equivalence between bipartite and 2-colourable. \\
+				Suppose there's an odd cycle in $\mc{G}$, $C = (x_1, x_2, \dots, x_n)$, where $n$ is odd. \\
+				WLOG, assume $x_1 \in V_1$, by nature of bipartite graph, $x_i \in V_2\ \iff i \tx{ even}$. Therefore $x_n \in V_1$, and for $C$ to be a cycle, we require $x_1 x_n \in E$, which contradicts the fact that $\mc{G}$ is bipartite and 2-colourable. \\\emph{Modus Tollens} \\
+				($\impliedby$) Suppose there exists an odd cycle $C = (x_1, x_2, \dots, x_n)$ in $\mc{G}$, it's easy to show, by induction,  that for any proper colouring $\phi$ of $\mc{G}$, $|\phi(C)| \geq 3$. This implies $|\phi(V)| \geq 3$, so $\mc{G}$ is not 2-colourable. \\
+				\emph{Modus Tollens}
+			\end{proof}
+						
 			\begin{definition}
 				A \textbf{clique} in a graph $\mc{G} \equiv (V, E)$ is a set $K \subseteq V$ such that the subgraph induced by $K$ is isomorphic to the $|K|$-complete graph $\ve{K}_{|K|}$. (Equivalently, vertices in $K$ are \emph{pair-wise adjacent})
 			\end{definition}
 			
-			\begin{definition}
-				The \textbf{maximum clique size} or \textbf{clique number} of graph $\mc{G}$, denoted as $\omega(\mc{G})$ is the largest $t$ such that there exists a clique with $t$ vertices.
-			\end{definition}
+%			\begin{definition}
+%				The \textbf{maximum clique size} or \textbf{clique number} of graph $\mc{G}$, denoted as $\omega(\mc{G})$ is the largest $t$ such that there exists a clique with $t$ vertices.
+%			\end{definition}
+%			
+%			\begin{proposition}
+%				For any graph $\mc{G}$, 
+%				\begin{equation}
+%					\chi(\mc{G}) \geq \omega(\mc{G})
+%				\end{equation}
+%			\end{proposition}
 			
-			\begin{proposition}
-				For any graph $\mc{G}$, 
-				\begin{equation}
-					\chi(\mc{G}) \geq \omega(\mc{G})
-				\end{equation}
-			\end{proposition}
+%			\begin{proposition}
+%				For every $t \geq 3$, there exists a graph $\mc{G}_t$ so that $\chi(\mc{G}_t) = t$ and $\omega(\mc{G}_t) = 2$. \emph{So the difference between $\chi$ and $\omega$ can be arbitrarily large and this inequality in proposition 4.2 cannot always be tight.}
+%			\end{proposition}
 			
-			\begin{proposition}[Generalized Pigeon Hole Principle]
-				Let $f: X \to Y$ be a mapping such that 
-				\begin{equation}
-					|X| \red{>} (m-1)|Y|
-				\end{equation}
-				then there exists $\{x_1, \dots, x_m\} \subseteq X$ such that $f(x_i) = f(x_j)\ \forall i, j$.
-				\begin{proof}
-					For each $y \in Y$, we can divide $X$ into $|Y|$ partitions, where each partition is defined as the pre-image of one particular $y \in Y$. Let $\{X_i\}$ denote the set of partitions. \\
-					We are trying to find the minimum value of $\max_i\{|X_i|\}_{i=1}^{|Y|}$, that's
-					\begin{equation}
-						\min_{\tx{valid partition}} \max_i\{|X_i|\}_{i=1}^{|Y|}
-					\end{equation}
-					the minimum is attained when each partition of $X$ has the same cardinality, which is strictly greater than $m-1$. \\
-					For each of those partitions, it's a pre-image for some value $y \in Y$ with size at least $m$.
-				\end{proof}
-			\end{proposition}
+%			\begin{definition}
+%				Let $\mc{F} = \{S_\alpha: \alpha \in V\}$ be an indexed family of sets, define a graph $\mc{G}$ in the following such that 
+%				\begin{equation}
+%					S_x \cap S_y \neq \emptyset \iff xy \in E
+%				\end{equation}
+%				Then we call $\mc{G}$ an \textbf{intersection graph} (representing $\mc{F}$).
+%			\end{definition}
 			
-			\begin{proposition}
-				For every $t \geq 3$, there exists a graph $\mc{G}_t$ so that $\chi(\mc{G}_t) = t$ and $\omega(\mc{G}_t) = 2$. \emph{So the difference between $\chi$ and $\omega$ can be arbitrarily large and this inequality in proposition 4.2 cannot always be tight.}
-			\end{proposition}
+%			\begin{remark}
+%				Every graph is an intersection graph since we can explicitly construct a collection of sets from the adjacency matrix of the given graph.
+%			\end{remark}
+%			
+%			\begin{definition}
+%				$\mc{G}$ is an \textbf{interval graph} if it is the intersection graph of \emph{a collection of closed intervals in $\R$}.
+%			\end{definition}
+%			
+%			\begin{theorem}
+%				If $\mc{G}$ is an interval graph, then $\chi(\mc{G}) = \omega(\mc{G})$.
+%			\end{theorem}
+%			
+%			\begin{definition}
+%				A graph $\mc{G}$ is \textbf{perfect} if $\chi(\mc{H}) = \omega(\mc{H})$ for every \emph{induced subgraph} $\mc{H}$ of $\mc{G}$.
+%			\end{definition}
 			
-			\begin{definition}
-				Let $\mc{F} = \{S_\alpha: \alpha \in V\}$ be an indexed family of sets, define a graph $\mc{G}$ in the following such that 
-				\begin{equation}
-					S_x \cap S_y \neq \emptyset \iff xy \in E
-				\end{equation}
-				Then we call $\mc{G}$ an \textbf{intersection graph} (representing $\mc{F}$).
-			\end{definition}
-			
-			\begin{remark}
-				Every graph is an intersection graph since we can explicitly construct a collection of sets from the adjacency matrix of the given graph.
-			\end{remark}
-			
-			\begin{definition}
-				$\mc{G}$ is an \textbf{interval graph} if it is the intersection graph of \emph{a collection of closed intervals in $\R$}.
-			\end{definition}
-			
-			\begin{theorem}
-				If $\mc{G}$ is an interval graph, then $\chi(\mc{G}) = \omega(\mc{G})$.
-			\end{theorem}
-			
-			\begin{definition}
-				A graph $\mc{G}$ is \textbf{perfect} if $\chi(\mc{H}) = \omega(\mc{H})$ for every \emph{induced subgraph} $\mc{H}$ of $\mc{G}$.
-			\end{definition}
-			
-			\begin{corollary}
-				Since every induced subgraph of interval graph is also an interval graph, therefore \emph{every interval graph is perfect}.
-			\end{corollary}
+%			\begin{corollary}
+%				Since every induced subgraph of interval graph is also an interval graph, therefore \emph{every interval graph is perfect}.
+%			\end{corollary}
 		
 		\subsection{Planer Graphs}
 			\begin{definition}
@@ -594,6 +600,7 @@
 				\begin{equation}
 					V - E + f = 2
 				\end{equation}
+				\hl{converse is not true.}
 			\end{theorem}
 			
 			\begin{theorem}[Generalization of Euler's Formula]
@@ -601,6 +608,7 @@
 				\begin{equation}
 					\red{V - E + F = 1 + \tx{\# of components}}
 				\end{equation}
+				\hl{converse is not true.}
 				\begin{proof}
 					Induction on $E$.\\
 					\textbf{Base Case} $E=0$, there are 1 face and $V$ components, above formula holds. \\
@@ -622,11 +630,32 @@
 			\end{theorem}
 			
 			\begin{definition}
-				Graph $\mc{G}$ \textbf{Contain} $\mc{H}$ means $\mc{G}$ has a subgraph that is homeomorphic to $\mc{H}$.
+				Graph $\mc{G}$ \textbf{contains} $\mc{H}$ means $\mc{G}$ has a subgraph that is homeomorphic to $\mc{H}$.
 			\end{definition}
 			
 			\begin{theorem}[Four Colour Theorem]
-				Every planar graph has chromatic number at most four.
+				Every planar graph is 4-colourable.
+			\end{theorem}
+		
+		\subsection{Labeled Trees}
+			\begin{theorem}[Cayley's Formula]
+				The number $T_n$ of labelled tress on $n$ vertices is \red{$n^{n-2}$}.
+			\end{theorem}
+			
+			\begin{definition}Constructing Prufer code
+				\begin{enumerate}[(i)]
+					\item If $\ve{T} \approxeq \ve{K}_2$, return empty string and terminate.
+					\item Else, let $v$ be the leaf of $\ve{T}$ with the smallest label and let $u$ be its unique neighbour. Let $i$ be the label of $u$, append $i$ to the code.
+				\end{enumerate}
+			\end{definition}
+			
+			\begin{theorem}Constructing labelled tree from Prufer code \ve{P} with length $n$
+				\begin{enumerate}[(i)]
+					\item There are $n+2$ vertices in total, define $V := [n+2]$.
+					\item Add edge $(\ve{P}[0], \min(V \backslash \ve{P}))$.
+					\item Drop above aded vertices from code and set.
+					\item When $\ve{P} = \varnothing$, there should be 2 vertices left in $V$, add this edge.
+				\end{enumerate}
 			\end{theorem}
 		
 		\section{Inclusion-Exclusion Principle}
