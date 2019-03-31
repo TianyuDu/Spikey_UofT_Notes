@@ -648,7 +648,7 @@
 						- \underbrace{\binom{m}{2} (m-2)^n}_{f \tx{ omit at least 2 elements}}
 						+ \underbrace{\binom{m}{3} (m-3)^n}_{f \tx{ omit at least 3 elements}} - \dots \\
 						= \sum_{k=1}^m (-1)^{k+1} \underbrace{\binom{m}{k} (m-k)^n}_{f \tx{ omit at least $k$ elements}} \\
-					\implies S(n, m) = \underbrace{m^n}_{\tx{all } f} - N(S) = \sum_{k=\red{0}}^m (-1)^{k} \binom{m}{k} (m-k)^n
+					\implies S(n, m) = \underbrace{m^n}_{\tx{all } f} - N(S) = \red{\sum_{k=\blue{0}}^m (-1)^{k} \binom{m}{k} (m-k)^n}
 					\end{gather}
 				\end{theorem}
 				
@@ -669,7 +669,7 @@
 						- \underbrace{\binom{n}{1} (n-1)!}_{\tx{at least 1 }f(i) = i}
 						+ \underbrace{\binom{n}{2} (n-2)!}_{\tx{at least 2 }f(i) = i}
 						- \underbrace{\binom{n}{3} (n-3)!}_{\tx{at least 3 }f(i) = i} + \dots \\
-						= \sum_{k=0}^n (-1)^k \binom{n}{k}(n-k)! \\
+						= \red{\sum_{k=0}^n (-1)^k \binom{n}{k}(n-k)!} \\
 						= \red{\sum_{k=0}^n (-1)^k \frac{n!}{k!}}
 					\end{gather}
 				\end{theorem}
