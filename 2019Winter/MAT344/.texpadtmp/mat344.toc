@@ -14,11 +14,12 @@
 \contentsline {subsection}{\numberline {5.1}Counting Surjections}{10}{subsection.5.1}
 \contentsline {section}{\numberline {6}Derangements and Euler's $\phi $}{10}{section.6}
 \contentsline {subsection}{\numberline {6.1}Derangements}{10}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Euler's $\phi $}{11}{subsection.6.2}
 \contentsline {section}{\numberline {7}Generating Function}{11}{section.7}
 \contentsline {section}{\numberline {8}Recurrences}{11}{section.8}
 \contentsline {subsection}{\numberline {8.1}Solving Recurrence Relations (Mar. 20 2019)}{11}{subsection.8.1}
 \contentsline {subsubsection}{\numberline {8.1.1}Preliminary Case: Distinct Real Roots}{11}{subsubsection.8.1.1}
-\contentsline {subsubsection}{\numberline {8.1.2}Generalized Case: Real Roots with Multiplicity}{11}{subsubsection.8.1.2}
+\contentsline {subsubsection}{\numberline {8.1.2}Generalized Case: Real Roots with Multiplicity}{12}{subsubsection.8.1.2}
 \contentsline {subsubsection}{\numberline {8.1.3}Complex Roots}{12}{subsubsection.8.1.3}
 \contentsline {section}{\numberline {9}Probability}{12}{section.9}
 \contentsline {subsection}{\numberline {9.1}Discrete Probability Theorem}{12}{subsection.9.1}
