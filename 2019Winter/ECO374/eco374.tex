@@ -1070,6 +1070,120 @@
 				\end{gather}
 				and if $\beta_i > 1$, the asset $i$ is more \emph{risky} than the market risk. In practice, $\beta_i$ is estimated with $\rho_{im}$ estimated directly from samples and $\sigma^2_{i, t|t-1}, \sigma^2_{mz, t|t-1}$ estimated using $GARCH$.
 			\end{proposition}
+	
+	\section{Nonlinear Models}
+		\subsection{Threshold Auto-Regression (TAR)}
+			\begin{definition}
+				Given data structure containing \textbf{main/target series}
+				\begin{gather}
+					\{y_t\}
+				\end{gather}
+				and \textbf{threshold/activation variable series}
+				\begin{equation}
+					\{x_t\}
+				\end{equation}
+				To construct a $TAR(p)$ model with $r$ regimes, 
+				\begin{enumerate}[(i)]
+					\item Partitioning the range of $X_t$ (typically $\R$) into $r$ \emph{disjoint} sets $\{R_i\}_{i=1}^r$.
+					\item Construct model using indicator functions
+					\begin{equation}
+						Y_t = \sum_{i=1}^r \mathds{1}\{x_{\red{t}} \in R_i\} 
+						\underbrace{\left(
+							\phi_{i0} + \sum_{j=1}^p \phi_{ij} Y_{t-j} + \varepsilon_{it}
+						\right)}_{\tx{Regim $i$ AR($p$) Model}}
+					\end{equation}
+				\end{enumerate}
+			\end{definition}
+		
+			\begin{definition}
+				If the threshold/activation variable in a TAR model is any \emph{lagged variation of the main/target series}, then the TAR model is called \textbf{self-exciting}.
+			\end{definition}
+		
+		\subsection{Test Significance of Regimes}
+			\begin{remark}
+				To \ul{test the significance of multiple regimes}, we use conventional hypothesis testing for significance of coefficients in multiple regression models.
+			\end{remark}
+			\begin{example}
+				To test the significance (whether it is necessary to include it) of two regimes (but with same error term) here 
+				\begin{align}
+					Y_t &= \mathds{1}\{ Y_{t-1} \geq 0\} 
+					\left ( 
+						\phi_0 + \phi_1 Y_{t-1}
+					\right )
+					+ 
+					\mathds{1}\{ Y_{t-1} < 0\} 
+					\left ( 
+						\phi_0' + \phi_1' Y_{t-1}
+					\right ) + \varepsilon_t \\
+					D_t &:= \mathds{1}\{ Y_{t-1} \geq 0\} \\
+					\implies Y_t &= D_t \left (\phi_0 + \phi_1 Y_{t-1}\right ) + (1 - D_t) \left (\phi_0' + \phi_1' Y_{t-1}\right ) + \varepsilon_t \\
+					\implies Y_t &= \phi_0' + \phi_1' Y_{t-1} + (\underbrace{\phi_0 - \phi_0'}_{\Delta \phi_0}) D_t + (\underbrace{\phi_1 - \phi_1'}_{\Delta \phi_1}) D_t Y_{t-1} + \varepsilon_t
+				\end{align}
+				And test the hypothesis (equivalently, \ul{test the \emph{joint significance} of coefficients of $D_t$ and $D_t Y_{t-1}$}
+				\begin{align}
+					H_0 &:= \Delta \phi_0 = 0 \land \Delta \phi_1 = 0 \tx{ model is linear}\\
+					H_1 &:= \neg H_0 \tx{ model is non-linear}
+				\end{align}
+			\end{example}
+			
+		\subsection{Smooth Transition Autoregressive Model (STAR)}
+			\begin{definition}
+				A \textbf{smooth transition autoregressive model}(STAR) is defined by two autoregression regimes and a \emph{bounded and continuous} (activation function) $\mc{G}(s_t, \gamma, c)$. Where 
+				\begin{enumerate}[(i)]
+					\item $\gamma$ denotes the \textbf{speed parameter};
+					\item $c$ denotes \textbf{threshold};
+					\item $\mc{G}$ is bounded and continuous in \textbf{threshold variables} $s_t$.
+				\end{enumerate}
+				\begin{gather}
+					Y_t = \underbrace{\left(
+						\phi_0 + \sum_{j=1}^p \phi_j L^j Y_t
+					\right)}_{\text{base model}} + 
+					\underbrace{\left(
+						\phi_0' + \sum_{j=1}^p \phi_j' L^j Y_t
+						\right)
+						\red{\mc{G}(s_t, \gamma, c)}
+					}_{\text{activation}}
+					+ \varepsilon_t
+				\end{gather}
+			\end{definition}
+			
+			\begin{example}[STAR(1) without intercept]
+				\begin{gather}
+					Y_t = \phi_0 Y_{t-1} + \phi_1 Y_{t-1} \mc{G}(s_t, \gamma, c) + \varepsilon_t
+				\end{gather}
+			\end{example}
+			
+			\begin{example}[Logistic STAR]
+				\begin{gather}
+					\mc{G}(s_t, \gamma, c) = \frac{1}{1 + \exp(-\gamma(s_t - c))}
+				\end{gather}
+			\end{example}
+			
+			\begin{example}[Exponential STAR]
+				\begin{gather}
+					\mc{G}(s_t, \gamma, c) = 1 - \exp(-\gamma (s_t - c)^2)
+				\end{gather}
+			\end{example}
+			
+			\begin{remark}
+				STAR is effectively a TAR with infinitely many regimes.
+			\end{remark}
+		
+		\subsection{Markov Switching Model}
+			\begin{definition}
+				MS models the \emph{probability of various regimes to happen}. A Markov switching model consists both
+				\begin{enumerate}[(i)]
+					\item \textbf{State space} $\Omega := \{\omega_i\}_{i=1}^n$;
+					\item \textbf{Outcome} functions depend on state realized at time $t$, $s_t$;
+						\begin{equation}
+							Y_t \sim \mc{N}(\mu_i, \sigma^2) \tx{ if } s_t = \omega_i
+						\end{equation}
+					\item A $n \times n$ \textbf{transition matrix} $T$ defined as
+					\begin{equation}
+						T[i, j] := \prob{s_t = \omega_j|s_{t-1} = \omega_i} 
+					\end{equation}
+				\end{enumerate}
+			\end{definition}
 \end{document}
 
 
