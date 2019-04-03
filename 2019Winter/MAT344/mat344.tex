@@ -470,7 +470,7 @@
 			\end{definition}
 			
 			\begin{theorem}
-				A graph $\mc{G}$ is Eulerian \ul{if and only if} it is 1) \hl{connected} and 2) \hl{every vertex has even degree}.
+				A graph $\mc{G}$ is Eulerian $\iff$ it is 1) \hl{connected} and 2) \hl{every vertex has even degree}.
 			\end{theorem}
 		
 		\subsection{Hamiltonian Graphs}
@@ -513,11 +513,11 @@
 			\end{definition}
 			
 			\begin{theorem}
-				A graph is 2-colourable \ul{if and only if} it's bipartite.
+				A graph is 2-colourable $\iff$ it's bipartite.
 			\end{theorem}
 			
 			\begin{theorem}
-				A graph is 2-colourable/bipartite \ul{if and only if} it \hl{does \emph{not} contain an odd cycle}.
+				A graph is 2-colourable/bipartite $\iff$ it \hl{does \emph{not} contain an odd cycle}.
 			\end{theorem}
 			\begin{proof}\quad \\
 				($\implies$) Let $\mc{G} \equiv (V, E)$ be a 2-clourable graph with proper colouring $\phi: V \to \{\alpha, \beta\}$. \\
@@ -726,6 +726,18 @@
 						d_n = (n-1)(d_{n-1} + d_{n-2})
 					\end{equation}
 				\end{proposition}
+				
+				\begin{example}
+					The number of rearrangement on $[n]$ with \emph{exactly} $L$ elements matched (equivalently, as $n-L$ derangement)
+					\begin{equation}
+						\left \vert \{i \in [n]: \sigma(i) = i\} \right \vert = L
+					\end{equation}
+					is
+					\begin{equation}
+						\binom{n}{L} d_{n-L}
+					\end{equation}
+				\end{example}
+				
 			\subsection{Euler's $\phi$}
 				\begin{example}[Combinatoric Interpretation for $\phi$]
 					Draw $n$ points in a circle, connect every pair $k$ apart, for $1 \leq k  \leq n$. Does it make $C_n$ graph.
