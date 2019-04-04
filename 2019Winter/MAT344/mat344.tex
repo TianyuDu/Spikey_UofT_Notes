@@ -32,7 +32,7 @@
     version={4.0},
 ]{doclicense}
 
-\title{MAT 344 Lecture Notes}
+\title{MAT344H1S Introduction to Combinatorics \\Lecture Notes}
 \date{\today}
 \author{Tianyu Du}
 \begin{document}
@@ -71,7 +71,7 @@
 			\begin{proposition}
 				If $X$ is an $m$-element set and $m \geq n \in \Z_{++}$, then the number of $X$-strings of length $n$ that are permutations is 
 				\begin{equation}
-					P(m, n) \equiv \frac{m!}{(m-n)!}
+					\red{P(m, n) := \frac{m!}{(m-n)!}}
 				\end{equation}
 			\end{proposition}
 			
@@ -89,7 +89,7 @@
 			\begin{proposition}
 				For all integers $n$ and $k$ with $0 \leq k \leq n$
 				\begin{equation}
-					\bi{n}{k} = \bi{n}{n-k}
+					\red{\bi{n}{k} := \bi{n}{n-k}}
 				\end{equation}
 			\end{proposition}
 			
@@ -112,6 +112,14 @@
 				\end{enumerate}
 			\end{example}
 			
+			\begin{remark}
+				Common tricks on finding the number of integer solutions.
+				\begin{itemize}
+					\item If $\sum \leq N$, add another variable such that $\sum = N$ with construct $\tilde{x} \geq 0$.
+					\item If $x_i \geq 0$, construct new variable $\tilde{x_i} \geq 1$ and increase $N$ by 1.
+				\end{itemize} 
+			\end{remark}
+			
 		\begin{definition}
 			Define a \textbf{plane} as $\Z^2$, then a \textbf{lattice path} in the plane is a \emph{sequence} of elements in $\Z^2$
 			\begin{equation}
@@ -127,7 +135,7 @@
 		\begin{lemma}
 			Let $(p, q), (m, n) \in \Z^2$, then the number of lattice paths from $(p, q)$ to $(m, n)$ is 
 			\begin{equation}
-				\bi{(p-m) + (q-n)}{p-m}
+				\red{\bi{(p-m) + (q-n)}{p-m}}
 			\end{equation}
 			\begin{proof}
 				The lattice is isomorphic to a ${H, V}$-string with length $(p-m)+(q-n)$. There are exactly $p-m$ horizontal moves as well as exactly $q-n$ vertical moves.
@@ -135,9 +143,9 @@
 		\end{lemma}
 		
 		\begin{theorem}
-			Given $n \in \Z_+$, the number of lattice paths from $(0,0)$ to $(n,n)$ which \emph{never go above the diagonal line} is the \textbf{Catalan number}
+			Given $n \in \Z_+$, the number of lattice paths from $(0,0)$ to $(n, n)$ which \emph{never go above the diagonal line (could be on the diagonal)} is the \textbf{Catalan number}
 			\begin{equation}
-				C(n) \equiv \frac{1}{n+1} \bi{2n}{n}
+				\red{C(n) := \frac{1}{n+1} \bi{2n}{n}}
 			\end{equation}
 			\begin{proof}
 				Omitted
@@ -154,7 +162,7 @@
 		\begin{theorem}[Multinomial Theorem]
 			Let $r \in \Z_+$, $\{x_i\}_{i=1}^r \in \mc{P}(\R)$. Then for every $n \in \Z_+$,
 			\begin{equation}
-				(\sum_{i=1}^r x_i)^n = \sum_{|\alpha|\red{=}n} \bi{n}{\alpha} (x_i)^\alpha
+				(\sum_{i=1}^r x_i)^n = \sum_{\red{|\alpha|=n}} \bi{n}{\alpha} (x_i)^\alpha
 			\end{equation}
 			where $\alpha \equiv (\alpha_i)_{i=1}^r,\ \alpha_i \in \Z_{++}\ \forall i$ is a \textbf{multi-index}, and 
 			\begin{gather}
@@ -173,7 +181,7 @@
 		\end{theorem}
 		
 		\begin{definition}
-			\textbf{Recursive definition}
+			A function $f: \Z \to \R$ is defined \textbf{recursively} if $f(n) := F(\{f(i): i < n\})$ for some function $F$.
 		\end{definition}
 		
 		\begin{theorem}[The Principle of Mathematical Induction]
@@ -185,9 +193,9 @@
 			then $S = \Z_+$.
 		\end{theorem}
 		
-		\begin{remark}
-			\textbf{Recursive definitions} can also be recast as \textbf{inductive definitions}.
-		\end{remark}
+		\begin{proposition}
+			\textbf{Recursive definitions} can also be recast as \textbf{inductive definitions}(closed form).
+		\end{proposition}
 		
 		\begin{definition}[Summation]
 			Summation operator beginning with index 1, $\sum: \mc{F}_1 \times \Z_{++} \to \R$, where $\mc{F}_1$ is the set of unary real-valued functions, is defined inductively as
@@ -226,12 +234,12 @@
 				\end{proof}
 			\end{theorem}
 			
-			\begin{proposition}[Generalized Pigeon Hole Principle]
-				Let $f: X \to Y$ be a mapping such that 
+			\begin{theorem}[Generalized Pigeon Hole Principle]
+				\red{Let $f: X \to Y$ be a mapping such that 
 				\begin{equation}
-					|X| \red{>} (m-1)|Y|
+					|X| > (m-1)|Y|
 				\end{equation}
-				then there exists $\{x_1, \dots, x_m\} \subseteq X$ such that $f(x_i) = f(x_j)\ \forall i, j$.
+				then there exists $\{x_1, \dots, x_m\} \subseteq X$ such that $f(x_i) = f(x_j)\ \forall i, j$.}
 				\begin{proof}
 					For each $y \in Y$, we can divide $X$ into $|Y|$ partitions, where each partition is defined as the pre-image of one particular $y \in Y$. Let $\{X_i\}$ denote the set of partitions. \\
 					We are trying to find the minimum value of $\max_i\{|X_i|\}_{i=1}^{|Y|}$, that's
@@ -241,7 +249,7 @@
 					the minimum is attained when each partition of $X$ has the same cardinality, which is strictly greater than $m-1$. \\
 					For each of those partitions, it's a pre-image for some value $y \in Y$ with size at least $m$.
 				\end{proof}
-			\end{proposition}
+			\end{theorem}
 			
 			\begin{theorem}[Erods/Szekeres]
 				Let $m, n \in \Z_+$, then any sequence of $mn + 1$ \emph{distinct} real numbers either
@@ -352,11 +360,15 @@
 		\end{definition}
 		
 		\begin{definition}
-			Let $\mc{G} \equiv (V, E)$ and $\mc{H} \equiv (W, F)$, we say $\mc{H}$ is a \textbf{subgraph} of $\mc{G}$ when $W \subseteq V$ and $F \subseteq E$. $\mc{H}$ is an \textbf{induced subgraph} if
+			Let $\mc{G} \equiv (V, E)$ and $\mc{H} \equiv (W, F)$, we say $\mc{H}$ is a \textbf{subgraph} of $\mc{G}$ when $W \subseteq V$ and $F \subseteq E$. $\mc{H}$ is an \red{\textbf{induced subgraph}} if
 			\begin{equation}
 				F = \{xy \in E: x, y \in W\}	
 			\end{equation}
-			$\mc{H}$ is a \textbf{spanning subgraph} if $W = V$.
+			$\mc{H}$ is a \red{\textbf{spanning subgraph}} if $W = V$.
+		\end{definition}
+		
+		\begin{definition}
+			A \textbf{clique} is a complete subgraph.
 		\end{definition}
 		
 		\begin{definition}
@@ -388,6 +400,18 @@
 		\begin{definition}
 			A \textbf{circuit} is a closed \emph{walk}.
 		\end{definition}
+		
+		\begin{figure}[h]
+			\centering
+			\begin{tabular}{l|c|c}
+				& Distinct Vertices & Repeated Vertices \\
+				\hline
+				Closed & \textbf{Cycle} & \textbf{Circuit} \\
+				\hline
+				Not Closed & \textbf{Path} & \textbf{Walk}
+			\end{tabular}
+			\caption{Definitions}
+		\end{figure}
 		
 		\begin{definition}
 			Two graphs $\mc{G} \equiv (V, E)$ and $\mc{H} \equiv (W, F)$ are \textbf{isomorphic}, denoted as $\mc{G} \cong \mc{H}$, if there exists a bijection $f: V \to W$ such that
@@ -439,16 +463,16 @@
 			Let $\mc{T}$ be a tree, a vertex $v$ is a \textbf{leaf} if $\tx{deg}_\mc{G}(v)=1$.
 		\end{definition}
 		
-		\begin{proposition}
-			Every tree with $|V| \geq 2$ has at least two leaves.
+		\begin{theorem}
+			\hl{Every tree with $|V| \geq 2$ has at least two leaves.}
 			\begin{proof}
 				Let $\mc{T}$ be a tree. The corollary above suggests that it cannot have one leaf. Consider the case it has no leaf, then since every vertex has at least degree of 2 and $\mc{T}$ is connected, there must exist a cycle, which leads to a contradiction.
 			\end{proof}
-		\end{proposition}
+		\end{theorem}
 		
 		\subsection{Eulerian Graphs}
 			\begin{definition}
-				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0,v_1,\dots v_t)$ is an \textbf{Eulerian circuit} if (\hl{\textbf{transverse all edge once}})
+				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0,v_1,\dots v_t)$ is an \textbf{Eulerian circuit} if (\hl{\emph{transverse all edge once}})
 				\begin{enumerate}[(i)]
 					\item $v_0 = v_t$;
 					\item $v_i v_{i+1} \in E\ \forall i \in \{0, \dots, t-1\}$;
@@ -465,17 +489,13 @@
 				\hl{Some definitions require Eulerian graph to be connected but some don't, check with the lecture notes.}
 			\end{remark}
 			
-			\begin{definition}
-				A \textbf{circuit} is a walk with $x_0 = x_n$.
-			\end{definition}
-			
 			\begin{theorem}
-				A graph $\mc{G}$ is Eulerian $\iff$ it is 1) \hl{connected} and 2) \hl{every vertex has even degree}.
+				\hl{A graph $\mc{G}$ is Eulerian $\iff$ it is 1) connected and 2) every vertex has even degree.}
 			\end{theorem}
 		
 		\subsection{Hamiltonian Graphs}
 			\begin{definition}
-				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0, v_1, \dots, v_t)$ is a \textbf{Hamiltonian cycle} if (\hl{\textbf{transverse all vertices once}})
+				Let $\mc{G} \equiv (V, E)$ be a graph, then a sequence of vertices $(v_0, v_1, \dots, v_t)$ is a \textbf{Hamiltonian cycle} if (\hl{\emph{transverse all vertices once}})
 				\begin{enumerate}
 					\item $v_0 v_t \in E$;
 					\item $v_i v_{i+1} \in E\ \forall i \in \{0, \dots, t-1\}$;
@@ -488,7 +508,7 @@
 			\end{definition}
 			
 			\begin{theorem}
-				\red{If $\mc{G}$ is a graph with $n$ vertices, and $\tx{deg}_\mc{G}(v) \geq \lceil \frac{n}{2} \rceil\ \forall v \in V$, then $\mc{G}$ is Hamiltonian.}
+				\hl{If $\mc{G}$ is a graph with $n$ vertices, and $\tx{deg}_\mc{G}(v) \geq \lceil \frac{n}{2} \rceil\ \forall v \in V$ $\implies$ $\mc{G}$ is Hamiltonian.}
 			\end{theorem}
 			
 		\subsection{Graph Colouring}
@@ -500,11 +520,11 @@
 			\end{definition}
 			
 			\begin{definition}
-				The \hl{least} size of $C$ such that we can construct a proper colouring with it is defined as the \textbf{chromatic number} of $\mc{G}$, denoted as $\chi(\mc{G})$.
+				The least size of $C$ such that we can construct a proper colouring with it is defined as the \textbf{chromatic number} of $\mc{G}$, denoted as $\chi(\mc{G})$.
 			\end{definition}
 			
 			\begin{definition}
-				A graph $\mc{G} \equiv (V, E)$ with $\chi(\mc{G}) \leq 2$ is called \textbf{2-colourable graph}.
+				A graph $\mc{G} \equiv (V, E)$ with $\chi(\mc{G}) \leq k$ is called \textbf{$k$-colourable graph}.
 			\end{definition}
 			
 		\subsection{Bipartite Graph}
@@ -517,7 +537,7 @@
 			\end{theorem}
 			
 			\begin{theorem}
-				A graph is 2-colourable/bipartite $\iff$ it \hl{does \emph{not} contain an odd cycle}.
+				\hl{A graph is 2-colourable/bipartite $\iff$ it does \emph{not} contain an odd cycle.}
 			\end{theorem}
 			\begin{proof}\quad \\
 				($\implies$) Let $\mc{G} \equiv (V, E)$ be a 2-clourable graph with proper colouring $\phi: V \to \{\alpha, \beta\}$. \\
@@ -530,10 +550,6 @@
 				($\impliedby$) Suppose there exists an odd cycle $C = (x_1, x_2, \dots, x_n)$ in $\mc{G}$, it's easy to show, by induction,  that for any proper colouring $\phi$ of $\mc{G}$, $|\phi(C)| \geq 3$. This implies $|\phi(V)| \geq 3$, so $\mc{G}$ is not 2-colourable. \\
 				\emph{Modus Tollens}
 			\end{proof}
-						
-			\begin{definition}
-				A \textbf{clique} in a graph $\mc{G} \equiv (V, E)$ is a set $K \subseteq V$ such that the subgraph induced by $K$ is isomorphic to the $|K|$-complete graph $\ve{K}_{|K|}$. (Equivalently, vertices in $K$ are \emph{pair-wise adjacent})
-			\end{definition}
 			
 %			\begin{definition}
 %				The \textbf{maximum clique size} or \textbf{clique number} of graph $\mc{G}$, denoted as $\omega(\mc{G})$ is the largest $t$ such that there exists a clique with $t$ vertices.
@@ -596,11 +612,10 @@
 			\end{definition}
 
 			\begin{theorem}[Euler's Formula]
-				Let $\mc{G}$ be a \emph{connected planer graph} with $V$ vertices and $E$ edges. Then $\mc{G}$ has $f$ faces where 
+				Let $\mc{G}$ be a \emph{connected planer graph} with $V$ vertices and $E$ edges. Then $\mc{G}$ has $F$ faces where 
 				\begin{equation}
-					V - E + f = 2
+					V - E + F = 2
 				\end{equation}
-				\hl{converse is not true.}
 			\end{theorem}
 			
 			\begin{theorem}[Generalization of Euler's Formula]
@@ -608,7 +623,6 @@
 				\begin{equation}
 					\red{V - E + F = 1 + \tx{\# of components}}
 				\end{equation}
-				\hl{converse is not true.}
 				\begin{proof}
 					Induction on $E$.\\
 					\textbf{Base Case} $E=0$, there are 1 face and $V$ components, above formula holds. \\
@@ -621,12 +635,16 @@
 				\end{proof}
 			\end{theorem}
 			
+			\begin{remark}
+				\red{The converses of above theorems are not true, the notion of faces is not even well-defined if the graph is not planar.}
+			\end{remark}
+			
 			\begin{theorem}
 				\hl{A planar graph with $n$ vertices has at most $3n - 6$ edges when $n \geq 3$.}
 			\end{theorem}
 			
 			\begin{theorem}[Kuratowski's Theorem]
-				A graph is planar \ul{if and only if} it does not \emph{contain} either $\ve{K}_5$ or $\ve{K}_{3,3}$.
+				\hl{A graph is planar $\iff$ it does not \emph{contain} either $\ve{K}_5$ or $\ve{K}_{3,3}$.}
 			\end{theorem}
 			
 			\begin{definition}
@@ -639,7 +657,7 @@
 		
 		\subsection{Labeled Trees}
 			\begin{theorem}[Cayley's Formula]
-				The number $T_n$ of labelled tress on $n$ vertices is \red{$n^{n-2}$}.
+				The number $T_n$ of labelled tress on $n$ vertices is \hl{$n^{n-2}$}.
 			\end{theorem}
 			
 			\begin{definition}Constructing Prufer code
@@ -920,8 +938,8 @@
 			A game is \textbf{fair} if the money wined/lost from this game has expected value zero.
 		\end{definition}
 		
-	\section{Discrete Random Variables and Ramsey Theory}
-			
+%	\section{Discrete Random Variables and Ramsey Theory}
+
 	\newpage
 	\section*{References}
 		\par Keller, M. T., \& Trotter, W. T. (2017). \emph{Applied combinatorics}: Mitchel T. Keller, William T. Trotter. \texttt{https://www.rellek.net/appcomb}
