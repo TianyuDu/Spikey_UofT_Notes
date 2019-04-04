@@ -251,37 +251,37 @@
 				\end{proof}
 			\end{theorem}
 			
-			\begin{theorem}[Erods/Szekeres]
-				Let $m, n \in \Z_+$, then any sequence of $mn + 1$ \emph{distinct} real numbers either
-				\begin{enumerate}[(i)]
-					\item has an increasing subsequence of $m+1$ terms,
-					\item or it has a decreasing subsequence of $n+1$ terms.
-				\end{enumerate}
-				\begin{proof}
-					Let $\sigma = (x_1, x_2, \dots, x_{mn+1})$ be a sequence with length $mn+1$ consisting of distinct reals.\\
-					For each $i \in [mn+1]$ define $a_i$ as the maximum length of an increasing subsequence of $\sigma$ \emph{beginning with} $x_i$. \\
-					Define $b_i$ as the maximum length of a decreasing subsequence of $\sigma$ \emph{ending with} $x_i$. \\
-					\textbf{Case (i)}
-					\begin{gather}
-						\exists i \in [mn+1]\ s.t.\ a_i \geq m+1 \lor b_i \geq n+1
-					\end{gather}
-					then the theorem is proven. \\
-					\textbf{Case (ii)} Suppose otherwise
-					\begin{gather}
-						\forall i \in [mn+1]\ a_i \leq m \land b_i \leq n
-					\end{gather}
-					construct function $f: [mn+1] \to [m]\times[n]$ defined as
-					\begin{equation}
-						f(i) \equiv (a_i, b_i)
-					\end{equation}
-					Note that $|[mn+1]| > |[m]\times[n]|$ so $f$ cannot be injective, so there exists $j\neq k \in [mn+1]$ such that $(a_j, b_j) = (a_k, b_k)$. \\
-					WLOG, assume $j < k$.\\
-					Since all elements in $\sigma$ are distinct, $j \neq k \implies x_j \neq x_k$. \\
-					\textbf{Sub-case (i)} $x_j < x_k$, then any increasing subsequence beginning with $x_k$ can be extended by prepending $x_j$, so $a_j > a_k$. \\
-					\textbf{Sub-case (ii)} $x_j > x_k$, then any decreasing subsequence ending with $x_j$ can be extended by appending $x_k$, so $b_k > b_j$. \\
-					Either sub-case leads to a contradiction, so \textbf{case (ii)} is impossible.
-				\end{proof}
-			\end{theorem}
+%			\begin{theorem}[Erods/Szekeres]
+%				Let $m, n \in \Z_+$, then any sequence of $mn + 1$ \emph{distinct} real numbers either
+%				\begin{enumerate}[(i)]
+%					\item has an increasing subsequence of $m+1$ terms,
+%					\item or it has a decreasing subsequence of $n+1$ terms.
+%				\end{enumerate}
+%				\begin{proof}
+%					Let $\sigma = (x_1, x_2, \dots, x_{mn+1})$ be a sequence with length $mn+1$ consisting of distinct reals.\\
+%					For each $i \in [mn+1]$ define $a_i$ as the maximum length of an increasing subsequence of $\sigma$ \emph{beginning with} $x_i$. \\
+%					Define $b_i$ as the maximum length of a decreasing subsequence of $\sigma$ \emph{ending with} $x_i$. \\
+%					\textbf{Case (i)}
+%					\begin{gather}
+%						\exists i \in [mn+1]\ s.t.\ a_i \geq m+1 \lor b_i \geq n+1
+%					\end{gather}
+%					then the theorem is proven. \\
+%					\textbf{Case (ii)} Suppose otherwise
+%					\begin{gather}
+%						\forall i \in [mn+1]\ a_i \leq m \land b_i \leq n
+%					\end{gather}
+%					construct function $f: [mn+1] \to [m]\times[n]$ defined as
+%					\begin{equation}
+%						f(i) \equiv (a_i, b_i)
+%					\end{equation}
+%					Note that $|[mn+1]| > |[m]\times[n]|$ so $f$ cannot be injective, so there exists $j\neq k \in [mn+1]$ such that $(a_j, b_j) = (a_k, b_k)$. \\
+%					WLOG, assume $j < k$.\\
+%					Since all elements in $\sigma$ are distinct, $j \neq k \implies x_j \neq x_k$. \\
+%					\textbf{Sub-case (i)} $x_j < x_k$, then any increasing subsequence beginning with $x_k$ can be extended by prepending $x_j$, so $a_j > a_k$. \\
+%					\textbf{Sub-case (ii)} $x_j > x_k$, then any decreasing subsequence ending with $x_j$ can be extended by appending $x_k$, so $b_k > b_j$. \\
+%					Either sub-case leads to a contradiction, so \textbf{case (ii)} is impossible.
+%				\end{proof}
+%			\end{theorem}
 		\subsection{Complexity}
 			\begin{definition}
 				Let $f, g: \N \to \R$ be a function, then the \textbf{big oh} $\mc{O}(f)$ is a collection of functions such that, for every $g \in \mc{O}(f)$
@@ -290,20 +290,20 @@
 				\end{gather}
 			\end{definition}
 			
-			\begin{definition}
-				Let $f, g: \N \to \R$ be a function. If $f(n) > 0\ \forall n \in \N$,
-				then the \textbf{little oh} $o(f)$ is the collection of functions such that, for every $g \in o(f)$, 
-				\begin{equation}
-					\lim_{n \to \infty} \frac{g(n)}{f(n)} = 0
-				\end{equation}
-			\end{definition}
-			
-			\begin{definition}
-				Let $f, g: \N \to \R$, then the \textbf{little oh}, $o(f)$ is defined as the collection of functions such that $g \in o(f)$ if and only if
-				\begin{gather}
-					\exists c \in \R, n^* \in \N,\ s.t.\ \forall n \in \N, n \geq n^* \implies |g(n)| < c|f(n)|
-				\end{gather}
-			\end{definition}
+%			\begin{definition}
+%				Let $f, g: \N \to \R$ be a function. If $f(n) > 0\ \forall n \in \N$,
+%				then the \textbf{little oh} $o(f)$ is the collection of functions such that, for every $g \in o(f)$, 
+%				\begin{equation}
+%					\lim_{n \to \infty} \frac{g(n)}{f(n)} = 0
+%				\end{equation}
+%			\end{definition}
+%			
+%			\begin{definition}
+%				Let $f, g: \N \to \R$, then the \textbf{little oh}, $o(f)$ is defined as the collection of functions such that $g \in o(f)$ if and only if
+%				\begin{gather}
+%					\exists c \in \R, n^* \in \N,\ s.t.\ \forall n \in \N, n \geq n^* \implies |g(n)| < c|f(n)|
+%				\end{gather}
+%			\end{definition}
 			
 			\begin{definition}
 				Define $\pi: \Z_{++} \to \Z_+$ as $\pi(n) \equiv$ \emph{the number of primes among the first $n$ positive integers}.
@@ -315,13 +315,13 @@
 				\end{equation}
 			\end{theorem}
 			
-			\begin{definition}
-				The class of \textbf{polynomial time} problems, denoted as $\mc{P}$, is the set of decision problems for which there exists one polynomial run time algorithm as the solution.
-			\end{definition}
-			
-			\begin{definition}
-				The class of \textbf{nondeterministic polynomial time} problems, denoted as $\mc{NP}$, is the set of decision problems for which there is a certificate for a yes answer whose correctness can be verified in polynomial time.
-			\end{definition}
+%			\begin{definition}
+%				The class of \textbf{polynomial time} problems, denoted as $\mc{P}$, is the set of decision problems for which there exists one polynomial run time algorithm as the solution.
+%			\end{definition}
+%			
+%			\begin{definition}
+%				The class of \textbf{nondeterministic polynomial time} problems, denoted as $\mc{NP}$, is the set of decision problems for which there is a certificate for a yes answer whose correctness can be verified in polynomial time.
+%			\end{definition}
 	
 	\section{Graph Theory}
 		\subsection{Definitions}
@@ -433,7 +433,7 @@
 		\end{definition}
 		
 		\begin{definition}
-			A \textbf{forecast} is an acyclic graph.
+			A \textbf{forest} is an acyclic graph.
 		\end{definition}
 		
 		\begin{definition}
@@ -490,7 +490,7 @@
 			\end{remark}
 			
 			\begin{theorem}
-				\hl{A graph $\mc{G}$ is Eulerian $\iff$ it is 1) connected and 2) every vertex has even degree.}
+				\hl{A graph $\mc{G}$ is Eulerian $\iff$ it is 1) connected and 2) every vertex has even degree.}(\red{still holds for multi-graph})
 			\end{theorem}
 		
 		\subsection{Hamiltonian Graphs}
@@ -594,7 +594,7 @@
 %				Since every induced subgraph of interval graph is also an interval graph, therefore \emph{every interval graph is perfect}.
 %			\end{corollary}
 		
-		\subsection{Planer Graphs}
+		\subsection{Planar Graphs}
 			\begin{definition}
 				A \textbf{drawing} of a graph is a way of associating its vertices with points in $\R^2$ and its edges with simple polygonal arcs whose endpoints are the coordinates associated to the vertices that are the endpoints of the edge.
 			\end{definition}
@@ -883,7 +883,7 @@
 		\begin{definition}
 			Given probability space $(\Omega, \mc{F}, P)$, two events $E_1, E_2 \in \mc{F}$ are \textbf{independent} if and only if 
 			\begin{gather}
-				P(E_1 \cap E_2) = P(E_1) P(E_2)
+				\red{P(E_1 \cap E_2) = P(E_1) P(E_2)}
 			\end{gather}
 		\end{definition}
 		
@@ -902,13 +902,13 @@
 		\begin{definition}
 			\textbf{Conditional probability} of event $F \in \mc{P}(\Omega)$ conditioned on event $E$ is defined as 
 			\begin{equation}
-				P(F|E) := \frac{P(F \cap E)}{P(E)}
+				\red{P(F|E) := \frac{P(F \cap E)}{P(E)}}
 			\end{equation}
 		\end{definition}
 		
 		\begin{theorem}[Bayes' Theorem]
 			\begin{equation}
-				P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+				\red{P(A|B) = \frac{P(B|A)P(A)}{P(B)}}
 			\end{equation}
 		\end{theorem}
 		
