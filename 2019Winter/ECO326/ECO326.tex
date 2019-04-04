@@ -114,48 +114,48 @@
 		\end{definition}
 		
 		\begin{corollary}[Consequence of RCT]
-			It is irrational to play strictly dominated actions. So rational choice theory suggests a player would never play \red{strictly} dominated strategies.
+			It is irrational to play strictly dominated actions. So rational choice theory suggests a player would \ul{never} play \ul{strictly} dominated strategies.
 		\end{corollary}
 		
 		\begin{definition}
-			Action $a_i \in A_i$ is \textbf{strictly(weakly) dominant} if it strictly(weakly) dominates \red{all} other actions.
+			Action $a_i \in A_i$ is \textbf{strictly(weakly) dominant} if it strictly(weakly) dominates \ul{all} other actions.
 		\end{definition}
 		
 		\begin{definition}
-			Action $a_i \in A_i$ is \textbf{strictly(weakly) dominated} if \red{there exists} another strategy strictly(weakly) dominates $a_i$.
+			Action $a_i \in A_i$ is \textbf{strictly(weakly) dominated} if \ul{there exists} another strategy strictly(weakly) dominates $a_i$.
 		\end{definition}
 		
-		\begin{example}[Prisoner Dilemma]
-			\begin{figure}[h]
-				\centering
-				\begin{tabular}{c|c|c}
-					 & S & C \\
-					\hline
-					S & (-1, -1) & (-10, \red{0})\\
-					\hline
-					C & (\red{0}, -10) & (\red{-5}, \red{-5})
-				\end{tabular}
-				\caption{Payoff matrix for example 2}
-			\end{figure}
-			Note that S is strictly dominated by C. Therefore C is strictly dominant for both players.
-		\end{example}
-		
-		\begin{example}
-			\begin{figure}[h]
-				\centering
-				\begin{tabular}{c|c|c|c}
-					 & L & C & R\\
-					\hline
-					U & (2, \red{2}) & (\red{5}, 0) & (\red{3}, 0)\\
-					\hline
-					M & (2, \red{7}) & (2, 5) & (2, 6)\\
-					\hline 
-					D & (\red{5}, \red{3}) & (4, 2) & (\red{3}, 1)
-				\end{tabular}
-				\caption{Payoff matrix for example 2}
-			\end{figure}
-			So in this game, for player 2, L is strictly dominant. \\For player 1, M is strictly dominated by D. And M is weakly dominated by U.
-		\end{example}
+%		\begin{example}[Prisoner Dilemma]
+%			\begin{figure}[h]
+%				\centering
+%				\begin{tabular}{c|c|c}
+%					 & S & C \\
+%					\hline
+%					S & (-1, -1) & (-10, \red{0})\\
+%					\hline
+%					C & (\red{0}, -10) & (\red{-5}, \red{-5})
+%				\end{tabular}
+%				\caption{Payoff matrix for example 2}
+%			\end{figure}
+%			Note that S is strictly dominated by C. Therefore C is strictly dominant for both players.
+%		\end{example}
+%		
+%		\begin{example}
+%			\begin{figure}[h]
+%				\centering
+%				\begin{tabular}{c|c|c|c}
+%					 & L & C & R\\
+%					\hline
+%					U & (2, \red{2}) & (\red{5}, 0) & (\red{3}, 0)\\
+%					\hline
+%					M & (2, \red{7}) & (2, 5) & (2, 6)\\
+%					\hline 
+%					D & (\red{5}, \red{3}) & (4, 2) & (\red{3}, 1)
+%				\end{tabular}
+%				\caption{Payoff matrix for example 2}
+%			\end{figure}
+%			So in this game, for player 2, L is strictly dominant. \\For player 1, M is strictly dominated by D. And M is weakly dominated by U.
+%		\end{example}
 		
 		% \begin{example}
 		% 	There are three candidates, $\{A, B, C\}$. And there are 50 players (voters, note that $\emptyset \notin A_i$ since they must vote).
@@ -233,24 +233,24 @@
 		\end{definition}
 	
 	\section{Lecture 2. Jan. 14 2019\\Iterated Elimination and Rationalizability}
-		\begin{example}[Bubble Game]
-			Consider a strategic game
-			\begin{equation}
-				\langle N, (A_i), (u_i) \rangle
-			\end{equation}
-			where 
-			\begin{equation}
-				A_i = \{0,\dots,100\},\ \forall i
-			\end{equation}
-			and 
-			\begin{gather}
-				u_i(a_i, a_{-i}) = a_i - penalty_i(a_i, a_{-i}) \\
-				penalty_i = \begin{cases}
-					0 &\tx{ if } a_i < \max_{j \neq i} a_j - 1 \\
-					10(a_i - \max_{j \neq i} a_j + 1) &\tx{ if } a_i \geq \max_{j \neq i} - 1
-				\end{cases}
-			\end{gather}
-		\end{example}	
+%		\begin{example}[Bubble Game]
+%			Consider a strategic game
+%			\begin{equation}
+%				\langle N, (A_i), (u_i) \rangle
+%			\end{equation}
+%			where 
+%			\begin{equation}
+%				A_i = \{0,\dots,100\},\ \forall i
+%			\end{equation}
+%			and 
+%			\begin{gather}
+%				u_i(a_i, a_{-i}) = a_i - penalty_i(a_i, a_{-i}) \\
+%				penalty_i = \begin{cases}
+%					0 &\tx{ if } a_i < \max_{j \neq i} a_j - 1 \\
+%					10(a_i - \max_{j \neq i} a_j + 1) &\tx{ if } a_i \geq \max_{j \neq i} - 1
+%				\end{cases}
+%			\end{gather}
+%		\end{example}	
 		
 		\subsection{Iterated Elimination of Strictly Dominated Strategies(Actions)}
 			\begin{definition}[IESD]
@@ -276,31 +276,31 @@
 				\end{enumerate}
 			\end{definition}
 			
-			\begin{example}
-				Action profile $(M, R)$ survives the IESD.
-				\begin{proof}
-					\begin{gather*}
-						k=0,\ A_1^0 = \{U, M, D\},\ 
-						A_2^0 = \{L, R\} \\
-						k=1,\ A_1^1 = \{U, M\},\ 
-						A_2^1 = \{L, R\} \\
-						k=2,\ A_1^2 = \{U, M\},\ 
-						A_2^2 = \{R\} \\
-						k=3,\ A_1^3 = \{M\},\ 
-						A_2^3 = \{R\} \\
-					\end{gather*}
-				\end{proof}
-			\end{example}
-			\begin{figure*}[h]
-				\centering
-				\begin{tabular}{l|cc}
-				  & L & R \\
-				  \hline
-				  U & 4,0 & 2,2 \\
-				  M & 1, 2& \red{5,3} \\
-				  D & 0,5 & 1,4 \\
-				\end{tabular}
-			\end{figure*}
+%			\begin{example}
+%				Action profile $(M, R)$ survives the IESD.
+%				\begin{proof}
+%					\begin{gather*}
+%						k=0,\ A_1^0 = \{U, M, D\},\ 
+%						A_2^0 = \{L, R\} \\
+%						k=1,\ A_1^1 = \{U, M\},\ 
+%						A_2^1 = \{L, R\} \\
+%						k=2,\ A_1^2 = \{U, M\},\ 
+%						A_2^2 = \{R\} \\
+%						k=3,\ A_1^3 = \{M\},\ 
+%						A_2^3 = \{R\} \\
+%					\end{gather*}
+%				\end{proof}
+%			\end{example}
+%			\begin{figure*}[h]
+%				\centering
+%				\begin{tabular}{l|cc}
+%				  & L & R \\
+%				  \hline
+%				  U & 4,0 & 2,2 \\
+%				  M & 1, 2& \red{5,3} \\
+%				  D & 0,5 & 1,4 \\
+%				\end{tabular}
+%			\end{figure*}
 			
 			\begin{example}[Hotelling Model of Politics]
 				Players maximize their votes by choosing where to stand along a natural number line.
@@ -346,30 +346,34 @@
 			\end{definition}
 			
 			\begin{definition}
-				A \textbf{belief} of player $i$ (about the actions of the other players) is a \ul{probability measure}, $\alpha_i$, on $A_{-i}=\prod_{j \in N \backslash \{i\}} A_j$. \\
-				$\alpha_i$ is a mapping such that
-				\begin{itemize}
-					\item $\alpha_i: A_{-i} \to [0,1]$.
-					\item $\alpha_i(A_{-i}) = 1$.
-					\item For all countable piece-wise \ul{disjoint} collection 
-					\[
-						\{E_j\}_{j\in \mc{J}} \in \mc{P}(A_{-i})
-					\]
-					$\alpha_i$ satisfies the \emph{countable additivity property}:
-					\[
-						\alpha_i(\bigcup_{i \in I} E_i) = \sum_{i \in I}\alpha_i(E_i)
-					\]
-				\end{itemize}
+				A \textbf{belief} of player $i$ (about the actions of the other players) is a \ul{probability measure}, $\alpha_i$, on $A_{-i} \equiv \prod_{j \in N \backslash \{i\}} A_j$.
+%				$\alpha_i$ is a mapping such that
+%				\begin{itemize}
+%					\item $\alpha_i: A_{-i} \to [0,1]$.
+%					\item $\alpha_i(A_{-i}) = 1$.
+%					\item For all countable piece-wise \ul{disjoint} collection 
+%					\[
+%						\{E_j\}_{j\in \mc{J}} \in \mc{P}(A_{-i})
+%					\]
+%					$\alpha_i$ satisfies the \emph{countable additivity property}:
+%					\[
+%						\alpha_i(\bigcup_{i \in I} E_i) = \sum_{i \in I}\alpha_i(E_i)
+%					\]
+%				\end{itemize}
 			\end{definition}
-				
+			
+			\begin{remark}
+				$\alpha_i$ defines a distribution of $a_{-i}$.
+			\end{remark}
+			
 			\begin{definition}
 				$a_i$ is a \ul{\textbf{best response} to the belief $\alpha_i$} if
 				\begin{equation}
-					\forall a_i' \in A_i,\ \sum_{a_{-i}} u_i(a_i, a_{-i}) \alpha_i(a_{-i}) \geq \sum_{a_{-i}} u_i(a_i', a_{-i}) \alpha_i(a_{-i})
+					\forall a_i' \in A_i,\ \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \alpha_i(a_{-i}) \geq \sum_{a_{-i} \in A_{-i}} u_i(a_i', a_{-i}) \alpha_i(a_{-i})
 				\end{equation}
 				or, more generally,
 				\begin{equation}
-					\forall a'_i \in A_i, \expect{u_i(a_i, a_{-i})|\alpha_i} \geq \expect{u_i(a_i', a_{-i})|\alpha_i}
+					\forall a'_i \in A_i,\ \expect{u_i(a_i, a_{-i})|\alpha_i} \geq \expect{u_i(a_i', a_{-i})|\alpha_i}
 				\end{equation}
 			\end{definition}
 			
