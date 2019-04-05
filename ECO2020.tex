@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{spikey}
 \usepackage{amsmath}
+\usepackage{mathrsfs}
 \usepackage{amssymb}
 \usepackage{soul}
 \usepackage{float}
@@ -97,6 +98,39 @@
 		\end{proposition}
 	
 	\subsection{Choice Rules}
+		\begin{definition}
+			A \textbf{choice structure}, $(\mathscr{B}, C(\cdot))$, is a tuple consists of
+			\begin{enumerate}[(i)]
+				\item The collection of \textbf{budget sets} $\mathscr{B}$, which is a set of nonempty subsets of $X$.
+				\item The \textbf{choice rule}, $C(B) \subset B$, is a \emph{correspondence} for every $B \subset \mathscr{B}$ denotes the individual's choice from among the alternatives in $B$. If $C(B)$ is not a singleton, it can be interpreted as the \emph{acceptable alternatives} in $B$, which the individual would actually chosen if the decision-making process is run repeatedly. 
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{definition}[1.C.1]
+			The choice structure $(\mathscr{B}, C(\cdot))$ satisfies the \textbf{weak axiom of revealed preference} if
+			\begin{equation}
+				\Big(\underbrace{
+					\exists B \in \mathscr{B}\ s.t.\ x, y \in B \land x \in C(B)
+					}_{\tx{$x \succsim y$ revealed.}}
+				\Big)
+				\implies 
+				\Big(
+					\forall B' \in \mathscr{B}\ s.t.\ x, y \in B',\ y \in C(B') \implies x \in C(B')
+				\Big)
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}
+			Given a choice structure $(\mathscr{B}, C(\cdot))$, the \textbf{revealed preference relation} $\succsim^*$ is defined as
+			\begin{equation}
+				x \succsim^* y \iff \exists B \in \mathscr{B}\ s.t.\ x, y \in B \land x \in C(B)
+			\end{equation}
+		\end{definition}
+		
+		\begin{remark}[Interpretation on the definition of WARP]
+			If $x$ is \emph{revealed} at least as good as $y$, then $y$ cannot be revealed preferred to $x$.
+		\end{remark}
+		
 \end{document}
 
 

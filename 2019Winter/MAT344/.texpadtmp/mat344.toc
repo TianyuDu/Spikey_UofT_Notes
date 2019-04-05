@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {4.4}Graph Colouring}{7}{subsection.4.4}
 \contentsline {subsection}{\numberline {4.5}Bipartite Graph}{7}{subsection.4.5}
 \contentsline {subsection}{\numberline {4.6}Planar Graphs}{8}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}Labeled Trees}{9}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.7}Labeled Trees}{8}{subsection.4.7}
 \contentsline {section}{\numberline {5}Inclusion-Exclusion Principle}{9}{section.5}
 \contentsline {subsection}{\numberline {5.1}Counting Surjections}{9}{subsection.5.1}
 \contentsline {section}{\numberline {6}Derangements and Euler's $\phi $}{9}{section.6}
