@@ -173,6 +173,11 @@
 		\subsection{Commodities}
 			\begin{definition}
 				Assume the number of \textbf{commodities} is finite and equal to $L$. In general, a \textbf{commodity vector} or \textbf{commodity bundle} is an element in a \textbf{commodity space}, typically $\R^L$.
+				\begin{equation}
+					\ve{x} := \begin{bmatrix}
+						x_1 \\ \vdots \\ x_L
+					\end{bmatrix} \in \R^L
+				\end{equation}
  			\end{definition}
  			
  			\begin{remark}[Time Aggregation]
@@ -194,6 +199,45 @@
  					X := \R_+^L = \{\ve{x} \in \R^L: x_{\ell} \geq 0,\ \forall \ell \in [L]\}
  				\end{equation}
  			\end{assumption}
+ 			
+ 		\subsection{Competitive Budgets}
+ 			\begin{definition}
+ 				A \textbf{price vector} is defined as
+ 				\begin{equation}
+ 					\ve{p} := \begin{bmatrix} p_1 \\ \vdots \\ p_L \end{bmatrix} \in \R^L
+ 				\end{equation}
+ 				For simplicity, here we always assume 
+ 				\begin{enumerate}[(i)]
+ 					\item \emph{Positive price}: $\ve{p} \gg \ve{0}$;
+ 					\item \emph{Price-taking assumption}: $\ve{p}$ is beyond the influence of the consumer.
+ 				\end{enumerate}
+ 			\end{definition}
+ 			
+ 			\begin{definition}[2.D.1]
+ 				The \textbf{Walrasian}, or \textbf{competitive budget set} is defined as
+ 				\begin{equation}
+ 					B_{\ve{p}, w} := \{
+ 						\ve{x} \in \R^L_+: \ve{p} \cdot \ve{x} \leq w
+ 					\}
+ 				\end{equation}
+ 				where $w$ is the \emph{wealth} of consumer, and assumed to be positive.
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				The \textbf{consumer's problem} is choosing a consumption bundle $\ve{x} \in B_{\ve{p}, w}$, for each given $(\ve{p}; w) \in \R^L_{++}$.
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				The set $\{\ve{x} \in \R^L_+: \ve{p} \cdot \ve{x} = w\}$ is called the \textbf{budget hyperplane}.
+ 			\end{definition}
+ 			
+ 			\begin{proposition}
+ 				The price vector $\ve{p}$ is orthogonal to the budget hyperplane.
+ 			\end{proposition}
+ 			
+ 			\begin{proposition}
+ 				The Walrasian budget set $B_{\ve{p}, w}$ is a \emph{convex} set.
+ 			\end{proposition}
 \end{document}
 
 
