@@ -224,7 +224,7 @@
  			\end{definition}
  			
  			\begin{definition}
- 				The \textbf{consumer's problem} is choosing a consumption bundle $\ve{x} \in B_{\ve{p}, w}$, for each given $(\ve{p}; w) \in \R^L_{++}$.
+ 				The \textbf{consumer's problem} is choosing a consumption bundle $\ve{x} \in B_{\ve{p}, w}$, for each given $(\ve{p}, w) \in \R^L_{++}$.
  			\end{definition}
  			
  			\begin{definition}
@@ -237,6 +237,162 @@
  			
  			\begin{proposition}
  				The Walrasian budget set $B_{\ve{p}, w}$ is a \emph{convex} set.
+ 			\end{proposition}
+ 		
+ 		\subsection{Demand Functions and Comparative Statics}
+ 			\begin{definition}
+ 				The consumer's \textbf{Walrasian demand correspondence} $x(\ve{p}, w): \R_{++}^{L+1} \rightrightarrows \R_+^L$ assigns a \emph{set} of chosen consumption bundles for each price-wealth pair $(\ve{p}, w)$. When $x(\ve{p}, w)$ is single-valued, we refer to it as a \textbf{demand function}
+ 				\begin{equation}
+ 					\ve{x}(\ve{p}, w) = 
+ 					\begin{bmatrix}
+ 						x_1(\ve{p}, w) \\
+ 						x_2(\ve{p}, w) \\
+ 						\vdots \\
+ 						x_L(\ve{p}, w)
+ 					\end{bmatrix}
+ 				\end{equation}
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				The Walrasian demand correspondence $x(\ve{p}, w): \R_{++}^{L+1} \rightrightarrows \R_+^L$ is \textbf{homogenous of degree zero} if 
+ 				\begin{equation}
+ 					x(\alpha \ve{p}, \alpha w) = x(\ve{p}, w)\ \forall (\ve{p}, w, \alpha) \in \R_{++}^{L+2}
+ 				\end{equation}
+ 				Also note that
+ 				\begin{equation}
+ 					B_{\ve{p}, w} = B_{\alpha \ve{p}, \alpha w}\ \forall (\ve{p}, w, \alpha) \in \R_{++}^{L+2}
+ 				\end{equation}
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				The Walrasian demand correspondence $x(\ve{p}, w)$ satisfies \textbf{Walras' law} if
+ 				\begin{equation}
+ 					\forall (\ve{p}, w) \gg \ve{0},\ \ve{x} \in x(\ve{p}, w),\ \ve{p} \cdot \ve{x} = w
+ 				\end{equation}
+ 			\end{definition}
+ 			
+ 			\begin{assumption}
+ 				For simplicity, we assume $x(\ve{p}, w)$ is always \emph{single-valued, continuous and differentiable}.
+ 			\end{assumption}
+ 			
+ 			\begin{proposition}
+ 				The \textbf{family of Walrasian budget sets} defined as
+ 				\begin{equation}
+ 					\mathscr{B}^{\mathscr{W}} := \{B_{\ve{p}, w}: {\ve{p}, w} \gg \ve{0}\}
+ 				\end{equation}
+ 				altogether with Walrasian demand homogeneous to degree zero forms a \emph{choice structure}
+ 				\begin{equation}
+ 					(\mathscr{B}^{\mathscr{W}}, x(\cdot))
+ 				\end{equation} 
+ 			\end{proposition}
+ 		
+ 			\begin{definition}
+ 				For fixed prices $\overline{\ve{p}} \in \R_{++}^L$, the function of wealth $\ve{x}(\overline{\ve{p}}, w)$ is called consumer's \textbf{Engel function}. Its image in $\R^L_+$,
+ 				\begin{equation}
+ 					E_{\overline{\ve{p}}} := \{\ve{x}(\overline{\ve{p}}, w): w \in \R_{++}\} \subset \R^L_+
+ 				\end{equation}
+ 				is defined as the \textbf{wealth expansion path}.
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				Given $(\ve{p}, w)$, the \textbf{wealth effect} is defined as
+ 				\begin{equation}
+ 					D_w \ve{x}(\ve{p}, w) 
+ 					= \begin{bmatrix}
+ 						\pd{x_1(\ve{p}, w)}{w} \\
+ 						\pd{x_2(\ve{p}, w)}{w} \\
+ 						\vdots \\
+ 						\pd{x_L(\ve{p}, w)}{w}
+ 					\end{bmatrix} \in \R^L
+ 				\end{equation}
+ 				For the $\ell$-th commodity, it's called \textbf{normal} at $(\ve{p}, w)$ if $\pd{x_{\ell}(\ve{p}, w)}{w} \red{\geq} 0$, and \textbf{inferior} otherwise. And the $\ell$-th commodity is normal/inferior if its normal/inferior every where in $\R_{++}^{L+1}$. 
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				The \textbf{offer curve} is defined as the locus
+ 				\begin{equation}
+ 					\{\ve{x}(\ve{p}, w): p_j > 0\}
+ 				\end{equation}
+ 				for any chosen $j$.
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				Good $\ell$ is said to be a \textbf{Giffen good} at $(\ve{p}, w)$ if
+ 				\begin{equation}
+ 					\pd{x_\ell(\ve{p}, w)}{p_l} > 0
+ 				\end{equation}
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				The \textbf{price effects} at $(\ve{p}, w)$ is defined as
+ 				\begin{equation}
+ 					D_{\ve{p}} (\ve{p}, w) = 
+ 					\begin{bmatrix}
+ 						\pd{x_1(\ve{p}, w)}{p_1} & \cdots & \pd{x_1(\ve{p}, w)}{p_L} \\
+ 						& \ddots & \\
+ 						\pd{x_L(\ve{p}, w)}{p_1} & \cdots & \pd{x_L(\ve{p}, w)}{p_L}
+ 					\end{bmatrix}
+ 				\end{equation}
+ 			\end{definition}
+ 			
+ 			\begin{proposition}
+ 				If the Walrasian demand function $x(\ve{p}, w)$ is homogenous of degree zero, then for all $\ve{p}$ and $w$, then
+ 				\begin{equation}
+ 					\sum_{k=1}^L \pd{x_\ell(\ve{p}, w)}{p_k} p_k + \pd{x_\ell(\ve{p}, w)}{w} w = 0\ \forall k \in [L]
+ 				\end{equation}
+ 				Equivalently,
+ 				\begin{equation}
+ 					D_{\ve{p}} (\ve{p}, w)\ \ve{p} + D_w \ve{x}(\ve{p}, w)\ w = \ve{0}
+ 				\end{equation}
+ 				\begin{proof}
+ 					Apply Euler's theorem on homogenous functions to each component $x_\ell$.
+ 					\begin{gather}
+ 						\underbrace{D_{(\ve{p}, w)} \ve{x}(\ve{p}, w)}_{L \times (L+1)} \cdot \underbrace{(\ve{p}, w)}_{(L+1) \times 1} = 0\ \ve{x}(\ve{p}, w) = \ve{0} \\
+ 						\implies [\underbrace{D_{\ve{p}} (\ve{p}, w)}_{L \times L} | \underbrace{D_w \ve{x}(\ve{p}, w)}_{L \times 1}] \cdot (\ve{p}, w) = D_{\ve{p}} (\ve{p}, w)\ \ve{p} + D_w \ve{x}(\ve{p}, w)\ w = \ve{0}
+ 					\end{gather}
+ 				\end{proof}
+ 			\end{proposition}
+ 			
+ 			\begin{definition}
+ 				The \textbf{elasticities of demand $\ell$ with respect to price $k$ and wealth} is defined as 
+ 				\begin{gather}
+ 					\varepsilon_{\ell, k} (\ve{p}, w) := \pd{x_\ell (\ve{p}, w)}{p_k} \frac{p_l}{x_\ell (\ve{p}, w)}\\
+ 					\varepsilon_{\ell, w} (\ve{p}, w) := \pd{x_\ell (\ve{p}, w)}{w} \frac{w}{x_\ell (\ve{p}, w)}
+ 				\end{gather}
+ 			\end{definition}
+ 			
+  			\begin{corollary}
+ 				\begin{equation}
+ 					\sum_{k=1}^L \varepsilon_{\ell, k}(\ve{p}, w) + \varepsilon_{\ell, w}(\ve{p}, w) = 0\ \forall \ell \in [L]
+ 				\end{equation}
+ 			\end{corollary}
+ 			
+ 			\begin{proposition}[Cournot Aggregation]
+ 				If the Walrasian demand function $x(\ve{p}, w)$ satisfies \emph{Walras' law}, then for every $(\ve{p}, w)$,
+ 				\begin{equation}
+ 					\sum_{\ell=1}^L p_\ell \pd{x_\ell(\ve{p}, w)}{p_k} + x_k((\ve{p}, w) = 0\ \forall k \in [L]
+ 				\end{equation}
+ 				Equivalently,
+ 				\begin{equation}
+ 					\ve{p}^T D_{\ve{p}} (\ve{p}, w) + \ve{x}(\ve{p}, w)^T = \ve{0}^T
+ 				\end{equation}
+ 				\begin{proof}
+ 					Differentiate both sides of $\ve{p}^T \ve{x} = w$ with respect to $\ve{p}$.
+ 				\end{proof}
+ 			\end{proposition}
+ 			
+ 			\begin{proposition}[Engel Aggregation]
+ 				If the Walrasian demand function $x(\ve{p}, w)$ satisfies \emph{Walras' law}, then for every $(\ve{p}, w)$,
+ 				\begin{equation}
+ 					\sum_{\ell=1}^L p_\ell \pd{x_\ell(\ve{p}, w)}{w} = 1
+ 				\end{equation}
+ 				or equivalently
+ 				\begin{equation}
+ 					\ve{p} \cdot D_{w} x(\ve{p}, w) = 1
+ 				\end{equation}
+ 				\begin{proof}
+ 					Differentiate both sides of $\ve{p}^T \ve{x} = w$ with respect to $w$.
+ 				\end{proof}
  			\end{proposition}
 \end{document}
 
