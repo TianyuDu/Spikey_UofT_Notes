@@ -37,6 +37,8 @@
 	\newpage
 	
 	\section{Chapter 1. Preference and Choice}
+	\subsection{Preference Relations}
+	
 		\begin{definition} \quad
 			\begin{enumerate}[(i)]
 				\item The \textbf{strict preference} relation, $\succ$, is defined by
@@ -67,9 +69,34 @@
 		\begin{proposition}[1.B.1]
 			If $\succsim$ is rational, then
 			\begin{enumerate}[(i)]
-				\item 
+				\item $\succ$ is both \textbf{reflexive} ($\neg\ x \succ x$) and \textbf{transitive} ($x \succ y \land y \succ z \implies x \succ z$);
+				\item $\sim$ is both \textbf{reflexive} and \textbf{transitive};
+				\item $x \succ y \succsim z \implies x \succ z$.
 			\end{enumerate}
 		\end{proposition}
+		
+		\begin{example}
+			Typical scenarios when transitivity of preference is violated:
+			\begin{enumerate}[(i)]
+				\item \emph{Just perceptible differences};
+				\item \emph{Framing problem};
+				\item \emph{Observed preference might from the result of the interaction of several more primitive rational preferences (Condorcet paradox)};
+				\item \emph{Change of tastes}.
+			\end{enumerate}
+		\end{example}
+		
+		\begin{definition}[1.B.2]
+			A function $u: X \to \R$ is a \textbf{utility function representing preference relation} $\succsim$ if
+			\begin{equation}
+				\forall x, y \in X,\ x \succsim y \iff u(x) \geq u(y)
+			\end{equation}
+		\end{definition}
+		
+		\begin{proposition}[1.B.2]
+			If a preference relation $\succsim$ can be represented by a utility function, then $\succsim$ is rational.
+		\end{proposition}
+	
+	\subsection{Choice Rules}
 \end{document}
 
 
