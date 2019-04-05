@@ -82,14 +82,14 @@
 			\begin{proposition}
 				Let $n, k \in \Z$ such that $0 \leq k \leq n$, then the number of combinations is
 				\begin{equation}
-					\bi{n}{k} \equiv \frac{P(n, k)}{n!} = \frac{n!}{k!(n-k)!}
+					\red{\bi{n}{k} := \frac{P(n, k)}{n!} = \frac{n!}{k!(n-k)!}}
 				\end{equation}
 			\end{proposition}
 			
 			\begin{proposition}
 				For all integers $n$ and $k$ with $0 \leq k \leq n$
 				\begin{equation}
-					\red{\bi{n}{k} := \bi{n}{n-k}}
+					\bi{n}{k} \equiv \bi{n}{n-k}
 				\end{equation}
 			\end{proposition}
 			
@@ -787,7 +787,7 @@
 			\end{theorem}
 
 		\section{Recurrences}
-			\subsection{Solving Recurrence Relations (Mar. 20 2019)}
+			\subsection{Solving Recurrence Relations}
 				\begin{definition}
 					A \textbf{linear recurrence relation (LRR) of degree $k$} is a sequence $\{a_n\}$ such that for every $n$, 
 					\begin{equation}
