@@ -107,7 +107,7 @@
 					\item $x_i \geq 0\ \forall i \in [k]$ and strict inequality holds, then $C(N+k-1, k)$.
 					\item $x_i \geq 0\ \forall i \in [k]$ and \emph{weak} inequality holds, $C(N+k, k)$ \footnote{This can be calculated by adding case (ii) and case (v) together, and apply Pascal's identity}.
 					\begin{gather}
-						\bi{N+k-1}{k-1} + \bi{N+k-1}{k} = \bi{N+k}{k}
+						\red{\bi{N+k-1}{k-1} + \bi{N+k-1}{k} = \bi{N+k}{k}}
 					\end{gather}
 				\end{enumerate}
 			\end{example}
@@ -465,9 +465,9 @@
 		
 		\begin{theorem}
 			\hl{Every tree with $|V| \geq 2$ has at least two leaves.}
-			\begin{proof}
-				Let $\mc{T}$ be a tree. The corollary above suggests that it cannot have one leaf. Consider the case it has no leaf, then since every vertex has at least degree of 2 and $\mc{T}$ is connected, there must exist a cycle, which leads to a contradiction.
-			\end{proof}
+%			\begin{proof}
+%				Let $\mc{T}$ be a tree. The corollary above suggests that it cannot have one leaf. Consider the case it has no leaf, then since every vertex has at least degree of 2 and $\mc{T}$ is connected, there must exist a cycle, which leads to a contradiction.
+%			\end{proof}
 		\end{theorem}
 		
 		\subsection{Eulerian Graphs}
