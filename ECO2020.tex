@@ -394,6 +394,92 @@
  					Differentiate both sides of $\ve{p}^T \ve{x} = w$ with respect to $w$.
  				\end{proof}
  			\end{proposition}
+ 		
+ 		\subsection{The Weak Axiom of Revealed Preference and the Law of Demand}
+ 			\begin{assumption}
+ 				In the section, we assume $\ve{x}(\ve{p}, w)$ is (i) Single-valued, (ii) homogeneous to degree zero, and (iii) satisfies Walras' law.
+ 			\end{assumption}
+ 			
+ 			\begin{definition}
+ 				The Walrasian demand function $\ve{x}(\ve{p}, w)$ satisfies the \textbf{weak axiom of revealed preference} if for every two $(\ve{p}, w), (\ve{p}', w') \in \R_{++}^{L+1}$,
+ 				\begin{gather}
+ 					\underbrace{\ve{p} \cdot \ve{x}(\ve{p}', w') \leq w
+ 					\land \ve{x}(\ve{p}, w) \neq \ve{x}(\ve{p}', w')}_{\tx{revealed: } \ve{x}(\ve{p}, w) \succ \ve{x}(\ve{p}', w')}
+ 					\implies \ve{p}' \cdot \ve{x}(\ve{p}, w) > w'
+ 				\end{gather}
+ 			\end{definition}
+ 			
+ 			\begin{corollary}
+ 				The weak axiom says, given our assumptions and $\ve{x}(\ve{p}_1, w_1) \neq \ve{x}(\ve{p}_2, w_2)$, we cannot have both 
+ 				\begin{equation}
+ 					\ve{x}(\ve{p}_1, w_1) \in B_{\ve{p}_2, w_2} \land \ve{x}(\ve{p}_2, w_2) \in B_{\ve{p}_1, w_1}
+ 				\end{equation}
+ 			\end{corollary}
+ 			
+ 			\begin{definition}
+ 				A price change $\Delta \ve{p}$ is a \textbf{Slutsky compensated price change} if the consumer is given a \textbf{Slutsky wealth compensation} with amount
+ 				\begin{equation}
+ 					\Delta w = \Delta \ve{p} \cdot \ve{x}(\ve{p}', w')
+ 				\end{equation}
+ 				such that the consumer's initial consumption is just affordable at the new price.
+ 			\end{definition}
+ 			
+ 			\begin{proposition}[2.F.1]
+ 				Suppose that the Walrasian demand function $\ve{x}(\ve{p}', w')$ is homogenous of degree zero and satisfies Walras' law. Then $\ve{x}(\ve{p}', w')$ satisfies the weak axiom \ul{if and only if} the following property holds: \\
+ 				For any \emph{compensated price change} from $(\ve{p}, w)$ to $(\ve{p}', w'\equiv \ve{p}' \cdot \ve{x}(\ve{p}, w))$,
+ 				\begin{equation}
+ 					\Delta \ve{p} \cdot \Delta \ve{x} \leq 0
+ 				\end{equation}
+ 				with strict inequality whenever $\ve{x}(\ve{p}, w) \neq \ve{x}(\ve{p}', w')$.
+ 			\end{proposition}
+ 			
+ 			\begin{corollary}[Compensated Law of Demand]
+ 				$\Delta \ve{p} \cdot \Delta \ve{x} \leq 0$ says demand and price move in opposite directions.
+ 			\end{corollary}
+ 			
+ 			\begin{definition}
+ 				At infinitesimal price change, the Slutsky compensation can be written as 
+ 				\begin{equation}
+ 					dw = \ve{x}(\ve{p}, w) \cdot d\ve{p}
+ 				\end{equation}
+ 				and the compensated law of demand becomes
+ 				\begin{equation}
+ 					d\ve{p} \cdot d\ve{x} \leq 0
+ 				\end{equation}
+ 				Then the total derivative of $\ve{x}$ is 
+ 				\begin{gather}
+ 					d\ve{x} = D_\ve{p}\ve{x}(\ve{p}, w)\ d\ve{p} + D_w(\ve{p}, w) \ve{x}\ dw \\
+ 					= D_\ve{p}\ve{x}(\ve{p}, w)\ d\ve{p} + D_w \ve{x} (\ve{p}, w)\ [\ve{x}(\ve{p}, w) \cdot d\ve{p}] \\
+ 					= [\underbrace{D_\ve{p}\ve{x}(\ve{p}, w)}_{L \times L} + \underbrace{D_w \ve{x} (\ve{p}, w)}_{L \times 1} \underbrace{\ve{x}(\ve{p}, w)^T}_{1 \times L}] d\ve{p} \\
+ 					\implies d\ve{p}^T 
+ 					\underbrace{[D_\ve{p}\ve{x}(\ve{p}, w) + D_w \ve{x} (\ve{p}, w) \ve{x}(\ve{p}, w)^T]}_{L \times L} d\ve{p} \leq 0
+ 				\end{gather}
+ 				and the \textbf{Slutsky/substitution matrix} is defined as
+ 				\begin{gather}
+ 					S(\ve{p}, w) := [D_\ve{p}\ve{x}(\ve{p}, w) + D_w \ve{x} (\ve{p}, w) \ve{x}(\ve{p}, w)^T] \\
+ 					s_{\ell k} = \underbrace{\pd{x_\ell(\ve{p}, w)}{p_k}}_{\tx{total effect}} + \underbrace{\pd{x_\ell(\ve{p}, w)}{w} x_k (p, w)}_{\tx{wealth effect}}
+ 				\end{gather}
+ 				where $s_{\ell k}$ is the \textbf{substitution effect}.
+ 			\end{definition}
+ 			
+ 			\begin{remark}
+ 				Consider the scenario when only $p_k$ changes, with Slutsky compensation, consumer's wealth changes by $dw = x_k(\ve{p}, w) dp_k$. So the wealth effect on $x_\ell$ is $\pd{x_\ell}{w} dw = \pd{x_\ell}{w} x_k(\ve{p}, w) dp_k$.
+ 			\end{remark}
+ 			
+ 			\begin{proposition}[2.F.2]
+ 				If a differentiable Walrasian demand function $\ve{x}(\ve{p}, w)$ satisfies Walras' law, homogeneity of degree zero, and the weak axiom, then at any $(\ve{p}, w)$, the Slutsky matrix $S(\ve{p}, w)$ is negative semi-definite.
+ 			\end{proposition}
+ 			
+ 			\begin{remark}
+ 				Proposition 2.F.2 does \emph{not} imply, in general, that the matrix $S(\ve{p}, w)$ is symmetric.
+ 			\end{remark}
+ 			
+ 			\begin{proposition}[2.F.3]
+ 				Suppose that the Walrasian demand function $\ve{x}(\ve{p}, w)$ is differentiable, homogenous of degree zero, and satisfies Walras' law. Then for every $(\ve{p}, w)$
+ 				\begin{equation}
+ 					\ve{p}^T S(\ve{p}, w) = \ve{0} \land S(\ve{p}, w) \ve{p} = \ve{0}
+ 				\end{equation}
+ 			\end{proposition}
 \end{document}
 
 
