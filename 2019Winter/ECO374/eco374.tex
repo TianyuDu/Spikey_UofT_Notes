@@ -40,8 +40,10 @@
 		\item Website: \url{TianyuDu.com/notes}
 	\end{itemize}
 	\tableofcontents
+	\newpage
 	
 	\section{Introduction and Statistics Review}
+		\subsection{Definitions}
 		\begin{definition}
 			Given random variable $X$, the $k^{th}$ \textbf{non-central moment} is defined as
 			\begin{equation}
@@ -63,7 +65,7 @@
 		\begin{definition}
 			Given the \textbf{joint density} $f(X,Y)$ of two \emph{continuous} random variables, the \textbf{conditional density} of random $Y$ conditioned on $X$ is 
 			\begin{equation}
-				f_{Y|X}(y|x) = \frac{f_{Y,X}(y,x)}{f_X(x)}
+				f_{Y|X}(y|x) = \frac{f_{Y,X}(y, x)}{f_X(x)}
 			\end{equation}
 		\end{definition}
 		
@@ -74,6 +76,7 @@
 			\end{equation}
 		\end{definition}
 		
+		\subsection{Multiple Linear Regression}
 		\begin{assumption} Assumptions on linear regression on time series data:
 			\begin{enumerate}[(i)]
 				\item \textbf{Linearity}
@@ -105,7 +108,7 @@
 		\end{theorem}
 		
 		\begin{remark}
-			The \emph{no serial correlation} assumption is typically not satisfied for time series data. And the \emph{linearity} assumption is also too restrictive for time series featuring complex dynamics. Hence, for time series data we typically use other models than linear regression with OLS.
+			\hl{The \emph{no serial correlation} assumption is typically not satisfied for time series data.} And the \emph{linearity} assumption is also too restrictive for time series featuring complex dynamics. Hence, for time series data we typically use other models than linear regression with OLS.
 		\end{remark}
 		
 	\section{Statistics and Time Series}
@@ -113,12 +116,12 @@
 		\begin{definition}
 			A \textbf{stochastic process} (or \textbf{time series process}) is a family (collection) random variables indexed by $t \in \mc{T}$ and defined on some given probability space $(\Omega, \mc{F}, P)$.
 			\begin{equation}
-				\{Y_t\} = Y_1, \dots, Y_T
+				\{Y_t\}_{t \in \mc{T}} = Y_1, \dots, Y_T
 			\end{equation}
 		\end{definition}
 		
 		\begin{definition}
-			The function from $\mc{T}$ to $\R$ which assigns to each point in time $t \in \mc{T}$ the realization of the random variable $Y_t$, $y_t$ is called a \textbf{realization} or a \textbf{trajectory} or an \textbf{outcome} of the stochastic process.
+			The function from $\mc{T}$ to $\R$ which assigns to each point in time $t \in \mc{T}$ the realization of the random variable $Y_t$, $y_t$ is called a \textbf{realization}\footnote{It's also called a \textbf{trajectory} or an \textbf{outcome}} of the stochastic process.
 			\begin{equation}
 				\{y_t\} = y_1, \dots, y_T
 			\end{equation}
@@ -134,12 +137,12 @@
 		\end{assumption}
 		
 		\begin{definition}
-			A stochastic process $\{Y_t\}$ is \textbf{first order strongly stationary} if all random variables $Y_t \in \{Y_t\}$ has the \emph{same probability density function}.
+			A stochastic process $\{Y_t\}$ is \textbf{first order strongly stationary} if all random variables $Y_t \in \{Y_t\}$ has the \emph{exactly same probability density function}.
 		\end{definition}
 		
-		\begin{definition}[1.7]
-			A stochastic process $\{Y_t\}$ is \textbf{strictly stationary} if for all $h, n \geq 1$, $(Y_1,\dots,Y_n)$ and $(Y_{1+h}, \dots, Y_{n+h})$ have the same distribution.
-		\end{definition}
+%		\begin{definition}[1.7]
+%			A stochastic process $\{Y_t\}$ is \textbf{strictly stationary} if for all $h, n \geq 1$, $(Y_1,\dots,Y_n)$ and $(Y_{1+h}, \dots, Y_{n+h})$ have the same distribution.
+%		\end{definition}
 		
 		\begin{definition}
 			A stochastic process $\{Y_t\}$ is \textbf{first order weakly stationary} if
@@ -152,8 +155,8 @@
 			A stochastic process $\{Y_t\}$ is \textbf{second order weakly stationary}, or \hl{\textbf{covariance stationary}} if all random variables $\{Y_t\}$ have the same mean and variance. And the covariances do not depend on $t$.
 			That's, for all $t \in \mc{T}$,
 			\begin{enumerate}[(i)]
-				\item $\expect{Y_t} = \mu\ \forall t$
-				\item $\var{Y_t} = \sigma^2 < \infty\ \forall t$
+				\item $\expect{Y_t} = \mu\ \forall t$ constant;
+				\item $\var{Y_t} = \sigma^2 < \infty\ \forall t$ constant;
 				\item $Cov(Y_t, Y_s) = Cov(Y_{t+r}, Y_{s+r})\ \forall t,s,r\in \Z$
 			\end{enumerate}
 		\end{definition}
@@ -163,16 +166,16 @@
 		\begin{definition}
 			Let $\{Y_t\}$ be a stochastic process with $\var{Y_t} < \infty\ \forall t \in \mc{T}$, the \textbf{auto-covariance function} is defined as
 			\begin{gather}
-				\gamma_Y(t, s) \equiv Cov(Y_t, Y_s) \\
+				\gamma_Y(t, s) := Cov(Y_t, Y_s) \\
 				= \expect{(Y_t - \expect{Y_t})(Y_s - \expect{Y_s})} \\
 				= \expect{Y_t Y_s} - \expect{Y_t} \expect{Y_s}
 			\end{gather}
 		\end{definition}
 		
 		\begin{lemma}
-			If $\{Y_t\}$ is stationary, then the auto-covariance function does not depend on specific time point $t$. We can write the $h \in \Z$ degree auto-covariance as 
+			If $\{Y_t\}$ is stationary, then the auto-covariance function only depends on \emph{the lag between two inputs}, and does not depend on specific time point $t$. We can write the $h \in \Z$ degree auto-covariance as 
 			\begin{equation}
-				\gamma_Y(h) \equiv \gamma_X(t, t+h)\ \forall t \in \mc{T}
+				\gamma_Y(h) := \gamma_X(t, t+h)\ \forall t \in \mc{T}
 			\end{equation}
 		\end{lemma}
 	
@@ -214,7 +217,11 @@
 		\end{remark}
 		
 		\begin{proposition}
-			For a non-stationary stochastic process $\{Y_t\}$, $\{\Delta Y_t\}$ becomes \emph{first order weakly stationary (mean stationary)} and $\{\Delta \log(Y_t)\}$ becomes \emph{second order weakly stationary (covariance stationary)}.
+			For a non-stationary stochastic process $\{Y_t\}$,
+			\begin{itemize}
+				\item $\{\Delta Y_t\}$ becomes \emph{first order weakly stationary};
+				\item and $\{\Delta \log(Y_t)\}$ becomes \emph{second order weakly stationary (covariance stationary)}.
+			\end{itemize}
 			\begin{figure}[h]
 				\centering
 				\includegraphics{figures/2_1}
@@ -222,9 +229,9 @@
 		\end{proposition}
 		
 		\begin{definition}[1.8]
-			A stochastic process $\{Y_t\}$ is called a \textbf{Gaussian process} if all \emph{finite} dimensional distribution from the process are multivariate normally distributed. That's
+			A stochastic process $\{Y_t\}$ is called a \textbf{Gaussian process} if the distribution for all \emph{finite} dimensional segments from the process are \ul{multivariate normal}. That's
 			\begin{gather}
-				\forall n \in \Z_{>0},\ \forall (t_1, \dots, t_n) \in \mc{T}^n, (Y_{t_1}, \dots, Y_{t_n}) \sim \mc{N}(\bs{\mu}, \Sigma)
+				\forall n \in \Z_{++},\ \forall (t_1, \dots, t_n) \in \mc{T}^n, (Y_{t_1}, \dots, Y_{t_n}) \sim \mc{N}(\bs{\mu}, \Sigma)
 			\end{gather}
 		\end{definition}
 		
@@ -249,10 +256,15 @@
 			\end{gather}
 		\end{definition}
 		
-		\begin{remark}[Interpretation of PACF] partial auto-correlation $r(k)$ only measures correlation between two variables $Y_t$ and $Y_{t+k}$ while \emph{controlling intermediate variables} $(Y_{t+1}, \dots, Y_{t+k-1})$.
+		\begin{remark}[Interpretation of PACF]
+		Partial auto-correlation $r(k)$ only measures correlation between two variables $Y_t$ and $Y_{t+k}$ while \emph{controlling intermediate variables} $(Y_{t+1}, \dots, Y_{t+k-1})$.
 		\end{remark}
 		
-		\begin{remark}AR and MA signatures on ACF and PACF plot.
+		\begin{remark}
+			\hl{Partial auto-correlation can be interpreted as the estimated coefficients when regressing $Y_t$ on its lagged values.}
+		\end{remark}
+		
+		\begin{remark}AR and MA signatures on ACF and PACF plot.\footnote{Zero here means statistically insignificant.}
 			\begin{table}[h]
 				\centering
 				\begin{tabular}{l|c|c}
@@ -283,7 +295,7 @@
 		\begin{equation}
 			Q_k = T(T+1) \sum_{j=1}^k \frac{\hat{\rho}_j^2}{T-j} \sim \chi_k^2
 		\end{equation}
-	\subsection{Causality and Invertibility}
+	\subsection{Causality and Invertibility (Optional)}
 	\subsubsection{Causality}
 		\begin{definition}[Causality]
 			An ARMA($p, q$) process $\{Y_t\}$ with 
@@ -298,7 +310,7 @@
 		\end{definition}
 		
 		\begin{proposition}
-			By the definition of causality, a pure MA process (which is stationary) is naturally a causal representation with respect to it's own error term $\{\varepsilon_t\}$.
+			\hl{By the definition of causality, a pure MA process (which is stationary) is naturally a causal representation with respect to it's own error term $\{\varepsilon_t\}$.}
 		\end{proposition}
 		
 		\begin{theorem}
@@ -325,7 +337,7 @@
 	\end{definition}
 	
 	\begin{proposition}
-		By the definition of invertibility, a stationary auto-regressive process is naturally invertible with respect to it's own error term $\{\varepsilon_t\}$.
+		\hl{By the definition of invertibility, a stationary auto-regressive process is naturally invertible with respect to it's own error term $\{\varepsilon_t\}$.}
 	\end{proposition}
 	
 	\begin{theorem}
@@ -342,18 +354,18 @@
 	\section{Forecasting Tools}
 	\subsection{Information Set}
 		\begin{definition}
-			For stochastic process $\{Y_t\}$, the \textbf{information set} $I_t$ is the \emph{known time series} up to time $t$. It takes the form of a $n$-tuple $(y_{t_0}, y_{t_1}, \dots, y_{t_n})$ such that $t_n \leq t$ so the information set is certain at time $t$.
+			For stochastic process $\{Y_t\}$, the \textbf{information set} $I_t$ is the \emph{known time series} up to time $t$. It takes the form of a $n$-tuple $(y_{t_1}, y_{t_2}, \dots, y_{t_n})$ such that $t_n \leq t$ so the information set is \emph{certain} at time $t$.
 		\end{definition}
 		
 		\begin{definition}
-			A \textbf{forecast} $f_{t,h}$ the image of a \emph{time series model} $g$ under given information set $I_t$. Specifically,
+			A \textbf{forecast} $f_{t, h}$ is the image of a \emph{time series model} $g$ under given information set $I_t$. Specifically,
 			\begin{equation}
-				f_{t,h} = g(I_t) \in \R
+				f_{t, h} = g(I_t) \in \R
 			\end{equation}
 		\end{definition}
 	\subsection{Forecast Horizon}
 		\begin{remark}
-			\emph{Covariance stationary} processes are \textbf{short-memory processes}. More recent observation contains information far more relevant for the future than older information.
+			\emph{Covariance stationary} processes are \textbf{short-memory processes}. More recent observation contains information far more relevant for the future than older information. \hl{Therefore, as a result, the forecast $f_{t, h}$ converges when $h \to \infty$.}
 		\end{remark}
 		
 		\begin{remark}
@@ -361,8 +373,8 @@
 		\end{remark}
 		\subsubsection{Forecasting Environments: \emph{Recursive}}
 			\begin{enumerate}[(i)]
-				\item \emph{Updating} with \emph{flexible} information set.
-				\item Advantageous if model is \emph{stable over time}.
+				\item \emph{Re-train} and predict with \emph{updated} information set;
+				\item Advantageous if model is \emph{stable over time};
 				\item Not robust to \hl{\emph{structural break}}. 
 			\end{enumerate}
 			\begin{figure}[H]
@@ -372,8 +384,8 @@
 			\end{figure}
 		\subsubsection{Forecasting Environments: \emph{Rolling}}
 			\begin{enumerate}[(i)]
-				\item \emph{Updating} with \emph{fixed-size} information set.
-				\item Robust against \hl{\emph{structural breaks}}.
+				\item \emph{Re-train} and predict with \emph{updated but fixed-size} information set;
+				\item Robust against \hl{\emph{structural breaks}};
 				\item Not fully exploit information available.
 			\end{enumerate}
 			\begin{figure}[H]
@@ -395,22 +407,22 @@
 		\begin{definition}
 			A loss function $L(e)$ is a real-valued function defined on the space of \emph{forecast errors}, $\mc{E}$, and satisfies the following properties
 			\begin{enumerate}[(i)]
-				\item $L(e) = 0 \iff ||e|| = 0$;
+				\item $L(e) = 0 \iff \norm{e} = 0$;
 				\item $\forall e \in \mc{E}, L(e) \geq 0$\footnote{Since forecasting here can be considered as an optimization process, with $L$ as the objective function. It's fine for $L$ not satisfying the non-negativity condition. However, by convention, we assume $L$ to be non-negative.};
-				\item $L$ is \emph{monotonically increasing} in the norm of forecast error.
+				\item $L$ is \emph{monotonically increasing} in the \emph{norm} of forecast error.
 			\end{enumerate}
 		\end{definition}
 		
 		\begin{example}[Symmetric Loss Functions with $\mc{E} = \R$]
 			\begin{align}
 				L(e) = a e^2,\ a > 0 \\
-				L(e) = a |e|,\ a > 0
+				L(e) = a\ |e|,\ a > 0
 			\end{align}
 		\end{example}
 		
 		\begin{example}[Asymmetric Loss Functions with $\mc{E} = \R$]
 			\begin{align}
-				L(e) = exp(ae) - ae - 1,\ a > 0 & \tx{ Linex Function} \\
+				L(e) = \exp(ae) - ae - 1,\ a > 0 & \tx{ Lin(ear)-ex(ponential) Function} \\
 				L(e) = a\ |e|\ \mathbb{I}(e \geq 0) + b\ |e|\ \mathbb{I}(e < 0) &\tx{ Lin-lin Function}
 			\end{align}
 		\end{example}
@@ -441,7 +453,7 @@
 					\pd{L}{f_{t, h}} = -2 \int (y_{t+h} - f_{t, h}) f(y_{t+h}|I_t)\ dy_{t+h} = 0 \\
 					\implies \int (y_{t+h} - f_{t, h}) f(y_{t+h}|I_t)\ dy_{t+h} = 0 \\
 					\implies \int y_{t+h} f(y_{t+h}|I_t)\ dy_{t+h} = f_{t, h} \int  f(y_{t+h}|I_t)\ dy_{t+h} \\
-					\implies f_{t, h} = \expect{y_{t+h}|I_t} \equiv \mu_{t+h|t}
+					\implies \red{f_{t, h} := \mu_{t+h|t} := \expect{y_{t+h}|I_t}}
 				\end{gather}
 			\end{proof}
 		\end{proposition}
@@ -449,9 +461,9 @@
 	\section{Moving Average Process}
 		\subsection{Wold Decomposition Theorem}
 			\begin{theorem}[Wold Decomposition Theorem]
-				Every covariance stationary stochastic process $\{Y_t\}$ with mean zero and finite positive variance can be \emph{uniquely} represented as
+				Every \ul{covariance stationary} stochastic process $\{Y_t\}$ with mean zero and finite positive variance can be \ul{uniquely} represented as
 				\begin{equation}
-					Y_t = V_t + \sum_{j=0}^\infty \psi_j L^j \varepsilon_t = V_t + \Psi(L)\varepsilon_t
+					Y_t = \underbrace{V_t}_{\tx{AR}} + \underbrace{\sum_{j=0}^\infty \psi_j L^j \varepsilon_t}_{\tx{MA}} = V_t + \Psi(L)\varepsilon_t
 				\end{equation}
 				where 
 				\begin{enumerate}[(i)]
@@ -479,8 +491,12 @@
 				\end{equation}
 				and the approximation is \emph{accurate in Euclidean norm}, that's,
 				\begin{equation}
-					\expect{Y_t -\sum_{j=0}^n \psi_j L^j \varepsilon_t}^2 \rightarrow 0 \tx{ as } n \to 0
+					\expect{Y_t -\sum_{j=0}^n \psi_j L^j \varepsilon_t}^2 \rightarrow 0 \tx{ as } n \to \infty
 				\end{equation}
+			\end{corollary}
+			
+			\begin{corollary}
+				The Wold decomposition guarantees that there always exists a \ul{linear model} that can represent the dynamics of a \ul{covariance stationary} process.
 			\end{corollary}
 		\subsection{Moving Average Process}
 			\begin{definition}
@@ -488,7 +504,7 @@
 				\begin{equation}
 					Y_t = \mu + \Theta(L) \varepsilon_t = \mu + \theta_0 \varepsilon_t + \theta_1 \varepsilon_{t-1} + \dots + \theta_q \varepsilon_{t-q} \tx{ where } \theta_0 = 1, \theta_q \neq 0
 				\end{equation}
-				where $\{\varepsilon_t\}$ is innovations.
+				where $\{\varepsilon_t\}$ is the series of innovations.
 			\end{definition}
 			
 			\begin{lemma}
@@ -496,7 +512,14 @@
 				\begin{equation}
 					\Psi(L) \approx \frac{\Theta_q(L)}{\Phi_p(L)}
 				\end{equation}
+				\begin{proof}[Proof Idea.]
+					Taylor's Series.
+				\end{proof}
 			\end{lemma}
+			
+			\begin{remark}
+				MA process is always \emph{causal} by definition.
+			\end{remark}
 			
 			\begin{definition}
 				MA(1) process takes the form of 
@@ -505,7 +528,7 @@
 				\end{equation}
 			\end{definition}
 			
-			\paragraph{Unconditional Moments of MA(1)}
+			\paragraph{Unconditional Moments of MA(1)}where $\mu :=$ unconditional mean.
 				\begin{align}
 					\expect{Y_t} = \expect{\mu + \varepsilon_t + \theta \varepsilon_{t-1}} &= \mu 
 				\end{align}
@@ -556,7 +579,7 @@
 				For any process, $\rho_1 = r_1$.
 			\end{proposition}
 			\begin{remark}
-				If the $MA$ process is invertible, we can always find an autoregressive representation in which the present is a function of the past.
+				If the MA process is invertible, we can always find an autoregressive representation in which the present is a function of the past innovations.
 			\end{remark}
 		\subsection{Forecasting with MA(1)}
 			\subsubsection{Forecasting with Horizon $h=1$}
@@ -576,22 +599,22 @@
 						= \expect{\varepsilon_{t+1}^2|I_t} \\
 						= \sigma^2_\varepsilon
 					\end{gather}
-				\textbf{Density forecast} assuming \emph{normality} of $\varepsilon$
+				\textbf{Density forecast} assuming \emph{normality} of $\varepsilon$. Confidence interval can be computed using the the density forecast.
 					\begin{gather}
 						\mc{F} \equiv \mc{N}(\mu_{t+1|t}, \sigma_{t+1|t}^2) \\
 						\mu_{t+1|t} = \mu + \theta \varepsilon_t \\
 						\sigma_{t+1|t}^2 =  \sigma^2_\varepsilon
 					\end{gather}
 			\subsubsection{Forecasting with Horizon $h=2$}
-				\textbf{Point estimate}
+				\paragraph{Point estimate}
 					\begin{gather}
 						f_{t,2} = \expect{Y_{t+2} | I_t} \\
-						= \expect{\mu + \theta \varepsilon_{t+1} + \varepsilon_{t+2} | I_t} \\
+						= \expect{\mu + \theta \varepsilon_{t+1} + \varepsilon_{t+2} | I_t}
 						= \mu
 					\end{gather}
-				\textbf{Forecasting Error}
+				\textbf{Forecasting error}
 					\begin{gather}
-						Y_{t+2} - f{t,2} = \theta \varepsilon_{t+1} + \varepsilon_{t+2}
+						Y_{t+2} - f_{t,2} = \theta \varepsilon_{t+1} + \varepsilon_{t+2}
 					\end{gather}
 				\textbf{Forecasting Uncertainty}
 					\begin{gather}
@@ -652,7 +675,7 @@
 			\end{definition}
 			
 			\begin{definition}
-				An \textbf{auto-regressive} process of order 1 takes the form of stochastic difference equation
+				An \textbf{auto-regressive} process of order 1 takes the form of \emph{stochastic difference equation}:
 				\begin{equation}
 					Y_t = c + \phi Y_{t-1} + \varepsilon_t
 				\end{equation}
@@ -669,35 +692,40 @@
 				r_k = 0\ \forall k > 1
 			\end{gather}
 			
-		\subsubsection{Forecasting with AR(1) and $h=1$}\footnote{While examining the optimal forecast in this section, we are assuming the loss function is \emph{symmetric}.}
-			\textbf{Point Estimate}
+		\subsubsection{Forecasting with AR(1) and $h=1$}
+			\begin{assumption}
+				While examining the optimal forecast in this section, we are assuming the loss function is \emph{symmetric}.
+			\end{assumption}
+			
+			\paragraph{Point estimate}
 				\begin{gather}
 					f_{t,1} = \expect{Y_{t+1}|I_t} \\
 					= c + \phi Y_t
 				\end{gather}
-			\textbf{Forecast Variance(Uncertainty)}
+			\paragraph{Forecast variance(uncertainty)}
 				\begin{gather}
 					\var{Y_{t+1}|I_t} = \var{c + \phi Y_t + \varepsilon_{t+1}|I_t}
 					= \sigma_\varepsilon^2
 				\end{gather}
-			\textbf{Density Forecast}
+			\textbf{Density forecast}
 				\begin{gather}
 					\mc{F} = \mc{N}(c + \phi Y_t, \sigma_\varepsilon^2)
 				\end{gather}
+				
 		\subsubsection{Forecasting with AR(1) and $h=s>1$}
-			\textbf{Point Estimate}
+			\paragraph{Point estimate}
 				\begin{gather}
 					f_{t,s} = \expect{Y_{t+s}|I_t} \\
 					= c + \expect{\phi Y_{t+s-1}|I_t} \\
 					= (1 + \phi + \dots + \phi^{s-1}) c + \phi^s Y_t
 				\end{gather}
-			\textbf{Forecasting Uncertainty}
+			\textbf{Forecasting uncertainty}
 				\begin{gather}
 					\var{Y_{t+s}|I_t} = \var{\varepsilon_{t+s} + \phi \varepsilon_{t+s-1} + \dots + \phi^{s-1} \varepsilon_{t+1} | I_t} \\
 					= \sum_{j=0}^{s-1} \phi^{\red{2j}} \sigma_\varepsilon^2
 				\end{gather}
 			\begin{remark}
-				ACF and PACF are estimated functions subject to sampling error, so the estimated ACF and PACF from sample might be different from their theoretical values.
+				\emph{ACF and PACF are estimated functions subject to sampling error, so the estimated ACF and PACF from sample might be different from their theoretical values.}
 			\end{remark}
 		\subsubsection{Forecasting with AR(1) and $h \to \infty$}
 			\begin{assumption}
@@ -722,18 +750,18 @@
 					Y_t = c + \phi_1 Y_{t-1} + \phi_2 Y_{t-2} + \varepsilon_t
 				\end{equation}
 			\end{definition}
-			\textbf{Unconditional Moments}
+			\paragraph{Unconditional Moments}
 				\begin{gather}
 					\expect{Y_t} = c + \phi_1 \expect{Y_{t-1}} + \phi_2 \expect{Y_{t-2}} \\
 					\implies \red{\mu_Y = \frac{c}{1 - \phi_1 - \phi_2}}
 %					\var{Y_t} = \sigma_\varepsilon^2
 				\end{gather}
-			\textbf{Auto-covariance and Auto-correlation}
+			\paragraph{Auto-covariance and Auto-correlation}
 				\begin{gather}
 					\rho_1 = r_1 \\
 					r_2 = \phi_2 + \red{\text{ sampling error}}
 				\end{gather}
-			\textbf{Optimal Forecasts $h=1$}
+			\paragraph{Optimal Forecasts $h=1$}
 				\begin{gather}
 					f_{t,1} = \expect{Y_{t+1}|I_t} \\
 					= \expect{c + \phi_1 Y_t + \phi_2 Y_{t-1} + \varepsilon_{t+1}|I_t} \\
@@ -745,7 +773,7 @@
 				\begin{gather}
 					\sigma_{t+1|t}^2 = \var{Y_{t+1}|I_t} = \sigma_\varepsilon^2
 				\end{gather}
-			\textbf{Optimal Forecasts $h=2$}
+			\paragraph{Optimal Forecasts $h=2$}
 				\begin{gather}
 					f_{t,2} = \expect{Y_{t+2}|I_t} \\
 					= \expect{c + \phi_1 Y_{t+1} + \phi_2 Y_t + \varepsilon_{t+2}|I_t} \\
