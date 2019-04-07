@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{chngcntr}
+\usepackage{mathrsfs}
 \usepackage{centernot}
 \usepackage[shortlabels]{enumitem}
 
@@ -583,17 +584,17 @@
 			\end{remark}
 		\subsection{Forecasting with MA(1)}
 			\subsubsection{Forecasting with Horizon $h=1$}
-				\textbf{Point estimate}
+				\paragraph{Point estimate}
 					\begin{gather}
 						f_{t,1} = \expect{Y_{t+1}|I_t} \\
 						= \expect{\mu + \theta \varepsilon_{t} + \varepsilon_{t+1}|I_t} \\
 						= \mu + \theta \varepsilon_t
 					\end{gather}
-				\textbf{Forecasting error}
+				\paragraph{Forecasting error}
 					\begin{gather}
 						e_{t,1} = Y_{t+1} - f_{t,1} = \varepsilon_{t+1}
 					\end{gather}
-				\textbf{Forecasting uncertainty}
+				\paragraph{Forecasting uncertainty}
 					\begin{gather}
 						\red{\sigma_{t+1|t}^2} = \var{Y_{t+1}|I_t} \\
 						= \expect{\varepsilon_{t+1}^2|I_t} \\
@@ -629,27 +630,27 @@
 					Since for any $h > 1$, MA(1) only generates the unconditional mean $\mu$ as the point estimate, we say MA(1) process is \textbf{short memory}.
 				\end{remark}
 		\subsection{Properties of MA(2) Process}
-			\textbf{Model}
+			\paragraph{Model}
 				\begin{equation}
 					Y_t = \mu + \varepsilon_t + \theta_1 \varepsilon_{t-1} + \theta_2 \varepsilon_{t-2}
 				\end{equation}
-			\textbf{Unconditional Moments}
+			\paragraph{Unconditional Moments}
 				\begin{gather}
 					\expect{Y_t} = \mu \\
 					\var{Y_t} = (1 + \theta_1^2 + \theta_2^2) \sigma_\varepsilon^2
 				\end{gather}
-			\textbf{Auto-covariance}
+			\paragraph{Auto-covariance}
 				\begin{gather}
 					\gamma_0 = \var{Y_t} = (1 + \theta_1^2 + \theta_2^2) \sigma_\varepsilon^2 \\
 					\gamma_1 = (\theta_1 + \theta_1 \theta_2) \sigma_\varepsilon^2 \\
 					\gamma_2 = \theta_2 \sigma_\varepsilon^2
 				\end{gather}
-			\textbf{Auto-correlation}
+			\paragraph{Auto-correlation}
 				\begin{gather}
 					\rho_1 \equiv \frac{\gamma_1}{\gamma_0} = \frac{\theta_1 + \theta_1 \theta_2}{1 + \theta_1^2 + \theta_2^2} \\
 					\rho_2 \equiv \frac{\gamma_2}{\gamma_0} = \frac{\theta_2}{1 + \theta_1^2 + \theta_2^2}
 				\end{gather}
-			\textbf{Optimal Forecasting}
+			\paragraph{Optimal Forecasting}
 				\begin{gather}
 					f_{t, 1} = \mu + \theta_1 \varepsilon_t + \theta_2 \varepsilon_{t-1} \\
 					f_{t, 2} = \mu + \theta_2 \varepsilon_t \\
@@ -683,7 +684,7 @@
 			\end{definition}
 		
 		\begin{proposition}
-			AR(1) process is stationary if and only if $|\phi| < 1$.
+			AR(1) process is stationary if and only if $|\phi| < 1$ (\emph{all roots outside the unit circle}).
 		\end{proposition}
 		
 		\paragraph{ACF and PACF}
@@ -790,26 +791,27 @@
 					= (1 + \phi_1^2) \sigma_\varepsilon^2
 				\end{gather}
 			\textbf{Optimal Forecasts $h=s>2$}
-				\begin{gather}
-					f_{t, s} = \expect{Y_{t+s}|I_t} \\
-					= c + \phi_1 f_{t, s-1} + \phi_2 f_{t, s-2}
-				\end{gather}
+				\begin{align}
+					f_{t, s} &= \expect{Y_{t+s}|I_t} \\
+					&= c + \phi_1 f_{t, s-1} + \phi_2 f_{t, s-2}
+				\end{align}
 				
-				\begin{gather}
-					e_{t, s} = \phi_1 e_{t, s-1} + \phi_2 e_{t, s-2} + \varepsilon_{t+s}
-				\end{gather}
+				\begin{align}
+					e_{t, s} &= \phi_1(Y_{t+s-1} - f_{t, s-1}) + \phi_2(Y_{t+s-2} - f_{t, s-2}) + \varepsilon_{t+s} \\
+					&= \phi_1 e_{t, s-1} + \phi_2 e_{t, s-2} + \varepsilon_{t+s}
+				\end{align}
 				
-				\begin{gather}
-					\sigma_{t+s|t}^2 = \var{Y_{t+s}|I_t} \\
-					= \var{e_{t,s}|I_t} \\
-					= \phi_1 \sigma_{t+s-1|t}^2 + \phi_2 \sigma_{t+s-2|t}^2 + \sigma_\varepsilon^2
-				\end{gather}
+				\begin{align}
+					\sigma_{t+s|t}^2 &= \var{Y_{t+s}|I_t} \\
+					&= \var{e_{t,s}|I_t} \\
+					&= \phi_1 \sigma_{t+s-1|t}^2 + \phi_2 \sigma_{t+s-2|t}^2 + \sigma_\varepsilon^2
+				\end{align}
 			\begin{remark}
 				AR(2) is still classified as \emph{short memory processes} as 
-				\begin{gather}
-					\lim_{s \to \infty} f_{t, s} = \mu \\
-					\lim_{s \to \infty} \sigma_{t+2|t}^2 = \sigma_Y^2
-				\end{gather}
+				\begin{align}
+					\lim_{s \to \infty} f_{t, s} &= \mu \\
+					\lim_{s \to \infty} \sigma_{t+2|t}^2 &= \sigma_Y^2
+				\end{align}
 			\end{remark}
 			
 		\subsubsection{AP($p$) process}
@@ -818,7 +820,7 @@
 			\end{definition}
 			
 			\begin{theorem}
-				An autoregressive process is stationary if and only if all roots of its characteristic polynomial are \hl{outside} the unit circle on $\C$.
+				An autoregressive process is stationary \ul{if and only if} all roots of its characteristic polynomial are \hl{outside} the unit circle on $\C$.
 			\end{theorem}
 			
 			\paragraph{Forecasting with AR($p$) Process} we apply a \hl{recursive} scheme, or \hl{\textbf{chain rule of forecasting}}, in which the we use the \emph{forecasted} values to make prediction on even further values.
@@ -831,9 +833,9 @@
 				\end{align}
 			\end{example}
 		
-		\subsection{AR Forecasting Procedures}
+		\subsection{Procedures of Forecasting with Autoregressive Models}
 			\begin{enumerate}[(i)]
-				\item \textbf{Estimate} $\hat{\Phi}$ and $\hat{\sigma}_\varepsilon^2$ and $\hat{\mu}$(unconditional mean). 
+				\item \textbf{Estimate} $\hat{\Phi}$ and $\hat{\sigma}_\varepsilon^2$ and $\hat{\mu}$ (unconditional mean). 
 				\item Calculate $\hat{c}$(intercept) from $\hat{\Phi}$ and $\hat{\mu}$.
 				\item Construct forecast $f_{t, h}$ with \textbf{chain rule of forecasting}.
 				\item \textbf{Density forecast}, under normality assumption of $\varepsilon$ is
@@ -849,11 +851,16 @@
 		\subsection{Seasonality}
 			\subsubsection{Deterministic Seasonality}
 				\begin{definition}
-					The seasonality is \textbf{deterministic} if the regressors indicating seasons are always exactly predictable.
+					The seasonality is \textbf{deterministic} if the seasonal component regressors are always exactly predictable.
 				\end{definition}
+				
+				\begin{remark}
+					To handle deterministic seasonality, just add those indicator terms into the regression.
+				\end{remark}
+				
 			\subsubsection{Stochastic Seasonality}
 				\begin{definition}
-					The seasonality os \textbf{stochastic} if the seasonal component is driven by random variables.
+					The seasonality is \textbf{stochastic} if the seasonal component is driven by random variables.
 				\end{definition}
 				
 				\begin{definition}
@@ -868,8 +875,8 @@
 				\begin{definition}
 					Characteristics of realizations from S-AR($p$) process:
 					\begin{enumerate}[(i)]
-						\item ACF decays slowly with spikes at multiples of $s$.
-						\item PACF \hl{only} spikes at multiples of $s$.
+						\item ACF decays slowly with spikes at \ul{multiples of $s$}.
+						\item PACF \hl{only} spikes at \ul{multiples of $s$}.
 					\end{enumerate}
 				\end{definition}
 				
@@ -883,8 +890,8 @@
 				\begin{remark}
 					Characteristics of realizations from S-MA($q$) process:
 					\begin{enumerate}[(i)]
-						\item ACF \hl{only} spikes at multiples of $s$.
-						\item PACF decays slowly with spikes at multiples of $s$.
+						\item ACF \hl{only} spikes at \ul{multiples of $s$}.
+						\item PACF decays slowly with spikes at \ul{multiples of $s$}.
 					\end{enumerate}
 				\end{remark}
 				
@@ -907,35 +914,35 @@
 			\begin{definition}
 				\textbf{Akaike information criterion}(AIC) of a model with $k$ parameters is defined as
 				\begin{equation}
-					AIC \equiv -2 \ln(\mc{L}) + 2k
+					\red{AIC := -2 \ln(\mc{L}) + 2k}
 				\end{equation}
 			\end{definition}
 			
 			\begin{definition}
 				\textbf{Bayes information criterion}(BIC)/\textbf{Schwarz information criterion}(SIC) of a model with $k$ parameters and fitted on the sample with size $N$ is defined as
 				\begin{equation}
-					BIC \equiv -2 \ln(\mc{L}) + 2 \ln(N) k
+					\red{BIC := -2 \ln(\mc{L}) + 2 \ln(N) k}
 				\end{equation}
 			\end{definition}
 			
 			\begin{definition}
 				Given time series data sample with size $T$, and use the \emph{recursive scheme} starting from $t < T$, with forecasting horizon $h$, given sequence of \emph{ground truth}
 				\begin{equation}
-					\mc{Y} = (y_j)_{j=t+h}^T
+					\mathscr{Y} = (y_j)_{j=t+h}^T
 				\end{equation}
 				we can construct a sequence of forecast
 				\begin{equation}
-					\mc{F} = (f_{t, h}, f_{t+1, h}, f_{t+2, h}, \dots, f_{T-h, h})
+					\mathscr{F} = (f_{t, h}, f_{t+1, h}, f_{t+2, h}, \dots, f_{T-h, h})
 				\end{equation}
 				and a sequence of forecasting errors
 				\begin{equation}
-					\mc{E} = (e_{j, t})_{j=t+h}^T
+					\mathscr{E} = (e_{j, t})_{j=t+h}^T
 				\end{equation}
 				then,
 				\begin{gather}
-					\tx{MSE} \equiv \frac{1}{|\mc{F}|} \sum_{e \in \mc{E}} e^2 \\
-					\tx{MAE} \equiv \frac{1}{|\mc{F}|} \sum_{e \in \mc{E}} \norm{e} \\
-					\tx{MAPE} \equiv \frac{1}{|\mc{F}|} \sum_{(y,e) \in (\mc{Y}, \mc{E})} \norm{\frac{e}{y}}
+					\tx{MSE} \equiv \frac{1}{|\mathscr{F}|} \sum_{e \in \mathscr{E}} e^2 \\
+					\tx{MAE} \equiv \frac{1}{|\mathscr{F}|} \sum_{e \in \mathscr{E}} \norm{e} \\
+					\tx{MAPE} \equiv \frac{1}{|\mathscr{F}|} \sum_{(y,e) \in (\mathscr{Y}, \mathscr{E})} \norm{\frac{e}{y}}
 				\end{gather}
 			\end{definition}
 		\subsection{Asymmetric Loss}
@@ -1003,6 +1010,7 @@
 			\end{example}
 	
 	\section{Trends}
+	
 	
 	\section{Vector Auto-regression Model}
 	
