@@ -1010,13 +1010,75 @@
 			\end{example}
 	
 	\section{Trends}
-	
+		\begin{definition}
+			 Time series is called \textbf{non-stationary} if it contains a \textbf{trend}.
+		\end{definition}
 	
 	\section{Vector Auto-regression Model}
 	
 	\section{Vector Error Correction Model}
 			
 	\section{Volatility I}
+		\subsection{Higher-order Moments}
+			\begin{definition}
+				The third order moment, \textbf{Skewness}, of $X$ is defined as 
+				\begin{equation}
+					k_3 := \expect{(X - \expect{X})^3}
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				The \textbf{excess Kurtosis} of defined as
+				\begin{equation}
+					k_4 := \underbrace{\expect{(X - \expect{X})^4}}_{\tx{Kurtosis}} - \underbrace{3 \var{X}^2}_{\tx{Kurtosis of Gaussian}}
+				\end{equation}
+				Kurtosis measures the thickness of the tails of the density of $X$, and consequently the peakedness of the middle, relative to the Normal distribution with $k_4 = 0$.
+				\begin{enumerate}[(i)]
+					\item \textbf{Leptokurtic}, $k_4 > 0$, \emph{Heavy Tails};
+					\item \textbf{Mesokurtic}, $k_4 < 0$, \emph{Thin Tails}.
+				\end{enumerate}
+			\end{definition}
+		
+		\subsection{Moving Average}
+			\begin{definition}
+				Modelling conditional variance
+				\begin{equation}
+					\hat{\sigma}^2_{t|t-1} = \frac{1}{n} \sum_{i=1}^n (r_{t-i} - \mu)^2
+				\end{equation}
+				\emph{Higher $n$ will yield a smoother estimate}.
+			\end{definition}
+		
+		\subsection{Simple Exponential Smoothing (SES)}
+			\paragraph{Model} \hl{for the mean $\mu$}
+				\begin{align}
+					\mu_T &= \alpha y_T + (1 - \alpha)\mu_{T-1} \tx{ (smooth equation)} \\
+					\iff \mu_T &= \mu_{T-1} + \alpha (\underbrace{y_T - \mu_{T-1}}_{\tx{error}}) \tx{ (error correction form)}
+				\end{align}
+				where $\alpha \in (0, 1)$ is a \textbf{smoothing constant}.
+				
+			\paragraph{Choosing Parameter $\alpha$} using \emph{numerical methods}(e.g. grid search) to minimize the \emph{in-sample prediction error}:
+				\begin{gather}
+					\alpha^* = \argmin_{\alpha \in (0, 1)} \underbrace{\sum_{t=1}^T(y_t - \mu_{t-1})^2}_{SSE}
+				\end{gather}
+			
+			\paragraph{Recursive Expansion}
+				\begin{align}
+					\mu_T &= \alpha y_T + (1 - \alpha) \mu_{T-1} \\
+					&= \alpha y_T + (1 - \alpha) [\alpha y_{T-1} + (1 - \alpha) \mu_{T-2}] \\
+					&= \alpha \sum_{k=0}^{T-1}(1-\alpha)^k y_{T-k} + \underbrace{(1 - \alpha)^{T-1} \mu_0}_{=0} \\
+				\end{align}
+				and in general $\mu_0$ is initialized to zero.
+		
+		\subsection{Exponentially Weighted Moving Average (EWMA)}
+			\begin{remark}
+				By replacing the objective of prediction in SES ($\mu$) with the variance of series, we can build a EWMA model. 
+			\end{remark}
+			
+			\paragraph{Model} \hl{for the variance $(r_t - \mu)^2$}
+				\begin{align}
+					\hat{\sigma}^2_{t|t-1} &= (1 - \lambda) \sum_{k=0}^{t-1} \lambda^k (r_{t-k} - \sigma^2)^2 
+				\end{align}
+				
 	
 	\section{Volatility II}
 	
