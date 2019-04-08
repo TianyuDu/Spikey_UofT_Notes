@@ -1147,8 +1147,94 @@
     	            \caption{Optimal forecast for different trends}
     	        \end{figure}
 	
-	\section{Vector Auto-regression Model}
-	
+	\section{Vector Auto-regression}
+	    \subsection{VAR Model}
+            \begin{definition}
+                \begin{align}
+                    \ve{V}_t &:= \begin{pmatrix}Y_t \\ X_t \end{pmatrix} \\
+                    \ve{V}_t &= \bs{\gamma}_0 + \Gamma_1 \ve{V}_{t-1} + \dots \Gamma_p \ve{V}_{t-p} + \bs{\varepsilon}_t
+                \end{align}
+                where $\Gamma_j$ are $2 \times 2$ matrices, and $\bs{\gamma}_0$ and $\bs{\varepsilon}_t$ are vectors.
+            \end{definition}
+            
+            \begin{remark}
+                Note that the error terms (components in $\varepsilon_t$) can be correlated.
+            \end{remark}
+            
+            \begin{remark}
+                We assume the error terms follows multivariate Gaussian distribution
+                \begin{gather}
+                    \bs{\varepsilon}_t \sim \mc{N}(\ve{0}, \bs{\Sigma})
+                \end{gather}
+            \end{remark}
+            
+            \begin{remark}
+                Model selection based on ACF and PACF can become quite cumbersome in the multivariate environment. Therefore \hl{we will not consider the MA component, and use information criteria (AIC) to select $p$ in the VAR model specification.}
+    	    \end{remark}
+    	    
+        \subsection{Granger Causality}
+            \begin{definition}
+                The process $\{X_t\}$ is said to \textbf{Granger cause} the process $\{Y_t\}$ if lagged values of $X_t$ help predicting $Y_t$ beyond the information contained in the lagged values of $Y_t$.
+            \end{definition}
+            
+            \begin{remark}
+                Granger causality measures predictive power (statistical association) and \ul{has nothing to do with the concept of causality}
+            \end{remark}
+            
+            \begin{remark}[Granger Causality Test] \hl{partial $F$-test} for the VAR($p$) model
+                \begin{align}
+                    Y_t = c_1 &+ \alpha_{11} Y_{t-1} + \dots + \alpha_{1p} Y_{t-p} \\
+                    &+ \beta_{11} X_{t-1} + \dots + \beta_{t-p}X_{t-p} + \varepsilon_{1t} \\
+                    X_t = c_2 &+ \alpha_{21} Y_{t-1} + \dots + \alpha_{2p} Y_{t-p} \\
+                    &+ \beta_{21} X_{t-1} + \dots + \beta_{2p} X_{t-p}
+                \end{align}
+                \begin{itemize}
+                    \item $X_t$ does \ul{not} Granger cause $Y_t$:
+                        \begin{align}
+                            H_0 &:= \beta_{11} = \beta_{12} = \dots = \beta_{1p} = 0
+                        \end{align}
+                    \item $Y_t$ does \ul{not} Granger cause $X_t$:
+                        \begin{align}
+                            H_0 &:= \alpha_{21} = \alpha_{22} = \dots = \alpha_{2p} = 0
+                        \end{align}
+                \end{itemize}
+            \end{remark}
+            
+        \subsection{Impulse-Response Function}
+            \begin{definition}
+                The \textbf{Impulse-Response Function}(IRF) quantifies the progression of the unit-sized shock through the VAR system.
+                \begin{figure}[H]
+                    \centering
+                    \begin{tabular}{c|c|c}
+                         & $\varepsilon_{1t}$ & $\varepsilon_{2t}$ \\
+                         \hline
+                         $Y_{t+s}$ 
+                         & $\pd{Y_{t+s}}{\varepsilon_{1t}} \approx \frac{\Delta Y_{t+s}}{\Delta \varepsilon_{1t}}$ 
+                         & $\pd{Y_{t+s}}{\varepsilon_{2t}} \approx \frac{\Delta Y_{t+s}}{\Delta \varepsilon_{2t}}$\\
+                         $X_{t+s}$ 
+                         & $\pd{X_{t+s}}{\varepsilon_{1t}} \approx \frac{\Delta X_{t+s}}{\Delta \varepsilon_{1t}}$ 
+                         & $\pd{X_{t+s}}{\varepsilon_{2t}} \approx \frac{\Delta X_{t+s}}{\Delta \varepsilon_{2t}}$
+                    \end{tabular}
+                \end{figure}
+            \end{definition}
+            
+            \begin{remark}[Compute IRF]
+                Given $\varepsilon_{11} = 1$ (initial impulse), and $\varepsilon_{21} = 0$, with 
+                \begin{equation}
+                    \varepsilon_{1t} = \varepsilon_{2t} = 0\ \forall t > 1
+                \end{equation}
+            \end{remark}
+        \subsection{Forecasting}
+            \begin{itemize}
+                \item Optimal forecast;
+                \item Forecast errors;
+                \item Forecast error variance.
+                \begin{equation}
+                    \sigma_{Y, t+2|t}^2 = (1 + \alpha_{11}^2) \sigma_{\varepsilon_1}^2 + \beta_{11}^2  \sigma_{\varepsilon_2}^2 + 2 \alpha_{11} \beta_{11} Cov(\varepsilon_1, \varepsilon_2)
+                \end{equation}
+            \end{itemize}
+            
+	    
 	\section{Vector Error Correction Model}
 			
 	\section{Volatility I}
