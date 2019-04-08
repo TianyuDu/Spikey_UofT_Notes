@@ -41,51 +41,14 @@ Lecture notes for courses at University of Toronto, this repository contains not
 
 
 
-```
-./
+## File Tree
+
+```text
 ├── 2017Fall_2018Winter
-│   ├── 223_pic
-│   ├── ANT100_Oct_5_2017.tex
-│   ├── CSC165_lecture\ (1).tex
-│   ├── CSC165_lecture\ (2).tex
-│   ├── CSC165_lecture.pdf
-│   ├── CSC165_lecture.tex
-│   ├── ECO102.pdf
-│   ├── ECO102.tex
-│   ├── ECO102_G.pdf
-│   ├── ECO102_G.tex
-│   ├── MAT137_SG_notes.pdf
-│   ├── MAT137_SG_notes.tex
-│   ├── MAT137_videoPlayList.pdf
-│   ├── MAT137_videoPlayList.tex
-│   ├── MAT223_tophat.pdf
-│   ├── MAT223_tophat.tex
-│   ├── ant100.pdf
-│   ├── ant100.tex
-│   ├── ant100_cult\ (1).tex
-│   ├── ant100_cult\ (2).tex
-│   ├── ant100_cult.pdf
-│   ├── ant100_cult.tex
-│   ├── ant100_evo_reading.pdf
-│   ├── ant100_evo_reading.tex
-│   ├── csc148.pdf
-│   ├── csc148.tex
-│   ├── eco101.pdf
-│   ├── eco101.tex
-│   ├── eco101_topics.pdf
-│   ├── eco101_topics.tex
-│   ├── mat137.tex
-│   ├── mat223.pdf
-│   ├── mat223.tex
-│   ├── mat223_sn.pdf
-│   ├── mat223_sn.tex
-│   ├── mat224.pdf
-│   ├── mat224.tex
-│   ├── psy100
-│   ├── psy100.pdf
-│   ├── psy100.tex
-│   ├── psy100_tophat_ch7_8_9_10.pdf
-│   └── psy100_tophat_ch7_8_9_10.tex
+│   ├── MAT137
+│   ├── MAT223
+│   ├── MAT224
+│   └── PSY100
 ├── 2018Fall_2019Winter
 │   ├── ECO325
 │   ├── ECO326
@@ -101,10 +64,9 @@ Lecture notes for courses at University of Toronto, this repository contains not
 │   └── mycommands.sty
 ├── 2019Summer
 │   └── MAT395
-├── Other\ Courses
-│   └── Probability\ Theory
+├── Other Courses
+│   └── Probability Theory
 ├── README.md
-├── _config.yml
 └── spikey.sty
 ```
 
