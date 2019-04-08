@@ -6,20 +6,20 @@ Lecture notes for courses at University of Toronto, this repository contains not
 
 ### Second Year: Winter 2019
 
-* ECO326H1 S (Winter) Advanced Microeconomics - Game Theory
+* ECO326H1 (Winter) Advanced Microeconomics - Game Theory
 
-* ECO374H1 S (Winter) Forecasting and Time Series Econometrics
+* ECO374H1 (Winter) Forecasting and Time Series Econometrics
 
-* MAT237Y1 Y (Full Session) Multivariable Calculus
+* MAT237Y1 (Full Session) Multivariable Calculus
 
-* MAT344H1 S (Winter) Introduction to Combinatorics
+* MAT344H1 (Winter) Introduction to Combinatorics
 
 ### Second Year: Fall 2018
 
-* ECO325H1 F (Fall) Advanced Economic Theory - Macro
+* ECO325H1 (Fall) Advanced Economic Theory - Macro
 
-* ECO375H1 F (Fall) Applied Econometrics I
-* MAT246H1 F (Fall) Concepts in Abstract Mathematics
+* ECO375H1 (Fall) Applied Econometrics I
+* MAT246H1 (Fall) Concepts in Abstract Mathematics
 
 ### Second Year: Summer 2018
 
@@ -28,30 +28,16 @@ Lecture notes for courses at University of Toronto, this repository contains not
 
 * ECO220Y1 (Summer) Quantitive Methods in Economics
 
-### First Year, fall 2017 and winter 2018
+### First Year: Winter 2018
 
-#### MAT137: Calculus: *Not updating*
+* MAT137Y1 (Full Session) Calculus
+* MAT224H1 (Winter) Linear Algebra II
 
-* Term: Full year course from fall 2017 to winter 2018.
+### First Year: Fall 2017
 
-- MAT137_videoPlayList: Notes on MAT137 youtube [video playlist](https://www.youtube.com/channel/UCLzpR8AiHx9h_-yt2fAxd_A).
+* MAT223H1 (Fall) Linear Algebra I
 
-#### MAT223: Linear Algebra I: *Not updating*
-
-* Term: Fall 2017
-
-- MAT223_tophat: (Partial) notes based on tophat online textbook.
-- MAT223: (Partial) lecture notes.
-
-#### PSY100: Intro Psychology: *Not updating*
-
-* Term: Fall 2017
-
-- psy100-tophat-1_10: Notes based on tophat text book for PSY100, chapter 1 to chapter 10 included.
-
-#### MAT224: Linear Algebra II: *Finished*
-
-- mat224: lecture notes for mat224 lecture section 0101.
+* PSY100H1 (Fall) Introduction to Psychology
 
 
 
