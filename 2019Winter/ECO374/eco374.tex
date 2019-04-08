@@ -1013,6 +1013,139 @@
 		\begin{definition}
 			 Time series is called \textbf{non-stationary} if it contains a \textbf{trend}.
 		\end{definition}
+		
+		\subsection{Deterministic Trend}
+		    \begin{definition}
+		        Deterministic trends take form of
+		        \begin{equation}
+		            Y_t = g(t) + \red{\varepsilon_{t}}
+		        \end{equation}
+		        where $f$ is a function capturing the \emph{shape of trend}.
+		    \end{definition}
+		    
+		    \begin{remark}
+		        The error term in trend modelling is always additive.
+		    \end{remark}
+		    
+		    \begin{example}
+		        Common deterministic trends
+		        \begin{align}
+		            Y_t &= \beta_0 + \beta_1 t + \beta_2 t^2 + \cdots + \varepsilon_t \tx{ (polynomial)}\\
+		            Y_t &= e^{\beta_0 + \beta_1 t + \beta_2 t^2 + \cdots} + \varepsilon_t \tx{ (exponential)} \\
+		            Y_t &= \frac{1}{\beta_0 + \beta_1 t + \beta_2 t^2 + \cdots} + \varepsilon_t \tx{ (logistic/inverse-polynomial)}
+		        \end{align}
+		    \end{example}
+
+    		\begin{remark}
+    		    With trend in mean, the unconditional mean \ul{depends on time $t$}, and thus the process is not covariance stationary, we call such stochastic process \textbf{trend-stationary}.
+    		\end{remark}
+		    
+		    \begin{itemize}
+		        \item Unconditional mean = $\expect{Y_t} \equiv g(t)$
+		        \item Variance $\var{Y_t} = \sigma_\varepsilon^2$
+		        \item Auto-covariance $\gamma_k = 0\ \forall k \neq 0$
+		        \item Auto-correlation $\rho_k = 0\ \forall k \neq 0$
+		        \item Optimal forecast $f_{t, h} = g(t+h)\ \forall h$
+		        \item Forecast error $e_{t, h} = \varepsilon_{t+h}\ \forall h$
+		        \item Density forecast $f_{t,h} \sim \mc{N}(g(t+h), \sigma_\varepsilon^2)\ \forall h$
+		    \end{itemize}
+    		
+    		\begin{remark}
+    		    After accounting for the non-stationary trend, the remainder of the model is stationary and we could replace $\varepsilon_t$ with any ARMA model specification.
+    		 \end{remark}
+    		
+    	\subsection{Model Selection}
+    		\begin{remark}
+    		    The specification for the deterministic trend is selected based on minimization of the AIC/BIC.
+    		\end{remark}
+
+    	\subsection{Stochastic Trend}
+    	    \begin{definition}
+    	        A \textbf{stochastic trend} is the result of \emph{accumulation over time of random shocks/innovations} of the form
+    	        \begin{equation}
+    	            Y_t = \sum_{j=0}^{t-1} \varepsilon_{t-j}
+    	        \end{equation}
+    	        where $\varepsilon_{t-j} \sim \mc{N}(0, \sigma_\varepsilon^2)\ \forall j$. Note that such model is equivalent to an AR(1) model with $\phi_0 = 0, \phi_1 = 1$.
+    	    \end{definition}
+    	    
+    	    \begin{example}[Random walk without a drift]
+    	        \begin{align}
+    	            Y_t &= Y_{t-1} + \varepsilon_t = \sum_{\tau=0}^{t} \varepsilon_\tau + Y_0 \\
+    	            \mu &= 0 \\
+    	            \sigma_Y^2 &= t \sigma_\varepsilon^2 \\
+    	            \gamma_k &= (t-k) \sigma_\varepsilon^2 \\
+    	            \rho_k &= \frac{t-k}{\sqrt{t (t-k)}} = \sqrt{\frac{t-k}{t}} \to 1 \tx{ as } t \to \infty
+    	        \end{align}
+    	    \end{example}
+    	    
+    	    \begin{remark}
+    	        AR(2) model with $\phi_1 + \phi_2 = 1$ can also generate a random walk. This can be generalized to AR($p$) for any order $p$.
+    	    \end{remark}
+    	    
+    	    \begin{example}[Random walk without a drift]
+    	        \begin{align}
+    	            Y_t &= \red{c} + Y_{t-1} + \varepsilon_t = ct + \sum_{\tau=0}^{t} \varepsilon_\tau + Y_0 \\
+    	            \mu &= ct \\
+    	            \sigma_Y^2 &= t \sigma_\varepsilon^2 \\
+    	            \gamma_k &= (t-k) \sigma_\varepsilon^2 \\
+    	            \rho_k &= \frac{t-k}{\sqrt{t (t-k)}} = \sqrt{\frac{t-k}{t}} \to 1 \tx{ as } t \to \infty
+    	        \end{align}
+    	    \end{example}
+    	    
+    	    \begin{remark}
+    	        Difference between deterministic trend model and random walk.
+    	        \begin{figure*}[h]
+    	            \centering
+        	        \begin{tabular}{c|c|c}
+        	             model & deterministic trend & random walk \\
+        	             \hline
+        	             mean & varying & constant \\
+        	             \hline
+        	             variance & constant & changing
+        	        \end{tabular}
+    	        \end{figure*}
+    	    \end{remark}
+    	    
+    	\subsection{Unit Root}
+    	    \paragraph{Dickey-Fuller test for AR(1)}
+    	        \begin{align}
+    	            H_0 &: \phi = 1 \tx{ non-stationary} \\
+    	            H_1 &: \phi < 1 \tx{ stationary}
+    	        \end{align}
+    	       and the test statistic 
+    	       \begin{equation}
+    	           z = \frac{\hat{\phi} - 1}{\sigma_{\hat{\phi}}}
+    	       \end{equation}
+    	       follows \textbf{Dickey-Fuller distribution}.
+    	   
+            \begin{remark}
+    	        Dickey-Fuller test is \hl{most useful in small samples ($T<100$)}.
+    	    \end{remark}
+    	    
+    	    \begin{itemize}
+    	        \item Type I: if non-stationary.
+    	        \begin{align}
+    	            H_0 &: Y_t = Y_{t-1} + \varepsilon_t \\
+    	            H_1 &: Y_t = \phi Y_{t-1} = \varepsilon_t
+    	        \end{align}
+    	        \item Type II: if \emph{unconditional mean} presents.
+    	        \begin{align}
+    	            H_0 &: Y_t = Y_{t-1} + \varepsilon_t \\
+    	            H_1 &: Y_t = c + \phi Y_{t-1} = \varepsilon_t
+    	        \end{align}
+    	        \item Type III: if \emph{linear trend} presents.
+    	        \begin{align}
+    	            H_0 &: Y_t = c + Y_{t-1} + \varepsilon_t \\
+    	            H_1 &: Y_t = c + at + \phi Y_{t-1} = \varepsilon_t
+    	        \end{align}
+    	    \end{itemize}
+    	    
+    	    \subsection{Optimal Forecast}
+    	        \begin{figure}[H]
+    	            \centering
+    	            \includegraphics[width=0.7\linewidth]{./figures/trend_forecast.png}
+    	            \caption{Optimal forecast for different trends}
+    	        \end{figure}
 	
 	\section{Vector Auto-regression Model}
 	
