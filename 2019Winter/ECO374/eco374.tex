@@ -1236,7 +1236,85 @@
             
 	    
 	\section{Vector Error Correction Model}
-			
+		\subsection{Cointegration}
+		    \begin{definition}
+		        For any two unit-root process $\{x_t\}$ and $\{y_t\}$, we say they are \textbf{cointegrated} is there is a linear combination $z_t = y_t - \alpha_0 - \alpha x_t$ that is stationary. The process $\{z_t\}$ is called the \textbf{disequilibrium error}. \emph{If $y_t$ and $x_t$ are cointegrated, then they share the same stochastic trend (common long-run information).}
+		    \end{definition}
+		    
+		    \begin{remark}
+		        \textbf{Augmented Dickey Fuller}(ADF) Test for the cointegration.
+		        \begin{enumerate}[(i)]
+		            \item $\hat{z}_t$ is constructed using OLS of $y_t$ on $x_t$;
+		            \item Test the stationarity of $\{\hat{z}_t\}$ using ADF test.
+		            \begin{align}
+		                H_0 &: \tx{ no cointegration ($z_t$ has a unit root/ non-stationary)} \\
+		                H_1 &: \tx{ cointegration presents ($z_t$ is stationary)}
+		            \end{align}
+		        \end{enumerate}
+		    \end{remark}
+		    
+		    \begin{remark}
+		        \textbf{Johansen Cointegration Test}
+		        \begin{equation}
+		            \ve{Y}_t := \begin{pmatrix}x_t \\ y_t \end{pmatrix}
+		        \end{equation}
+		        \begin{itemize}
+		            \item if $r=0$ then there is \ul{no} cointegrating relationship in $\ve{Y}_t$;
+		            \item if $r=1$ then there is \ul{one} cointegrating relationship in $\ve{Y}_t$.
+		        \end{itemize}
+		    \end{remark}
+
+        \subsection{Vector Error Correction for Short-term Dynamics}
+            \begin{definition}
+                \begin{align}
+                    z_t &= \log Y_t - \alpha_0 - \alpha \log X_t \\
+                    \Delta x_t &= \gamma_1 z_{t-1} + \varepsilon_{1,t} \\
+                    \Delta y_t &= \gamma_2 z_{t-1} + \varepsilon_{2,t}
+                \end{align}
+                where $\gamma_1, \gamma_2$ are called the \textbf{adjustments coefficients}, and $\varepsilon_{1, t}, \varepsilon_{2, t}$ are white noise components.
+            \end{definition}
+
+            \begin{definition}
+                VEC model can be extended to include \textbf{temporal dependence} and \textbf{cross-correlation}
+                \begin{align}
+                    \Delta x_t = \gamma_1 z_{t-1} &+ \beta_{11} \Delta x_{t-1} + \beta_{12} \Delta x_{t-2} + \dots \\
+                    &+ \phi_{11} \Delta y_{t-1} + \phi_{12} \Delta y_{t-2} + \dots + \varepsilon_{1, t} \\
+                    \Delta y_t = \gamma_2 z_{t-1} &+ \beta_{21} \Delta x_{t-1} + \beta_{22} \Delta x_{t-2} + \dots \\
+                    &+ \phi_{21} \Delta y_{t-1} + \phi_{22} \Delta y_{t-2} + \dots + \varepsilon_{2, t}
+                \end{align}
+            \end{definition}
+            
+            \begin{remark}
+                Note that the VEC model has the same form as the VAR model \ul{plus the error correcction terms $\gamma_1 z_{t-1}$ and $\gamma_2 z_{t-1}$}. The number of lags in the model can be selected by information criteria.
+            \end{remark}
+            
+            \begin{theorem}
+                Consider two stochastic processes, $\{x_t\}$ and $\{y_t\}$, each \ul{containing a unit root (i.e. non-stationary)}. If $\{x_t\}$ and $\{y_t\}$ are \ul{cointegrated}, then:
+                \begin{enumerate}[(i)]
+                    \item There exists a linear combination of $y_t$ and $x_t$ such as $z_t = y_t - \alpha_0 - \alpha x_t$ that is a \ul{stationary process}.
+                    \item There exists an error correction representation given
+                    \begin{align}
+                        \Delta x_t = \gamma_1 z_{t-1} &+ \beta_{11} \Delta x_{t-1} + \beta_{12} \Delta x_{t-2} + \dots \\
+                        &+ \phi_{11} \Delta y_{t-1} + \phi_{12} \Delta y_{t-2} + \dots + \varepsilon_{1, t} \\
+                        \Delta y_t = \gamma_2 z_{t-1} &+ \beta_{21} \Delta x_{t-1} + \beta_{22} \Delta x_{t-2} + \dots \\
+                        &+ \phi_{21} \Delta y_{t-1} + \phi_{22} \Delta y_{t-2} + \dots + \varepsilon_{2, t}
+                    \end{align}
+                \end{enumerate}
+            \end{theorem}
+            
+        \subsection{Forecasting}
+            \begin{example}
+                \begin{gather}
+                    \Delta x_t = \gamma_1 z_{t-1} + \varepsilon_{1,t} \\
+                    \Delta y_t = \gamma_2 z_{t-1} + \varepsilon_{2,t} \\
+                    z_{t-1} = y_{t-1} - \alpha_0 - \alpha x_{t-1} \\
+                    \implies x_t - x_{t-1} = \gamma_1(y_{t-1} - \alpha_0 - \alpha x_{t-1}) + \varepsilon_{1,t} \\
+                    \implies x_t = \gamma_1 y_{t-1} + (1 - \gamma_1 \alpha) x_{t-1} - \gamma_1 \alpha_0 + \varepsilon_{1,t} \\
+                    \implies f^X_{t,1} = \gamma_1 y_t + (1 - \gamma_1 \alpha) x_t - \gamma_1 \alpha_0 \\
+                    f^X_{t,2} = \underbrace{\gamma_1 f^Y_{t,1} + (1 - \gamma_1 \alpha) f^X_{t,1} - \gamma_1 \alpha_0}_{\tx{Chain rule of forecasting}}
+                \end{gather}
+            \end{example}
+            
 	\section{Volatility I}
 		\subsection{Higher-order Moments}
 			\begin{definition}
