@@ -1,65 +1,32 @@
-# Spikey's Note Repository
+# Tianyu's Lecture Note Repository
 
-Spikey's Notes for courses at University of Toronto
+Lecture notes for courses at University of Toronto, this repository contains notes for core courses of `economics&mathematics specialist` program.
 
-## Contents
+## List of Notes by Terms
 
-### Second Yr, Winter 2019
-#### ECO475H1 S (Winter) Applied Econometrics II
-* Contents: Lecture notes on models.
+### Second Year: Winter 2019
 
-* Lecture Section: LEC 0101
+* ECO326H1 S (Winter) Advanced Microeconomics - Game Theory
 
-#### ECO326H1 S (Winter) Advanced Microeconomics - Game Theory
-* Contents: Lecture notes.
+* ECO374H1 S (Winter) Forecasting and Time Series Econometrics
 
-* Lecture Section: LEC 0101
+* MAT237Y1 Y (Full Session) Multivariable Calculus
 
-#### ECO374H1 S (Winter) Forecasting and Time Series Econometrics
-* Contents: Lecture notes, based on lecture slides.
+* MAT344H1 S (Winter) Introduction to Combinatorics
 
-* Lecture Section: LEC 0201
+### Second Year: Fall 2018
 
-#### MAT237Y1 Y (Full Session) Multivariable Calculus
-* Contents: Outlines based on textbook and online notes.
+* ECO325H1 F (Fall) Advanced Economic Theory - Macro
 
-### Second Yr, Fall 2018
+* ECO375H1 F (Fall) Applied Econometrics I
+* MAT246H1 F (Fall) Concepts in Abstract Mathematics
 
-#### MAT246H1 F (Fall) Concepts in Abstract Mathematics
+### Second Year: Summer 2018
 
-* Contents: Lecture Notes
+* ECO206Y1 (Summer) Microeconomic Theory
+* ECO208Y1 (Summer) Macroeconomic Theory
 
-* Lecture Section: LEC 0101
-
-#### ECO325H1 F (Fall) Advanced Economic Theory - Macro
-
-* Contents: Lecture Notes
-
-* Lecture Section: LEC 0201
-
-#### ECO375H1 F (Fall) Applied Econometrics I
-
-* Contents: Notes from lecture slides posted and textbook.
-
-* Section Section: Lecture 0201
-
-
-
-### Second Year, Summer 2018
-
-#### ECO206: Microeconomic Theory: *Archived*
-
-- Eco206: lecture notes for ECO206.
-
-#### ECO208: Macroeconomic Theory: *Archived*
-
-- Eco208: lecture notes for ECO208.
-
-#### ECO220: Quantitive Methods: *Archived*
-
-- Eco220: lecture notes for ECO220, lecture 0201.
-
-
+* ECO220Y1 (Summer) Quantitive Methods in Economics
 
 ### First Year, fall 2017 and winter 2018
 
@@ -86,10 +53,81 @@ Spikey's Notes for courses at University of Toronto
 
 - mat224: lecture notes for mat224 lecture section 0101.
 
+
+
+```
+./
+├── 2017Fall_2018Winter
+│   ├── 223_pic
+│   ├── ANT100_Oct_5_2017.tex
+│   ├── CSC165_lecture\ (1).tex
+│   ├── CSC165_lecture\ (2).tex
+│   ├── CSC165_lecture.pdf
+│   ├── CSC165_lecture.tex
+│   ├── ECO102.pdf
+│   ├── ECO102.tex
+│   ├── ECO102_G.pdf
+│   ├── ECO102_G.tex
+│   ├── MAT137_SG_notes.pdf
+│   ├── MAT137_SG_notes.tex
+│   ├── MAT137_videoPlayList.pdf
+│   ├── MAT137_videoPlayList.tex
+│   ├── MAT223_tophat.pdf
+│   ├── MAT223_tophat.tex
+│   ├── ant100.pdf
+│   ├── ant100.tex
+│   ├── ant100_cult\ (1).tex
+│   ├── ant100_cult\ (2).tex
+│   ├── ant100_cult.pdf
+│   ├── ant100_cult.tex
+│   ├── ant100_evo_reading.pdf
+│   ├── ant100_evo_reading.tex
+│   ├── csc148.pdf
+│   ├── csc148.tex
+│   ├── eco101.pdf
+│   ├── eco101.tex
+│   ├── eco101_topics.pdf
+│   ├── eco101_topics.tex
+│   ├── mat137.tex
+│   ├── mat223.pdf
+│   ├── mat223.tex
+│   ├── mat223_sn.pdf
+│   ├── mat223_sn.tex
+│   ├── mat224.pdf
+│   ├── mat224.tex
+│   ├── psy100
+│   ├── psy100.pdf
+│   ├── psy100.tex
+│   ├── psy100_tophat_ch7_8_9_10.pdf
+│   └── psy100_tophat_ch7_8_9_10.tex
+├── 2018Fall_2019Winter
+│   ├── ECO325
+│   ├── ECO326
+│   ├── ECO374
+│   ├── ECO375
+│   ├── MAT237
+│   ├── MAT246
+│   └── MAT344
+├── 2018Summer
+│   ├── ECO206
+│   ├── ECO208
+│   ├── ECO220
+│   └── mycommands.sty
+├── 2019Summer
+│   └── MAT395
+├── Other\ Courses
+│   └── Probability\ Theory
+├── README.md
+├── _config.yml
+└── spikey.sty
+```
+
+
+
 ## License
 
 ALl **.pdf** files are under [Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en)
 (according to the license) you are free to
 
 - **Share** copy and redistribute the material in any medium or format
-- **Adapt** remix, transform, and build upon the material. (IMPORTANT: YOU MUST **NOT** REMOVE THE LICENSE INFORMATION FROM ANY FILE.)
+- **Adapt** remix, transform, and build upon the material. (Note: YOU MUST **NOT** REMOVE THE LICENSE INFORMATION FROM ANY FILE.)
