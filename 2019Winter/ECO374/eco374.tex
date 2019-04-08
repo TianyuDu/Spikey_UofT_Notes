@@ -1378,6 +1378,104 @@
 				
 	
 	\section{Volatility II}
+	    \subsection{Heteroskedasticity}
+	        \begin{definition}
+	            Given model
+	            \begin{equation}
+	                r_t = \mu_{t|t-1} + \varepsilon_t
+	            \end{equation}
+	            where $\mu_{t|t-1}$ can be modelled using an ARMA model, and 
+	            \begin{equation}
+	                \varepsilon_t = \sigma_{t|t-1} z_t
+	            \end{equation}
+	            and $z_t$ satisfies $\expect{z_t} = 0$ and $\var{z_t} = 1$ and $i.i.d.$
+	        \end{definition}
+	        
+	        \begin{remark}
+	            \begin{equation}
+	                \sigma_{t|t-1}^2 = \expect{\varepsilon_t^2|I_t}
+	            \end{equation}
+	            where $\varepsilon_t$ is \textbf{heteroskedastic}, which means it has \ul{non-constant conditional variance}.
+	        \end{remark}
+	        
+	        \begin{remark}
+	            \hl{Note here only the \emph{conditional} variance is heteroskedastic, but the unconditional variance is constant $\expect{\expect{\varepsilon_t^2|I_t}} = \sigma_\varepsilon^2$. This is similar to the unconditional mean ($\mu$) of stochastic process $\{y_t\}$ in ARMA, which is constant, and the conditional mean of $\{y_t\}$ ($\mu_{t|t-1}$), which is non-constant.}
+	        \end{remark}
+	    \subsection{Autoregressive Conditional Heteroskedasticity (ARCH)}
+            \begin{definition}
+                ARCH($p$) model
+                \begin{equation}
+                    \sigma_{t|t-1}^2 = \omega + \alpha_1 \varepsilon_{t-1}^2 + \cdots + \alpha_p \varepsilon_{t-p}^2
+                \end{equation}
+            \end{definition}
+            
+            \begin{remark}
+                \hl{In contrast to AR models, here the dependent variable is not $\varepsilon_t^2$ but instead its conditional expectation} (since we already assumed the white noise distribution of $\varepsilon_t$).
+            \end{remark}
+            
+            \begin{remark}
+                Sufficient conditions for $\sigma_{t|t-1}^2 > 0$ are 
+                \begin{equation}
+                    \begin{cases}
+                        \omega > 0 \\
+                        \alpha_i \geq 0\ \forall i \in \{1, \dots, p\}
+                    \end{cases}
+                \end{equation}
+            \end{remark}
+            
+            \begin{remark}
+                ARCH(1) forecasting
+                \begin{align}
+                    \sigma_{t+h|t}^2 &= \omega + \alpha \sigma_{t+h-1|t}^2 \\
+                    &= \omega + \alpha \omega + \alpha^2 \sigma_{t+h-2|t}^2 \\
+                    &= \omega(1 + \alpha + \dots + \alpha^{h-2}) + \alpha^{h-1} \sigma_{t+1|t}^2 \\
+                    &\to \frac{\omega}{1 - \alpha} \tx{ as } h \to \infty
+                \end{align}
+            \end{remark}
+
+        \subsection{Generalize Autoregressive Conditional Heteroskedasticity (GARCH)}
+            \begin{definition}
+                GARCH($p,q$)
+                \begin{align}
+                     \sigma_{t|t-1}^2 &= \omega + \overbrace{
+                        \alpha_1 \varepsilon_{t-1}^2 + \cdots + \alpha_p \varepsilon_{t-p}^2
+                     }^{\tx{ARCH($p$) Part}} \\
+                     &+ \underbrace{\beta_1 \sigma_{t-1|t-2}^2 + \cdots + \beta_q \sigma_{t-q|t-q-1}^2}_{\tx{Generalized Past Conditional Part}}
+                \end{align}
+            \end{definition}
+            
+            \begin{remark}
+                GARCH($p,q$) typically needs smaller total number of parameters $(\alpha_i, \beta_j)_{i=1,\dots,p; j=1,\dots,q}$ than the number of $ARCH(\tilde{p})$ parameters $(\alpha_i)_{i=1,\dots,\tilde{p}}$ required for a comparable model fit.
+            \end{remark}
+            
+            \begin{proposition}
+                GARCH(1,1) is equivalent to an ARCH($\infty$).
+                \begin{proof}
+                    \begin{align}
+                        \sigma_{t|t-1}^2 &= \overbrace{\omega + \alpha \varepsilon_{t-1}^2 + \beta \sigma_{t-1|t-2}^2}^{\tx{GARCH(1,1)}} \\
+                        &= \omega + \alpha \varepsilon_{t-1}^2 + \beta \omega + \beta \alpha \varepsilon_{t-2}^2 + \beta^2 \sigma_{t-1|t-2}^2 \\
+                        &= \underbrace{\omega(1 + \beta + \beta^2 + \cdots) + \alpha \sum_{i=1}^\infty \beta^{i-1} \varepsilon_{t-i}^2}_{\tx{Expand Recursively to $(t-\infty)$ Period}} \\
+                        &= \frac{\omega}{1 - \beta} + \underbrace{\alpha \sum_{i=1}^\infty \beta^{i-1}}_{\tx{Persistence}} \varepsilon_{t-i}^2
+                    \end{align}
+                \end{proof}
+            \end{proposition}
+            
+            \begin{definition}
+                The \textbf{persistence} of GARCH(1,1) process is defined as
+                \begin{equation}
+                    \alpha \sum_{i=1}^\infty \beta^{i-1} = \frac{\alpha}{1 - \beta}
+                \end{equation}
+                measures how permanent the innovations $\varepsilon_t^2$ are in the conditional variance. When $\frac{\alpha}{1 - \beta} = 1$, the process is an \textbf{integrated GARCH} process, \hl{it's \emph{unconditional} variance does not exist (equals $\infty$)}.
+                \begin{proof}
+                    \begin{gather}
+                        \expect{\sigma_{t|t-1}^2} = \expect{\frac{\omega}{1 - \beta} + \alpha \sum_{i=1}^\infty \beta^{i-1} \varepsilon_{t-i}^2} \\
+                        \implies \sigma^2_\varepsilon = \frac{\omega}{1 - \beta} + \sigma^2_\varepsilon \\
+                        \implies 0 \sigma_\varepsilon^2 = \frac{\omega}{1-\beta} \neq 0 \\
+                        \implies \sigma_\varepsilon^2 = \infty
+                    \end{gather}
+                \end{proof}
+            \end{definition}
+	        
 	
 	\section{Volatility III: Applications}
 		\subsection{Risk Management}
