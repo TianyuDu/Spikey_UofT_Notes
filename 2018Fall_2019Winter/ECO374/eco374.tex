@@ -1531,7 +1531,7 @@
 					\right)}
 					{\Phi \left(
 						\frac{r_t^{VaR(\alpha)} - \mu_{t|t-1}}{\sigma_{t|t-1}} 
-					\right)} \tx{ (by equation (7.7))}\\
+					\right)}\\
 					= \red{\mu_{t|t-1} - \sigma_{t|t-1} \frac{\phi(\Phi^{-1}(\alpha))}{\alpha}}
 				\end{gather}
 				with R-code \texttt{coef <- dnorm(pnorm(alpha))/alpha}.
@@ -1550,11 +1550,11 @@
 			\begin{gather}
 				\min_{(w_i)_{i \in N}} \sigma_p^2 \equiv \sum_{i \in N} w_i^2 \sigma_i^2 \\
 				s.t.\ \overline{\mu}_p = \sum_{i \in N} w_i \mu_i \\
-				\implies w_i^* = \frac{
+				\implies \red{w_i^* = \frac{
 					\mu_i/\sigma_i^2
 				}{
 					\sum_{j \in N} \mu_j/\sigma_j^2
-				}\overline{\mu}_p
+				}\overline{\mu}_p}
 			\end{gather}
 			
 			\begin{remark}
@@ -1569,7 +1569,7 @@
 			\begin{proposition}
 				\begin{gather}
 					\expect{r_i} = r_f + \beta_i \expect{r_m - r_f} \\
-					\beta_i := \frac{Cov(r_i, r_m)}{Var(r_m)} \equiv \frac{\rho_{im}\sigma_i \sigma_m}{\sigma_m^2}
+					\red{\beta_i := \frac{Cov(r_i, r_m)}{Var(r_m)} \equiv \frac{\rho_{im}\sigma_i \sigma_m}{\sigma_m^2}}
 				\end{gather}
 				and if $\beta_i > 1$, the asset $i$ is more \emph{risky} than the market risk. In practice, $\beta_i$ is estimated with $\rho_{im}$ estimated directly from samples and $\sigma^2_{i, t|t-1}, \sigma^2_{mz, t|t-1}$ estimated using $GARCH$.
 			\end{proposition}
