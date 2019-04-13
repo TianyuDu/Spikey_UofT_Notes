@@ -1210,9 +1210,9 @@
 				\end{remark}
 				
 				\begin{theorem}
-					If a \hl{finite} repeated game has a \hl{unique} Nash equilibrium in the game played in each period, then the only SPNE will have the players playing the NE in each period.
+					If a \hl{finite} repeated game has a \hl{unique} Nash equilibrium in the game played in each period, then the \hl{only} SPNE will have the players playing the NE in each period.
 					\begin{proof}
-						\emph{Omitted.}
+						Backwards induction.
 					\end{proof}
 				\end{theorem}
 			
@@ -1363,14 +1363,26 @@
 						For any value of $k \geq 1$, \emph{strategy pair} in which each player punishes other for $k$ periods in event of deviation is Nash equilibrium of infinitely repeated game if $\delta$ is \emph{close enough to 1}. The large $k$ is, the \emph{smaller lower bound on $\delta$}, that's, the \emph{mutually desirable outcome} $(C,C)$ is sustained by short punishment only if players are relatively patient.
 					\end{proposition}
 					
-	\section{Lecture 9 Mar. 18 2019}
-		\subsection{Bayesian Games: Introduction}
+	\section{Bayesian Games Lecture 9 Mar. 18 2019}
+		\subsection{Introduction}
 			\begin{remark}
 				Bayesian games allow players to face \ul{uncertainty about other players' preferences}.
 			\end{remark}
 			
 			\begin{definition}[Informal Definition]
-				A \textbf{Bayesian Equilibrium} is a strategy profile where \hl{each type of each player} is best responding given their \emph{beliefs}.
+				A \textbf{Bayesian game}, $G^*$, consists a set of players, $N$, and action set $A_i$ for each player $i \in N$. Also a set of states of world, $\Omega$. Each player has a \textbf{prior belief} $p_i$, which is a probability distribution on $\Omega$.
+				In each play of $G^*$, one state $\omega \in \Omega$ is realized, and each player $i$ receive a \textbf{signal} from his \textbf{signal function} $t_i = \tau_i(\omega) \in T_i$, this is referred as the \textbf{type} of player $i$. $T_i$ is the set of all possible types of player $i$. With $\tau_i(\omega)$ received (player $i$ does not actually observe $\omega$), player $i$ deduces that the actual state realized, $\omega$, is in the set $\tau_i^{-1}(t_i)$. This deduction provides player $i$'s \textbf{posterior belief} distribution on $\Omega$. For each $\omega \in \Omega$, the posterior belief of it is the probability of $\omega$, \emph{conditioned on $\tau_i(\omega) = t_i$}.
+				\begin{equation}
+					p_i(\omega|t_i) := \begin{cases}
+						\frac{p_i(\omega)}{p_i(\tau_i^{-1}(t_i))} &\tx{ if } \omega \in \tau_i^{-1}(t_i) \\
+						0 &\tx{ otherwise}
+					\end{cases}
+				\end{equation}
+				For the conditional probability to make sense, we assume $p_i(\tau_i^{-1}(t_i)) > 0\ \forall t_i \in T_i$. Since a player in $G^*$ may be uncertain about which pair $(a, \omega)$ will be realized, so players' preference relations are defined over \emph{lottery} on $A \times \Omega$.
+			\end{definition}
+			
+			\begin{definition}[Informal Definition]
+				A \textbf{Bayesian equilibrium} is a strategy profile where \hl{each type of each player} ($\prod_{i \in N} T_i$) is best responding given their \emph{posterior beliefs}.
 			\end{definition}
 			
 			\begin{remark}[Complication on Belief System]
@@ -1378,7 +1390,7 @@
 			\end{remark}
 		
 		\subsection{Formal Definitions}
-			\begin{definition}[Bayesian Game] A \textbf{Bayesian Game} consists the following components
+			\begin{definition}[Bayesian Game] A \textbf{Bayesian Game}, $G^* = \langle N, \Omega, (A_i), (T_i), (\tau_i), (p_i), (\pref_i) \rangle$, consists of
 				\begin{enumerate}[(i)]
 					\item A finite \textbf{player} set $N$;
 					\item A set of \textbf{states} $\Omega$. Each $\omega \in \Omega$ represents one realization determines \emph{players' types}, \ul{$\Omega$ is assumed to be known by all players};
@@ -1393,6 +1405,10 @@
 					\end{enumerate}
 				\end{enumerate}
 			\end{definition}
+			
+			\begin{remark}
+				The above definition allows the players to have different \emph{prior beliefs}. These beliefs may be related; \emph{commonly they are identical, coincident with an objective measure}.
+			\end{remark}
 			
 			\begin{definition}[Strategy]
 				A (mixed) \textbf{strategy}\footnote{This also covers the \emph{pure strategy} case since any pure strategy can be considered as a \emph{degenerate} mixed strategy.} for player $i$ in a Bayesian game is a function defined on $T_i$
@@ -1424,7 +1440,32 @@
 			\end{definition}
 			
 			\begin{definition}
-				A Bayesian Nash equilibrium is a strategy profile for each player such that the strategy for \hl{each type} of \hl{each player} is a best response given the strategies for the other players.
+				A Bayesian Nash equilibrium is a strategy profile for each player such that the strategy for \hl{each type} of \hl{each player} is a best response given the strategies for the other players deduced from the signal received.
+			\end{definition}
+			
+			\begin{definition}[Lottery Generated by a Bayesian Game]
+				The posterior belief of player $i$, together with an action profile $a^*$ in $G^*$, generates a lottery $L_i(a^*, t_i)$ over $A \times \Omega$: the probability assigned by $L_i(a^*, t_i)$ to 
+				\begin{equation}
+					\Big((a^*(j, \tau_j(\omega)))_{j\in N}, \omega \Big)
+				\end{equation}
+				is the \emph{posterior belief} that the state is $\omega$ when he receives the signal $t_i$ and $a^*(j, \tau_j(\omega))$ being the action of player $(j, \tau_j(\omega))$ for each $j \in N$ in the profile $a^*$.
+			\end{definition}
+			
+			\begin{definition}[Formal Definition]
+				A \textbf{Nash equilibrium of a Bayesian Game} $\langle N, \Omega, (A_i), (T_i), (\tau_i), (p_i), (\pref_i) \rangle$ is a Nash equilibrium of the strategic game defined as follows.
+				\begin{itemize}
+					\item The set of players is the set of all pairs $(i, t_i)$ for $i \in N$ and $t_i \in T_i$.
+					\item The set of actions of each player $(i, t_i)$ is $A_i$.
+					\item The preference ordering $\pref^*_(i, t_i)$ of each player $(i, t_i)$ is defined by
+					\begin{equation}
+						a^* \pref^*_{(i, t_i)} b^* \iff L_i(a^*, t_i) \pref_i L_i(b^*, t_i)
+					\end{equation}
+					where $L_i(a^*, t_i)$ is the lottery over $A \times \Omega$ that assigns probability
+					$
+						\frac{p_i(\omega)}{p_i(\tau_i^{-1}(\omega))}
+					$
+					to $(a^*(j, \tau_j(\omega)))_{j\in N}$ if $\omega \in \tau_i^{-1}(t_i)$, zero otherwise.
+				\end{itemize}
 			\end{definition}
 \end{document}
 

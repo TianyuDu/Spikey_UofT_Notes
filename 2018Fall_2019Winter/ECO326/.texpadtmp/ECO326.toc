@@ -22,6 +22,6 @@
 \contentsline {section}{\numberline {8}Lecture 8 Mar.11 2019}{20}{section.8}
 \contentsline {subsection}{\numberline {8.1}Finite Repeated Games}{20}{subsection.8.1}
 \contentsline {subsection}{\numberline {8.2}Infinitely Repeated Games}{20}{subsection.8.2}
-\contentsline {section}{\numberline {9}Lecture 9 Mar. 18 2019}{23}{section.9}
-\contentsline {subsection}{\numberline {9.1}Bayesian Games: Introduction}{23}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Formal Definitions}{23}{subsection.9.2}
+\contentsline {section}{\numberline {9}Bayesian Games Lecture 9 Mar. 18 2019}{23}{section.9}
+\contentsline {subsection}{\numberline {9.1}Introduction}{23}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Formal Definitions}{24}{subsection.9.2}
