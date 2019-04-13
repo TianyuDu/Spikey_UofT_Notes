@@ -27,10 +27,6 @@
 \counterwithin{example}{subsection}
 \counterwithin{definition}{subsection}
 
-\newcommand{\vex}[0]{\ve{x}}
-\newcommand{\vey}[0]{\ve{y}}
-\newcommand{\vea}[0]{\ve{a}}
-\newcommand{\veb}[0]{\ve{b}}
 \newcommand{\vef}[0]{\ve{f}}
 \newcommand{\veg}[0]{\ve{g}}
 \newcommand{\veF}[0]{\ve{F}}
@@ -127,6 +123,10 @@
 					\end{gather}
 				\end{proof}
 			\end{theorem}
+			
+			\begin{proposition}
+				A set $S$ is \emph{closed} if it contains all limit points. That's, every convergent sequence in $S$ converges to a limit point in $S$.
+			\end{proposition}
 		
 		\subsection{Limits and Continuity}
 			\subsubsection{Limits of Multivariable Functions}
@@ -159,7 +159,7 @@
 				\end{gather}
 			\end{theorem}
 			
-			\begin{theorem}[Squeeze Theorem]
+			\begin{theorem}[Squeeze Theorem on Real Valued Functions]
 				Let $S \subset \R^n$, $\ve{a} \in \R^n$ satisfies (1.3.3). Suppose that $f, g, h: S \to \R$ and there exists $p > 0$ and $L \in \R$ such that
 				\begin{equation}
 					\forall \ve{x} \in S \cap \mc{B}(p, \ve{a})\ f(\ve{x}) \leq g(\ve{x}) \leq h(\ve{x})
@@ -267,6 +267,10 @@
 		    		\end{proof}
 		    \end{theorem}
 		    
+		    \begin{theorem}[Monotone Sequence Theorem]
+		    	Every bounded monotone sequence in $\R$ is convergent.
+		    \end{theorem}
+		    
 		    \begin{definition}
 		    		A \textbf{subsequence} of a sequence $\{\vea_j\}_{j \geq j_0}$ in $\R^n$ is a sequence constructed as $\{a_{k_j}\}_j$, such that $\{k_j\}_j$ is a \emph{strictly increasing} sequence bounded below by $j_0$.
 		    \end{definition}
@@ -306,6 +310,21 @@
 		        \end{proof}
 		    \end{theorem}
 		    
+		    \begin{theorem}[Nested Interval Theorem]
+		    	Given a sequence of \emph{closed intervals} in $\R$,
+		    	\begin{equation}
+		    		\{I_k\}_{k \in \mc{A}}\ s.t.\ I_k = [a_k, b_k] \subset \R
+		    	\end{equation}
+		    	and 
+		    	\begin{equation}
+		    		\cdots I_{k+1} \subseteq I_{k} \subseteq \cdots I_4 \subseteq I_3 \subseteq I_2 \subseteq I_1
+		    	\end{equation}
+		    	Then
+		    	\begin{equation}
+		    		\bigcap_{k \in \mc{A}}I_k \neq \varnothing
+		    	\end{equation}
+		    \end{theorem}
+		    
 		\subsection{Compactness}
 			\subsubsection{Compactness}
 				\begin{definition}[Heine-Borel Property]
@@ -342,6 +361,10 @@
 						and above $\vex(R)$ depends on $R$, we can construct a sequence using $\vex(j)$ such that the $\norm{\vex}$ is ever increasing and it does not have a limit. \\
 						\textbf{Case (ii):} $S$ is not closed, we can construct a sequence with subsequence converges to $\vex \in \partial S \backslash S$, which is nonempty because $S$ is not closed.
 					\end{proof}
+				\end{theorem}
+				
+				\begin{theorem}
+					Let $\vef: \R^n \to \R^m$ be a continuous function. If $K \subset \R^n$ is compact, then the image $\vef(K)$ is compact.
 				\end{theorem}
 			
 			\subsubsection{the Extreme Value Theorem}
@@ -397,7 +420,10 @@
 				\begin{definition}
 					Let $S \subset \R^n$, a function $\ve{f}: S \to \R^k$ is \textbf{uniformly continuous} if 
 					\begin{equation}
-						\forall \varepsilon\ \exists \delta > 0\ s.t.\ \forall \vex,\ \vey \in S,\ \norm{\vex - \vey} < \delta \implies \norm{\vef(\vex) - \vef(\vey)} < \varepsilon
+						\red{
+						\underbrace{\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ \forall \vex}_{\forall \vex \in S,\ \varepsilon > 0,\ \exists \delta > 0}
+						,\ \vey \in S,\ \norm{\vex - \vey} < \delta \implies \norm{\vef(\vex) - \vef(\vey)} < \varepsilon
+						}
 					\end{equation}
 				\end{definition}
 				
@@ -434,8 +460,15 @@
 				\end{proof}
 			\end{proposition}
 			
-			\begin{theorem}[the intermediate Value Theorem]
-				Assume that $S$ is a \hl{path-connected} subset of $\R^n$ and that $f: S \to \R$ is \hl{continuous}. Let $\vea, \veb \in S$.\\
+			\begin{theorem}
+				Let $\trans{\vef}{\R^m}{\R^k}$ be a \hl{continuous} function, and $S \subset \R^m$ be a \hl{path-connected} set. Then, $\vef(S)$ is path-connected.
+				\begin{proof}[Proof Idea.]
+					Take the composite $\vef \circ \gamma$.
+				\end{proof}
+			\end{theorem}
+			
+			\begin{theorem}[the Intermediate Value Theorem]
+				Assume that $S$ is a \hl{path-connected} subset of $\R^n$ and that $f: S \to \R$ is \hl{continuous}. Let $\vea, \veb \in S$.
 				Then for every $t \in (\min\{f(\vea), f(\veb)\}, \max\{f(\vea), f(\veb)\})$, there exists $\ve{c} \in S$ such that $f(\ve{c}) = t$.
 				\begin{proof}
 					Let $\vea, \veb \in S$. WLOG, assume $f(\vea) < f(\veb)$. Let $t$ be an arbitrary value in $(f(\vea), f(\veb))$.\\
@@ -490,7 +523,7 @@
 						\begin{gather}
 							f(\vex + \ve{h}) - f(\vex) = \ve{m} \cdot \ve{h} + E(\ve{h})
 						\end{gather}
-						Note that when $\norm{\ve{h}} \leq 1$,
+						Note \ul{that when $\norm{\ve{h}} \leq 1$},
 						\begin{gather}
 							E(\ve{h}) \leq \frac{|E(\ve{h})|}{\norm{\ve{h}}}
 						\end{gather}
