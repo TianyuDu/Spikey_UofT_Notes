@@ -1492,14 +1492,14 @@
                     \alpha \sum_{i=1}^{\red{\infty}} \beta^{i-1} = \frac{\alpha}{1 - \beta}
                 \end{equation}
                 measures how permanent the innovations $\varepsilon_t^2$ are in the conditional variance. When $\frac{\alpha}{1 - \beta} = 1$, the process is an \textbf{integrated GARCH} process, \hl{its \emph{unconditional} variance does not exist (equals $\infty$)}.
-                \begin{proof}
-                    \begin{gather}
-                        \expect{\sigma_{t|t-1}^2} = \expect{\frac{\omega}{1 - \beta} + \alpha \sum_{i=1}^\infty \beta^{i-1} \varepsilon_{t-i}^2} \\
-                        \implies \sigma^2_\varepsilon = \frac{\omega}{1 - \beta} + \sigma^2_\varepsilon \\
-                        \implies 0 \sigma_\varepsilon^2 = \frac{\omega}{1-\beta} \neq 0 \\
-                        \implies \sigma_\varepsilon^2 = \infty
-                    \end{gather}
-                \end{proof}
+%                \begin{proof}
+%                    \begin{gather}
+%                        \expect{\sigma_{t|t-1}^2} = \expect{\frac{\omega}{1 - \beta} + \alpha \sum_{i=1}^\infty \beta^{i-1} \varepsilon_{t-i}^2} \\
+%                        \implies \sigma^2_\varepsilon = \frac{\omega}{1 - \beta} + \sigma^2_\varepsilon \\
+%                        \implies 0 \sigma_\varepsilon^2 = \frac{\omega}{1-\beta} \neq 0 \\
+%                        \implies \sigma_\varepsilon^2 = \infty
+%                    \end{gather}
+%                \end{proof}
             \end{definition}
 	        
 	
