@@ -80,7 +80,7 @@
 		\subsection{Multiple Linear Regression}
 		\begin{assumption} Assumptions on linear regression on time series data:
 			\begin{enumerate}[(i)]
-				\item \textbf{Linearity}
+				\item \red{\textbf{Linearity}}
 					\begin{equation}
 						Y = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k + u
 					\end{equation}
@@ -92,7 +92,7 @@
 					\begin{equation}
 						\var{u|X_1, X_2, \dots, X_k} = \sigma^2_u
 					\end{equation}
-				\item \textbf{No Serial Correlation}
+				\item \red{\textbf{No Serial Correlation}}
 					\begin{equation}
 						Cov(u_t, u_s) = 0\ \forall t \neq s \in \Z
 					\end{equation}
@@ -119,6 +119,7 @@
 			\begin{equation}
 				\{Y_t\}_{t \in \mc{T}} = Y_1, \dots, Y_T
 			\end{equation}
+			so \emph{each $Y_t$ in $\{Y_t\}$ collection is associated with a density function, \ul{conditioned on time $t$}.}
 		\end{definition}
 		
 		\begin{definition}
@@ -157,8 +158,8 @@
 			That's, for all $t \in \mc{T}$,
 			\begin{enumerate}[(i)]
 				\item $\expect{Y_t} = \mu\ \forall t$ constant;
-				\item $\var{Y_t} = \sigma^2 < \infty\ \forall t$ constant;
-				\item $Cov(Y_t, Y_s) = Cov(Y_{t+r}, Y_{s+r})\ \forall t,s,r\in \Z$
+				\item $\var{Y_t} = \sigma^2 < \infty\ \forall t$ constant (lag 0 covariance);
+				\item \red{$Cov(Y_t, Y_s) = Cov(Y_{t+r}, Y_{s+r})\ \forall t,s,r\in \Z$.}
 			\end{enumerate}
 		\end{definition}
 		
@@ -176,7 +177,7 @@
 		\begin{lemma}
 			If $\{Y_t\}$ is stationary, then the auto-covariance function only depends on \emph{the lag between two inputs}, and does not depend on specific time point $t$. We can write the $h \in \Z$ degree auto-covariance as 
 			\begin{equation}
-				\gamma_Y(h) := \gamma_X(t, t+h)\ \forall t \in \mc{T}
+				\red{\gamma_Y(h)} := \gamma_X(t, t+h)\ \forall t \in \mc{T}
 			\end{equation}
 		\end{lemma}
 	
@@ -195,9 +196,9 @@
 		\end{definition}
 		
 		\begin{definition}
-			Let $\{Y_t\}$ be a \emph{covariance stationary process} and the \textbf{auto-correlation function} (ACF) is a mapping from \emph{order} of auto-correlation coefficient to the coefficient $\rho_Y: k \to \rho_{Y_t, Y_{t-k}}$, defined as
+			Let $\{Y_t\}$ be a \ul{covariance stationary process} and the \textbf{auto-correlation function} (ACF) is a mapping from \emph{order} of auto-correlation coefficient to the coefficient $\rho_Y: k \to \rho_{Y_t, Y_{t-k}}$, defined as
 			\begin{equation}
-				\rho_Y(k) \equiv \frac{\gamma(k)}{\gamma(0)} = corr(Y_{t + k}, Y_t)
+				\red{\rho_Y(k) := \frac{\gamma(k)}{\gamma(0)}} = corr(Y_{t + k}, Y_t)
 			\end{equation}
 			notice the choice of $t$ does not matter, by definition of covariance stationary process.
 		\end{definition}
@@ -217,7 +218,7 @@
 			\hl{Strong stationarity is difficult to test so we will focus on weak(covariance) stationarity only.}
 		\end{remark}
 		
-		\begin{proposition}
+		\begin{proposition}[Transformations]
 			For a non-stationary stochastic process $\{Y_t\}$,
 			\begin{itemize}
 				\item $\{\Delta Y_t\}$ becomes \emph{first order weakly stationary};
@@ -229,33 +230,33 @@
 			\end{figure}
 		\end{proposition}
 		
-		\begin{definition}[1.8]
-			A stochastic process $\{Y_t\}$ is called a \textbf{Gaussian process} if the distribution for all \emph{finite} dimensional segments from the process are \ul{multivariate normal}. That's
-			\begin{gather}
-				\forall n \in \Z_{++},\ \forall (t_1, \dots, t_n) \in \mc{T}^n, (Y_{t_1}, \dots, Y_{t_n}) \sim \mc{N}(\bs{\mu}, \Sigma)
-			\end{gather}
-		\end{definition}
+%		\begin{definition}[1.8]
+%			A stochastic process $\{Y_t\}$ is called a \textbf{Gaussian process} if the distribution for all \emph{finite} dimensional segments from the process are \ul{multivariate normal}. That's
+%			\begin{gather}
+%				\forall n \in \Z_{++},\ \forall (t_1, \dots, t_n) \in \mc{T}^n, (Y_{t_1}, \dots, Y_{t_n}) \sim \mc{N}(\bs{\mu}, \Sigma)
+%			\end{gather}
+%		\end{definition}
 		
-		\begin{notation}
-			Consider the problem of forecasting $Y_{T+1}$ from observations $\{Y_t\}_{t=1}^{T}$, the \emph{best linear predictor} is denoted as
-			\begin{equation}
-				\mathbb{P}_T Y_{T+1} = \sum_{i=1}^{T} a_i L^i Y_{T+1}
-			\end{equation}
-			And $Y_{T+1}$ can be expressed as
-			\begin{equation}
-				Y_{T+1} = \mathbb{P}_T Y_{T+1} + \varepsilon_{T+1}
-			\end{equation}
-			where $\varepsilon_{T+1}$ denotes the forecast error which is assumed to be \emph{uncorrelated} with $Y_T, \dots, Y_1$.
-		\end{notation}
-		
-		\begin{definition}[3.3]
-			The \textbf{partial auto-correlation function} (PACF) $r(h)$ with $h \in \Z_{\geq 0}$ of a \emph{stationary} process is defined as 
-			\begin{gather}
-				r(0) = 1 \\
-				r(1) = corr(Y_2, Y_1) = \rho(1) \\
-				r(h) = corr\Big(Y_{h+1} - \mathbb{P}(Y_{h+1}|1,Y_2, \dots, Y_h), X_1 - \mathbb{P}(Y_1|1,Y_2,\dots,Y_h)\Big)
-			\end{gather}
-		\end{definition}
+%		\begin{notation}
+%			Consider the problem of forecasting $Y_{T+1}$ from observations $\{Y_t\}_{t=1}^{T}$, the \emph{best linear predictor} is denoted as
+%			\begin{equation}
+%				\mathbb{P}_T Y_{T+1} = \sum_{i=1}^{T} a_i L^i Y_{T+1}
+%			\end{equation}
+%			And $Y_{T+1}$ can be expressed as
+%			\begin{equation}
+%				Y_{T+1} = \mathbb{P}_T Y_{T+1} + \varepsilon_{T+1}
+%			\end{equation}
+%			where $\varepsilon_{T+1}$ denotes the forecast error which is assumed to be \emph{uncorrelated} with $Y_T, \dots, Y_1$.
+%		\end{notation}
+%		
+%		\begin{definition}[3.3]
+%			The \textbf{partial auto-correlation function} (PACF) $r(h)$ with $h \in \Z_{\geq 0}$ of a \emph{stationary} process is defined as 
+%			\begin{gather}
+%				r(0) = 1 \\
+%				r(1) = corr(Y_2, Y_1) = \rho(1) \\
+%				r(h) = corr\Big(Y_{h+1} - \mathbb{P}(Y_{h+1}|1,Y_2, \dots, Y_h), X_1 - \mathbb{P}(Y_1|1,Y_2,\dots,Y_h)\Big)
+%			\end{gather}
+%		\end{definition}
 		
 		\begin{remark}[Interpretation of PACF]
 		Partial auto-correlation $r(k)$ only measures correlation between two variables $Y_t$ and $Y_{t+k}$ while \emph{controlling intermediate variables} $(Y_{t+1}, \dots, Y_{t+k-1})$.
@@ -283,14 +284,14 @@
 		\end{remark}
 	
 	\subsection{Test for Auto-correlation}
-		\par To test single auto-correlation with 
+		\paragraph{Multiple Auto-correlation Test}To test single auto-correlation with 
+			\begin{equation}
+				\red{H_0: \rho_k = 0}
+			\end{equation}
+			we can use usual t-statistic.
+		\paragraph{Multiple Auto-correlation Test}While testing the \hl{joint hypothesis}
 		\begin{equation}
-			H_0: \rho_k = 0
-		\end{equation}
-		we can use usual t-statistic.\\
-		While testing the \hl{joint hypothesis}
-		\begin{equation}
-			H_0: \rho_1 = \rho_2 = \dots = \rho_k = 0
+			\red{H_0: \rho_1 = \rho_2 = \dots = \rho_k = 0}
 		\end{equation}
 		we are using the \textbf{Ljung-Box Q-statistic}:
 		\begin{equation}
@@ -366,11 +367,11 @@
 		\end{definition}
 	\subsection{Forecast Horizon}
 		\begin{remark}
-			\emph{Covariance stationary} processes are \textbf{short-memory processes}. More recent observation contains information far more relevant for the future than older information. \hl{Therefore, as a result, the forecast $f_{t, h}$ converges when $h \to \infty$.}
+			\ul{Covariance stationary} processes are \textbf{short-memory processes}. More recent observation contains information far more relevant for the future than older information. \hl{Therefore, as a result, the forecast $f_{t, h}$ converges when $h \to \infty$.}
 		\end{remark}
 		
 		\begin{remark}
-			\emph{Non-stationary} processes are \textbf{long-memory processes} and older information is as relevant for the forecast as more recent information.
+			\ul{Non-stationary} processes are \textbf{long-memory processes} and older information is as relevant for the forecast as more recent information (e.g., including trends).
 		\end{remark}
 		\subsubsection{Forecasting Environments: \emph{Recursive}}
 			\begin{enumerate}[(i)]
@@ -408,23 +409,23 @@
 		\begin{definition}
 			A loss function $L(e)$ is a real-valued function defined on the space of \emph{forecast errors}, $\mc{E}$, and satisfies the following properties
 			\begin{enumerate}[(i)]
-				\item $L(e) = 0 \iff \norm{e} = 0$;
-				\item $\forall e \in \mc{E}, L(e) \geq 0$\footnote{Since forecasting here can be considered as an optimization process, with $L$ as the objective function. It's fine for $L$ not satisfying the non-negativity condition. However, by convention, we assume $L$ to be non-negative.};
+				\item $L(e) = 0 \iff \abs{e} = 0$;
+				\item $\forall e \in \R, L(e) \geq 0$\footnote{Since forecasting here can be considered as an optimization process, with $L$ as the objective function. It's fine for $L$ not satisfying the non-negativity condition. However, by convention, we assume $L$ to be non-negative.};
 				\item $L$ is \emph{monotonically increasing} in the \emph{norm} of forecast error.
 			\end{enumerate}
 		\end{definition}
 		
-		\begin{example}[Symmetric Loss Functions with $\mc{E} = \R$]
+		\begin{example}[Symmetric Loss Functions]
 			\begin{align}
 				L(e) = a e^2,\ a > 0 \\
-				L(e) = a\ |e|,\ a > 0
+				L(e) = a\ \abs{e},\ a > 0
 			\end{align}
 		\end{example}
 		
-		\begin{example}[Asymmetric Loss Functions with $\mc{E} = \R$]
+		\begin{example}[Asymmetric Loss Functions]
 			\begin{align}
 				L(e) = \exp(ae) - ae - 1,\ a > 0 & \tx{ Lin(ear)-ex(ponential) Function} \\
-				L(e) = a\ |e|\ \mathbb{I}(e \geq 0) + b\ |e|\ \mathbb{I}(e < 0) &\tx{ Lin-lin Function}
+				L(e) = a\abs{e} \id{e \geq 0} + b\abs{e} \id{e < 0} &\tx{ Lin-lin Function}
 			\end{align}
 		\end{example}
 		
@@ -432,7 +433,7 @@
 		\begin{definition}
 			Based on information set $I_t$, the optimal forecast for future value $y_{t+h}$ is the $f^*_{t,h}$ minimize the \hl{expected loss function}
 			\begin{equation}
-				\expect{L|I_t} = \int L(y_{t+h} - \red{f_{t,h}}) f(y_{t+h})\ dy_{t+h}
+				\expect{L(y_{t+h} - f_{t,h})|I_t} = \int L(y_{t+h} - \red{f_{t,h}}) f(y_{t+h})\ dy_{t+h}
 			\end{equation}
 		\end{definition}
 		
@@ -446,7 +447,7 @@
 		\begin{proposition}
 			Given \hl{symmetric} quadratic $L$, the optimal forecast $f^*_{t,h}$ is 
 			\begin{equation}
-				\mu_{t+h|t} \equiv \expect{Y_{t+h}|I_t}
+				f_{t,h}^* := \mu_{t+h|t} = \expect{Y_{t+h}|I_t}
 			\end{equation}
 			\begin{proof}
 				\begin{gather}
@@ -459,12 +460,16 @@
 			\end{proof}
 		\end{proposition}
 		
+		\begin{remark}
+			Above proof for optimal forecasting does not depends on the specific distribution of $Y_t$.
+		\end{remark}
+		
 	\section{Moving Average Process}
 		\subsection{Wold Decomposition Theorem}
 			\begin{theorem}[Wold Decomposition Theorem]
-				Every \ul{covariance stationary} stochastic process $\{Y_t\}$ with mean zero and finite positive variance can be \ul{uniquely} represented as
+				Every \hl{covariance stationary} stochastic process $\{Y_t\}$ with and finite positive variance has an \hl{unique linear} representation.
 				\begin{equation}
-					Y_t = \underbrace{V_t}_{\tx{AR}} + \underbrace{\sum_{j=0}^\infty \psi_j L^j \varepsilon_t}_{\tx{MA}} = V_t + \Psi(L)\varepsilon_t
+					Y_t = V_t + \underbrace{\sum_{j=0}^\infty \psi_j L^j \varepsilon_t}_{\tx{MA($\infty$)}} = V_t + \Psi(L)\varepsilon_t
 				\end{equation}
 				where 
 				\begin{enumerate}[(i)]
@@ -497,13 +502,13 @@
 			\end{corollary}
 			
 			\begin{corollary}
-				The Wold decomposition guarantees that there always exists a \ul{linear model} that can represent the dynamics of a \ul{covariance stationary} process.
+				The Wold decomposition guarantees that there always exists a \hl{finite linear model} that can represent the dynamics of a \hl{covariance stationary} process.
 			\end{corollary}
 		\subsection{Moving Average Process}
 			\begin{definition}
 				The \textbf{Moving Average} of order $q$ with deterministic trend, MA($q$), process is defined by the following stochastic difference equation
 				\begin{equation}
-					Y_t = \mu + \Theta(L) \varepsilon_t = \mu + \theta_0 \varepsilon_t + \theta_1 \varepsilon_{t-1} + \dots + \theta_q \varepsilon_{t-q} \tx{ where } \theta_0 = 1, \theta_q \neq 0
+					\red{Y_t = \mu + \Theta(L) \varepsilon_t} = \mu + \theta_0 \varepsilon_t + \theta_1 \varepsilon_{t-1} + \dots + \theta_q \varepsilon_{t-q} \tx{ where } \theta_0 = 1, \theta_q \neq 0
 				\end{equation}
 				where $\{\varepsilon_t\}$ is the series of innovations.
 			\end{definition}
@@ -511,7 +516,7 @@
 			\begin{lemma}
 				The infinite lag polynomial in $\Psi(L)$ can be approximated by
 				\begin{equation}
-					\Psi(L) \approx \frac{\Theta_q(L)}{\Phi_p(L)}
+					\red{\Psi(L) \approx \frac{\Theta_q(L)}{\Phi_p(L)}}
 				\end{equation}
 				\begin{proof}[Proof Idea.]
 					Taylor's Series.
@@ -534,17 +539,17 @@
 					\expect{Y_t} = \expect{\mu + \varepsilon_t + \theta \varepsilon_{t-1}} &= \mu 
 				\end{align}
 				\begin{align}
-					\var{Y_t} &= \expect{(\varepsilon_t + \theta \varepsilon_{t-1})^2} \\
-					&= \var{\varepsilon_t} + \theta^2 \var{\varepsilon_{t-1}} \\
-					&= (1 + \theta^2) \sigma_\varepsilon^2
+					\var{Y_t} &= \expect{(\varepsilon_t + \theta \varepsilon_{t-1})^2}
+					= \var{\varepsilon_t} + \theta^2 \var{\varepsilon_{t-1}}
+					= (1 + \theta^2) \sigma_\varepsilon^2
 				\end{align}
 			\paragraph{Auto-covariance}
 				\begin{align}
 					\gamma_0 &= \var{Y_t} = (1 + \theta^2) \sigma_\varepsilon^2\\
-					\gamma_1 &= \expect{(Y_t - \mu) (Y_{t-1} - \mu)} \\
-					&= \expect{(\varepsilon_t + \theta \varepsilon_{t-1})(\varepsilon_{t-1} + \theta \varepsilon_{t-2})} \\
-					&= \theta \sigma_\varepsilon^2 \\
-					\gamma_k &= 0\ \forall k > 1
+					\gamma_1 &= \expect{(Y_t - \mu) (Y_{t-1} - \mu)}
+					= \expect{(\varepsilon_t + \theta \varepsilon_{t-1})(\varepsilon_{t-1} + \theta \varepsilon_{t-2})}
+					= \theta \sigma_\varepsilon^2
+					\gamma_k = 0\ \forall k > 1
 				\end{align}
 			\paragraph{Auto-correlation}
 				\begin{align}
@@ -559,15 +564,15 @@
 			\begin{proof}[Inverting]
 				Let 
 				\begin{equation}
-					Y_t = \mu + \varepsilon_t + \theta \varepsilon_{t+1}
+					Y_t = \mu + \varepsilon_t + \theta \varepsilon_{t-1}
 				\end{equation}
 				where $|\theta| < 1$.
 				Then, 
 				\begin{gather}
-					Y_t = \mu + \varepsilon_t + \theta \varepsilon_{t+1} \\
+					Y_t = \mu + \varepsilon_t + \theta \varepsilon_{t-1} 
 					\implies Y_t - \mu = (1 + \theta L) \varepsilon_t \\ 
-					\implies \frac{Y_t - \mu}{1 - (- \theta L)} = \varepsilon_t \\
-					\implies \varepsilon_t = (Y_t - \mu) \sum_{j=0}^\infty (-\theta L)^j
+					\implies \frac{Y_t - \mu}{1 - (- \theta L)} = \varepsilon_t
+					\implies \red{\varepsilon_t = (Y_t - \mu) \sum_{j=0}^\infty (-\theta L)^j}
 				\end{gather}
 			\end{proof}
 			
@@ -582,12 +587,16 @@
 			\begin{remark}
 				If the MA process is invertible, we can always find an autoregressive representation in which the present is a function of the past innovations.
 			\end{remark}
+			
+			\begin{remark}
+				\hl{The value of $\varepsilon_t$ is retrieved from dataset $\{y_t\} \subset I_t$ using the AR representation from the invertibility of MA process.}
+			\end{remark}
 		\subsection{Forecasting with MA(1)}
 			\subsubsection{Forecasting with Horizon $h=1$}
 				\paragraph{Point estimate}
 					\begin{gather}
-						f_{t,1} = \expect{Y_{t+1}|I_t} \\
-						= \expect{\mu + \theta \varepsilon_{t} + \varepsilon_{t+1}|I_t} \\
+						f_{t,1} = \expect{Y_{t+1}|I_t}
+						= \expect{\mu + \theta \varepsilon_{t} + \varepsilon_{t+1}|I_t}
 						= \mu + \theta \varepsilon_t
 					\end{gather}
 				\paragraph{Forecasting error}
@@ -596,20 +605,20 @@
 					\end{gather}
 				\paragraph{Forecasting uncertainty}
 					\begin{gather}
-						\red{\sigma_{t+1|t}^2} = \var{Y_{t+1}|I_t} \\
-						= \expect{\varepsilon_{t+1}^2|I_t} \\
+						\red{\sigma_{t+1|t}^2} = \var{Y_{t+1}|I_t}
+						= \expect{\varepsilon_{t+1}^2|I_t}
 						= \sigma^2_\varepsilon
 					\end{gather}
 				\textbf{Density forecast} assuming \emph{normality} of $\varepsilon$. Confidence interval can be computed using the the density forecast.
 					\begin{gather}
-						\mc{F} \equiv \mc{N}(\mu_{t+1|t}, \sigma_{t+1|t}^2) \\
-						\mu_{t+1|t} = \mu + \theta \varepsilon_t \\
+						\mc{F} \equiv \mc{N}(\mu_{t+1|t}, \sigma_{t+1|t}^2)
+						\mu_{t+1|t} = \mu + \theta \varepsilon_t
 						\sigma_{t+1|t}^2 =  \sigma^2_\varepsilon
 					\end{gather}
 			\subsubsection{Forecasting with Horizon $h=2$}
 				\paragraph{Point estimate}
 					\begin{gather}
-						f_{t,2} = \expect{Y_{t+2} | I_t} \\
+						f_{t,2} = \expect{Y_{t+2} | I_t}
 						= \expect{\mu + \theta \varepsilon_{t+1} + \varepsilon_{t+2} | I_t}
 						= \mu
 					\end{gather}
@@ -619,7 +628,7 @@
 					\end{gather}
 				\textbf{Forecasting Uncertainty}
 					\begin{gather}
-						\sigma_{t+2|t}^2 \equiv \var{Y_{t+2} | I_t} \\
+						\sigma_{t+2|t}^2 \equiv \var{Y_{t+2} | I_t}
 						= (1 + \theta^2) \sigma_{\varepsilon}^2 
 					\end{gather}
 				\textbf{Density forecast}
@@ -636,31 +645,26 @@
 				\end{equation}
 			\paragraph{Unconditional Moments}
 				\begin{gather}
-					\expect{Y_t} = \mu \\
+					\expect{Y_t} = \mu
 					\var{Y_t} = (1 + \theta_1^2 + \theta_2^2) \sigma_\varepsilon^2
 				\end{gather}
 			\paragraph{Auto-covariance}
-				\begin{gather}
-					\gamma_0 = \var{Y_t} = (1 + \theta_1^2 + \theta_2^2) \sigma_\varepsilon^2 \\
-					\gamma_1 = (\theta_1 + \theta_1 \theta_2) \sigma_\varepsilon^2 \\
-					\gamma_2 = \theta_2 \sigma_\varepsilon^2
-				\end{gather}
+				\begin{align}
+					\gamma_0 &= \var{Y_t} = (1 + \theta_1^2 + \theta_2^2) \sigma_\varepsilon^2 \\ 
+					\gamma_1 &= (\theta_1 + \theta_1 \theta_2) \\\sigma_\varepsilon^2
+					\gamma_2 &= \theta_2 \sigma_\varepsilon^2
+				\end{align}
 			\paragraph{Auto-correlation}
-				\begin{gather}
-					\rho_1 \equiv \frac{\gamma_1}{\gamma_0} = \frac{\theta_1 + \theta_1 \theta_2}{1 + \theta_1^2 + \theta_2^2} \\
-					\rho_2 \equiv \frac{\gamma_2}{\gamma_0} = \frac{\theta_2}{1 + \theta_1^2 + \theta_2^2}
-				\end{gather}
+				\begin{align}
+					\rho_1 \equiv \frac{\gamma_1}{\gamma_0} &= \frac{\theta_1 + \theta_1 \theta_2}{1 + \theta_1^2 + \theta_2^2} \\
+					\rho_2 \equiv \frac{\gamma_2}{\gamma_0} &= \frac{\theta_2}{1 + \theta_1^2 + \theta_2^2}
+				\end{align}
 			\paragraph{Optimal Forecasting}
-				\begin{gather}
-					f_{t, 1} = \mu + \theta_1 \varepsilon_t + \theta_2 \varepsilon_{t-1} \\
-					f_{t, 2} = \mu + \theta_2 \varepsilon_t \\
-					f_{t, h} = \mu\ \forall h > 2
-				\end{gather}
-			
-		\subsection{MA Forecasting Procedure}
-			\begin{remark}
-				Assuming the MA process used is invertible, we use its inverting representation to recover $\hat{\varepsilon}_t$.
-			\end{remark}
+				\begin{align}
+					f_{t, 1} &= \mu + \theta_1 \varepsilon_t + \theta_2 \varepsilon_{t-1} \\
+					f_{t, 2} &= \mu + \theta_2 \varepsilon_t \\
+					f_{t, h} &= \mu\ \forall h > 2
+				\end{align}
 	
 	\section{Auto-Regression Process and Seasonality}
 		\subsection{AR Process}
@@ -674,6 +678,10 @@
 					\Phi_p(L) Y_t = c + \varepsilon_t
 				\end{equation}
 			\end{definition}
+			
+			\begin{remark}
+				In AR(1) process, ACF decays exponentially to zero, \ul{faster for smaller $\phi$}.
+			\end{remark}
 			
 			\begin{definition}
 				An \textbf{auto-regressive} process of order 1 takes the form of \emph{stochastic difference equation}:
@@ -689,7 +697,7 @@
 		
 		\paragraph{ACF and PACF}
 			\begin{gather}
-				\rho_1 = r_1 = \phi \\
+				\red{\rho_1 = r_1 = \phi} \\
 				r_k = 0\ \forall k > 1
 			\end{gather}
 			
@@ -700,7 +708,7 @@
 			
 			\paragraph{Point estimate}
 				\begin{gather}
-					f_{t,1} = \expect{Y_{t+1}|I_t} \\
+					f_{t,1} = \expect{Y_{t+1}|I_t}
 					= c + \phi Y_t
 				\end{gather}
 			\paragraph{Forecast variance(uncertainty)}
@@ -716,13 +724,13 @@
 		\subsubsection{Forecasting with AR(1) and $h=s>1$}
 			\paragraph{Point estimate}
 				\begin{gather}
-					f_{t,s} = \expect{Y_{t+s}|I_t} \\
-					= c + \expect{\phi Y_{t+s-1}|I_t} \\
+					f_{t,s} = \expect{Y_{t+s}|I_t}
+					= c + \expect{\phi Y_{t+s-1}|I_t}
 					= (1 + \phi + \dots + \phi^{s-1}) c + \phi^s Y_t
 				\end{gather}
 			\textbf{Forecasting uncertainty}
 				\begin{gather}
-					\var{Y_{t+s}|I_t} = \var{\varepsilon_{t+s} + \phi \varepsilon_{t+s-1} + \dots + \phi^{s-1} \varepsilon_{t+1} | I_t} \\
+					\var{Y_{t+s}|I_t} = \var{\varepsilon_{t+s} + \phi \varepsilon_{t+s-1} + \dots + \phi^{s-1} \varepsilon_{t+1} | I_t}
 					= \sum_{j=0}^{s-1} \phi^{\red{2j}} \sigma_\varepsilon^2
 				\end{gather}
 			\begin{remark}
@@ -764,7 +772,7 @@
 				\end{gather}
 			\paragraph{Optimal Forecasts $h=1$}
 				\begin{gather}
-					f_{t,1} = \expect{Y_{t+1}|I_t} \\
+					f_{t,1} = \expect{Y_{t+1}|I_t}
 					= \expect{c + \phi_1 Y_t + \phi_2 Y_{t-1} + \varepsilon_{t+1}|I_t} \\
 					= c + \phi_1 Y_t + \phi_2 Y_{t-1}
 				\end{gather}
@@ -776,24 +784,24 @@
 				\end{gather}
 			\paragraph{Optimal Forecasts $h=2$}
 				\begin{gather}
-					f_{t,2} = \expect{Y_{t+2}|I_t} \\
-					= \expect{c + \phi_1 Y_{t+1} + \phi_2 Y_t + \varepsilon_{t+2}|I_t} \\
+					f_{t,2} = \expect{Y_{t+2}|I_t}
+					= \expect{c + \phi_1 Y_{t+1} + \phi_2 Y_t + \varepsilon_{t+2}|I_t}
 					= c + \phi_1 \red{f_{t,1}} + \phi_2 Y_t 
 				\end{gather}
 				\begin{gather}
-					e_{t,2} = Y_{t+2} - f_{t,2} \\
-					= \phi_1 (Y_{t+1} - f_{t,1}) + \varepsilon_{t+2} \\
+					e_{t,2} = Y_{t+2} - f_{t,2}
+					= \phi_1 (Y_{t+1} - f_{t,1}) + \varepsilon_{t+2}
 					= \phi_1 e_{t,1} + \varepsilon_{t+2}
 				\end{gather}
 				\begin{gather}
-					\sigma_{t+2|t}^2 = \var{Y_{t+2}|I+t} \\
-					= \phi_1^2 \sigma_{t+1|t}^2 + \sigma_\varepsilon^2 \\
+					\sigma_{t+2|t}^2 = \var{Y_{t+2}|I+t}
+					= \phi_1^2 \sigma_{t+1|t}^2 + \sigma_\varepsilon^2
 					= (1 + \phi_1^2) \sigma_\varepsilon^2
 				\end{gather}
 			\textbf{Optimal Forecasts $h=s>2$}
 				\begin{align}
-					f_{t, s} &= \expect{Y_{t+s}|I_t} \\
-					&= c + \phi_1 f_{t, s-1} + \phi_2 f_{t, s-2}
+					f_{t, s} = \expect{Y_{t+s}|I_t}
+					= c + \phi_1 f_{t, s-1} + \phi_2 f_{t, s-2}
 				\end{align}
 				
 				\begin{align}
@@ -802,9 +810,9 @@
 				\end{align}
 				
 				\begin{align}
-					\sigma_{t+s|t}^2 &= \var{Y_{t+s}|I_t} \\
-					&= \var{e_{t,s}|I_t} \\
-					&= \phi_1 \sigma_{t+s-1|t}^2 + \phi_2 \sigma_{t+s-2|t}^2 + \sigma_\varepsilon^2
+					\sigma_{t+s|t}^2 = \var{Y_{t+s}|I_t}
+					= \var{e_{t,s}|I_t}
+					= \phi_1 \sigma_{t+s-1|t}^2 + \phi_2 \sigma_{t+s-2|t}^2 + \sigma_\varepsilon^2
 				\end{align}
 			\begin{remark}
 				AR(2) is still classified as \emph{short memory processes} as 
@@ -820,7 +828,7 @@
 			\end{definition}
 			
 			\begin{theorem}
-				An autoregressive process is stationary \ul{if and only if} all roots of its characteristic polynomial are \hl{outside} the unit circle on $\C$.
+				\red{An autoregressive process is stationary \ul{if and only if} all roots of its characteristic polynomial are \hl{outside} the unit circle on $\C$.}
 			\end{theorem}
 			
 			\paragraph{Forecasting with AR($p$) Process} we apply a \hl{recursive} scheme, or \hl{\textbf{chain rule of forecasting}}, in which the we use the \emph{forecasted} values to make prediction on even further values.
@@ -837,8 +845,11 @@
 			\begin{enumerate}[(i)]
 				\item \textbf{Estimate} $\hat{\Phi}$ and $\hat{\sigma}_\varepsilon^2$ and $\hat{\mu}$ (unconditional mean). 
 				\item Calculate $\hat{c}$(intercept) from $\hat{\Phi}$ and $\hat{\mu}$.
+					\begin{equation}
+						\hat{c} = \hat{\mu}(1 - \sum_{j=1}^p \hat{\phi}_j)
+					\end{equation}
 				\item Construct forecast $f_{t, h}$ with \textbf{chain rule of forecasting}.
-				\item \textbf{Density forecast}, under normality assumption of $\varepsilon$ is
+				\item \textbf{Density forecast}, \ul{under normality assumption} of $\varepsilon$ is
 				\begin{equation}
 					\mc{N}(f_{t,h}, \hat{\sigma}^2_{t+h|t})
 				\end{equation}
@@ -860,14 +871,14 @@
 				
 			\subsubsection{Stochastic Seasonality}
 				\begin{definition}
-					The seasonality is \textbf{stochastic} if the seasonal component is driven by random variables.
+					The seasonality is \textbf{stochastic} if the seasonal component is driven by \hl{random variables}.
 				\end{definition}
 				
 				\begin{definition}
 					A seasonal AP($p$) model, S-AR($p$), is defined by
 					\begin{gather}
 						Y_t = c + \phi_s Y_{t-s} + \phi_{2s} + Y_{t-2s} + \dots + \phi_{ps} Y_{t - ps} + \varepsilon_t \\
-						\Phi_{p}(L^s) Y_t = c + \varepsilon_t
+						\red{\Phi_{p}(L^s) Y_t = c + \varepsilon_t}
 					\end{gather}
 					where $s$ refers to the \textbf{data frequency}. Such model seeks to explain the \textbf{dynamics across seasons}.
 				\end{definition}
@@ -875,7 +886,7 @@
 				\begin{definition}
 					Characteristics of realizations from S-AR($p$) process:
 					\begin{enumerate}[(i)]
-						\item ACF decays slowly with spikes at \ul{multiples of $s$}.
+						\item \emph{ACF decays slowly with spikes at \ul{multiples of $s$}.}
 						\item PACF \hl{only} spikes at \ul{multiples of $s$}.
 					\end{enumerate}
 				\end{definition}
@@ -891,7 +902,7 @@
 					Characteristics of realizations from S-MA($q$) process:
 					\begin{enumerate}[(i)]
 						\item ACF \hl{only} spikes at \ul{multiples of $s$}.
-						\item PACF decays slowly with spikes at \ul{multiples of $s$}.
+						\item \emph{PACF decays slowly with spikes at \ul{multiples of $s$}.}
 					\end{enumerate}
 				\end{remark}
 				
@@ -989,7 +1000,7 @@
 				\paragraph{Forecasting} Assuming AR(1) process. \\
 				\textbf{Error with $h=1$}
 					\begin{gather}
-						e_{t+1, t} = c + \phi Y_t + \varepsilon_{t+1} - f_{t,1} \\
+						e_{t+1, t} = c + \phi Y_t + \varepsilon_{t+1} - f_{t,1}
 						= \varepsilon_{t+1} -\frac{a \sigma_{t+1|t}^2}{2} \\
 						\expect{e_{t+1, t}} = - \frac{a \sigma_{t+1|t}^2}{2} \\
 						\var{e_{t+1,t}|I_t} = \sigma_\varepsilon^2
@@ -1000,7 +1011,7 @@
 						= c + \phi(Y_{t+1}) + \varepsilon_{t+2} - f_{t,2} \\
 						= c + \phi c + \phi \varepsilon_{t+1} + \phi Y_t + \varepsilon_{t+2} - f_{t,2} \\
 						= c + \phi c + \phi \varepsilon_{t+1} + \phi Y_t + \varepsilon_{t+2} - \expect{Y_{t+2}|I_t} - \frac{a \sigma_{t+2|t}^2}{2} \\
-						= \phi \varepsilon_{t+1} + \varepsilon_{t+2} -  \frac{a \sigma_{t+2|t}^2}{2}
+						= \underbrace{\phi \varepsilon_{t+1} + \varepsilon_{t+2} -  \frac{a \sigma_{t+2|t}^2}{2}}_{\tx{forecasting error is not mean-zero}}
 					\end{gather}
 					Note that for every $h > 0$, the term $\sigma_{t+h|t}$ is constant conditioned on $I_t$.
 					\begin{gather}
@@ -1032,12 +1043,12 @@
 		        \begin{align}
 		            Y_t &= \beta_0 + \beta_1 t + \beta_2 t^2 + \cdots + \varepsilon_t \tx{ (polynomial)}\\
 		            Y_t &= e^{\beta_0 + \beta_1 t + \beta_2 t^2 + \cdots} + \varepsilon_t \tx{ (exponential)} \\
-		            Y_t &= \frac{1}{\beta_0 + \beta_1 t + \beta_2 t^2 + \cdots} + \varepsilon_t \tx{ (logistic/inverse-polynomial)}
+		            Y_t &= \red{\frac{1}{\beta_0 + \beta_1 t + \beta_2 t^2 + \cdots} + \varepsilon_t \tx{ (logistic/inverse-polynomial)}}
 		        \end{align}
 		    \end{example}
 
     		\begin{remark}
-    		    With trend in mean, the unconditional mean \ul{depends on time $t$}, and thus the process is not covariance stationary, we call such stochastic process \textbf{trend-stationary}.
+    		    With trend in mean, the unconditional mean \ul{depends on time $t$}, and thus the process is not covariance stationary, we call such stochastic process \textbf{trend-stationary}. For such process, \ul{the first order }
     		\end{remark}
 		    
 		    \begin{itemize}
@@ -1051,7 +1062,7 @@
 		    \end{itemize}
     		
     		\begin{remark}
-    		    After accounting for the non-stationary trend, the remainder of the model is stationary and we could replace $\varepsilon_t$ with any ARMA model specification.
+    		    \hl{After accounting for the non-stationary trend, the remainder of the model is stationary and we could replace $\varepsilon_t$ with any ARMA model specification.}
     		 \end{remark}
     		
     	\subsection{Model Selection}
@@ -1079,7 +1090,7 @@
     	    \end{example}
     	    
     	    \begin{remark}
-    	        AR(2) model with $\phi_1 + \phi_2 = 1$ can also generate a random walk. This can be generalized to AR($p$) for any order $p$.
+    	        AR(2) model with $\phi_1 + \phi_2 = 1$ can also generate a random walk. This can be generalized to AR($p$) for any order $p$. Moreover, \hl{any non-stationary AR($p$) process generates a random walk}.
     	    \end{remark}
     	    
     	    \begin{example}[Random walk without a drift]
@@ -1099,14 +1110,14 @@
         	        \begin{tabular}{c|c|c}
         	             model & deterministic trend & random walk \\
         	             \hline
-        	             mean & varying & constant \\
+        	             mean & changing & constant \\
         	             \hline
         	             variance & constant & changing
         	        \end{tabular}
     	        \end{figure*}
     	    \end{remark}
     	    
-    	\subsection{Unit Root}
+    	\subsection{Unit Root Test}
     	    \paragraph{Dickey-Fuller test for AR(1)}
     	        \begin{align}
     	            H_0 &: \phi = 1 \tx{ non-stationary} \\
@@ -1131,12 +1142,12 @@
     	        \item Type II: if \emph{unconditional mean} presents.
     	        \begin{align}
     	            H_0 &: Y_t = Y_{t-1} + \varepsilon_t \\
-    	            H_1 &: Y_t = c + \phi Y_{t-1} = \varepsilon_t
+    	            H_1 &: Y_t = \red{c} + \phi Y_{t-1} = \varepsilon_t
     	        \end{align}
     	        \item Type III: if \emph{linear trend} presents.
     	        \begin{align}
     	            H_0 &: Y_t = c + Y_{t-1} + \varepsilon_t \\
-    	            H_1 &: Y_t = c + at + \phi Y_{t-1} = \varepsilon_t
+    	            H_1 &: Y_t = c + \red{at} + \phi Y_{t-1} = \varepsilon_t
     	        \end{align}
     	    \end{itemize}
     	    
@@ -1174,7 +1185,7 @@
     	    
         \subsection{Granger Causality}
             \begin{definition}
-                The process $\{X_t\}$ is said to \textbf{Granger cause} the process $\{Y_t\}$ if lagged values of $X_t$ help predicting $Y_t$ beyond the information contained in the lagged values of $Y_t$.
+                The process $\{X_t\}$ is said to \textbf{Granger cause} the process $\{Y_t\}$ if lagged values of $X_t$ help predicting $Y_t$ \ul{beyond the information contained in the lagged values of $Y_t$.}
             \end{definition}
             
             \begin{remark}
@@ -1225,6 +1236,7 @@
                 \end{equation}
             \end{remark}
         \subsection{Forecasting}
+        	\par \hl{Use chain rule of forecasting.}
             \begin{itemize}
                 \item Optimal forecast;
                 \item Forecast errors;
@@ -1241,6 +1253,11 @@
 		        For any two unit-root process $\{x_t\}$ and $\{y_t\}$, we say they are \textbf{cointegrated} is there is a linear combination $z_t = y_t - \alpha_0 - \alpha x_t$ that is stationary. The process $\{z_t\}$ is called the \textbf{disequilibrium error}. \emph{If $y_t$ and $x_t$ are cointegrated, then they share the same stochastic trend (common long-run information).}
 		    \end{definition}
 		    
+		    \begin{remark}
+		    	The notion of cointegration only apply to unit-root processes.
+		    \end{remark}
+		   
+		\subsection{Tests for Cointegrations}
 		    \begin{remark}
 		        \textbf{Augmented Dickey Fuller}(ADF) Test for the cointegration.
 		        \begin{enumerate}[(i)]
@@ -1262,14 +1279,15 @@
 		            \item if $r=0$ then there is \ul{no} cointegrating relationship in $\ve{Y}_t$;
 		            \item if $r=1$ then there is \ul{one} cointegrating relationship in $\ve{Y}_t$.
 		        \end{itemize}
+		        \hl{Reject $H_0$ when test statistic exceeds the critical value given in the test output.}
 		    \end{remark}
 
         \subsection{Vector Error Correction for Short-term Dynamics}
             \begin{definition}
                 \begin{align}
                     z_t &= \log Y_t - \alpha_0 - \alpha \log X_t \\
-                    \Delta x_t &= \gamma_1 z_{t-1} + \varepsilon_{1,t} \\
-                    \Delta y_t &= \gamma_2 z_{t-1} + \varepsilon_{2,t}
+                    \Delta x_t &= \red{\gamma_1 z_{t-1}} + \varepsilon_{1,t} \\
+                    \Delta y_t &= \red{\gamma_2 z_{t-1}} + \varepsilon_{2,t}
                 \end{align}
                 where $\gamma_1, \gamma_2$ are called the \textbf{adjustments coefficients}, and $\varepsilon_{1, t}, \varepsilon_{2, t}$ are white noise components.
             \end{definition}
@@ -1277,10 +1295,12 @@
             \begin{definition}
                 VEC model can be extended to include \textbf{temporal dependence} and \textbf{cross-correlation}
                 \begin{align}
-                    \Delta x_t = \gamma_1 z_{t-1} &+ \beta_{11} \Delta x_{t-1} + \beta_{12} \Delta x_{t-2} + \dots \\
+                    \Delta x_t = \gamma_1 z_{t-1} 
+                    &+ \beta_{11} \Delta x_{t-1} + \beta_{12} \Delta x_{t-2} + \dots \\
                     &+ \phi_{11} \Delta y_{t-1} + \phi_{12} \Delta y_{t-2} + \dots + \varepsilon_{1, t} \\
-                    \Delta y_t = \gamma_2 z_{t-1} &+ \beta_{21} \Delta x_{t-1} + \beta_{22} \Delta x_{t-2} + \dots \\
-                    &+ \phi_{21} \Delta y_{t-1} + \phi_{22} \Delta y_{t-2} + \dots + \varepsilon_{2, t}
+                    \Delta y_t = \red{\gamma_2 z_{t-1}} 
+                    &+ \underbrace{\beta_{21} \Delta x_{t-1} + \beta_{22} \Delta x_{t-2} + \dots}_{\tx{cross correlation}} \\
+                    &+ \underbrace{\phi_{21} \Delta y_{t-1} + \phi_{22} \Delta y_{t-2} + \dots}_{\tx{temporal dependence}} + \varepsilon_{2, t}
                 \end{align}
             \end{definition}
             
@@ -1332,20 +1352,20 @@
 				Kurtosis measures the thickness of the tails of the density of $X$, and consequently the peakedness of the middle, relative to the Normal distribution with $k_4 = 0$.
 				\begin{enumerate}[(i)]
 					\item \textbf{Leptokurtic}, $k_4 > 0$, \emph{Heavy Tails};
-					\item \textbf{Mesokurtic}, $k_4 < 0$, \emph{Thin Tails}.
+					\item \textbf{Platykurtic}, $k_4 < 0$, \emph{Thin Tails}.
 				\end{enumerate}
 			\end{definition}
 		
-		\subsection{Moving Average}
+		\subsection{Moving Average on $\{r_t\}$}
 			\begin{definition}
 				Modelling conditional variance
 				\begin{equation}
-					\hat{\sigma}^2_{t|t-1} = \frac{1}{n} \sum_{i=1}^n (r_{t-i} - \mu)^2
+					\hat{\sigma}^2_{t|t-1} = \frac{1}{n} \sum_{i=1}^n (r_{t-i} - \red{\mu})^2
 				\end{equation}
 				\emph{Higher $n$ will yield a smoother estimate}.
 			\end{definition}
 		
-		\subsection{Simple Exponential Smoothing (SES)}
+		\subsection{Simple Exponential Smoothing (SES) on $\{y_t\}$}
 			\paragraph{Model} \hl{for the mean $\mu$}
 				\begin{align}
 					\mu_T &= \alpha y_T + (1 - \alpha)\mu_{T-1} \tx{ (smooth equation)} \\
@@ -1373,8 +1393,14 @@
 			
 			\paragraph{Model} \hl{for the variance $(r_t - \mu)^2$}
 				\begin{align}
-					\hat{\sigma}^2_{t|t-1} &= (1 - \lambda) \sum_{k=0}^{t-1} \lambda^k (r_{t-k} - \sigma^2)^2 
+					\hat{\sigma}^2_{t|t-1} &= (1 - \lambda) \sum_{k=0}^{t-1} \lambda^k (r_{t-k} - \mu)^2 
 				\end{align}
+				
+			\paragraph{Error Correction Form (Recursive Definition)}
+				\begin{gather}
+					\hat{\sigma}_{t|t-1}^2 = \hat{\sigma}_{t-1|t-2}^2 + (1 - \lambda) ((r_{t-1} - \mu)^2 - \hat{\sigma}_{t-1|t-2}^2)
+				\end{gather}
+
 				
 	
 	\section{Volatility II}
@@ -1382,11 +1408,11 @@
 	        \begin{definition}
 	            Given model
 	            \begin{equation}
-	                r_t = \mu_{t|t-1} + \varepsilon_t
+	                \red{r_t = \mu_{t|t-1} + \varepsilon_t}
 	            \end{equation}
 	            where $\mu_{t|t-1}$ can be modelled using an ARMA model, and 
 	            \begin{equation}
-	                \varepsilon_t = \sigma_{t|t-1} z_t
+	                \red{\varepsilon_t = \sigma_{t|t-1} z_t}
 	            \end{equation}
 	            and $z_t$ satisfies $\expect{z_t} = 0$ and $\var{z_t} = 1$ and $i.i.d.$
 	        \end{definition}
@@ -1399,7 +1425,7 @@
 	        \end{remark}
 	        
 	        \begin{remark}
-	            \hl{Note here only the \emph{conditional} variance is heteroskedastic, but the unconditional variance is constant $\expect{\expect{\varepsilon_t^2|I_t}} = \sigma_\varepsilon^2$. This is similar to the unconditional mean ($\mu$) of stochastic process $\{y_t\}$ in ARMA, which is constant, and the conditional mean of $\{y_t\}$ ($\mu_{t|t-1}$), which is non-constant.}
+	            \hl{Note here only the \emph{conditional} variance is heteroskedastic, but the unconditional variance is constant $\red{\expect{\expect{\varepsilon_t^2|I_t}} = \sigma_\varepsilon^2}$. This is similar to the unconditional mean ($\mu$) of stochastic process $\{y_t\}$ in ARMA, which is constant, and the conditional mean of $\{y_t\}$ ($\mu_{t|t-1}$), which is non-constant.}
 	        \end{remark}
 	    \subsection{Autoregressive Conditional Heteroskedasticity (ARCH)}
             \begin{definition}
@@ -1424,7 +1450,7 @@
             \end{remark}
             
             \begin{remark}
-                ARCH(1) forecasting
+                ARCH(1) forecasting (\emph{apply the chain rule of forecasting})
                 \begin{align}
                     \sigma_{t+h|t}^2 &= \omega + \alpha \sigma_{t+h-1|t}^2 \\
                     &= \omega + \alpha \omega + \alpha^2 \sigma_{t+h-2|t}^2 \\
@@ -1455,7 +1481,7 @@
                         \sigma_{t|t-1}^2 &= \overbrace{\omega + \alpha \varepsilon_{t-1}^2 + \beta \sigma_{t-1|t-2}^2}^{\tx{GARCH(1,1)}} \\
                         &= \omega + \alpha \varepsilon_{t-1}^2 + \beta \omega + \beta \alpha \varepsilon_{t-2}^2 + \beta^2 \sigma_{t-1|t-2}^2 \\
                         &= \underbrace{\omega(1 + \beta + \beta^2 + \cdots) + \alpha \sum_{i=1}^\infty \beta^{i-1} \varepsilon_{t-i}^2}_{\tx{Expand Recursively to $(t-\infty)$ Period}} \\
-                        &= \frac{\omega}{1 - \beta} + \underbrace{\alpha \sum_{i=1}^\infty \beta^{i-1}}_{\tx{Persistence}} \varepsilon_{t-i}^2
+                        &= \frac{\omega}{1 - \beta} + \underbrace{\alpha \sum_{i=1}^{\red{\infty}} \beta^{i-1}}_{\tx{Persistence}} \varepsilon_{t-i}^2
                     \end{align}
                 \end{proof}
             \end{proposition}
@@ -1463,9 +1489,9 @@
             \begin{definition}
                 The \textbf{persistence} of GARCH(1,1) process is defined as
                 \begin{equation}
-                    \alpha \sum_{i=1}^\infty \beta^{i-1} = \frac{\alpha}{1 - \beta}
+                    \alpha \sum_{i=1}^{\red{\infty}} \beta^{i-1} = \frac{\alpha}{1 - \beta}
                 \end{equation}
-                measures how permanent the innovations $\varepsilon_t^2$ are in the conditional variance. When $\frac{\alpha}{1 - \beta} = 1$, the process is an \textbf{integrated GARCH} process, \hl{it's \emph{unconditional} variance does not exist (equals $\infty$)}.
+                measures how permanent the innovations $\varepsilon_t^2$ are in the conditional variance. When $\frac{\alpha}{1 - \beta} = 1$, the process is an \textbf{integrated GARCH} process, \hl{its \emph{unconditional} variance does not exist (equals $\infty$)}.
                 \begin{proof}
                     \begin{gather}
                         \expect{\sigma_{t|t-1}^2} = \expect{\frac{\omega}{1 - \beta} + \alpha \sum_{i=1}^\infty \beta^{i-1} \varepsilon_{t-i}^2} \\
@@ -1480,7 +1506,10 @@
 	\section{Volatility III: Applications}
 		\subsection{Risk Management}
 			\begin{definition}
-				The \textbf{$\alpha$-Value at Risk (VaR)}, $r_t^{VaR(\alpha)}$, is the $\alpha$-quantile of $r_t$.
+				The \textbf{$\alpha$-Value at Risk (VaR)}, $r_t^{VaR(\alpha)}$, is the $\alpha$-quantile of $r_t$. Let $F$ be the cumulative density function of returns, then
+				\begin{equation}
+					r_t^{VaR(\alpha)} := F^{-1}(\alpha)
+				\end{equation}
 			\end{definition}
 			
 			\begin{remark}[Interpretation]
@@ -1553,7 +1582,7 @@
 				\implies \red{w_i^* = \frac{
 					\mu_i/\sigma_i^2
 				}{
-					\sum_{j \in N} \mu_j/\sigma_j^2
+					\sum_{j \in N} \mu_j^2/\sigma_j^2
 				}\overline{\mu}_p}
 			\end{gather}
 			
@@ -1622,7 +1651,7 @@
 					\implies Y_t &= D_t \left (\phi_0 + \phi_1 Y_{t-1}\right ) + (1 - D_t) \left (\phi_0' + \phi_1' Y_{t-1}\right ) + \varepsilon_t \\
 					\implies Y_t &= \phi_0' + \phi_1' Y_{t-1} + (\underbrace{\phi_0 - \phi_0'}_{\Delta \phi_0}) D_t + (\underbrace{\phi_1 - \phi_1'}_{\Delta \phi_1}) D_t Y_{t-1} + \varepsilon_t
 				\end{align}
-				And test the hypothesis (equivalently, \ul{test the \emph{joint significance} of coefficients of $D_t$ and $D_t Y_{t-1}$}
+				And test the hypothesis (equivalently, \ul{test the \emph{joint significance} of coefficients of $D_t$ and $D_t Y_{t-1}$} (\hl{partial $F$ test})
 				\begin{align}
 					H_0 &:= \Delta \phi_0 = 0 \land \Delta \phi_1 = 0 \tx{ model is linear}\\
 					H_1 &:= \neg H_0 \tx{ model is non-linear}
@@ -1664,7 +1693,7 @@
 			
 			\begin{example}[Exponential STAR]
 				\begin{gather}
-					\mc{G}(s_t, \gamma, c) = 1 - \exp(-\gamma (s_t - c)^2)
+					\mc{G}(s_t, \gamma, c) = 1 \orange{-} \exp(-\gamma (s_t - c)^{\orange{2}})
 				\end{gather}
 			\end{example}
 			
@@ -1683,10 +1712,26 @@
 						\end{equation}
 					\item A $n \times n$ \textbf{transition matrix} $T$ defined as
 					\begin{equation}
-						T[i, j] := \prob{s_t = \omega_j|s_{t-1} = \omega_i} 
+						T_{i, j} := \prob{s_t = \omega_j|s_{t-1} = \omega_i} 
 					\end{equation}
 				\end{enumerate}
 			\end{definition}
+			
+	\section{Appendix}
+		\par A list of hypothesis tests in this course:
+		\begin{enumerate}[(i)]
+			\item $t$ test for auto-correlation $H_0: \rho_k = 0$.
+			\item Ljung-Box test for auto-correlations $H_0: \rho_1 = \rho_2 = \dots = \rho_k = 0$.
+			\item ADF for unit root, $z = \frac{\hat{\phi}-1}{\sigma_{\hat{\phi}}}$, $H_0: \tx{non-stationary/unit root exists}$ \ul{three types}.
+			\item Partial $F$ test for testing Ganger causality.
+			\item ADF test for testing co-integration, 2 step procedure:
+				\begin{enumerate}[(1)]
+					\item construct $\hat{z}$ from OLS procedure;
+					\item ADF test for the stationarity of $\hat{z}$.
+				\end{enumerate}
+			\item Johansen co-integration test: $r=0$ no integrating relationship, $r=1$ one integrating relationship.
+			\item TAR validity: partial $F$ test with dummy variables.
+		\end{enumerate}
 \end{document}
 
 
