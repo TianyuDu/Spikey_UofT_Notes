@@ -1258,17 +1258,17 @@
 		    \end{remark}
 		   
 		\subsection{Tests for Cointegrations}
-		    \begin{remark}
-		        \textbf{Augmented Dickey Fuller}(ADF) Test for the cointegration.
-		        \begin{enumerate}[(i)]
-		            \item $\hat{z}_t$ is constructed using OLS of $y_t$ on $x_t$;
-		            \item Test the stationarity of $\{\hat{z}_t\}$ using ADF test.
-		            \begin{align}
-		                H_0 &: \tx{ no cointegration ($z_t$ has a unit root/ non-stationary)} \\
-		                H_1 &: \tx{ cointegration presents ($z_t$ is stationary)}
-		            \end{align}
-		        \end{enumerate}
-		    \end{remark}
+%		    \begin{remark}
+%		        \textbf{Augmented Dickey Fuller}(ADF) Test for the cointegration.
+%		        \begin{enumerate}[(i)]
+%		            \item $\hat{z}_t$ is constructed using OLS of $y_t$ on $x_t$;
+%		            \item Test the stationarity of $\{\hat{z}_t\}$ using ADF test.
+%		            \begin{align}
+%		                H_0 &: \tx{ no cointegration ($z_t$ has a unit root/ non-stationary)} \\
+%		                H_1 &: \tx{ cointegration presents ($z_t$ is stationary)}
+%		            \end{align}
+%		        \end{enumerate}
+%		    \end{remark}
 		    
 		    \begin{remark}
 		        \textbf{Johansen Cointegration Test}
@@ -1276,6 +1276,7 @@
 		            \ve{Y}_t := \begin{pmatrix}x_t \\ y_t \end{pmatrix}
 		        \end{equation}
 		        \begin{itemize}
+		        	\item $\hat{z}_t$ is constructed using OLS of $y_t$ on $x_t$ and taking the residual;
 		            \item if $r=0$ then there is \ul{no} cointegrating relationship in $\ve{Y}_t$;
 		            \item if $r=1$ then there is \ul{one} cointegrating relationship in $\ve{Y}_t$.
 		        \end{itemize}
@@ -1308,7 +1309,7 @@
                 Note that the VEC model has the same form as the VAR model \ul{plus the error correcction terms $\gamma_1 z_{t-1}$ and $\gamma_2 z_{t-1}$}. The number of lags in the model can be selected by information criteria.
             \end{remark}
             
-            \begin{theorem}
+            \begin{theorem}[Granger Representation Theorem]
                 Consider two stochastic processes, $\{x_t\}$ and $\{y_t\}$, each \ul{containing a unit root (i.e. non-stationary)}. If $\{x_t\}$ and $\{y_t\}$ are \ul{cointegrated}, then:
                 \begin{enumerate}[(i)]
                     \item There exists a linear combination of $y_t$ and $x_t$ such as $z_t = y_t - \alpha_0 - \alpha x_t$ that is a \ul{stationary process}.
@@ -1718,19 +1719,25 @@
 			\end{definition}
 			
 	\section{Appendix}
-		\par A list of hypothesis tests in this course:
+		\subsection{A list of hypothesis tests in this course}
+		\par
 		\begin{enumerate}[(i)]
 			\item $t$ test for auto-correlation $H_0: \rho_k = 0$.
 			\item Ljung-Box test for auto-correlations $H_0: \rho_1 = \rho_2 = \dots = \rho_k = 0$.
-			\item ADF for unit root, $z = \frac{\hat{\phi}-1}{\sigma_{\hat{\phi}}}$, $H_0: \tx{non-stationary/unit root exists}$ \ul{three types}.
+			\item ADF for unit root, $z = \frac{\hat{\phi}-1}{\sigma_{\hat{\phi}}}$, $H_0:$ non-stationary/unit root exists in any of \ul{three types} of trendings.
 			\item Partial $F$ test for testing Ganger causality.
-			\item ADF test for testing co-integration, 2 step procedure:
-				\begin{enumerate}[(1)]
-					\item construct $\hat{z}$ from OLS procedure;
-					\item ADF test for the stationarity of $\hat{z}$.
-				\end{enumerate}
-			\item Johansen co-integration test: $r=0$ no integrating relationship, $r=1$ one integrating relationship.
-			\item TAR validity: partial $F$ test with dummy variables.
+%			\item ADF test for testing co-integration, 2 step procedure:
+%				\begin{enumerate}[(1)]
+%					\item Construct $\hat{z}$ from OLS procedure (residual);
+%					\item ADF test for the stationarity of $\hat{z}$.
+%				\end{enumerate}
+			\item Johansen co-integration test
+			\begin{itemize}
+				\item Construct $\hat{z}$ from OLS procedure (residual);
+				\item $r=0$ no integrating relationship;
+				\item $r=1$ one integrating relationship.
+			\end{itemize}
+			\item TAR model specification: partial $F$ test with dummy variables.
 		\end{enumerate}
 \end{document}
 
