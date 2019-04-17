@@ -1789,6 +1789,22 @@
 			\end{corollary}
 			
 		\subsection{Stokes Theorem}
+		\subsubsection{The Stoke Boundary}
+			\begin{definition}
+				Let $S$ be a surface that is a subset of a smooth (or piecewise smooth) surface $S_0$, and the \emph{boundary of $S$} is interpreted as the \emph{boundary of $S$ \ul{within $S_0$}}. Then the $\vex \in S_0$ belongs to the \textbf{Stoke boundary} of $S$ \ul{within $S_0$} if
+				\begin{equation}
+					\forall r > 0,\ \mc{B}(r, \vex) \cap S \neq \varnothing \land \mc{B}(r, \vex) \cap (S_0 \backslash S) \neq \varnothing
+				\end{equation}
+			\end{definition}
+		
+		\subsubsection{The Orientation}
+			\begin{definition}
+				Given a smooth surface $S \subset S_0$, at a point $\vex$ in the Stoke's boundary of $S$, $\partial S$, if $\ve{n}$ denotes the \textbf{positive orientation normal} to $S_0$ and $\ve{t}$ denotes the tangent to $\partial S$ at $\vex$ with the \textbf{Stokes orientation}, then
+				\begin{equation}
+					\red{\ve{n} \times \ve{t} \tx{ points into }S}
+				\end{equation}
+			\end{definition}
+		
 		\subsubsection{Stokes Theorem in $\R^3$}
 			\begin{theorem}[Stokes Theorem, Special Case]
 				Let $S$ be a 2 dimensional sub-manifold in $\R^3$, and let $\ve{F}$ be a vector field defined on some neighbour of $S$, then
@@ -1816,6 +1832,26 @@
 				\end{proof}
 			\end{corollary}
 			
+			\begin{definition}
+				A surface $S \subset \R^3$ is \textbf{closed} if it has no Stokes boundary.
+			\end{definition}
+			
+			\begin{definition}
+				A piecewise smooth surface $S \subset \R^3$ is \textbf{closed} if there exists subsets $S_1, S_2$ such that $\partial S_1 = \partial S_2 = S_1 \cap S_2$, and $\partial S_1$ and $\partial S_2$ have \emph{opposite orientations}, where $S_1, S_2$ have the same orientation as $S$.
+			\end{definition}
+			
+			\begin{theorem}
+				If $S$ is a piecewise smooth \ul{closed} surface in $\R^3$ and $\veF$ is a vector field that is $C^1$ near $S$, then
+				\begin{equation}
+					\iint_{S} \operatorname{curl} \mathbf{F} \cdot \mathbf{n} d A=0
+				\end{equation}
+				\begin{proof}
+					\begin{equation}
+						\iint_{S} \operatorname{curl} \mathbf{F} \cdot \mathbf{n} d A=\iint_{S_{1}} \operatorname{curl} \mathbf{F} \cdot \mathbf{n} d A+\iint_{S_{2}} \operatorname{curl} \mathbf{F} \cdot \mathbf{n} d A=\int_{\partial S_{1}} \mathbf{F} \cdot d \mathbf{x}+\int_{\partial S_{2}} \mathbf{F} \cdot d \mathbf{x}=0
+					\end{equation}
+				\end{proof}
+			\end{theorem}
+			
 			\begin{proposition}[Geometric Interpretation of Curl]
 				Let $R \subset \R^3$ be a 2 dimensional sub-manifold with $\ve{n}$ as outer normal vector on it, and $\ve{a} \in R$, 
 				\begin{gather}
@@ -1825,6 +1861,13 @@
 				\end{gather}
 				If we think of $\ve{F}$ as a force field, then $\int_{\partial \mc{D}(\ve{a}, r)} \ve{F} \cdot d\ve{x}$ represents the work done by $\ve{F}$ on a particle moves around $\partial \mc{D}(\ve{a}, r)$. Thus $\curl(\ve{F}) \cdot \ve{u}$ represents the \hl{tendency of the force $\ve{F}$ to push the particle around $\partial \mc{D}(\ve{a}, r)$ in a direction compatible with $\ve{n}$}.
 			\end{proposition}
+			
+			\begin{theorem}[Application: Moving the Surface]
+				Let $S$ and $S'$ be two oriented surfaces such that $\partial S = \partial S'$ (\emph{share the same orientation}), then 
+				\begin{equation}
+					\iint_{S} \operatorname{curl} \mathbf{F} \cdot \mathbf{n} d A=\int_{\partial S} \mathbf{F} \cdot d \mathbf{x}=\int_{\partial S^{\prime}} \mathbf{F} \cdot d \mathbf{x}=\iint_{S^{\prime}} \operatorname{curl} \mathbf{F} \cdot \mathbf{n} d A
+				\end{equation}
+			\end{theorem}
 			
 		\subsubsection{The Generalization}
 			\begin{proposition}[Properties of Exterior Products] Let $\alpha_1, \alpha_2$ and $\beta$ be 1-forms on $\R^n$ and $f_1, f_2$ are continuous functions defined on $\R^n$,
@@ -1913,7 +1956,7 @@
 			\begin{theorem}[Stokes Theorem, 5.77]
 				Let $M$ be a smooth, oriented $k$ dimensional sub-manifold of $\R^n$ with a piecewise smooth boundary $\partial M$, and let $\partial M$ carry the orientation that is (in a suitable sense) compatible with the one on $M$. If $\omega$ is a $(k-1)$-form of class $C^1$ on an open set containing $M$, then
 				\begin{equation}
-					\idotsint_{\partial M} \omega = \iint \cdots \int_M d\omega
+					\red{\idotsint_{\partial M} \omega = \iint \cdots \int_M d\omega}
 				\end{equation}
 			\end{theorem}
 			
@@ -1921,7 +1964,7 @@
 				The \emph{boundary} of a (smoothly bounded) region $M$ in a $k$ dimensional manifold is a $(k-1)$ dimensional manifold with no boundary. \\
 				That's let $M$ be a $k$ dimensional manifold with piecewise smooth boundary $\partial M$, then
 				\begin{equation}
-					\partial (\partial M) = \varnothing
+					\red{\partial (\partial M) = \varnothing}
 				\end{equation}
 			\end{theorem}
 			
