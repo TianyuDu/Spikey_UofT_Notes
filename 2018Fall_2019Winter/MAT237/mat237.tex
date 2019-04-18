@@ -2046,6 +2046,76 @@
 %					a_0 &= \frac{1}{2\pi} \int_{-\pi}^\pi f(x)\ dx
 %				\end{align}
 %			\end{proposition}
+		\subsection{Vector Fields that are Gradients or Curls}
+			\subsubsection{Conservative Vector Field}
+			\begin{definition}
+				A continuous vector field $\veG$ defined on open $U \subset \R^n$ is \textbf{conservative} if there exists a function $f: U \to \R$ of class $C^1$ such that $\veG = \nabla f$.
+			\end{definition}
+		
+			\begin{theorem}
+				Let $U \subset \R^n$ open, and let $\veG: U \to \R^n$ be continuous. Then the following are equivalent:
+				\begin{enumerate}[(i)]
+					\item There exists a function $f: U \to \R$ of class $C^1$ such that $\veG = \nabla f$;
+					\item $\int_{C} \mathbf{G} \cdot d \mathbf{x}=0$ for any \ul{closed piecewise} smooth oriented curve $C \subset U$;
+					\item $\int_{C_{1}} \mathbf{G} \cdot d \mathbf{x}=\int_{C_{2}} \mathbf{G} \cdot d \mathbf{x}$ for any two piecewise smooth oriented curves $C_1, C_2$ in $U$ that shares starting and ending points.
+				\end{enumerate}
+				\begin{proof}
+					\quad \\
+					\textbf{(i) $\implies$ (ii)} by \emph{the Fundamental Theorem of Line Integrals}.\\
+					\textbf{(ii) $\implies$ (iii)} Given $C_1$ and $C_2$ both from $\ve{p}$ to $\ve{q}$. Constructing $C_2'$ from $\ve{q}$ to $\ve{p}$ by reversing the orientation of $C_2$. And $C_1 \cup C_2'$ form a closed curve.
+					\begin{equation}
+						\int_{C} \mathbf{G} \cdot d \mathbf{x}=\int_{C_{1}} \mathbf{G} \cdot d \mathbf{x}-\int_{C_{2}} \mathbf{G} \cdot d \mathbf{x}
+					\end{equation}
+					\textbf{(iii) $\implies$ (i)}, pick an arbitrary point $\ve{p} \in U$, and for every $\ve{q} \in U$, define $f$ as 
+					\begin{equation}
+						f(\mathbf{q})=\int_{C_{\mathbf{p}, \mathbf{q}}} \mathbf{G} \cdot d \mathbf{x}
+					\end{equation}
+					where $C_{\mathbf{p}, \mathbf{q}}$ is an arbitrary curve starting at $\ve{p}$ and ending at $\ve{q}$.
+				\end{proof}
+			\end{theorem}
+			
+			\begin{theorem}
+				If $\veG$ is a conservative vector field of class $C^1$ on an open set $U \subset \R^3$, then $\curl \veG = \ve{0}$.
+			\end{theorem}
+			
+			\begin{theorem}
+				If $U \subset \R^3$ is \ul{convex} and if $\veG$ is a $C^1$ vector field defined on $U$ and $\curl \veG = \ve{0}$ on $U$, then $\veG$ is conservative.
+			\end{theorem}
+			
+			\begin{remark}
+				That's possible for a non-conservative vector field $\veG$ defined on some non-convex set to have $\curl \veG = \ve{0}$
+			\end{remark}
+				
+			\begin{proposition}[Finding $f$ for Conservative Vector Fields]
+				If the domain of a conservative vector field $\veG$ is \ul{convex}, then we can construct $f$ following
+				\begin{enumerate}[(i)]
+					\item Choose $\ve{p} = (a, b, c) \in U$;
+					\item Define $f(x, y, z)$ as
+					\begin{equation}
+						f(x, y, z) :=\int_{a}^{x} G_{1}(\blue{t}, b, c) d t+\int_{b}^{y} G_{2}(\red{x}, \blue{t}, c) d t+\int_{c}^{z} G_{3}(\red{x}, \red{y}, \blue{t}) d t
+					\end{equation}
+				\end{enumerate}
+			\end{proposition}
+			
+			\begin{corollary}
+				If the domain of $\veG$ is a convex set containing the \ul{origin}, then we can define $\ve{p} = (a, b, c) = (0, 0, 0)$,
+				\begin{equation}
+					f(x, y, z)=\int_{0}^{1} \mathbf{G}(t x, t y, t z) \cdot (x, y, z) d t
+				\end{equation}
+			\end{corollary}
+			
+		\subsubsection{Vector Fields that are Curls}
+			\begin{theorem}
+				If $\veG: U \to \R^3$ is a vector field of class $C^1$ and $\veG = \curl \veF$ for some vector field $\veF: U \to \R^3$ of class $C^2$, then $\dive \veG = 0$.
+			\end{theorem}
+			
+			\begin{theorem}
+				Suppose $\veG$ is a $C^1$ vector field in an open set $U \subset \R^3$ such that $\dive \veG = 0$. If $U$ is \ul{convex}, then there exists a vector field $\veF$ such that $\curl \veF = \veG$.
+			\end{theorem}
+			
+			\begin{definition}
+				Given a closed curve $C \subset \R^3$, the \textbf{minimal surface} is the surface $S$ with the smallest possible area, given that $\partial S = C$.
+			\end{definition}
 \end{document}
 
 
