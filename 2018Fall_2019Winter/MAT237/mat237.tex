@@ -555,7 +555,7 @@
 				\end{theorem}
 				
 				\begin{definition}
-					A function $f: S \to R$ is said to be \textbf{of class $C^1$} if all partial derivatives of $f$ exist and continuous at every point of $S$.
+					A function $f: S \to R$ is said to be \textbf{of class $C^1$} if all partial derivatives of $f$ \ul{exist and continuous} at every point of $S$.
 				\end{definition}
 								
 			\subsubsection{Directional Derivatives}
@@ -569,7 +569,7 @@
 				\begin{theorem}
 					If $f$ is differentiable at a point $\vex$, then $\partial_{\ve{u}} f(\vex)$ exists for every unit vector $\ve{u}$, and moreover
 					\begin{equation}
-						\partial_{\ve{u}} f(\vex) = \ve{u} \cdot \nabla f(\vex)
+						\red{\partial_{\ve{u}} f(\vex) = \ve{u} \cdot \nabla f(\vex)}
 					\end{equation}
 				\end{theorem}
 		
@@ -593,10 +593,10 @@
 			\end{definition}
 			
 			\begin{remark}
-				The differential is discussed only for real-valued functions here.
+				The notion of differential applies to real-valued functions only (in this textbook).
 			\end{remark}
 			
-			\begin{remark}
+			\begin{remark}[First Order Taylor Polynomial]
 				The differential can be used for linear approximations for small $\ve{h}$.
 				\begin{equation}
 					f(\vex + \ve{h}) \approx f(\vex) + df|_{\vea}(\ve{h})
@@ -665,12 +665,12 @@
 						h(t) := f \circ \gamma (t)
 					\end{equation}
 					by definition of $\gamma$, $h(I) = \{f(\vea)\}$. Thus
-					\begin{gather}
-						\frac{d}{dt}h(t) = \frac{d}{dt} f \circ \gamma (t) \\
-						= \nabla f (\gamma(0)) \cdot \gamma'(0) \\
-						= \nabla f(\vea) \cdot \gamma'(0) \\
-						= \nabla f(\vea) \cdot \ve{v} = 0
-					\end{gather}
+					\begin{align}
+						\frac{d}{dt}h(t) &= \frac{d}{dt} f \circ \gamma (t) \tx{ evaluated at }t=0\\
+						&= \nabla f (\gamma(0)) \cdot \gamma'(0) \\
+						&= \nabla f(\vea) \cdot \gamma'(0) \\
+						&= \nabla f(\vea) \cdot \ve{v} = 0
+					\end{align}
 					So $\nabla f(\vea)$ is orthogonal to any tangent vector of $C$ at $\vea$, which means $\nabla f(\vea)$ is orthogonal to $C$.
 				\end{proof}
 			\end{theorem}
@@ -681,7 +681,7 @@
 				Assume $f: S \to \R$, where $S$ is a \hl{convex} and \hl{open} subset of $\R^n$, of class $C^1$, then
 				\begin{gather}
 					\forall \vea, \veb \in S,\ \exists \lambda \in [0, 1]\ s.t.\ \ve{c} = \lambda \vea + (1 - \lambda) \veb \\
-					\nabla f(\ve{c}) \cdot (\veb - \vea) = f(\veb) - f(\vea)
+					\red{\nabla f(\ve{c}) \cdot (\veb - \vea) = f(\veb) - f(\vea)}
 				\end{gather}
 				\begin{proof}[Proof Idea]
 					Define $\gamma(t) := t \vea + (1-t)\veb$.
@@ -718,7 +718,7 @@
 				\end{proof}
 			\end{theorem}
 			
-			\begin{theorem}
+			\begin{theorem}[Generalization of the Previous Theorem]
 				Assume that $S$ is an \ul{open and path-connected} subset of $\R^n$, and $f: S \to \R$ is a function differentiable on $S$. If $\nabla f(\vex) = \ve{0}\ \forall \vex \in S$, then $f$ is constant on $S$.
 				\begin{proof}
 					Any path-connected set can be written as a countable union of convex sets $S = \cup_{i \in \mc{A}} C_i$ such that
@@ -824,8 +824,8 @@
 			
 			\begin{theorem}[the Quadratic Case]
 				\begin{gather}
-					P_{\vea, 2}(\ve{h}) = f(\vea) + \nabla f(\vea) \cdot \ve{h} + \frac{1}{2} \ve{h}^T H_f(\vea) \ve{h} \\
-					\exists \theta \in (0, 1)\ s.t.\ f(\vea+\ve{h}) = f(\vea) + \nabla f(\vea) \cdot \ve{h} + \frac{1}{2} \ve{h}^T H_f(\vea + \theta \ve{h}) \ve{h} \\
+					\red{P_{\vea, 2}(\ve{h}) = f(\vea) + \nabla f(\vea) \cdot \ve{h} + \frac{1}{2} \ve{h}^T H_f(\vea) \ve{h}} \\
+					\exists \theta \in (0, 1)\ s.t.\ f(\vea+\ve{h}) = f(\vea) + \nabla f(\vea) \cdot \ve{h} + \frac{1}{2} \ve{h}^T H_f(\vea + \red{\theta} \ve{h}) \ve{h} \\
 					\lim_{\ve{h} \to \ve{0}} \frac{R_{\vea, 2}(\ve{h})}{\norm{\ve{h}}^2} = 0
 				\end{gather}
 			\end{theorem}
@@ -841,9 +841,9 @@
 				A \hl{symmetric} $n \times n$ matrix $A$ is said to be
 				\begin{itemize}
 					\item \textbf{Positive definite} if $\vex^T A \vex > 0$ for all $\vex \in \R^n \backslash \{\ve{0}\}$.
-					\item \textbf{Non-negative definite} if $\vex^T A \vex \geq 0$ for all $\vex \in \R^n$.
+					\item \textbf{Non-negative definite/Positive semi-definite} if $\vex^T A \vex \geq 0$ for all $\vex \in \R^n$.
 					\item \textbf{Negative definite} if $\vex^T A \vex < 0$ for all $\vex \in \R^n \backslash \{\ve{0}\}$.
-					\item \textbf{Non-positive definite} if $\vex^T A \vex \leq 0$ for all $\vex \in \R^n$.
+					\item \textbf{Non-positive definite/Negative semi-definite} if $\vex^T A \vex \leq 0$ for all $\vex \in \R^n$.
 				\end{itemize}
 				and \textbf{indefinite} otherwise.
 			\end{definition}
@@ -887,7 +887,7 @@
 			\end{definition}
 			
 			\begin{definition}
-				Let $f: S \to \R$ is differentiable on the open sub $S \subset \R^n$, then a point $\vea \in S$ is a \textbf{critical point} if 
+				Let $f: S \to \R$ is differentiable on the open subset $S \subset \R^n$, then a point $\vea \in S$ is a \textbf{critical point} if 
 				\begin{equation}
 					\nabla f(\vea) = \ve{0}
 				\end{equation}
@@ -904,7 +904,7 @@
 				\end{equation}
 			\end{theorem}
 			
-			\begin{theorem}[Necessary Condition for a Local Minimum]
+			\begin{theorem}[\red{Necessary Condition for a Local Minimum}]
 				If $f: S \to \R$ is $C^2$ and $\vea$ is a local minimum point for $f$, then
 				\begin{enumerate}[(i)]
 					\item $\vea$ is critical point of $f$;
@@ -912,7 +912,7 @@
 				\end{enumerate}
 			\end{theorem}
 			
-			\begin{theorem}[Sufficient Condition for a Local Minimum]
+			\begin{theorem}[\red{Sufficient Condition for a Local Minimum}]
 				If 
 				\begin{enumerate}[(i)]
 					\item $\vea$ is a critical point of $f$;
@@ -946,16 +946,16 @@
 				\end{equation}
 			\end{theorem}
 			
-			\begin{lemma}
-				$\nabla g(\tbf{x})$ is \ul{orthogonal} to the constraint set $g^{-1}(0)$.
-			\end{lemma}
+%			\begin{lemma}
+%				$\nabla g(\tbf{x})$ is \ul{orthogonal} to the constraint set $g^{-1}(0)$.
+%			\end{lemma}
 			
 			\begin{proposition}
-				Equations (2.8.1) $\implies$ $\nabla f(\tbf{x}) \perp g^{-1}(0)$ at \tbf{x}.
+				Equations (2.8.1) $\implies$ $\nabla f(\tbf{x}) \perp \{\vex \in S:g(\vex)=0\}$ at \tbf{x}.
 			\end{proposition}
 			
 			\begin{theorem}
-				Let $S \subseteq \R^n$ be an open set, and $f, \{g_i\}_{i=1}^k : S \to \R$ be $C^1$ functions. Define $\ve{g}(\ve{x}): \R^n \to \R^k \equiv (g_1(\ve{x}), g_2(\textbf{x}), \dots, g_k(\ve{x}))$. \\
+				Let $S \subseteq \R^n$ be an open set, and $f, \{g_i\}_{i=1}^k : S \to \R$ be $C^1$ functions. Define $\ve{g}(\ve{x}): \R^n \to \R^k := (g_1(\ve{x}), g_2(\textbf{x}), \dots, g_k(\ve{x}))$. \\
 				If $\textbf{x} \in S$ is a \emph{local extremal} of $f$ such that $\textbf{g}(\textbf{x}) = \textbf{0}$, and $\{\nabla g_i(\textbf{x})\}$ are \ul{linearly independent} (i.e. $rank(D\textbf{g}(\textbf{x})) = k$), then
 				\begin{equation}
 					\exists \boldsymbol{\lambda} \in \R^k\ s.t.\ \begin{cases}
@@ -967,15 +967,15 @@
 			
 			\begin{remark}Procedure of optimization on \emph{open sets}:
 				\begin{enumerate}[(i)]
-					\item Find all critical points.
-					\item Find optimizers among critical points.
+					\item Find all critical points;
+					\item Find optimizers (classify them) among critical points.
 				\end{enumerate}
 			\end{remark}
 			
 			\begin{remark}Procedure of optimization with \emph{inequality constraints}:
 				\begin{enumerate}[(i)]
-					\item Find critical points without the constraints.
-					\item Find critical points on the constraints.
+					\item Find critical points \emph{in} the constraint set;
+					\item Find critical points \emph{on} the boundary of constraint set;
 					\item Find optimizers among candidates.
 				\end{enumerate}
 			\end{remark}
@@ -995,9 +995,9 @@
 				\begin{gather}
 					\forall \ve{x} \in \mc{B}(r_0, \ve{a}),\ \ve{f}(\ve{x}) \in \mc{B}(r_1, \ve{b}) \land F(\ve{x}, \ve{f}(\ve{x})) = \ve{0}
 				\end{gather}
-				and define $\textbf{y} \equiv \textbf{f}(\textbf{x})$, the derivative of $\textbf{f}$ can be found as
+				and define $\textbf{y} := \textbf{f}(\textbf{x})$, the derivative of $\textbf{f}$ can be found as
 				\begin{equation}
-					D\textbf{f}(\textbf{x}) = -[D_{\textbf{y}}F(\textbf{x}, \textbf{y})]^{-1} D_{\textbf{x}}F(\textbf{x}, \textbf{y})
+					\red{D\textbf{f}(\textbf{x}) = -[D_{\textbf{y}}F(\textbf{x}, \textbf{y})]^{-1} D_{\textbf{x}}F(\textbf{x}, \textbf{y})}
 				\end{equation}
 			\end{theorem}
 			\begin{remark}
@@ -1017,11 +1017,11 @@
 						\ve{f}(\ve{x} + \ve{h}) \approx \ve{a} + D\ve{f}(\ve{a}) \ve{h} \\
 						= \ve{a}
 						- [D_\ve{y} \ve{F}(\ve{a}, \ve{b})]^{-1}
-						D_\ve{x} \ve{F}(\ve{a}, \ve{b})
+						D_\ve{x} \ve{F}(\ve{a}, \ve{b}) \ve{h}
 					\end{gather}
 				\end{enumerate}
 			\end{remark}
-		\subsection{Geometric content of the Implicit Function Theorem}
+		\subsection{Geometric Content of the Implicit Function Theorem}
 			\begin{definition}
 				Let $S \subseteq \R^n$ and $\ve{a} \in S$. $S$ is \textbf{singular} at $\ve{a}$ if 
 				\begin{equation}
@@ -1033,7 +1033,7 @@
 			\begin{theorem}[$k$ dimensional manifold as level set]
 				Let $U \subseteq \R^n$ and let $\ve{F}: U \to \R^{n-k}$ be a $C^1$ function.
 				\begin{equation}
-					S \equiv \ve{F}^{-1}(\ve{0})
+					S := \{\vex \in U: \ve{F}(\vex) = \ve{0}\}
 				\end{equation}
 				Let $\ve{a} \in U$, if 
 				\begin{equation}
@@ -1046,16 +1046,20 @@
 				can be represented as a $C^1$ graph.
 			\end{theorem}
 			
+			\begin{remark}[Interpretation]
+				In $\R^n$, there are $n$ degree of freedom before imposing any constraint, after add a constraint $\veF(\vex) = \ve{0}$ with $n-k$ effective constraints, there are $k$ degree of freedom left. What's left is a $k$ dimensional manifold.
+			\end{remark}
+			
 			\begin{theorem}[$k$ dimensional manifold as parameterization]
 				Let $T \subseteq \R^k$ and let $\ve{f}: U \to \R^n$ be a $C^1$ function.
 				\begin{equation}
-					S \equiv \ve{f}(T)
+					S := \ve{f}(T)
 				\end{equation}
 				Let $\ve{t} \in T$, if
 				\begin{equation}
-					rank(\ve{f}(\ve{t})) = k
+					rank(D\ve{f}(\ve{t})) = k
 				\end{equation}
-				then $\exists r > 0$ such that the \emph{parameterization of $\ve{f}$ near $\ve{t}$}
+				then $\exists r > 0$ such that the \ul{parameterization of $\ve{f}$ near $\ve{t}$}
 				\begin{equation}
 					\ve{f}(T \cap \mc{B}(r, \ve{t}))
 				\end{equation}
@@ -1065,12 +1069,12 @@
 			\begin{example}[Polar coordinate in $\R^2$]
 				Let
 				\begin{gather}
-					U \equiv \{(r, \theta): r > 0 \land \theta \in (-\pi, \pi)\} \\
-					V \equiv \R^2 \backslash \{(x,0): x \leq 0\}
+					U := \{(r, \theta): r > 0 \land \theta \in (-\pi, \pi)\} \\
+					V := \R^2 \backslash \{(x,0): x \leq 0\}
 				\end{gather}
 				Define $\ve{f}: U \to V$ as
 				\begin{equation}
-					\ve{f}(r, \theta) \equiv \begin{pmatrix}
+					\ve{f}(r, \theta) := \begin{pmatrix}
  						r\cos(\theta) \\
  						r\sin(\theta)
  					\end{pmatrix}
@@ -1100,7 +1104,7 @@
 			\end{example}
 			
 			\begin{theorem}[Inverse Function Theorem]
-				Let $U$ and $V$ be open subsets in $\R^n$, and $\ve{f}: U \to V$. Let $\ve{a} \in U$ and define $\ve{b} \equiv \ve{f}(\ve{a}) \in V$. If
+				Let $U$ and $V$ be open subsets in $\R^n$, and $\ve{f}: U \to V$. Let $\ve{a} \in U$ and define $\ve{b} := \ve{f}(\ve{a}) \in V$. If
 				\begin{equation}
 					det(D\ve{f}(\ve{a})) \neq 0
 				\end{equation}
@@ -1110,7 +1114,7 @@
 					\item $\ve{f}$ is bijective between $M$ and $N$,
 					\item $\ve{f}^{-1}: N \to M$ is $C^1$,
 				\end{enumerate}
-					and \red{for all $\ve{x} \in M$} such $\ve{y} \equiv \ve{f}(\ve{x}) \in N$,
+					and \red{for all $\ve{x} \in M$} such $\ve{y} := \ve{f}(\ve{x}) \in N$,
 					\begin{equation}
 						D \ve{f}^{-1} (\ve{y}) = [D \ve{f} (\ve{x})]^{-1}
 					\end{equation}
@@ -1133,9 +1137,9 @@
 			
 		\subsection{Integration on Higher Dimensions}
 			\begin{definition}
-				A \textbf{rectangle} $\mc{R} \subseteq \R^n$ is defined as
+				A \textbf{rectangle} $\mc{R} \subseteq \R^n$ (\textbf{$n$-orthotope}) is defined as
 				\begin{equation}
-					\mc{R} \equiv \prod_{i=1}^n [a_i, b_i]
+					\mc{R} := \prod_{i=1}^n [a_i, b_i]
 				\end{equation}
 				where $a_i, b_i \in \R$ and $a_i < b_i$.
 			\end{definition}
@@ -1149,39 +1153,39 @@
 				\begin{equation}
 					a_i = e_0 < e_1 < \cdots < e_{T_i} = b_i
 				\end{equation}
-				and such partition induces a set of rectangles(boxes) $\mc{B}(P) \equiv \{B_j\}_{j=1}^J \subseteq \mc{R}$.
+				and such partition generates a set of rectangles(boxes) $\mc{B}(P) := \{B_j\}_{j=1}^J \subseteq \mc{R}$.
 			\end{definition}
 			
 			\begin{definition}
 				Let $P$ and $P'$ be two partitions of $\mc{R}$. Then $P'$ is a \textbf{refinement} of $P$ if 
 				\begin{equation}
-					\forall B_j \in \mc{B}(P), B_j' \in \mc{B}(P')\quad B_j' \subseteq B_j \lor B_j^{' int} \cap B_j^{int} = \emptyset
+					\forall B_j \in \mc{B}(P), B_j' \in \mc{B}(P')\quad B_j' \subseteq B_j \lor (B_j^{' int} \cap B_j^{int} = \emptyset)
 				\end{equation}
 			\end{definition}
 			
 			\begin{definition}
 				Define the \textbf{volume} of rectangle $\mc{R} = \prod_{i=1}^n [a_i, b_i]$ as
 				\begin{equation}
-					V^n(\mc{R}) \equiv \prod_{i=1}^n (b_i - a_i)
+					V^n(\mc{R}) := \prod_{i=1}^n (b_i - a_i)
 				\end{equation}
 			\end{definition}
 			
 			\begin{definition}
 				The \textbf{lower Riemann sum} of $f$ with partition $P$ on $\mc{R}$ is defined as
 				\begin{equation}
-					L_P f \equiv \sum_{B_j \in \mc{B}(P)} \inf_{\ve{x} \in B_j} f(\ve{x}) V^n(B_j)
+					L_P f := \sum_{B_j \in \mc{B}(P)} \inf_{\ve{x} \in B_j} f(\ve{x}) V^n(B_j)
 				\end{equation}
 				and the \textbf{upper Riemann sum} is defined as
 				\begin{equation}
-					U_P f \equiv \sum_{B_j \in \mc{B}(P)} \sup_{\ve{x} \in B_j} f(\ve{x}) V^n(B_j)
+					U_P f := \sum_{B_j \in \mc{B}(P)} \sup_{\ve{x} \in B_j} f(\ve{x}) V^n(B_j)
 				\end{equation}
 			\end{definition}
 			
 			\begin{definition}
 				The \textbf{upper integral} and \textbf{lower integral} of $f$ on $\mc{R}$ are defined as
 				\begin{gather}
-					\bar{I}_{\mc{R}} f \equiv \inf_{P} U_P f \\
-					\underline{I}_{\mc{R}} f \equiv \sup_{P} L_P f
+					\bar{I}_{\mc{R}} f := \inf_{P} U_P f \\
+					\underline{I}_{\mc{R}} f := \sup_{P} L_P f
 				\end{gather}
 			\end{definition}
 			
@@ -1192,7 +1196,7 @@
 				\end{equation}
 				and the integral is defined as
 				\begin{equation}
-					\int \cdots \int_\mc{R} f\ dV^n \equiv \underline{I}_{\mc{R}} f = \bar{I}_{\mc{R}} f
+					\int \cdots \int_\mc{R} f\ dV^n := \underline{I}_{\mc{R}} f = \bar{I}_{\mc{R}} f
 				\end{equation}
 			\end{definition}
 			
@@ -1216,14 +1220,14 @@
 			\begin{definition}
 				Let $S \subseteq \R^n$ be a bounded set, and there exists rectangle $\mc{R}$ covers $S$, the \textbf{indicator function} of $S$ is $\chi_S: \mc{R} \to \{0, 1\}$, defined as
 				\begin{equation}
-					\chi_S (\ve{x}) \equiv \mathbb{I}(\ve{x} \in S)
+					\chi_S (\ve{x}) := \id{\ve{x} \in S}
 				\end{equation}
 			\end{definition}
 			
 			\begin{definition}
 				Let $S \subseteq \R^n$ be a bounded set, and there exists rectangle $\mc{R}$ covers $S$. Let $f: \mc{R} \to \R$ be a bounded function, then $f$ is \textbf{integrable on $S$} if $\chi_S f$ is integrable on $\mc{R}$. And
 				\begin{equation}
-					\int \cdots \int_S f\ dV^n \equiv \int \cdots \int_\mc{R} \chi_S f\ dV^n
+					\int \cdots \int_S f\ dV^n := \int \cdots \int_\mc{R} \chi_S f\ dV^n
 				\end{equation}
 			\end{definition}
 			
@@ -1239,13 +1243,13 @@
 				\begin{enumerate}[(i)]
 					\item For any $Z' \subseteq Z$, $Z'$ has zero content.
 					\item \ul{Finite} union of content zero sets has zero content.
-					\item \red{Let $f: [a, b] \to \R$ be an integrable function, it's graph $\{(x, f(x)): x \in [a, b]\}$ has zero content.}
+					\item \red{Let $f: [a, b] \to \R$ be an \ul{integrable} function, its graph $\{(x, f(x)): x \in [a, b]\}$ has zero content.}
 					\item \red{Let $\ve{f}: [a, b] \to \R^2$ be a $C^1$ function, the parameterization $\ve{f}([a,b])$ has zero content.}
 				\end{enumerate}
 			\end{proposition}
 			
 			\begin{theorem}
-				Let $\mc{R}$ be a rectangle in $\R^n$ and $f$ is integrable on $\mc{R}$ if
+				Let $\mc{R}$ be a rectangle in $\R^n$ and $f$ is integrable on $\mc{R}$ if the set
 				\begin{equation}
 					\{\ve{x} \in \mc{R}: f \tx{ is discontinuous at \ve{x}}\}
 				\end{equation}
@@ -1256,13 +1260,20 @@
 				Suppose $Z \subseteq \R^n$ has zero content. If $f: \R^n \to \R$ is bounded, then $f$ is integrable on $Z$ and $\int_Z f\ dV^n = 0$.
 			\end{proposition}
 			
+			\begin{remark}[Measures and Contents]
+				A measure $\mu$ is required to be \emph{countably} additivity on disjoint sets, but a content only requires \emph{finite} additivity on disjoint sets. Therefore, if a set has content zero based on some content function, such a content function is also a measure function, thus such set has measure zero as well.
+				\begin{equation}
+					\tx{content zero } \implies \tx{ measure zero}
+				\end{equation}
+			\end{remark}
+			
 		\subsection{Iterated Integrals}
 			\begin{theorem}[Fubini's Theorem]
 				Let $\mc{R} = [a,b] \times [c,d] \subseteq \R^2$ and $f: \mc{R} \to \R$ is bounded. Assuming that
 				\begin{enumerate}[(i)]
 					\item $f$ is integrable on $\mc{R}$.
-					\item for each $y \in [c,d]$, the function $f_y(x) \equiv f(x,y)$ is integrable on $[a,b]$.
-					\item Define $g(y) \equiv \int_a^b f(x, y) dy$ is integrable on $[c,d]$.
+					\item for each $y \in [c,d]$, the function $f_y(x) := f(x,y)$ is integrable on $[a,b]$.
+					\item Define $g(y) := \int_a^b f(x, y) dy$ is integrable on $[c,d]$.
 				\end{enumerate}
 				Then 
 				\begin{equation}
@@ -1279,7 +1290,7 @@
 			\begin{theorem}[Change of Variable]
 				Let $U$ and $V$ be two open subsets of $\R^n$, and let $\ve{G}: U \to V$ be a $C^1$ bijection. Let $T \subset U$ and $S \subset V$. Suppose $\ve{G}(T) = S$, then
 				\begin{equation}
-					\int \cdots \int_S f\ d\Omega = \int \cdots \int_T f\circ\ve{G}\ |\tx{det}D\ve{G}|\ d\Theta
+					\underbrace{\int \cdots \int_S f\ d\Omega}_{\tx{Target Intergal}} = \int \cdots \int_{T\equiv \veG^{-1}(S)} f\circ\ve{G}\ |\tx{det}D\ve{G}|\ d\Theta
 				\end{equation}
 			\end{theorem}
 			
@@ -1293,7 +1304,7 @@
 			\begin{example}[Polar Coordinate]
 				Define the coordinate transformation mapping from polar to Cartesian,
 				\begin{equation}
-					\ve{P}(r, \theta) \equiv (x, y) = 
+					\ve{P}(r, \theta) := (x, y) = 
 					\begin{pmatrix}
 						r \cos{\theta} \\
 						r \sin{\theta}
@@ -1305,7 +1316,7 @@
 			\begin{example}[Cylindrical Coordinate]
 				Define the coordinate transformation mapping from cylindrical to Cartesian as
 				\begin{equation}
-					\ve{C}(r, \theta, z) \equiv (x, y, z) = 
+					\ve{C}(r, \theta, z) := (x, y, z) = 
 					\begin{pmatrix}
 						r \cos{\theta} \\
 						r \sin{\theta} \\
@@ -1331,27 +1342,27 @@
 		\subsection{Further Aspects}
 			\subsubsection{Exchanging Differentiation and Integration}
 			
-			\begin{theorem}[Exchanging Differentiation and Integration]
+			\begin{theorem}[\red{Exchanging Differentiation and Integration}]
 				Let $f(\ve{x}, \ve{t}): S \times T \to \R$ and define $F(\ve{x}): S \to \R$ as 
 				\begin{equation}
-					F(\ve{x}) \equiv \int \cdots \int_T f(\ve{x}, \ve{t})\ d\Omega
+					F(\ve{x}) := \int \cdots \int_T f(\ve{x}, \ve{t})\ d\ve{t}
 				\end{equation}
 				If
 				\begin{enumerate}[(i)]
-					\item $S$ is open and $T$ is compact and bounded;
-					\item $f$ and $F$ are continuous on their domains;
+					\item $S$ is open and $T$ is compact;
+					\item $f$ and $F$ are continuous;
 					\item and $\forall\ x_j \in \ve{x}$, $\pd{f(\ve{x}, \ve{t})}{x_j}$ is continuous,
 				\end{enumerate}
 				then $F$ is $C^1$ in $S$ and for every $j$,
 				\begin{equation}
-					\pd{F(\ve{x})}{x_j} = \idotsint_T \pd{f(\ve{x}, \ve{t})}{x_j}\ d\Omega
+					\pd{F(\ve{x})}{x_j} = \idotsint_T \pd{f(\ve{x}, \ve{t})}{x_j}\ d\ve{t}
 				\end{equation}
 			\end{theorem}
 	
-			\begin{corollary}
+			\begin{corollary}[\red{Exchanging Limits and Integration}]
 				By the definition of partial derivative, above theorem is equivalent to 
 				\begin{equation}
-					\lim_{h \to 0} \idotsint_T \frac{f(\ve{x} + h \ve{e}_j, \ve{t})}{h}\ d\Omega = \idotsint_T \lim_{h \to 0} \frac{f(\ve{x} + h \ve{e}_j, \ve{t})}{h}\ d\Omega
+					\lim_{h \to 0} \idotsint_T \frac{f(\ve{x} + h \ve{e}_j, \ve{t})}{h}\ d\ve{t} = \idotsint_T \lim_{h \to 0} \frac{f(\ve{x} + h \ve{e}_j, \ve{t})}{h}\ d\ve{t}
 				\end{equation}
 			\end{corollary}
 			
@@ -1359,14 +1370,14 @@
 				\begin{definition}[Unbounded Domains]
 					An \textbf{improper integral} with unbounded domain $\idotsint_{\R^n} f\ d\Omega$ is \textbf{absolutely convergent} if there exists $L \in \R$ such that
 					\begin{equation}
-						\forall \varepsilon > 0\ \exists R > 0\ s.t.\ \forall S \subseteq \R^n\ B(R, \ve{0}) \subset S \implies \Big|\idotsint_S f\ d\Omega - L \Big| < \varepsilon
+						\forall \varepsilon > 0\ \exists R > 0\ s.t.\ \forall S \subseteq \R^n\ \mc{B}(R, \ve{0}) \subset S \implies \Big|\idotsint_S f\ d\Omega - L \Big| < \varepsilon
 					\end{equation}
 				\end{definition}
 				
 				\begin{theorem}
 					Let $f: \R^n \to \R$ be a continuous function, and that 
 					\begin{equation}
-						\lim_{R \to \infty} \idotsint_{B(R, \ve{0})}\red{|}f\red{|}\ d\Omega \tx{ exists}
+						\lim_{R \to \infty} \idotsint_{\mc{B}(R, \ve{0})}\red{|}f\red{|}\ d\Omega \tx{ exists}
 					\end{equation}
 					then $\idotsint_{\R^n}f\ d\Omega$ is absolutely convergent.
 				\end{theorem}
@@ -1374,7 +1385,7 @@
 				\begin{corollary}[Equivalence]
 					Above improper integral $\idotsint_{\R^n}f\ d\Omega$ is absolutely convergent if set
 					\begin{equation}
-						\{\idotsint_{B(R, \ve{0})}\red{|}f\red{|}\ d\Omega: R \in \R_{++}\}
+						\{\idotsint_{\mc{B}(R, \ve{0})}\red{|}f\red{|}\ d\Omega: R \in \R_{++}\}
 					\end{equation}
 					is bounded.
 				\end{corollary}
@@ -1390,7 +1401,7 @@
 				\begin{definition}[Unbounded Function]
 					Let $S \subset \R^n$, $\ve{a} \in \R^n$. Consider a function $f: S \backslash \{\ve{a}\} \to \R$. Then the improper integral $\idotsint_{\red{S}}f d\Omega$ is absolutely convergent if 
 					\begin{equation}
-						\exists L \in \R\ s.t\ \forall \varepsilon > 0\ \exists r > 0\ s.t.\ \forall U \subset S\ s.t.\ \ve{a} \in U^{\red{int}} \land U \subset B(r, \ve{a}),\ \Big|
+						\exists L \in \R\ s.t\ \forall \varepsilon > 0\ \exists r > 0\ s.t.\ \forall U \subset S\ s.t.\ \ve{a} \in U^{\red{int}} \land U \subset \mc{B}(r, \ve{a}),\ \Big|
 							\idotsint_{S \backslash U}f\ d\Omega - L
 						\Big| < \varepsilon
 					\end{equation}
@@ -1399,7 +1410,7 @@
 				\begin{theorem}
 					Let $f: S\backslash \{\ve{a}\} \to \R$, if
 					\begin{equation}
-						\lim_{r\to 0}\idotsint_{S \backslash B(r, \ve{a})}\red{|}f\red{|}\ d\Omega \tx{ exists}
+						\lim_{r\to 0}\idotsint_{S \backslash \mc{B}(r, \ve{a})}\red{|}f\red{|}\ d\Omega \tx{ exists}
 					\end{equation}
 					then $\idotsint_S f\ d\Omega$ is absolutely convergent.
 				\end{theorem}
@@ -1407,7 +1418,7 @@
 				\begin{corollary}[Equivalence]
 					If the set
 					\begin{equation}
-						\{\iint_{S \backslash B(r, \ve{a})} \red{|}f\red{|}\ d\Omega: r \in \R_{++}\}
+						\{\iint_{S \backslash \mc{B}(r, \ve{a})} \red{|}f\red{|}\ d\Omega: r \in \R_{++}\}
 					\end{equation}
 					is bounded, then $\idotsint_S f\ d\Omega$ is absolutely convergent.
 				\end{corollary}
@@ -1415,7 +1426,7 @@
 				\begin{corollary}
 					Let $f: S\backslash \{\ve{a}\} \to \R$, if 
 					\begin{equation}
-						\exists p < n,\ C > 0\ s.t. |f(\ve{x})| \leq \frac{C}{\norm{\ve{x} - \ve{a}}^p}\ \forall \ve{x} \in S \backslash \{\ve{a}\}
+						\exists p < n,\ C > 0\ s.t. |f(\ve{x})| \leq \frac{C}{\norm{\ve{x} - \ve{a}}^p}\ \forall \ve{x} \in S \red{\backslash \{\ve{a}\}}
 					\end{equation}
 					then the improper integral $\idotsint_S f\ d\Omega$ is absolutely convergent.
 				\end{corollary}
@@ -1426,27 +1437,27 @@
 			\begin{definition}
 				Let $C$ be a smooth curve in $\R^n$ parameterized by $C^1$ function $\ve{g}$ such that $\ve{g}'(t) \neq \ve{0}$ for every appropriate $t$.
 				\begin{equation}
-					C \equiv \{\ve{g}(t): t \in [a, b]\}
+					C := \{\ve{g}(t): t \in [a, b]\}
 				\end{equation}
 				and the \textbf{arc length} of $C$ is defined as
 				\begin{gather}
-					\int_C d^n\ve{x} \equiv \int_C ds \equiv \int_a^b ||\ve{g}'(t)||\ dt
+					\int_C d^n\ve{x} := \int_C ds := \int_a^b \norm{\ve{g}'(t)}\ dt
 				\end{gather}
 			\end{definition}
 			
 			\begin{proposition}
 				The arc length of a curve $C$ is an intrinsic property of the geometric object $C$ and should not depend on the particular parameterization we use.
 				\begin{proof}
-					Let $\varphi:[c,d] \to [a,b]$ be a bijection, so that $\ve{h} \equiv \ve{g} \circ \varphi$ is also a valid parameterization of $C$ such that
+					Let $\varphi:[c,d] \to [a,b]$ be a bijection, so that $\ve{h} := \ve{g} \circ \varphi$ is also a valid parameterization of $C$ such that
 					\begin{equation}
-						C \equiv \{\ve{h}(u): u \in [c, d]\}
+						C := \{\ve{h}(u): u \in [c, d]\}
 					\end{equation}
 					The arc length of $C$ can be computed using
-					\begin{gather}
-						\int_C ds = \int_c^d ||\ve{h}'(u)||\ du \\
-						= \int_c^d ||\ve{g}'(\varphi(u))|| \times ||\varphi'(u)||\ du \\
-						= \int_a^b ||\ve{g}'(t)||\ dt \tx{ by change of variable formula.}
-					\end{gather}
+					\begin{align}
+						\int_C ds &= \int_c^d \norm{\ve{h}'(u)}\ du \\
+						&= \int_c^d \norm{\ve{g}'(\varphi(u))} \cdot \abs{\varphi'(u)}\ du \\
+						&= \int_a^b \norm{\ve{g}'(t)}\ dt \tx{ by change of variable formula.}
+					\end{align}
 				\end{proof}
 			\end{proposition}
 			
@@ -1461,14 +1472,14 @@
 				A function $\ve{g}: [a, b] \to \R^n$ is called \textbf{piecewise smooth} if 
 				\begin{enumerate}[(i)]
 					\item it's \emph{continuous}, and 
-					\item it's derivate exists and is continuous except at finitely many points $t_j$, at which the one-sided limits exists.
+					\item it's derivate exists and is continuous except at finitely many points $t_j$, at which the \ul{one-sided limits exist}.
 				\end{enumerate}
 			\end{definition}
 		
 		\subsubsection{Line Integrals of Scalar Functions}
 			\begin{definition} Let smooth curve $C \subseteq \R^n$, $f: C \to \R$ and $\ve{g}$ be a parameterization of $C$, then 
 				\begin{equation}
-					\int_C f\ ds = \int_a^b f(\ve{g}(t))\ ||\ve{g}'(t)||\ dt
+					\int_C f\ ds = \int_a^b f(\ve{g}(t))\ \norm{\ve{g}'(t)}\ dt
 				\end{equation}
 			\end{definition}
 			
@@ -1478,7 +1489,7 @@
 			
 			\begin{definition}
 				\begin{equation}
-					\tx{Average of $f$ over $C$} \equiv \frac{\int_C f\ ds}{\int_C\ ds}
+					\tx{Average of $f$ over $C$} := \frac{\int_C f\ ds}{\int_C\ ds}
 				\end{equation}
 			\end{definition}
 			
@@ -1512,14 +1523,14 @@
 			\begin{remark}
 				Let $C$ be a curve in $\R^n$ parameterized by injection $\ve{g}: [a, b] \to \R^n$ such that $\ve{g}'(t) \neq \ve{0}$. Let $P$ be a partition of $[a, b]$. Denote
 				\begin{equation}
-					L_P(C) \equiv \sum_{j} ||\ve{g}(t_j) - \ve{g}(t_{j-1})||
+					L_P(C) := \sum_{j} \norm{\ve{g}(t_j) - \ve{g}(t_{j-1})}
 				\end{equation}
 			\end{remark}
 			
 			\begin{definition}
-				A curve $C$ is \textbf{rectifiable} if the set $\{L_P(C):P\}$ is bounded. And the arc length of $C$ s defined as 
+				A curve $C$ is \textbf{rectifiable} if the set $\{L_P(C):P\}$ is \ul{bounded}. And the arc length of $C$ s defined as 
 				\begin{equation}
-					L(C) \equiv \sup \{L_P(C):P\}
+					L(C) := \sup \{L_P(C):P\}
 				\end{equation}
 			\end{definition}
 			
@@ -1537,7 +1548,7 @@
 					\begin{enumerate}[(i)]
 						\item $\ve{g}$ is continuous;
 						\item $\ve{g}(a) = \ve{g}(b)$;
-						\item $\ve{g}$ is injective with its domain restricted to $(a, b)$.
+						\item $\ve{g}$ is injective with its domain restricted to $(a, b)$ (so the curve does not cross).
 					\end{enumerate}
 				\end{definition}
 				
@@ -1597,7 +1608,7 @@
 					\end{equation}
 					where $rank(D\ve{G}(\ve{u}))=2$ for every $\ve{u} \in R \backslash Z$ where $Z$ is a probably empty set with zero content. If $\norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}$ is integrable, then
 					\begin{equation}
-						Area(S) \equiv \iint_{\red{R}} \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta
+						Area(S) := \iint_{\red{R}} \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta
 					\end{equation}
 				\end{definition}
 				
@@ -1605,7 +1616,7 @@
 					Let $f: S \to \R$ be a real-valued continuous function defined on a super set of $S$, the \textbf{integral of a real-valued function on a surface} is defined as
 					\begin{equation}
 						\iint_{S}f(\ve{x})\ dA 
-						\equiv \iint_{\red{R}} f(\ve{G}(\ve{u}))\norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta
+						:= \iint_{\red{R}} f(\ve{G}(\ve{u}))\norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta
 					\end{equation}
 				\end{definition}
 				
@@ -1613,7 +1624,7 @@
 					Let $\ve{F}: S \to \R^3$ be a continuous vector field defined on a super set of $S$, the \textbf{integral of vector field on a surface} is defined as
 					\begin{equation}
 						\iint_{S}\ve{F}(\ve{x}) \cdot \ve{n}\ dA
-						\equiv \iint_{\red{R}} \ve{F}(\ve{G}(\ve{u}))\cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta
+						:= \iint_{\red{R}} \ve{F}(\ve{G}(\ve{u}))\cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta
 					\end{equation} 
 				\end{definition}
 				
@@ -1628,38 +1639,39 @@
 				\begin{definition}
 					Let $S \subseteq \R^3$ be a two dimensional sub-manifold, and $f$ is a real-valued function defined on a super set of $S$. Define the \textbf{average of $f$ over $S$} as
 					\begin{equation}
-						\tx{aver of $f$ over $S$} \equiv \frac{\iint_S f\ dA}{\iint_S1\ dA}
+						\tx{aver of $f$ over $S$} := \frac{\iint_S f\ dA}{\iint_S1\ dA}
 					\end{equation}
 				\end{definition}
 				
 				\begin{remark}
-					A note on the relation between integrals of a vector field and a real-valued function. The surface of vector field $\ve{F}$ on $S$ is defined by \emph{reducing $\ve{F}$ to a real-valued function $\ve{F}\cdot \ve{n}$} and then follow the definition of conventional real-valued function on $S$. Define $h \equiv \ve{F} \cdot \ve{n}$,
-					\begin{gather}
-						\iint_S \ve{F} \cdot \ve{n}\ dA = \iint_S h\ dA \\
-						\equiv \iint_R h(\ve{G}(\ve{u})) \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
-						= \iint_R \ve{F}(\ve{G}(\ve{u})) \cdot \ve{n}(\ve{G}(\ve{u})) \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
-						= \iint_R \ve{F}(\ve{G}(\ve{u})) \cdot \frac{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}{\norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}} \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
-						= \iint_R \ve{F}(\ve{G}(\ve{u})) \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta
-					\end{gather}
+					A note on the relation between integrals of a vector field and a real-valued function. The surface of vector field $\ve{F}$ on $S$ is defined by \emph{reducing $\ve{F}$ to a real-valued function $\ve{F}\cdot \ve{n}$} and then follow the definition of conventional real-valued function on $S$. Define $h := \ve{F} \cdot \ve{n}$,
+					\begin{align}
+						\iint_S \ve{F} \cdot \ve{n}\ dA &= \iint_S h\ dA \\
+						&:= \iint_R h(\ve{G}(\ve{u})) \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
+						&= \iint_R \ve{F}(\ve{G}(\ve{u})) \cdot \ve{n}(\ve{G}(\ve{u})) \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
+						&= \iint_R \ve{F}(\ve{G}(\ve{u})) \cdot \frac{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}{\norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}} \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta \\
+						&= \iint_R \ve{F}(\ve{G}(\ve{u})) \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta
+					\end{align}
+					where $\veG: R \to S$ is a parameterization of $S$.
 				\end{remark}
 			\subsubsection{An invariance property}
 				\begin{remark}
-					As mentioned above, given $\ve{n}(\ve{x})$ fixed, we can define the surface integral of \ul{vector field} as the surface integral of a \ul{real-valued function} defined as $h(\ve{x}) \equiv \ve{F}(\ve{x}) \cdot \ve{n}(\ve{x})$. And as argued before, one $\ve{n}$ is fixed (i.e. orientation is fixed), the value of integral is deterministic. Therefore we can conclude \hl{the integral of a vector field $\ve{F}$ over a surface $S$ depends on the \textbf{orientation} of $S$ but otherwise independent of the parameterization}.
+					As mentioned above, given $\ve{n}(\ve{x})$ fixed, we can define the surface integral of \ul{vector field} as the surface integral of a \ul{real-valued function} defined as $h(\ve{x}) := \ve{F}(\ve{x}) \cdot \ve{n}(\ve{x})$. And as argued before, one $\ve{n}$ is fixed (i.e. orientation is fixed), the value of integral is deterministic. Therefore we can conclude \hl{the integral of a vector field $\ve{F}$ over a surface $S$ depends on the \textbf{orientation} of $S$ but otherwise independent of the parameterization}.
 				\end{remark}
 				
 				\begin{remark}
 					Let $S \subseteq \R^2$ be a two dimensional sub-manifold parameterized by $\ve{G}: R \subseteq \R^2 \to \R^3$ such that $rank(\ve{G}(\ve{u})) = 2$ for all but zero-content sets on its domain. \\
-					Let $\varphi: W\subseteq \R^2 \to R$ be a bijection such that $\ve{H} \equiv \ve{G} \circ \varphi: W \to \R^3$ is another parameterization of $S$. \\
+					Let $\varphi: W\subseteq \R^2 \to R$ be a bijection such that $\ve{H} := \ve{G} \circ \varphi: W \to \R^3$ is another parameterization of $S$. \\
 					Now consider the integral of vector field $\ve{F}$ under parameterization $\ve{H}$,
-					\begin{gather}
-						\iint_S \ve{F} \cdot \ve{u}\ dA = \iint_W \ve{F}(\ve{H}) \cdot (\pd{\ve{H}}{s} \times \pd{\ve{H}}{t})\ d\Theta \\
-						= \iint_W \ve{F}\circ\ve{G}\circ\varphi \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}) \red{det\ D\varphi}\ d\Theta \\
-						= \pm \iint_R \ve{F}\circ \ve{G} \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta \tx{ (change of variable)}
-					\end{gather}
+					\begin{align}
+						\iint_S \ve{F} \cdot \ve{u}\ dA &= \iint_W \ve{F}(\ve{H}) \cdot (\pd{\ve{H}}{s} \times \pd{\ve{H}}{t})\ d\Theta \\
+						&= \iint_W \ve{F}\circ\ve{G}\circ\varphi \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}) \red{det\ D\varphi}\ d\Theta \\
+						&= \pm \iint_R \ve{F}\circ \ve{G} \cdot (\pd{\ve{G}}{u} \times \pd{\ve{G}}{v})\ d\Theta \tx{ (change of variable)}
+					\end{align}
 				\end{remark}
 				
 				\begin{theorem}[Invariance]
-					Let $\ve{G}: R \to \R^3$ and $\ve{H} \equiv \ve{G}\circ\varphi: W \to \R^3$ be two parameterizations of $S$, then
+					Let $\ve{G}: R \to \R^3$ and $\ve{H} := \ve{G}\circ\varphi: W \to \R^3$ be two parameterizations of $S$, then
 					\begin{equation}
 						\iint_R f\circ \ve{G} \norm{\pd{\ve{G}}{u} \times \pd{\ve{G}}{v}}\ d\Theta = \iint_W f\circ \ve{H} \norm{\pd{\ve{H}}{s} \times \pd{\ve{H}}{t}}\ d\Theta
 					\end{equation}
@@ -1670,11 +1682,11 @@
 					\end{equation}
 				\end{theorem}
 				
-			\subsubsection{Volume and Area}
+			\subsubsection{Volume and Area (Optional)}
 				\begin{theorem}
 					Let $R$ be an arbitrary regular region in $\R^3$, and let $S$ be the boundary surface of $R$, define
 					\begin{equation}
-						S_h \equiv \{
+						S_h := \{
 							\ve{x} + \delta \ve{n}: \ve{x} \in S \land \delta \in [0, h]
 						\}
 					\end{equation}
@@ -1685,18 +1697,18 @@
 				\end{theorem}
 		\subsection{Divergence, Gradient and Curl}
 			\begin{definition}
-				Let $U \subseteq \R^n$ be an open set, and define real-valued function $f: U \to \R$ and vector field $\ve{F}: U \to \R^n$. Then we define
+				Let $U \subseteq \R^n$ be an open set, and define real-valued function $f: U \to \R$ (0-form) and vector field $\ve{F}: U \to \R^n$. Then we define
 				\begin{enumerate}
-					\item The \textbf{gradient} of $f$ as $\nabla f$;
-					\item The \textbf{divergence} of $\ve{F}$ as $\nabla \cdot \ve{F}$;
-					\item The \textbf{curl} of $\ve{F}$ as $\nabla \times \ve{F}$.
+					\item (1-form) The \textbf{gradient} of $f$ as $\nabla f$;
+					\item (2-form) The \textbf{curl} of $\ve{F}$ as $\nabla \times \ve{F}$;
+					\item (3-form) The \textbf{divergence} of $\ve{F}$ as $\nabla \cdot \ve{F}$.
 				\end{enumerate}
 			\end{definition}
 			
 			\begin{definition}
 				Let $f: \R^n \to \R$ be a $C^1$ real-valued function, define the \textbf{Laplacian} of $f$ as a mapping from \emph{real-valued functional space} to \emph{real-valued functional space} defined as
 				\begin{equation}
-					\tx{div(grad)} f \equiv \sum_{j} \partial_j^2 f = \Delta f = \nabla^2 f
+					\tx{div(grad)} f := \sum_{j} \partial_j^2 f = \Delta f = \nabla^2 f
 				\end{equation}
 			\end{definition}
 			
@@ -1712,11 +1724,11 @@
 				Note that \hl{the domain of $f$ and $\ve{F}$ must be $\R^3$ or a subset of it, otherwise the curl operation is not well-defined.}\\
 			\end{theorem}
 			
-			\begin{theorem}[Product rules]
+			\begin{theorem}[\red{Product rules}]
 				\begin{align}
 					\grad (fg) &= f\ \grad g + \grad f\ g \\
-					\dive (f \ve{G}) &= f\ \dive{G} + \grad f \cdot \ve{G} \\
-					\curl (f \ve{G}) &= f\ \curl{G} + \grad f \times \ve{G}
+					\curl (f \ve{G}) &= f\ \curl{\veG} + \grad f \times \ve{G} \\
+					\dive (f \ve{G}) &= f\ \dive{\veG} + \grad f \cdot \ve{G}
 				\end{align}
 			\end{theorem}
 			
@@ -1751,14 +1763,14 @@
 				 the outer normal vector of those region has form $(\cdot, \cdot, 0)$, and therefore $\ve{n}\cdot \ve{k} = 0$ for every $\ve{x}$ on those regions, and contribute nothing to the integral. \\
 				 Therefore, to evaluate $\iint_{\partial S} F_3 \ve{k} \cdot \ve{n}\ dA$, we only need to consider the upper and bottom surfaces. Also note that $\ve{n}$ has opposite $z$ component on those two surfaces. \\
 				 Moreover, the undirected $\ve{n}$ on those two surfaces is
-				 \begin{gather}
-				 	\tilde{\ve{n}} = \begin{pmatrix} 1 \\ 0 \\ \partial_x \varphi_i \end{pmatrix} \times \begin{pmatrix} 0 \\ 1 \\ \partial_y \varphi_i \end{pmatrix} = \begin{pmatrix} - \partial_x \varphi_i \\ \partial_x \varphi_i - \partial_y \varphi_i \\ 1 \end{pmatrix} \\
-				 	\implies \iint_{\partial S} F_3 \ve{k} \cdot \ve{n}\ dA = \iint_{\partial S} F_3\ dA \\
-				 	= \iint_{upper\ \partial S} F_3\ dA - \iint_{lower\ \partial S} F_3\ dA \\
-				 	= \iint_{W} F_3 (x, y, \varphi_2(x, y))\ dx dy -  \iint_{W} F_3 (x, y, \varphi_1(x, y))\ dx dy \\
-				 	= \iint_W \int_{\varphi_1(x, y)}^{\varphi_2(x, y)} \partial_3 F_3\ dz dx dy 
-				 	= \iiint_S \partial_3 F_3 \ dV
-				 \end{gather}
+				 \begin{align}
+				 	\tilde{\ve{n}} &= \begin{pmatrix} 1 \\ 0 \\ \partial_x \varphi_i \end{pmatrix} \times \begin{pmatrix} 0 \\ 1 \\ \partial_y \varphi_i \end{pmatrix} = \begin{pmatrix} - \partial_x \varphi_i \\ \partial_x \varphi_i - \partial_y \varphi_i \\ 1 \end{pmatrix} \\
+				 	&\implies \iint_{\partial S} F_3 \ve{k} \cdot \ve{n}\ dA = \iint_{\partial S} F_3\ dA \\
+				 	&= \iint_{upper\ \partial S} F_3\ dA - \iint_{lower\ \partial S} F_3\ dA \\
+				 	&= \iint_{W} F_3 (x, y, \varphi_2(x, y))\ dx dy -  \iint_{W} F_3 (x, y, \varphi_1(x, y))\ dx dy \\
+				 	&= \iint_W \int_{\varphi_1(x, y)}^{\varphi_2(x, y)} \partial_3 F_3\ dz dx dy \\
+				 	&= \iiint_S \partial_3 F_3 \ dV
+				 \end{align}
 				 We can prove the equalities involving the other two components, and the proof is completed by the fact that any open set in $\R^n$ can be written as a countable union of \emph{almost disjoint} cubes, which are simple and the boundary of $S$ has zero content.
 				\end{proof}
 			\end{theorem}
@@ -1769,7 +1781,7 @@
 					\dive(\ve{F})(\ve{a}) = \lim_{r \to 0} \frac{3}{4 \pi r^2} \iiint_{\mc{B}(\ve{a}, r)} \dive(\ve{F})(\ve{x})\ d\ve{x} \\
 					= \lim_{r \to 0} \frac{3}{4 \pi r^2} \underbrace{\iint_{\partial \mc{B}(\ve{a}, r)} \ve{F} \cdot \ve{n}\ d\ve{x}}_{\tx{flux through boundary}}
 				\end{gather}
-				thus $\dive(\ve{F})(\ve{a}) > 0$ if and only if at point $\ve{a}$, matters are flowing away from this point.
+				thus $\dive(\ve{F})(\ve{a}) > 0$ if and only if at point $\ve{a}$, matters are flowing \emph{away} from this point.
 			\end{proposition}
 			
 			\begin{corollary}[Green's Formula]
@@ -1814,7 +1826,7 @@
 			\end{theorem}
 			
 			\begin{remark}
-				In above theorem, $\omega \equiv \ve{F} \cdot d \ve{x}$ is a 1-form in $\R^3$ and $d \omega \equiv \curl(\ve{F}) \cdot \ve{n}\ dA$ is a 2-form in $\R^3$.
+				In above theorem, $\omega := \ve{F} \cdot d \ve{x}$ is a 1-form in $\R^3$ and $d \omega := \curl(\ve{F}) \cdot \ve{n}\ dA$ is a 2-form in $\R^3$.
 			\end{remark}
 			
 			\begin{corollary}
@@ -1923,7 +1935,7 @@
 			\begin{definition}
 				Let $\omega = \sum_{j=1}^{C(n,k)} f_j \beta_j$ be a $k$-form in $\R^n$, then it's \textbf{exterior derivative} is defined to be the $(k+1)$-form in $\R^n$ defined as 
 				\begin{gather}
-					d\omega \equiv \sum_{j} df_j \land \beta_j
+					\red{d\omega := \sum_{j} df_j \land \beta_j}
 				\end{gather}
 				where $df_j$ can be computed using \emph{total derivative}.
 			\end{definition}
