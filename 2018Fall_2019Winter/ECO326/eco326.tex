@@ -44,27 +44,27 @@
 	\tableofcontents
 	\newpage
 	
-	\section{Lecture 1. Jan. 7 2019\\Games and Dominant Strategies}
-		\paragraph{Game Theory} Choice environment where individual choices impact others.
-		
-		\begin{example}
-			\begin{figure}[h]
-				\centering
-				  \begin{tabular}{c|c|c}
-				    & W & S\\
-				    \hline
-				    W & $(1-c, 1-c)$ & $(\red{1-c}, \red{1})$ \\
-				    \hline
-				    S & $(\red{1}, \red{1-c})$ & $(0, 0)$
-				  \end{tabular}
-				  \caption{Payoff Matrix for Example 1}
-			\end{figure}
-		\end{example}
-		Suppose $c \in (0, 1)$. In this game,
-		\begin{enumerate}[i]
-			\item $N = \{i, j\}$,
-			\item $A_i = A_j = \{W, S\}$,
-		\end{enumerate}
+	\section{Lecture 1. Jan. 7 2019\\Strategic Games and Dominant Strategies}
+%		\paragraph{Game Theory} Choice environment where individual choices impact others.
+%		
+%		\begin{example}
+%			\begin{figure}[h]
+%				\centering
+%				  \begin{tabular}{c|c|c}
+%				    & W & S\\
+%				    \hline
+%				    W & $(1-c, 1-c)$ & $(\red{1-c}, \red{1})$ \\
+%				    \hline
+%				    S & $(\red{1}, \red{1-c})$ & $(0, 0)$
+%				  \end{tabular}
+%				  \caption{Payoff Matrix for Example 1}
+%			\end{figure}
+%		\end{example}
+%		Suppose $c \in (0, 1)$. In this game,
+%		\begin{enumerate}[i]
+%			\item $N = \{i, j\}$,
+%			\item $A_i = A_j = \{W, S\}$,
+%		\end{enumerate}
 		
 		\begin{definition}[pg.7]
 			A \textbf{preference relation} is a \ul{complete reflexive and transitive} binary relation.
@@ -73,26 +73,30 @@
 		\begin{definition}[11.1, lec.1]
 			A \textbf{(strategic) game} consists of
 			\begin{enumerate}[i]
-				\item a \ul{finite} set of \textbf{players} $N$, with $|N| \geq 2$.
-				\item for each player $i \in N$, an \textbf{action set} $A_i \neq \emptyset$.
-				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A \equiv \prod_{i\in N}A_i$.
+				\item a \ul{finite} set of \textbf{players} $N$, with $|N| \geq 2$;
+				\item for each player $i \in N$, an \textbf{action set} $A_i \neq \varnothing$;
+				\item for each player $i \in N$, a \textbf{preference relation} $\succsim_i$ defined on $A := \prod_{i\in N}A_i$.
 			\end{enumerate}
 			and can be written as a triple $\langle N, (A_i), (\succsim_i) \rangle$.
 		\end{definition}
 
 		\begin{definition}
 			An \textbf{action profile} is a $n$-tuple of actions $a_i \in A_i$ for each player $i \in N$ and denoted as 
-				\[
+				\begin{equation}
 					(a_i)_{i \in N} \tx{ or } (a_i)
-				\]
+				\end{equation}
 			The \textbf{action profile space} is defined as 
-				\[
-					A \equiv \prod_{i \in N} A_i
-				\]
+				\begin{equation}
+					A := \prod_{i \in N} A_i
+				\end{equation}
+			And the space of \textbf{actions of opponents} is defined as
+			\begin{equation}
+				A_{-i} := \prod_{j \neq i} A_j
+			\end{equation}
 		\end{definition}
 		
 		\begin{definition}[Equivalent definition of game]
-			For each player $i \in N$ we can define a \ul{utility function}, $u_i: A \to \R$ such that
+			For each player $i \in N$ we can define a \textbf{utility function}, $u_i: A \to \R$ such that
 			\begin{equation}
 				\forall (a_i), (a_i)' \in A,\ u_i((a_i)) \geq u_i((a_i)') \iff (a_i) \succsim_i (a_i)'
 			\end{equation}
@@ -101,17 +105,17 @@
 		
 		\begin{definition}
 			Action $a_i \in A_i$ is \textbf{strictly dominated} by action $\tilde{a}_i \in A_i$ if
-			\[
+			\begin{equation}
 				\forall a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) < u_i(\tilde{a}_i, a_{-i})
-			\]
+			\end{equation}
 			And $a_i$ is \textbf{weakly dominated} by $\tilde{a}_i$ if
-			\[
-				\forall a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) \leq u_i(\tilde{a}_i, a_{-i})
-			\]
+			\begin{equation}
+				\forall\ a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) \leq u_i(\tilde{a}_i, a_{-i})
+			\end{equation}
 			\ul{and}
-			\[
-				\exists a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) < u_i(\tilde{a}_i, a_{-i})
-			\]
+			\begin{equation}
+				\exists\ a_{-i} \in A_{-i},\ u_i(a_i, a_{-i}) < u_i(\tilde{a}_i, a_{-i})
+			\end{equation}
 		\end{definition}
 		
 		\begin{corollary}[Consequence of RCT]
@@ -159,11 +163,11 @@
 %		\end{example}
 		
 		% \begin{example}
-		% 	There are three candidates, $\{A, B, C\}$. And there are 50 players (voters, note that $\emptyset \notin A_i$ since they must vote).
+		% 	There are three candidates, $\{A, B, C\}$. And there are 50 players (voters, note that $\varnothing \notin A_i$ since they must vote).
 		% 	And 
-		% 	\[
+		% 	\begin{equation}
 		% 		\forall i \in N,\ A_i = \{A, B, C\}
-		% 	\]
+		% 	\end{equation}
 		% 	Each individual has strictly preference over $A, B, C$. If tie is encountered, randomization would be taken.
 		% 	\begin{enumerate}[i]
 		% 		\item $A \succ B \succ C$,
@@ -182,31 +186,31 @@
 		% 		\end{gather*}
 		% 		Let $n_{-i}^j$ denote the number of voters other than $i$ voting for candidate $j$. Clearly each $a_{-i} \in A_{-i}$ would induce an outcome as a triple $(n_{-i}^A, n_{-i}^B, n_{-i}^C)$.\\
 		% 		Consider action $V_A$, and $a_{-i}$ induces 
-		% 		\[
+		% 		\begin{equation}
 		% 			(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (1, 24, 24)
-		% 		\]
+		% 		\end{equation}
 		% 		then 
-		% 		\[
+		% 		\begin{equation}
 		% 			(V_B, a_{-i}) \succ_i (V_A, a_{-i})
-		% 		\]
+		% 		\end{equation}
 		% 		So $V_A$ failed to be a dominant strategy of any kind. \\
 		% 		Similarly, consider action $V_B$, if $a_{-i}$ induces
-		% 		\[
+		% 		\begin{equation}
 		% 			(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (24, 1, 24)
-		% 		\]
+		% 		\end{equation}
 		% 		then 
-		% 		\[
+		% 		\begin{equation}
 		% 			(V_A, a_{-i}) \succsim_i (V_B, a_{-i})
-		% 		\]
+		% 		\end{equation}
 		% 		So $V_B$ failed to be a dominant strategy. \\
 		% 		Similarly, consider action $V_C$, if $a_{-i}$ induces
-		% 		\[
+		% 		\begin{equation}
 		% 			(n_{-i}^A, n_{-i}^B, n_{-i}^C) = (24, 24, 1)
-		% 		\]
+		% 		\end{equation}
 		% 		then 
-		% 		\[
+		% 		\begin{equation}
 		% 			(V_A, a_{-i}) \succsim_i (V_C, a_{-i})
-		% 		\]
+		% 		\end{equation}
 		% 		So $V_B$ failed to be a dominant strategy.
 		% 	\end{proof}
 		% 	\paragraph{Claim 2:}Only voting for your least preferred candidate is weakly dominated.
@@ -253,27 +257,27 @@
 %			\end{gather}
 %		\end{example}	
 		
-		\subsection{Iterated Elimination of Strictly Dominated Strategies(Actions)}
+		\subsection{Iterated Elimination of Strictly Dominated Strategies/Actions}
 			\begin{definition}[IESD]
 				Given the initial game,
-				\[
+				\begin{equation}
 					G_0 = \langle N, (A^0_i), (u_i) \rangle
-				\] 
+				\end{equation} 
 				At stage $k \in \N$, 
-				\[
+				\begin{equation}
 					G_k = \langle N, (A^k_i), (u_i) \rangle
-				\]
+				\end{equation}
 				In stage $k$, for all $i \in N$, find the set of \ul{strictly} dominated actions, $D_i^k \subsetneq A_i^k$.
 				\begin{enumerate}[i)]
-					\item If $\forall i \in N\ s.t.\ D_i^k = \emptyset$, conclude the profile
-					\[
+					\item If $\forall i \in N\ s.t.\ D_i^k = \varnothing$, conclude the profile
+					\begin{equation}
 						(A_i^k)
-					\]
+					\end{equation}
 					to be the \textbf{set of action profiles survive from IESD}.
-					\item If $\exists i \in N\ s.t.\ D_i^k \neq \emptyset$, define
-					\[
+					\item If $\exists i \in N\ s.t.\ D_i^k \neq \varnothing$, define
+					\begin{equation}
 						\forall i \in N,\ A^{k+1}_i \leftarrow A^k_i \backslash D_i^k
-					\]
+					\end{equation}
 				\end{enumerate}
 			\end{definition}
 			
@@ -342,37 +346,37 @@
 			\begin{definition}
 				For each $i \in N$, the \textbf{best-response function} of this player is a correspondence $Br_i: A_{-i} \rightrightarrows A_i$ defined as
 				\begin{equation}
-					Br_i(a_{-i}) \equiv \{a_i \in A_i : u_i(a_i, a_{-i}) \geq u_i(a_i', a_{-i})\ \forall a_i' \in A_i \}
+					Br_i(a_{-i}) := \{a_i \in A_i : u_i(a_i, a_{-i}) \geq u_i(a_i', a_{-i})\ \forall a_i' \in A_i \}
 				\end{equation}
 			\end{definition}
 			
 			\begin{definition}
-				A \textbf{belief} of player $i$ (about the actions of the other players) is a \ul{probability measure}, $\alpha_i$, on $A_{-i} \equiv \prod_{j \in N \backslash \{i\}} A_j$.
+				A \textbf{belief} of player $i$ (about the actions of the other players) is a \ul{probability measure}, $\alpha_i \in \Delta(A_{-i})$.
 %				$\alpha_i$ is a mapping such that
 %				\begin{itemize}
 %					\item $\alpha_i: A_{-i} \to [0,1]$.
 %					\item $\alpha_i(A_{-i}) = 1$.
 %					\item For all countable piece-wise \ul{disjoint} collection 
-%					\[
+%					\begin{equation}
 %						\{E_j\}_{j\in \mc{J}} \in \mc{P}(A_{-i})
-%					\]
+%					\end{equation}
 %					$\alpha_i$ satisfies the \emph{countable additivity property}:
-%					\[
+%					\begin{equation}
 %						\alpha_i(\bigcup_{i \in I} E_i) = \sum_{i \in I}\alpha_i(E_i)
-%					\]
+%					\end{equation}
 %				\end{itemize}
 			\end{definition}
 			
-			\begin{remark}
-				$\alpha_i$ defines a distribution of $a_{-i}$.
-			\end{remark}
+%			\begin{remark}
+%				$\alpha_i$ defines a distribution of $a_{-i}$.
+%			\end{remark}
 			
 			\begin{definition}
 				$a_i$ is a \ul{\textbf{best response} to the belief $\alpha_i$} if
 				\begin{equation}
 					\forall a_i' \in A_i,\ \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \alpha_i(a_{-i}) \geq \sum_{a_{-i} \in A_{-i}} u_i(a_i', a_{-i}) \alpha_i(a_{-i})
 				\end{equation}
-				or, more generally,
+				more precisely,
 				\begin{equation}
 					\forall a'_i \in A_i,\ \expect{u_i(a_i, a_{-i})|\alpha_i} \geq \expect{u_i(a_i', a_{-i})|\alpha_i}
 				\end{equation}
@@ -418,14 +422,14 @@
 			\end{figure}
 			
 			\begin{definition}
-				An action $a_i \in A_i$ is \textbf{rationalizable} if it survives \emph{iterative elimination of never best responses}.
+				An action $a_i \in A_i$ is \textbf{rationalizable} if it survives \emph{iterative elimination of never best responses} (i.e. action $a_i$ is a best response to some mixed strategies of opponents).
 			\end{definition}
 			
 			\begin{lemma}[60.1]
 				An action of a player in a \emph{finite} strategic game is a never-best response \emph{if and only if} it is strictly dominated. \footnote{The concept of \emph{strict domination} will be introduced in section 5.}
 			\end{lemma}
 		
-	\section{Lecture 3. Jan. 21 2019}
+	\section{Lecture 3. Jan. 21 2019\\Pure Strategy Nash Equilibrium}
 		\begin{definition}
 			A \textbf{pure strategy Nash equilibrium} is an \ul{action profile} $(a_i)$ such that 
 			\begin{equation}
@@ -434,7 +438,7 @@
 		\end{definition}
 			
 		\begin{remark}
-			That's, a NE is a situation that if player $i$ knows what other players do, the action given by the NE profile is still a best response.
+			That's, a NE is a situation that if player $i$ knows what other players do, there exists no beneficial deviation from the current strategy.
 		\end{remark}
 		
 		\begin{remark}[Interpretations]
@@ -492,7 +496,7 @@
 		\begin{example}[Continue Cournot Duopoly]
 			Note that in the Cournot Duopoly game, for each $i \in N$, the Nash equilibrium profit is
 			\begin{gather}
-				\Pi_{NE}^* = (\alpha - c - \frac{2(\alpha - c)}{3}) \frac{\alpha - c}{3} \\
+				\Pi_{NE}^* = \left(\alpha - c - \frac{2(\alpha - c)}{3}\right) \frac{\alpha - c}{3} \\
 				= \frac{(\alpha - c)^2}{9}
 			\end{gather}
 			So the total profit for the two firms is $\frac{2(\alpha - c)^2}{9}$. \\
@@ -500,7 +504,7 @@
 			\begin{gather}
 				Q^* = \tx{argmax}_{Q \in \R_{\geq 0}} (\alpha - c - Q) Q \\
 				= \frac{\alpha - c}{2} \\
-				\implies \Pi_{Cartel}^* = (\alpha - c - \frac{\alpha - c}{2}) \frac{\alpha - c}{2} \\
+				\implies \Pi_{Cartel}^* = \left(\alpha - c - \frac{\alpha - c}{2} \right)\frac{\alpha - c}{2} \\
 				= \frac{(\alpha - c)^2}{4} > \frac{2(\alpha - c)^2}{9}
 			\end{gather}
 			The fact $\Pi_{Cartel}^* > 2 \times \Pi_{NE}^*$ suggests the Nash equilibrium action profile did not induce the optimal common wealth outcome. However, the Cartel action profile is not a stable outcome since every player has incentive to increase their production level.
@@ -514,7 +518,7 @@
 			No strategy that is eliminated during iterated elimination of \emph{never best response} can be played in a Nash equilibrium.
 		\end{proposition}
 	
-	\section{Lecture 4. Jan. 28. 2019}
+	\section{Lecture 4. Jan. 28. 2019\\Nash Equilibrium: Examples}
 	\begin{example}[From last lecture]
 		Consider the payoff matrix
 		\begin{figure*}[h]
@@ -554,14 +558,14 @@
 		\begin{equation}
 			\langle N, (\R_{\geq 0}), (\pi_i) \rangle
 		\end{equation}
-		Where $|N| = n$ and each firm picks a quantity $q_i \in A_i \equiv \R_{\geq 0}$. \\
+		Where $|N| = n$ and each firm picks a quantity $q_i \in A_i := \R_{\geq 0}$. \\
 		Define 
 		\begin{equation}
-			Q \equiv \sum_j q_j
+			Q := \sum_j q_j
 		\end{equation}
 		For each $i \in N$, define 
 		\begin{equation}
-			Q_{-i} \equiv \sum_{j\neq i} q_j
+			Q_{-i} := \sum_{j\neq i} q_j
 		\end{equation}
 		And the market has \emph{linear demand curve}
 		\begin{equation}
@@ -604,7 +608,7 @@
 			\begin{equation}
 				\exists i, j \in N,\ q_i = q_j + \epsilon
 			\end{equation}
-			Define $Q_{-ij} \equiv Q - q_i - q_j$.\\
+			Define $Q_{-ij} := Q - q_i - q_j$.\\
 			For firm $i$,
 			\begin{gather}
 				q_i = Br_i(Q_{-i}) = \frac{1}{2} (\alpha - c - Q_{-i}) \\
@@ -735,7 +739,7 @@
 		For a firm $i \in N$, let $x_i \in [0,1]$ measure consumer's preference towards firm $i$'s products. \\
 		Define 
 		\begin{equation}
-			x_{-i} \equiv 1 - x_i \sim Unif(0,1)
+			x_{-i} := 1 - x_i \sim Unif(0,1)
 		\end{equation}
 		Consumer buy product $i$ if 
 		\begin{gather}
@@ -774,21 +778,21 @@
 		\end{gather}
 	\end{example}
 	
-	\section{Lecture 5 Feb. 7 2019}
+	\section{Lecture 5 Feb. 7 2019\\Mixed Strategies}
 		\subsection{Lecture Contents}
-		\begin{example}Matching pennies: an example of game without pure strategy Nash equilibrium.
-			\begin{figure}[h]
-				\centering
-				\begin{game}{2}{2}
-					& $H$ & $T$ \\
-					$H$ & (\red{1},-1) & (-1,\red{1}) \\
-					$L$ & (-1,\red{1}) & (\red{1},-1) \\
-				\end{game}
-			\end{figure}
-		\end{example}
+%		\begin{example}Matching pennies: an example of game without pure strategy Nash equilibrium.
+%			\begin{figure}[h]
+%				\centering
+%				\begin{game}{2}{2}
+%					& $H$ & $T$ \\
+%					$H$ & (\red{1},-1) & (-1,\red{1}) \\
+%					$L$ & (-1,\red{1}) & (\red{1},-1) \\
+%				\end{game}
+%			\end{figure}
+%		\end{example}
 		
 		\begin{assumption}
-			We assume that the preference relation of each player $i$ satisfies the assumptions of \emph{von Neumann and Morgenstern}, so that it can be represented by the expected value of some function $u_i: A \to \R$.
+			We assume that the preference relation of each player $i$ satisfies the assumptions of \emph{von Neumann and Morgenstern}, so that it can be represented by the expected value of some utility function $u_i: A \to \R$.
 		\end{assumption}
 		
 		\begin{definition}
@@ -798,7 +802,7 @@
 		\begin{definition}
 			The \textbf{support} of $\sigma_i$ is defined as
 			\begin{equation}
-				\mc{S}(\sigma_i) \equiv \{a \in A_i: \sigma_i(a) > 0\}
+				\mc{S}(\sigma_i) := \{a \in A_i: \sigma_i(a) > 0\}
 			\end{equation}
 		\end{definition}
 		
@@ -815,30 +819,30 @@
 		\end{remark}
 		
 		\begin{proposition}
-			In a finite game, given the independence of randomization, the probability of the action profile $a \equiv (a_i)$ to be realized given mixed strategy profile $\sigma \equiv (\sigma_i)$ is
+			In a finite game, given the independence of randomization, the probability of the action profile $a := (a_i)$ to be realized given mixed strategy profile $\sigma := (\sigma_i)$ is
 			\begin{equation}
-				\sigma (a) \equiv \prob{a|\sigma} = \prod_{i \in N} \sigma_i(a_i)
+				\sigma (a) := \prob{a|\sigma} = \prod_{i \in N} \sigma_i(a_i)
 			\end{equation}
 			and for player $i$, the \textbf{expected payoff} from mixed strategy profile $(\sigma_i)$ is 
 			\begin{equation}
-				U_i(\sigma_{i}, \sigma_{-i}) = 
-				\sum_{a \in A} \big[\prod_{j \in N} \sigma_j(a_j)\big] u_i(a) = \expect{u_i|\sigma}
+				U_i(\sigma_{i}, \sigma_{-i}) := 
+				\sum_{a \in A} \underbrace{\prod_{j \in N} \sigma_j(a_j)}_{\prob{a|\sigma}} u_i(a) = \expect{u_i|\sigma}
 			\end{equation}
 		\end{proposition}
 		
 		\begin{proposition}
-			The \textbf{expected payoff} from mixed strategy profile $(\sigma_i) \equiv (\sigma_i, \sigma_{-i})$ is
+			The \textbf{expected payoff} from mixed strategy profile $(\sigma_i) := (\sigma_i, \sigma_{-i})$ is
 			\begin{equation}
-				U_i(\sigma_i, \sigma_{-i}) \equiv \expect{u_i(a)|(\sigma_i)} = \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \sigma_i(a_i)
+				U_i(\sigma_i, \sigma_{-i}) := \expect{u_i(a)|(\sigma_i)} = \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \sigma_i(a_i)
 			\end{equation}
 		\end{proposition}
 		
 		\begin{definition}[Osborne 2030 lec2]
 			The \textbf{mixed extension} of the strategic game $\langle N, (A_i)_{i\in N}, (u_i)_{i\in N} \rangle$ is the following strategic game:
 			\begin{enumerate}[(i)]
-				\item \textbf{Players} $N$
-				\item \textbf{Action sets} $\Delta(A_i)$ for player $i$
-				\item \textbf{Preferences} Represented by $U_i: \prod_{j \in N} \Delta(A_j) \to \R$, where $U_i(\alpha)$ is the \ul{expected value} under $u_i$ of the lottery over $\prod_{j \in N} \Delta(A_j)$ induced by $\alpha$.
+				\item \textbf{Players} $N$;
+				\item \textbf{Action sets} $\Delta(A_i)$ for player $i$;
+				\item \textbf{Preferences} represented by $U_i: \prod_{j \in N} \Delta(A_j) \to \R$, where $U_i(\alpha)$ is the \ul{expected value} under $u_i$ of the lottery over $\prod_{j \in N} \Delta(A_j)$ induced by mixed strategy profile $\sigma \in \Delta(A)$.
 			\end{enumerate}
 		\end{definition}
 		
@@ -847,7 +851,7 @@
 			\begin{equation}
 				\forall a_{-i} \in A_{-i}\ u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i})
 			\end{equation}
-			We say $a_i$ is strictly dominated.
+			We say $a_i$ is \textbf{strictly dominated}.
 		\end{definition}
 		
 		\begin{proposition}
@@ -856,16 +860,18 @@
 				\forall a_{-i} \in A_{-i}\ u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i}) \iff \forall \sigma_{-i} \in \Delta(A_{-i})\ U_i(a_i, \sigma_{-i}) < U_i(\sigma_i, \sigma_{-i})
 			\end{equation}
 			\begin{proof}
+				\emph{Main idea: linearity of expectation operator.} \\
 				($\implies$) Suppose 
 				\begin{equation}
 					\forall a_{-i} \in A_{-i}\ u_i(a_i, a_{-i}) < U_i(\sigma_i, a_{-i})
 				\end{equation}
 				Let $\sigma_{-i} \in \Delta(A_{-i})$,
-				\begin{gather}
-					U_i(a_i, \sigma_{-i}) = \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \\
-					< \sum_{a_{-i} \in A_{-i}} U_i(\sigma_i, a_{-i}) \sigma_{-i}(a_{-i}) \\
-					= U_i(\sigma_i, \sigma_{-i})
-				\end{gather}
+				\begin{align}
+					U_i(a_i, \sigma_{-i}) 
+					&= \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_{-i}(a_{-i}) \\
+					&< \sum_{a_{-i} \in A_{-i}} U_i(\sigma_i, a_{-i}) \sigma_{-i}(a_{-i}) \\
+					&= U_i(\sigma_i, \sigma_{-i})
+				\end{align}
 				Thus 
 				\begin{equation}
 					\forall \sigma_{-i} \in \Delta(A_{-i})\ U_i(a_i, \sigma_{-i}) < U_i(\sigma_i, \sigma_{-i})
@@ -874,7 +880,7 @@
 				\begin{equation}
 					\forall \sigma_{-i} \in \Delta(A_{-i})\ U_i(a_i, \sigma_{-i}) < U_i(\sigma_i, \sigma_{-i})
 				\end{equation}
-				Let $a_{-i} \in A_{-i}$, consider $\sigma_{-i}$ defined as $\sigma^*_{-i}(x) \equiv \mathbb{I}(x = a_{-i})$
+				Let $a_{-i} \in A_{-i}$, consider $\sigma_{-i}$ defined as $\sigma^*_{-i}(x) := \id{x = a_{-i}}$
 				so that
 				\begin{gather}
 					U_i(a_i, \sigma^*_{-i}) < U_i(\sigma_i, \sigma^*_{-i}) \\
@@ -885,19 +891,19 @@
 		\end{proposition}
 		
 		\begin{definition}
-			The \textbf{best response} to a mixed strategy $\sigma_{-i} \in \Delta{A_{-i}}$ is defined as
+			The \textbf{best response} to a mixed strategy $\sigma_{-i} \in \Delta(A_{-i})$ is defined as
 			\begin{equation}
-				Br_i(\sigma_{-i}) \equiv \{\sigma_i \in \Delta(A_i): 
+				Br_i(\sigma_{-i}) := \{\sigma_i \in \Delta(A_i): 
 					\forall \tilde{\sigma}_i \in \Delta(A_i),\ U_i(\sigma_i, \sigma_{-i}) \geq U_i(\tilde{\sigma}_i, \sigma_{-i})
 				\}
 			\end{equation}
 		\end{definition}
 		
 		\begin{proposition}
-			Let $(\sigma_i, \sigma_{-i}) \in \Delta(A)$ then $\sigma_i \in Br_i(\sigma_{-i})$ \emph{if and only if}
+			Let $(\sigma_i, \sigma_{-i}) \in \Delta(A)$ then $\sigma_i \in Br_i(\sigma_{-i})$ \ul{if and only if}
 			\begin{enumerate}
-				\item $\forall a_j, a_k \in \mc{S}(\sigma_i),\ a_j \sim_i a_k$,
-				\item \ul{and} $\forall a_j \in \mc{S}(\sigma_i)\ a_k \notin \mc{S}(\sigma_i),\ a_j \succsim_i a_k$
+				\item $\forall a_j, a_k \in \mc{S}(\sigma_i),\ a_j \sim_i a_k$;
+				\item \ul{and} $\forall a_j \in \mc{S}(\sigma_i)\ a_k \notin \mc{S}(\sigma_i),\ a_j \succsim_i a_k$.
 			\end{enumerate}
 			\begin{proof}
 				($\implies$) case 1: suppose (1) is false, for concreteness, assume
@@ -906,8 +912,8 @@
 				\end{equation}\\
 				Define
 				\begin{gather}
-					\mc{U}_j \equiv U_i(a_j, \sigma_{-i}) = \sum_{a_{-i} \in A_{-i}} u_i(a_j, a_{-i}) \sigma_{-i}(a_{-i}) \\
-					\mc{U}_k \equiv U_i(a_k, \sigma_{-i}) = \sum_{a_{-i} \in A_{-i}} u_i(a_k, a_{-i}) \sigma_{-i}(a_{-i})
+					\mc{U}_j := U_i(a_j, \sigma_{-i}) = \sum_{a_{-i} \in A_{-i}} u_i(a_j, a_{-i}) \sigma_{-i}(a_{-i}) \\
+					\mc{U}_k := U_i(a_k, \sigma_{-i}) = \sum_{a_{-i} \in A_{-i}} u_i(a_k, a_{-i}) \sigma_{-i}(a_{-i})
 				\end{gather}
 				And $\mc{U}_j > \mc{U}_k$ by assumption. Consider $\sigma_i'$ defined with 
 				\begin{equation}
@@ -919,14 +925,14 @@
 					\end{cases}
 				\end{equation}
 				Therefore 
-				\begin{gather}
-					U_i(\sigma_i', \sigma_{-i}) \equiv \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) \\
-					= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) + \sigma_i'(a_j) \mc{U}_j + \sigma_i'(a_k) \mc{U}_k \\
-					= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + \sigma_i(a_j) \mc{U}_j + \sigma_i(a_k) \mc{U}_j \\
-					> \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + \sigma_i(a_j) \mc{U}_j + \sigma_i(a_k) \mc{U}_k \\
-				= \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i})
-				\equiv U_i(\sigma_i, \sigma_{-i})
-				\end{gather}
+				\begin{align}
+					U_i(\sigma_i', \sigma_{-i}) &:= \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) \\
+					&= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) + \sigma_i'(a_j) \mc{U}_j + \sigma_i'(a_k) \mc{U}_k \\
+					&= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + \sigma_i(a_j) \mc{U}_j + \sigma_i(a_k) \mc{U}_j \\
+					&> \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + \sigma_i(a_j) \mc{U}_j + \sigma_i(a_k) \mc{U}_k \\
+					&= \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i})
+					\equiv U_i(\sigma_i, \sigma_{-i})
+				\end{align}
 				So that $\sigma_i'$ strictly dominates $\sigma_i$, so $\sigma_i \notin Br_i(\sigma_{-i})$. \\
 				case 2: suppose (2) is false, for concreteness, assume
 				\begin{equation}
@@ -942,26 +948,26 @@
 				\end{equation}
 				By previous definitions, $\mc{U}_k > \mc{U}_j$.\\
 				Then
-				\begin{gather}
-					U_i(\sigma_i', \sigma_{-i}) \equiv \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) \\
-					= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) + \sigma_i'(a_j) \mc{U}_j + \sigma_i'(a_k) \mc{U}_k\\
-					= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + 0\  \mc{U}_j + \sigma_i(a_j) \mc{U}_k \\
-					> \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + \sigma_i(a_j) \mc{U}_j \\
-					= U_i(\sigma_i, \sigma_{-i})
-				\end{gather}
+				\begin{align}
+					U_i(\sigma_i', \sigma_{-i}) &:= \sum_{a_i \in A_i} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) \\
+					&= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i'(a_i) \sigma_{-i}(a_{-i}) + \sigma_i'(a_j) \mc{U}_j + \sigma_i'(a_k) \mc{U}_k\\
+					&= \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + 0\  \mc{U}_j + \sigma_i(a_j) \mc{U}_k \\
+					&> \sum_{a_i \in A_i\backslash \{a_j, a_k\}} \sum_{a_{-i} \in A_{-i}} u_i(a_i, a_{-i}) \sigma_i(a_i) \sigma_{-i}(a_{-i}) + \sigma_i(a_j) \mc{U}_j \\
+					&= U_i(\sigma_i, \sigma_{-i})
+				\end{align}
 				Therefore $\sigma_i \notin Br_i(\sigma_{-i})$, \emph{modus tollens}. \\
 				($\impliedby$) suppose $\sigma_i \notin Br_i(\sigma_{-i})$, that's
 				\begin{equation}
 					\exists \sigma'_i \in \Delta(A_i)\ s.t.\ U_i(\sigma_i', \sigma_{-i}) > U_i(\sigma_i, \sigma_{-i})
 				\end{equation}
 				Therefore
-				\begin{gather}
-					\exists \bar{a}_i, \underline{a}_i \in \mc{S}(\sigma_i)\ s.t.\ U_i(\bar{a}_i, \sigma_{-i}) \geq U_i(\sigma_i, \sigma_{-i}) \geq U_i(\underline{a}_i, \sigma_{-i})\\
-					\land \exists \bar{a}'_i, \underline{a}'_i \in \mc{S}(\sigma_i')\ s.t.\ U_i(\bar{a}_i', \sigma_{-i}) \geq U_i(\sigma_i', \sigma_{-i}) \geq U_i(\underline{a}_i', \sigma_{-i})\\
-					\implies U_i(\bar{a}_i', \sigma_{-i}) \geq U_i(\sigma_i', \sigma_{-i}) > U_i(a_i, \sigma_{-i}) \geq U_i(\underline{a}_i, \sigma_{-i}) \\
-					\implies U_i(\bar{a}_i', \sigma_{-i}) > U_i(\underline{a}_i, \sigma_{-i}) \\
-					\implies \bar{a}_i' \succ_i \underline{a}_i \in \mc{S}(\sigma_i)
-				\end{gather}
+				\begin{align}
+					&\exists \bar{a}_i, \underline{a}_i \in \mc{S}(\sigma_i)\ s.t.\ U_i(\bar{a}_i, \sigma_{-i}) \geq U_i(\sigma_i, \sigma_{-i}) \geq U_i(\underline{a}_i, \sigma_{-i})\\
+					&\quad\land \exists \bar{a}'_i, \underline{a}'_i \in \mc{S}(\sigma_i')\ s.t.\ U_i(\bar{a}_i', \sigma_{-i}) \geq U_i(\sigma_i', \sigma_{-i}) \geq U_i(\underline{a}_i', \sigma_{-i})\\
+					&\implies U_i(\bar{a}_i', \sigma_{-i}) \geq U_i(\sigma_i', \sigma_{-i}) > U_i(a_i, \sigma_{-i}) \geq U_i(\underline{a}_i, \sigma_{-i}) \\
+					&\implies U_i(\bar{a}_i', \sigma_{-i}) > U_i(\underline{a}_i, \sigma_{-i}) \\
+					&\implies \bar{a}_i' \succ_i \underline{a}_i \in \mc{S}(\sigma_i)
+				\end{align}
 				In both cases, $\overline{a}_i' \in \mc{S}(\sigma_i)$ and $\overline{a}_i' \notin \mc{S}(\sigma_i)$, the two requirements are falsified, \emph{modus tollens}.
 			\end{proof}
 		\end{proposition}
@@ -1042,13 +1048,13 @@
 				\end{equation}
 				And $\mc{S}(\tilde{\sigma}_i) = \mc{S}(\sigma_i) \backslash \{a_i\}$.\\
 				Then, by (i), 
-				\begin{gather}
-					U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\sigma_i)} U_i(a_j, \sigma_{-i})\sigma_i(a_j) \\
-					\implies (1 - \sigma_i(a_i)) U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\sigma_i) \backslash \{a_i\}} U_i(a_j, \sigma_{-i})\sigma_i(a_j) \\
-					\implies U_i(a_i, \sigma_{-i}) < \frac{1}{1 - \sigma_i(a_i)} \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i})\sigma_i(a_j) \\
-					\implies U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \frac{\sigma_i(a_j)}{1 - \sigma_i(a_i)} \\
-					\implies U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \tilde{\sigma}_i(a_j) \equiv U_i(\tilde{\sigma}_i, \sigma_{-i})
-				\end{gather}
+				\begin{align}
+					&U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\sigma_i)} U_i(a_j, \sigma_{-i})\sigma_i(a_j) \\
+					&\implies (1 - \sigma_i(a_i)) U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\sigma_i) \backslash \{a_i\}} U_i(a_j, \sigma_{-i})\sigma_i(a_j) \\
+					&\implies U_i(a_i, \sigma_{-i}) < \frac{1}{1 - \sigma_i(a_i)} \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i})\sigma_i(a_j) \\
+					&\implies U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \frac{\sigma_i(a_j)}{1 - \sigma_i(a_i)} \\
+					&\implies U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \tilde{\sigma}_i(a_j) := U_i(\tilde{\sigma}_i, \sigma_{-i})
+				\end{align}
 				($\impliedby$) Suppose there exists $\tilde{\sigma}_i$ satisfies (ii).
 				Take $\eta \in \R_+$, define $\sigma_i$ as
 				\begin{equation}
@@ -1060,12 +1066,12 @@
 				\end{equation}
 				Note that $\mc{S}(\sigma_i) = \mc{S}(\tilde{\sigma}_i) \cup \{a_i\}$.\\
 				By (ii), 
-				\begin{gather}
-					U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \tilde{\sigma}_i(a_j) \\
-					\implies (1+\eta) U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \tilde{\sigma}_i(a_j) + U_i(a_i, \sigma_{-i}) \eta \\
-					\implies U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \frac{\tilde{\sigma}_i(a_j)}{1+\eta} + \frac{\eta}{1+\eta} U_i(a_i, \sigma_{-i}) \\
-					= \sum_{a_j \in \mc{S}(\sigma_i)} U_i(a_j, \sigma_{-i} \sigma_i(a_j) \equiv U_i(\sigma_i, \sigma_{-i})
-				\end{gather}
+				\begin{align}
+					&U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \tilde{\sigma}_i(a_j) \\
+					&\implies (1+\eta) U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \tilde{\sigma}_i(a_j) + U_i(a_i, \sigma_{-i}) \eta \\
+					&\implies U_i(a_i, \sigma_{-i}) < \sum_{a_j \in \mc{S}(\tilde{\sigma}_i)} U_i(a_j, \sigma_{-i}) \frac{\tilde{\sigma}_i(a_j)}{1+\eta} + \frac{\eta}{1+\eta} U_i(a_i, \sigma_{-i}) \\
+					&= \sum_{a_j \in \mc{S}(\sigma_i)} U_i(a_j, \sigma_{-i} \sigma_i(a_j) := U_i(\sigma_i, \sigma_{-i})
+				\end{align}
 			\end{proof}
 		\end{proposition}
 		\begin{remark}
@@ -1098,7 +1104,7 @@
 			\end{enumerate} 
 		\end{proposition}
 	
-	\section{Lecture 6 Feb. 25 2019}
+	\section{Lecture 6 Feb. 25 2019\\Extensive Form Games}
 		\subsection{An Introductory Example}
 			\begin{figure}[htb]
 			\hspace*{\fill}
@@ -1121,7 +1127,7 @@
 			\end{assumption}
 			
 			\begin{definition}
-				A sequence of actions is called a \textbf{history}. For example, $h = (a_1,\dots, a_t$ would be a history at period $t+1$.
+				A sequence of actions is called a \textbf{history}. For example, $h = (a_1,\dots, a_t)$ would be a history at period $t+1$.
 			\end{definition}
 			
 			\begin{definition}
@@ -1135,22 +1141,22 @@
 			\begin{definition}
 				Conventionally, the initial history is defined as the empty set.
 				\begin{equation}
-					h_0 = \emptyset \in S
+					h_0 = \varnothing \in S
 				\end{equation}
 			\end{definition}
 			
 			\begin{definition}
-				Let $h \in S$, then $\tilde{h} = h \oplus a \in S \cup T$ is a \textbf{continuation} of $h = (a_1, \dots, a_t)$.
+				Let $h \in S$, then $\tilde{h} := h \oplus a \in S \cup T$ is a \textbf{continuation} of $h = (a_1, \dots, a_t)$.
 			\end{definition}
 			
 			\begin{definition}[Extensive Form Game]
 				An \textbf{extensive form game} $\Gamma = \langle N, P, H, (u_i) \rangle$ consists
-				\begin{enumerate}[(a)]
-					\item A \ul{finite} set of \textbf{players} $N$.
-					\item A set of \textbf{histories} $H = S \cup T$ with \textbf{initial history} $h_0 = \emptyset$\footnote{$S$ and $T$ are \textbf{subhistories} and \textbf{terminal histories} sets defined above}.
+				\begin{enumerate}[(i)]
+					\item A \ul{finite} set of \textbf{players} $N$;
+					\item A set of \textbf{histories} $H = S \cup T$ with \textbf{initial history} $h_0 = \varnothing$\footnote{$S$ and $T$ are \textbf{subhistories} and \textbf{terminal histories} sets defined above.};
 					\item \textbf{Player function} $P: S \to N$ assigns \ul{one player} $P(h)$ (in pure sequential games) to act after history $h$. And an \textbf{action set} $A(h)$ for player $P(h)$ is defined by
 						\begin{equation}
-							A(h) \equiv \{a \in A_{P(h)}: h \oplus \{a\} \in H\}
+							A(h) := \{a \in A_{P(h)}: h \oplus \{a\} \in H\}
 						\end{equation}
 					\item \textbf{Payoff functions} $u_i: T \to \R$ derived from preferences by
 						\begin{equation}
@@ -1184,7 +1190,7 @@
 					(s_i) \in \tx{SPNE} \implies (s_i) \in \tx{NE}
 				\end{equation}
 				\begin{proof}
-					By the definition of SPNE, take subgame after history $h = \emptyset$.
+					By the definition of SPNE, take subgame after history $h = \varnothing$.
 				\end{proof}
 			\end{lemma}
 			
@@ -1199,19 +1205,19 @@
 			\begin{theorem}
 				Every \ul{finite} extensive game with perfect information has a subgame perfect equilibrium.
 			\end{theorem}
-		\section{Lecture 7 Mar.4 2019}
+		\section{Lecture 7 Mar.4 2019\\Examples of Extensive Form Games (Omitted)}
 		
-		\section{Lecture 8 Mar.11 2019}
-			\subsection{Finite Repeated Games}
+		\section{Lecture 8 Mar.11 2019\\Repeated Games}
+			\subsection{Finitely Repeated Games}
 				\begin{remark}Comparing extensive form games and repeated games.
 					\begin{enumerate}[(i)]
 						\item \textbf{Extensive Form Game} the structure of game (available action, player, etc.)at each node of history tree varies based on the previous actions (history).
-						\item \textbf{Repeated Game} \hl{Same set of players} interact repeatedly, \emph{each player can condition her action in period $t$ on other players' actions in periods $\{1,\dots,t-1\}$}.
+						\item \textbf{Repeated Game} \hl{Same set of players} interact repeatedly, \ul{each player can condition her action in period $t$ on other players' actions in periods $\{1,\dots,t-1\}$}.
 					\end{enumerate}
 				\end{remark}
 				
 				\begin{theorem}
-					If a \hl{finite} repeated game has a \hl{unique} Nash equilibrium in the game played in each period, then the \hl{only} SPNE will have the players playing the NE in each period.
+					If a \hl{finite} repeated game has a \hl{unique} Nash equilibrium in the game played in each period, then the \hl{unique} SPNE will have the players playing the NE in each period.
 					\begin{proof}
 						Backwards induction.
 					\end{proof}
@@ -1222,7 +1228,7 @@
 					Let $G = \langle N, (A_i), (\succsim_i) \rangle$ be a strategic game, denote the set of action profile as $A = \times_{i\in N}A_i$.
 					An \textbf{infinitely repeated game} of $G$ is an \emph{extensive form game} $\Gamma = \langle N, H, P, (\succsim_i^*) \rangle$ where 
 					\begin{itemize}
-						\item $H = \{\emptyset \} \cup (\cup_{t=1}^\infty A^t) \cup A^\infty$.\footnote{$A^\infty$ denotes the set of \emph{infinite sequences} $(a^t)_{t=1}^\infty$ where every $a^t \in A$.}
+						\item $H = \{\varnothing \} \cup (\cup_{t=1}^\infty A^t) \cup A^\infty$.\footnote{$A^\infty$ denotes the set of \emph{infinite sequences} $(a^t)_{t=1}^\infty$ where every $a^t \in A$.}
 						\item $P(h) = N\ \forall h \in H$.
 						\item $\succsim_i^*$ is a preference relation on $A^\infty$ induced by $\succsim_i$ such that if $(a^t) \in A^\infty$, $a, a' \in A$, and $a \succsim_i a'$ then
 						\begin{equation}
@@ -1250,7 +1256,7 @@
 				\begin{definition}
 					The \textbf{preference} in infinitely repeated games can be defined using a \textbf{present discounted utility function}. Let $u_i$ be the utility function induced by $(\succsim_i)$ in game $G$, then the payoff on history $h = (a^t)_{t=1}^\infty$ in the infinitely repeated game generated by $G$ can be defined as
 					\begin{gather}
-						\mc{U}(h) = \sum_{t=1}^\infty \delta^{t-1}u(a^t)\ \delta \in (0, 1)
+						U(h) := \sum_{t=1}^\infty \delta^{t-1}u(a^t)\tx{ for some } \delta \in (0, 1)
 					\end{gather}
 				\end{definition}
 				
@@ -1270,7 +1276,7 @@
 				
 				\begin{example}[Grim Trigger, \textbf{$\infty$-Period Punishment}] Grim Trigger in infinitely repeated prisoner dilemma is a strategy defined as
 					\begin{gather}
-						s^*_i(\emptyset) = C \\
+						s^*_i(\varnothing) = C \\
 						s^*_i(h) = \begin{cases}
 							C &\tx{ if } a_{-i}^{\tau} = C\ \forall \tau \in \{1, \dots, |h|\} \\
 							D &{ otherwise}
@@ -1288,7 +1294,7 @@
 							Let $s'_i$ be an alternative strategy for player $i \in N$ such that $s'_i \neq s_i$. \\
 							Let $k \in \N$ denote the first period $D$ is played in strategy $s'_i$, let $\mc{S}^k_i$ denote the set of strategy such that $D$ is played first at period $k$:
 							\begin{equation}
-								\mc{S}^k_i \equiv \{s_i \in A_i^\infty: s_i^k = D \land s_i^{\tau} = C\ \forall \tau < k\}
+								\mc{S}^k_i := \{s_i \in A_i^\infty: s_i^k = D \land s_i^{\tau} = C\ \forall \tau < k\}
 							\end{equation}
 							It's obvious that strategy $\tilde{s}_{i,k} \in \mc{S}_i^k$ defined as 
 							\begin{equation}
@@ -1296,18 +1302,18 @@
 							\end{equation}
 							satisfies
 							\begin{equation}
-								\sum_{t=1}^\infty \delta^{t-1} u_i(\tilde{s}_{i,k}, s_{-i}^*) = \max_{\phi \in \mc{S}^k_i} \{\sum_{t=1}^\infty \delta^{t-1} u_i(\phi, s_{-i}^*)\}
+								\sum_{t=1}^\infty \delta^{t-1} u_i(\tilde{s}_{i,k}, s_{-i}^*) = \max_{\varphi \in \mc{S}^k_i} \{\sum_{t=1}^\infty \delta^{t-1} u_i(\varphi, s_{-i}^*)\}
 							\end{equation}
 							Since $k$ is arbitrary, to show the payoff to player $i$ of playing strategy $s_i^*$ given her opponent's playing $s_{-i}^*$ is bounded below by elements in $\mc{S}_i^k$, we only need to show it $s_i^*$ provides at least payoff as $\tilde{s}_{i,k}$. \\
 							Easy to show that, for arbitrary $k \in \N$,
-							\begin{gather}
-								\mc{U}(s_i^*, s_{-i}^*) \geq \mc{U}(\tilde{s}_{i,k}, s_{-i}^*) \\
-								\iff \sum_{t=1}^\infty \delta^{t-1} x \geq \sum_{t=1}^{k-1} \delta^{t-1} x + \delta^{k-1} y + \sum_{t=k+1}^\infty \delta^{t-1} 1 \\
-								\iff \delta^{k-1} x + \sum_{t=k+1}^\infty \delta^{t-1} x \geq \delta^{k-1} y + \sum_{t=k+1}^\infty \delta^{t-1} 1 \\
-								\iff \delta^{k-1}x + \frac{\delta^k x}{1 - \delta} \geq \delta^{k-1} y + \frac{\delta^k}{1 - \delta} \\
-								\iff x + \frac{\delta x}{1 - \delta} \geq y + \frac{\delta}{1-\delta} \\
-								\iff \delta \geq \frac{y-x}{y-1}
-							\end{gather}
+							\begin{align}
+								&U(s_i^*, s_{-i}^*) \geq \mc{U}(\tilde{s}_{i,k}, s_{-i}^*) \\
+								&\iff \sum_{t=1}^\infty \delta^{t-1} x \geq \sum_{t=1}^{k-1} \delta^{t-1} x + \delta^{k-1} y + \sum_{t=k+1}^\infty \delta^{t-1} 1 \\
+								&\iff \delta^{k-1} x + \sum_{t=k+1}^\infty \delta^{t-1} x \geq \delta^{k-1} y + \sum_{t=k+1}^\infty \delta^{t-1} 1 \\
+								&\iff \delta^{k-1}x + \frac{\delta^k x}{1 - \delta} \geq \delta^{k-1} y + \frac{\delta^k}{1 - \delta} \\
+								&\iff x + \frac{\delta x}{1 - \delta} \geq y + \frac{\delta}{1-\delta} \\
+								&\iff \delta \geq \frac{y-x}{y-1}
+							\end{align}
 							Note that each subgame after period $k$ is another infinitely repeated game where payoff of every play is transformed by multiplying $\delta^k$. By Lemma 8.1, we can use above argument to prove the subgame perfection of Grim trigger strategy when $\delta \geq \frac{y - x}{y - 1}$.
 						\end{proof}
 					\end{proposition}
@@ -1315,7 +1321,7 @@
 					\begin{example}[Tit for Tat, \textbf{1-Period Punishment}]
 						Tit for tat strategy is defined as
 						\begin{gather}
-							s_i^*(\emptyset) = C \\
+							s_i^*(\varnothing) = C \\
 							s_i^*(h) = \begin{cases}
 								C &\tx{ if } h[-1] = C \\
 								D &\tx{ if } h[-1] = D
@@ -1349,14 +1355,14 @@
 						\caption{Three period punishment strategy as an automaton.}
 					\end{figure}
 					\begin{proposition}[Generalized Limited Punishment, \textbf{$p$-Period Punishment}]
-						The $p$-period punishment strategy is defined with $s_i^*(\emptyset) = C$, and if at time period $k$, $a_{-i}^k = D$, then the player play $D$ for the next $p$ periods as punishment no matter what action the opponent plays during the punishment. And then the player plays $C$ again beginning at time period $t=k+p+1$.
+						The $p$-period punishment strategy is defined with $s_i^*(\varnothing) = C$, and if at time period $k$, $a_{-i}^k = D$, then the player play $D$ for the next $p$ periods as punishment no matter what action the opponent plays during the punishment. And then the player plays $C$ again beginning at time period $t=k+p+1$.
 						\begin{proof}
 							For the deviation \emph{not} to be profitable, we need
-							\begin{gather}
-								\delta^{k-1} y + \sum_{t=k+1}^{k+p} \delta^{t-1} 1 \leq \delta^{k-1} x + \sum_{t=k+1}^{k+p} \delta^{t-1} x \\
-								\iff \delta^{k-1} y \leq \delta^{k-1} x + \frac{(x-1)\delta^k (1 - \delta^p)}{1 - \delta} \\
-								\iff (y - x)\leq + \frac{\delta(1 - \delta^p)}{1 - \delta}(x - 1)
-							\end{gather}
+							\begin{align}
+								&\delta^{k-1} y + \sum_{t=k+1}^{k+p} \delta^{t-1} 1 \leq \delta^{k-1} x + \sum_{t=k+1}^{k+p} \delta^{t-1} x \\
+								&\iff \delta^{k-1} y \leq \delta^{k-1} x + \frac{(x-1)\delta^k (1 - \delta^p)}{1 - \delta} \\
+								&\iff (y - x)\leq + \frac{\delta(1 - \delta^p)}{1 - \delta}(x - 1)
+							\end{align}
 						\end{proof}
 					\end{proposition}
 					
@@ -1364,7 +1370,7 @@
 						For any value of $k \geq 1$, \emph{strategy pair} in which each player punishes other for $k$ periods in event of deviation is Nash equilibrium of infinitely repeated game if $\delta$ is \emph{close enough to 1}. The large $k$ is, the \emph{smaller lower bound on $\delta$}, that's, the \emph{mutually desirable outcome} $(C,C)$ is sustained by short punishment only if players are relatively patient.
 					\end{proposition}
 					
-	\section{Bayesian Games Lecture 9 Mar. 18 2019}
+	\section{Lecture 9 Mar. 18 2019\\Bayesian Games}
 		\subsection{Introduction}
 			\begin{remark}
 				Bayesian games allow players to face \ul{uncertainty about other players' preferences}.
@@ -1426,7 +1432,7 @@
 			\begin{definition}
 				The \textbf{expected payoff}, given player $i$ is type $t_i$ and conditioned on player $i$'s own belief $\pi_i$, from action $a_i$ is 
 				\begin{gather}
-					\mc{U}_i(a_i, \sigma_{-i}| t_i) 
+					U_i(a_i, \sigma_{-i}| t_i) 
 					= \sum_{\omega \in \Omega} u_i(a_i, \sigma_{-i}(\omega)|t_i)\pi_i(\omega|t_i) \\
 					= \int_{\Omega} u_i(a_i, \sigma_{-i}(\omega)|t_i)\ d\pi_i(\omega|t_i)
 				\end{gather}
@@ -1435,13 +1441,13 @@
 			\begin{definition}
 				An action $a_i \in A_i$ is a \textbf{best response} to $\sigma_i$, given player type $t_i$, if
 				\begin{equation}
-					\mc{U}_i(a_i, \sigma_{-i}|t_i) \geq \mc{U}_i(\tilde{a}_i, \sigma_{-i}|t_i)\ \forall \tilde{a}_i \in A_i
+					U_i(a_i, \sigma_{-i}|t_i) \geq U_i(\tilde{a}_i, \sigma_{-i}|t_i)\ \forall \tilde{a}_i \in A_i
 				\end{equation}
 				\emph{The definition for a mixed strategy $\sigma_i \in \Delta(A_i)$ is similar}.
 			\end{definition}
 			
 			\begin{definition}
-				A Bayesian Nash equilibrium is a strategy profile for each player such that the strategy for \hl{each type} of \hl{each player} is a best response given the strategies for the other players deduced from the signal received.
+				A Bayesian Nash equilibrium is a strategy profile for each player such that the strategy for \hl{each type} of \hl{each player} is a best response \ul{given the strategies for the other players deduced from the signal received}.
 			\end{definition}
 			
 			\begin{definition}[Lottery Generated by a Bayesian Game]
@@ -1453,7 +1459,7 @@
 			\end{definition}
 			
 			\begin{definition}[Formal Definition]
-				A \textbf{Nash equilibrium of a Bayesian Game} $\langle N, \Omega, (A_i), (T_i), (\tau_i), (p_i), (\pref_i) \rangle$ is a Nash equilibrium of the strategic game defined as follows.
+				A \textbf{Nash equilibrium of a Bayesian Game}, \\$\langle N, \Omega, (A_i), (T_i), (\tau_i), (p_i), (\pref_i) \rangle$ is a Nash equilibrium of the strategic game defined as follows.
 				\begin{itemize}
 					\item The set of players is the set of all pairs $(i, t_i)$ for $i \in N$ and $t_i \in T_i$.
 					\item The set of actions of each player $(i, t_i)$ is $A_i$.
