@@ -138,6 +138,17 @@
 			\begin{proposition}
 				A set $S$ is \emph{closed} if it contains all limit points. That's, every convergent sequence in $S$ converges to a limit point in $S$.
 			\end{proposition}
+			
+			\begin{theorem}[Homework 1.1]
+				The limit
+				\begin{equation}
+					\lim _{(x, y) \rightarrow(0,0)} \frac{|x|^{r_{1}}|y|^{r_{2}}}{|x|^{s_{1}}+|y|^{s_{2}}}
+				\end{equation}
+				exists \ul{if and only if}
+				\begin{equation}
+					\frac{r_1}{s_1}+\frac{r_2}{s_2} \red{>} 1
+				\end{equation}
+			\end{theorem}
 		
 		\subsection{Limits and Continuity}
 			\subsubsection{Limits of Multivariable Functions}
@@ -232,6 +243,23 @@
 						\item For every closed set $\mc{C} \subset \R^k$, $\vef^{-1}(\mc{C})$ is also closed.
 					\end{enumerate}
 				\end{theorem}
+				
+			\begin{theorem}
+				An \ul{arbitrary} union of open sets is open.
+			\end{theorem}
+			
+			\begin{theorem}
+				A \ul{finite} intersection of open sets is open.
+			\end{theorem}
+			
+			\begin{theorem}
+				A \ul{finite} union of closed sets is closed.
+			\end{theorem}
+			
+			\begin{theorem}
+				An \ul{arbitrary} intersection of closed sets is closed.
+			\end{theorem}
+		
 		\subsection{Sequences and Completeness}
 			\begin{definition}
 		    	    A sequence $\{\vea_j\}_j$ in $\R^n$ \textbf{converges to the limit $\ve{L} \in \R^n$} if 
@@ -1134,7 +1162,7 @@
 	\section{Integration}
 		\subsection{Basics}
 			\begin{theorem}[\red{Properties of infimum and supremum}]
-				Let $A \subseteq \R^n$ and $A \neq \emptyset$, and $f, g: A \to \R$ are bounded functions. Let $m$ and $M$ denote the infimum and supremum respectively, then
+				Let $A \subseteq \R^n$ and $A \neq \varnothing$, and $f, g: A \to \R$ are bounded functions. Let $m$ and $M$ denote the infimum and supremum respectively, then
 				\begin{enumerate}[(i)]
 					\item $m_A f + m_A g \leq m_A (f+g) \leq M_A (f+g) \leq M_A f + M_A g$
 					\item If $A' \subseteq A$, then $m_A f \leq m_{A'} f \leq M_{A'} f\leq M_A f$
@@ -1170,7 +1198,7 @@
 			\begin{definition}
 				Let $P$ and $P'$ be two partitions of $\mc{R}$. Then $P'$ is a \textbf{refinement} of $P$ if 
 				\begin{equation}
-					\forall B_j \in \mc{B}(P), B_j' \in \mc{B}(P')\quad B_j' \subseteq B_j \lor (B_j^{' int} \cap B_j^{int} = \emptyset)
+					\forall B_j \in \mc{B}(P), B_j' \in \mc{B}(P')\quad B_j' \subseteq B_j \lor (B_j^{' int} \cap B_j^{int} = \varnothing)
 				\end{equation}
 			\end{definition}
 			
@@ -1896,7 +1924,7 @@
 				\end{equation}
 			\end{theorem}
 			
-		\subsubsection{The Generalization}
+		\subsubsection{The Generalization(Optional)}
 			\begin{proposition}[Properties of Exterior Products] Let $\alpha_1, \alpha_2$ and $\beta$ be 1-forms on $\R^n$ and $f_1, f_2$ are continuous functions defined on $\R^n$,
 				\begin{enumerate}
 					\item \textbf{Distributive}
