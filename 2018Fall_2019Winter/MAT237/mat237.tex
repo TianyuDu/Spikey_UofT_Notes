@@ -2178,6 +2178,21 @@
 			\begin{definition}
 				Given a closed curve $C \subset \R^3$, the \textbf{minimal surface} is the surface $S$ with the smallest possible area, given that $\partial S = C$.
 			\end{definition}
+		
+		\subsection{Summary}
+			\subsubsection{Line Integrals}
+				\begin{align}
+					\tx{Arc length}\quad &\int_C 1\ d\vex =\int_a^b \norm{\veg'(t)}\ dt\\
+					\tx{Integral of scalar valued function on curve }\quad &\int_C f(\vex)\ d\vex =\int_a^b f(\veg(t))\ \norm{\veg'(t)}\ dt\\
+					\tx{Integral of vector field on curve }\quad &\int_C \veF(\vex)\cdot d\vex = \int_a^b \veF(\veg(t))\cdot \veg'(t)\ dt
+				\end{align}
+				
+			\subsection{Surface Integrals}
+				\begin{align}
+					\tx{Surface area}\quad &\iint_S 1\ dA = \iint_W \norm{\partial_u \veG \times \partial_v \veG}\ du dv \\
+					\tx{Scalar function on surface}\quad &\iint_S f(\vex)\ dA = \iint_W f(\veG(\ve{u})) \norm{\partial_u \veG \times \partial_v \veG}\ du dv \\
+					\tx{Vector field on surface}\quad &\iint_S \veF(\vex)\cdot \ve{n}\ dA = \iint_W \veF(\veG(\ve{u}) \cdot \left(\partial_u \veG \times \partial_v \veG \right)\ du dv
+				\end{align}
 \end{document}
 
 
