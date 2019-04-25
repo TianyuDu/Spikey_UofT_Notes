@@ -159,7 +159,9 @@
 				\end{equation}
 				is defined as
 				\begin{gather}
-					\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ \forall \ve{x} \in S,\ \red{0 <} \norm{\ve{x} - \ve{a}} < \delta \implies \norm{\ve{f}(\ve{x}) - \ve{L}} < \varepsilon
+					\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ \forall \ve{x} \in S,\ 
+					\underbrace{\red{0 <} \norm{\ve{x} - \ve{a}} < \delta}_{\tx{punctured neighbourhood}}
+					\implies \norm{\ve{f}(\ve{x}) - \ve{L}} < \varepsilon
 				\end{gather}
 				For this definition to be non-trivial, we need $\ve{a}$ not be an isolated point,
 				\begin{equation}
@@ -167,7 +169,7 @@
 				\end{equation}
 			\end{definition}
 			
-			\begin{theorem}[Limit Laws]
+			\begin{theorem}[Limit Laws of Real Valued Functions]
 				Let $S \subset \R^n$ and $\ve{a} \in \R^n$ satisfying (1.3.3)
 				And $f, g: S \to \R$, $L, M \in \R$ such that
 				\begin{gather}
@@ -242,6 +244,7 @@
 						\item For every open set $\mc{O} \subset \R^k$, $\vef^{-1}(\mc{O})$ is also open;
 						\item For every closed set $\mc{C} \subset \R^k$, $\vef^{-1}(\mc{C})$ is also closed.
 					\end{enumerate}
+					\emph{Openness and closeness are preserved under \ul{pre-image} operations of continuous functions.}
 				\end{theorem}
 				
 			\begin{theorem}
@@ -262,7 +265,7 @@
 		
 		\subsection{Sequences and Completeness}
 			\begin{definition}
-		    	    A sequence $\{\vea_j\}_j$ in $\R^n$ \textbf{converges to the limit $\ve{L} \in \R^n$} if 
+		    	    A sequence $\{\vea_j\}_{j \in \Z_{++}}$ in $\R^n$ \textbf{converges to the limit $\ve{L} \in \R^n$} if 
 		    	    \begin{equation}
 		    	    	\forall \varepsilon > 0\ \exists J \in \N,\ s.t.\ \forall j \geq J \implies \norm{\vea_j - \ve{L}} < \varepsilon
 		    	    \end{equation}
@@ -281,13 +284,13 @@
 		    		\end{equation}
 		    		\begin{proof}[Proof Idea.]
 		    			\begin{equation}
-		    				\forall j \in [n],\ |a_j - L_j| \leq \norm{\vea - \ve{L}} \leq n \max_{k \in [n]} |a_k - L_k|
+		    				\forall j \in [n],\ |a_j - L_j| \leq \norm{\vea - \ve{L}} \leq n \cdot \max_{k \in [n]} |a_k - L_k|
 		    			\end{equation}
 		    		\end{proof}
 		    \end{theorem}
 		    
 		    \begin{axiom}[the Completeness Axiom]
-		    		Every \emph{bounded} and \emph{nonempty} set of \emph{real numbers} has a \emph{least upper bound} (\textbf{supremum}) and a \emph{greatest lower bound} (\textbf{infimum}).
+		    		Every \ul{bounded} and \ul{nonempty} set of \ul{real numbers} has a \emph{least upper bound} (\textbf{supremum}) and a \emph{greatest lower bound} (\textbf{infimum}).
 		    \end{axiom}
 		    
 		    \begin{theorem}[Monotone Sequence Theorem]
@@ -306,17 +309,19 @@
 		    		\end{proof}
 		    \end{theorem}
 		    
+		    \blue{
 		    \begin{theorem}[Monotone Sequence Theorem]
 		    	Every bounded monotone sequence in $\R$ is convergent.
 		    \end{theorem}
+		    }
 		    
 		    \begin{definition}
 		    		A \textbf{subsequence} of a sequence $\{\vea_j\}_{j \geq j_0}$ in $\R^n$ is a sequence constructed as $\{a_{k_j}\}_j$, such that $\{k_j\}_j$ is a \emph{strictly increasing} sequence bounded below by $j_0$.
 		    \end{definition}
 		    
-		    \begin{remark}
-		    		Subsequences can be constructed using strictly increasing transformations.
-		    \end{remark}
+%		    \begin{remark}
+%		    		Subsequences can be constructed using strictly increasing transformations.
+%		    \end{remark}
 		    
 		    \begin{proposition}
 			    	If $\{\vea_j\}_j$ is a sequence in $\R^n$ converges to $\ve{L}$, then (i) any subsequence of it converges to the (ii) same limit.
@@ -340,6 +345,7 @@
 		    		\end{proof}
 		    \end{theorem}
 		    
+		    \blue{
 		    \begin{theorem}[Bounded Sequence Theorem]
 		        Every bounded sequence in $\R^n$ has a convergent subsequence.
 		        \begin{proof}
@@ -348,6 +354,7 @@
 		        	Then we apply the previous theorem iteratively on the constructed convergent subsequences to construct new subsequences with more convergent components.
 		        \end{proof}
 		    \end{theorem}
+		    }
 		    
 		    \begin{theorem}[Nested Interval Theorem]
 		    	Given a sequence of \emph{closed intervals} in $\R$,
@@ -407,6 +414,7 @@
 				\end{theorem}
 			
 			\subsubsection{the Extreme Value Theorem}
+				\blue{
 				\begin{theorem}[the Extreme Value Theorem]
 					Assume $K$ is a \hl{compact} subset of $\R^n$ and $f: K \to \R$ is \hl{continuous}. \\
 					Then (i) 
@@ -422,11 +430,12 @@
 						\end{cases}
 					\end{equation}
 					\begin{proof}
-						Let $\{y_j\}_j$ be a sequence in $f(K)$, and we can find a sequence $\{\ve{z}_j\}_j$ in $K$ such that $y_j = f(\ve{z}_j)$ (by definition of image). Because $K$ is compact, there exists a subsequence of $\{\ve{z}_j\}_j$ converges to $\ve{z}^* \in K$. Since $f$ is continuous, we can conclude there a subsequence, sharing the same indices, such that $f(\ve{z}_j) \to f(\ve{z}^*)$ (\emph{Proposition 1.5.2}). Obviously $f(\ve{z}^*) \in f(K)$, \emph{so $f(K)$ is compact}. \\
-						Since $f(K)$ is compact, by \emph{Proposition 1.5.3}, $\sup_{\vex \in K} f(\vex) \in f(K)$. By definition of image, $\exists \vex \in K$ such that $f(\vex) = \sup_{\vex \in K} f(\vex)$, \emph{supremum attainability shown}.\\
+						Let $\{y_j\}_j$ be a sequence in $f(K)$, and we can find a sequence $\{\ve{z}_j\}_j$ in $K$ such that $y_j = f(\ve{z}_j)$ (by definition of image). Because $K$ is compact, there exists a subsequence of $\{\ve{z}_j\}_j$ converges to $\ve{z}^* \in K$. Since $f$ is continuous, we can conclude there a subsequence, sharing the same indices, such that $f(\ve{z}_j) \to f(\ve{z}^*)$. Obviously $f(\ve{z}^*) \in f(K)$, \emph{so $f(K)$ is compact}. \\
+						Since $f(K)$ is compact, $\sup_{\vex \in K} f(\vex) \in f(K)$. By definition of image, $\exists \vex \in K$ such that $f(\vex) = \sup_{\vex \in K} f(\vex)$, \emph{supremum attainability shown}.\\
 						Proof for infimum attainability is the same.
 					\end{proof}
 				\end{theorem}
+				}
 				
 				\begin{proposition}
 					Assume that $\{\ve{z}_j\}_j$ is a sequence in a set $S \subset \R^k$, and $f$ is a continuous real-valued function defined on $S$, then
@@ -460,7 +469,7 @@
 					Let $S \subset \R^n$, a function $\ve{f}: S \to \R^k$ is \textbf{uniformly continuous} if 
 					\begin{equation}
 						\red{
-						\underbrace{\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ \forall \vex}_{\forall \vex \in S,\ \varepsilon > 0,\ \exists \delta > 0}
+						\underbrace{\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ \forall \vex}_{\tx{cts: }\forall \vex \in S,\ \varepsilon > 0,\ \exists \delta > 0}
 						,\ \vey \in S,\ \norm{\vex - \vey} < \delta \implies \norm{\vef(\vex) - \vef(\vey)} < \varepsilon
 						}
 					\end{equation}
@@ -499,13 +508,16 @@
 				\end{proof}
 			\end{proposition}
 			
+			\blue{
 			\begin{theorem}
 				Let $\trans{\vef}{\R^m}{\R^k}$ be a \hl{continuous} function, and $S \subset \R^m$ be a \hl{path-connected} set. Then, $\vef(S)$ is path-connected.
 				\begin{proof}[Proof Idea.]
 					Take the composite $\vef \circ \gamma$.
 				\end{proof}
 			\end{theorem}
+			}
 			
+			\blue{
 			\begin{theorem}[the Intermediate Value Theorem]
 				Assume that $S$ is a \hl{path-connected} subset of $\R^n$ and that $f: S \to \R$ is \hl{continuous}. Let $\vea, \veb \in S$.
 				Then for every $t \in (\min\{f(\vea), f(\veb)\}, \max\{f(\vea), f(\veb)\})$, there exists $\ve{c} \in S$ such that $f(\ve{c}) = t$.
@@ -515,6 +527,7 @@
 					Then we can construct composite $f \circ \vec{\varphi}: [0, 1] \to \R$, then apply the Intermediate Value Theorem in $\R$. We can conclude that $\exists \eta \in (0,1)\ s.t.\ f \circ \vec{\varphi}(\eta) = t$. And $\vec{\varphi}(\eta) \in S$ is the point desired.
 				\end{proof}
 			\end{theorem}
+			}
 			
 	\section{Differentiation and related topics}
 		\subsection{Differentiation of Real-Valued Functions}
@@ -589,9 +602,11 @@
 					\end{equation}
 				\end{theorem}
 				
+				\blue{
 				\begin{theorem}
 					Assume $f$ is a function $S \to \R$ for some open $S \subset \R^n$. If all partial derivatives of $f$ \hl{exist and are continuous} at every point of $S$, then $f$ is differentiable in $S$.
 				\end{theorem}
+				}
 				
 				\begin{definition}
 					A function $f: S \to R$ is said to be \textbf{of class $C^1$} if all partial derivatives of $f$ \ul{exist and continuous} at every point of $S$.
@@ -696,6 +711,7 @@
 				\end{equation}
 			\end{definition}
 			
+			\blue{
 			\begin{theorem}
 				Let $S \subset \R^n$ be an open set, and $f: S \to \R$ is differentiable at $\vea$. Then $\nabla f(\vea)$ is orthogonal to the level set of $f$ passes through $\vea$.
 				\begin{proof}[Proof Idea]
@@ -713,9 +729,10 @@
 					So $\nabla f(\vea)$ is orthogonal to any tangent vector of $C$ at $\vea$, which means $\nabla f(\vea)$ is orthogonal to $C$.
 				\end{proof}
 			\end{theorem}
-			
+			}
 			
 		\subsection{the Mean Value Theorem}
+			\blue{
 			\begin{theorem}[the Mean Value Theorem]
 				Assume $f: S \to \R$, where $S$ is a \hl{convex} and \hl{open} subset of $\R^n$, of class $C^1$, then
 				\begin{gather}
@@ -728,6 +745,7 @@
 					then apply one dimensional mean value theorem on $h$.
 				\end{proof}
 			\end{theorem}
+			}
 			
 			\begin{definition}
 				A set $S \subset \R^n$ is \textbf{convex} if
@@ -967,7 +985,7 @@
 					\item If $H_f(\vea)$ is negative definite, then $\vea$ is a local maximum;
 					\item If $H_f(\vea)$ is indefinite, then $\vea$ is a saddle point.
 				\end{enumerate}
-				\emph{If none of the above hold, then we cannot determine the character of the critical point without further thought.}
+				\emph{If none of the above holds (i.e. semi-definiteness), then we cannot determine the character of the critical point without further thought.}
 			\end{corollary}
 			
 			\begin{definition}
@@ -1013,7 +1031,7 @@
 			
 			\begin{remark}Procedure of optimization with \emph{inequality constraints}:
 				\begin{enumerate}[(i)]
-					\item Find critical points \emph{in} the constraint set;
+					\item Find critical points \emph{in} the constraint set from global critical points;
 					\item Find critical points \emph{on} the boundary of constraint set;
 					\item Find optimizers among candidates.
 				\end{enumerate}
@@ -1022,21 +1040,21 @@
 	\section{The Implicit and Inverse Function Theorems}
 		\subsection{The Implicit Function Theorem I}
 			\begin{theorem}[Implicit Function Theorem]
-				Let $S \subseteq \R^{n+k}$ be an open set, and function $F: S \to \R^k$ be a $C^1$ function. Suppose there exists point $\textbf{a} \in \R^n, \ve{b} \in \R^k$ such that 
+				Let $S \subseteq \R^{n+k}$ be an open set, and function $\veF: S \to \R^k$ be a $C^1$ function. Suppose there exists point $\textbf{a} \in \R^n, \ve{b} \in \R^k$ such that 
 				\begin{equation}
-					F(\textbf{a}, \textbf{b}) = \textbf{0}
+					\veF(\textbf{a}, \textbf{b}) = \textbf{0}
 				\end{equation}
 				If 
 				\begin{equation}
-					det(D_{\textbf{y}}(F(\textbf{a}, \textbf{b}))) \neq 0
+					det(D_{\textbf{y}}(\veF(\textbf{a}, \textbf{b}))) \neq 0
 				\end{equation}
 				then there exists $r_0, r_1 > 0$ and a $C^1$ function $\ve{f}: \R^n \to \R^k$ such that
 				\begin{gather}
-					\forall \ve{x} \in \mc{B}(r_0, \ve{a}),\ \ve{f}(\ve{x}) \in \mc{B}(r_1, \ve{b}) \land F(\ve{x}, \ve{f}(\ve{x})) = \ve{0}
+					\forall \ve{x} \in \mc{B}(r_0, \ve{a}),\ \ve{f}(\ve{x}) \in \mc{B}(r_1, \ve{b}) \land \veF(\ve{x}, \ve{f}(\ve{x})) = \ve{0}
 				\end{gather}
 				and define $\textbf{y} := \textbf{f}(\textbf{x})$, the derivative of $\textbf{f}$ can be found as
 				\begin{equation}
-					\red{D\textbf{f}(\textbf{x}) = -[D_{\textbf{y}}F(\textbf{x}, \textbf{y})]^{-1} D_{\textbf{x}}F(\textbf{x}, \textbf{y})}
+					\red{D\textbf{f}(\textbf{x}) = -[D_{\textbf{y}}\veF(\textbf{x}, \textbf{y})]^{-1} D_{\textbf{x}}\veF(\textbf{x}, \textbf{y})}
 				\end{equation}
 			\end{theorem}
 			\begin{remark}
@@ -1086,7 +1104,7 @@
 			\end{theorem}
 			
 			\begin{remark}[Interpretation]
-				In $\R^n$, there are $n$ degree of freedom before imposing any constraint, after add a constraint $\veF(\vex) = \ve{0}$ with $n-k$ effective constraints, there are $k$ degree of freedom left. What's left is a $k$ dimensional manifold.
+				In $\R^n$, there are $n$ degree of freedom before imposing any constraint, after adding constraints $\veF(\vex) = \ve{0}$ with $n-k$ effective constraints, there are $k$ degree of freedom left. What's left is a $k$ dimensional manifold.
 			\end{remark}
 			
 			\begin{theorem}[$k$ dimensional manifold as parameterization]
@@ -1394,7 +1412,7 @@
 				\begin{enumerate}[(i)]
 					\item $S$ is open and $T$ is compact;
 					\item $f$ and $F$ are continuous;
-					\item and $\forall\ x_j \in \ve{x}$, $\pd{f(\ve{x}, \ve{t})}{x_j}$ is continuous,
+					\item and $\forall\ x_j \in \ve{x}$, $\pd{f(\ve{x}, \ve{t})}{x_j}$ is continuous (differentiable w.r.t \vex),
 				\end{enumerate}
 				then $F$ is $C^1$ in $S$ and for every $j$,
 				\begin{equation}
@@ -1433,13 +1451,15 @@
 					is bounded.
 				\end{corollary}
 				
+				\blue{
 				\begin{corollary}
 					Let $f: \R^n \to \R$ be an continuous function, if 
 					\begin{equation}
-						\exists p > n,\ C > 0\ s.t.\ |f(\ve{x})| \leq \frac{1}{\norm{\ve{x}}^p}\ \forall \ve{x} \in \R^n
+						\exists\ \red{p > n},\ C > 0\ s.t.\ |f(\ve{x})| \leq \frac{1}{\norm{\ve{x}}^p}\ \forall \ve{x} \in \R^n
 					\end{equation}
 					then $\idotsint_{\R^n}f\ d\Omega$ is absolutely convergent.
 				\end{corollary}
+				}
 	
 				\begin{definition}[Unbounded Function]
 					Let $S \subset \R^n$, $\ve{a} \in \R^n$. Consider a function $f: S \backslash \{\ve{a}\} \to \R$. Then the improper integral $\idotsint_{\red{S}}f d\Omega$ is absolutely convergent if 
@@ -1466,13 +1486,15 @@
 					is bounded, then $\idotsint_S f\ d\Omega$ is absolutely convergent.
 				\end{corollary}
 				
+				\blue{
 				\begin{corollary}
 					Let $f: S\backslash \{\ve{a}\} \to \R$, if 
 					\begin{equation}
-						\exists p < n,\ C > 0\ s.t. |f(\ve{x})| \leq \frac{C}{\norm{\ve{x} - \ve{a}}^p}\ \forall \ve{x} \in S \red{\backslash \{\ve{a}\}}
+						\exists\ \red{p < n},\ C > 0\ s.t. |f(\ve{x})| \leq \frac{C}{\norm{\ve{x} - \ve{a}}^p}\ \forall \ve{x} \in S \red{\backslash \{\ve{a}\}}
 					\end{equation}
 					then the improper integral $\idotsint_S f\ d\Omega$ is absolutely convergent.
 				\end{corollary}
+				}
 				
 	\section{Vector Calculus}
 		\subsection{Line Integrals}
@@ -1550,7 +1572,7 @@
 			\begin{theorem}[The Fundamental Theorem of Line Integral]
 				Let $f: C \to \R$ defined on smooth curve $C$ parameterized by $\ve{g}:[a, b] \to \R^n$, then
 				\begin{equation}
-					\int_C \nabla f(\ve{x}) \cdot d^n\ve{x} = f(\ve{g}(b)) - f(\ve{g}(a))
+					\red{\int_C \nabla f(\ve{x}) \cdot d^n\ve{x} = f(\ve{g}(b)) - f(\ve{g}(a))}
 				\end{equation}
 				\begin{proof}
 					\begin{gather}
@@ -1620,7 +1642,7 @@
 				\end{definition}
 				
 				\begin{theorem}[Green's Theorem]
-					Suppose $S \subseteq \R^2$ is a regular region with piecewise smooth region $\partial S$. Suppose $\ve{F}$ is a $C^1$ vector field defined on $\overline{S}$, then
+					Suppose $S \subseteq \R^2$ is a regular region with piecewise smooth boundary $\partial S$. Suppose $\ve{F}$ is a $C^1$ vector field defined on $\overline{S}$, then
 					\begin{equation}
 						\int_{\partial S} \ve{F}\cdot d\ve{x} = \iint_S \Big(\pd{F_2}{x_1} - \pd{F_1}{x_2}\Big)\ dA
 					\end{equation}
@@ -1777,11 +1799,11 @@
 			
 		\subsection{Divergence Theorem}
 			\begin{remark}
-				vector field integral on boundary (2-dimensional sub-manifold) of region in $\R^3$ ($\ve{F} \cdot \ve{n}\ dA$ 2-form) and scalar valued function ($\dive (\ve{F})\ dV$3-form) in a region (3-dimensional sub-manifold).
+				vector field integral on boundary (2-dimensional sub-manifold) of region in $\R^3$ ($\ve{F} \cdot \ve{n}\ dA$ as 2-form) and scalar valued function ($\dive (\ve{F})\ dV$ as 3-form) in a region (3-dimensional sub-manifold).
 			\end{remark}
 			
 			\begin{theorem}[Divergence Theorem]
-				Let $R \subseteq \R^3$ be a \emph{regular region} with \emph{piece-wise smooth boundary} $\partial S$. And $\ve{n}$ is the \emph{outer normal vector} on $\partial S$, then,
+				Let $R \subseteq \R^3$ be a \ul{regular region} with \ul{piece-wise smooth boundary} $\partial S$. And $\ve{n}$ is the \ul{outer normal vector} on $\partial S$, then,
 				\begin{equation}
 					\iint_{\partial S} \ve{F} \cdot \ve{n}\ dA = \iiint_S \dive (\ve{F})\ dV
 				\end{equation}
