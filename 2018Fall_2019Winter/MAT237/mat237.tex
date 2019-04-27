@@ -1655,15 +1655,30 @@
 					\end{equation}
 						\begin{proof}
 							Let $\ve{g}(t)$ be a parameterization of boundary $\partial S$. Then the tangent vector would be $\ve{g}'(t)$ and we can conclude the \emph{outer normal vector} $\ve{n}$ is $\frac{(g'_2(t), -g'_1(t))}{||(g'_2(t), - g'_1(t))||}$. Then 
-							\begin{gather}
-								\int_{\partial S}\ve{F} \cdot \ve{n}\ ds = \int_{T}\ve{F}\circ \ve{g} \cdot \frac{(g'_2(t), -g'_1(t))}{||(g'_2(t), -g'_1(t))||} ||\ve{g}'(t)||\ dt \\
-								=  \int_T F_1 g'_2(t) - F_2 g'_1(t)\ dt \\
-								= \int_T \begin{pmatrix}-F_2 \\F_1 \end{pmatrix} \cdot \begin{pmatrix} g'_1(t) \\ g'_2(t) \end{pmatrix}\ dt \\
-								= \int_{\partial S} \begin{pmatrix}-F_2 \\F_1 \end{pmatrix} \cdot\ d^2\ve{x} \\
-								= \iint_{S} \pd{F_1}{x} + \pd{F_2}{y}\ dA \tx{ By Green's Theorem}
-							\end{gather}
+							\begin{align}
+								\int_{\partial S}\ve{F} \cdot \ve{n}\ ds &= \int_{T}\ve{F}\circ \ve{g} \cdot \frac{(g'_2(t), -g'_1(t))}{||(g'_2(t), -g'_1(t))||} ||\ve{g}'(t)||\ dt \\
+								&=  \int_T F_1 g'_2(t) - F_2 g'_1(t)\ dt \\
+								&= \int_T \begin{pmatrix}-F_2 \\F_1 \end{pmatrix} \cdot \begin{pmatrix} g'_1(t) \\ g'_2(t) \end{pmatrix}\ dt \\
+								&= \int_{\partial S} \begin{pmatrix}-F_2 \\F_1 \end{pmatrix} \cdot\ d^2\ve{x} \\
+								&= \iint_{S} \pd{F_1}{x} + \pd{F_2}{y}\ dA \tx{ By Green's Theorem}
+							\end{align}
 						\end{proof}
 				\end{corollary}
+				
+				\begin{theorem}[Application: Moving the Curve]
+					Suppose we wish to compute 
+					\begin{align}
+						\int_{C_1} \ve{F}\cdot d\ve{x}
+					\end{align}
+					for some piecewise smooth curve $C_1$. For any piecewise smooth curve $C_2$ such that $C_1 \cup C_2$ and $C_1 \cap C_2$ has zero content, such that $C_1 \cup C_2 = \partial S$ for some regular region $S \subset \R^2$.
+					We can compute the desired line integral using 
+					\begin{align}
+						\iint_S \Big(\pd{F_2}{x_1} - \pd{F_1}{x_2}\Big)\ dA &= \int_{\partial S} \ve{F}\cdot d\ve{x} \\
+						&= \int_{C_1 \cup C_2} \ve{F}\cdot d\ve{x} \\
+						&= \int_{C_1} \ve{F}\cdot d\ve{x} + \int_{C_2} \ve{F}\cdot d\ve{x}
+					\end{align}
+				\end{theorem}
+				
 		\subsection{Surface Integrals}
 			\subsubsection{Surface Areas and Surface Integrals}
 				\begin{definition}
@@ -1803,7 +1818,7 @@
 			\end{remark}
 			
 			\begin{theorem}[Divergence Theorem]
-				Let $R \subseteq \R^3$ be a \ul{regular region} with \ul{piece-wise smooth boundary} $\partial S$. And $\ve{n}$ is the \ul{outer normal vector} on $\partial S$, then,
+				Let $R \subseteq \R^3$ be a \ul{regular region} with \ul{piecewise smooth boundary} $\partial S$. And $\ve{n}$ is the \ul{outer} normal vector on $\partial S$, then,
 				\begin{equation}
 					\iint_{\partial S} \ve{F} \cdot \ve{n}\ dA = \iiint_S \dive (\ve{F})\ dV
 				\end{equation}
@@ -1849,6 +1864,21 @@
 				thus $\dive(\ve{F})(\ve{a}) > 0$ if and only if at point $\ve{a}$, matters are flowing \emph{away} from this point.
 			\end{proposition}
 			
+			\begin{theorem}[Application: Moving the Surface]
+				Given a regular region $R \subset \R^3$ with piecewise smooth boundary $\partial R$ consisting of $S$ and $R'$. And let $\veF$ be a vector field defined on an open set containing $R$. We can find 
+				\begin{equation}
+					\iint_{S} \mathbf{F} \cdot \mathbf{n} d A
+				\end{equation}
+				by
+				\begin{equation}
+					\iiint_{R} \nabla \cdot \mathbf{F} d V=\iint_{\partial R} \mathbf{F} \cdot \mathbf{n} d A=\iint_{S} \mathbf{F} \cdot \mathbf{n} d A+\iint_{S^{\prime}} \mathbf{F} \cdot \mathbf{n} d A
+				\end{equation}
+				so
+				\begin{equation}
+					\iint_{S} \mathbf{F} \cdot \mathbf{n} d A=\iiint_{R} \nabla \cdot \mathbf{F} d V-\iint_{S^{\prime}} \mathbf{F} \cdot \mathbf{n} d A
+				\end{equation}
+			\end{theorem}
+			
 			\begin{corollary}[Green's Formula]
 				Suppose $R \subset \R^3$ and $f, g: R \to \R$ are $C^2$ functions, then 
 				\begin{gather}
@@ -1881,12 +1911,16 @@
 					\red{\ve{n} \times \ve{t} \tx{ points into }S}
 				\end{equation}
 			\end{definition}
+			
+			\begin{remark}[Informal Interpretation of Stoke's Orientation]
+				The orientation for $\partial S$ may be described by saying if someone circles $\partial S$ with their head pointing in the direction of the unit normal $\ve{n}$, and with $S$ on the left, then the Stokes orientation corresponds to the direction in which they travel around $\partial S$.
+			\end{remark}
 		
 		\subsubsection{Stokes Theorem in $\R^3$}
 			\begin{theorem}[Stokes Theorem, Special Case]
-				Let $S$ be a 2 dimensional sub-manifold in $\R^3$, and let $\ve{F}$ be a vector field defined on some neighbour of $S$, then
+				Assume that $S$ is a \ul{piecewise smooth} surface in $\R^3$ with boundary $\partial S$, that $S$ is oriented the unit normal $\ve{n}$ and that $\partial S$ has the compatible (Stoke) orientation ($\ve{n} \times \ve{t}$ points into $S$). Assume also that $\veF$ is any vector field that is $C^1$ in an open set containing $S$. Then
 				\begin{equation}
-					\int_{\partial S} \ve{F}\cdot d\ve{x} = \iint_S \curl(\ve{F})\cdot \ve{n}\ dA
+					\iint_S \curl(\ve{F})\cdot \ve{n}\ dA = \int_{\partial S} \ve{F}\cdot d\ve{x}
 				\end{equation}
 			\end{theorem}
 			
@@ -1914,7 +1948,7 @@
 			\end{definition}
 			
 			\begin{definition}
-				A piecewise smooth surface $S \subset \R^3$ is \textbf{closed} if there exists subsets $S_1, S_2$ such that $\partial S_1 = \partial S_2 = S_1 \cap S_2$, and $\partial S_1$ and $\partial S_2$ have \emph{opposite orientations}, where $S_1, S_2$ have the same orientation as $S$.
+				A piecewise smooth surface $S \subset \R^3$ is \textbf{closed} if there exists subsets $S_1, S_2$ such that $\partial S_1 = \partial S_2 = S_1 \cap S_2$, also, $\partial S_1$ and $\partial S_2$ are piecewise smooth and have \ul{opposite orientations}, where $S_1, S_2$ have the same orientation as $S$.
 			\end{definition}
 			
 			\begin{theorem}
@@ -1938,9 +1972,9 @@
 				\end{gather}
 				If we think of $\ve{F}$ as a force field, then $\int_{\partial \mc{D}(\ve{a}, r)} \ve{F} \cdot d\ve{x}$ represents the work done by $\ve{F}$ on a particle moves around $\partial \mc{D}(\ve{a}, r)$. Thus $\curl(\ve{F}) \cdot \ve{u}$ represents the \hl{tendency of the force $\ve{F}$ to push the particle around $\partial \mc{D}(\ve{a}, r)$ in a direction compatible with $\ve{n}$}.
 			\end{proposition}
-			
+
 			\begin{theorem}[Application: Moving the Surface]
-				Let $S$ and $S'$ be two oriented surfaces such that $\partial S = \partial S'$ (\emph{share the same orientation}), then 
+				Let $S$ and $S'$ be two oriented surfaces such that $\partial S = \partial S'$ (\emph{have the same orientation}), then 
 				\begin{equation}
 					\iint_{S} \operatorname{curl} \mathbf{F} \cdot \mathbf{n} d A=\int_{\partial S} \mathbf{F} \cdot d \mathbf{x}=\int_{\partial S^{\prime}} \mathbf{F} \cdot d \mathbf{x}=\iint_{S^{\prime}} \operatorname{curl} \mathbf{F} \cdot \mathbf{n} d A
 				\end{equation}
@@ -2162,7 +2196,7 @@
 				If $\veG$ is a conservative vector field of class $C^1$ on an open set $U \subset \R^3$, then $\curl \veG = \ve{0}$.
 			\end{theorem}
 			
-			\begin{theorem}
+			\begin{theorem}[the Converse]
 				If $U \subset \R^3$ is \ul{convex} and if $\veG$ is a $C^1$ vector field defined on $U$ and $\curl \veG = \ve{0}$ on $U$, then $\veG$ is conservative.
 			\end{theorem}
 			
@@ -2182,7 +2216,7 @@
 			\end{proposition}
 			
 			\begin{corollary}
-				If the domain of $\veG$ is a convex set containing the \ul{origin}, then we can define $\ve{p} = (a, b, c) = (0, 0, 0)$,
+				If the domain of $\veG$ is a convex set containing the \ul{origin}, then we can define $\ve{p} = (a, b, c) = (0, 0, 0)$, and use a straight line $\veg(t):[0,1] \to \tx{Domain}(\veG) := (xt, yt, zt)$:
 				\begin{equation}
 					f(x, y, z)=\int_{0}^{1} \mathbf{G}(t x, t y, t z) \cdot (x, y, z) d t
 				\end{equation}
