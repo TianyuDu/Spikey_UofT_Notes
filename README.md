@@ -159,9 +159,13 @@ Lecture notes for courses taken at University of Toronto.
 
 
 
+## About the Source Code
+
+To compile `.tex` source codes in this repository, the `spikey.sty` file is required.
+
 ## License
 
-ALl **.pdf** files are under [Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en)
+All files are under [Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)](https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en)
 (according to the license) you are free to
 
 - **Share** copy and redistribute the material in any medium or format
