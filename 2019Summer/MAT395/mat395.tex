@@ -305,7 +305,7 @@
  						\pd{x_L(\ve{p}, w)}{w}
  					\end{bmatrix} \in \R^L
  				\end{equation}
- 				For the $\ell$-th commodity, it's called \textbf{normal} at $(\ve{p}, w)$ if $\pd{x_{\ell}(\ve{p}, w)}{w} \red{\geq} 0$, and \textbf{inferior} otherwise. And the $\ell$-th commodity is normal/inferior if its normal/inferior every where in $\R_{++}^{L+1}$. 
+ 				For the $\ell$-th commodity, it's called \textbf{normal} at $(\ve{p}, w)$ if $\pd{x_{\ell}(\ve{p}, w)}{w} \geq 0$, and \textbf{inferior} otherwise. And the $\ell$-th commodity is normal/inferior if its normal/inferior every where in $\R_{++}^{L+1}$. 
  			\end{definition}
  			
  			\begin{definition}
@@ -319,7 +319,7 @@
  			\begin{definition}
  				Good $\ell$ is said to be a \textbf{Giffen good} at $(\ve{p}, w)$ if
  				\begin{equation}
- 					\pd{x_\ell(\ve{p}, w)}{p_l} > 0
+ 					\pd{x_\ell(\ve{p}, w)}{p_\ell} > 0
  				\end{equation}
  			\end{definition}
  			
@@ -342,7 +342,7 @@
  				\end{equation}
  				Equivalently,
  				\begin{equation}
- 					D_{\ve{p}} (\ve{p}, w)\ \ve{p} + D_w \ve{x}(\ve{p}, w)\ w = \ve{0}
+ 					D_{\ve{p}} \vex (\ve{p}, w)\ \ve{p} + D_w \ve{x}(\ve{p}, w)\ w = \ve{0}
  				\end{equation}
  				\begin{proof}
  					Apply Euler's theorem on homogenous functions to each component $x_\ell$.
@@ -374,7 +374,7 @@
  				\end{equation}
  				Equivalently,
  				\begin{equation}
- 					\ve{p}^T D_{\ve{p}} (\ve{p}, w) + \ve{x}(\ve{p}, w)^T = \ve{0}^T
+ 					\ve{p}^T D_{\ve{p}} \vex (\ve{p}, w) + \ve{x}(\ve{p}, w)^T = \ve{0}^T
  				\end{equation}
  				\begin{proof}
  					Differentiate both sides of $\ve{p}^T \ve{x} = w$ with respect to $\ve{p}$.
@@ -397,16 +397,25 @@
  		
  		\subsection{The Weak Axiom of Revealed Preference and the Law of Demand}
  			\begin{assumption}
- 				In the section, we assume $\ve{x}(\ve{p}, w)$ is (i) Single-valued, (ii) homogeneous to degree zero, and (iii) satisfies Walras' law.
+ 				In the section, we assume $\ve{x}(\ve{p}, w)$ is 
+ 				\begin{enumerate}[(i)]
+ 					\item Single-valued;
+ 					\item homogeneous to degree zero;
+ 					\item satisfies Walras' law.
+ 				\end{enumerate}
  			\end{assumption}
  			
  			\begin{definition}
  				The Walrasian demand function $\ve{x}(\ve{p}, w)$ satisfies the \textbf{weak axiom of revealed preference} if for every two $(\ve{p}, w), (\ve{p}', w') \in \R_{++}^{L+1}$,
  				\begin{gather}
  					\underbrace{\ve{p} \cdot \ve{x}(\ve{p}', w') \leq w
- 					\land \ve{x}(\ve{p}, w) \neq \ve{x}(\ve{p}', w')}_{\tx{revealed: } \ve{x}(\ve{p}, w) \succ \ve{x}(\ve{p}', w')}
+ 					\land \ve{x}(\ve{p}, w) \neq \ve{x}(\ve{p}', w')}_{\tx{revealed: } \ve{x}(\ve{p}, w) \succ^* \ve{x}(\ve{p}', w')}
  					\implies \ve{p}' \cdot \ve{x}(\ve{p}, w) > w'
  				\end{gather}
+ 				Equivalently,
+ 				\begin{equation}
+ 					\ve{x}(\ve{p}', w') \in B_{\ve{p}, w} \land \ve{x}(\ve{p}', w') \centernot \in C(B_{\ve{p}, w}) \implies \ve{x}(\ve{p}, w) \centernot \in C(B_{\ve{p}', w'})
+ 				\end{equation}
  			\end{definition}
  			
  			\begin{corollary}
@@ -419,7 +428,7 @@
  			\begin{definition}
  				A price change $\Delta \ve{p}$ is a \textbf{Slutsky compensated price change} if the consumer is given a \textbf{Slutsky wealth compensation} with amount
  				\begin{equation}
- 					\Delta w = \Delta \ve{p} \cdot \ve{x}(\ve{p}', w')
+ 					\Delta w = \Delta \ve{p} \cdot \ve{x}(\ve{p}, w)
  				\end{equation}
  				such that the consumer's initial consumption is just affordable at the new price.
  			\end{definition}
@@ -434,7 +443,7 @@
  			\end{proposition}
  			
  			\begin{corollary}[Compensated Law of Demand]
- 				$\Delta \ve{p} \cdot \Delta \ve{x} \leq 0$ says demand and price move in opposite directions.
+ 				$\Delta \ve{p} \cdot \Delta \ve{x} \leq 0$ says demand and price move in opposite directions, \emph{under Slutsky compensation}.
  			\end{corollary}
  			
  			\begin{definition}
