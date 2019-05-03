@@ -1,16 +1,13 @@
 \ProvidesPackage{spikey}
-% Essential Spikey packages.
+% Macro package by Tianyu Du.
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english]{babel}
- 
 \RequirePackage{amsthm}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{dsfont}
-
-\RequirePackage{pifont}% http://ctan.org/pkg/pifont
-
+\RequirePackage{pifont} % http://ctan.org/pkg/pifont
 
 % Change QED symbol to blacksquare
 \renewcommand\qedsymbol{$\blacksquare$}
@@ -20,7 +17,25 @@
 \newcommand{\mc}[1]{\mathcal{{#1}}}
 \newcommand{\tbf}[1]{\textbf{#1}}
 
-% ================ Linear Algebra ================
+% ================ Mathematics: General ================
+% Absolute Value
+\newcommand{\abs}[1]{\big \vert {#1} \big \vert}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+
+\newcommand{\cmark}[0]{\ding{51}}
+\newcommand{\xmark}[0]{\ding{55}}
+
+% Bold symbols for vector.
+\newcommand{\vex}[0]{\textbf{x}}
+\newcommand{\vey}[0]{\textbf{y}}
+\newcommand{\vez}[0]{\textbf{z}}
+\newcommand{\vea}[0]{\textbf{a}}
+\newcommand{\veb}[0]{\textbf{b}}
+\newcommand{\vep}[0]{\textbf{p}}
+
+% ================ Mathematics: Linear Algebra ================
 % TRANSformation
 \newcommand{\trans}[3]{{#1}: {#2} \to {#3}}
 % COORdinate.
@@ -33,10 +48,8 @@
 \newcommand{\sset}[3]{\{{{#1}_{#2}}, \dots, {{#1}_{#3}}\}}
 % Scalar TUPLE.
 \newcommand{\stuple}[3]{({{#1}_{#2}}, \dots, {{#1}_{#3}})}
-
 % INNER product.
 \newcommand{\inner}[2]{\langle {#1}, {#2} \rangle}
-
 % NORM.
 \newcommand{\norm}[1]{\vert \vert {#1} \vert \vert}
 \newcommand{\ve}[1]{\textbf{#1}}
@@ -46,40 +59,37 @@
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\orange}[1]{\textcolor{orange}{#1}}
 
-% ================ General Math Symbols ================
+% ================ Mathematics: Spaces ================
 \newcommand{\R}[0]{\mathbb{R}}  % Real number field.
 \newcommand{\C}[0]{\mathbb{C}}  % Complex number field.
 \newcommand{\Q}[0]{\mathbb{Q}}  % Rational field.
 \newcommand{\N}[0]{\mathbb{N}}
 \newcommand{\Z}[0]{\mathbb{Z}}
 \newcommand{\nnr}[0]{\mathbb{R}_{\geq0}}
-
 \newcommand{\RM}[2]{M_{{#1} \times {#2}}(\mathbb{R})}  % Real matrix space.
 \newcommand{\M}[3]{M_{{#1} \times {#2}}({#3})}  % Arbitary matrix space.
 
+% ================ Mathematics: Calculus ================
 % Partial Derivative
 \newcommand{\pd}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\curl}[0]{\text{curl}}
+\newcommand{\grad}[0]{\text{grad}}
+\newcommand{\dive}[0]{\text{div}}
 
+% ================ Statistics ================
+% Indicator Function
+\newcommand{\id}[1]{\mathds{1}\{{#1}\}}
 % Expectation
 \newcommand{\expect}[1]{\mathbb{E}[{#1}]}
 \newcommand{\var}[1]{\mathbb{V}[{#1}]}
 \newcommand{\prob}[1]{\mathbb{P}[{#1}]}
 
-% Absolute Value
-\newcommand{\abs}[1]{\big \vert {#1} \big \vert}
+% ================ Economics ================
+\newcommand{\pref}[0]{\succsim}
 
-\DeclareMathOperator*{\argmax}{argmax}
-\DeclareMathOperator*{\argmin}{argmin}
-
-\newcommand{\cmark}[0]{\ding{51}}
-\newcommand{\xmark}[0]{\ding{55}}
-
-\newcommand{\id}[1]{\mathds{1}\{{#1}\}}
-
-% ================ Math Theorems ================
+% ================ Theorems ================
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
-
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{notation}{Notation}[section]
 \newtheorem{corollary}{Corollary}[section]
@@ -90,21 +100,4 @@
 \newtheorem{example}{Example}[section]
 \newtheorem{property}{Property}[section]
 \newtheorem{axiom}{Axiom}[section]
-
-% Rules for Symbolic Logic
 \newtheorem{rules}{Rule}[section]
-
-
-\newcommand{\curl}[0]{\text{curl}}
-\newcommand{\grad}[0]{\text{grad}}
-\newcommand{\dive}[0]{\text{div}}
-
-
-\newcommand{\vex}[0]{\textbf{x}}
-\newcommand{\vey}[0]{\textbf{y}}
-\newcommand{\vez}[0]{\textbf{z}}
-
-\newcommand{\vea}[0]{\textbf{a}}
-\newcommand{\veb}[0]{\textbf{b}}
-
-\newcommand{\pref}[0]{\succsim}
