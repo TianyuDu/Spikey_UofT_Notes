@@ -174,7 +174,7 @@
 			\begin{definition}
 				Assume the number of \textbf{commodities} is finite and equal to $L$. In general, a \textbf{commodity vector} or \textbf{commodity bundle} is an element in a \textbf{commodity space}, typically $\R^L$.
 				\begin{equation}
-					\ve{x} := \begin{bmatrix}
+					\vex := \begin{bmatrix}
 						x_1 \\ \vdots \\ x_L
 					\end{bmatrix} \in \R^L
 				\end{equation}
@@ -196,7 +196,7 @@
  			\begin{assumption}
  				For simplicity, we assume the consumption set to be $\R_+^L$, which is \emph{convex}.
  				\begin{equation}
- 					X := \R_+^L = \{\ve{x} \in \R^L: x_{\ell} \geq 0,\ \forall \ell \in [L]\}
+ 					X := \R_+^L = \{\vex \in \R^L: x_{\ell} \geq 0,\ \forall \ell \in [L]\}
  				\end{equation}
  			\end{assumption}
  			
@@ -204,81 +204,81 @@
  			\begin{definition}
  				A \textbf{price vector} is defined as
  				\begin{equation}
- 					\ve{p} := \begin{bmatrix} p_1 \\ \vdots \\ p_L \end{bmatrix} \in \R^L
+ 					\vep := \begin{bmatrix} p_1 \\ \vdots \\ p_L \end{bmatrix} \in \R^L
  				\end{equation}
  				For simplicity, here we always assume 
  				\begin{enumerate}[(i)]
- 					\item \emph{Positive price}: $\ve{p} \gg \ve{0}$;
- 					\item \emph{Price-taking assumption}: $\ve{p}$ is beyond the influence of the consumer.
+ 					\item \emph{Positive price}: $\vep \gg \ve{0}$;
+ 					\item \emph{Price-taking assumption}: $\vep$ is beyond the influence of the consumer.
  				\end{enumerate}
  			\end{definition}
  			
  			\begin{definition}[2.D.1]
  				The \textbf{Walrasian}, or \textbf{competitive budget set} is defined as
  				\begin{equation}
- 					B_{\ve{p}, w} := \{
- 						\ve{x} \in \R^L_+: \ve{p} \cdot \ve{x} \leq w
+ 					B_{\vep, w} := \{
+ 						\vex \in \R^L_+: \vep \cdot \vex \leq w
  					\}
  				\end{equation}
  				where $w$ is the \emph{wealth} of consumer, and assumed to be positive.
  			\end{definition}
  			
  			\begin{definition}
- 				The \textbf{consumer's problem} is choosing a consumption bundle $\ve{x} \in B_{\ve{p}, w}$, for each given $(\ve{p}, w) \in \R^L_{++}$.
+ 				The \textbf{consumer's problem} is choosing a consumption bundle $\vex \in B_{\vep, w}$, for each given $(\vep, w) \in \R^L_{++}$.
  			\end{definition}
  			
  			\begin{definition}
- 				The set $\{\ve{x} \in \R^L_+: \ve{p} \cdot \ve{x} = w\}$ is called the \textbf{budget hyperplane}.
+ 				The set $\{\vex \in \R^L_+: \vep \cdot \vex = w\}$ is called the \textbf{budget hyperplane}.
  			\end{definition}
  			
  			\begin{proposition}
- 				The price vector $\ve{p}$ is orthogonal to the budget hyperplane.
+ 				The price vector $\vep$ is orthogonal to the budget hyperplane.
  			\end{proposition}
  			
  			\begin{proposition}
- 				The Walrasian budget set $B_{\ve{p}, w}$ is a \emph{convex} set.
+ 				The Walrasian budget set $B_{\vep, w}$ is a \emph{convex} set.
  			\end{proposition}
  		
  		\subsection{Demand Functions and Comparative Statics}
  			\begin{definition}
- 				The consumer's \textbf{Walrasian demand correspondence} $x(\ve{p}, w): \R_{++}^{L+1} \rightrightarrows \R_+^L$ assigns a \emph{set} of chosen consumption bundles for each price-wealth pair $(\ve{p}, w)$. When $x(\ve{p}, w)$ is single-valued, we refer to it as a \textbf{demand function}
+ 				The consumer's \textbf{Walrasian demand correspondence} $x(\vep, w): \R_{++}^{L+1} \rightrightarrows \R_+^L$ assigns a \emph{set} of chosen consumption bundles for each price-wealth pair $(\vep, w)$. When $x(\vep, w)$ is single-valued, we refer to it as a \textbf{demand function}
  				\begin{equation}
- 					\ve{x}(\ve{p}, w) = 
+ 					\vex(\vep, w) = 
  					\begin{bmatrix}
- 						x_1(\ve{p}, w) \\
- 						x_2(\ve{p}, w) \\
+ 						x_1(\vep, w) \\
+ 						x_2(\vep, w) \\
  						\vdots \\
- 						x_L(\ve{p}, w)
+ 						x_L(\vep, w)
  					\end{bmatrix}
  				\end{equation}
  			\end{definition}
  			
- 			\begin{definition}
- 				The Walrasian demand correspondence $x(\ve{p}, w): \R_{++}^{L+1} \rightrightarrows \R_+^L$ is \textbf{homogenous of degree zero} if 
+ 			\begin{definition}[2.E.1]
+ 				The Walrasian demand correspondence $x(\vep, w): \R_{++}^{L+1} \rightrightarrows \R_+^L$ is \textbf{homogenous of degree zero} if 
  				\begin{equation}
- 					x(\alpha \ve{p}, \alpha w) = x(\ve{p}, w)\ \forall (\ve{p}, w, \alpha) \in \R_{++}^{L+2}
+ 					x(\alpha \vep, \alpha w) = x(\vep, w)\ \forall (\vep, w, \alpha) \in \R_{++}^{L+2}
  				\end{equation}
  				Also note that
  				\begin{equation}
- 					B_{\ve{p}, w} = B_{\alpha \ve{p}, \alpha w}\ \forall (\ve{p}, w, \alpha) \in \R_{++}^{L+2}
+ 					B_{\vep, w} = B_{\alpha \vep, \alpha w}\ \forall (\vep, w, \alpha) \in \R_{++}^{L+2}
  				\end{equation}
  			\end{definition}
  			
- 			\begin{definition}
- 				The Walrasian demand correspondence $x(\ve{p}, w)$ satisfies \textbf{Walras' law} if
+ 			\begin{definition}[2.E.2]
+ 				The Walrasian demand correspondence $x(\vep, w)$ satisfies \textbf{Walras' law} if
  				\begin{equation}
- 					\forall (\ve{p}, w) \gg \ve{0},\ \ve{x} \in x(\ve{p}, w),\ \ve{p} \cdot \ve{x} = w
+ 					\forall (\vep, w) \gg \ve{0},\ \forall \vex \in x(\vep, w),\ \vep \cdot \vex = w
  				\end{equation}
  			\end{definition}
  			
  			\begin{assumption}
- 				For simplicity, we assume $x(\ve{p}, w)$ is always \emph{single-valued, continuous and differentiable}.
+ 				For simplicity, we assume $x(\vep, w)$ is always \emph{single-valued, continuous and differentiable}.
  			\end{assumption}
  			
  			\begin{proposition}
  				The \textbf{family of Walrasian budget sets} defined as
  				\begin{equation}
- 					\mathscr{B}^{\mathscr{W}} := \{B_{\ve{p}, w}: {\ve{p}, w} \gg \ve{0}\}
+ 					\mathscr{B}^{\mathscr{W}} := \{B_{\vep, w}: {\vep, w} \gg \ve{0}\}
  				\end{equation}
  				altogether with Walrasian demand homogeneous to degree zero forms a \emph{choice structure}
  				\begin{equation}
@@ -287,68 +287,68 @@
  			\end{proposition}
  		
  			\begin{definition}
- 				For fixed prices $\overline{\ve{p}} \in \R_{++}^L$, the function of wealth $\ve{x}(\overline{\ve{p}}, w)$ is called consumer's \textbf{Engel function}. Its image in $\R^L_+$,
+ 				For fixed prices $\overline{\vep} \in \R_{++}^L$, the function of wealth $\vex(\overline{\vep}, w)$ is called consumer's \textbf{Engel function}. Its image in $\R^L_+$,
  				\begin{equation}
- 					E_{\overline{\ve{p}}} := \{\ve{x}(\overline{\ve{p}}, w): w \in \R_{++}\} \subset \R^L_+
+ 					E_{\overline{\vep}} := \{\vex(\overline{\vep}, w): w \in \R_{++}\} \subset \R^L_+
  				\end{equation}
  				is defined as the \textbf{wealth expansion path}.
  			\end{definition}
  			
  			\begin{definition}
- 				Given $(\ve{p}, w)$, the \textbf{wealth effect} is defined as
+ 				Given $(\vep, w)$, the \textbf{wealth effect} is defined as
  				\begin{equation}
- 					D_w \ve{x}(\ve{p}, w) 
+ 					D_w \vex(\vep, w) 
  					= \begin{bmatrix}
- 						\pd{x_1(\ve{p}, w)}{w} \\
- 						\pd{x_2(\ve{p}, w)}{w} \\
+ 						\pd{x_1(\vep, w)}{w} \\
+ 						\pd{x_2(\vep, w)}{w} \\
  						\vdots \\
- 						\pd{x_L(\ve{p}, w)}{w}
+ 						\pd{x_L(\vep, w)}{w}
  					\end{bmatrix} \in \R^L
  				\end{equation}
- 				For the $\ell$-th commodity, it's called \textbf{normal} at $(\ve{p}, w)$ if $\pd{x_{\ell}(\ve{p}, w)}{w} \geq 0$, and \textbf{inferior} otherwise. And the $\ell$-th commodity is normal/inferior if its normal/inferior every where in $\R_{++}^{L+1}$. 
+ 				For the $\ell$-th commodity, it's called \textbf{normal} at $(\vep, w)$ if $\pd{x_{\ell}(\vep, w)}{w} \geq 0$, and \textbf{inferior} otherwise. And the $\ell$-th commodity is normal/inferior if its normal/inferior every where in $\R_{++}^{L+1}$. 
  			\end{definition}
  			
  			\begin{definition}
  				The \textbf{offer curve} is defined as the locus
  				\begin{equation}
- 					\{\ve{x}(\ve{p}, w): p_j > 0\}
+ 					\{\vex(\vep, w): p_j > 0\}
  				\end{equation}
  				for any chosen $j$.
  			\end{definition}
  			
  			\begin{definition}
- 				Good $\ell$ is said to be a \textbf{Giffen good} at $(\ve{p}, w)$ if
+ 				Good $\ell$ is said to be a \textbf{Giffen good} at $(\vep, w)$ if
  				\begin{equation}
- 					\pd{x_\ell(\ve{p}, w)}{p_\ell} > 0
+ 					\pd{x_\ell(\vep, w)}{p_\ell} > 0
  				\end{equation}
  			\end{definition}
  			
  			\begin{definition}
- 				The \textbf{price effects} at $(\ve{p}, w)$ is defined as
+ 				The \textbf{price effects} at $(\vep, w)$ is defined as
  				\begin{equation}
- 					D_{\ve{p}} (\ve{p}, w) = 
+ 					D_{\vep} (\vep, w) = 
  					\begin{bmatrix}
- 						\pd{x_1(\ve{p}, w)}{p_1} & \cdots & \pd{x_1(\ve{p}, w)}{p_L} \\
+ 						\pd{x_1(\vep, w)}{p_1} & \cdots & \pd{x_1(\vep, w)}{p_L} \\
  						& \ddots & \\
- 						\pd{x_L(\ve{p}, w)}{p_1} & \cdots & \pd{x_L(\ve{p}, w)}{p_L}
+ 						\pd{x_L(\vep, w)}{p_1} & \cdots & \pd{x_L(\vep, w)}{p_L}
  					\end{bmatrix}
  				\end{equation}
  			\end{definition}
  			
- 			\begin{proposition}
- 				If the Walrasian demand function $x(\ve{p}, w)$ is homogenous of degree zero, then for all $\ve{p}$ and $w$, then
+ 			\begin{proposition}[2.E.1]
+ 				If the Walrasian demand function $x(\vep, w)$ is homogenous of degree zero, then for all $\vep$ and $w$, then
  				\begin{equation}
- 					\sum_{k=1}^L \pd{x_\ell(\ve{p}, w)}{p_k} p_k + \pd{x_\ell(\ve{p}, w)}{w} w = 0\ \forall k \in [L]
+ 					\sum_{k=1}^{L} \frac{\partial x_{\ell}(\vep, w)}{\partial p_{k}} p_{k}+\frac{\partial x_{\ell}(\vep, w)}{\partial w} w=0 \text { for } \ell=1, \ldots, L
  				\end{equation}
  				Equivalently,
  				\begin{equation}
- 					D_{\ve{p}} \vex (\ve{p}, w)\ \ve{p} + D_w \ve{x}(\ve{p}, w)\ w = \ve{0}
+ 					D_{\vep} \vex (\vep, w)\ \vep + D_w \vex(\vep, w)\ w = \ve{0}
  				\end{equation}
  				\begin{proof}
- 					Apply Euler's theorem on homogenous functions to each component $x_\ell$.
+ 					Apply \emph{Euler's theorem} on homogenous functions to each component $x_\ell$.
  					\begin{gather}
- 						\underbrace{D_{(\ve{p}, w)} \ve{x}(\ve{p}, w)}_{L \times (L+1)} \cdot \underbrace{(\ve{p}, w)}_{(L+1) \times 1} = 0\ \ve{x}(\ve{p}, w) = \ve{0} \\
- 						\implies [\underbrace{D_{\ve{p}} (\ve{p}, w)}_{L \times L} | \underbrace{D_w \ve{x}(\ve{p}, w)}_{L \times 1}] \cdot (\ve{p}, w) = D_{\ve{p}} (\ve{p}, w)\ \ve{p} + D_w \ve{x}(\ve{p}, w)\ w = \ve{0}
+ 						\underbrace{D_{(\vep, w)} \vex(\vep, w)}_{L \times (L+1)} \cdot \underbrace{(\vep, w)}_{(L+1) \times 1} = 0\ \vex(\vep, w) = \ve{0} \\
+ 						\implies [\underbrace{D_{\vep} (\vep, w)}_{L \times L} | \underbrace{D_w \vex(\vep, w)}_{L \times 1}] \cdot (\vep, w) = D_{\vep} (\vep, w)\ \vep + D_w \vex(\vep, w)\ w = \ve{0}
  					\end{gather}
  				\end{proof}
  			\end{proposition}
@@ -356,48 +356,60 @@
  			\begin{definition}
  				The \textbf{elasticities of demand $\ell$ with respect to price $k$ and wealth} is defined as 
  				\begin{gather}
- 					\varepsilon_{\ell, k} (\ve{p}, w) := \pd{x_\ell (\ve{p}, w)}{p_k} \frac{p_l}{x_\ell (\ve{p}, w)}\\
- 					\varepsilon_{\ell, w} (\ve{p}, w) := \pd{x_\ell (\ve{p}, w)}{w} \frac{w}{x_\ell (\ve{p}, w)}
+ 					\varepsilon_{\ell, k} (\vep, w) := \pd{x_\ell (\vep, w)}{p_k} \frac{p_l}{x_\ell (\vep, w)}\\
+ 					\varepsilon_{\ell, w} (\vep, w) := \pd{x_\ell (\vep, w)}{w} \frac{w}{x_\ell (\vep, w)}
  				\end{gather}
  			\end{definition}
  			
   			\begin{corollary}
+  				Dividing both sides of the equality in proposition (2.E.1) by $x_{\ell}$ gives
  				\begin{equation}
- 					\sum_{k=1}^L \varepsilon_{\ell, k}(\ve{p}, w) + \varepsilon_{\ell, w}(\ve{p}, w) = 0\ \forall \ell \in [L]
+ 					\sum_{k=1}^L \varepsilon_{\ell, k}(\vep, w) + \varepsilon_{\ell, w}(\vep, w) = 0\ \forall \ell \in \{1, \ldots, L\}
  				\end{equation}
  			\end{corollary}
  			
- 			\begin{proposition}[Cournot Aggregation]
- 				If the Walrasian demand function $x(\ve{p}, w)$ satisfies \emph{Walras' law}, then for every $(\ve{p}, w)$,
+ 			\begin{proposition}[2.E.2 Cournot Aggregation]
+ 				If the Walrasian demand function $x(\vep, w)$ satisfies \emph{Walras' law}, then for every $(\vep, w)$,
  				\begin{equation}
- 					\sum_{\ell=1}^L p_\ell \pd{x_\ell(\ve{p}, w)}{p_k} + x_k((\ve{p}, w) = 0\ \forall k \in [L]
+ 					\sum_{\ell=1}^{L} p_{\ell} \frac{\partial x_{\ell}(\vep, w)}{\partial p_{k}}+x_{k}(\vep, w)= 0 \quad \text { for } k=1, \ldots, L
  				\end{equation}
  				Equivalently,
  				\begin{equation}
- 					\ve{p}^T D_{\ve{p}} \vex (\ve{p}, w) + \ve{x}(\ve{p}, w)^T = \ve{0}^T
+ 					\vep^T D_{\vep} \vex (\vep, w) + \vex(\vep, w)^T = \ve{0}^T
  				\end{equation}
  				\begin{proof}
- 					Differentiate both sides of $\ve{p}^T \ve{x} = w$ with respect to $\ve{p}$.
+ 					Differentiate both sides of Walras' law identity $\vep^T \vex = w$ with respect to $\vep$.
  				\end{proof}
  			\end{proposition}
  			
- 			\begin{proposition}[Engel Aggregation]
- 				If the Walrasian demand function $x(\ve{p}, w)$ satisfies \emph{Walras' law}, then for every $(\ve{p}, w)$,
+ 			\begin{proposition}[2.E.3. Engel Aggregation]
+ 				If the Walrasian demand function $x(\vep, w)$ satisfies \emph{Walras' law}, then for every $(\vep, w)$,
  				\begin{equation}
- 					\sum_{\ell=1}^L p_\ell \pd{x_\ell(\ve{p}, w)}{w} = 1
+ 					\sum_{\ell=1}^{L} p_{\ell} \frac{\partial x_{\ell}(\vep, w)}{\partial w}=1
  				\end{equation}
  				or equivalently
  				\begin{equation}
- 					\ve{p} \cdot D_{w} x(\ve{p}, w) = 1
+ 					\vep \cdot D_{w} x(\vep, w) = 1
  				\end{equation}
  				\begin{proof}
- 					Differentiate both sides of $\ve{p}^T \ve{x} = w$ with respect to $w$.
+ 					Differentiate both sides of Walras' law identity $\vep^T \vex = w$ with respect to $w$.
  				\end{proof}
  			\end{proposition}
  		
+ 			\begin{proposition}[Exer. 2.E.2]
+ 				\begin{gather}
+ 					\sum_{\ell=1}^{L} b_{\ell}(\vep, w) \varepsilon_{\ell k}(\vep, w)+b_{k}(\vep, w)=0
+ 				\end{gather}
+ 				and
+ 				\begin{gather}
+ 					\sum_{\ell=1}^{L} b_{\ell}(\vep, w) \varepsilon_{\ell w}(\vep, w)=1
+ 				\end{gather}
+ 				where $b_\ell := \frac{x_\ell p_\ell}{w}$ is defined to be the portion of wealth spent on commodity $\ell$.
+ 			\end{proposition}
+ 			
  		\subsection{The Weak Axiom of Revealed Preference and the Law of Demand}
  			\begin{assumption}
- 				In the section, we assume $\ve{x}(\ve{p}, w)$ is 
+ 				In the section, we assume $\vex(\vep, w)$ is 
  				\begin{enumerate}[(i)]
  					\item Single-valued;
  					\item homogeneous to degree zero;
@@ -405,89 +417,111 @@
  				\end{enumerate}
  			\end{assumption}
  			
- 			\begin{definition}
- 				The Walrasian demand function $\ve{x}(\ve{p}, w)$ satisfies the \textbf{weak axiom of revealed preference} if for every two $(\ve{p}, w), (\ve{p}', w') \in \R_{++}^{L+1}$,
+ 			\begin{definition}[2.F.1]
+ 				The Walrasian demand function $\vex(\vep, w)$ satisfies the \textbf{weak axiom of revealed preference} if for every two $(\vep, w), (\vep', w') \in \R_{++}^{L+1}$,
  				\begin{gather}
- 					\underbrace{\ve{p} \cdot \ve{x}(\ve{p}', w') \leq w
- 					\land \ve{x}(\ve{p}, w) \neq \ve{x}(\ve{p}', w')}_{\tx{revealed: } \ve{x}(\ve{p}, w) \succ^* \ve{x}(\ve{p}', w')}
- 					\implies \ve{p}' \cdot \ve{x}(\ve{p}, w) > w'
+ 					\underbrace{\vep \cdot \vex(\vep', w') \leq w
+ 					\land \vex(\vep, w) \neq \vex(\vep', w')}_{\tx{revealed: } \vex(\vep, w) \succ^* \vex(\vep', w')}
+ 					\implies \vep' \cdot \vex(\vep, w) > w'
  				\end{gather}
  				Equivalently,
  				\begin{equation}
- 					\ve{x}(\ve{p}', w') \in B_{\ve{p}, w} \land \ve{x}(\ve{p}', w') \centernot \in C(B_{\ve{p}, w}) \implies \ve{x}(\ve{p}, w) \centernot \in C(B_{\ve{p}', w'})
+ 					\vex(\vep', w') \in B_{\vep, w} \land \vex(\vep', w') \centernot \in C(B_{\vep, w}) \implies \vex(\vep, w) \centernot \in C(B_{\vep', w'})
  				\end{equation}
  			\end{definition}
  			
- 			\begin{corollary}
- 				The weak axiom says, given our assumptions and $\ve{x}(\ve{p}_1, w_1) \neq \ve{x}(\ve{p}_2, w_2)$, we cannot have both 
+ 			\begin{corollary}[Equivalent Definition ]
+ 				The weak axiom says, given our assumptions and $\vex(\vep_1, w_1) \neq \vex(\vep_2, w_2)$, we \ul{cannot} have both 
  				\begin{equation}
- 					\ve{x}(\ve{p}_1, w_1) \in B_{\ve{p}_2, w_2} \land \ve{x}(\ve{p}_2, w_2) \in B_{\ve{p}_1, w_1}
+ 					\vex(\vep_1, w_1) \in B_{\vep_2, w_2} \land \vex(\vep_2, w_2) \in B_{\vep_1, w_1}
  				\end{equation}
  			\end{corollary}
  			
  			\begin{definition}
- 				A price change $\Delta \ve{p}$ is a \textbf{Slutsky compensated price change} if the consumer is given a \textbf{Slutsky wealth compensation} with amount
+ 				A price change $\Delta \vep$ is a \textbf{Slutsky compensated price change} if the consumer is given a \textbf{Slutsky wealth compensation} with amount
  				\begin{equation}
- 					\Delta w = \Delta \ve{p} \cdot \ve{x}(\ve{p}, w)
+ 					\Delta w = \Delta \vep \cdot \vex(\vep, w)
  				\end{equation}
  				such that the consumer's initial consumption is just affordable at the new price.
  			\end{definition}
  			
  			\begin{proposition}[2.F.1]
- 				Suppose that the Walrasian demand function $\ve{x}(\ve{p}', w')$ is homogenous of degree zero and satisfies Walras' law. Then $\ve{x}(\ve{p}', w')$ satisfies the weak axiom \ul{if and only if} the following property holds: \\
- 				For any \emph{compensated price change} from $(\ve{p}, w)$ to $(\ve{p}', w'\equiv \ve{p}' \cdot \ve{x}(\ve{p}, w))$,
+ 				Suppose that the Walrasian demand function $\vex(\vep', w')$ is homogenous of degree zero and satisfies Walras' law. Then $\vex(\vep', w')$ satisfies the weak axiom \ul{if and only if} the following property holds: \\
+ 				For any \emph{compensated price change} from $(\vep, w)$ to $(\vep', w' := \vep' \cdot \vex(\vep, w))$,
  				\begin{equation}
- 					\Delta \ve{p} \cdot \Delta \ve{x} \leq 0
+ 					\Delta \vep \cdot \Delta \vex \leq 0
  				\end{equation}
- 				with strict inequality whenever $\ve{x}(\ve{p}, w) \neq \ve{x}(\ve{p}', w')$.
+ 				with strict inequality whenever $\vex(\vep, w) \neq \vex(\vep', w')$.
  			\end{proposition}
  			
  			\begin{corollary}[Compensated Law of Demand]
- 				$\Delta \ve{p} \cdot \Delta \ve{x} \leq 0$ says demand and price move in opposite directions, \emph{under Slutsky compensation}.
+ 				$\Delta \vep \cdot \Delta \vex \leq 0$ says demand and price move in opposite directions, \emph{under Slutsky compensation}.
  			\end{corollary}
  			
  			\begin{definition}
  				At infinitesimal price change, the Slutsky compensation can be written as 
  				\begin{equation}
- 					dw = \ve{x}(\ve{p}, w) \cdot d\ve{p}
+ 					dw = \vex(\vep, w) \cdot d\vep
  				\end{equation}
  				and the compensated law of demand becomes
  				\begin{equation}
- 					d\ve{p} \cdot d\ve{x} \leq 0
+ 					d\vep \cdot d\vex \leq 0
  				\end{equation}
- 				Then the total derivative of $\ve{x}$ is 
- 				\begin{gather}
- 					d\ve{x} = D_\ve{p}\ve{x}(\ve{p}, w)\ d\ve{p} + D_w(\ve{p}, w) \ve{x}\ dw \\
- 					= D_\ve{p}\ve{x}(\ve{p}, w)\ d\ve{p} + D_w \ve{x} (\ve{p}, w)\ [\ve{x}(\ve{p}, w) \cdot d\ve{p}] \\
- 					= [\underbrace{D_\ve{p}\ve{x}(\ve{p}, w)}_{L \times L} + \underbrace{D_w \ve{x} (\ve{p}, w)}_{L \times 1} \underbrace{\ve{x}(\ve{p}, w)^T}_{1 \times L}] d\ve{p} \\
- 					\implies d\ve{p}^T 
- 					\underbrace{[D_\ve{p}\ve{x}(\ve{p}, w) + D_w \ve{x} (\ve{p}, w) \ve{x}(\ve{p}, w)^T]}_{L \times L} d\ve{p} \leq 0
- 				\end{gather}
+ 				Then the total derivative of $\vex$ is 
+ 				\begin{align}
+ 					d\vex &= D_\vep\vex(\vep, w)\ d\vep + D_w \vex(\vep, w)\ dw \\
+ 					&= D_\vep\vex(\vep, w)\ d\vep + D_w \vex (\vep, w)\ [\vex(\vep, w) \cdot d\vep] \\
+ 					&= [\underbrace{D_\vep\vex(\vep, w)}_{L \times L} + \underbrace{D_w \vex (\vep, w)}_{L \times 1} \underbrace{\vex(\vep, w)^T}_{1 \times L}] d\vep \\
+ 					&\implies d\vep^T 
+ 					\underbrace{[D_\vep\vex(\vep, w) + D_w \vex (\vep, w) \vex(\vep, w)^T]}_{L \times L} d\vep \leq 0
+ 				\end{align}
  				and the \textbf{Slutsky/substitution matrix} is defined as
  				\begin{gather}
- 					S(\ve{p}, w) := [D_\ve{p}\ve{x}(\ve{p}, w) + D_w \ve{x} (\ve{p}, w) \ve{x}(\ve{p}, w)^T] \\
- 					s_{\ell k} = \underbrace{\pd{x_\ell(\ve{p}, w)}{p_k}}_{\tx{total effect}} + \underbrace{\pd{x_\ell(\ve{p}, w)}{w} x_k (p, w)}_{\tx{wealth effect}}
+ 					S(\vep, w) := [D_\vep\vex(\vep, w) + D_w \vex (\vep, w) \vex(\vep, w)^T] \\
+ 					s_{\ell k} = \underbrace{\pd{x_\ell(\vep, w)}{p_k}}_{\tx{total effect}} + \underbrace{\pd{x_\ell(\vep, w)}{w} x_k (p, w)}_{\tx{wealth effect}}
  				\end{gather}
  				where $s_{\ell k}$ is the \textbf{substitution effect}.
  			\end{definition}
  			
  			\begin{remark}
- 				Consider the scenario when only $p_k$ changes, with Slutsky compensation, consumer's wealth changes by $dw = x_k(\ve{p}, w) dp_k$. So the wealth effect on $x_\ell$ is $\pd{x_\ell}{w} dw = \pd{x_\ell}{w} x_k(\ve{p}, w) dp_k$.
+ 				The above identity (Slutsky equation) suggests the total impact of price change in $p_k$ on demand for $x_{\ell}$ can be decomposed into two portions, substitution effect and income effect.
+ 			\end{remark}
+ 			
+  			\begin{corollary}[Slutsky Equation]
+ 				\begin{equation}
+ 					\frac{\partial x_{i}(\mathbf{p}, w)}{\partial p_{j}}=\frac{\partial h_{i}(\mathbf{p}, u)}{\partial p_{j}}-\frac{\partial x_{i}(\mathbf{p}, w)}{\partial w} x_{j}(\mathbf{p}, w)
+ 				\end{equation}
+ 			\end{corollary}
+ 			
+ 			\begin{remark}
+ 				Consider the scenario when only $p_k$ changes, with Slutsky compensation, consumer's wealth changes by $dw = x_k(\vep, w) dp_k$. So the wealth effect on $x_\ell$ is $\pd{x_\ell}{w} dw = \pd{x_\ell}{w} x_k(\vep, w) dp_k$.
  			\end{remark}
  			
  			\begin{proposition}[2.F.2]
- 				If a differentiable Walrasian demand function $\ve{x}(\ve{p}, w)$ satisfies Walras' law, homogeneity of degree zero, and the weak axiom, then at any $(\ve{p}, w)$, the Slutsky matrix $S(\ve{p}, w)$ is negative semi-definite.
+ 				If a differentiable Walrasian demand function $\vex(\vep, w)$ satisfies Walras' law, homogeneity of degree zero, and the weak axiom, then at any $(\vep, w)$, the Slutsky matrix $S(\vep, w)$ is negative semi-definite.
  			\end{proposition}
  			
+ 			\begin{corollary}
+ 				Given $S(\vep, w)$ is negative semi-definite, we have
+ 				\begin{align}
+ 					\ve{e}_{\ell}^T S(\vep, w) \ve{e}_{\ell} \leq 0\ \forall \ell \in \{1, \ldots, L\} \\
+ 					\implies s_{\ell \ell} \leq 0\ \forall \ell \in \{1, \ldots, L\}
+ 				\end{align}
+ 				which suggests the \emph{substitution effect of good $\ell$ with respect to its own price is always negative}.
+ 			\end{corollary}
+ 			
  			\begin{remark}
- 				Proposition 2.F.2 does \emph{not} imply, in general, that the matrix $S(\ve{p}, w)$ is symmetric.
+ 				Proposition 2.F.2 does \emph{not} imply, in general, that the matrix $S(\vep, w)$ is symmetric.
  			\end{remark}
  			
  			\begin{proposition}[2.F.3]
- 				Suppose that the Walrasian demand function $\ve{x}(\ve{p}, w)$ is differentiable, homogenous of degree zero, and satisfies Walras' law. Then for every $(\ve{p}, w)$
+ 				Suppose that the Walrasian demand function $\vex(\vep, w)$ is differentiable, homogenous of degree zero, and satisfies Walras' law. Then for every $(\vep, w)$
  				\begin{equation}
- 					\ve{p}^T S(\ve{p}, w) = \ve{0} \land S(\ve{p}, w) \ve{p} = \ve{0}
+ 					\vep^T S(\vep, w) = \ve{0} \land S(\vep, w) \vep = \ve{0}
  				\end{equation}
+ 				\begin{proof}
+ 					By propositions 2.E.1 to 2.E.3.
+ 				\end{proof}
  			\end{proposition}
  	
  	\section{Chapter 3. Classical Demand Theory}
