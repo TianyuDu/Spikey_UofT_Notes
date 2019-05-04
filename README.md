@@ -1,4 +1,4 @@
-# Tianyu's Note Repository @UToronto
+# Tianyu's Note Repository @U*of*Toronto
 
 Lecture notes for courses taken at University of Toronto.
 
