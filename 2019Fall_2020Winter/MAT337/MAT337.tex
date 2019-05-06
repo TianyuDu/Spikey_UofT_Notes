@@ -33,6 +33,9 @@
 \counterwithin{example}{section}
 \counterwithin{definition}{section}
 
+\newcommand{\seq}[2]{({#1}_{#2})_{{#2}=1}^\infty}
+\newcommand{\ser}[2]{\sum_{{#2}=1}^\infty {#1}_{#2}}
+
 \begin{document}
 	\maketitle
 	\doclicenseThis
@@ -136,5 +139,64 @@
             \begin{proof}
                 $\R$ has cardinality $c$ but $\N$ has cardinality $\aleph_0$.
             \end{proof}
-            
+        
+    \section{Sequences and Series}
+        \begin{definition}
+            A sequence $\seq{a}{n}$ of real numbers \textbf{converges} to a real number $a$ if
+            \begin{equation}
+                \forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \forall n > N\ |a_n - a| < \varepsilon
+            \end{equation}
+            If there does not exist such $a$, we conclude $\seq{a}{n}$ is \textbf{divergent}.
+        \end{definition}
+        
+        \begin{theorem}
+            Every convergent sequence is bounded.
+        \end{theorem}
+        
+        \begin{proof}
+            Let $\seq{a}{n}$ be a convergent sequence in $\R$ with limit point $a$. Then take $\varepsilon=1$, there exists $N \in \N$ such that $n > N \implies |a_n - a| < 1 \implies |a_n| < |a| + 1$. Take 
+            \begin{equation}
+                M := \max\{\max_{n \leq N}\{|a_n|\}, |a| +1 \}
+            \end{equation}
+            and the sequence is bounded by $M$.
+        \end{proof}
+        
+        \begin{definition}
+            Let $\seq{a}{n}$ be a sequence, then a sub-sequence of $(a_n)$ is any sequence in the form $(a_{n_k})_{k=1}^\infty$ such that $n_1 < n_2 < \cdots < n_k < \cdots$.
+        \end{definition}
+        
+        \begin{remark}
+            A sub-sequence can be generated with a strictly increasing function defined on $\N$ and a sequence $(a_n)$.
+        \end{remark}
+        
+        \begin{theorem}[Bolzano-Weierstrass]
+            Every bounded sequence has a convergent sub-sequence.
+        \end{theorem}
+        
+        \begin{proof}
+            Let $\seq{a}{n}$ be a bounded sequence bounded by $M > 0$. Define
+            \begin{align}
+                I_0 &:= [-M, M] \\
+                J^0 &:= [-M, 0] \\
+                J^1 &:= [0, M] \\
+                X^0 &:= \{n \in \N: a_n \in J^0\} \\
+                X^1 &:= \{n \in \N: a_n \in J^1\}
+            \end{align}
+            therefore $\N = X^0 \cup X^1$. Thus at least one of $X^0$ and $X^1$ is infinite. If $X^0$ is infinite, define $I_1 := J^0$, otherwise, define $I_1 := J^1$. Let 
+            \begin{equation}
+                A := \{x \in \R: \{n \in \N: x < a_n\} \tx{ is infinite} \}
+            \end{equation}
+            which is the lower bound of selected infinite half intervals. And define $a:= \inf(A)$. we can construct a sub-sequence, for each $n \in \N$, take $a_n \in I_n$. And by the nested interval theorem, the intersection of all those selected intervals is non-empty. And $a$ is the limit point of the constructed sequence. So a convergent sub-sequence exists.
+        \end{proof}
+        
+        \begin{definition}
+            A sequence $\seq{a}{n}$ is a \textbf{Cauchy} sequence if 
+            \begin{equation}
+                \forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \forall m, n > N,\ |a_n - a_m| < \varepsilon
+            \end{equation}
+        \end{definition}
+        
+        \begin{theorem}[Convergent $\implies$ Cauchy]
+            Every convergent sequence is a Cauchy sequence.
+        \end{theorem}
 \end{document}
