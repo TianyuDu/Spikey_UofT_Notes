@@ -14,7 +14,7 @@
 
 \usepackage[margin=1truein]{geometry}
 
-\title{Elements of Real Analysis \\ \small Notes for MAT337: Introduction to Real Analysis}
+\title{Elements of Real Analysis \\ \small Based on Lecture Notes for MAT337: Introduction to Real Analysis (2019Winter)}
 \date{\today}
 \author{Tianyu Du}
 
@@ -24,14 +24,14 @@
     version={4.0},
 ]{doclicense}
 
-\counterwithin{equation}{subsection}
-\counterwithin{theorem}{subsection}
-\counterwithin{lemma}{subsection}
-\counterwithin{corollary}{subsection}
-\counterwithin{proposition}{subsection}
-\counterwithin{remark}{subsection}
-\counterwithin{example}{subsection}
-\counterwithin{definition}{subsection}
+\counterwithin{equation}{section}
+\counterwithin{theorem}{section}
+\counterwithin{lemma}{section}
+\counterwithin{corollary}{section}
+\counterwithin{proposition}{section}
+\counterwithin{remark}{section}
+\counterwithin{example}{section}
+\counterwithin{definition}{section}
 
 \begin{document}
 	\maketitle
@@ -43,4 +43,98 @@
 	\tableofcontents
 	\newpage
 	
+    \section{Real Numbers}
+        \subsection{Definitions}
+        \begin{definition}
+            Reals are \ul{proper initial segments} of $\Q$ with no maximum.
+        \end{definition}
+    
+        \begin{definition}
+            A subset $A \subset \Q$ is an \textbf{initial segment} if 
+            \begin{equation}
+                y \in A, x \in \Q, x < y \implies x \in A
+            \end{equation}
+        \end{definition}
+	   
+        \begin{definition}
+            $A$ is \textbf{proper} if $A \neq \Q$.
+        \end{definition}
+        
+        \begin{definition}
+            $A$ has no maximal elements if 
+            \begin{equation}
+                \forall x \in A,\ \exists y \in A\ s.t.\ y > x
+            \end{equation}
+        \end{definition}
+        
+        \begin{example}
+            \begin{align}
+                \sqrt{2} &\approx A_{\sqrt{2}} := \{q \in \Q: q < \sqrt{2}\} \equiv \{q \in \Q: q \leq 0 \lor q^2 < 2\} \\
+                x &\approx A_x := \{q \in \Q: q < x\}
+            \end{align}
+        \end{example}
+        
+        \subsection{The Axiom of Completeness}
+            \begin{axiom}[Axiom of Completeness]
+                Every non-empty subset $B \subset \R$ that is bounded has a supremum (i.e. the least upper bound). That's
+                \begin{equation}
+                    \forall B \subset \R,\ s.t.\ B \neq \varnothing\ \exists b \in \R\ s.t.\ 
+                    \begin{cases}
+                        \forall x \in B,\ x \leq b \tx{ (upper bound)} \\
+                        \forall c \in \R (\forall x \in B, x \leq c) \implies b \leq c \tx{ (least upper bound)}
+                    \end{cases}
+                \end{equation}
+            \end{axiom}
+            
+            \begin{theorem}
+                $\Q$ is \emph{dense} in $\R$, that's
+                \begin{equation}
+                    \forall x < y \in \R,\ \exists q \in \Q\ s.t.\ x < q < y
+                \end{equation}
+            \end{theorem}
+            
+            \begin{theorem}[Cardinality]
+                Let $A, B$ be non-empty subsets of $\R$, then the following statements are equivalent:
+                \begin{enumerate}[(i)]
+                    \item $\exists h: A \to B$ such that $h$ is bijective;
+                    \item $\exists f: A \to B$ and $g: B \to A$ such that both $f$ and $g$ are injective.
+                \end{enumerate}
+            \end{theorem}
+            
+            \begin{proof}
+                (i) is the definition for sets $A$ and $B$ to have the same cardinality. And the existence of injection from $A$ to $B$ implies the cardinality of $A$ cannot be greater than the cardinality of $B$. Similarly, the existence of injection from $B$ to $A$ implies the cardinality of $B$ cannot be greater than the cardinality of $A$. Therefore $A$ and $B$ share the same cardinality.
+            \end{proof}
+            
+            \begin{theorem}[Nested Intervals]
+                Let $(I_n)$ be a sequence of closed and non-empty intervals in $\R$ such that
+                \begin{equation}
+                    I_0 \supset I_1 \supset I_2 \supset \cdots \supset I_n \supset \cdots
+                \end{equation}
+                then 
+                \begin{equation}
+                    \bigcap_{n \in \N} I_n \neq \varnothing
+                \end{equation}
+            \end{theorem}
+            
+            \begin{proof}
+                Claim:
+                \begin{equation}
+                    x := \sup\{\min(I_n): n \in \N\} \in \bigcap_{n \in \N} I_n
+                \end{equation}
+                Let $n \in \N$, then $x \geq \min(I_n)$. Now show $x \leq \max(I_n)\ \forall n \in \N$. Suppose not, then $\exists k \in \N$ such that $x > \max(I_k)$. Then by the definition of supremum, there exists $j \in \N$ such that $\max(I_k) < \min(I_j)$. Note that if $k=j$, this leads to a contradiction. If $k < j$, then because $I_k\supset I_j$, $\max(I_k) \geq \max(I_j) \geq \min(I_j) \geq \min(I_k)$, this leads to a contradiction. If $k > j$, then $I_k \subset I_j$, thus $\min(I_j) \leq \min(I_k) \leq \max(I_k) \leq \max(I_j)$, which also leads to a contradiction.\\
+                Therefore we conclude
+                \begin{equation}
+                    \min(I_n) \leq x \leq \max(I_n)\ \forall n \in \N
+                \end{equation}
+                therefore $x \in I_n\ \forall n \in \N$, so $x \in \bigcap_{n \in \N}I_n$.
+            \end{proof}
+            
+            \begin{theorem}
+                There exists no injection from $\R$ to $\N$.
+            \end{theorem}
+            
+            \begin{proof}
+                $\R$ has cardinality $c$ but $\N$ has cardinality $\aleph_0$.
+            \end{proof}
+            
 \end{document}
