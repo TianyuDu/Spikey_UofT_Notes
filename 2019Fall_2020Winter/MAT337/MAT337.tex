@@ -199,4 +199,45 @@
         \begin{theorem}[Convergent $\implies$ Cauchy]
             Every convergent sequence is a Cauchy sequence.
         \end{theorem}
+        
+        \begin{proof}
+            Let $(a_n)$ be a convergent sequence, fix $\varepsilon > 0$. Suppose $(a_n) \to a$, take $\varepsilon^* = \varepsilon / 2$. Thus, there exists $N \in \N$ such that $\forall n > N, |a_n - a| < \varepsilon^* = \varepsilon / 2$. By taking such $N$, $\forall n, m > N$, both $|a_n - a|$ and $|a_m - a| < \varepsilon / 2$. By triangle inequality, $|a_n - a_m| \leq |a_n - a| + |a_m - a| < \varepsilon / 2 + \varepsilon / 2 = \varepsilon$. Hence, we've shown that for an arbitrary $\varepsilon > 0$, there exists $N \in \N$ such that $\forall m, n > N, |a_n - a_m| < \varepsilon$. Therefore $(a_n)$ is Cauchy.
+        \end{proof}
+        
+        \begin{theorem}[Cauchy $\implies$ Convergent]
+            Every Cauchy sequence is convergent.
+        \end{theorem}
+        
+        \begin{proof}
+            Let $(a_n)$ be a Cauchy sequence. \\
+            Claim: $(a_n)$ is bounded.
+            \begin{proof}[Proof. Bounded]
+                Take $\varepsilon=1$, then $\exists N \in \N$ such that $\forall m, n > N, |a_n - a_m| < 1$. Take $m = N+1$ and define $a^* := a_m$. Then we have $\forall n > N$, $|a_n - a^*| < 1$, which implies $|a_n| < |a^*| + 1$. Define 
+                \begin{equation}
+                    M := \max\{
+                        \max\{a_n: n \leq N\}, |a^*| + 1
+                    \}
+                \end{equation}
+                So $(a_n)$ is bounded by $M$.
+            \end{proof}
+            Then by Bolzano-Weierstrass Theorem, there exists a sub-sequence $(a_{n_k})_{k=1}^\infty$ converges to some limit point $a \in \R$. We are going to show $(a_n) \to a$. Fix $\varepsilon>0$, by the convergence of the sub-sequence
+            \begin{equation}
+                \exists N_1 \in \N\ s.t.\ \forall n \geq N_1,\ |a_{n_k} - a| < \frac{\varepsilon}{2}
+            \end{equation}
+            Also since the sequence itself is Cauchy,
+            \begin{equation}
+                \exists N_2 \in \N,\ s.t.\ \forall m, n \geq N_2,\ |a_n - a| < \frac{\varepsilon}{2}
+            \end{equation}
+            Take $N^* := \max\{N_1, N2_\}$. Show $|a_n - a| < \varepsilon\ \forall n \geq N^*$. Note that 
+            \begin{align}
+                |a_n - a| &= |(a_n - a_{n_k}) + (a_{n_k} - a)| \\
+                &\leq |a_n - a_{n_k}| + |a_{n_k} - a| \\
+                &<\frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+            \end{align}
+            since $n_k \geq n$ by the definition of sub-sequences.
+        \end{proof}
+    
+        \begin{corollary}
+            A sequence is Cauchy if and only if it is convergent.
+        \end{corollary}
 \end{document}
