@@ -305,4 +305,77 @@
         \end{theorem}
         
     \section{Convergence of Series}
+        \begin{definition}
+            A series $\ser{a}{n}$ is \textbf{convergent} if
+            \begin{equation}
+                \exists a \in \R\ s.t.\ \ser{a}{n} = a
+            \end{equation}
+        \end{definition}
+        
+        \begin{definition}[Alternative Definition]
+            Let $(S_n) := (\sum_{i=1}^n a_i)_{n=1}^\infty$ denote the \emph{sequence of partial sums} associated with series $\ser{a}{n}$, then the series is convergent if and only if its partial sum converges to a real number.
+        \end{definition}
+        
+        \begin{theorem}[Cauchy Criterion]
+            A series $\ser{a}{n}$ is convergent \ul{if and only if}
+            \begin{equation}
+                \forall \varepsilon > 0 \exists N \in \N\ s.t.\ \forall m \geq n \geq N,\ |\sum_{i=n}^m a_i| < \varepsilon
+            \end{equation}
+            That's, the partial sum sequence is Cauchy.
+        \end{theorem}
+        
+        \begin{corollary}
+            If $\ser{a}{n}$ is convergent, then $\lim_{n \to \infty} a_n = 0$
+        \end{corollary}
+        
+        \begin{corollary}[Absolute Convergence Test]
+            If $\sum_{n=1}^\infty |a_n|$ is convergent, then $\ser{a}{n}$ is also convergent.
+        \end{corollary}
+        
+        \begin{corollary}
+            If $\sum_{n=1}^\infty |a_n|$ is convergent, and, let $f: \N \to \N$ be a bijection, then 
+            \begin{equation}
+                \sum_{n=1}^\infty a_{f(n)}
+            \end{equation}
+            is convergent.
+        \end{corollary}
+        \emph{Given the absolute convergence, the rearrangement of sequence does not affect the convergence of series}.
+        
+        \begin{theorem}
+            Suppose $a_1 \geq a_2 \geq \cdots \geq a_n \geq \cdots \geq 0$ and $a_n \to 0$, then $\sum_{n=1}^\infty (-1)^{n+1}a_n$ is convergent.
+        \end{theorem}
+        
+        \begin{theorem}
+            If $\sum_{n=1}^\infty |a_n|$ is convergent, let $f: \N \to \N$ be a bijection, then $\sum_{n=1}^\infty |a_{f(n)}|$ is also convergent.
+        \end{theorem}
+        
+        \begin{theorem}
+            Suppose $\sum_{n=1}^\infty |a_n|$ is convergent, let $f, g: \N \to \N$ be two bijections, then
+            \begin{equation}
+                \sum_{n=1}^\infty a_{f(n)} = \sum_{n=1}^\infty a_{g(n)}
+            \end{equation}
+        \end{theorem}
+        
+        \begin{theorem}[Monotone Convergence]
+            Every monotone sequence, which is bounded, is convergent.
+        \end{theorem}
+        
+        \begin{corollary}
+            Given sequence $(a_n) \subset \R_{++}$ and series $\ser{a}{n}$, the sequence of partial sums is therefore a monotonically increasing sequence, so the partial sum $(S_n)$ is convergent if it is bounded.
+        \end{corollary}
+        
+        \begin{example}
+            $\sum_{n=1}^\infty \frac{1}{n^2}$ is convergent.
+        \end{example}
+        
+        \begin{proof}
+            Let $m \in \N$, so
+            \begin{align}
+                S_m &= 1 + \frac{1}{2\times 2} + \frac{1}{3 \times 3} + \cdots + \frac{1}{m \times m} \\
+                &< 1 + \frac{1}{2\times 1} + \frac{1}{3\times 2} + \cdots + \frac{1}{m \times (m-1)} \\
+                &= 1 + (1-\frac{1}{2}) + (\frac{1}{2} - \frac{1}{3}) + \cdots + (\frac{1}{m-1} - \frac{1}{m}) \\
+                &= 2 - \frac{1}{m} < 2
+            \end{align}
+            therefore $(S_m)$ is non-decreasing and bounded above by $2$. So $(S_m)$ is convergent, so is  $\sum_{n=1}^\infty \frac{1}{n^2}$.
+        \end{proof}
 \end{document}
