@@ -242,6 +242,62 @@
         \end{corollary}
         
         \begin{proof}
-            Let $(a_n)$ denote a Cauchy sequence, then suppose a 
+            Let $(a_n)$ be a Cauchy sequence. \\
+            Claim: $(a_n)$ is bounded.
+            \begin{proof}
+                Take $\varepsilon=1$, then there exists $N \in \N$ such that 
+                \begin{equation}
+                    \forall m, n > N\ |a_n - a_m| < 1
+                \end{equation}
+                take $m:=N+1$, define $a^*:=a_{m+1}$, then 
+                \begin{equation}
+                    \forall n > N,\  |a_n - a^*| < 1 \implies |a_n| \leq |a^*| + 1
+                \end{equation}
+                Define $M:= \max\{\max_{n \leq N}\{a_n\}, |a^*|+1\}$, and $(a_n)$ is bounded by $M$.
+            \end{proof}
+            By the Bolzano-Weierstrass Theorem, there exists a sub-sequence $(a_{n_k})_{k=1}^\infty$ converges to some limit point $a \in \R$. Show $(a_n) \to a$ as well. \\
+            Let $\varepsilon>0$, by convergence of the sub-sequence, 
+            \begin{equation}
+                \exists N_1 \in \N,\ s.t.\ \forall n \geq N_1,\ |a_{n_k} - a| < \varepsilon / 2
+            \end{equation}
+            By the Cauchy property of $(a_n)$,
+            \begin{equation}
+                \exists N_2 \in \N,\ s.t.\ \forall m, n \geq N_2,\ |a_n - a_m| < \varepsilon / 2
+            \end{equation}
+            take $N^* := \max\{N_1, N_2\}$. Let $n \geq N^*$ and note that $n_k \geq n \geq N^*$
+            \begin{align}
+                |a_n - a| &= |(a_n - a_{n_k}) + (a_{n_k} - a)| \\
+                &\leq |a_n - a_{n_k}| + |a_{n_k} - a| \\
+                &\varepsilon/2 + \varepsilon/2 = \varepsilon
+            \end{align}
+            then take such $N^*$ for the fixed $\varepsilon>0$. Convergence of $(a_n)$ shown.
         \end{proof}
+        
+        \begin{theorem}[the Uniqueness of the Limit Point]
+            If $(a_n) \to a$ and $(a_n) \to b$, then $a=b$.
+        \end{theorem}
+        
+        \begin{proof}
+            Suppose $a \neq b$, define $s:= |a-b| > 0$. Take $\varepsilon = \frac{s}{2}$, there does not exist such $N \in \N$ satisfying 
+            \begin{equation}
+                \forall n \geq N,\ 
+                \begin{cases}
+                    |a_n - a| < \varepsilon \\
+                    |a_n - b| < \varepsilon
+                \end{cases}
+            \end{equation}
+            \emph{above notion indicates that the sequence is converging to two separate limit points simultaneously}.
+        \end{proof}
+        
+        \begin{theorem}[Properties of Limits]
+            If $(a_n) \to a$, $(b_n) \to b$, and $c \in \R$, then
+            \begin{enumerate}[(i)]
+                \item $(c \cdot a_n) \to c \cdot a$;
+                \item $(a_n + c) \to a + c$;
+                \item $(a_n + b_n) \to a + b$;
+                \item $(a_n \cdot b_n) \to a \cdot b$.
+            \end{enumerate}
+        \end{theorem}
+        
+    \section{Convergence of Series}
 \end{document}
