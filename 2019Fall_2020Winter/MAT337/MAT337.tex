@@ -378,4 +378,112 @@
             \end{align}
             therefore $(S_m)$ is non-decreasing and bounded above by $2$. So $(S_m)$ is convergent, so is  $\sum_{n=1}^\infty \frac{1}{n^2}$.
         \end{proof}
+        
+	\section{Order and Converging Sequences}
+		\begin{proposition}
+			If $(a_n) \geq 0$ is convergent to $a \in \R$, then $a \geq 0$.
+		\end{proposition}
+		
+		\begin{proof}
+			By contradiction.
+		\end{proof}
+		
+		\begin{proposition}
+			If $(a_n) \leq (b_n)$ are convergent to $a$ and $b$, respectively, then $a \leq b$.
+		\end{proposition}
+		
+		\begin{proof}
+			Construct sequence $(b_n - a_n) \geq 0$ and apply the previous proposition.
+		\end{proof}
+		
+		\begin{definition}[limsup]
+			Let $(a_n)$ be a bounded sequence, for each $m \in \N$, define 
+			\begin{equation}
+				b_m := \sup_{n \geq m}a_n
+			\end{equation}
+			For any $m_0 \leq m_1 \in \N$, it by the definition of supremum, it must be the case $b_{m_0} \geq b_{m_1}$. Therefore, $(b_m)$ is a monotonically non-decreasing sequence. Also since $(a_n)$ is bounded, $(b_m)$ is bounded as well. Thus, according to the monotone sequence theorem, $(b_m)$ converges to some limit $b \in \R$. Define
+			\begin{equation}
+				\limsup_{n \to \infty} a_n := b
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}[liminf]
+			Let $(a_n)$ be a bounded sequence, for each $m \in \N$, define 
+			\begin{equation}
+				b_m := \inf_{n \geq m}a_n
+			\end{equation}
+			For any $m_0 \leq m_1 \in \N$, it by the definition of infimum, it must be the case $b_{m_0} \leq b_{m_1}$. Therefore, $(b_m)$ is a monotonically non-increasing sequence. Also since $(a_n)$ is bounded, $(b_m)$ is bounded as well. Thus, according to the monotone sequence theorem, $(b_m)$ converges to some limit $b \in \R$. Define
+			\begin{equation}
+				\liminf_{n \to \infty} a_n := b
+			\end{equation}
+		\end{definition}
+		
+		\begin{theorem}
+			\begin{equation}
+				\lim_{n \to \infty} = a \iff \limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n = a
+			\end{equation}
+		\end{theorem}
+		
+		\begin{proof}
+			$(\implies)$ Suppose $(a_n) \to a$, for each $m \in \N$, define
+			$b_m := \sup_{n \geq m}a_n$ and $c_m := \inf_{n \geq m}a_n$. By the definitions of infimum, supremum, and, the convergence of sequence. For each $\varepsilon > 0$, for large enough $m \in \N$, for every $n \geq m$, we can bound $a_n$ in the range $(a - \varepsilon, a + \varepsilon)$, so are the supremum and infimum.
+			\begin{equation}
+				\forall \varepsilon > 0,\ \exists m \in \N,\ s.t.\ 
+				\begin{cases}
+					b_m < a + \varepsilon \\
+					c_m > a - \varepsilon
+				\end{cases}
+			\end{equation}
+			Also, by the convergence of $(a_n)$, there exists $N^* \in \N$ such that $\forall n \geq N^*$, $|a_n - a| < \frac{\varepsilon}{2}$, which means $a - \frac{\varepsilon}{2} < a_n < a + \frac{\varepsilon}{2}$. Therefore,
+			\begin{equation}
+				a - \frac{\varepsilon}{2} 
+				\leq \underbrace{\inf_{n \geq \N} a_n}_{c_N}
+				\leq \underbrace{\sup_{n \geq \N} a_n}_{b_N}
+				\leq a + \frac{\varepsilon}{2}
+			\end{equation}
+			so, since $c_N$ is increasing, and $b_N$ is decreasing, $(c_N) \to a$ and $(b_N) \to a$.
+		\end{proof}
+		
+		\begin{definition}[Double Index Sequence]
+			A sequence is said to be in \textbf{double index form} (i.e. indexed by $\N^2$, which is also countable) if it can be written as
+			\begin{equation}
+				(a_{m, n}),\ m, n \in \N
+			\end{equation}
+			and $\lim_{m \to \infty, n \to \infty}a_{m, n} = r$ if
+			\begin{equation}
+				\forall \varepsilon > 0, \exists N \in \N,\ s.t.\ \forall m, n \geq N,\ |a_{m,n} - r| < \varepsilon
+			\end{equation}
+		\end{definition}
+		
+		\begin{theorem}
+			Suppose, for sequence $(a_{m, n})$,
+			\begin{gather}
+				\lim_{m \to \infty} (\lim_{n \to \infty} a_{m, n}) = a \\
+				\lim_{n \to \infty} (\lim_{m \to \infty} a_{m, n}) = b \\
+				\lim_{m \to \infty, n \to \infty}a_{m, n} = r
+			\end{gather}
+			if $a, b, r$ all exist, then $a=b=r$.
+		\end{theorem}
+		
+		\begin{remark}
+			The theorem extends to sequence with countably many indices.
+		\end{remark}
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
