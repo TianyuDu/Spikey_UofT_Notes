@@ -910,6 +910,89 @@
  					\nabla \mu_K(\ve{p}) = \ve{x}
  				\end{equation}
  			\end{proposition}
+ 			
+ 		\subsection{Relationships between Demand, Indirect Utility, and Expenditure Functions}
+ 			\begin{proposition}[3.G.1, Shephard's lemma]
+ 				Suppose that $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} and \ul{strictly convex} preference relation $\pref$ defined on the consumption set $X := \R^L_+$. For all $p$ and $u$, the Hicksian demand $h(p, u)$ satisfies
+ 				\begin{equation}
+ 					h(p, u)=\nabla_{p} e(p, u)
+ 				\end{equation}
+ 			\end{proposition}
+ 			
+ 			\begin{proof}[Proof using Envelope Theorem]
+ 				The Lagrangian function for EMP is $\mc{L} := p \cdot x - \lambda (u - \overline{u})$. By the envelope theorem, at the optimum, 
+ 				\begin{align}
+ 					\partial_p e(p, u) &= \partial_p \mc{L}(p, h(p, u), \overline{u}, \lambda) \\
+ 					\implies \nabla_p e(p, u) &= h(p, u)
+ 				\end{align}
+ 			\end{proof}
+ 			
+ 			\begin{remark}[Interpretation]
+ 				The above proposition says if we are at an optimum in the EMP, the changes in demand caused by price changes have no first-order effect on the consumer's expenditure.
+ 			\end{remark}
+ 			
+ 			\begin{proposition}[3.G.2]
+ 				Suppose that $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} and \ul{strictly convex} preference relation $\pref$ defined on the consumption set $X := \R^L_+$. Suppose also that $h$ is continuously differentiable at $(p, u)$, then $D_p h(p, u) \in M_{L \times L}$ satisfies
+ 				\begin{enumerate}[(i)]
+ 					\item $D_{p} h(p, u)=D_{p}^{2} e(p, u)$;
+ 					\item $D_p h(p, u)$ is a negative semidefinite matrix;
+ 					\item $D_p h(p, u)$ is symmetric;
+ 					\item $D_p h(p, u) \cdot p = 0$.
+ 				\end{enumerate}
+ 			\end{proposition}
+ 			
+ 			\begin{proposition}[3.G.3, the Slutsky Equation]
+ 				Suppose that $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} and \ul{strictly convex} preference relation $\pref$ defined on the consumption set $X := \R^L_+$. Then for all $(p, w)$, and $u=v(p, w)$, we have
+ 				\begin{align}
+ 					D_{p} h(p, u)=D_{p} x(p, w)+D_{w} x(p, w) x(p, w)^{T}
+ 				\end{align}
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				Let $p \gg 0, w > 0, u > u(0)$, $h(p, u) = x(p, e(p, u))$, and $w = e(p, u)$. Differentiate both sides of this identity gives
+ 				\begin{align}
+ 					D_p h(p,u) &= D_p x(p, e(p,u)) + D_w x(p, e(p,u))\ D_p e(p, u) \\
+ 					&= D_p x(p, e(p,u)) + D_w x(p, e(p,u))\ h(p, u) \tx{ (Shephard's lemma)} \\
+ 					&= D_p x(p, e(p,u)) + D_w x(p, e(p,u))\ x(p, w)
+ 				\end{align}
+ 			\end{proof}
+ 			
+ 			\begin{definition}
+ 				The \textbf{Slutsky substitution matrix} is defined as
+ 				\begin{align}
+ 					S(p, w) := D_p h(p, u) = \left[ \begin{array}{ccc}{s_{11}(p, w)} & {\cdots} & {s_{1 L}(p, w)} \\ {\vdots} & {\ddots} & {\vdots} \\ {s_{L 1}(p, w)} & {\cdots} & {s_{L L}(p, w)}\end{array}\right]
+ 				\end{align}
+ 				where 
+ 				\begin{align}
+ 					\underbrace{s_{\ell k}(p, w)}_{\tx{SE}}
+ 					=\underbrace{\partial x_{\ell}(p, w) / \partial p_{k}}_{\tx{TE}}
+ 					+\underbrace{\left[\partial x_{\ell}(p, w) / \partial w\right] x_{k}(p, w)}_{\tx{IE}}
+ 				\end{align}
+ 			\end{definition}
+ 			
+ 			\subsubsection{Walrasian Demand and the Indirect Utility Function}
+ 			
+ 			\begin{proposition}[3.G.4 Roy's Identity]
+ 				Suppose that $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} and \ul{strictly convex} preference relation $\pref$ defined on the consumption set $X := \R^L_+$. Suppose also that the indirect utility function is differentiable at $(p, w) \gg 0$. Then
+ 				\begin{align}
+ 					x(p, w)=-\frac{1}{\nabla_{w} v(p, w)} \nabla_{p} v(p, w)
+ 				\end{align}
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				Apply the envelope theorem to UMP, 
+ 				\begin{align}
+ 					\nabla_p v(p, w) &= \partial_p [u(x^*) - \lambda^*(w - p \cdot x^*)] = \lambda^*x^* \\
+ 					\nabla_w v(p, w) &= \partial_w [u(x^*) - \lambda^*(w - p \cdot x^*)] = -\lambda^* \\
+ 					\implies x^* &= - \frac{1}{\nabla_w v(p, w)} \nabla_p v(p, w) 
+ 				\end{align}
+ 			\end{proof}
+ 			
+ 			\begin{figure}[h]
+ 				\centering
+ 				\includegraphics[width=1.0\linewidth]{figures/duality}
+ 				\caption{Fig. 3.G.3 in Mas-Colell: A Summary}
+ 			\end{figure}
 \end{document}
 
 
