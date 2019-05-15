@@ -607,6 +607,81 @@
  					\item \emph{Good 1 is desirable}: $\forall \vex \in X, \alpha \in \R_{++},\ \vex + \alpha \ve{e}_1 \succ \vex$.
  				\end{enumerate}
  			\end{definition}
+ 
+ 		\subsection{Preference and Utility}
+ 			\begin{definition}[Example 3.C.1]
+ 				The \textbf{lexicographic preference relation} on $X = \R^2_+$ defines $x \pref y$ if either $x_1 > y_1$ or $x_1 = y_1 \land x_2 \geq y_2$.
+ 			\end{definition}
+ 			
+ 			\begin{definition}[3.C.1]
+ 				The preference relation $\pref$ on $X$ is \textbf{continuous} if it is \emph{preserved under limits}. That's 
+ 				\begin{align}
+ 					\forall \seq{(x^n, y^n)}{n}\ s.t.\ x := \lim_{n\to \infty} x^n,\ y := \lim_{n\to\infty} y^n,\quad
+ 					x^n \pref y^n\ \forall n \implies x \pref y
+ 				\end{align}
+ 			\end{definition}
+ 			
+ 			\begin{proposition}[Equivalent Definition]
+ 				A preference relation $\pref$ is continuous if and only if for all $x \in X$, the upper contour set $\{y \in X : y \pref x\}$ and lower contour set $\{y \in X : x \pref y\}$ are closed.
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				Suppose $\pref$ is continuous, fix $x \in X$. Then for any sequence in the upper contour set of $x$, the limit point is also in the upper contour set of $x$. As a result, for every $x \in X$, $U_x$ contains all limit points, so it is closed.
+ 			\end{proof}
+ 			
+ 			\begin{proposition}
+ 				Lexicographic preference relation is \emph{not} continuous.
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				\begin{equation}
+ 					x^{n}:=(1 / n, 0) \text { and } y^{n}:=(0,1)
+ 				\end{equation}
+ 			\end{proof}
+ 			
+ 			\begin{proposition}][3.C.1]
+ 				Let $\pref$ be a continuous preference relation on $X$, there is a \ul{continuous} utility function $u: X \to \R$ representing $\pref$.
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				Construction of utility function:
+ 				\begin{enumerate}[(i)]
+ 					\item For each $x \in X$, by monotonicity and continuity of $\pref$, there exists an unique $\alpha(x)$ such that 
+ 					\begin{equation}
+ 						\alpha(x) e \sim x
+ 					\end{equation}
+ 					\item Take $\alpha(x)$ as the utility function.
+ 				\end{enumerate}
+ 			\end{proof}
+ 			
+ 			\begin{remark}
+ 				Above proposition guarantees the existence of continuous utility function for any continuous $\pref$. But, not all utility functions representing $\pref$ are continuous. We can construct discontinuous utility function by compositing a continuous utility function with a discontinuous but strictly increasing transformation.
+ 			\end{remark}
+ 			
+ 			\begin{remark}
+ 				It is possible for continuous preferences \emph{not} to be representable by a differentiable (but still continuous) utility function (\emph{Leontief}).
+ 			\end{remark}
+ 			
+ 			\begin{lemma}
+ 				The upper contour set of a quasi-concave function is convex.
+ 			\end{lemma}
+ 			
+ 			\begin{proposition}
+ 				\hl{[?] is this bi-conditional?}
+ 				If $\pref$ is (strictly) convex, then $u(\cdot)$ representing $\pref$ is (strictly) quasi-concave.
+ 			\end{proposition}
+ 			
+ 			\begin{proposition}
+ 				A continuous $\pref$ on $X = \R^L_+$ is \emph{homothetic} \ul{if and only if} it admits a utility function $u$ homogeneous of degree one.
+ 			\end{proposition}
+ 			
+ 			\begin{proposition}
+ 				A continuous $\pref$ on $X = \R^L_+$ is \emph{quasilinear} with respect to the first commodity (numeraire) \ul{if and only if} it admits a utility function $u$ in the form $u(x) = x_1 + \phi(x_2, \dots, x_L)$.
+ 			\end{proposition}
+ 			
+ 			\begin{remark}
+ 				Increasingness and quasi-concavity are ordinal properties of $u$; they are preserved for any arbitrary increasing transformation of the utility index. In contrast, the special forms of the utility representations in above propositions are not preserved; they are cardinal properties that are simply convenient choices for a utility representation.
+ 			\end{remark}
 \end{document}
 
 
