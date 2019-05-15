@@ -891,6 +891,25 @@
  				\end{align}
  				subtracting above inequalities gives the desired result.
  			\end{proof}
+ 			
+ 		\subsection{Duality: A Mathematical Introduction}
+ 			\begin{definition}
+ 				A \textbf{half-space} is a set of the form $\left\{x \in \mathbb{R}^{L} : p \cdot x \geq c\right\}$ for some $p \in \R^L$, $p \neq 0$ is called the \textbf{normal vector} to the half-space. Its boundary $\left\{x \in \mathbb{R}^{L} : p \cdot x = c\right\}$ is called a \textbf{hyperplane}.
+ 			\end{definition}
+ 		
+ 			\begin{definition}[3.F.1]
+ 				For any nonempty closed set $K \subset \R^L$, the \textbf{support function} of $K$ is defined for any $p \in \R^L$ to be 
+ 				\begin{equation}
+ 					\mu_{K}(p)=\inf \{p \cdot x : x \in K\}
+ 				\end{equation}
+ 			\end{definition}
+ 				
+ 			\begin{proposition}[3.F.1, The Duality Theorem]
+ 				Let $K$ be a nonempty closed set, and let $\mu_K$ be its support function. Then there is a unique $\vex \in K$ such that $\ve{p} \cdot \vex = \mu_k(p)$ \ul{if and only if} $\mu_K$ is differentiable at $\ve{p}$. Moreover, in this case
+ 				\begin{equation}
+ 					\nabla \mu_K(\ve{p}) = \ve{x}
+ 				\end{equation}
+ 			\end{proposition}
 \end{document}
 
 
