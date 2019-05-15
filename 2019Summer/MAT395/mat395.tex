@@ -682,6 +682,112 @@
  			\begin{remark}
  				Increasingness and quasi-concavity are ordinal properties of $u$; they are preserved for any arbitrary increasing transformation of the utility index. In contrast, the special forms of the utility representations in above propositions are not preserved; they are cardinal properties that are simply convenient choices for a utility representation.
  			\end{remark}
+ 		
+ 		\subsection{The Utility Maximization Problem}
+ 			\begin{definition}
+ 				Suppose a consumer chooses her most \emph{preferred consumption bundle} given prices $p \gg 0$ and wealth level $w > 0$, then the \textbf{utility maximization problem}(UMP) of this consumer is
+ 				\begin{align}
+ 					\max_{x \geq 0} u(x)\ s.t.\ p \cdot x \leq w
+ 				\end{align}
+ 			\end{definition}
+ 			
+ 			\begin{proposition}[3.D.1]
+ 				If $p \gg 0$ and $u(\cdot)$ is continuous, then the utility maximization problem has a solution.
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				Note $B_{p, w}=\left\{x \in \mathbb{R}_{+}^{L} : p \cdot x \leq w\right\}$ is compact. The proposition is an immediate consequence of the extreme value theorem.
+ 			\end{proof}
+ 			
+ 			\subsubsection{The Walrasian Demand Correspondence/Function}
+ 			
+ 			\begin{definition}
+ 				The \textbf{Walrasian demand correspondence}, $x(p, w)$, is the set of solutions to consumer's UMP. When the solution is unique, it is referred to as the walrasian demand function.
+ 			\end{definition}
+ 			
+ 			\begin{proposition}[3.D.2]
+ 				Suppose $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} preference relation $\pref$ defined on $X := \R^L_+$. The the Walrasian demand correspondence, $x(p,w)$, satisfies
+ 				\begin{enumerate}[(i)]
+ 					\item \emph{Homogeneous of degree zero} in $(p, w)$;
+ 					\item \emph{Walras' law}: $p \cdot x = w$;
+ 					\item \emph{Convexity} if $\pref$ is convex (i.e. $u$ is quasi-concave), then $x(p,w)$ is convex;
+ 					\item \emph{Uniqueness} if $\pref$ is strictly convex (i.e. $u$ is strictly quasi-concave), then $x(p,w)$ is a singleton.\footnote{A singleton set is trivially convex.}
+ 				\end{enumerate}
+ 			\end{proposition}
+ 			
+ 			\begin{proposition}[Kuhn-Tucker Necessary Condition]
+ 				Let $x^* \in x(p, w)$, then there exists a \emph{Lagrangian multiplier} $\lambda \geq 0$ such that
+ 				\begin{align}
+ 					\nabla u\left(x^{*}\right) &\leq \lambda p \\
+ 					x^{*} \cdot\left[\nabla u\left(x^{*}\right)-\lambda p\right]&=0 \tx{ (complementary slackness)}
+ 				\end{align}
+ 				As a result, for any interior optimum ($x^* \gg 0$), 
+ 				\begin{equation}
+ 					\nabla u\left(x^{*}\right)=\lambda p
+ 				\end{equation}
+ 			\end{proposition}
+ 			
+ 			\begin{corollary}
+ 				If $\nabla u\left(x^{*}\right) \gg 0$, then the first order necessary condition for an \ul{interior} optimum to UMP is equivalent to 
+ 				\begin{equation}
+ 					\frac{\partial u\left(x^{*}\right) / \partial x_{\ell}}{\partial u\left(x^{*}\right) / \partial x_{k}}=\frac{p_{\ell}}{p_{k}}
+ 				\end{equation}
+ 				for every $\ell, k$.
+ 			\end{corollary}
+ 			
+ 			\begin{definition}
+ 				The left hand side of above equality is the \textbf{marginal rate of substitution} of good $\ell$ for good $k$ at $x^*$, $MRS_{\ell k}$ at $(x^*)$. It tells us the amount of good $k$ that the consumer must be given to compensate her for a one-unit marginal reduction in her consumption of good $\ell$ ($\frac{dx_k}{dx_\ell}$).
+ 			\end{definition}
+ 			
+ 			\begin{proposition}[Interpretation of $\lambda$]
+ 				The Lagrangian multiplier $\lambda$ gives the \textbf{shadow price} of relaxing the wealth constraint in UMP. Therefore it equals the \emph{marginal utility value of wealth} at the optimum.
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				This is an immediate consequence of the envelope theorem.
+ 			\end{proof}
+ 			
+ 			\begin{proposition}
+ 				If $u$ is quasi-concave and monotone, and has $\nabla u(x) \neq 0\ \forall x \in \R^L_+$, then the Kuhn-Tucker conditions are indeed sufficient.
+ 			\end{proposition}
+ 			
+ 			\begin{proposition}
+ 				Indeed, if preferences are continuous, strictly convex, and locally nonsatiated on the consumption set $\R^L_+$,then $x(p, w)$ (which is then a function) is always continuous at all $(p, w) \gg 0$.
+ 			\end{proposition}
+ 			
+ 			\subsubsection{The Indirect Utility Function}
+ 			
+ 			\begin{definition}
+ 				The value function of consumer's UMP, $v(p, w) := u(x^*(p, w))$, is called the \textbf{indirect utility function}.
+ 			\end{definition}
+ 			
+ 			\begin{proposition}[3.D.3]
+ 				Suppose $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} $\pref$ on $\R^L_+$, then $v(p, w)$ satisfies
+ 				\begin{enumerate}[(i)]
+ 					\item Homogeneous of degree zero;
+ 					\item Strictly increasing in $w$ and non-increasing in $p_\ell$ for every $\ell$;
+ 					\item Quasi-convex (i.e. its lower contour set is convex);
+ 					\item Continuous in $(p, w)$.
+ 				\end{enumerate}
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				Show quasi-convexity of $v(p, w)$. Let $\overline{v} \in \R$ be an attainable utility level, the corresponding lower contour is $L :=\{(p, w) : v(p, w) \leq \overline{v}\}$. Let $(p, w), (p', w') \in L$, $\alpha \in [0, 1]$. Show $(p'', w'') := \alpha(p, w) + (1-\alpha)(p', w') \in L$ by showing $u(x) \leq \overline{v}$ for every $p'' \cdot x \leq w''$. Suppose $p'' \cdot x \leq w''$, then
+ 				\begin{align}
+ 					\alpha p \cdot x + (1-\alpha) p' \cdot x \leq \alpha w + (1-\alpha)w' \\
+ 					\implies p \cdot x \leq w \lor p' \cdot x \leq w'
+ 				\end{align}
+ 				which implies either $u(x) \leq v(p, w)$ or $u(x) \leq v(p' ,w')$, by the definition of value function of maximization problems. Since both $v(p,w), v(p',w') \leq \overline{v}$, then $u(x) \leq \overline{v}$. Therefore $v(p'', w'') \leq \overline{v}$. So $(p'', w'') \in L$, and $L$ is convex.
+ 			\end{proof}
+ 			
+ 			\begin{proposition}[Transformation on $v$]
+ 				\hl{[?] Does this require $f$ to be strictly increasing?}
+ 				Note that the indirect utility function depends on the utility representation chosen. In particular, if $v(p, w)$ is the indirect utility function when the consumer's utility function is $u$, then the indirect utility function corresponding to utility representation $\tilde{u}(x) = f \circ u(x)$ is $\tilde{v}(p, w) = f \circ v(p, w)$. 
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				the maximizer of such an optimization problem is invariant under such a monotonically increasing transformation $f$.
+ 			\end{proof}
 \end{document}
 
 
