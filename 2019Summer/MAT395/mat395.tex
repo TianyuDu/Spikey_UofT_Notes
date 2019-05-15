@@ -788,6 +788,109 @@
  			\begin{proof}
  				the maximizer of such an optimization problem is invariant under such a monotonically increasing transformation $f$.
  			\end{proof}
+ 			
+ 		\subsection{The Expenditure Minimization Problem}
+ 			\begin{definition}
+ 				Suppose a consumer chooses her most \emph{preferred consumption bundle} given prices $p \gg 0$ and wealth level $u > u(0)$, then the \textbf{expenditure minimization problem}(EMP) of this consumer is
+ 				\begin{align}
+ 					\min_{x \geq 0} p \cdot x \ s.t.\ u(x) \geq u
+ 				\end{align}
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				The value function of above optimization problem is called the \textbf{expenditure function}, denoted as $e(p, u)$.
+ 			\end{definition}
+ 			
+ 			\begin{assumption}
+ 				We assume that $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} preference relation $\pref$ defined on the consumption set $X := \R^L_+$.
+ 			\end{assumption}
+ 			
+ 			\begin{proposition}[3.E.1, the Duality]
+ 				Suppose $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} preference relation $\pref$ defined on the consumption set $X := \R^L_+$, and $p \gg 0$. Then,
+ 				\begin{enumerate}[(i)]
+ 					\item If $x^*$ is optimal in the UMP when wealth $w > 0$, then $x^*$ is the in the EMP with utility level $u(x^*)$, and the minimal expenditure is $w$;
+ 					\item If $x^*$ is optimal in the EMP with utility level $u > u(0)$, then $x^*$ is optimal in the UMP with wealth level $p \cdot x^*$, and the attained maximal utility is $u$.
+ 				\end{enumerate}
+ 			\end{proposition}
+ 			\begin{proof}
+ 				Contradiction.
+ 			\end{proof}
+ 			
+ 			\begin{corollary}
+ 				For any $p \gg 0$, $w > 0$, and $u > u(0)$,
+ 				\begin{align}
+ 					e(p, v(p, w)) &= w \\
+ 					v(p, e(p, u)) &= u 
+ 				\end{align}
+ 			\end{corollary}
+ 			
+ 			\begin{corollary}
+ 				\begin{align}
+ 					h(p, u) &= x(p, e(p, u)) \\
+ 					x(p, w) &= h(p, v(p, w))
+ 				\end{align}
+ 			\end{corollary}
+ 			
+ 			\begin{proposition}[3.E.2]
+ 				Suppose that $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} preference relation $\pref$ defined on the consumption set $X := \R^L_+$. Then the expenditure function $e(p, u)$ possesses the following properties
+ 				\begin{enumerate}[(i)]
+ 					\item Homogeneous of degree one \ul{in $p$};
+ 					\item Strictly increasing in $u$ and nondecreasing in $p_\ell$ for every $\ell$;
+ 					\item Concave in $p$;
+ 					\item Continuous in $(p, u)$.
+ 				\end{enumerate}
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				Show the concavity of $e$, let $p, p' \gg 0$, $\alpha \in [0, 1]$, and $\overline{u} > u(0)$. Define $p'' := \alpha p + (1-\alpha)p'$, then
+ 				\begin{align} 
+ 					e\left(p^{\prime \prime}, \overline{u}\right) &=p^{\prime \prime} \cdot x^{\prime \prime} \\
+ 					&=\alpha p \cdot x^{\prime \prime}+(1-\alpha) p^{\prime} \cdot x^{\prime \prime} \\ 
+ 					& \geq \alpha e(p, \overline{u})+(1-\alpha) e\left(p^{\prime}, \overline{u}\right) 
+ 				\end{align}
+ 			\end{proof}
+ 			
+ 			\subsubsection{The Hicksian (or Compensated) Demand Function}
+ 			
+ 			\begin{definition}
+ 				The set of solutions to EMP, $h(p, u) \subseteq \R^L_+$, is known as the \textbf{Hicksian, or compensated, demand correspondence, or function} if single-valued.
+ 			\end{definition}
+ 			
+ 			\begin{proposition}[3.E.3]
+ 				Suppose that $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} preference relation $\pref$ defined on the consumption set $X := \R^L_+$. Then for any $p \gg 0$, the Hicksian demand $h(p, u)$ possess the following properties
+ 				\begin{enumerate}[(i)]
+ 					\item \emph{Homogeneous of degree zero} in $p$;
+ 					\item \emph{No excess utility}: $\forall x \in h(p, u),\ u(x) = u$;
+ 					\item \emph{Convexity}: if $\pref$ is convex, then $h(p, u)$ is convex;
+ 					\item \emph{Uniqueness}: if $\pref$ is strictly convex, then $h(p, u)$ is a singleton.
+ 				\end{enumerate}
+ 			\end{proposition}
+ 			
+ 			\begin{definition}
+ 				As prices vary, $h(p, u)$ gives precisely the level of demand that would arise if the consumer's wealth were simultaneously adjusted to keep her utility level at $u$. The amount of wealth compensated to ensure the original utility level attainable is referred to as the \textbf{Hicksian wealth compensation}.
+ 				\begin{align}
+ 					\Delta w_{\text { Hicks }}=e\left(p^{\prime}, u\right)-w
+ 				\end{align}
+ 			\end{definition}
+ 			
+ 			\subsubsection{Hicksian Demand and the Compensated Law of Demand}
+ 			
+ 			\begin{proposition}[3.E.4, the Compensated Law of Demand]
+ 				Suppose that $u$ is a \ul{continuous} utility function representing a \ul{locally nonsatiated} preference relation $\pref$ defined on the consumption set $X := \R^L_+$. And suppose $h(p, u)$ is single-valued everywhere, then for all $p'$ and $p''$,
+ 				\begin{align}
+ 					\left(p^{\prime \prime}-p^{\prime}\right) \cdot\left[h\left(p^{\prime \prime}, u\right)-h\left(p^{\prime}, u\right)\right] \leq 0
+ 				\end{align}
+ 				That's, \emph{Demand and price move in opposite directions for price changes that are accompanied by Hicksian wealth compensation}.
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				Suppose $u > u(0)$, and the price changes from $p'$ tp $p''$, then
+ 				\begin{align}
+ 					p'' \cdot h(p'', u) \leq p'' \cdot h(p', u) \\
+ 					p' \cdot h(p'', u) \geq p' \cdot h(p', u)
+ 				\end{align}
+ 				subtracting above inequalities gives the desired result.
+ 			\end{proof}
 \end{document}
 
 
