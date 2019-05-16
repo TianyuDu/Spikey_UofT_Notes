@@ -1034,6 +1034,108 @@
  			\begin{proposition}
  				The necessary and sufficient condition for the recovery of an underlying expenditure function is the symmetry and negative semi-definiteness of the Slutsky matrix.
  			\end{proposition}
+ 		
+ 		\subsection{Welfare Evaluation of Economic Changes}
+ 			\paragraph{Context}We assume that the consumer has a fixed wealth level $w > 0$ and that the price vector is initially $p^0$. We wish to evaluate the impact on the consumer's welfare of a change from $p^0$ to a new price vector $p^1$.
+ 			
+ 			\begin{definition}
+ 				\textbf{Money metric} indirect utility functions measure welfare change expressed in dollar units. A money metric can be formed at an \ul{arbitrary price vector} $\overline{p} \gg 0$, and the welfare change expressed in dollar units is
+ 				\begin{equation}
+ 					e\left(\overline{p}, v\left(p^{1}, w\right)\right)-e\left(\overline{p}, v\left(p^{0}, w\right)\right)
+ 				\end{equation}
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				Let $u^0 = v(p^0, w)$, $u^1 = v(p^1, w)$, and noting that $e(p^0, u^0) = e(p^1, u^1) = w$.
+ 				When $\overline{p} = p^0$, the money metric is called \textbf{equivalence variation}
+ 				\begin{equation}
+ 					EV \left(p^{0}, p^{1}, w\right)=e\left(p^{0}, u^{1}\right)-e\left(p^{0}, u^{0}\right)=e\left(p^{0}, u^{1}\right)-w
+ 				\end{equation}
+ 				when $\overline{p} = p^1$, then it is referred to as
+ 				\begin{equation}
+ 					CV\left(p^{0}, p^{1}, w\right)=e\left(p^{1}, u^{1}\right)-e\left(p^{1}, u^{0}\right)=w-e\left(p^{1}, u^{0}\right)
+ 				\end{equation}
+ 			\end{definition}
+ 			
+ 			\begin{remark}[Interpretation of EV]
+ 				The equivalent variation can be thought of as the dollar amount that the consumer would be indifferent about accepting in lieu of the price change; that is, it is the change in her wealth that would be equivalent to the price change in terms of its welfare impact (so it is negative if the price change would make the consumer worse off). Therefore,
+ 				\begin{equation}
+ 					v(p^0, w+EV) = u^1
+ 				\end{equation}
+ 			\end{remark}
+ 			
+ 			\begin{remark}[interpretation of CV]
+ 				The compensating variation, on the other hand, measures the net revenue of a planner who must compensate the consumer for the price change after it occurs, bringing her back to her original utility level $u^0$ (Hence, the compensating variation is negative if the planner would have to pay the consumer a positive level of compensation because the price change makes her worse off.)
+ 				\begin{equation}
+ 					v\left(p^{1}, w-C V\right)=u^{0}
+ 				\end{equation}
+ 			\end{remark}
+ 			
+ 			\begin{proposition}
+ 				Suppose $p_1$ changes from $p_1^0$ to $p_1^1$, and $p^0_\ell = p^1_\ell = \overline{p}_\ell\ \forall \ell \neq 1$,
+ 				\begin{align}
+ 					EV\left(p^{0}, p^{1}, w\right) &=e\left(p^{0}, u^{1}\right)-w \\ 
+ 					&=e\left(p^{0}, u^{1}\right)-e\left(p^{1}, u^{1}\right) \\
+ 					&=\int_{p_{1}^{1}}^{p_{1}^{0}} h_{1}\left(p_{1}, \overline{p}_{-1}, u^{1}\right) d p_{1}
+ 				\end{align}
+ 				Similarly
+ 				\begin{align}
+	 				CV\left(p^{0}, p^{1}, w\right) &= w - e(p^1, u^0) \\
+	 				&= e(p^0, u^0) - e(p^1, u^0) \\
+	 				&=\int_{p_{1}}^{p_{1}^{\circ}} h_{1}\left(p_{1}, \overline{p}_{-1}, u^{0}\right) d p_{1}
+ 				\end{align}
+ 			\end{proposition}
+ 			
+ 			\begin{remark}
+ 				However, if there is no wealth effect for good 1 (e.g., if the underlying preferences are quasilinear with respect to some good $\ell \neq 1$), the CV and EV measures are the same.
+ 			\end{remark}
+ 			
+ 			\begin{definition}
+ 				The value of area lying between $p_0^1$ and $p_1^1$ to the left of the market (Walrasian) demand curve for good 1, $\int_{p_1^1}^{p_1^0} x_1(p_1, \overline{p}_{-1}, w)\ dp_1$, measures the change in \textbf{Marshallian consumer surplus}. Such welfare measure is a special case of money metric when the wealth effects are absent.
+ 			\end{definition}
+ 			
+ 			\begin{definition}
+ 				Suppose the government imposes commodity tax of $t$ for each unit of good 1, let $T$ denote the amount of tax collected, then the \textbf{deadweight loss of commodity taxation} is 
+ 				\begin{align}
+ 					(-T)-E V\left(p^{0}, p^{1}, w\right) &=e\left(p^{1}, u^{1}\right)-e\left(p^{0}, u^{1}\right)-T \\
+ 					&=\int_{p_{1}^{0}}^{p_{1}^{0}+t} h_{1}\left(p_{1}, \overline{p}_{-1}, u^{1}\right) d p_{1}-t h_{1}\left(p_{1}^{0}+t, \overline{p}_{-1}, u^{1}\right) \\
+ 					&=\int_{p_{1}^{0}}^{p_{1}^{0}+t}\left[h_{1}\left(p_{1}, \overline{p}_{-1}, u^{1}\right)-h_{1}\left(p_{1}^{0}+t, \overline{p}_{-1}, u^{1}\right)\right] d p_{1}
+ 				\end{align}
+ 				It measures the extra amount by which the consumer is made worse off by commodity taxation above what is necessary to raise the same revenue through a lump-sum tax.
+ 			\end{definition}
+ 			
+ 			\subsubsection{Welfare Analysis with Partial Information}
+ 			
+ 			\begin{proposition}[3.I.1]
+ 				Suppose that the consumer has a locally nonsatiated rational preference relation $\pref$. If $(p^1-p^0) \cdot x^0 < 0$, then the consumer is strictly better off under price-wealth situation $(p^1, w)$ than $(p^0, w)$.
+ 			\end{proposition}
+ 			
+ 			\begin{proof}
+ 				By Walras' law, $p^0 \cdot x^0 = w$. Therefore, $x^0 \in B_{p_1, w}^{int}$. Because $x^0$ is in the interior of budget set, so $x^0 \neq x^1$ by local nonsatiation. As a result, $x^1 \succ^* x^0$ is revealed.
+ 			\end{proof}
+ 			
+ 			\begin{proposition}[3.I.2]
+ 				Suppose that the consumer has a differentiable expenditure function. then if $\left(p^{1}-p^{0}\right) \cdot x^{0}>0$, there is a sufficiently small $\overline{\alpha} \in (0, 1)$ such that for all $\alpha < \overline{\alpha}$, we have $\left(p^{1}-p^{0}\right) \cdot x^{0}>0$, and so the consumer is strictly better off under price-wealth situation $(p^0, w)$ than under $\left((1-\alpha) p^{0}+\alpha p^{1}, w\right)$
+ 			\end{proposition}
+ 			
+ 			\begin{definition}
+ 				The \textbf{area variation} measure (AV) provides an estimate of welfare change when only Walrasian demand is observable
+ 				\begin{equation}
+ 					A V\left(p^{0}, p^{1}, w\right)=\int_{p_{1}^{1}}^{p_{1}^{0}} x_{1}\left(p_{1}, \overline{p}_{-1}, w\right) d p_{1}
+ 				\end{equation}
+ 			\end{definition}
+ 			
+ 			\begin{remark}
+ 				When there are no wealth effects, $AV=EV=CV$.
+ 			\end{remark}
+ 			
+ 			\begin{remark}
+ 				Marshall argued that if a good is just one commodity among many, then because one extra unit of wealth will spread itself around, the wealth effect for the commodity is bound to be small; therefore, no significant errors will be made by evaluating the welfare effects of price changes for that good using the area measure.
+ 			\end{remark}
+ 			
+ 			\begin{remark}
+ 				So when $\Delta p$ is small, the error involved using the area variation measure becomes small as a fraction fo the true welfare change, and therefore, can be used as an accurate approximation of the actual welfare change.
+ 			\end{remark}
 \end{document}
 
 
