@@ -984,7 +984,7 @@
  				\begin{align}
  					\nabla_p v(p, w) &= \partial_p [u(x^*) - \lambda^*(w - p \cdot x^*)] = \lambda^*x^* \\
  					\nabla_w v(p, w) &= \partial_w [u(x^*) - \lambda^*(w - p \cdot x^*)] = -\lambda^* \\
- 					\implies x^* &= - \frac{1}{\nabla_w v(p, w)} \nabla_p v(p, w) 
+ 					\implies x^* &= - \frac{1}{\nabla_w v(p, w)} Inabla_p v(p, w) 
  				\end{align}
  			\end{proof}
  			
@@ -993,6 +993,47 @@
  				\includegraphics[width=1.0\linewidth]{figures/duality}
  				\caption{Fig. 3.G.3 in Mas-Colell: A Summary}
  			\end{figure}
+ 		
+ 		\subsection{Integrability}
+ 			\par \hl{TODO: this subsection needs revision.}
+ 			\begin{remark}[the Central Question]
+ 				Given a continuously differentiable demand function $x(p, w)$ satisfying homogenous of degree zero, Walras' law, and possessing negative semidefinite substitution matrix $S(p, w)$, can we find preferences rationalizing $x(p,w)$.
+ 			\end{remark}
+ 			
+ 			\begin{proposition}
+ 				Suppose the demand $x(p, w)$ satisfying the weak axiom, homogeneity of degree zero and Walras' law, then it can be rationalized by preferences \ul{if and only if} it has a symmetric substitution matrix $S(p, w)$.
+ 			\end{proposition}
+ 			
+ 			\subsubsection{Recovering Preferences from the Expenditure Function}
+ 			
+ 			\paragraph{Construction}For each utility level $u$, we can construct a \textbf{at-least-as-good-as set} $V_u \subset \R^L$ such that \ul{$e(p, u)$ is the minimal expenditure required for the consumer to purchase a bundle in $V_u$ at all price $p \gg 0$}. That's $V_u$ satisfies
+ 			\begin{equation}
+ 				\forall p \gg 0,\ e(p, u) = \min_{x \geq 0} p \cdot x\ s.t.\ x \in V_u
+ 			\end{equation}
+ 			
+ 			\begin{proposition}[3.H.1]
+ 				Suppose that $e(p, u)$ is strictly increasing in $u$ and is continuous, increasing, homogeneous of degree one, concave, and differentiable in $p$. Then, for every utility level $u$, $e(p, u)$ is the expenditure associated with at-least-as-good-as set
+ 				\begin{equation}
+ 					V_{u}=\left\{x \in \mathbb{R}_{+}^{L} : p \cdot x \geq e(p, u) \text { for all } p \gg 0\right\}
+ 				\end{equation}
+ 				That is, $e(p, u) = \min\{p\cdot x: x \in V_u\}\ \forall p \gg 0$.
+ 			\end{proposition}
+ 			
+ 			\par Then, for each $u > u(0)$, we can construct such $V_u$ and define $\pref$ on $X = \R^L_+$ with $V_u$. That's, for a given $x \in \R^L_+$ such that $u(x) \leftarrow \overline{u}$, then for each $y \in \R^L_+$,
+ 			\begin{equation}
+ 				y \pref x \iff y \in V_{\overline{u}}
+ 			\end{equation}
+ 			
+ 			\subsubsection{Recovering the Expenditure Function from Demand}
+ 			\paragraph{Construction} Suppose $x(p, w)$ is known, and by Shephard's lemma, expenditure function $e(p, w)$ can be solved from the system of partial differential equations
+ 			\begin{equation}
+ 				\begin{array}{l}{\frac{\partial e(p)}{\partial p_{1}}=x_{1}(p, e(p))} \\ {\vdots} \\ {\frac{\partial e(p)}{\partial p_{L}}=x_{L}(p, e(p))}\end{array}
+ 			\end{equation}
+ 			and initial conditions.
+ 			
+ 			\begin{proposition}
+ 				The necessary and sufficient condition for the recovery of an underlying expenditure function is the symmetry and negative semi-definiteness of the Slutsky matrix.
+ 			\end{proposition}
 \end{document}
 
 
