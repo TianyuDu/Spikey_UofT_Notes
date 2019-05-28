@@ -1298,6 +1298,117 @@
 	 		\begin{remark}
 	 			In a competitive environment, the return to the entrepreneurial factor is the firm's profit.
 	 		\end{remark}
+
+	 	\subsection{Profit Maximization and Cost Minimization}
+	 		\begin{assumption}[price-taking assumption]
+	 			Assuming the prices quoted for the $L$ goods, $p \gg 0$, are independent of the production plans of the firm.
+	 		\end{assumption}
+	 		
+	 		\begin{assumption}
+	 			We assume that the firm's production set $Y$ satisfies the \emph{non-emptiness}, \emph{closedness}, and \emph{free disposal}.
+	 		\end{assumption}
+	 		
+	 		\subsubsection{The Profit Maximization Problem}
+	 		\begin{definition}[PMP]
+	 			\begin{gather}
+	 				\max_{y \in \R^L}\ p \cdot y\ s.t.\ y \in Y
+	 			\end{gather}
+	 			equivalently
+	 			\begin{gather}
+	 				\max_{y \in \R^L}\ p \cdot y\ s.t.\ F(y) \leq 0
+	 			\end{gather}
+	 			define the \textbf{profit function} and \textbf{supply correspondence} as 
+	 			\begin{align}
+	 				\pi(p) &:= \max\{p \cdot : y \in Y\} \\
+	 				y(p) &:= \argmax\{p \cdot : y \in Y\}
+	 			\end{align}
+	 			If the transformation function $F(\cdot)$ is differentiable, then the necessary condition for $y^* \in y(p)$ is
+	 			\begin{equation}
+	 				p = \lambda \nabla F (y^*)
+	 			\end{equation}
+	 		\end{definition}
+	 		
+	 		\begin{definition}[PMP with single-output technology]
+	 			Suppose the input and output sets are disjoint. Let $f: \R^{L-1}_+ \to \R_+$ denote the production function, let $w$ and $p$ denote the prices of inputs and the output commodity respectively. The PMP can be written as 
+	 			\begin{equation}
+	 				\max_{z \geq 0} p f(z) - w \cdot z
+	 			\end{equation}
+	 			the necessary conditions for $z^* \in \argmax$ are
+	 			\begin{equation}
+		 			\begin{cases}
+		 				p\ \nabla f(z^*) \leq w \\
+		 				\left[p\ \nabla f(z^*) - w\right] \odot z^* = 0
+		 			\end{cases}
+	 			\end{equation}
+	 			\emph{Interpretation: the marginal product of every input $\ell$ actually used must equal its price in terms of output, $w_\ell / p$}.
+	 		\end{definition}
+	 		
+	 		\begin{proposition}[5.C.1]
+	 			Suppose $\pi(p)$ and $y(p)$ are the profit function and supply correspondence with production set $Y$. Further, suppose $Y$ is closed and satisfies the free disposal property. Then
+	 			\begin{enumerate}[(i)]
+	 				\item $\pi$ is homogeneous of degree one;
+	 				\item $\pi$ is convex;
+	 				\item If $Y$ is convex, then $Y = \{y \in \R^L: p \cdot y \leq \pi (p)\ \forall p \gg 0$;
+	 				\item $y$ is homogeneous of degree zero;
+	 				\item If $Y$ is convex, then $y(p)$ is a convex set for all $p$. If $Y$ is strictly convex, then $y(p)$ is a singleton (if nonempty);
+	 				\item (\textbf{Hotelling's Lemma}) If $y(\overline{p})$ is a singleton, then $pi$ is differentiable at $p$ and $\nabla \pi (\overline{p}) = y(\overline{p})$;
+	 				\item (\textbf{Lay of Supply}) If $y$ is a function differentiable at $\overline{p}$, then $Dy(\overline{p})=D^2 \pi(\overline{p})$ is a symmetric and positive semidefinite matrix with $Dy(\overline{p}) \overline{p})=0$. Where $Dy$ is called the \textbf{supply substitution matrix}.
+	 			\end{enumerate}
+	 		\end{proposition}
+	 		
+	 		\begin{proposition}[Law of Supply]
+	 			Discrete case:
+	 			\begin{equation}
+	 				(p-p') \cdot (y-y') \geq 0
+	 			\end{equation}
+	 			Differential case, when $p = \overline{p}$ and $y = y(\overline{p})$:
+	 			\begin{equation}
+	 				dp \underbrace{Dy(p) dp}_{dy} = dp \cdot dy \geq 0
+	 			\end{equation}
+	 		\end{proposition}
+	 		
+	 		\subsubsection{Cost Minimization}
+	 		\begin{definition}[CMP]
+	 			Suppose the firm has a single-output technology, where input and output sets are disjoint. Let $(w, p) \gg 0$ denote the prices of inputs and the output. For each output level $q \geq 0$, the cost minimization problem is 
+	 			\begin{equation}
+	 				\min_{z \geq 0} w \cdot z\ s.t.\ f(z) \geq q
+	 			\end{equation}
+	 			The value function $c(w, q)$ is called the \textbf{cost function} and the solution set $z(w, q)$ is known as the \textbf{conditional factor demand correspondence}. The necessary conditions for $z^* \in z(w, q)$ are
+	 			\begin{equation}
+	 				\begin{cases}
+	 					w \geq \lambda \nabla f(z^*) \\
+	 					\left[w - \lambda \nabla f(z^*) \right] \odot z^* = 0
+	 				\end{cases}
+	 			\end{equation}
+	 			By the envelope theorem, $\lambda^* = \pd{c(z^*, q)}{q}$, which can be interpreted as the marginal value of relaxing the constraint $f(z^*) \geq q$. Therefore, $\lambda$ is the \emph{marginal cost of production}.
+	 		\end{definition}
+	 		
+	 		\begin{proposition}[5.C.2]
+	 			Suppose that $c(w, q)$ and $z(w, q)$ are the cost function and conditional factor demand correspondence corresponding to a single-output technology $Y$ with production function $f$. Suppose $Y$ is closed and satisfies the free disposal property. Then
+	 			\begin{enumerate}[(i)]
+	 				\item $c$ is homogeneous of degree one in $w$ and nondecreasing in $q$;
+	 				\item $c$ is a concave function of $w$;
+	 				\item If the sets $\{z\geq0:f(z)\geq q\}$ are convex for every $q$, then $Y=\{(-z, q): w \cdot z \geq c(w, q)\ \forall w \gg 0\}$;
+	 				\item $z$ is homogenous of degree zero in $w$;
+	 				\item If the set $\{z \geq 0: f(z) \geq q\}$ is convex, then $z(w, q)$ is a convex set. If $\{z \geq 0: f(z) \geq q\}$ is strictly convex, then $z(w, q)$ is a singleton;
+	 				\item (\textbf{Shepard's Lemma}) If $z(\overline{w}, q)$ is a singleton, then $c$ is differentiable with respect to $w$ at $\overline{w}$, and $\nabla_w c(\overline{w}, q) = z(\overline{w}, q)$;
+	 				\item If $z$ is differentiable at $\overline{w}$ then $D_w z (\overline{w}, q) = D^2_w (\overline{w}, q)$ is a symmetric and negative semidefinite matrix with $D_w z (\overline{w}, q) \overline{w} = 0$;
+	 				\item If $f$ is homogeneous of degree one (i.e. constant return to scale), then $c$ and $z$ are homogenous of degree one in $q$;
+	 				\item If $f$ is concave, then $c$ is a convex function of $q$.
+	 			\end{enumerate}
+	 		\end{proposition}
+	 		
+	 		\begin{corollary}
+	 			Alternative form of CMP, determining the profit-maximizing production level
+	 			\begin{equation}
+	 				\max_{q \geq 0} p q - c(w, q)
+	 			\end{equation}
+	 			where the necessary conditions for $q^* \in \argmax$ are
+	 			\begin{equation}
+	 				p \leq \pd{c(w, q^*)}{q}\tx{ with equality if } q^* > 0
+	 			\end{equation}
+	 			\emph{At an interior optimum, price equals marginal cost}. Note that if $c$ is convex in $q$ (i.e. $p q - c(w, q)$ is concave in q), the the necessary condition is also sufficient.
+	 		\end{corollary}
 \end{document}
 
 
