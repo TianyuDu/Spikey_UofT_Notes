@@ -1428,6 +1428,43 @@
 	 		\end{remark}
 	 		
 	 	\subsection{Aggregation}
+	 		\begin{remark}
+	 			The absence of budget constraint in the profit maximization implies that individual supply is not subject to wealth effects. As prices change, there are only substitution effects along the production frontier.
+	 		\end{remark}
+	 		
+	 		\begin{definition}
+	 			Suppose there are $J$ production units in the economy with production set $(Y_j)$. Assuming each $Y_j$ is nonempty, closed, and satisfies the free disposal property. Then the \textbf{aggregate supply correspondence} is defined as
+	 			\begin{equation}
+	 				y(p)=\sum_{j=1}^{J} y_{j}(p)=\left\{y \in \R^{L} : y=\sum_{j} y_{j} \tx { where } y_{j} \in y_{j}(p),\ \forall j=1, \cdots, J\right\}
+	 			\end{equation}
+	 		\end{definition}
+	 		
+	 		\begin{proposition}
+	 			If every $y_j$ is single valued, since $Dy_j(p)$ is symmetric and positive semidefinite, then $D_y(p)$ is also symmetric and positive semidefinite.
+	 		\end{proposition}
+	 		
+	 		\begin{proposition}[Law of supply in the aggregate]
+	 			By adding over the \emph{lay of individual supply}, we have 
+	 			\begin{equation}
+	 				(p-p') \cdot \left[y(p)-y(p')\right] \geq 0
+	 			\end{equation}
+	 		\end{proposition}
+	 		
+	 		\begin{definition}
+	 			The \textbf{aggregate production set} is defined as
+	 			\begin{equation}
+	 				Y := \sum_j Y_j = \left\{y \in \R^L: y = \sum_j y_j \tx{ where } y_j \in Y_j,\ \forall  j = 1, \cdots, J \right\}
+	 			\end{equation}
+	 		\end{definition}
+	 		
+	 		\begin{proposition}[5.E.1]
+	 			For all $p \gg 0$, we have 
+	 			\begin{enumerate}[(i)]
+	 				\item $\pi^*(p) = \sum_j \pi_j (p)$;
+	 				\item $y^*(p) = \sum_j y_j (p) = \left\{\sum_j y_j: y_j \in y_j(p)\ \forall j \right\}$.
+	 			\end{enumerate}
+	 			\emph{Interpretation: the aggregate profit obtained by each production unit maximizing profit separately taking prices as given is the same as that which would be obtained if they were to coordinate their actions in a joint profit maximizing decision.} Therefore, to find the solution of the aggregate profit maximization problem for given prices $p$, it is enough to add the solutions of the corresponding individual problems. Moreover, given the minimizing aggregate output $q = \sum_j q_j$, the total cost $c(w, q)$ is exactly the value of \textbf{aggregate cost function} (the cost function corresponding to the aggregate production set $Y$). Thus, \emph{the allocation of production of output level $q$ among the firms is cost minimizing}. As a result, $q(p)$ satisfies necessary conditions $p \leq c'(q)$ and $(p - c'(q))q = 0$.
+	 		\end{proposition}
 \end{document}
 
 
