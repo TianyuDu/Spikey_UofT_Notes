@@ -1596,7 +1596,22 @@
 	 				L \pref L' \iff \sum_n u_n p_n \geq \sum_n u_n p_n'
 	 			\end{equation}
 	 		\end{proposition}
+	 	
+	 	\subsection{Money Lotteries and Risk Aversion}
+	 		\begin{assumption}
+	 			Assume the outcomes of lotteries are continuous monetary values, $x$. Then such a monetary lottery can be represented by a cumulative distribution function $F$. Therefore the lottery space $\mathscr{L}$ is identical to the set of all distribution functions over $[a, +\infty)$.
+	 		\end{assumption}
 	 		
+	 		\begin{remark}
+	 			For each wealth level $x$ from a monetary lottery, suppose the individual has a \textbf{Bernoulli utility function} $u: [a, +\infty) \to \R$ representing his preference over wealth levels. Then the v.N-M utility function $U(F)$ is the expectation of $u(x)$ over all possible outcomes:
+	 			\begin{equation}
+	 				U(F) = \int u(x)\ dF(x)
+	 			\end{equation}
+	 		\end{remark}
+	 		
+	 		\begin{assumption}
+	 			We assume the Bernoulli utility function $u(\cdot)$ is increasing and continuous except at $0$, and set $u(0) = -\infty$.
+	 		\end{assumption}
 \end{document}
 
 
