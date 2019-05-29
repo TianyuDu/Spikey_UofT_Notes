@@ -1506,6 +1506,97 @@
 	 				\item Managers can be controlled by owners.
 	 			\end{enumerate}
 	 		\end{remark}
+	 \section{Chapter 6. Choice Under Uncertainty}
+	 	\subsection{Expected Utility Theory}
+	 		\begin{assumption}
+	 			Let $C$ denote the set of all possible \emph{outcomes}/\emph{consequences} from one \emph{risky alternative}. For simplicity, we assume $C$ is finite, indexed by $n=1, \cdots, N$.
+	 		\end{assumption}
+	 		
+	 		\begin{assumption}
+	 			We assume that the probabilities of various outcomes arising from any chosen alternative are \emph{objectively known}.
+	 		\end{assumption}
+	 		
+	 		\begin{definition}[6.B.1]
+	 			A \textbf{simple lottery} $L$ is a list $(p_n)_n \geq 0$ such that $\sum_n p_n = 1$, where $p_n$ is interpreted as the probability of outcome $n$ occurring. \emph{That is, a lottery is a distribution on the outcome space}. If $p_n = 1$ for some $n$, then $L$ is said to be a \textbf{degenerate lottery}.
+	 		\end{definition}
+	 		
+	 		\begin{remark}
+	 			The set of all simple lotteries with $N$ outcomes is the $(N-1)$ dimensional simplex
+	 			\begin{equation}
+	 				\Delta := \left\{p \in \R^N: p_1 + \cdots + p_N = 1 \right\}
+	 			\end{equation}
+	 		\end{remark}
+	 		
+	 		\begin{definition}[6.B.2]
+	 			Given $K$ simple lotteries $L_k = (p_n^k)$, and probabilities $(\alpha_k)$ with $\sum_k \alpha_k = 1$, the \textbf{compound lottery} $(L_k; \alpha_k)$ is the risky alternative that yields the simple lottery $L_k$ with probability $\alpha_k$ for each $k$.
+	 		\end{definition}
+	 		
+	 		\begin{proposition}
+	 			A compound lottery can be \textbf{reduced} into a simple lottery, the probability of outcome $n$ in the reduced lottery is
+	 			\begin{equation}
+	 				p_n = \alpha_1 p_n^1 + \cdots \alpha_k p_n^k
+	 			\end{equation}
+	 			Equivalently, with vector addition
+	 			\begin{equation}
+	 				L := \sum_{k=1}^K \alpha_k L_k \in \Delta
+	 			\end{equation}
+	 		\end{proposition}
+	 		
+	 		\begin{assumption}[Consequentialist Premise]
+	 			We assume that for any risky alternative, only the reduced lottery over final outcomes is of relevance to the decision maker.
+	 		\end{assumption}
+	 		
+	 		\begin{assumption}
+	 			Let $\mathscr{L}$ denote the set of all simple lotteries over the set of outcomes $C$. We assume that the decision maker has a rational preference relation $\pref$ on $\mathscr{L}$.
+	 		\end{assumption}
+	 		
+	 		\begin{definition}[6.B.3]
+	 			The preference relation $\pref$ on the space of simple lotteries $\mathscr{L}$ is \textbf{continuous} if for any $L, L', L'' \in \mathscr{L}$, the set
+	 			\begin{equation}
+	 				\left\{\alpha \in[0,1] : \alpha L + (1-\alpha) L' \pref L''\right\} \subset[0,1]
+	 			\end{equation}
+	 			and 
+	 			\begin{equation}
+	 				\left\{\alpha \in[0,1] : L'' \pref \alpha L + (1-\alpha) L'\right\} \subset[0,1]
+	 			\end{equation}
+	 			are closed. \emph{Given a (convergent) sequence of probability distributions (here characterized by $\alpha$) inside the upper/lower contour of one lottery, the limit distribution is also in the upper/lower contour set of the lottery.}
+	 		\end{definition}
+	 		
+	 		\begin{definition}[6.B.4]
+	 			The preference relation $\pref$ on the space of simple lotteries $\mathscr{L}$ satisfies the \textbf{independence axiom} if for all $L, L', L'' \in \mathscr{L}$ and $\alpha \in (0, 1)$ we have
+	 			\begin{equation}
+	 				L \pref L' \iff \alpha L + (1 - \alpha) L'' \pref \alpha L' + (1 - \alpha) L'' 
+	 			\end{equation}
+	 			\emph{That is, if we mix each of two lotteries with a third one, then the preference ordering of the two resulting mixtures does not depend on (is independent of) the particular third lottery used.}
+	 		\end{definition}
+	 		
+	 		\begin{definition}[6.B.5]
+	 			The utility function $U: \mathscr{L} \to \R$ has an \textbf{expected utility form} if there exists an assignment of numbers $(u_n)$ to the $N$ outcomes such that for every \emph{simple lottery} $L = (p_n) \in \mathscr{L}$ we have
+	 			\begin{equation}
+	 				U(L) = \sum_n u_n p_n
+	 			\end{equation}
+	 			$U$ with the expected utility form is also called a \textbf{Von Neumann-Morgenstern expected utility function}.
+	 		\end{definition}
+	 		
+	 		\begin{proposition}[6.B.1]
+	 			A utility function $U: \mathscr{L} \to \R$ has an expected utility form \ul{if and only if} it is \ul{linear}. That is, 
+	 			\begin{equation}
+	 				U(\sum_k \alpha_k L_k) = \sum_k \alpha_k U(L_k)
+	 			\end{equation}
+	 			for any compound lottery $(L_k, \alpha_k)$.
+	 		\end{proposition}
+	 		
+	 		\begin{proposition}[6.B.2]
+	 			Suppose $U: \mathscr{L} \to \R$ is a v.N-M expected utility function for preference $\pref$, then it is invariant under positive affine transformations.
+	 		\end{proposition}
+	 		
+	 		\begin{proposition}[6.B.3, Expected Utility Theorem]
+	 			Suppose that the rational preference $\pref$ on $\mathscr{L}$ satisfies the \ul{continuity} and \ul{independence axioms}. Then $\pref$ admits a utility representation of the expected utility form. That is, there exists a list $(u_n)$ for the $N$ outcomes such that for any two lotteries $L, L'$, we have
+	 			\begin{equation}
+	 				L \pref L' \iff \sum_n u_n p_n \geq \sum_n u_n p_n'
+	 			\end{equation}
+	 		\end{proposition}
+	 		
 \end{document}
 
 
