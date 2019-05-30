@@ -1833,6 +1833,70 @@
 	 			p^{* \prime}(t)=-\frac{x^{\prime}\left(p^{*}(t)+t\right)}{x^{\prime}\left(p^{*}(t)+t\right)-q^{\prime}\left(p^{*}(t)\right)}
 	 		\end{equation}
 	 	\end{example}
+	 	
+	 \subsection{The Fundamental Welfare Theorems in a Partial Equilibrium Context}
+	 	\begin{remark} Consider the two-good quasilinear economy, notice when consumer preferences are quasilinear, the boundary of the economy's utility possibility set is linear and all points in this boundary are associated with consumption allocations that differ only in the distribution of the numeraire among consumers. And the quasilinear form of the utility functions allows for an unlimited transfer of utility across consumers through transfers of the numeraire. Therefore, we only care about the total utility constraint, instead of individual utility constraint. Since if the total utility constraint is satisfies, we can re-distribute the numeraire among consumers to satisfy their individual utility constraint. For each levels of goods $\ell$ at $((\overline{x}_i, \overline{q}_j))	$, the attainable utility levels are
+	 		\begin{equation}
+	 			\left\{\left(u_{1}, \ldots, u_{I}\right) : \sum_{i=1}^{I} u_{i} \leq \sum_{i=1}^{I} \phi_{i}\left(\overline{x}_{i}\right)+\omega_{m}-\sum_{j=1}^{J} c_{j}\left(\overline{q}_{j}\right)\right\}
+	 		\end{equation}
+	 		which is a hyperplane with normal vector $(1, \cdots, 1)$. Thus, every Pareto optimal allocation must involve the quantities $((x_i^*), (q_j^*))$ that extend this boundary as far out as possible.
+	 	\end{remark}
+		
+		\begin{definition}
+			Equivalently, the social welfare optimization problem can be written as 
+			\begin{align}
+				\operatorname{max}_{\left(x_{1}, \ldots, x_{j}\right) \geq 0 \atop\left(q_{1}, \ldots, q_{j}\right) \geq 0}& \sum_{i=1}^{I} \phi_{i}\left(x_{i}\right)-\sum_{j=1}^{J} c_{j}\left(q_{j}\right)+\omega_{m} \\
+				s.t.&\ \sum_{i=1}^{I} x_{i}-\sum_{j=1}^{J} q_{j}=0
+			\end{align}
+			The solution of the optimization problem is independent from $\omega_m$.
+		\end{definition}
+		
+		\begin{definition}
+			The term $\sum_{i} \phi_{i}\left(x_{i}\right)-\sum_{j} c_{j}\left(q_{j}\right)$ is known as the \textbf{(Marshallian) aggregate surplus}, which can be interpreted as \emph{the total utility generated from consumption of good less its costs of production (in terms of the numeraire).}
+		\end{definition}
+		
+		\begin{proposition}[The First Fundamental Theorem of Welfare Economics]
+			If the price $p^*$ and allocation $((x^*_i), (y^*_j), p)$ constitute a competitive equilibrium, then this allocation is Pareto optimal.
+		\end{proposition}
+		
+		\begin{proof}[Idea of Proof]
+			For above optimization, the corresponding Lagrangian is 
+			\begin{equation}
+				\mc{L} = \sum_{i=1}^{I} \phi_{i}\left(x_{i}\right)-\sum_{j=1}^{J} c_{j}\left(q_{j}\right)+\omega_{m} + \sum_i \alpha_i x_i + \sum_j \beta_j q_j + \mu \left (\sum_{j=1}^J q_j - \sum_{i=1}^I x_i \right)
+			\end{equation}
+			The necessary conditions gives
+			\begin{align}
+				\pd{\mc{L}}{x_i} &= \phi_i'(x_i) + \alpha_i - \mu = 0 \\
+				\pd{\mc{L}}{q_j} &= -c_j'(q_j) + \beta_j + \mu = 0 \\
+				&\sum_{j=1}^J q_j = \sum_{i=1}^I x_i
+			\end{align}
+			as well as the complementary slackness conditions, 
+			\begin{align}
+				\mu \leq c_{j}^{\prime}\left(q_{j}^{*}\right), \quad \text { with equality if } q_{j}^{*}>0 \quad j=1, \ldots, J \\
+				\phi_{i}^{\prime}\left(x_{i}^{*}\right) \leq \mu, \quad \text { with equality if } x_{i}^{*}>0 \quad i=1, \ldots, I
+			\end{align}
+			By the envelope theorem, $\mu$ is the shadow price of relaxing the resource constraint, and it should be strictly positive at the optimal. Suppose we have a competitive equilibrium, by setting $\mu = p^*$, the competitive equilibrium becomes a Pareto optimal allocation.
+		\end{proof}
+		
+		\begin{remark}
+			The first fundamental theorem is a formal expression of Adam Smith's invisible hand and is a result that holds with considerable generality.
+		\end{remark}
+		
+		\begin{remark}
+			A crucial assumption for the first fundamental theorem is \emph{markets are complete}, in the sense that there is a market for every relevant commodity and all market participants act as price takers.
+		\end{remark}
+		
+		\begin{proposition}[The Second Fundamental Theorem of Welfare Economics]
+			For any Pareto optimal levels of utility $(u^*_i)$, there are transfers of the numeraire commodity $(T_i)$ satisfying $\sum_i T_i = 0$, such that a competitive equilibrium reached from the endowments $(\omega_{mi}+T_i)$ yields $(u_i^*)$.
+		\end{proposition}
+		
+		\begin{remark}
+			A crucial assumption for the second fundamental theorem (but not required by the first one) is the \ul{convexity of preferences and production sets}.
+		\end{remark}
+		
+		\begin{remark}
+			The competitive price is exactly equal to the shadow price on the resource constraint for good in the Pareto optimality problem. Hence, \emph{A good's price in a competitive equilibrium reflects precisely its marginal social value. In a competitive equilibrium, each firm, by operating at a point where price equals marginal cost, equates its marginal production cost to the marginal social value of its output. Similarly, each consumer, by consuming up to the point where marginal utility from a good equals its price, is at a point where the marginal benefit from consumption of the good exactly equals its marginal cost.}
+		\end{remark}
 \end{document}
 
 
