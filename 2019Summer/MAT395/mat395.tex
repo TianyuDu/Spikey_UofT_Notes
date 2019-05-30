@@ -1897,6 +1897,54 @@
 		\begin{remark}
 			The competitive price is exactly equal to the shadow price on the resource constraint for good in the Pareto optimality problem. Hence, \emph{A good's price in a competitive equilibrium reflects precisely its marginal social value. In a competitive equilibrium, each firm, by operating at a point where price equals marginal cost, equates its marginal production cost to the marginal social value of its output. Similarly, each consumer, by consuming up to the point where marginal utility from a good equals its price, is at a point where the marginal benefit from consumption of the good exactly equals its marginal cost.}
 		\end{remark}
+		
+		\subsection{Welfare Analysis in the Partial Equilibrium Model}
+		
+		\begin{definition}
+			A \textbf{social welfare function} $W(u_1, \dots, u_I)$ assigning a social welfare value to every utility vector $(u_i)$.
+		\end{definition}
+		
+		\begin{proposition}
+			Suppose there is some central authority who redistributes wealth by means of transfers of the numeraire commodity in order to maximize social welfare. \ul{Given quasilinear preferences for individuals}, the changes in social welfare can be measured by changes in the Marshallian aggregate surplus for \ul{any social welfare function} that society may have.
+		\end{proposition}
+		
+		\begin{proof}[Justify]
+			As argued before, the utility possible set \ul{given consumption and production set} can be written as 
+			\begin{equation}
+				\mc{U} := \left\{\left(u_{1}, \ldots, u_{I}\right) : \sum_{i=1}^{I} u_{i} \leq \omega_{m}+
+				\underbrace{\sum_{i=1}^{I} \phi_{i}\left(x_{i}\right)-\sum_{j=1}^{J} c_{j}\left(q_{j}\right)}_{S(x_1, \cdots, x_I, q_1, \cdots, q_J)}
+				\right\}
+			\end{equation}
+			and the central authority is maximizing $W((u_i))$ given $(u_i) \in \mc{U}$. Given $\pd{W}{u_i} \geq 0$ with at least one $\pd{W}{u_i} > 0$, the increase of aggregate surplus relaxes the constraint set, and rise the maximal of $W$.
+		\end{proof}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{figures/welfare1}
+		\end{figure*}
+		
+		\begin{remark}
+			Thus, as long as redistribution of wealth is occurring to maximize a social welfare function, changes in welfare can be measured by changes in Marshallian aggregate surplus (for any social welfare function).
+		\end{remark}
+		
+		\begin{proposition}[Geometrical Interpretation of Surplus]
+			Consider a differential change $((dx_i), (dq_j))$ in quantities of good $\ell$ such that $\sum_i dx_i = \sum_j dq_j$ (market clears). Define $dx := \sum_i dx_i$ and $dq := \sum_j dq_j$. Then the total derivative of $S$ is 
+			\begin{align}
+				dS &= \sum_{I=1}^I \phi'_i(x_i) dx_i - \sum_{j=1}^J c'_j(q_j) dq_j \\
+				&= P_i(x) \sum_{I=1}^I dx_i - C'(q) \sum_{j=1}^J dq_j \\
+				&= [P(x) - C'(x)] dx \\
+				&\implies S(x) = S(0) + \int_0^x [P(z) - C'(z)]dz
+			\end{align}
+		\end{proposition}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.5\linewdith]{figures/agg_surplus}
+		\end{figure*}
+		
+		\begin{example}[The Welfare Effects of a Distortionary Tax]
+			
+		\end{example}
 \end{document}
 
 
