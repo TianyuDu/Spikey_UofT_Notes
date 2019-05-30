@@ -1720,6 +1720,115 @@
 	 	\begin{remark}
 	 		Lemma 10.B.1 will allow us to identify competitive equilibria by checking for market clearing in only $L - 1$ markets. 
 	 	\end{remark}
+	 	
+	 \subsection{Partial Equilibrium Competitive Analysis}
+	 	\begin{remark}
+	 		First, as Marshall (1920) emphasized, when the expenditure on the good under study is a small portion of a consumer's total expenditure, only a small fraction of any additional dollar of wealth will be spent on this good; consequently, we can expect wealth effects for it to be small. Second, with similarly dispersed substitution effects, the small size of the market under study should lead the prices of other goods to be approximately unaffected by changes in this market.
+	 	\end{remark}
+	 	
+	 	\paragraph{Economy setup \& assumptions} In this section we are going to consider a simple \emph{two-good} quasilinear model with good $\ell$ and numeraire $m$ (where $m$ can be considered as a composite of all goods other than good $\ell$, or the wealth left after purchasing good $\ell$. Thus $p_m$ is normalized to $0$.). For consumer $i$, the utility function for quasilinear preference can be written as 
+		 	\begin{equation}
+		 		u_i (m_i, x_i) = m_i + \phi_i(x_i)
+		 	\end{equation}
+	 		with coefficient of $m_i$ normalized to 1. Assuming $\phi_i$ is twice differentiable, $\phi_i' > 0$, and $\phi_i'' < 0$ for every $x_i \geq 0$. As well, normalize $\phi_i(0) = 0$.
+	 		\par Each firm $j$ in this economy produce good $\ell$ from good $m$ with cost function $c_j(q_j)$ satisfying $c_j'(q_j) >0$ and $c_j''(q_j) \geq 0$ for every $q \geq 0$. So the production set can be written as 
+	 		\begin{equation}
+	 			Y_j = \{(-z_j, q_j): q_j \geq 0 \land z \geq c_j(q_j)\}
+	 		\end{equation}
+	 		Further, assuming $\omega_\ell = 0$ and $(\omega_{mi}) \gg 0$.
+	 		
+	 	\paragraph{Firms' Behaviour} Given price vector $p^* > 0$, firm $j$'s equilibrium output level $q_j^*$ satisfies
+	 		\begin{equation}
+	 			q_j^* \in \argmax_{q_j \geq 0} p^* q - c_j(q_j)
+	 		\end{equation}
+	 		where the necessary conditions given by KKT are
+	 		\begin{equation}
+	 			p^* \leq c'(q_j^*) \land [p^* - c'(q_j^*)] q_j^* = 0 
+	 		\end{equation}
+	 	\paragraph{Consumers' Behaviour} Each consumer $i$'s competitive equilibrium consumption bundle $(m_i^*, x_i^*)$ solves
+	 		\begin{align}
+	 			\max_{m_i \in \R, x_i \in \R_+}& m_i + \phi_i(x_i) \\
+	 			&s.t.\ m_{I}+p^{*} x_{i} \leq \omega_{m i}+\sum_{j=1}^{J} \theta_{i j}\left(p^{*} q_{j}^{*}-c_{j}\left(q_{j}^{*}\right)\right)
+	 		\end{align}
+	 		when the budget constraint holds with equality (Walras' law), it is equivalent to the unconstrained optimization
+	 		\begin{equation}
+	 			\max_{m_i \in \R, x_i \in \R_+}
+	 			\phi_i(x_i) - p^* x_i 
+	 			+ \underbrace{\left [
+	 			\omega_{m i}
+	 			+ \sum_{j=1}^{J} \theta_{i j}\left(p^{*} q_{j}^{*}-c_{j}\left(q_{j}^{*}\right)\right)
+	 			\right]}_{\tx{exogenous}}
+	 		\end{equation}
+	 		The exogenous part of objective function can be safely ignored. $\phi_i$ is concave, so is the sum of concave and linear functions. Therefore, the necessary condition of optimization is also sufficient:
+	 		\begin{equation}
+	 			p^* \geq \phi_i'(x_i^*) \land [p^* - \phi_i'(x_i^*)] x_i^* = 0
+	 		\end{equation}
+	 		\begin{remark}
+	 			The equilibrium allocation and price are independent of the distribution of endowments and ownership shares. This important simplification arises from the quasilinear form of consumer preferences.
+	 		\end{remark}
+	 		
+	 		\par Thus, the necessary and sufficient condition for a triple $((x^*_i), (y^*_j), p)$ to form a competitive equilibrium is equivalent to
+	 		\begin{align}
+	 			\forall i \in [I]&,\ p^* \leq c'(q_j^*) \land [p^* - c'(q_j^*)] q_j^* = 0\\
+	 			\forall j \in [J]&,\ p^* \geq \phi_i'(x_i^*) \land [p^* - \phi_i'(x_i^*)] x_i^* = 0\\
+	 			&\sum_{i=1}^{I} x_{i}^{*}=\sum_{j=1}^{J} q_{j}^{*}
+	 		\end{align}
+	 	
+	 	\begin{remark}
+	 		Since the utility function is strictly concave, therefore, the preference represented is strictly convex. And for each $p > 0$, there is a unique $x_i(p)$ solves the consumer's optimization problem. Note that for any $p \geq \phi_i'(0)$, $x_i(p) = 0$.
+	 	\end{remark}
+	 	
+	 	\paragraph{Aggregate Demand} The \emph{aggregate demand function} for good $\ell$ is the function $x(p) = \sum_i x_i(p)$. $x(p)$ is continuous and non increasing at all $p > 0$, and is strictly decreasing at any $p < \max_i \phi_i'(0)$. Note that $x(p) = 0$ whenever $p \geq \max_i \phi_i'(0)$.
+	 	
+	 	\paragraph{Aggregate Supply} The \emph{aggregate (industry) supply function} for good $\ell$ is $q(p) = \sum_j q_j(p)$. $q(p)$ is non-decreasing all all $p > 0$, and is strictly increasing at any $p > \min_j c_j'(0)$. Also, $q(p) = 0$ whenever $p \leq \min_j c'_j(0)$.
+	 	\begin{figure*}[h]
+	 		\centering
+	 		\includegraphics[width=0.5\linewidth]{figures/ASAD}
+	 	\end{figure*}
+	 	
+	 	\begin{remark}
+	 		The necessary condition for $((x^*_i), (y^*_j), p)$ to constitute a competitive equilibrium is 
+	 		\begin{equation}
+	 			p^* \in \left (
+	 				\min_j c_j'(0),\ \max_i \phi_i'(0)
+	 			\right )
+	 		\end{equation}
+	 	\end{remark}
+	 	
+	 	\begin{figure*}[h]
+	 		\centering
+	 		\includegraphics[width=0.5\linewidth]{figures/CSR}
+	 		\caption{Constant Marginal Cost}
+	 	\end{figure*}
+	 	
+	 	\paragraph{Comparative Statistics} Suppose each consumer's preferences are affected by a vector of exogenous parameters $\alpha \in \R^M$. And the technology is affected by exogenous parameters $\beta \in \R^S$. And the price faced by each consumer and each producer are affected by the tax/subsidy parameter $t \in \R^K$. Therefore,
+	 	\begin{align}
+	 		\phi_i(x_i, \alpha) \quad
+	 		\hat{p}_i(p^*, t)\\
+	 		c_j(q_j, \beta) \quad
+	 		\hat{p}_j(p^*, t)
+	 	\end{align}
+	 	and the competitive equilibrium with interior solutions $((x^*_i), (y^*_j), p)$ and parameter set $\Theta = (\alpha, \beta, t)$ can be characterized by
+	 	\begin{align}
+	 		\phi_{i}^{\prime}\left(x_{i}^{*}, \alpha\right)&=\hat{p}_{i}\left(p^{*}, t\right) \quad i=1, \dots, I \\
+	 		c_{j}^{\prime}\left(q_{j}^{*}, \beta\right)&=\hat{p}_{j}\left(p^{*}, t\right) \quad j=1, \ldots, J \\
+	 		\sum_{i=1}^{I} x_{i}^{*}&=\sum_{j=1}^{J} q_{j}^{*}
+	 	\end{align}
+	 	
+	 	\begin{remark}
+	 		If all the relevant functions are differentiable, we can use the implicit function theorem to derive the marginal change in the equilibrium allocation and price in response to a differential change in the values of these parameters.
+	 	\end{remark}
+	 	
+	 	\begin{example}[10.C.1 Comparative Statics Effects of a Sales Tax]
+	 		Suppose there is a per-unit tax $t \geq 0$. As a result, consumers are facing $\hat{p}_i(p, t) = p + t$, and producers are facing $\hat{p}_j(p, t) = p$. Therefore, the equilibrium market price $p^*(t)$ as a function of $t$ must satisfy the market clearing condition:
+	 		\begin{equation}
+	 			x\left(p^{*}(t)+t\right)=q\left(p^{*}(t)\right)
+	 		\end{equation}
+	 		By the implicit function theorem,
+	 		\begin{equation}
+	 			p^{* \prime}(t)=-\frac{x^{\prime}\left(p^{*}(t)+t\right)}{x^{\prime}\left(p^{*}(t)+t\right)-q^{\prime}\left(p^{*}(t)\right)}
+	 		\end{equation}
+	 	\end{example}
 \end{document}
 
 
