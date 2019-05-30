@@ -1939,12 +1939,89 @@
 		
 		\begin{figure*}[h]
 			\centering
-			\includegraphics[width=0.5\linewdith]{figures/agg_surplus}
+			\includegraphics[width=0.5\linewidth]{figures/agg_surplus}
 		\end{figure*}
 		
 		\begin{example}[The Welfare Effects of a Distortionary Tax]
 			
 		\end{example}
+		
+		\subsection{Free-Entry and Long-Run Competitive Equilibria}
+		\begin{assumption}
+			Suppose there is an infinite number of potential firms has access to a technology of production good $\ell$ with cost function $c(q)$, where $q$ is the \emph{individual} firm's output for good $\ell$. Further, assume $c(0) = 0$ so that firm can earn zero profits by operation at $q=0$.
+		\end{assumption}
+		
+		\begin{assumption}
+			Suppose there are $J$ identical firms active in the industry, and all active firms produce the same output level.
+		\end{assumption}
+		
+		\begin{proposition}
+			If all firms, active and potential, take prices as unaffected by their own actions, this implies that \ul{active firms must earn exactly zero profits} in any long-run competitive equilibrium; \emph{otherwise, we would have either no firms willing to be active in the market (if profits were negative) or an infinite number of firms entering the market (if profits were positive).}
+		\end{proposition}
+		
+		\begin{definition}[10.F.1]
+			Given aggregate demand function $x(p)$ and cost function $c(q)$ with $c(0) = 0$, a triple $(p^*, q^*, J^*)$ is a \textbf{long-run competitive equilibrium} if
+			\begin{enumerate}[(i)]
+				\item $q^*$ solves $\max_{q \geq 0} p^* q - c(q)$ (profit maximization);
+				\item $x(p^*) = J^* q^*$ (market clears);
+				\item $p^* q^* - c(q^*) = 0$ (zero profit free entry condition).
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{definition}
+			Given cost and profit functions $c(\cdot)$ and $\pi(\cdot)$, the \textbf{long-run aggregate supply correspondence} is defined
+			\begin{equation}
+				Q(p) = \begin{cases}
+					\infty &\tx{ if } \pi(p) > 0 \\
+					\left\{
+						Q \geq 0: Q = Jq,\ J \in \Z,\ q \in q(p)
+					\right\} &\tx{ if } \pi(p) = 0
+				\end{cases}
+			\end{equation}
+		\end{definition}
+		
+		\begin{proposition}
+			$p^*$ is a long-run competitive equilibrium price \ul{if and only if} $x(p^*) \in Q(p^*)$.
+		\end{proposition}
+		
+		\begin{example}[Constant marginal cost]
+			\begin{align}
+				p^* &= \overline{c} \\
+				\overline{q} &= \argmin \frac{c(q)}{q} \\
+				\frac{c(\overline{q})}{(\overline{q})} &= \overline{c} \\
+				Q(p) &= \begin{cases}
+					\infty &\tx{ if } p > \overline{c} \\
+					\left\{Q \geq 0: Q = J \overline{q},\ J \in \Z \right\} &\tx{ if } p = \overline{c} \\
+					0 &\tx{ if } p < \overline{c}
+				\end{cases}
+			\end{align}
+		\end{example}
+		
+		\begin{example}[Short-Run and Long-Run Comparative Statistics]
+			Consider a long-run equilibrium with $J^*$ active firms each producing $q^*$ units of output. Suppose there is some shock to demand. Firms face a short run cost function $c_s(\cdot)$ that differs from the long-run cost function $c(\cdot)$ because the input fixation. For example the long run cost function is 
+			\begin{equation}
+				c(q)=\left\{\begin{array}{ll}{K+\psi(q)} & {\text { if } q>0} \\ {0} & {\text { if } q=0}\end{array}\right.
+			\end{equation}
+			with $\psi(0) = 0$, $\psi'(q), \psi''(q) > 0$. And the short run cost function is 
+			\begin{equation}
+				c_{s}(q)=K+\psi(q) \quad \text { for all } q \geq 0
+			\end{equation}
+			\ul{In the short run}, the $J^*$ firms optimize according to $c_s(\cdot)$, and \ul{in the long run}, the profit maximization is solved using $c(\cdot)$.
+		\end{example}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{figures/SRLR_CS}
+			\caption{Short-Run and Long-Run Comparative Statics with Lumpy Fixed Costs that Are Sunk in the Short Run}
+		\end{figure*}
+		
+		\begin{remark}
+			In previous analysis, we proposed there are only two types of time span. It may often be reasonable to think that there are several distinct short-run stages corresponding to different levels of adjustment costs associated with different decisions: in the very short run, production may be completely fixed; in the medium run, some inputs may be adjusted while others may not be; perhaps entry and exit take place only in the "very long run."
+		\end{remark}
+		
+		\begin{remark}
+			In the previous analysis, we assumed the isolation between the short-run and long-run, however, there may exists the probability of inter-temporal substitution by consumers.
+		\end{remark}
 \end{document}
 
 
