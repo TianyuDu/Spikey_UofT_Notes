@@ -1612,6 +1612,114 @@
 	 		\begin{assumption}
 	 			We assume the Bernoulli utility function $u(\cdot)$ is increasing and continuous except at $0$, and set $u(0) = -\infty$.
 	 		\end{assumption}
+	 		
+	 \section{Chapter 10. Competitive Markets}
+	 	\begin{assumption}
+	 		\emph{Each consumer's expenditure constitutes only a small portion of his overall budget. When this is so, it is reasonable to assume that changes in the market for this good will leave the prices of all other commodities approximately unaffected and that there will be, in addition, negligible wealth effects in the market under study.}
+	 		\begin{enumerate}
+	 			\item No inter-market price interactions;
+	 			\item Negligible wealth effects.
+	 		\end{enumerate}
+	 	\end{assumption}
+	 	
+	 	\subsection{Pareto Optimality and Competitive Equilibria}
+	 	\paragraph{Economy setup}
+	 	\begin{enumerate}[(i)]
+	 		\item $L$ goods with initial \emph{endowment} $(\omega_\ell)_\ell \in \R^L_++$;
+	 		\item $I$ consumers with preferences over consumption bundle $(x_{\ell i})_\ell \in X_i \subset \R^L$;
+	 		\item $J$ firms with production plan $(y_{\ell j})_\ell \in Y_j \subset \R^L$.
+	 	\end{enumerate}
+	 	So the total amount of good $\ell$ in the economy is $\omega_\ell + \sum_j y_{\ell j}$.
+	 	
+	 	\begin{definition}[10.B.1]
+	 		An \textbf{economic allocation} is a tuple of vectors $\mc{A} = (x_i, y_j) \in \R^{LI} \times \R^{LJ}$. Such allocation is \textbf{feasible} if
+	 		\begin{equation}
+	 			\forall \ell \in [L],\ \sum_{i \in [I]} x_{\ell i} \leq \omega_\ell + \sum_{j \in [J]} y_{\ell j}
+	 		\end{equation}
+	 	\end{definition}
+	 	
+	 	\begin{definition}[1.B.2]
+	 		A feasible allocation $\mc{A}$ is \textbf{Pareto optimal/efficient} there does not exists feasible allocation $\mc{A}'$ such that
+	 		\begin{gather}
+	 			\forall i \in [I],\ u_i(x_i') \geq u_i(x_i)\\
+	 			\exists i \in [I],\ u_i(x_i') > u_i(x_i)
+	 		\end{gather}
+	 	\end{definition}
+	 	
+	 	\begin{definition}
+	 		The \textbf{utility possibility set} is defined as 
+	 		\begin{equation}
+	 			U := \left \{
+	 				(u_i) \in \R^I\ s.t.\ 
+	 				\exists \tx{ feasible allocation } \mc{A} \tx{ satisfying } 
+	 				u_i \leq u_i(x_i)\ \forall i \in [I]
+	 			\right \}
+	 		\end{equation}
+	 	\end{definition}
+	 	
+	 	\begin{remark}
+	 		The criterion of Pareto optimality does not insure that an allocation is in any sense equitable. It does, at the very least, say that there is no waste in the allocation of resources in society.
+	 	\end{remark}
+	 	
+	 	\paragraph{Competitive market setup} The initial endowment is distributed among $I$ consumers as $(\omega_{\ell i})$ satisfying $\sum_i \omega_{\ell i} = \omega_\ell$ for each $\ell$. Firms are owned by consumers, consumer $i$ owns $\theta_{ij}$ proportion of firm $j$. Thus, $\sum_{i} \theta_{ij} = 1$ for every $j$. The profit of firm $j$ is distributed according to the share $(\theta_{ij})_i$.
+	 	
+	 	\begin{assumption}
+	 		In a competitive economy, a market exists for each of the $L$ goods, and all consumers and producers act as \emph{price takers}. The idea behind the price-taking assumption is that if consumers and producers are small relative to the size of the market, they will regard market prices as unaffected by their own actions.
+	 	\end{assumption}
+	 	
+	 	\begin{definition}[10.B.3]
+	 		The allocation $\mc{A} = ((x_i^*), (y_j^*))$ and price vector $p^* \in \R^L$ constitute a \textbf{competitive/Walrasian equilibrium} if 
+	 		\begin{enumerate}[(i)]
+	 			\item \emph{Profit maximization};
+		 			\begin{equation}
+		 				\max_{y_j \in Y_j} p^* \cdot y_j
+		 			\end{equation}
+	 			\item \emph{Utility maximization};
+	 				\begin{equation}
+	 					\max_{x_i \in X_i} u_i(x_i)\ s.t.\ 
+	 					p^* \cdot x_i \leq p^* \cdot \omega_i + \sum_{j=1}^J \theta_{ij} (p^* \cdot y^*_j)
+	 				\end{equation}
+	 			\item \emph{Market clearing} for all $\ell = 1, \cdots, L$,
+	 				\begin{equation}
+	 					\sum_{i=1}^I x^*_{\ell i} = \omega_\ell + \sum_{j=1}^J y^*_{\ell j}
+	 				\end{equation}
+	 		\end{enumerate}
+	 	\end{definition}
+	 	
+	 	\begin{remark}
+	 		If allocation $(x_i^*), (y_j^*)$ and price $p^* \gg 0$ constitute a competitive equilibrium, then the same allocation with price vector $\alpha p^*$ also form a competitive equilibrium (the $\argmin$ and $\argmax$ are invariant). Therefore, we can always normalize the price of certain good to 1.
+	 	\end{remark}
+	 	
+	 	\begin{lemma}[10.B.1]
+	 		If allocation $\mc{A}^*$ and price $p \gg 0$ satisfy the market clearing condition for all goods $\ell \neq k$, and \ul{if every consumer's budget constraint is satisfied with equality}, then the market for good $k$ also clears.
+	 	\end{lemma}
+	 	
+	 	\begin{proof}
+	 		Note that because of the equality wealth constraint, for each good $\ell$, 
+	 		\begin{align}
+	 			\sum_{i=1}^I
+	 				p_\ell \left( x_{\ell i} - \omega_{\ell i} - \sum_{j=1}^J \theta_{ij} p_\ell y_j
+	 				\right ) &= 0
+	 			\\ \implies 
+	 			\sum_{\ell=1}^L p_\ell 
+	 				\left (
+	 					x_\ell - \omega_\ell - \sum_{j=1}^J y_{\ell j} 
+	 				\right ) &= 0
+	 			\\ \implies 
+	 			\sum_{\ell \neq k} p_\ell 
+	 				\underbrace{ \left (
+	 					x_\ell - \omega_\ell - \sum_{j=1}^J y_{\ell j}
+	 				\right ) }_{=0\tx{ if market $\ell$ clears}}
+	 				&= - p_k
+	 				\left (
+	 					x_k - \omega_k - \sum_{j=1}^J y_{k j}
+	 				\right )
+	 		\end{align}
+	 	\end{proof}
+	 	
+	 	\begin{remark}
+	 		Lemma 10.B.1 will allow us to identify competitive equilibria by checking for market clearing in only $L - 1$ markets. 
+	 	\end{remark}
 \end{document}
 
 
