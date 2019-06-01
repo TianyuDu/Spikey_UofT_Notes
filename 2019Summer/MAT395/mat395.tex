@@ -14,6 +14,8 @@
 \usepackage[margin=1truein]{geometry}
 \usepackage{tkz-graph}
 \usepackage{dsfont}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \usepackage{setspace}
 \linespread{1.15}
@@ -2190,6 +2192,73 @@
 			In fact, if all commodities can be easily transferred, then we could equally well move the endowment vector directly to allocation $x^*$ instead of lump-sum transfer. From this new endowment point, the Walrasian equilibrium involves no trade.
 		\end{remark}
 		
+		\newpage
+		\subsection{The One Consumer, One Producer Economy}
+			\paragraph{Economy Setup} Assume there are two \ul{price taking} agents: one consumer and one producer in the economy. There are two goods $x_1$ and $x_2$ in the economy.
+			
+			\begin{remark}
+				It might be unreasonable to assume the single consumer and producer are price-takers. However, this can be explained as the interaction of a normative representative consumer and the whole industry (again, firm behaviours are always linearly additive).
+			\end{remark}
+			
+			\paragraph{Consumer} The consumer has initial endowment of $\overline{L}$ units $x_1$ (leisure/working hours), and no endowment of $x_2$. Further, assume the consumer has \ul{continuous, convex, and strongly monotone} preference $\pref$ on the consumption set $X=\R^2_+$.
+			\paragraph{Firm} The firm produces commodity $x_2$ with inputs $x_1$ via production function $f(\cdot)$, which is assumed to be \ul{increasing and strictly concave}. Moreover, the firm is owned by the consumer and all of its profit will be given to the consumer.
+			\paragraph{Optimizations} Both firm and consumer are assumed to be price takers. Given the price vector $(p, w) \in \R^2_{++}$, the firm is assumed to be profit-maximizing:
+			\begin{equation}
+				\max_{z \in \R_+}\ pf(z) - w z
+			\end{equation}
+			Let $\pi(p, w)$ denote firm's profit, $z(p, w)$ and $q(p, w)$ denote the $\argmax$ and $f \circ \argmax$, respectively. The consumer is assumed to solve
+			\begin{equation}
+				\max_{(x_1, x_2) \in \R^2_+}\ u(x_1, x_2)\ s.t.\ p x_1 \leq w(\overline{L} - x_2) + \pi(p, w)
+			\end{equation}
+			The demand for the consumer is written as $(x_1(w, p), x_2(w, p))$.
+			
+			\paragraph{Walrasian Equilibrium} For a price vector $(w^*, p^*)$ to support a competitive equilibrium, the markets must be cleared at consumer's and firm's maximizers:
+			\begin{align}
+				z(w^*, p^*) &= \overline{L} - x_1(w^*, p^*) \\
+				q(w^*, p^*) &= x_2(w^*, p^*)
+			\end{align}
+			
+			\paragraph{Graphical Representation} Leisure and consumption levels are measured from the origin denoted $O_c$ at the lower-left hand corner of the diagram, which is determined by letting the length of the segment $[O_c, O_f]$ equal $\overline{L}$, the total labor endowment.
+			
+			\begin{figure*}[h]
+				\centering
+				\begin{subfigure}{.45\textwidth}
+					\centering
+					\includegraphics[width=\linewidth]{figures/1C1P_not_eq}
+					\caption{A Non-Equilibrium Price Vector}
+				\end{subfigure}
+				\begin{subfigure}{.45\textwidth}
+					\centering
+					\includegraphics[width=0.75\linewidth]{figures/1C1P_eq}
+					\caption{An Equilibrium Price Vector}
+				\end{subfigure}
+			\end{figure*}
+			
+			\begin{remark}
+				A particular consumption-leisure combination can arise in a competitive equilibrium \ul{if only if} it maximizes the consumer's utility subject to the economy's technological and endowment constraints.
+			\end{remark}
+			
+			\begin{corollary}[The First and Second Fundamental Theorem of Welfare Economics]
+				Any Walrasian equilibrium is Pareto optimal, and the Pareto optimal allocation is supportable as a Walrasian equilibrium.
+			\end{corollary}
+			
+			\begin{remark}
+				For the second fundamental theorem to hold, the production set must be convex, but this is not required by the first fundamental theorem.
+			\end{remark}
+			
+			\begin{figure*}[h]
+				\centering
+				\begin{subfigure}{.45\textwidth}
+					\centering
+					\includegraphics[width=\linewidth]{figures/fail_2FTWE}
+					\caption{Failure of the Second Welfare Theorem with a Non-convex Technology}
+				\end{subfigure}
+				\begin{subfigure}{.45\textwidth}
+					\centering
+					\includegraphics[width=0.8\linewidth]{figures/succ_1FTWE}
+					\caption{The First Welfare Theorem Applies even with a Non-convex Technology.}
+				\end{subfigure}
+			\end{figure*}
 \end{document}
 
 
