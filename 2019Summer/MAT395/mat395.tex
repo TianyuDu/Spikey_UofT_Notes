@@ -2022,8 +2022,175 @@
 		\begin{remark}
 			In the previous analysis, we assumed the isolation between the short-run and long-run, however, there may exists the probability of inter-temporal substitution by consumers.
 		\end{remark}
+	
+	\section{Chapter.15. General Equilibrium Theory: Some Examples}
+		\subsection{Pure Exchange: The Edgeworth Box}
+		\subsubsection{Model Setup}
+		\begin{definition}
+			A \textbf{pure exchange economy} is an economy in which there are no production opportunities.
+		\end{definition}
+		
+		\paragraph{Consumers} act as price takers. Each consumer $i$ possesses a preference $\pref_i$ over consumption set $X_i$, a consumption vector $x_i \equiv (x_{\ell i})_\ell \in \R^L_+$, and initial \textbf{endowment vector} $\omega_i \equiv (\omega_{\ell i})_\ell)$. The total endowment of good $\ell$ is therefore $\overline{\omega}_\ell = \sum_i \omega_{\ell i}$.
+		\begin{definition}
+			An \textbf{allocation} can be characterized as a list of consumption vectors
+			\begin{equation}
+				\mc{A} := (x_i)_i = ((x_{\ell i})_\ell)_i
+			\end{equation}
+			An allocation is said to be \textbf{feasible} if 
+			\begin{equation}
+				\forall \ell,\ \sum_{i=1}^I x_{\ell i} \leq \sum_{i=1}^I \omega_{\ell i}
+			\end{equation}
+			when the equality holds, $\mc{A}$ is said to be \textbf{nonwasteful}.
+		\end{definition}
+		
+		\subsubsection{Consumers' Behaviour}
+		\paragraph{} When $I=L=2$, any nonwasteful and feasible allocation can be represented as a vector inside the Edgeworth box. Given an exogenous price vector $p \in \R^2$, the budget set of consumer $i$ can be written as 
+		\begin{equation}
+			B_i (p) = \{
+				x_i \in \R^2_+: p \cdot x_i \leq p \cdot \omega_i
+			\}
+		\end{equation}
+		Therefore consumers' budget sets are separated by a hyperplane with norm $p$ (the budget line), and only allocations on the budget line are affordable to both consumer simultaneously at given price $p$.
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.8\linewidth]{figures/EWBox_Budget.png}
+			\caption{Edgeworth Box and Budget Set}
+		\end{figure*}	
+		
+		\begin{assumption}
+			Except where otherwise noted, we assume that $\pref_i$ is strictly convex, continuous, and strongly monotone.
+		\end{assumption}
+		
+		\paragraph{} Given an exogenous price vector $p$ and assumptions on consumes' preference, denote consumer $i$'s demand \emph{function} as $x_i(p, p\cdot \omega_i)$.
+		
+		\begin{definition}
+			The \textbf{offer curve} is defined to be the trace of values of consumer $i$'s demand function while $p$ is changing.
+			\begin{equation}
+				OC_i := \left \{
+				x \in \R^2_+:
+				\exists p \in \R^2_{++}\ s.t.\ x = x_i(p, p\cdot \omega_i)
+				\right \} \subset \tx{Edgeworth Box}
+			\end{equation}
+		\end{definition}
+		
+		\begin{remark}
+			The offer curve passes through the endowment point $\omega_i$. In particular, consumer chooses not to exchange when the relative price equals MRS at the initial endowment.
+		\end{remark}
+		
+		\begin{remark}
+			Since $\omega$ is always attainable, therefore, the consumer's offer curve lies entirely within the upper contour set of $\omega_i$. As a result, if indifference curves are smooth, the offer curve must be tangent to the consumer's indifferent curve at the endowment.
+		\end{remark}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.35\linewidth]{figures/OC.png}
+			\caption{Offer Curve of Consumer 1}
+		\end{figure*}
+		
+		\begin{definition}
+			Consumer $i$ is called a \textbf{net demander} for commodity $\ell$ when $x_{\ell i}(p, \omega_i \cdot p) > \omega_{\ell i}$, and a \textbf{net supplier} if $x_{\ell i}(p, \omega_i \cdot p) < \omega_{\ell i}$.
+		\end{definition}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{figures/net_supplier}
+			\caption{An Incompatible Price Vector}
+		\end{figure*}
+		
+		\begin{definition}[15.B.1]
+			A \textbf{Walrasian/Competitive Equilibrium} for an Edgeworth Box economy is a price-allocation tuple $((x^*_i)_i, p^*)$ in the Edgeworth box(markets cleared) such that
+			\begin{equation}
+				\forall i \in \{1,2\},\ x_i^* \pref_i x_i'\ \forall x_i' \in B_i(p^*)
+			\end{equation}
+		\end{definition}
+		
+		\begin{proposition}
+			Any intersection of the consumers' offer curves at an allocation different $\omega$ corresponds to an equilibrium because any intersection $x^*$ is the optimal consumption bundle for each consumer for the budget line goes through $\omega$ and $x^*$.
+		\end{proposition}
+		
+		\begin{proof}
+			To justify the equilibrium, firstly notice that every point in the Edgeworth box clears the markets. Secondly, for consumer 1, suppose $x^*_1$ is the demand when price vector $p'$ is given. If the budget line given by $p'$ is less steeper than line between $x^*$ and $\omega$, $x^*_i$ becomes non-affordable. If the budget line resulted from $p'$ is more steeper, there exists $x' \neq x^*$ lies in the intersection of the upper contour set of $x^*$ and budget set for consumer 1, this contradicts the fact that $x^*$ is the demand. Therefore $x^*_1$ is the demand when price vector $(x^* - \omega)$ is given.
+			With a similarly argument for the other consumer, we conclude at $x^*$, both consumer are optimizing with respect to the price given by budget line $x^*$ to $\omega$.
+		\end{proof}
+		
+		\begin{remark}
+			If $p^*$ is a Walrasian equilibrium price, then for any $\alpha > 0$, the price vector $\alpha p^*$ is also an equilibrium price. Therefore, the equilibrium is fully determined by the \ul{relative prices}.
+		\end{remark}
+		
+		\begin{remark}
+			It is possible for multiple equilibria to exist.
+		\end{remark}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.3\linewidth]{figures/multiple_eq}
+			\caption{Multiple Equilibria}
+		\end{figure*}
+		
+		\begin{remark}
+			It is also possible that no equilibrium exists.
+		\end{remark}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.8\linewidth]{figures/none_eq.png}
+			\caption{No Equilibrium}
+		\end{figure*}
+		
+		\subsubsection{Welfare}
+		\begin{definition}[15.B.2]
+			An allocation $x$ in the Edgeworth box is \textbf{Pareto optimal/efficient} if there is no other allocation $x'$ in the Edgeworth box such that $x_i' \pref_i x_i\ \forall i$ and $x_i' \succ_i x_i$ for some $i$.
+		\end{definition}
+		
+		\begin{remark}
+			if a Pareto optimal allocation x is an interior point of the Edgeworth box, then the consumers' indifference curves through $x$ must be tangent (assuming that they are smooth).
+		\end{remark}
+		
+		\begin{definition}
+			The \textbf{Pareto set} is defined to be the set of all Pareto optimal allocations. The \textbf{contract curve} is a subset of the Pareto set on which both consumers do at least as well as at $\omega$.
+		\end{definition}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.4\linewidth]{figures/Pareto_contract}
+			\caption{The Pareto Set and the Contract Curve}
+		\end{figure*}
+		
+		\begin{remark}
+			These allocations in the contract curve are the only points at which both of them do as well as at their initial endowments and for which there is no alternative trade that can make both consumers better off.
+		\end{remark}
+		
+		\begin{proposition}[The First Fundamental Theorem of Welfare Economics]
+			Any Walrasian equilibrium allocation $x^*$ belongs to the Pareto set.
+		\end{proposition}
+		
+		\begin{proposition}
+			Any Walrasian equilibrium lies in the contract curve, otherwise consumers can always consumer $\omega_i$ instead and this would contradicts the definition of Walrasian equilibrium.
+		\end{proposition}
+		
+		\begin{definition}
+			An allocation $x^*$ in the Edgeworth box is \textbf{supportable as an equilibrium with transfers} if there exists $(p^*, (T_i))$ satisfying $\sum_i T_i = 0$, such that for all consumer $i$
+			\begin{equation}
+				x_i^* \pref_i x_i' \ \forall x_i' \in \mc{B}(p^*, p^*\cdot \omega_i + T_i)
+			\end{equation}
+		\end{definition}
+		
+		\begin{proposition}[The Second Fundamental Theorem of Welfare Economics]
+			If the preferences of the two consumers in the Edgeworth box are \ul{continuous, convex, and strongly monotone}, then any Pareto optimal allocation is supportable as an (Walrasian) equilibrium with transfers.
+		\end{proposition}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.4\linewidth]{figures/2ndFTWE.png}
+			\caption{The Second Fundamental Theorem of Welfare Economics}
+		\end{figure*}
+		
+		\begin{remark}
+			In fact, if all commodities can be easily transferred, then we could equally well move the endowment vector directly to allocation $x^*$ instead of lump-sum transfer. From this new endowment point, the Walrasian equilibrium involves no trade.
+		\end{remark}
+		
 \end{document}
-
 
 
 
