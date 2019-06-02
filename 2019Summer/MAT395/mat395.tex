@@ -1501,7 +1501,7 @@
 	 			\begin{equation}
 	 				\max_{x_i} u_i(x_i)\ s.t.\ p \cdot x_i \leq w_i + \theta_i p \cdot y
 	 			\end{equation}
-	 			Where $w_i$ is the nonprofit wealth of consumer $i$. At any fixed price vector $p \gg 0$, the consumer owners unanimously prefer that the firm implement a production plan $y' \in Y$ instead of $y \in Y$ whenever $p\cdot y' > p\cdot y$ (as such change relaxes the budget constraint and provides marginal utility $\lambda^*$). Hence, we conclude that if we maintain the assumption of price-taking behaviour, all owners would agree, whatever their utility functions, to instruct the manager of the firm to maximize profits. Therefore, firms' profit maximization behaviour is justified.
+	 			Where $w_i$ is the nonprofit wealth of consumer $I$. At any fixed price vector $p \gg 0$, the consumer owners unanimously prefer that the firm implement a production plan $y' \in Y$ instead of $y \in Y$ whenever $p\cdot y' > p\cdot y$ (as such change relaxes the budget constraint and provides marginal utility $\lambda^*$). Hence, we conclude that if we maintain the assumption of price-taking behaviour, all owners would agree, whatever their utility functions, to instruct the manager of the firm to maximize profits. Therefore, firms' profit maximization behaviour is justified.
 	 		\end{remark}
 	 		
 	 		\begin{remark}
@@ -2259,6 +2259,205 @@
 					\caption{The First Welfare Theorem Applies even with a Non-convex Technology.}
 				\end{subfigure}
 			\end{figure*}
+	
+		\subsection{The $2 \times 2$ Production Model}
+			\subsubsection{Economy Setup(General)}
+			\paragraph{Firms} There are $J$ price-taking firms each produces one type of product using $L$ primary inputs/factors, $z_j \in \R^L_+$ via production function $f_j: \R^L_+ \to \R_+$. $f_j$ is assumed to be \ul{concave, strictly increasing and differentiable}. The final product of firm $j$ is sold on the world market at price $p_j$.
+			
+			\begin{assumption}
+				We assume the size of this economy is relatively small so the production decisions of firms within the economy does not affect the world price $p$.
+			\end{assumption}			
+
+			\paragraph{Consumers} Each consumer has initial endowment $(z_{\ell i})_\ell \in \R^L_{++}$. Consumers are selling their initial endowment to firms at factor price vector $w$. For each commodity $\ell$, let $\overline{z}_\ell := \sum_{I=1}^I z_{\ell i}$ denote the total endowment of commodity $\ell$ in the economy.
+			
+			\begin{assumption}
+				We assume there are no intermediate goods, and consumers do not consume input factors directly.
+			\end{assumption}
+			
+			\begin{remark}
+				Output is sold in world markets. Factors, on the other hand, are immobile and must be used for production within the country.
+			\end{remark}
+			
+			\begin{proposition}
+				When $w \gg 0$, consumers supply all their endowments to the producers.
+			\end{proposition}
+			
+			\begin{remark}
+				An equilibrium can be characterized by $L(J+1)$ variables, a matrix $[z^*_{\ell j}] \in M_{L \times J}(\R)$ representing the allocation of initial endowments among firms and a price vector $w \in \R^L_{++}$. Note that at any such equilibrium, all firms are optimizing
+				\begin{equation}
+					\forall j \in [J],\ z^*_j \in z_j(w, p)
+				\end{equation}
+				and all markets clear
+				\begin{equation}
+					\forall \ell \in [L],\ \sum_{j\in [J]} z^*_{\ell j} = \overline{z}_{\ell}
+				\end{equation}
+			\end{remark}
+			
+			\begin{proposition}
+				Given exogenous product price in the world market $p$. For an equilibrium with interior allocation, that is $z^*_j \gg 0\ \forall j \in [J]$, and strictly positive factor price vector $w \gg 0$, the allocation satisfies the necessary (also sufficient because of the concavity of $f_j$) of firms' profit maximization problem,
+				\begin{equation}
+					\forall (\ell, j) \in [L]\times [J],\ 
+					p_{j} \frac{\partial f_{j}\left(z_{j}^{*}\right)}{\partial z_{\ell j}}=w_{\ell}^{*}
+				\end{equation}
+				and all $L$ markets are cleared,
+				\begin{equation}
+					\forall \ell \in [L],\ 
+					\sum_{j} z_{\ell j}^{*}=\overline{z}_{\ell}
+				\end{equation}
+				and the equilibrium level of products is $q^*_j = f_j(z_j^*)$ for every $j$. And above $L(J+1)$ equations characterize the $L(J+1)$ equilibrium variables.
+			\end{proposition}
+			
+			\subsubsection{Special Case: $L=J=2$, the $2 \times 2$ Production Model}
+			\begin{assumption}
+				Assume each firm has $f_j(\cdot)$ homogeneous of degree 1, that's, the technology is \ul{constant return to scale}.
+			\end{assumption}
+			
+			\paragraph{Unit Production} For each $j \in \{1, 2\}$, given factor price vector $w = (w_1, w_2)$, let $c_j(w)$ denote the minimal cost of producing \ul{1 unit} of product $x_j$. Let $a_j(w) = (a_{1j}(w), a_{2j}(w))$ denote the $\argmin$, and assume they are unique. By the constant return to scale property, the cost minimizing factors for $q$ unit of output would be exactly $q a_j(w)$.
+			
+			\begin{proof}
+				Consider 
+				\begin{align}
+					&\argmin_{z \geq 0} w \cdot z\ s.t.\ f(z) \leq q \\
+					&= \argmin_{z \geq 0} w \cdot z\ s.t.\ \frac{f(z)}{q} \leq 1 \\
+					&= \argmin_{z \geq 0} w \cdot z\ s.t.\ f\left(\frac{z}{q}\right) \leq 1 \\
+					&= \argmin_{z \geq 0} q w \cdot \frac{z}{q}\ s.t.\ f\left(\frac{z}{q}\right) \leq 1 \\
+					&= q \argmin_{z/q \geq 0} q w \cdot \frac{z}{q}\ s.t.\ f\left(\frac{z}{q}\right) \leq 1 \\
+					&= q \argmin_{z/q \geq 0} w \cdot \frac{z}{q}\ s.t.\ f\left(\frac{z}{q}\right) \leq 1 \\
+					&= q \argmin_{z \geq 0} w \cdot z\ s.t.\ f(z) \leq 1 = q a(w)
+				\end{align}
+			\end{proof}
+			
+			\begin{proposition}
+				By Shephard's lemma/ the envelope theorem,
+				\begin{equation}
+					a_j(w) = \nabla_w c_j(w)
+				\end{equation}
+			\end{proposition}
+			
+			\begin{definition}
+				The \textbf{Pareto set of factor allocations} is the set of factor allocations $(a_j)$ at which it is not possible, with the given total factor endowments, to produce more of one good without producing less of the other.
+			\end{definition}
+			
+			\begin{figure*}[h]
+				\centering
+				\includegraphics[width=0.3\linewidth]{figures/pareto_prod_set}
+				\caption{The Pareto Set of Factor Allocations}
+			\end{figure*}
+			
+			\begin{definition}
+				The production of good 1 is \textbf{relatively more intensive} in factor 1 than the production of good 2 if
+				\begin{equation}
+					\frac{a_{11}(w)}{a_{21}(w)} > \frac{a_{12}(w)}{a_{22}(w)}
+				\end{equation}
+				\ul{for all factor prices $w$}.
+			\end{definition}
+			
+			\paragraph{Equilibrium Factor Prices} Suppose we have an interior equilibrium (i.e. the equilibrium is \emph{not} specialized), and given the constant return assumption (so unit cost $c_j$ is precisely the marginal cost), then the necessary condition for firm $j$ to optimize is
+			\begin{equation}
+				c_j(w_1, w_2) = p_j
+			\end{equation}
+			Thus the set of factor prices satisfying the competitive equilibrium is 
+			\begin{equation}
+				w^* \in \bigcap_j \left \{
+				(w_\ell) \in \R^L_{++}: c_j(w_\ell) = p_j
+				\right \}
+			\end{equation}
+			\begin{remark}
+				In the $2 \times 2$ case, assuming product 1 is more intensive in factor 1, when curve $c_1(w)=p_1$ and $c_2(w)=p_2$ intersect, $c_1(w)=p_1$ is steeper because of Shephard's lemma. As a result, the intersection of those curves is unique.
+			\end{remark}
+			
+			\begin{figure*}[h]
+				\centering
+				\begin{subfigure}{.45\textwidth}
+					\centering
+					\includegraphics[width=0.7\linewidth]{figures/equilibrium_factor_prices}
+					\caption{The Equilibrium Factor Prices}
+				\end{subfigure}
+				\begin{subfigure}{.45\textwidth}
+					\centering
+					\includegraphics[width=1\linewidth]{figures/equilibrium_factor_allocation}
+					\caption{The Equilibrium Factor Allocation}
+				\end{subfigure}
+			\end{figure*}
+			
+			\paragraph{Equilibrium Factor Allocation} Given the constant return to scale nature of technologies, the ratio of input factors at equilibrium equals $\frac{a_{1j}}{a_{2j}}$ for each firm $j$. Given equilibrium factor price vector $w$, the equilibrium factor allocation $(z^*_{\ell j})$ is given by solving
+			\begin{equation}
+				\frac{z_{11}^{*}}{z_{21}^{*}}=\frac{a_{11}\left(w^{*}\right)}{a_{21}\left(w^{*}\right)} \quad \text { and } \quad \frac{z_{12}^{*}}{z_{22}^{*}}=\frac{a_{12}\left(w^{*}\right)}{a_{22}\left(w^{*}\right)}
+			\end{equation}
+			
+			\begin{remark}
+				The equilibrium factor prices depend only on the technologies of the two firms and on the output prices $p$, and independent from the initial endowment of factors.
+			\end{remark}
+			
+			\subsubsection{Comparative Statics: Change in Output Price}
+			\begin{theorem}[Stolper-Samuelson Theorem]
+				In the $2 \times 2$ production model with factor intensity assumption, if $p_j$ increases, the equilibrium price of the factor more intensively used in the production of good $j$ increases, while the price of the other factor decreases, assuming interior equilibrium both before and after the price change.
+			\end{theorem}
+			
+			\begin{proof}
+				Differentiate both sides of optimal conditions for all firms $c_j(w_1, w_2) = p_j$ gives
+				\begin{equation}
+					d p_j = \nabla_w c_j(w^*) dw
+				\end{equation}
+				By the Shephard's lemma
+				\begin{equation}
+					dp_j = \begin{pmatrix}a_{1j}(w^*)\\ a_{2j}(w^*)\end{pmatrix} \cdot dw
+				\end{equation}
+				in matrix notation
+				\begin{equation}
+					d p=\underbrace{
+					\left[ \begin{array}{ll}{a_{11}\left(w^{*}\right)} & {a_{21}\left(w^{*}\right)} \\ {a_{12}\left(w^{*}\right)} & {a_{22}\left(w^{*}\right)}\end{array}\right]
+					}_{A}
+					 d w
+				\end{equation}
+				note that $|A| > 0$ because of the factor intensity assumption. Therefore, $A$ is invertible and 
+				\begin{align}
+					dw &= A^{-1} dp \\
+					\iff dw &= \frac{1}{|A|} \left[ \begin{array}{cc}{a_{22}\left(w^{*}\right)} & {-a_{21}\left(w^{*}\right)} \\ {-a_{12}\left(w^{*}\right)} & {a_{11}\left(w^{*}\right)}\end{array}\right] dp
+				\end{align}
+				Take $dp = (\varepsilon, 0)$ for some $\varepsilon > 0$, 
+				\begin{equation}
+					dw = \frac{\varepsilon}{|A|} 
+					\begin{pmatrix}
+						a_{22}(w^*)\\
+						-a_{12}(w^*)
+					\end{pmatrix}
+				\end{equation}
+			\end{proof}
+			
+			\begin{figure*}[h]
+				\centering
+				\begin{subfigure}{0.45\textwidth}
+					\centering
+					\includegraphics[width=.7\linewidth]{figures/Stolper_Samuelson}
+					\caption{Changes in Factor Prices}
+				\end{subfigure}
+				\begin{subfigure}{0.45\textwidth}
+					\centering
+					\includegraphics[width=\linewidth]{figures/Stolper_Samuelson_2}
+					\caption{Changes in Factor Allocation}
+				\end{subfigure}
+			\caption{The Stolper-Samuelson Theorem}
+			\end{figure*}
+			
+			\subsubsection{Comparative Statics: Change in Endowments}
+			\begin{remark}
+				As noted before, the equilibrium factor prices are left unaffected when the endowment changes.
+			\end{remark}
+			
+			\begin{theorem}[Rybcszynski Theorem]
+				In the $2 \times 2$ production model with the factor intensity assumption, if the endowment of a factor increases, then the production of the good that uses this factor relatively more intensively increases and the production of the other good decreases (assuming interior equilibria both before and after the change of endowment).
+			\end{theorem}
+			
+			\begin{figure*}[h]
+				\centering
+				\includegraphics[width=0.6\linewidth]{figures/Rybcszynski}
+				\caption{The Rybcszynski Theorem}
+			\end{figure*}
+			
+			\begin{remark}
+				Consider a more general case with $L$ input factors and $J$ firms, note that we need to solve the $L$ factor prices from $J$ optimal conditions of firms. If $L > J$, then there are too many unknowns and we cannot hope that the zero-profit conditions alone will determine the factor prices. The total factor endowments will play a role. If $J > L$, then there are too many equations and, for typical world prices, they cannot all be satisfied simultaneously. What this means is that the economy will specialize in the production of a number of goods equal to the number of factors $L$. Therefore, in general, we examine cases when $J=L$.
+			\end{remark}
 \end{document}
 
 
