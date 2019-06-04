@@ -1512,9 +1512,91 @@
 	 				\item Managers can be controlled by owners.
 	 			\end{enumerate}
 	 		\end{remark}
-	 \section{Chapter 6. Choice Under Uncertainty}
-	 	\subsection{Expected Utility Theory}
-	 		\begin{assumption}
+	 		
+	\section{Notes on Comparative Statics}
+		\subsection{Univariate Case}
+			\begin{definition}
+				Let $A, B \subseteq X$, then $A$ is (weakly) dominated by $B$ in the \textbf{strong set order} sense, denoted as $A \leq_S B$, if 
+				\begin{equation}
+					\forall (a, b) \in A \times B,\ \min\{a, b\} \in A \land \max\{a, b\} \in B
+				\end{equation}
+			\end{definition}
+			
+			\begin{definition}
+				A correspondence $x: \R \rightrightarrows \R$ is \textbf{(weakly) increasing} if 
+				\begin{equation}
+					t < t' \implies x(t) \leq_S x(t')
+				\end{equation}
+			\end{definition}
+			
+			\begin{remark}
+				When $x$ is a function, then above definition collapses to the conventional definition of increasing functions.
+			\end{remark}
+		
+			\begin{definition}[Single Crossing Condition (Milgrom and Shannon)]
+				A family of functions $f(\cdot, t): D \subset \R^2 \to \R$ indexed by $t$ is ordered by the \textbf{single crossing condition} if for every $t < t'$ and $x < x'$,
+				\begin{align}
+					\overbrace{f(x', t) - f(x, t)}^{\Delta^+_x(t)} \geq 0 \implies \overbrace{f(x', t') - f(x, t')}^{\Delta^+_x(t')} \geq 0 \\
+					f(x', t) - f(x, t) > 0 \implies f(x', t') - f(x, t') > 0
+				\end{align}
+			\end{definition}
+			
+			\begin{theorem}
+				Let 
+				\begin{equation}
+					x^*(t) := \argmax_x f(x, t)
+				\end{equation}
+				if the family $f(\cdot, t)$ is ordered by the single crossing condition, then $x^*(t)$ is increasing.
+			\end{theorem}
+			
+			\begin{theorem}
+				Let
+				\begin{equation}
+					x_Y^*(t) := \argmax_{x \in Y} f(x, t)
+				\end{equation}
+				then the following statements are equivalent
+				\begin{enumerate}[(i)]
+					\item The family $f(\cdot, t)$ is ordered by single crossing condition.
+					\item For each $Y \subset \R$, each $t < t'$
+					\begin{equation}
+						x_Y^*(t) \leq_S x_Y^*(t')
+					\end{equation}
+				\end{enumerate}
+			\end{theorem}
+			
+			\begin{definition}
+				Function $f: \R^2 \to \R$ has \textbf{increasing differences} if $\forall x < x'$, the difference
+				\begin{equation}
+					\Delta^+_x(t) := f(x', t) - f(x, t)
+				\end{equation}
+				is (weakly) increasing in $t$. $f$ has strictly increasing differences if $\Delta^+_x(t)$ is strictly increasing in $t$.
+			\end{definition}
+			
+			\begin{remark}
+				Increasing differences is a stronger condition than the single crossing condition.
+			\end{remark}
+			
+			\begin{theorem}
+				Let 
+				\begin{equation}
+					x_Y^*(t) := \argmax_{x \in Y} f(x, t) + g(x)
+				\end{equation}
+				then the following statements are equivalent
+				\begin{enumerate}[(i)]
+					\item Function $f$ has increasing differences.
+					\item $x_Y^*(t)$ is (weakly) increasing in $t$ for all functions $g$ and sets $Y$.
+				\end{enumerate}
+			\end{theorem}
+			
+			\begin{lemma}
+				If $f$ is twice differentiable, then the family $f(\cdot, t)$ has increasing differences \ul{if and only if} $f_{xt} \geq 0\ \forall x, t$.
+			\end{lemma}
+			
+		\subsection{Multivariate Case}
+	
+	\section{Chapter 6. Choice Under Uncertainty}
+		\subsection{Expected Utility Theory}
+			\begin{assumption}
 	 			Let $C$ denote the set of all possible \emph{outcomes}/\emph{consequences} from one \emph{risky alternative}. For simplicity, we assume $C$ is finite, indexed by $n=1, \cdots, N$.
 	 		\end{assumption}
 	 		
