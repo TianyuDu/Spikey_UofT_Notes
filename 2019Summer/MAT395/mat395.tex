@@ -2107,28 +2107,130 @@
 			In the previous analysis, we assumed the isolation between the short-run and long-run, however, there may exists the probability of inter-temporal substitution by consumers.
 		\end{remark}
 	
-	\section{Chapter.15. General Equilibrium Theory: Some Examples}
+	\section{Chapter 13. Adverse Selection, Signalling, and Screen}
+		\subsection{Informational Asymmetries and Adverse Selection}
+		\begin{definition}
+			\textbf{Adverse selection} is said to occur when an informed individual's trading decision depends on her \ul{unobservable characteristics} in a manner that \ul{adversely affects} the uninformed agents in the market.
+		\end{definition}
+		
+		\subsubsection{Economy Setup}
+		
+		\paragraph{Firm} Firms are identical with constant return to scale production function $f$ using only labor as input factor. Further, assuming the price of product is 1, that is, the firm is producing numeraire good. Firms are risk-neutral and maximizing the expected profit.
+		
+		\paragraph{Worker} Suppose there are $N$ workers, each with productivity $\theta \in [\underline{\theta}, \overline{\theta}] \subset \R$. The distribution of productivity $\theta$ follows distribution $F(\theta)$. Each worker earns $r(\theta)$ on her own through home production. Therefore, a worker will accept a job offer if and only if $w \geq r(\theta)$ (we assume that she accepts if she is indifferent).
+		
+		\begin{assumption}
+			Assume the distribution of productivity, $F(\theta)$, is non-degenerate, that is, there exists at least two distinct types of workers.
+		\end{assumption}
+		
+		\subsubsection{Equilibrium with Symmetric Information}
+		\par If the productivity $\theta$ for each worker is \ul{publicly observable}, then each different type of worker is a distinct good, there is a distinct equilibrium wage $w^*(\theta)$ \ul{for each type $\theta$}. Given the competitive, constant returns nature of the firms, in a competitive equilibrium we have $w^*(\theta) = \theta$ for all $\theta$, and the set of workers accepting employment in a firm is $\{\theta: r(\theta) \leq \theta \}$. Such equilibrium outcome is Pareto optimal by the first fundamental theorem of welfare economics. Let $\id{\theta}$ denote the worker of type $\theta$ being employed by a firm, then the aggregate surplus is
+		\begin{equation}
+			Surplus = \int_{\underline{\theta}}^{\overline{\theta}} N \left [
+				\id{\theta} \theta + (1-\id{\theta})r(\theta)
+			\right ] dF(\theta)
+		\end{equation}
+		And the surplus is maximized when one worker is employed if and only if $r(\theta) \leq \theta$.
+		
+		\begin{remark}
+			When workers' types are not observable, the wage rate must be independent of a worker's type, and so we will have a single wage rate $w$ for all workers.
+		\end{remark}
+		
+		\paragraph{Labor Supply} Given a wage rate $w$, a worker with productivity $\theta$ would accept the offer if and only if $r(\theta) \leq w$. Therefore, the set of types of workers employed would be 
+		\begin{equation}
+			\Theta(w) = \{\theta: r(\theta) \leq w\}
+		\end{equation}
+		
+		\paragraph{Labor Demand} Given a wage rate $w$, let $\mu$ denote the expected(average) productivity of people whole get employed, the demand for labor is given by 
+		\begin{equation}
+			z(w) = \begin{cases}
+				0 &\tx{ if } \mu < w \\
+				[0, \infty] &{ if } \mu = w \\
+				\infty &\tx{ if } \mu > w
+			\end{cases}
+		\end{equation}
+		
+		\paragraph{Equilibrium} When the set of workers, $\Theta^*$, is get employed, then $\mu = \expect{\theta|\theta \in \Theta^*}$. For the demand of labor to be non-zero and finite, the wage rate supporting an equilibrium outcome can only be $w^* = \mu = \expect{\theta|\theta \in \Theta^*}$.
+		
+		\begin{definition}
+			In a competitive labor market with unobservable worker productivity levels, a \textbf{competitive equilibrium} consists of a wage rate $w^*$ and a set $\Theta^*$ of worker types who accept employment such that
+			\begin{equation}
+				\Theta^* = \{\theta: r(\theta) \leq w^*\}
+			\end{equation}
+			and 
+			\begin{equation}
+				w^* = \expect{\theta|\theta \in \Theta^*}
+			\end{equation}
+		\end{definition}
+		
+		\begin{remark}
+			The definition of competitive equilibrium involves rational expectation of firms. However, the expectation is not well-defined when $\Theta^* = \varnothing$. Conventionally, we use the unconditional expectation in the definition of a equilibrium, $w^* = \expect{\theta}$, whenever nobody is employed.
+		\end{remark}
+		
+		\subsubsection{Equilibria with Asymmetric Information and Pareto Inefficiency}
+		\begin{example}
+			Consider the case when $r(\theta) = r$ for all $\theta$, and suppose $F(r) \in (0, 1)$. That's, all workers have the same at-home earning but different productivity at work. The Pareto optimal outcome requires a worker to be employed if and only if $\theta \geq r$. For any given wage rate $w^*$, the equilibrium employment would be either $[\underline{\theta}, \overline{\theta}]$ (if $w^* \geq r$) or $\varnothing$ (if $w^* < r$). Further, the competitive equilibrium wage rate $w^*$ must satisfy $w^* = \expect{\theta|\theta \in \Theta^*}$. In either case, $w^* = \expect{\theta}$. The Pareto optimal outcome will never be attained.\\
+			\emph{Interpretation: if there is a high fraction of low-productivity workers then, because firms cannot distinguish good workers from bad, they will be unwilling to hire any workers at a wage rate that is sufficient to have them accept employment (i.e., a wage of at least $r$). On the other hand, if there are very few low-productivity workers, then the average productivity of the workforce will be above $r$, and so the firms will be willing to hire workers at a wage that they are willing to accept.}
+		\end{example}
+		
+		\subsubsection{Adverse Selection and Market Unraveling}
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.4\linewidth]{figures/adverse_selection}
+			\caption{Adverse Selection Competitive Equilibrium}
+		\end{figure*}		
+
+		\begin{example}[Adverse Selection]
+			Suppose $r(\theta) \leq \theta$ for all $\theta$, and $r(\cdot)$ is strictly increasing. Further, assume the density function $f(\theta) > 0$ for every $\theta \in [\underline{\theta}, \overline{\theta}]$. The Pareto optimal requires every worker to be employed. However, this generates adverse selection: because the payoff of home production is greater for more capable workers, only less capable workers  accept employment at any given wage rate $w$. In this setup, the equilibrium attained would be one in which only workers with productivity $\underline{\theta}$ employed. At the competitive equilibrium, the wage rate must satisfy
+			\begin{equation}
+				w^* = \expect{\theta|\theta \in \Theta^*} \equiv \expect{\theta|r(\theta) \leq w^*}
+			\end{equation}
+			Note that $\expect{\theta|r(\theta) \leq w^*}$ is increasing in $w^*$ for $w^* \in [r(\underline{\theta}), r(\overline{\theta})]$.
+			Further, note that for workers with productivity $\overline{\theta}$ to get employed, $w^*$ must satisfy $w^* \geq r(\overline{\theta})$. However, the firm cannot break even because $\expect{\theta} < r(\overline{\theta})$. After the best workers are driven out of the market, the average productivity falls and the second best workers are driven out of the market as well. Lastly, only workers with $\underline{\theta}$ are employed.
+		\end{example}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{figures/complete_market_failure}
+			\caption{Complete Market Failure}
+		\end{figure*}
+		
+		\begin{remark}[Multiple Equilibra]
+			Multiple competitive equilibria can arise because there is virtually no restriction on the slope of the function $\expect{\theta|r(\theta) \leq w}$. At any wage $w$, this slope depends on the density of workers who are just indifferent about accepting employment and so it can vary greatly if the density varies. Multiple equilibria can be \textbf{Pareto ranked}. Firms earn zero profits in all equilibria, and workers are better off if the wage rate is higher. Thus the equilibrium with the highest wage \textbf{Pareto dominates} all the others.
+		\end{remark}
+		
+		\begin{figure*}[h]
+			\centering
+			\includegraphics[width=0.4\linewidth]{figures/multiple_competitive_eq.png}
+			\caption{Multiple Competitive Equilibra}
+		\end{figure*}
+		
+		\begin{definition}
+			\textbf{Coordinate failure} occurs when the wage is too low because firms expect that the productivity of workers accepting employment is poor and, at the same time, only bad workers accept employment precisely because the wage is low. Therefore, those low-wage equilibria are resulted from coordinate failures.
+		\end{definition}
+	
+	\section{Chapter 15. General Equilibrium Theory: Some Examples}
 		\subsection{Pure Exchange: The Edgeworth Box}
 		\subsubsection{Model Setup}
 		\begin{definition}
 			A \textbf{pure exchange economy} is an economy in which there are no production opportunities.
 		\end{definition}
 		
-		\paragraph{Consumers} act as price takers. Each consumer $i$ possesses a preference $\pref_i$ over consumption set $X_i$, a consumption vector $x_i \equiv (x_{\ell i})_\ell \in \R^L_+$, and initial \textbf{endowment vector} $\omega_i \equiv (\omega_{\ell i})_\ell)$. The total endowment of good $\ell$ is therefore $\overline{\omega}_\ell = \sum_i \omega_{\ell i}$.
+		\paragraph{Consumers} act as price takers. Each consumer $I$ possesses a preference $\pref_i$ over consumption set $X_i$, a consumption vector $x_i \equiv (x_{\ell I})_\ell \in \R^L_+$, and initial \textbf{endowment vector} $\omega_i \equiv (\omega_{\ell I})_\ell)$. The total endowment of good $\ell$ is therefore $\overline{\omega}_\ell = \sum_i \omega_{\ell I}$.
 		\begin{definition}
 			An \textbf{allocation} can be characterized as a list of consumption vectors
 			\begin{equation}
-				\mc{A} := (x_i)_i = ((x_{\ell i})_\ell)_i
+				\mc{A} := (x_i)_i = ((x_{\ell I})_\ell)_i
 			\end{equation}
 			An allocation is said to be \textbf{feasible} if 
 			\begin{equation}
-				\forall \ell,\ \sum_{i=1}^I x_{\ell i} \leq \sum_{i=1}^I \omega_{\ell i}
+				\forall \ell,\ \sum_{I=1}^I x_{\ell I} \leq \sum_{I=1}^I \omega_{\ell I}
 			\end{equation}
 			when the equality holds, $\mc{A}$ is said to be \textbf{nonwasteful}.
 		\end{definition}
 		
 		\subsubsection{Consumers' Behaviour}
-		\paragraph{} When $I=L=2$, any nonwasteful and feasible allocation can be represented as a vector inside the Edgeworth box. Given an exogenous price vector $p \in \R^2$, the budget set of consumer $i$ can be written as 
+		\paragraph{} When $I=L=2$, any nonwasteful and feasible allocation can be represented as a vector inside the Edgeworth box. Given an exogenous price vector $p \in \R^2$, the budget set of consumer $I$ can be written as 
 		\begin{equation}
 			B_i (p) = \{
 				x_i \in \R^2_+: p \cdot x_i \leq p \cdot \omega_i
@@ -2146,7 +2248,7 @@
 			Except where otherwise noted, we assume that $\pref_i$ is strictly convex, continuous, and strongly monotone.
 		\end{assumption}
 		
-		\paragraph{} Given an exogenous price vector $p$ and assumptions on consumes' preference, denote consumer $i$'s demand \emph{function} as $x_i(p, p\cdot \omega_i)$.
+		\paragraph{} Given an exogenous price vector $p$ and assumptions on consumes' preference, denote consumer $I$'s demand \emph{function} as $x_i(p, p\cdot \omega_i)$.
 		
 		\begin{definition}
 			The \textbf{offer curve} is defined to be the trace of values of consumer $i$'s demand function while $p$ is changing.
