@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 \usepackage{spikey}
 \usepackage{amsmath}
 \usepackage{mathrsfs}
@@ -41,8 +41,8 @@
 		\item Website: \url{TianyuDu.com/notes}
 	\end{itemize}
 	\tableofcontents
-	\newpage
 	
+	\chapter{Individual Choices}
 	\section{Chapter 1. Preference and Choice}
 	\subsection{Preference Relations}
 	
@@ -1700,7 +1700,8 @@
 	 		\begin{assumption}
 	 			We assume the Bernoulli utility function $u(\cdot)$ is increasing and continuous except at $0$, and set $u(0) = -\infty$.
 	 		\end{assumption}
-	 		
+	 
+	 \chapter{Partial Equilibrium Analysis and Market Failures}
 	 \section{Chapter 10. Competitive Markets}
 	 	\begin{assumption}
 	 		\emph{Each consumer's expenditure constitutes only a small portion of his overall budget. When this is so, it is reasonable to assume that changes in the market for this good will leave the prices of all other commodities approximately unaffected and that there will be, in addition, negligible wealth effects in the market under study.}
@@ -1714,7 +1715,7 @@
 	 	\paragraph{Economy setup}
 	 	\begin{enumerate}[(i)]
 	 		\item $L$ goods with initial \emph{endowment} $(\omega_\ell)_\ell \in \R^L_++$;
-	 		\item $I$ consumers with preferences over consumption bundle $(x_{\ell i})_\ell \in X_i \subset \R^L$;
+	 		\item $I$ consumers with preferences over consumption bundle $(x_{\ell I})_\ell \in X_i \subset \R^L$;
 	 		\item $J$ firms with production plan $(y_{\ell j})_\ell \in Y_j \subset \R^L$.
 	 	\end{enumerate}
 	 	So the total amount of good $\ell$ in the economy is $\omega_\ell + \sum_j y_{\ell j}$.
@@ -1722,15 +1723,15 @@
 	 	\begin{definition}[10.B.1]
 	 		An \textbf{economic allocation} is a tuple of vectors $\mc{A} = (x_i, y_j) \in \R^{LI} \times \R^{LJ}$. Such allocation is \textbf{feasible} if
 	 		\begin{equation}
-	 			\forall \ell \in [L],\ \sum_{i \in [I]} x_{\ell i} \leq \omega_\ell + \sum_{j \in [J]} y_{\ell j}
+	 			\forall \ell \in [L],\ \sum_{I \in [I]} x_{\ell I} \leq \omega_\ell + \sum_{j \in [J]} y_{\ell j}
 	 		\end{equation}
 	 	\end{definition}
 	 	
 	 	\begin{definition}[1.B.2]
 	 		A feasible allocation $\mc{A}$ is \textbf{Pareto optimal/efficient} there does not exists feasible allocation $\mc{A}'$ such that
 	 		\begin{gather}
-	 			\forall i \in [I],\ u_i(x_i') \geq u_i(x_i)\\
-	 			\exists i \in [I],\ u_i(x_i') > u_i(x_i)
+	 			\forall I \in [I],\ u_i(x_i') \geq u_i(x_i)\\
+	 			\exists I \in [I],\ u_i(x_i') > u_i(x_i)
 	 		\end{gather}
 	 	\end{definition}
 	 	
@@ -2209,6 +2210,7 @@
 			\textbf{Coordinate failure} occurs when the wage is too low because firms expect that the productivity of workers accepting employment is poor and, at the same time, only bad workers accept employment precisely because the wage is low. Therefore, those low-wage equilibria are resulted from coordinate failures.
 		\end{definition}
 	
+	\chapter{General Equilibrium Analysis}
 	\section{Chapter 15. General Equilibrium Theory: Some Examples}
 		\subsection{Pure Exchange: The Edgeworth Box}
 		\subsubsection{Model Setup}
@@ -2642,6 +2644,49 @@
 			\begin{remark}
 				Consider a more general case with $L$ input factors and $J$ firms, note that we need to solve the $L$ factor prices from $J$ optimal conditions of firms. If $L > J$, then there are too many unknowns and we cannot hope that the zero-profit conditions alone will determine the factor prices. The total factor endowments will play a role. If $J > L$, then there are too many equations and, for typical world prices, they cannot all be satisfied simultaneously. What this means is that the economy will specialize in the production of a number of goods equal to the number of factors $L$. Therefore, in general, we examine cases when $J=L$.
 			\end{remark}
+	\section{Chapter 16. Equilibrium and Its Basic Welfare Properties}
+	
+		\begin{theorem}[The First Fundamental Theorem of Welfare Economics]
+			In any private ownership economy where the set of consumers is finite, and all consumers preferences are locally nonsatiated, then all Walrasian equilibrium allocation is Pareto efficient.
+		\end{theorem}
+		
+		\begin{proof}[Proof (by Contradiction)]
+			Suppose $\{\langle x^*, y^* \rangle, \varphi^*\}$ is a Walrasian equilibrium. Hence, $x^*_i$ solves the consumers' maximization problem,
+			\begin{equation}
+				x_i \succ_i x_i^* \implies \varphi^*(x_i) > \varphi^*(x_i^*)\ \forall x_i \in X_i
+			\end{equation}
+			\begin{lemma}
+				\begin{equation}
+					x_i \pref_i x_i^* \implies \varphi^*(x_i) \geq \varphi^*(x_i^*)\ \forall x_i \in X_i
+				\end{equation}
+			\end{lemma}
+			\begin{proof}[Proof (by Contradiction)]
+				Suppose there exists $x_i \in X_i$ such that $x_i \pref_i x_i^*$ and $\varphi^*(x_i) < \varphi^*(x_i^*)$. By local nonsatiation of $\pref_i$, for each $n \in \N$, there exists a $x_i^n \in \mc{B}(\frac{1}{n}, x_i)$ such that $x_i^n \succ_i x_i$ and $(x_i^n) \to x_i$. Because of the continuity of $\varphi^*$, $(\varphi^*(x_i^n)) \to \varphi^*(x_i)$. Further, since $x_i^n \succ_i x_i \pref_i x_i^*$, $\varphi^*(x_i^n) > \varphi^*(x_i^*)\ \forall n \in \N$. However, the convergence of $(\varphi^*(x_i^n))$ implies there exists $N^* \in \N$ such that $\forall n > N^*,\ \varphi^*(x_i^n) < \varphi^*(x_i^*)$, which leads to a contradiction.
+			\end{proof}
+			Suppose $\langle x^*, y^* \rangle$ is not a Pareto optimal, then there exists another feasible allocation $\langle x', y' \rangle$ Pareto dominating $\langle x^*, y^* \rangle$. That is
+			\begin{align}
+				&\exists\ \varnothing \neq \mc{N} \subseteq [I],\ s.t.\ \forall I \in \mc{N},\ x_i' \succ_i x_i^* \\
+				&\forall I \in \mc{E} := \mc{N}^c,\ x_i' \succsim_i x_i^*
+			\end{align}
+			By the maximization property, 
+			\begin{equation}
+				\sum_{I \in \mc{N}} \varphi^*(x_i') > \sum_{I \in \mc{N}} \varphi^*(x_i^*)
+			\end{equation}
+			and, by above lemma,
+			\begin{equation}
+				\sum_{I \in \mc{E}} \varphi^*(x_i') \geq \sum_{I \in \mc{E}} \varphi^*(x_i^*)
+			\end{equation}
+			which implies 
+			\begin{align}
+				\varphi^*\left(\sum_{I=1}^I x_i^* \right) &= 
+				\sum_{I=1}^I \varphi^*(x_i') > \sum_{I=1}^I \varphi^*(x_i^*) \\
+				&= \varphi^*(\overline{\omega}) + \sum_{j=1}^J \varphi^*(y_j^*)
+				= \varphi^*(\overline{\omega}) + \varphi^*(\sum_{j=1}^J y_i^*) \\
+				&= \varphi^*\left(\overline{\omega} + \sum_{j=1}^J y_i^* \right) \\
+				&\implies \sum_{I=1}^I x_i^* > \overline{\omega} + \sum_{j=1}^J y_i^*
+			\end{align}
+			this leads to a contraction on the aggregate feasibility of allocation $\langle x', y' \rangle$.
+		\end{proof}
 \end{document}
 
 
