@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 JUN 2019 16:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 JUN 2019 16:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -591,6 +591,16 @@ Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
 )
 \Hy@SectionHShift=\skip50
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip51
+\f@ncyO@elh=\skip52
+\f@ncyO@erh=\skip53
+\f@ncyO@olh=\skip54
+\f@ncyO@orh=\skip55
+\f@ncyO@elf=\skip56
+\f@ncyO@erf=\skip57
+\f@ncyO@olf=\skip58
+\f@ncyO@orf=\skip59
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
  (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -612,7 +622,7 @@ Package: chngcntr 2009/09/02 v1.0a change counter resetting
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip51
+\labelindent=\skip60
 \enit@outerparindent=\dimen122
 \enit@toks=\toks35
 \enit@inbox=\box30
@@ -683,12 +693,12 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \t@pgf@toka=\toks43
 \t@pgf@tokb=\toks44
 \t@pgf@tokc=\toks45
- (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
 Driver file for pgf: pgfsys-pdftex.def
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+ (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
 File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
  (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
@@ -733,14 +743,14 @@ File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
 \pgf@shorten@end@additional=\dimen158
 \pgf@shorten@start@additional=\dimen159
-) (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box33
 \pgf@hbox=\box34
 \pgf@layerbox@main=\box35
 \pgf@picture@serial@count=\count139
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+) (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
 \pgflinewidth=\dimen160
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
@@ -790,10 +800,10 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 \pgffor@skip=\dimen169
 \pgffor@stack=\toks49
 \pgffor@toks=\toks50
-)) (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+ (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \pgf@plot@mark@count=\count141
 \pgfplotmarksize=\dimen170
@@ -869,12 +879,12 @@ Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Bcount=\count164
 \calc@Adimen=\dimen185
 \calc@Bdimen=\dimen186
-\calc@Askip=\skip52
-\calc@Bskip=\skip53
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count165
-\calc@Cskip=\skip54
+\calc@Cskip=\skip63
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
 Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
 )) (/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -888,7 +898,7 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks52
 \verbatim@in@stream=\read2
 )
-\doclicense@hsize=\skip55
+\doclicense@hsize=\skip64
  (/usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/doclicense-english.ldf
 File: doclicense-english.ldf 
 )) (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.sty
@@ -912,20 +922,20 @@ Package: ccicons 2013/04/16 v1.5 LaTeX support for Creative Commons icons
 ) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.aux)
 \openout1 = `mat395.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count173
@@ -951,7 +961,7 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 \AtBeginShipoutBox=\box43
-Package hyperref Info: Link coloring OFF on input line 36.
+Package hyperref Info: Link coloring OFF on input line 40.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -959,9 +969,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count179
 )
-LaTeX Info: Redefining \ref on input line 36.
-LaTeX Info: Redefining \pageref on input line 36.
-LaTeX Info: Redefining \nameref on input line 36.
+LaTeX Info: Redefining \ref on input line 40.
+LaTeX Info: Redefining \pageref on input line 40.
+LaTeX Info: Redefining \nameref on input line 40.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.out) (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.out)
 \@outlinefile=\write4
 \openout4 = `mat395.out'.
@@ -1004,15 +1014,15 @@ LaTeX Info: Redefining \nameref on input line 36.
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+LaTeX Font Info:    Try loading font information for U+msa on input line 42.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+LaTeX Font Info:    Try loading font information for U+msb on input line 42.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 38.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 42.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
@@ -1020,18 +1030,18 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] <doclicense-CC-by-nc.pdf, id=238, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
-Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 38.
+Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 42.
 (pdftex.def)             Requested size: 100.00015pt x 35.53667pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 44.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 40.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 44.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.43 	\tableofcontents
+l.47 	\tableofcontents
                        [1 </usr/local/texlive/2016/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc.pdf>] (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.toc [2
 
 ])
@@ -1042,24 +1052,24 @@ l.43 	\tableofcontents
 Chapter 1.
 [4
 
-] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] <figures/duality.png, id=666, 1243.64626pt x 460.72125pt>
+] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] <figures/duality.png, id=667, 1243.64626pt x 460.72125pt>
 File: figures/duality.png Graphic file (type png)
  <use figures/duality.png>
-Package pdftex.def Info: figures/duality.png used on input line 999.
+Package pdftex.def Info: figures/duality.png used on input line 1003.
 (pdftex.def)             Requested size: 469.75502pt x 174.02138pt.
  [19 <./figures/duality.png>] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32]
 Chapter 2.
 [33
 
-] [34] [35] <figures/ASAD.png, id=998, 361.35pt x 249.93375pt>
+] [34] [35] <figures/ASAD.png, id=999, 361.35pt x 249.93375pt>
 File: figures/ASAD.png Graphic file (type png)
  <use figures/ASAD.png>
-Package pdftex.def Info: figures/ASAD.png used on input line 1875.
+Package pdftex.def Info: figures/ASAD.png used on input line 1879.
 (pdftex.def)             Requested size: 234.8775pt x 162.45882pt.
- <figures/CSR.png, id=999, 310.15875pt x 224.84pt>
+ <figures/CSR.png, id=1000, 310.15875pt x 224.84pt>
 File: figures/CSR.png Graphic file (type png)
  <use figures/CSR.png>
-Package pdftex.def Info: figures/CSR.png used on input line 1889.
+Package pdftex.def Info: figures/CSR.png used on input line 1893.
 (pdftex.def)             Requested size: 234.8775pt x 170.26605pt.
 
 
@@ -1069,56 +1079,56 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 1935.
+(amsmath)                 on input line 1939.
 
-[38] <figures/welfare1.png, id=1048, 572.1375pt x 378.41376pt>
+[38] <figures/welfare1.png, id=1049, 572.1375pt x 378.41376pt>
 File: figures/welfare1.png Graphic file (type png)
  <use figures/welfare1.png>
-Package pdftex.def Info: figures/welfare1.png used on input line 2008.
+Package pdftex.def Info: figures/welfare1.png used on input line 2012.
 (pdftex.def)             Requested size: 234.8775pt x 155.34695pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[39] <figures/agg_surplus.png, id=1063, 853.1875pt x 350.30875pt>
+[39] <figures/agg_surplus.png, id=1064, 853.1875pt x 350.30875pt>
 File: figures/agg_surplus.png Graphic file (type png)
  <use figures/agg_surplus.png>
-Package pdftex.def Info: figures/agg_surplus.png used on input line 2027.
+Package pdftex.def Info: figures/agg_surplus.png used on input line 2031.
 (pdftex.def)             Requested size: 234.8775pt x 96.43942pt.
- [40 <./figures/welfare1.png> <./figures/agg_surplus.png>] <figures/SRLR_CS.png, id=1082, 549.05125pt x 320.19624pt>
+ [40 <./figures/welfare1.png> <./figures/agg_surplus.png>] <figures/SRLR_CS.png, id=1083, 549.05125pt x 320.19624pt>
 File: figures/SRLR_CS.png Graphic file (type png)
  <use figures/SRLR_CS.png>
-Package pdftex.def Info: figures/SRLR_CS.png used on input line 2099.
+Package pdftex.def Info: figures/SRLR_CS.png used on input line 2103.
 (pdftex.def)             Requested size: 234.8775pt x 136.97325pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [41]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 2128.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 2132.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [42 <./figures/SRLR_CS.png>] <figures/adverse_selection.png, id=1118, 530.98375pt x 413.545pt>
+) [42 <./figures/SRLR_CS.png>] <figures/adverse_selection.png, id=1119, 530.98375pt x 413.545pt>
 File: figures/adverse_selection.png Graphic file (type png)
  <use figures/adverse_selection.png>
-Package pdftex.def Info: figures/adverse_selection.png used on input line 2180.
+Package pdftex.def Info: figures/adverse_selection.png used on input line 2184.
 (pdftex.def)             Requested size: 187.89914pt x 146.33939pt.
- [43] <figures/complete_market_failure.png, id=1137, 585.18625pt x 364.36125pt>
+ [43] <figures/complete_market_failure.png, id=1138, 585.18625pt x 364.36125pt>
 File: figures/complete_market_failure.png Graphic file (type png)
  <use figures/complete_market_failure.png>
-Package pdftex.def Info: figures/complete_market_failure.png used on input line 2195.
+Package pdftex.def Info: figures/complete_market_failure.png used on input line 2199.
 (pdftex.def)             Requested size: 234.8775pt x 146.24228pt.
- <figures/multiple_competitive_eq.png, id=1138, 511.9125pt x 452.69125pt>
+ <figures/multiple_competitive_eq.png, id=1139, 511.9125pt x 452.69125pt>
 File: figures/multiple_competitive_eq.png Graphic file (type png)
  <use figures/multiple_competitive_eq.png>
-Package pdftex.def Info: figures/multiple_competitive_eq.png used on input line 2205.
+Package pdftex.def Info: figures/multiple_competitive_eq.png used on input line 2209.
 (pdftex.def)             Requested size: 187.89914pt x 166.15999pt.
  [44 <./figures/adverse_selection.png> <./figures/complete_market_failure.png>] [45 <./figures/multiple_competitive_eq.png>]
 Chapter 3.
-<figures/EWBox_Budget.png, id=1158, 1109.14375pt x 453.695pt>
+<figures/EWBox_Budget.png, id=1159, 1109.14375pt x 453.695pt>
 File: figures/EWBox_Budget.png Graphic file (type png)
  <use figures/EWBox_Budget.png>
-Package pdftex.def Info: figures/EWBox_Budget.png used on input line 2245.
+Package pdftex.def Info: figures/EWBox_Budget.png used on input line 2249.
 (pdftex.def)             Requested size: 375.80544pt x 153.72119pt.
 
 
@@ -1126,67 +1136,67 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [46
 
-] <figures/OC.png, id=1173, 436.63126pt x 396.48125pt>
+] <figures/OC.png, id=1174, 436.63126pt x 396.48125pt>
 File: figures/OC.png Graphic file (type png)
  <use figures/OC.png>
-Package pdftex.def Info: figures/OC.png used on input line 2275.
+Package pdftex.def Info: figures/OC.png used on input line 2279.
 (pdftex.def)             Requested size: 164.41711pt x 149.29718pt.
- <figures/net_supplier.png, id=1174, 658.46pt x 358.33875pt>
+ <figures/net_supplier.png, id=1175, 658.46pt x 358.33875pt>
 File: figures/net_supplier.png Graphic file (type png)
  <use figures/net_supplier.png>
-Package pdftex.def Info: figures/net_supplier.png used on input line 2285.
+Package pdftex.def Info: figures/net_supplier.png used on input line 2289.
 (pdftex.def)             Requested size: 234.8775pt x 127.8208pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[47 <./figures/EWBox_Budget.png> <./figures/OC.png>] <figures/multiple_eq.png, id=1192, 415.5525pt x 353.32pt>
+[47 <./figures/EWBox_Budget.png> <./figures/OC.png>] <figures/multiple_eq.png, id=1193, 415.5525pt x 353.32pt>
 File: figures/multiple_eq.png Graphic file (type png)
  <use figures/multiple_eq.png>
-Package pdftex.def Info: figures/multiple_eq.png used on input line 2315.
+Package pdftex.def Info: figures/multiple_eq.png used on input line 2319.
 (pdftex.def)             Requested size: 140.92793pt x 119.8199pt.
- <figures/none_eq.png, id=1193, 1010.77625pt x 374.39874pt>
+ <figures/none_eq.png, id=1194, 1010.77625pt x 374.39874pt>
 File: figures/none_eq.png Graphic file (type png)
  <use figures/none_eq.png>
-Package pdftex.def Info: figures/none_eq.png used on input line 2325.
+Package pdftex.def Info: figures/none_eq.png used on input line 2329.
 (pdftex.def)             Requested size: 375.80544pt x 139.19948pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[48 <./figures/net_supplier.png> <./figures/multiple_eq.png>] <figures/Pareto_contract.png, id=1209, 448.67625pt x 345.29pt>
+[48 <./figures/net_supplier.png> <./figures/multiple_eq.png>] <figures/Pareto_contract.png, id=1210, 448.67625pt x 345.29pt>
 File: figures/Pareto_contract.png Graphic file (type png)
  <use figures/Pareto_contract.png>
-Package pdftex.def Info: figures/Pareto_contract.png used on input line 2344.
+Package pdftex.def Info: figures/Pareto_contract.png used on input line 2348.
 (pdftex.def)             Requested size: 187.89914pt x 144.5993pt.
- <figures/2ndFTWE.png, id=1210, 440.64626pt x 324.21124pt>
+ <figures/2ndFTWE.png, id=1211, 440.64626pt x 324.21124pt>
 File: figures/2ndFTWE.png Graphic file (type png)
  <use figures/2ndFTWE.png>
-Package pdftex.def Info: figures/2ndFTWE.png used on input line 2373.
+Package pdftex.def Info: figures/2ndFTWE.png used on input line 2377.
 (pdftex.def)             Requested size: 187.89914pt x 138.2505pt.
- [49 <./figures/none_eq.png> <./figures/Pareto_contract.png>] [50 <./figures/2ndFTWE.png>] <figures/1C1P_not_eq.png, id=1234, 651.43375pt x 512.91624pt>
+ [49 <./figures/none_eq.png> <./figures/Pareto_contract.png>] [50 <./figures/2ndFTWE.png>] <figures/1C1P_not_eq.png, id=1235, 651.43375pt x 512.91624pt>
 File: figures/1C1P_not_eq.png Graphic file (type png)
  <use figures/1C1P_not_eq.png>
-Package pdftex.def Info: figures/1C1P_not_eq.png used on input line 2413.
+Package pdftex.def Info: figures/1C1P_not_eq.png used on input line 2417.
 (pdftex.def)             Requested size: 211.38832pt x 166.43753pt.
- <figures/1C1P_eq.png, id=1235, 453.695pt x 506.89375pt>
+ <figures/1C1P_eq.png, id=1236, 453.695pt x 506.89375pt>
 File: figures/1C1P_eq.png Graphic file (type png)
  <use figures/1C1P_eq.png>
-Package pdftex.def Info: figures/1C1P_eq.png used on input line 2418.
+Package pdftex.def Info: figures/1C1P_eq.png used on input line 2422.
 (pdftex.def)             Requested size: 158.54123pt x 177.12929pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/fail_2FTWE.png, id=1236, 571.13374pt x 470.75874pt>
+<figures/fail_2FTWE.png, id=1237, 571.13374pt x 470.75874pt>
 File: figures/fail_2FTWE.png Graphic file (type png)
  <use figures/fail_2FTWE.png>
-Package pdftex.def Info: figures/fail_2FTWE.png used on input line 2439.
+Package pdftex.def Info: figures/fail_2FTWE.png used on input line 2443.
 (pdftex.def)             Requested size: 211.38832pt x 174.23547pt.
- <figures/succ_1FTWE.png, id=1237, 450.68375pt x 477.785pt>
+ <figures/succ_1FTWE.png, id=1238, 450.68375pt x 477.785pt>
 File: figures/succ_1FTWE.png Graphic file (type png)
  <use figures/succ_1FTWE.png>
-Package pdftex.def Info: figures/succ_1FTWE.png used on input line 2444.
+Package pdftex.def Info: figures/succ_1FTWE.png used on input line 2448.
 (pdftex.def)             Requested size: 169.1113pt x 179.27829pt.
 
 
@@ -1194,76 +1204,76 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2449.
+(hyperref)                removing `math shift' on input line 2453.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 2449.
+(hyperref)                removing `\times' on input line 2453.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2449.
+(hyperref)                removing `math shift' on input line 2453.
 
-[51] [52 <./figures/1C1P_not_eq.png> <./figures/1C1P_eq.png> <./figures/fail_2FTWE.png> <./figures/succ_1FTWE.png>] [53] <figures/pareto_prod_set.png, id=1286, 511.9125pt x 399.4925pt>
+[51] [52 <./figures/1C1P_not_eq.png> <./figures/1C1P_eq.png> <./figures/fail_2FTWE.png> <./figures/succ_1FTWE.png>] [53] <figures/pareto_prod_set.png, id=1287, 511.9125pt x 399.4925pt>
 File: figures/pareto_prod_set.png Graphic file (type png)
  <use figures/pareto_prod_set.png>
-Package pdftex.def Info: figures/pareto_prod_set.png used on input line 2529.
+Package pdftex.def Info: figures/pareto_prod_set.png used on input line 2533.
 (pdftex.def)             Requested size: 140.92793pt x 109.97963pt.
- [54 <./figures/pareto_prod_set.png>] <figures/equilibrium_factor_prices.png, id=1308, 536.0025pt x 457.71pt>
+ [54 <./figures/pareto_prod_set.png>] <figures/equilibrium_factor_prices.png, id=1309, 536.0025pt x 457.71pt>
 File: figures/equilibrium_factor_prices.png Graphic file (type png)
  <use figures/equilibrium_factor_prices.png>
-Package pdftex.def Info: figures/equilibrium_factor_prices.png used on input line 2559.
+Package pdftex.def Info: figures/equilibrium_factor_prices.png used on input line 2563.
 (pdftex.def)             Requested size: 147.97118pt x 126.35603pt.
- <figures/equilibrium_factor_allocation.png, id=1309, 704.6325pt x 489.83pt>
+ <figures/equilibrium_factor_allocation.png, id=1310, 704.6325pt x 489.83pt>
 File: figures/equilibrium_factor_allocation.png Graphic file (type png)
  <use figures/equilibrium_factor_allocation.png>
-Package pdftex.def Info: figures/equilibrium_factor_allocation.png used on input line 2564.
+Package pdftex.def Info: figures/equilibrium_factor_allocation.png used on input line 2568.
 (pdftex.def)             Requested size: 211.38832pt x 146.94266pt.
- [55 <./figures/equilibrium_factor_prices.png> <./figures/equilibrium_factor_allocation.png>] <figures/Stolper_Samuelson.png, id=1327, 490.83376pt x 417.56pt>
+ [55 <./figures/equilibrium_factor_prices.png> <./figures/equilibrium_factor_allocation.png>] <figures/Stolper_Samuelson.png, id=1328, 490.83376pt x 417.56pt>
 File: figures/Stolper_Samuelson.png Graphic file (type png)
  <use figures/Stolper_Samuelson.png>
-Package pdftex.def Info: figures/Stolper_Samuelson.png used on input line 2618.
+Package pdftex.def Info: figures/Stolper_Samuelson.png used on input line 2622.
 (pdftex.def)             Requested size: 147.97118pt x 125.88062pt.
- <figures/Stolper_Samuelson_2.png, id=1328, 398.48875pt x 243.91125pt>
+ <figures/Stolper_Samuelson_2.png, id=1329, 398.48875pt x 243.91125pt>
 File: figures/Stolper_Samuelson_2.png Graphic file (type png)
  <use figures/Stolper_Samuelson_2.png>
-Package pdftex.def Info: figures/Stolper_Samuelson_2.png used on input line 2623.
+Package pdftex.def Info: figures/Stolper_Samuelson_2.png used on input line 2627.
 (pdftex.def)             Requested size: 211.38832pt x 129.38771pt.
- <figures/Rybcszynski.png, id=1329, 898.35625pt x 557.08125pt>
+ <figures/Rybcszynski.png, id=1330, 898.35625pt x 557.08125pt>
 File: figures/Rybcszynski.png Graphic file (type png)
  <use figures/Rybcszynski.png>
-Package pdftex.def Info: figures/Rybcszynski.png used on input line 2640.
+Package pdftex.def Info: figures/Rybcszynski.png used on input line 2644.
 (pdftex.def)             Requested size: 281.85587pt x 174.77599pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [56 <./figures/Stolper_Samuelson.png> <./figures/Stolper_Samuelson_2.png>] [57 <./figures/Rybcszynski.png>] [58] [59] [60] [61] [62] [63]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2932.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2932.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2936.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2936.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2932.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2932.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2936.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2936.
 Package rerunfilecheck Info: File `mat395.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2932.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2936.
  ) 
 Here is how much of TeX's memory you used:
- 22297 strings out of 493014
- 402619 string characters out of 6133351
- 486196 words of memory out of 5000000
- 24444 multiletter control sequences out of 15000+600000
- 17336 words of font info for 71 fonts, out of 8000000 for 9000
+ 22422 strings out of 493014
+ 403964 string characters out of 6133351
+ 489256 words of memory out of 5000000
+ 24564 multiletter control sequences out of 15000+600000
+ 17689 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,19n,92p,911b,618s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,19n,92p,911b,624s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2016/
-texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.pdf (64 pages, 2513496 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.pdf (64 pages, 2534768 bytes).
 PDF statistics:
- 1734 PDF objects out of 2073 (max. 8388607)
- 1572 compressed objects within 16 object streams
+ 1738 PDF objects out of 2073 (max. 8388607)
+ 1575 compressed objects within 16 object streams
  925 named destinations out of 1000 (max. 500000)
  588 words of extra memory for PDF output out of 10000 (max. 10000000)
 
