@@ -1,0 +1,111 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Individual Choices}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}Chapter 1. Preference and Choice}{4}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Preference Relations}{4}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Choice Rules}{5}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}The Relationship between Preference Relations and Choice Rules}{5}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Chapter 2. Consumer Choice}{6}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Commodities}{6}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}The Consumption Set}{6}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Competitive Budgets}{6}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Demand Functions and Comparative Statics}{7}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}The Weak Axiom of Revealed Preference and the Law of Demand}{9}{subsection.1.2.5}
+\contentsline {section}{\numberline {1.3}Chapter 3. Classical Demand Theory}{11}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Preference Relations: Basic Properties}{11}{subsection.1.3.1}
+\contentsline {subsubsection}{Desirability Assumptions}{11}{section*.2}
+\contentsline {subsubsection}{Convexity Assumptions}{12}{section*.3}
+\contentsline {subsection}{\numberline {1.3.2}Preference and Utility}{12}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}The Utility Maximization Problem}{13}{subsection.1.3.3}
+\contentsline {subsubsection}{The Walrasian Demand Correspondence/Function}{14}{section*.4}
+\contentsline {subsubsection}{The Indirect Utility Function}{15}{section*.5}
+\contentsline {subsection}{\numberline {1.3.4}The Expenditure Minimization Problem}{15}{subsection.1.3.4}
+\contentsline {subsubsection}{The Hicksian (or Compensated) Demand Function}{16}{section*.6}
+\contentsline {subsubsection}{Hicksian Demand and the Compensated Law of Demand}{17}{section*.7}
+\contentsline {subsection}{\numberline {1.3.5}Duality: A Mathematical Introduction}{17}{subsection.1.3.5}
+\contentsline {subsection}{\numberline {1.3.6}Relationships between Demand, Indirect Utility, and Expenditure Functions}{17}{subsection.1.3.6}
+\contentsline {subsubsection}{Walrasian Demand and the Indirect Utility Function}{18}{section*.8}
+\contentsline {subsection}{\numberline {1.3.7}Integrability}{19}{subsection.1.3.7}
+\contentsline {subsubsection}{Recovering Preferences from the Expenditure Function}{19}{section*.10}
+\contentsline {paragraph}{Construction}{19}{section*.11}
+\contentsline {subsubsection}{Recovering the Expenditure Function from Demand}{20}{section*.12}
+\contentsline {paragraph}{Construction}{20}{section*.13}
+\contentsline {subsection}{\numberline {1.3.8}Welfare Evaluation of Economic Changes}{20}{subsection.1.3.8}
+\contentsline {paragraph}{Context}{20}{section*.14}
+\contentsline {subsubsection}{Welfare Analysis with Partial Information}{21}{section*.15}
+\contentsline {subsection}{\numberline {1.3.9}The Strong Axiom of Revealed Preference}{22}{subsection.1.3.9}
+\contentsline {section}{\numberline {1.4}Chapter 4. Aggregate Demand}{23}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Aggregate Demand and Aggregate Wealth}{23}{subsection.1.4.1}
+\contentsline {paragraph}{Context}{23}{section*.16}
+\contentsline {section}{\numberline {1.5}Chapter 5. Production}{24}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Production Sets}{24}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Profit Maximization and Cost Minimization}{25}{subsection.1.5.2}
+\contentsline {subsubsection}{The Profit Maximization Problem}{25}{section*.17}
+\contentsline {subsubsection}{Cost Minimization}{26}{section*.18}
+\contentsline {subsection}{\numberline {1.5.3}The Geometry of Cost and Supply in the Single-Output Case}{27}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.4}Aggregation}{28}{subsection.1.5.4}
+\contentsline {subsection}{\numberline {1.5.5}Efficient Production}{28}{subsection.1.5.5}
+\contentsline {subsection}{\numberline {1.5.6}Remarks on the Objectives of the Firm}{29}{subsection.1.5.6}
+\contentsline {section}{\numberline {1.6}Notes on Comparative Statics}{29}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Univariate Case}{29}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Multivariate Case}{30}{subsection.1.6.2}
+\contentsline {section}{\numberline {1.7}Chapter 6. Choice Under Uncertainty}{30}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}Expected Utility Theory}{30}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}Money Lotteries and Risk Aversion}{32}{subsection.1.7.2}
+\contentsline {chapter}{\numberline {2}Partial Equilibrium Analysis and Market Failures}{33}{chapter.2}
+\contentsline {section}{\numberline {2.1}Chapter 10. Competitive Markets}{33}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Pareto Optimality and Competitive Equilibria}{33}{subsection.2.1.1}
+\contentsline {paragraph}{Economy setup}{33}{section*.19}
+\contentsline {paragraph}{Competitive market setup}{34}{section*.20}
+\contentsline {subsection}{\numberline {2.1.2}Partial Equilibrium Competitive Analysis}{35}{subsection.2.1.2}
+\contentsline {paragraph}{Economy setup \& assumptions}{35}{section*.21}
+\contentsline {paragraph}{Firms' Behaviour}{35}{section*.22}
+\contentsline {paragraph}{Consumers' Behaviour}{35}{section*.23}
+\contentsline {paragraph}{Aggregate Demand}{36}{section*.24}
+\contentsline {paragraph}{Aggregate Supply}{36}{section*.25}
+\contentsline {paragraph}{Comparative Statistics}{37}{section*.28}
+\contentsline {subsection}{\numberline {2.1.3}The Fundamental Welfare Theorems in a Partial Equilibrium Context}{38}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Welfare Analysis in the Partial Equilibrium Model}{39}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Free-Entry and Long-Run Competitive Equilibria}{40}{subsection.2.1.5}
+\contentsline {section}{\numberline {2.2}Chapter 13. Adverse Selection, Signalling, and Screen}{42}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Informational Asymmetries and Adverse Selection}{42}{subsection.2.2.1}
+\contentsline {subsubsection}{Economy Setup}{42}{section*.32}
+\contentsline {paragraph}{Firm}{42}{section*.33}
+\contentsline {paragraph}{Worker}{42}{section*.34}
+\contentsline {subsubsection}{Equilibrium with Symmetric Information}{42}{section*.35}
+\contentsline {paragraph}{Labor Supply}{43}{section*.36}
+\contentsline {paragraph}{Labor Demand}{43}{section*.37}
+\contentsline {paragraph}{Equilibrium}{43}{section*.38}
+\contentsline {subsubsection}{Equilibria with Asymmetric Information and Pareto Inefficiency}{43}{section*.39}
+\contentsline {subsubsection}{Adverse Selection and Market Unraveling}{44}{section*.40}
+\contentsline {chapter}{\numberline {3}General Equilibrium Analysis}{46}{chapter.3}
+\contentsline {section}{\numberline {3.1}Chapter 15. General Equilibrium Theory: Some Examples}{46}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Pure Exchange: The Edgeworth Box}{46}{subsection.3.1.1}
+\contentsline {subsubsection}{Model Setup}{46}{section*.44}
+\contentsline {paragraph}{Consumers}{46}{section*.45}
+\contentsline {subsubsection}{Consumers' Behaviour}{46}{section*.46}
+\contentsline {paragraph}{}{46}{section*.47}
+\contentsline {paragraph}{}{47}{section*.49}
+\contentsline {subsubsection}{Welfare}{48}{section*.54}
+\contentsline {subsection}{\numberline {3.1.2}The One Consumer, One Producer Economy}{51}{subsection.3.1.2}
+\contentsline {paragraph}{Economy Setup}{51}{section*.57}
+\contentsline {paragraph}{Consumer}{51}{section*.58}
+\contentsline {paragraph}{Firm}{51}{section*.59}
+\contentsline {paragraph}{Optimizations}{51}{section*.60}
+\contentsline {paragraph}{Walrasian Equilibrium}{51}{section*.61}
+\contentsline {paragraph}{Graphical Representation}{51}{section*.62}
+\contentsline {subsection}{\numberline {3.1.3}The $2 \times 2$ Production Model}{52}{subsection.3.1.3}
+\contentsline {subsubsection}{Economy Setup(General)}{52}{section*.65}
+\contentsline {paragraph}{Firms}{52}{section*.66}
+\contentsline {paragraph}{Consumers}{52}{section*.67}
+\contentsline {subsubsection}{Special Case: $L=J=2$, the $2 \times 2$ Production Model}{53}{section*.68}
+\contentsline {paragraph}{Unit Production}{53}{section*.69}
+\contentsline {paragraph}{Equilibrium Factor Prices}{54}{section*.71}
+\contentsline {paragraph}{Equilibrium Factor Allocation}{55}{section*.73}
+\contentsline {subsubsection}{Comparative Statics: Change in Output Price}{55}{section*.74}
+\contentsline {subsubsection}{Comparative Statics: Change in Endowments}{56}{section*.76}
+\contentsline {section}{\numberline {3.2}Chapter 16. Equilibrium and Its Basic Welfare Properties}{57}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Definitions}{57}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Private Ownership Economies}{57}{subsection.3.2.2}
+\contentsline {paragraph}{Economy}{57}{section*.78}
+\contentsline {paragraph}{Endowments}{57}{section*.79}
+\contentsline {subsection}{\numberline {3.2.3}The First Fundamental Theorem of Welfare Economics}{58}{subsection.3.2.3}

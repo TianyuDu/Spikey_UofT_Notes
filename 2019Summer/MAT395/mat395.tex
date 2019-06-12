@@ -2674,11 +2674,76 @@
 		\end{definition}
 		
 		\subsection{Private Ownership Economies}
+		\paragraph{Economy} In a private ownership economy, every good $\ell$ is traded on a market consisting of price-taking firms and consumers. The wealth of consumers are from their initial endowments (in terms of commodities) and dividend from firms' profits based on their ownerships of firms.
+		
+		\paragraph{Endowments} Consumer $i$ possesses an initial endowment vector $\omega_i \in \R^L$ and a claim $\theta_{ij} \in [0, 1]$ to firm $j$'s profit. Hence, $\forall j,\ \sum_i \theta_{ij} = 1$.
+		
+		\begin{remark}
+			A private ownership economy can be constructed as
+			\begin{equation}
+				\mc{E} = \left \langle
+					\left \{ (X_i, \pref_i) \right \}_{i=1}^I,
+					\{Y_j\}_{j=1}^J,
+					\{(\omega_i, \{\theta_{ij}\}_j)\}_{i=1}^I
+				\right \rangle
+			\end{equation}
+		\end{remark}
+		
+		\begin{definition}[16.B.3]
+			Given a private ownership economy $\mc{E}$ and an allocation $(x^*, y^*)$ and a price vector $p$ constitute a \textbf{Walrasian (or competitive) equilibrium} if
+			\begin{enumerate}[(i)]
+				\item For $j$, $y_j^*$ maximizes profit in $Y_j$; that is,
+				\begin{equation}
+					p \cdot y_j \leq p \cdot y_j^*\ \forall y_j \in Y_j
+				\end{equation}
+				\item For every $i$, $x_i^*$ is maximal for $\pref_i$ in the budget set
+				\begin{equation}
+					\left\{
+					x_i \in X_i: p \cdot x_i \leq p \cdot \omega_i + \sum_i \theta_{ij} p \cdot y_j^*
+					\right\}
+				\end{equation}
+				\item Market clears $\sum_i x_i^* = \overline{\omega} + \sum_j y_j^*$.
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{remark}
+			The second defining property of Walrasian equilibrium is equivalent to 
+			\begin{equation}
+				\forall i \in [I],\ \forall x_i \in X_i,\ x_i \succ_i x_i^* \implies p \cdot x_i > p \cdot \omega_i + \sum_i \theta_{ij} p \cdot y_j^*
+			\end{equation}
+		\end{remark}
+		
+		\begin{definition}
+			A generalization of price vector $p$ is called a \textbf{price system}. A typical price system is a \ul{linear continuous} mapping $\varphi: X \to \R$.
+		\end{definition}
+		
+		\paragraph{Price Equilibria with Transfers} We can imagine a situation where a social planner is able to carry out (lump-sum) redistributions of wealth, and where society's aggregate wealth can therefore be redistributed among consumers in any desired manner.
+		
+		\begin{definition}[16.B.4]
+			Given an economy specified by $\langle \{(X_i, \pref_i)\}_i, \{Y_j\}_j, \omega \rangle$, an allocation $(x^*, y^*)$ and a price vector $p$ constitute a \textbf{price equilibirium with transfers} if there is an assignment of wealth levels $(w_i)$ with $\sum_i w_i = p \cdot \overline{\omega} + \sum_j p \cdot y_j^*$ such that
+			\begin{enumerate}[(i)]
+				\item $p \cdot y_j \leq p \cdot y_j^*\ \forall y_j \in Y_j$;
+				\item $\forall x_i \in X_i,\ x_i \succ_i x_i^* \implies p \cdot x_i > w_i$;
+				\item $\sum_i x_i^* = \overline{\omega} + \sum_j y_j^*$.
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{remark}
+			Note that a Walrasian equilibrium is a special case of an equilibrium with transfers. It amounts to the case which, for every $i$, consumer $i$'S wealth level is determined by the initial endowment vector $\omega_i$ and by the profit shares $[\theta_{ij}]$ without any further wealth transfers, that is, where $w_i = p \cdot \omega_i + \sum_{j} \theta_{ij} p \cdot y_j^*$ for every $i \in [I]$.
+		\end{remark}
 		
 		\subsection{The First Fundamental Theorem of Welfare Economics}
 		
+		\begin{remark}
+			For the first welfare theorem to hold, we only assume the local nonsatiation of preferences without appealing to any convexity assumption.
+		\end{remark}
+		
+		\begin{definition}
+			The preference relation $\pref_i$ on the consumption set $(X_i, d)$ is \textbf{locally nonsatiated} if for every $x_i \in X_i$ and every $\varepsilon$, there is an $x_i' \in X_i$ such that $d(x_i', x_i) \leq \varepsilon$ and $x_i' \succ_i x_i$.
+		\end{definition}
+		
 		\begin{theorem}[The First Fundamental Theorem of Welfare Economics]
-			In any private ownership economy where the set of consumers is finite, and all consumers preferences are locally nonsatiated, then all Walrasian equilibrium allocation is Pareto efficient.
+			In any private ownership economy where the set of consumers is finite, and all consumers preferences are \ul{locally nonsatiated}, then all Walrasian equilibrium allocation is Pareto efficient.
 		\end{theorem}
 		
 		\begin{proof}[Proof (by Contradiction)]
@@ -2718,6 +2783,16 @@
 			\end{align}
 			this leads to a contraction on the aggregate feasibility of allocation $\langle x', y' \rangle$.
 		\end{proof}
+		
+		\begin{remark}
+			Although the result of the first fundamental theorem seems from a weak premise, but, it implicitly incorporates two strong assumptions
+			\begin{enumerate}[(i)]
+				\item \emph{Universal price quoting of commodities} (market completeness);
+				\item \emph{Price taking} by economic agents.
+			\end{enumerate}
+		\end{remark}
+		
+		\subsection{The Second Fundamental Theorem of Welfare Economics}
 \end{document}
 
 
