@@ -2645,7 +2645,38 @@
 				Consider a more general case with $L$ input factors and $J$ firms, note that we need to solve the $L$ factor prices from $J$ optimal conditions of firms. If $L > J$, then there are too many unknowns and we cannot hope that the zero-profit conditions alone will determine the factor prices. The total factor endowments will play a role. If $J > L$, then there are too many equations and, for typical world prices, they cannot all be satisfied simultaneously. What this means is that the economy will specialize in the production of a number of goods equal to the number of factors $L$. Therefore, in general, we examine cases when $J=L$.
 			\end{remark}
 	\section{Chapter 16. Equilibrium and Its Basic Welfare Properties}
-	
+		\subsection{Definitions}
+		\begin{remark}
+			The \textbf{disposal technology} can be written as $Y_1 = -\R^2_+$.
+		\end{remark}
+		
+		\begin{definition}
+			An economy is a \textbf{pure exchange economy} if its only technological possibility is the free disposal technology, $Y_j = -\R^L_+\ \forall j$. 
+		\end{definition}
+		
+		\begin{definition}[16.B.1.a]
+			An \textbf{allocation} $(x, y) \equiv \langle (x_i), (y_j) \rangle$ is a specification of a consumption vector $x_i \in X_i$ for each consumer $i$ and a production vector $y_j \in Y_j$ for each firm $j$.
+		\end{definition}
+		
+		\begin{definition}[16.B.1.b]
+			An allocation $(x, y)$ is \textbf{feasible} if 
+			\begin{equation}
+				\sum_i x_i = \overline{\omega} + \sum_j y_j
+			\end{equation}
+			we denote the set of feasible allocations by 
+			\begin{equation}
+				A = \left\{(x, y) \in \prod_i X_i \times \prod_j Y_j: \sum_i x_i = \overline{\omega} + \sum_j y_j \right\} \subset \R^{L(I+J)}
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}[16.B.2]
+			A feasible allocation $(x, y)$ is \textbf{Pareto optimal/efficient} if there is no other feasible allocation $(x', y')$ such that $x_i' \pref_i x_i$ for all $i$ and $x_i' \succ_i x_i$ for some $i$.
+		\end{definition}
+		
+		\subsection{Private Ownership Economies}
+		
+		\subsection{The First Fundamental Theorem of Welfare Economics}
+		
 		\begin{theorem}[The First Fundamental Theorem of Welfare Economics]
 			In any private ownership economy where the set of consumers is finite, and all consumers preferences are locally nonsatiated, then all Walrasian equilibrium allocation is Pareto efficient.
 		\end{theorem}
