@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 JUN 2019 12:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 JUN 2019 16:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1017,7 +1017,7 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 38.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] <doclicense-CC-by-nc.pdf, id=234, 121.45375pt x 43.16125pt>
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] <doclicense-CC-by-nc.pdf, id=238, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 38.
@@ -1042,7 +1042,7 @@ l.43 	\tableofcontents
 Chapter 1.
 [4
 
-] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] <figures/duality.png, id=661, 1243.64626pt x 460.72125pt>
+] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] <figures/duality.png, id=666, 1243.64626pt x 460.72125pt>
 File: figures/duality.png Graphic file (type png)
  <use figures/duality.png>
 Package pdftex.def Info: figures/duality.png used on input line 999.
@@ -1051,12 +1051,12 @@ Package pdftex.def Info: figures/duality.png used on input line 999.
 Chapter 2.
 [33
 
-] [34] [35] <figures/ASAD.png, id=993, 361.35pt x 249.93375pt>
+] [34] [35] <figures/ASAD.png, id=998, 361.35pt x 249.93375pt>
 File: figures/ASAD.png Graphic file (type png)
  <use figures/ASAD.png>
 Package pdftex.def Info: figures/ASAD.png used on input line 1875.
 (pdftex.def)             Requested size: 234.8775pt x 162.45882pt.
- <figures/CSR.png, id=994, 310.15875pt x 224.84pt>
+ <figures/CSR.png, id=999, 310.15875pt x 224.84pt>
 File: figures/CSR.png Graphic file (type png)
  <use figures/CSR.png>
 Package pdftex.def Info: figures/CSR.png used on input line 1889.
@@ -1071,7 +1071,7 @@ Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 1935.
 
-[38] <figures/welfare1.png, id=1043, 572.1375pt x 378.41376pt>
+[38] <figures/welfare1.png, id=1048, 572.1375pt x 378.41376pt>
 File: figures/welfare1.png Graphic file (type png)
  <use figures/welfare1.png>
 Package pdftex.def Info: figures/welfare1.png used on input line 2008.
@@ -1080,12 +1080,12 @@ Package pdftex.def Info: figures/welfare1.png used on input line 2008.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[39] <figures/agg_surplus.png, id=1058, 853.1875pt x 350.30875pt>
+[39] <figures/agg_surplus.png, id=1063, 853.1875pt x 350.30875pt>
 File: figures/agg_surplus.png Graphic file (type png)
  <use figures/agg_surplus.png>
 Package pdftex.def Info: figures/agg_surplus.png used on input line 2027.
 (pdftex.def)             Requested size: 234.8775pt x 96.43942pt.
- [40 <./figures/welfare1.png> <./figures/agg_surplus.png>] <figures/SRLR_CS.png, id=1077, 549.05125pt x 320.19624pt>
+ [40 <./figures/welfare1.png> <./figures/agg_surplus.png>] <figures/SRLR_CS.png, id=1082, 549.05125pt x 320.19624pt>
 File: figures/SRLR_CS.png Graphic file (type png)
  <use figures/SRLR_CS.png>
 Package pdftex.def Info: figures/SRLR_CS.png used on input line 2099.
@@ -1098,24 +1098,24 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Font Info:    Try loading font information for U+dsrom on input line 2128.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [42 <./figures/SRLR_CS.png>] <figures/adverse_selection.png, id=1113, 530.98375pt x 413.545pt>
+) [42 <./figures/SRLR_CS.png>] <figures/adverse_selection.png, id=1118, 530.98375pt x 413.545pt>
 File: figures/adverse_selection.png Graphic file (type png)
  <use figures/adverse_selection.png>
 Package pdftex.def Info: figures/adverse_selection.png used on input line 2180.
 (pdftex.def)             Requested size: 187.89914pt x 146.33939pt.
- [43] <figures/complete_market_failure.png, id=1132, 585.18625pt x 364.36125pt>
+ [43] <figures/complete_market_failure.png, id=1137, 585.18625pt x 364.36125pt>
 File: figures/complete_market_failure.png Graphic file (type png)
  <use figures/complete_market_failure.png>
 Package pdftex.def Info: figures/complete_market_failure.png used on input line 2195.
 (pdftex.def)             Requested size: 234.8775pt x 146.24228pt.
- <figures/multiple_competitive_eq.png, id=1133, 511.9125pt x 452.69125pt>
+ <figures/multiple_competitive_eq.png, id=1138, 511.9125pt x 452.69125pt>
 File: figures/multiple_competitive_eq.png Graphic file (type png)
  <use figures/multiple_competitive_eq.png>
 Package pdftex.def Info: figures/multiple_competitive_eq.png used on input line 2205.
 (pdftex.def)             Requested size: 187.89914pt x 166.15999pt.
  [44 <./figures/adverse_selection.png> <./figures/complete_market_failure.png>] [45 <./figures/multiple_competitive_eq.png>]
 Chapter 3.
-<figures/EWBox_Budget.png, id=1153, 1109.14375pt x 453.695pt>
+<figures/EWBox_Budget.png, id=1158, 1109.14375pt x 453.695pt>
 File: figures/EWBox_Budget.png Graphic file (type png)
  <use figures/EWBox_Budget.png>
 Package pdftex.def Info: figures/EWBox_Budget.png used on input line 2245.
@@ -1126,12 +1126,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [46
 
-] <figures/OC.png, id=1168, 436.63126pt x 396.48125pt>
+] <figures/OC.png, id=1173, 436.63126pt x 396.48125pt>
 File: figures/OC.png Graphic file (type png)
  <use figures/OC.png>
 Package pdftex.def Info: figures/OC.png used on input line 2275.
 (pdftex.def)             Requested size: 164.41711pt x 149.29718pt.
- <figures/net_supplier.png, id=1169, 658.46pt x 358.33875pt>
+ <figures/net_supplier.png, id=1174, 658.46pt x 358.33875pt>
 File: figures/net_supplier.png Graphic file (type png)
  <use figures/net_supplier.png>
 Package pdftex.def Info: figures/net_supplier.png used on input line 2285.
@@ -1140,12 +1140,12 @@ Package pdftex.def Info: figures/net_supplier.png used on input line 2285.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[47 <./figures/EWBox_Budget.png> <./figures/OC.png>] <figures/multiple_eq.png, id=1187, 415.5525pt x 353.32pt>
+[47 <./figures/EWBox_Budget.png> <./figures/OC.png>] <figures/multiple_eq.png, id=1192, 415.5525pt x 353.32pt>
 File: figures/multiple_eq.png Graphic file (type png)
  <use figures/multiple_eq.png>
 Package pdftex.def Info: figures/multiple_eq.png used on input line 2315.
 (pdftex.def)             Requested size: 140.92793pt x 119.8199pt.
- <figures/none_eq.png, id=1188, 1010.77625pt x 374.39874pt>
+ <figures/none_eq.png, id=1193, 1010.77625pt x 374.39874pt>
 File: figures/none_eq.png Graphic file (type png)
  <use figures/none_eq.png>
 Package pdftex.def Info: figures/none_eq.png used on input line 2325.
@@ -1154,22 +1154,22 @@ Package pdftex.def Info: figures/none_eq.png used on input line 2325.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[48 <./figures/net_supplier.png> <./figures/multiple_eq.png>] <figures/Pareto_contract.png, id=1204, 448.67625pt x 345.29pt>
+[48 <./figures/net_supplier.png> <./figures/multiple_eq.png>] <figures/Pareto_contract.png, id=1209, 448.67625pt x 345.29pt>
 File: figures/Pareto_contract.png Graphic file (type png)
  <use figures/Pareto_contract.png>
 Package pdftex.def Info: figures/Pareto_contract.png used on input line 2344.
 (pdftex.def)             Requested size: 187.89914pt x 144.5993pt.
- <figures/2ndFTWE.png, id=1205, 440.64626pt x 324.21124pt>
+ <figures/2ndFTWE.png, id=1210, 440.64626pt x 324.21124pt>
 File: figures/2ndFTWE.png Graphic file (type png)
  <use figures/2ndFTWE.png>
 Package pdftex.def Info: figures/2ndFTWE.png used on input line 2373.
 (pdftex.def)             Requested size: 187.89914pt x 138.2505pt.
- [49 <./figures/none_eq.png> <./figures/Pareto_contract.png>] [50 <./figures/2ndFTWE.png>] <figures/1C1P_not_eq.png, id=1229, 651.43375pt x 512.91624pt>
+ [49 <./figures/none_eq.png> <./figures/Pareto_contract.png>] [50 <./figures/2ndFTWE.png>] <figures/1C1P_not_eq.png, id=1234, 651.43375pt x 512.91624pt>
 File: figures/1C1P_not_eq.png Graphic file (type png)
  <use figures/1C1P_not_eq.png>
 Package pdftex.def Info: figures/1C1P_not_eq.png used on input line 2413.
 (pdftex.def)             Requested size: 211.38832pt x 166.43753pt.
- <figures/1C1P_eq.png, id=1230, 453.695pt x 506.89375pt>
+ <figures/1C1P_eq.png, id=1235, 453.695pt x 506.89375pt>
 File: figures/1C1P_eq.png Graphic file (type png)
  <use figures/1C1P_eq.png>
 Package pdftex.def Info: figures/1C1P_eq.png used on input line 2418.
@@ -1178,12 +1178,12 @@ Package pdftex.def Info: figures/1C1P_eq.png used on input line 2418.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/fail_2FTWE.png, id=1231, 571.13374pt x 470.75874pt>
+<figures/fail_2FTWE.png, id=1236, 571.13374pt x 470.75874pt>
 File: figures/fail_2FTWE.png Graphic file (type png)
  <use figures/fail_2FTWE.png>
 Package pdftex.def Info: figures/fail_2FTWE.png used on input line 2439.
 (pdftex.def)             Requested size: 211.38832pt x 174.23547pt.
- <figures/succ_1FTWE.png, id=1232, 450.68375pt x 477.785pt>
+ <figures/succ_1FTWE.png, id=1237, 450.68375pt x 477.785pt>
 File: figures/succ_1FTWE.png Graphic file (type png)
  <use figures/succ_1FTWE.png>
 Package pdftex.def Info: figures/succ_1FTWE.png used on input line 2444.
@@ -1204,32 +1204,32 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 2449.
 
-[51] [52 <./figures/1C1P_not_eq.png> <./figures/1C1P_eq.png> <./figures/fail_2FTWE.png> <./figures/succ_1FTWE.png>] [53] <figures/pareto_prod_set.png, id=1281, 511.9125pt x 399.4925pt>
+[51] [52 <./figures/1C1P_not_eq.png> <./figures/1C1P_eq.png> <./figures/fail_2FTWE.png> <./figures/succ_1FTWE.png>] [53] <figures/pareto_prod_set.png, id=1286, 511.9125pt x 399.4925pt>
 File: figures/pareto_prod_set.png Graphic file (type png)
  <use figures/pareto_prod_set.png>
 Package pdftex.def Info: figures/pareto_prod_set.png used on input line 2529.
 (pdftex.def)             Requested size: 140.92793pt x 109.97963pt.
- [54 <./figures/pareto_prod_set.png>] <figures/equilibrium_factor_prices.png, id=1303, 536.0025pt x 457.71pt>
+ [54 <./figures/pareto_prod_set.png>] <figures/equilibrium_factor_prices.png, id=1308, 536.0025pt x 457.71pt>
 File: figures/equilibrium_factor_prices.png Graphic file (type png)
  <use figures/equilibrium_factor_prices.png>
 Package pdftex.def Info: figures/equilibrium_factor_prices.png used on input line 2559.
 (pdftex.def)             Requested size: 147.97118pt x 126.35603pt.
- <figures/equilibrium_factor_allocation.png, id=1304, 704.6325pt x 489.83pt>
+ <figures/equilibrium_factor_allocation.png, id=1309, 704.6325pt x 489.83pt>
 File: figures/equilibrium_factor_allocation.png Graphic file (type png)
  <use figures/equilibrium_factor_allocation.png>
 Package pdftex.def Info: figures/equilibrium_factor_allocation.png used on input line 2564.
 (pdftex.def)             Requested size: 211.38832pt x 146.94266pt.
- [55 <./figures/equilibrium_factor_prices.png> <./figures/equilibrium_factor_allocation.png>] <figures/Stolper_Samuelson.png, id=1322, 490.83376pt x 417.56pt>
+ [55 <./figures/equilibrium_factor_prices.png> <./figures/equilibrium_factor_allocation.png>] <figures/Stolper_Samuelson.png, id=1327, 490.83376pt x 417.56pt>
 File: figures/Stolper_Samuelson.png Graphic file (type png)
  <use figures/Stolper_Samuelson.png>
 Package pdftex.def Info: figures/Stolper_Samuelson.png used on input line 2618.
 (pdftex.def)             Requested size: 147.97118pt x 125.88062pt.
- <figures/Stolper_Samuelson_2.png, id=1323, 398.48875pt x 243.91125pt>
+ <figures/Stolper_Samuelson_2.png, id=1328, 398.48875pt x 243.91125pt>
 File: figures/Stolper_Samuelson_2.png Graphic file (type png)
  <use figures/Stolper_Samuelson_2.png>
 Package pdftex.def Info: figures/Stolper_Samuelson_2.png used on input line 2623.
 (pdftex.def)             Requested size: 211.38832pt x 129.38771pt.
- <figures/Rybcszynski.png, id=1324, 898.35625pt x 557.08125pt>
+ <figures/Rybcszynski.png, id=1329, 898.35625pt x 557.08125pt>
 File: figures/Rybcszynski.png Graphic file (type png)
  <use figures/Rybcszynski.png>
 Package pdftex.def Info: figures/Rybcszynski.png used on input line 2640.
@@ -1238,21 +1238,21 @@ Package pdftex.def Info: figures/Rybcszynski.png used on input line 2640.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[56 <./figures/Stolper_Samuelson.png> <./figures/Stolper_Samuelson_2.png>] [57 <./figures/Rybcszynski.png>] [58] [59]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2763.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2763.
+[56 <./figures/Stolper_Samuelson.png> <./figures/Stolper_Samuelson_2.png>] [57 <./figures/Rybcszynski.png>] [58] [59] [60] [61] [62] [63]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2932.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2932.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2763.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2763.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2932.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2932.
 Package rerunfilecheck Info: File `mat395.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2763.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2932.
  ) 
 Here is how much of TeX's memory you used:
- 22244 strings out of 493014
- 401946 string characters out of 6133351
- 485162 words of memory out of 5000000
- 24443 multiletter control sequences out of 15000+600000
+ 22297 strings out of 493014
+ 402619 string characters out of 6133351
+ 486196 words of memory out of 5000000
+ 24444 multiletter control sequences out of 15000+600000
  17336 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,19n,92p,911b,618s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1260,10 +1260,10 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist,
 
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.pdf (60 pages, 2494348 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Summer/MAT395/.texpadtmp/mat395.pdf (64 pages, 2513496 bytes).
 PDF statistics:
- 1654 PDF objects out of 1728 (max. 8388607)
- 1497 compressed objects within 15 object streams
- 873 named destinations out of 1000 (max. 500000)
- 580 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1734 PDF objects out of 2073 (max. 8388607)
+ 1572 compressed objects within 16 object streams
+ 925 named destinations out of 1000 (max. 500000)
+ 588 words of extra memory for PDF output out of 10000 (max. 10000000)
 

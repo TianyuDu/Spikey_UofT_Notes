@@ -30,7 +30,7 @@
     version={4.0},
 ]{doclicense}
 
-\title{MAT395 Independent Reading in Mathematical Economics\\ \small Individual Decision Making, Market Equilibrium, Market Failure, and Other Topics.}
+\title{MAT395 Independent Reading in Mathematical Economics\\ \small Individual Decision Making, Partial Equilibrium, General Equilibrium, and Fundamental Theorems of Welfare Economics}
 \date{\today}
 \author{Tianyu Du}
 \begin{document}
@@ -2793,6 +2793,142 @@
 		\end{remark}
 		
 		\subsection{The Second Fundamental Theorem of Welfare Economics}
+		\begin{definition}[16.D.1]
+			Given an economy specified by $(\{(X_i, \pref_i)\}_{I=1}^I, \{Y_j\}_{j=1}^J, \overline{\omega})$, an allocation $(x^*, y^*)$ and a price vector $p \neq 0$ constitute a \textbf{price quasi-equilibrium with transfers} if there exists an assignment of wealth $(w_i)$ with $\sum_i w_i = p \cdot \overline{\omega} + \sum_j p \cdot y_j^*$ such that
+			\begin{enumerate}[(i)]
+				\item For every $j, y_j^*$ maximizes profits in $Y_j$; that is 
+				\begin{equation}
+					p \cdot y_j \leq p \cdot y_j^*\ \forall y_j \in Y_j
+				\end{equation}
+				\item \red{For every $i$, $x_i \succ_i x_i^* \implies p \cdot x_i \geq w_i$};
+				\item $\sum_i x_i^* = \overline{\omega} + \sum_j y_j^*$.
+			\end{enumerate}
+		\end{definition}
+		
+		\begin{proposition}
+			The second defining property of the quasi-equilibrium is a weaker that the counter-part of it in the definition of Walrasian equilibrium ($x_i \succ_i x_i^* \implies p \cdot x_i > w_i$). It is equivalent to the expenditure minimization on the set $\{x_i \in X: x_i \pref_i x_i^*\}$, that is
+			\begin{equation}
+				\forall x_i \in X_i,\ x_i \pref_i x_i^* \implies p \cdot x_i \geq p \cdot x_i^*
+			\end{equation}
+			\begin{proof}
+				Given the local satiation assumption, $p \cdot x_i^* \geq w_i$ for every consumer. Further, the market clearance condition and the feasibility of wealth redistribution, $\sum_i p \cdot x_i^* = \sum_i w_i$. These two implies $p \cdot x_i^* = w_i$, which suggests 
+				\begin{equation}
+					x_i \succ_i x_i^* \implies p \cdot x_i \geq p \cdot x_i^*
+				\end{equation}
+				Show $x_i \sim_i x_i^* \implies p \cdot x_i \geq p \cdot x_i^*$. (By contradiction) Suppose there exists $x_i \sim_i x_i^*$ such that $p \cdot x_i < p \cdot x_i^*$. By local nonsatiation, there exists $x_i' \succ_i x_i \sim_i x_i^*$ such that $p \cdot x_i' < p \cdot x_i^*$, which leads to a contradiction.
+			\end{proof}
+		\end{proposition}
+		
+		\begin{theorem}[Separating Hyperplane Theorem]
+			Let $A, B$ be two \ul{non-empty, disjoint and convex} subset of $\R^n$, then there exists a nonzero vector $v \in \R^n$ and $c \in \R$ such that 
+			\begin{align}
+				\forall x \in A,\ \langle x, v \rangle \geq c \\
+				\forall x \in B,\ \langle x, v \rangle \leq c
+			\end{align}
+			That is, $(v, c)$ forms a hyperplane $\{x \in \R^n: \langle v, x \rangle = c\} \subset \R^n$ separating $A$ and $B$.
+		\end{theorem}
+		
+		\begin{proposition}[16.D.1 The Second Fundamental Theorem of Welfare Economics: Part 1]
+			Consider an economy $\mc{E}$, and suppose that \ul{every $Y_j$ is convex and every preference relation $\pref_i$ is convex and locally nonsatiated}. Then for every Pareto optimal allocation $(x^*, y^*)$, there is a price vector $p \neq 0$ (thus a linear and continuous price system $\varphi(x) := p \cdot x$) such that $(x^*, y^*, p)$ is a \emph{price quasi-equilibrium with transfers}.
+		\end{proposition}
+		
+		\begin{proof}
+			Suppose $(x^*, y^*)$ is a Pareto optimal allocation for economy $\mc{E}$.\\
+			For each consumer $i$, define
+			\begin{equation}
+				V_i := \{x_i \in X_i: x_i \pref_i x_i^*\} \subset \R^L
+			\end{equation}
+			and the set of preferred aggregate consumption bundle
+			\begin{equation}
+				V := \sum_i V_i = \left \{
+					\sum_i x_i \in \R^L:
+					x_i \in V_i\ \forall i \in [I]
+				\right \}
+			\end{equation}
+			and the aggregate production set
+			\begin{equation}
+				Y := \sum_j Y_j = \left \{
+					\sum_j y_j \in \R^L:
+					y_j \in Y_j\ \forall j \in [J]
+				\right \}
+			\end{equation}
+			Hence, the set of attainable allocation is $Y + \{ \overline{\omega} \}$.
+			\paragraph{Lemma 1} \emph{Every $V_i$ is convex.}
+			\begin{proof}
+				Let $x_i, x_i' \in V_i$, and $\alpha \in [0, 1]$. Since $\pref_i$ is complete, we assume $x_i \pref_i x_i'$ without loss of generality. Therefore $x_i$, as well as $x_i'$ itself, are in the upper contour set of $x_i'$. By the convexity of $\pref_i$, $\alpha x_i + (1 - \alpha) x_i' \pref_i x_i'$. By transitivity of $\pref_i$, $\alpha x_i + (1 - \alpha) x_i' \succ_i x_i^*$, which implies $\alpha x_i + (1 - \alpha) x_i' \in V_i$. Therefore, $V_i$ is convex.
+			\end{proof}
+			\paragraph{Lemma 2} \emph{$V$ and $Y + \{\overline{\omega}\}$ are convex.}
+			\begin{proof}
+				The lemma follows immediately from the fact that summations of convex sets are convex, and a singleton is trivially convex.
+			\end{proof}
+			\paragraph{Lemma 3} \emph{$V \cap (Y + \{\overline{\omega}\}) = \varnothing$.}
+			\begin{proof}[Proof (by Contradiction)]
+				Suppose there exists $x' \in V \cap (Y + \{\overline{\omega}\})$, then allocation $x'$ is producible and feasible. And every consumer $i$ prefers $x'_i \succ_i x_i^*$ by definitions of $V$ and $V_i$, this leads to a contradiction to the fact that $(x^*, y^*)$ is Pareto optimal.
+			\end{proof}
+			\paragraph{Lemma 4} \emph{There exists nonzero $p \in \R^L$ and $r \in \R$ such that }
+			\begin{align}
+				\forall z \in V,\ p \cdot z \geq r \\
+				\forall z \in Y \cap \{\overline{\omega}\},\ p \cdot z \leq r
+			\end{align}
+			\begin{proof}
+				Immediate result of the separating hyperplane theorem.
+			\end{proof}
+			\paragraph{Lemma 5}
+			\begin{equation}
+				x_i \pref_i x_i^*\ \forall i \implies p \cdot \left( \sum_i x_i \right) \geq r
+			\end{equation}
+			\begin{proof}
+				Suppose $x_i \pref_i x_i^*$ for every consumer $i$. The local nonsatiation assumption implies there exist $\hat{x}_i$ arbitrarily close to $x_i$ such that $\hat{x}_i \succ_i x_i$. Therefore, $\hat{x}_i \in V_i$, $\sum_i \hat{x}_i \in V$, and $p \cdot \left( \sum_i \hat{x}_i \right) \geq r$ by transitivity and \emph{lemma 4}. For each $n \in \N$, there exists $\hat{x}_i^n \in \mc{B}(\frac{1}{n}, x_i)$, so we can construct a sequence $(\hat{x}^n_i) \to x_i$. Note that $p \cdot \sum (\cdot)$ is a continuous operator, as a result, $\left(p \cdot \left( \sum_i \hat{x}_i \right)\right) \to p \cdot \left( \sum_i x_i \right)$. Therefore, $p \cdot \left( \sum_i x_i \right) \geq r$.
+			\end{proof}
+			\paragraph{Lemma 6}
+			\begin{equation}
+				p \cdot \left( \sum_i x_i^* \right) = p \cdot \left ( \overline{\omega} + \sum_{j} y_j^* \right ) = r
+			\end{equation}
+			\begin{proof}
+				By \emph{lemma 5}, $p \cdot \left( \sum_i x_i^* \right) \geq r$. On the other hand, the feasibility condition implies $\sum_i x_i^* = \sum_j y_j^* + \overline{\omega} \in Y + \{\overline{\omega}\}$. Therefore $p \cdot \left (\sum_i x_i^* \right) \leq r$. Therefore, $p \cdot \left( \sum_i x_i^* \right) = r$.
+			\end{proof}
+			\paragraph{Lemma 7} \emph{For every $j \in [J]$, $\forall y_j \in Y_j,\ p \cdot y_j \leq p \cdot y_j^*$.}
+			\begin{proof}
+				Let $j \in [J]$, let $y_j \in Y_j$. Note that $y_j + \sum_{h \neq j} y_h^* \in Y$. By \emph{lemma 4} and \emph{lemma 6},
+				\begin{align}
+					p \cdot \left (\overline{\omega} + y_j + \sum_{h \neq j} y_h^* \right ) &\leq r = p \cdot \left ( \overline{\omega} + \sum_{j} y_j^* \right ) \\
+					\implies p \cdot \left (y_j + \sum_{h \neq j} y_h^* \right ) &\leq p \cdot \left (y_j^* + \sum_{h \neq j} y_h^* \right ) \\
+					\implies p \cdot y_j &\leq p \cdot y_h^*
+				\end{align}
+			\end{proof}
+			\paragraph{Lemma 8} \emph{For every $i \in [I]$, $x_i \succ_i x_i^* \implies p \cdot x_i \geq p \cdot x_i^*$.}
+			\begin{proof}
+				Let $i \in [I]$ and $x_i \in X_i$ such that $x_i \succ_i x_i^*$. \emph{Lemma 5} and \emph{lemma 6} imply
+				\begin{align}
+					p \cdot \left (x_i + \sum_{k \neq i} x_k^* \right ) &\geq r = p \cdot \left (x_i^* + \sum_{k \neq i} x_k^* \right ) \\
+					\implies p \cdot x_i &\geq p \cdot x_i^*
+				\end{align}
+			\end{proof}
+			Therefore, the wealth levels $w_i = p \cdot x_i^*$ for every consumer support $(x^*, y^*, p)$ as a price quasi-equilibrium with transfers. Condition (i) and (ii) are given by lemma 7 and lemma 8, the feasibility condition (iii) is satisfied by the feasibility of $(x^*, y^*)$.
+		\end{proof}
+		
+		\begin{proposition}[16.D.2 The Second Fundamental Theorem of Welfare Economics: Part 2]
+			Suppose for every consumer $i$, \ul{$X_i$ is convex and $\pref_i$ is continuous}. Further, for some $x_i^* \in X_i$, price vector $p \neq 0$, and wealth level $w_i$ satisfying $x_i \succ_i x_i^* \implies p \cdot x_i \geq w_i$, if there is a consumption vector $x'_i \in X_i$ such that $p \cdot x_i' < w_i$ (\ul{\emph{cheaper consumption assumption}}), then, 
+			\begin{equation}
+				x_i \succ_i x_i^* \implies p \cdot x_i > w_i
+			\end{equation}
+		\end{proposition}
+		
+		\begin{proof}[Proof (by Contradiction)]
+			Suppose there exists some $x_i \in X_i$ such that $x_i \succ_i x_i^*$ and $p \cdot x_i \leq w_i$. By the cheaper consumption assumption, there exists $x_i' \in X_i$ such that$p \cdot x_i' < w_i$. Then for every $\alpha \in [0, 1)$, $\alpha x_i + (1 - \alpha) x_i' \in X_i$ because of its convexity, and $p \cdot [\alpha x_i + (1 - \alpha) x_i'] < w_i$. When $\alpha$ is sufficiently closed to $1$, the continuity of $\pref_i$ implies $\alpha x_i + (1 - \alpha) x_i' \succ_i x_i^*$. This leads to a contradiction to $x_i \succ_i x_i^* \implies p \cdot x_i \geq w_i$.
+		\end{proof}
+		
+		\begin{proposition}[16.D.3 The Second Fundamental Theorem of Welfare Economics: Part 3]
+			Suppose that for every $i$, \ul{$X_i$ is convex, $0 \in X_i$, and $\succsim_i$ is continuous}. Then any price quasi-equilibrium with transfers that has $(w_i) \gg 0$ is a price equilibrium with transfers.
+		\end{proposition}
+		
+		\begin{proof}
+			Let $(x^*, y^*, p)$ be a quasi-equilibrium with transfers. Suppose affordable $x_i^* \in X_i$, price vector $p \neq 0$ satisfy $x_i \succ_i x_i^* \implies p \cdot x_i \geq w_i$. Then it must be the case: $p \cdot x_i^* = w_i > 0$, otherwise there would be a contradiction to the local nonsatiation property of $\pref_i$. Then take $x_i' = 0 \in X_i$ satisfying $0 = p \cdot x_i' < p \cdot x_i^*$. Then the expenditure minimization condition of a price quasi-equilibrium with transfers becomes the preference maximization condition of a price equilibrium.
+		\end{proof}
+		
+		\begin{theorem}[The Second Fundamental Theorem of Welfare Economics]
+			Let $\mc{E} = \langle \{(X_i, \pref_i)\}_i, \{Y_j\}_j, \omega \rangle$, and suppose $(x^*, y^*)$ is a Pareto optimal allocation with wealth distribution $(w_i) \gg 0$. If for each consumer $i$, $\pref_i$ is convex, continuous, and locally nonsatiated. $X_i$ is convex and contains $0$. Further, $Y_j$ is convex for each firm $j$. Then there exists a price vector $p \neq 0$, such that $(x^*, y^*, p)$ constitutes a price equilibrium with transfers.
+		\end{theorem}
 \end{document}
 
 
