@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass{article}
 \usepackage{spikey}
 \usepackage{amsmath}
 \usepackage{mathrsfs}
@@ -40,5 +40,68 @@
 \begin{document}
     \maketitle
     \tableofcontents
-
+    \newpage
+    
+    \section{Backgrounds}
+    \subsection{Mean Value Theorems and Taylor Approximations.}
+    \begin{definition}
+        Let $f: S \subset \R^n \to \R$, the \textbf{gradient} of $f$ at $x \in S$, if exists, is a vector $\nabla f(x) \in \R^n$ characterized by the property
+        \begin{equation}
+            \lim_{v \to 0} \frac{f(x+v) - f(x) - \nabla f(x) \cdot v}{\norm{v}} = 0
+        \end{equation}
+    \end{definition}
+    
+    \begin{theorem}[The First Order of Mean Value Theorem]
+        Let $f$ be a $C^1$ real-valued function defined on $\R^n$, then for any $x, v \in \R^n$, there exists some $\theta \in (0, 1)$ such that
+        \begin{equation}
+            f(x + v) = f(x) + \nabla f(x + \theta v) \cdot v
+        \end{equation}
+    \end{theorem}
+    
+    \begin{proof}
+        Define $g(s) := f(x + sv)$ and apply MVT for functions in $\R^{\R}$.
+    \end{proof}
+    
+    \begin{corollary}[The First Order Taylor Approximation]
+        Let $f: \R^n \to \R$ be a $C^1$ function, then
+        \begin{equation}
+            f(x + v) = f(x) + \nabla f(x) \cdot v + o(\norm{v})
+        \end{equation}
+        that is
+        \begin{equation}
+            \lim_{\norm{v} \to 0} \frac{f(x + v) - f(x) - \nabla f(x) \cdot v}{\norm{v}} = 0
+        \end{equation}
+    \end{corollary}
+    
+    \begin{theorem}[The Second Order Mean Value Theorem]
+        Let $f: \R^n \to \R$ be a $C^2$ function, then for any $x, v \in \R^n$, there exists $\theta \in (0, 1)$ satisfying
+        \begin{equation}
+            f(x + v) = f(x) + \nabla f(x) \cdot v + \frac{1}{2} v' H_f(x + \theta v)\ v
+        \end{equation}
+        where $H_f$ is the Hessian matrix of $f$, may also be written as $\nabla^2 f$.
+    \end{theorem}
+    
+    \begin{corollary}[The Second Order Taylor Approximation]
+        Let $f: \R^n \to \R$ be a $C^2$ function, and $x, v \in \R^n$, then
+        \begin{equation}
+            f(x + v) = f(x) + \nabla f(x) \cdot v + \frac{1}{2} v' H_f(x)\ v + o(\red{\norm{v}^2})
+        \end{equation}
+        that is
+        \begin{equation}
+            \lim_{\norm{v} \to 0} \frac{
+                f(x + v) - f(x) - \nabla f(x) \cdot v - \frac{1}{2} v' H_f(x)\ v
+            }{\norm{v}^2} = 0
+        \end{equation}
+    \end{corollary}
+    
+    \begin{remark}[Geometric Meaning of Gradient]
+        \emph{Gradient gives the direction $f$ increases most.}
+    \end{remark}
+    \begin{proof}
+        Let $x_0 \in \R^n$, and $v$ be an unit vector. Note that 
+        \begin{equation}
+            \frac{d}{ds}\vert_{s=0} f(x_0 + sv) = \nabla f(x_0) \cdot v = \norm{\nabla f(x_0)}\ \norm{v} \cos(\theta)
+        \end{equation}
+        where $\theta$ is the angle between $\nabla f$ and $v$. And the derivative is maximized when $\theta=0$, that is, when $v$ and $\nabla f$ point the same direction.
+    \end{proof}
 \end{document}
