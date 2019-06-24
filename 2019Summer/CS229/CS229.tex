@@ -43,6 +43,58 @@
     \newpage
     
     \section{Lecture Notes Jun. 24 2019}
+    \subsection{Review of Linear Algebra}
     
+    \begin{remark}
+        In this course, vectors are treated as \emph{column matrices}.
+    \end{remark}
     
-\end{document}    
+    \begin{definition}
+        Given $A \in M_{n \times n}(\R)$, the trace of $A$ is defined as 
+        \begin{equation}
+            \tx{tr}(A) := \sum_{i=1}^n A_{i,i}
+        \end{equation}
+    \end{definition}
+
+    \begin{definition}
+        Given $x, y \in \R^n$, the \textbf{inner product} is defined as 
+        \begin{equation}
+            \inner{x}{y} := x^T y = \sum_{i=1}^n x_i\ y_i
+        \end{equation}
+    \end{definition}
+
+    \begin{definition}
+        Given $x \in \R^b, y \in \R^p$, the \textbf{outer product} is defined as 
+        \begin{equation}
+            x \otimes y := x y^T = A \in M_{b \times p}(\R)
+        \end{equation}
+        in which
+        \begin{equation}
+            A_{i, j} := x_i\ y_j
+        \end{equation}
+        the constructed matrix $A$ is a \textbf{rank 1 matrix}.
+    \end{definition}
+    
+    \begin{remark}
+        Given two rank 1 matrices $A_1$ and $A_2$, then $A_1 + A_2$ is a rank 2 matrix.
+    \end{remark}
+    
+    \begin{remark}
+        Note that the outer product operation is not commutative.
+    \end{remark}
+    
+    \begin{definition}
+        Let $v, b \in \R^n$, the \textbf{projection matrix} of $v$ is defined as $\frac{v v^T}{v^T v} \equiv \frac{v \otimes v}{\inner{v}{v}}$. Then $\frac{v \otimes v}{\inner{v}{v}} b$ is the projection of $b$ on $v$.
+        \begin{align}
+            \frac{v \otimes v}{\inner{v}{v}} b &= \left[\frac{v}{\inner{v}{v}} \right] \left [\frac{v}{\inner{v}{v}} \right]^T b \\
+            &= \tilde{v} \underbrace{\tilde{v}^T b}_{\tx{magnitude}}
+        \end{align}
+    \end{definition}
+    
+    \begin{proposition}
+        Let $A \in M_{m \times n}(\R)$, the projection of vector $b \in \R^m$ onto the \emph{column space} of $A$ is given by the generalized projection matrix
+        \begin{equation}
+            A (A^T A)^{-1} A^T b
+        \end{equation}
+    \end{proposition}
+\end{document}
