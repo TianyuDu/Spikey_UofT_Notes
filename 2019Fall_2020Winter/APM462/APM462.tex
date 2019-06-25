@@ -115,6 +115,7 @@
     \end{remark}
     
     \section{Convexity}
+    \subsection{Terminologies}
     \begin{definition}
         Set $\Omega \subset \R^n$ is \textbf{convex} if and only if 
         \begin{equation}
@@ -140,11 +141,82 @@
         A function $f: \Omega \to \R$ is \textbf{concave} if and only if $-f$ is \textbf{convex}.
     \end{definition}
     
-    \begin{proposition}[Properties of Convex Functions]
+    \begin{proposition}Properties of Convex Functions
         \begin{enumerate}[(i)]
             \item If $f_1, f_2$ are convex on $\Omega$, so is $f_1 + f_2$;
             \item If $f$ is convex on $\Omega$, then for any $a > 0$, $af$ is also convex on $\Omega$;
             \item Any \emph{sub-level/lower contour set} of a convex function $f$ is convex.
         \end{enumerate}
     \end{proposition}
+    
+    \begin{theorem}
+        Let $f \in C^1$, then $f$ is convex on a convex set $\Omega$ \ul{if and only if}
+        \begin{equation}
+            \forall x, y \in \Omega,\ f(y) \geq f(x) + \nabla f(x) \cdot (y - x)
+        \end{equation}
+        that is, \emph{the linear approximation is never an overestimation of value of $f$}.
+    \end{theorem}
+    \begin{proof}
+        ($\implies$) Suppose $f$ is convex on a convex set $\Omega$. Then $f(sy + (1-s) x) \leq sf(y) + (1-s)f(x)$ for every $x, y \in \Omega$ and $s \in [0, 1]$, which implies
+        \begin{equation}
+            \frac{f(sy + (1-s) x) - f(x)}{s} \leq f(y) - f(x)
+        \end{equation}
+        By taking the limit of $s \to 0$,
+        \begin{align}
+            \lim_{s \to 0} \frac{f(x + s(y-x)) - f(x)}{s} &\leq f(y) - f(x) \\
+            \implies \frac{d}{ds}\vert_{s=0} f(x + s(y-x)) &\leq f(y) - f(x) \\
+            \implies \nabla f(x) \cdot (y-x) &\leq f(y) - f(x)
+        \end{align}
+        ($\impliedby$) Let $x_0, x_1 \in \Omega$, let $s \in (0, 1)$. Define $x = s x_0 + (1-s) x_1$, then $f(x_0) \geq f(x) + \nabla f(x) \cdot (x_0 - x)$. Hence, $f(x_0) \geq f(x) + \nabla f(x) \cdot [(1-s)(x_0 - x_1)]$. Similarly, $f(x_1) \geq f(x) + \nabla f(x) \cdot (x_1 - x)$ implies $f(x_1) \geq f(x) + \nabla f(x) [s(x_1 - x_0)]$. Therefore, $sf(x_0) + (1-s)f(x_1) \geq f(x) \equiv f \left(s x_0 + (1-s) x_1 \right)$.
+    \end{proof}
+    
+    \begin{theorem}
+        $f \in C^2$ is a convex function on a convex set $\Omega \subset \R^n$ \ul{if and only if} $\nabla^2 f(x) \geq 0$ for all $x \in \Omega$.
+    \end{theorem}
+    
+    \begin{proof}
+        ($\impliedby$) Using the second-order Taylor's theorem and positive definiteness of $H_f$. \\
+        ($\implies$) Prove by contradiction.
+    \end{proof}
+    
+    \subsection{Minimum and Maximum of Convex Functions}
+    \begin{theorem}
+        Let $\Omega \subset \R^n$ be a convex set, and $f: \Omega \to \R$ is a convex function. Suppose set $\Gamma := \min_{x \in \Omega} f(x) \neq \varnothing$, then $\Gamma$ is convex, further, any local minimum of $f$ is the global minimum.
+    \end{theorem}
+    
+    \begin{theorem}
+        Let $\Omega \subset \R^n$ be a convex set, and $f: \Omega \to \R$ is a convex function. Then 
+        \begin{equation}
+            \max_{x \in \Omega} f(x) = \max_{x \in \partial \Omega} f(x)
+        \end{equation}
+    \end{theorem}
+    
+    \begin{proof}
+        As we assumed, $\Omega$ is closed, therefore $\partial \Omega \subseteq \Omega$. Hence, $\max_{x \in \Omega} f \geq \max_{x \in \partial \Omega} f$. Suppose $\max_{x \in \Omega} f > \max_{x \in \partial \Omega} f$, let $x^* := \argmax_{x \in \Omega} f \in \Omega^{int}$. Then we can construct a string line through $x^*$ and intersects $\partial \Omega$ at two points, $y_1, y_2 \in \partial \Omega$, such that $x^* = s y_1 + (1-s) y_2$ for some $s \in (0, 1)$. Further, since $f$ is convex, $f(x^*) \leq s f(y_1) + (1-s) f(y_2) \leq s \max_{\partial \Omega} f + (1-s) \max_{\partial \Omega} f = \max_{\partial \Omega} f$, which leads to a contradiction.
+    \end{proof}
+    
+    \begin{proposition}
+        Let $f$ be continuous function on $\R^n$, then the level set and sub-level set of $f$ are closed. Further, since the intersection of arbitrary closed sets is closed, so the set defined by collection of continuous functions $\{h_i; g_j\}$
+        \begin{equation}
+            \{x \in \R^n: h_i(x) = 0 \land g_j(x) \leq 0\ \forall i, j\}
+        \end{equation}
+        is closed.
+    \end{proposition}
+    
+    \begin{theorem}[Extreme Value Theorem]
+        Let $\Omega \subset \R^n$ be a compact set, and $f: \Omega \to \R$ is continuous, then $f$ attains its maximum and minimum on $\Omega$.
+    \end{theorem}
+    
+    \begin{corollary} 
+        Let $f: \R^n \to \R$ be a continuous function, if there exists $a \in \R^n$ such that $f(x) \geq f(a)$ for every $x \notin \mc{B}(r, a)$, then $f$ attains its minimum in $\mc{B}(r, a)$.
+    \end{corollary}
+    
+    \begin{proposition}
+        When $\Omega = \R^n$, the unconstrained minimization has the following properties
+        \begin{enumerate}[(i)]
+            \item $\argmax f = \argmin (-f)$;
+            \item $\max f = - \min (-f)$
+        \end{enumerate}
+    \end{proposition}
+    
 \end{document}
