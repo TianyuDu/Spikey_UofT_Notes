@@ -17,7 +17,7 @@ Lecture notes for courses taken at University of Toronto.
 
 ### Summer 2019
 * CS229: Machine Learning (Stanford University) [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/tree/master/2019Summer/CS229)
-  <details><summary Course Content</summary>
+  <details><summary> Course Content</summary>
   <p>
     This course provides a broad introduction to machine learning and statistical pattern recognition. Topics include: supervised learning (generative/discriminative learning, parametric/non-parametric learning, neural networks, support vector machines); unsupervised learning (clustering, dimensionality reduction, kernel methods); learning theory (bias/variance tradeoffs, practical advice); reinforcement learning and adaptive control. The course will also discuss recent applications of machine learning, such as to robotic control, data mining, autonomous navigation, bioinformatics, speech recognition, and text and web data processing.
   </p>
