@@ -97,4 +97,78 @@
             A (A^T A)^{-1} A^T b
         \end{equation}
     \end{proposition}
+    
+    
+    \section{Lecture Notes Jun. 28 2019}
+        \begin{example}[Maximum Likelihood Estimation for Multivariate Gaussian Distribution]
+            \begin{lemma}
+                Let $x \in \R^n$ and $A \in \R^{n \times n}$, then
+                \begin{equation}
+                    \nabla_A x^T A x = x x^T
+                \end{equation}
+                \begin{proof}
+                    \begin{align}
+                        x^T A x &= 
+                        \begin{pmatrix}
+                            \sum_{i=1}^n x_i A_{i, 1} \\
+                            \vdots \\
+                            \sum_{i=1}^n x_i A_{i, n}
+                        \end{pmatrix} x
+                        = \sum_{j=1}^n \sum_{i=1}^n x_i A_{i, j} x_j \\
+                        \implies \nabla_A x^T A x_{i, j} &= \pd{\sum_{j=1}^n \sum_{i=1}^n x_i A_{i, j} x_j}{A_{i, j}} = x_i x_j \\
+                        \implies \nabla_A x^T A x &= x x^T
+                    \end{align}
+                \end{proof}
+            \end{lemma}
+            
+            \begin{lemma}
+                Let $x \in \R^n$, and $A \in \R^{n \times n}$, then
+                \begin{equation}
+                    \nabla_x x^T A x = 2 x^T A
+                \end{equation}
+            \end{lemma}
+            
+            \begin{lemma}
+                Let $A \in \R^{n \times n}$ such that $A$ is non-singular, then
+                \begin{equation}
+                    \nabla_A \ln (|A|) = A^{-1}
+                \end{equation}
+            \end{lemma}
+            
+            \begin{proof}[Derive the MLE for Gaussian.]
+                Let $\left( x^{(i)} \right)_{i=1}^n$ denote the set of training instances. Assuming they are independently and identically distributed ($i.i.d.$) following $\mc{N}(\mu, \Sigma)$, the joint likelihood can be written as
+                \begin{equation}
+                    \mc{L}(\mu, \Sigma; x^{(i)}) = \prod_{i \in [n]} \frac{1}{(2\pi)^{\frac{n}{2}} |\Sigma|^{\frac{1}{2}}}
+                    \exp \left (
+                        - \frac{1}{2} (x^{(i)} - \mu)^T \Sigma^{-1} (x^{(i)} - \mu)
+                    \right )
+                \end{equation}
+                Then the MLE becomes the maximizer of the log-likelihood
+                \begin{align}
+                    (\hat{\mu}, \hat{\Sigma}) &:= \argmax_{\mu, \Sigma} \ell(\mu, \Sigma; x^{(i)}) \\
+                    &= \argmax_{\mu, \Sigma} \sum_{i \in [n]} \left \{ 
+                    \ln \left (
+                        \frac{1}{(2\pi)^{\frac{n}{2}}} \right)
+                    - \frac{1}{2} \ln (|\Sigma|)
+                    - \frac{1}{2} (x^{(i)} - \mu)^T \Sigma^{-1} (x^{(i)} - \mu)
+                    \right \}
+                \end{align}
+                Then the first order condition for $\hat{\mu}$ is 
+                \begin{align}
+                    &\nabla_\mu \ell(\mu, \Sigma, x^{(i)})|_{\mu = \hat{\mu}} = 0 \\
+                    \implies& \sum_{i \in [n]} (x^{(i)} - \hat{\mu})^T \Sigma^{-1} = 0 \\
+                    \implies& \Sigma^{-1} n \hat{\mu} = \Sigma^{-1} \sum_{i \in [n]} x^{(i)} \\
+                    \implies& \hat{\mu} = \frac{1}{n} \sum_{i \in [n]} x^{(i)}
+                \end{align}
+                
+                For $\hat{\Sigma}$, define $S := \Sigma^{-1}$, note that $\nabla_{S} \ell = 0 \iff \nabla_{\Sigma^{-1}} \ell = 0$
+                \begin{align}
+                    &\nabla_S = 0 \\
+                    \implies& \nabla_S \sum_{i \in [n]} \left \{\frac{1}{2}\ln(|S|) - \frac{1}{2} (x^{(i)} - \mu)^T S (x^{(i)} - \mu) \right \} = 0\\
+                    \implies& \sum_{i \in [n]} \left\{ S^{-1} - (x^{(i)} - \mu) (x^{(i)} - \mu)^T \right \} = 0 \\
+                    \implies& S^{-1} = \sum_{i \in [n]} (x^{(i)} - \mu) (x^{(i)} - \mu)^T \\
+                    \implies& \hat{\Sigma} = \frac{1}{n} \sum_{i \in [n]} (x^{(i)} - \mu) (x^{(i)} - \mu)^T \approx \expect{(x^{(i)} - \expect{x^{(i)}})^2} \equiv \var{x^{(i)}}
+                \end{align}
+            \end{proof}
+        \end{example}
 \end{document}
