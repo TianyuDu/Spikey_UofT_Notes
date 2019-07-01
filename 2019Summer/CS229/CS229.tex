@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 \usepackage{spikey}
 \usepackage{amsmath}
 \usepackage{mathrsfs}
@@ -22,6 +22,9 @@
 \linespread{1.15}
 \usepackage[margin=1truein]{geometry}
 
+\newcommand{\upi}[0]{^{(i)}}
+\newcommand{\bfX}[0]{\textbf{X}}
+
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
 
@@ -40,8 +43,7 @@
 \begin{document}
     \maketitle
     \tableofcontents
-    \newpage
-    
+    \chapter{Preliminary}
     \section{Lecture Notes Jun. 24 2019}
     \subsection{Review of Linear Algebra}
     
@@ -171,4 +173,119 @@
                 \end{align}
             \end{proof}
         \end{example}
+    
+    \chapter{Supervised Learning}
+    \section{Lecture Notes Jul. 1 2019}
+        \paragraph{Supervised Learning Problem} Learn a mapping from input space to output space $f: X \to Y$. Given a data set $(x_i, y_i)_i$, in regression problem, the algorithm is trying to learn a \emph{hypothesis} $h(x) \approx f$.
+        
+        \paragraph{Terminologies}
+        \begin{enumerate}[(i)]
+            \item $n$: number of $(x, y)$ examples;
+            \item $d$: $x \in \R^d$;
+            \item $x^{(i)}$: input;
+            \item $y^{(i)}$: label or output;
+            \item $(x^{(i)}, y^{(i)})$: $i^{th}$ example.
+        \end{enumerate}
+        \subsection{Linear Regression}
+        \paragraph{Model}
+        \begin{align}
+            h_\theta(x) &= \theta_0 + \sum_{i=1}^d \theta_i x_i,\ \theta \in \R^{d+1} \\
+            &= \inner{\theta}{x},\ x := (1, x_1, x_2, \dots, x_d) \in \R^{d+1}
+        \end{align}
+        
+        \paragraph{Cost/Loss Function}
+        \begin{align}
+            J(\theta) &:= \frac{1}{2} \sum_{i=1}^n \left(
+                h_\theta(x^{(i)}) - y^{(i)}
+            \right )^2 \\
+            \hat{\theta} &:= \argmin_{\theta \in \R^{d+1}} J(\theta) \subset \R^{d+1} =: \Theta\\
+            &= \argmin_{\theta \in \Theta} \frac{1}{2} \sum_{i=1}^n \left(h_\theta(x^{(i)}) - y^{(i)}\right)^2
+        \end{align}
+        
+        \paragraph{(Full) Gradient Descent}
+        \begin{align}
+            \theta^{(t+1)} := \theta^{(t)} - \alpha \nabla_\theta J(\theta^{(t)})
+        \end{align}
+        where $\alpha$ denotes the \textbf{learning rate}. With appropriate learning rate
+        \begin{align}
+            J(\theta^{(t + 1)}) < J(\theta^{(t)})
+        \end{align}
+        And the updating step is repeated till it \ul{converges}. Theoretically, the \emph{convergence} means the convergence of series $(\theta^{(t)})_i$.\\
+        \paragraph{Practical ways to check convergence}
+        \begin{enumerate}[(i)]
+            \item $\norm{\theta^{(t+1)} - \theta^{(t)}} < \varepsilon$;
+            \item $\abs{J(\theta^{(t+1)}) - J(\theta^{(t)})} < \varepsilon$;
+            \item $\norm{\nabla_\theta J(\theta^{(t)})} < \varepsilon$.
+        \end{enumerate}
+        
+        \paragraph{Gradient Descent on Linear Regression}
+        \begin{enumerate}
+            \item Initialize $\theta^{(0)}$;
+            \item Repeat till convergence:
+            \begin{align}
+                \theta^{(t+1)} &:= \theta^{(t)} - \alpha \nabla_\theta J(\theta^{(t)}) \\
+                &= \theta^{(t)} - \alpha \nabla_\theta \frac{1}{2} \sum_{i=1}^n \left( \inner{\theta^{(t)}}{x^{(i)}} - y^{(i)} \right )^2 \\
+                &= \theta^{(t)} - \alpha \sum_{i=1}^n \left( \inner{\theta^{(t)}}{x^{(i)}} - y^{(i)} \right ) x^{(i)}
+            \end{align}
+        \end{enumerate}
+        
+        \paragraph{Stochastic Gradient Descent (SGD)} Gradient descent based on \ul{one randomly selected} training sample $k$, and use a \ul{proxy loss function}:
+        \begin{align}
+            \tilde{J}(\theta) := \frac{1}{2} \left( \inner{\theta^{(t)}}{x^{(k)}} - y^{(k)} \right )^2
+        \end{align}
+        and update
+        \begin{align}
+            \theta^{(t+1)} := \theta^{(t)} - \alpha \left( \inner{\theta^{(t)}}{x^{(k)}} - y^{(k)} \right ) x^{(k)}
+        \end{align}
+        where the $\theta^{(t)}$ will finally in a region near the global minimum, the size of region is characterized by the learning rate $\alpha$.
+        \begin{remark}
+            SGD takes more iterations to converge than full gradient descent, but the computational cost of each step is much less than full GD.
+        \end{remark}
+        \paragraph{Analytical Solution to OLS}
+        \begin{align}
+            J(\theta) = \frac{1}{2} \sum_{i=1}^n \left(\theta^T x^{(i)} - y^{(i)}\right)
+        \end{align}
+        A \textbf{design matrix}, $\textbf{X}$, is a $n \times d$ matrix, in which each row is an input vector. $y \in \R^{n \times 1}$ denotes the collection of labels. Then the loss function can be expressed as
+        \begin{align}
+            J(\theta) = \frac{1}{2} \norm{\textbf{X}\theta - y}^2 = \frac{1}{2} [\textbf{X}\theta - y]^T [\textbf{X}\theta - y]
+        \end{align}
+        The OLS estimator can be obtained by solving
+        \begin{align}
+            \nabla_\theta J(\theta) &= 0 \\
+            \iff \nabla_\theta \frac{1}{2} [\textbf{X}\theta - y]^T [\textbf{X}\theta - y] &= 0 \\
+            % \iff \nabla_\theta \frac{1}{2} \left(\textbf{X}\theta - y^T \textbf{X}\theta - (\textbf{X}\theta)^T y + y^T y\right) &= 0 \\
+            \iff \frac{1}{2} 2 [\textbf{X}\theta - y] \textbf{X} &= 0 \\
+            \iff [\textbf{X}\theta - y] \textbf{X}^T &= 0  \\
+            \iff \textbf{X} \textbf{X}^T \theta - \textbf{X}^T y &= 0 \quad (\tx{normal equation}) \\
+            \implies \hat{\theta} &= (\textbf{X}^T \textbf{X})^{-1} \textbf{X} y
+        \end{align}
+        \paragraph{Probabilistic Interpretation} Assuming the underlying data generating process follows
+        \begin{align}
+            y^{(i)} &= \theta^T x^{(i)} + \varepsilon^{(i)} \\
+            \varepsilon^{(i)} &\sim \mc{N}(0, \sigma^2) \\
+            \implies y^{(i)}|x^{(i)} &\sim \mc{N}(\theta^T x^{(i)}, \sigma^2) \\
+            \implies P(y^{(i)}|x^{(i)}; \theta) &= \phi(y^{(i)}; x^{(i)}, \theta) \\
+            &= \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(
+                -\frac{(y^{(i)} - \theta^T x^{(i)})^2}{2 \sigma^2}
+            \right)
+        \end{align}
+        \paragraph{Maximum Likelihood Estimation} Assuming $\varepsilon\upi \sim i.i.d $, then the log-likelihood can be expressed as 
+        \begin{align}
+            \ell(\theta; x\upi, y\upi) &= \prod_i\\
+            &= \sum_i \\
+            &= \sum_i \ln \left[ \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(
+                -\frac{(y^{(i)} - \theta^T x^{(i)})^2}{2 \sigma^2}
+            \right) \right] \\
+            &= \sum_i K - \frac{1}{2 \sigma^2}(y^{(i)} - \theta^T x^{(i)})^2 \\
+            &= \tilde{K} - \frac{1}{\sigma^2} \red{
+                \frac{1}{2} \sum_{i=1}^n (y^{(i)} - \theta^T x^{(i)})^2
+            }
+        \end{align}
+        
+        \paragraph{Conclusion} The ordinary least square estimator coincides with the maximum likelihood estimator. If we assume the noise in the model follows Gaussian distribution, then maximizing the likelihood and minimizing loss function are equivalent:
+        \begin{align}
+            \argmax_{\theta \in \Theta} \ell(\theta; x\upi, y\upi) = \argmin_{\theta \in \Theta} J(\theta)
+        \end{align}
+        
+        \paragraph{Another Interpretation of Linear Regression} Suppose $d \ll n$. Assume $\textbf{X}$ is full-ranked, that is, rank(\textbf{X})=$d$. The projection matrix is $\bfX (\bfX^T \bfX)\bfX^{-1}$. So linear regression is projecting ...
 \end{document}
