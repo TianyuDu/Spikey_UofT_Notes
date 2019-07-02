@@ -22,11 +22,10 @@
 \linespread{1.15}
 \usepackage[margin=1truein]{geometry}
 
-\newcommand{\upi}[0]{^{(i)}}
-\newcommand{\bfX}[0]{\textbf{X}}
-
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
+
+\newcommand{\upi}[0]{^{(i)}}
 
 \pagestyle{fancy}
 \lhead{CS229: Machine Learning}
@@ -249,15 +248,15 @@
         \begin{align}
             J(\theta) = \frac{1}{2} \norm{\textbf{X}\theta - y}^2 = \frac{1}{2} [\textbf{X}\theta - y]^T [\textbf{X}\theta - y]
         \end{align}
+        
         The OLS estimator can be obtained by solving
         \begin{align}
             \nabla_\theta J(\theta) &= 0 \\
-            \iff \nabla_\theta \frac{1}{2} [\textbf{X}\theta - y]^T [\textbf{X}\theta - y] &= 0 \\
-            % \iff \nabla_\theta \frac{1}{2} \left(\textbf{X}\theta - y^T \textbf{X}\theta - (\textbf{X}\theta)^T y + y^T y\right) &= 0 \\
-            \iff \frac{1}{2} 2 [\textbf{X}\theta - y] \textbf{X} &= 0 \\
-            \iff [\textbf{X}\theta - y] \textbf{X}^T &= 0  \\
-            \iff \textbf{X} \textbf{X}^T \theta - \textbf{X}^T y &= 0 \quad (\tx{normal equation}) \\
-            \implies \hat{\theta} &= (\textbf{X}^T \textbf{X})^{-1} \textbf{X} y
+            \iff \nabla_\theta \frac{1}{2} \norm{\textbf{X}\theta - y} &= 0 \\
+            \iff \frac{1}{2} 2 [\textbf{X}\theta - y]^T \textbf{X} &= 0 \\
+            \iff \theta^T \bfX^T \bfX - y^T \bfX &= 0\\
+            \iff \bfX^T \bfX \theta - \bfX^T y &= 0 \quad \textbf{(normal equation)}\\
+            \implies \hat{\theta} &= (\textbf{X}^T \textbf{X})^{-1} \textbf{X}^T y
         \end{align}
         \paragraph{Probabilistic Interpretation} Assuming the underlying data generating process follows
         \begin{align}
@@ -269,14 +268,14 @@
                 -\frac{(y^{(i)} - \theta^T x^{(i)})^2}{2 \sigma^2}
             \right)
         \end{align}
-        \paragraph{Maximum Likelihood Estimation} Assuming $\varepsilon\upi \sim i.i.d $, then the log-likelihood can be expressed as 
+        \paragraph{Maximum Likelihood Estimation} Assuming $\varepsilon\upi \stackrel{i.i.d.}{\sim} \mc{N}(0, \sigma^2)$, then the log-likelihood can be expressed as 
         \begin{align}
-            \ell(\theta; x\upi, y\upi) &= \prod_i\\
-            &= \sum_i \\
-            &= \sum_i \ln \left[ \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(
+            \ell(\theta; x\upi, y\upi) &= \prod_{i=1}^n P(y\upi|x\upi; \theta)\\
+            &= \sum_{i=1}^n \ln \left[P(y\upi|x\upi; \theta) \right]\\
+            &= \sum_{i=1}^n \ln \left[ \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(
                 -\frac{(y^{(i)} - \theta^T x^{(i)})^2}{2 \sigma^2}
             \right) \right] \\
-            &= \sum_i K - \frac{1}{2 \sigma^2}(y^{(i)} - \theta^T x^{(i)})^2 \\
+            &= \sum_{i=1}^n K - \frac{1}{2 \sigma^2}(y^{(i)} - \theta^T x^{(i)})^2 \\
             &= \tilde{K} - \frac{1}{\sigma^2} \red{
                 \frac{1}{2} \sum_{i=1}^n (y^{(i)} - \theta^T x^{(i)})^2
             }
@@ -287,5 +286,17 @@
             \argmax_{\theta \in \Theta} \ell(\theta; x\upi, y\upi) = \argmin_{\theta \in \Theta} J(\theta)
         \end{align}
         
-        \paragraph{Another Interpretation of Linear Regression} Suppose $d \ll n$. Assume $\textbf{X}$ is full-ranked, that is, rank(\textbf{X})=$d$. The projection matrix is $\bfX (\bfX^T \bfX)\bfX^{-1}$. So linear regression is projecting ...
+        \paragraph{Another Interpretation of Linear Regression} Suppose $d \ll n$. Assume $\textbf{X}$ is full-ranked, that is, rank(\textbf{X})=$d$. Then, the $col(X)$ is a $d$ dimensional subspace of $\R^n$. The projection matrix is $\bfX (\bfX^T \bfX)\bfX^{-1}$, and 
+        \begin{equation}
+        	\hat{y} = \bfX (\bfX^T \bfX)\bfX^{-1} y
+        \end{equation}
+        for any $y \in \R^n$. Note that, since $d \ll n$, most labels are not in the column space of $\bfX$, then the projection $\hat{y}$ gives the best approximation of $y$ in the column space of $\bfX$.
 \end{document}
+
+
+
+
+
+
+
+
