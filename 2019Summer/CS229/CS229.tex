@@ -201,7 +201,7 @@
             &= \argmin_{\theta \in \Theta} \frac{1}{2} \sum_{i=1}^n \left(h_\theta(x^{(i)}) - y^{(i)}\right)^2
         \end{align}
         
-        \paragraph{(Full) Gradient Descent}
+        \paragraph{(Batch) Gradient Descent}
         \begin{align}
             \theta^{(t+1)} := \theta^{(t)} - \alpha \nabla_\theta J(\theta^{(t)})
         \end{align}
@@ -236,7 +236,7 @@
         \begin{align}
             \theta^{(t+1)} := \theta^{(t)} - \alpha \left( \inner{\theta^{(t)}}{x^{(k)}} - y^{(k)} \right ) x^{(k)}
         \end{align}
-        where the $\theta^{(t)}$ will finally in a region near the global minimum, the size of region is characterized by the learning rate $\alpha$.
+        where the $\theta^{(t)}$ will finally in a region near the global minimum, the size of region is characterized by the learning rate $\alpha$. \ul{Alternatively, we can shuffle the whole training set, and loop over all training instances while perofming paramter updating for each training instance}.
         \begin{remark}
             SGD takes more iterations to converge than full gradient descent, but the computational cost of each step is much less than full GD.
         \end{remark}
@@ -291,6 +291,8 @@
         	\hat{y} = \bfX (\bfX^T \bfX)\bfX^{-1} y
         \end{equation}
         for any $y \in \R^n$. Note that, since $d \ll n$, most labels are not in the column space of $\bfX$, then the projection $\hat{y}$ gives the best approximation of $y$ in the column space of $\bfX$.
+        
+        \section{Lecture Notes Jul. 3 2019}
 \end{document}
 
 
