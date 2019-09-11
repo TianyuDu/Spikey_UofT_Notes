@@ -1,0 +1,491 @@
+\documentclass[11pt]{article}
+\usepackage{spikey}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+\usepackage{centernot}
+\usepackage{datetime}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[margin=1truein]{geometry}
+\usepackage{setspace}
+\linespread{1.15}
+
+\title{Elements of Real Analysis \\ \small Based on Lecture Notes for MAT337: Introduction to Real Analysis (2019Winter)}
+\date{\today}
+\author{Tianyu Du}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc},
+    version={4.0},
+]{doclicense}
+
+\counterwithin{equation}{section}
+\counterwithin{theorem}{section}
+\counterwithin{lemma}{section}
+\counterwithin{corollary}{section}
+\counterwithin{proposition}{section}
+\counterwithin{remark}{section}
+\counterwithin{example}{section}
+\counterwithin{definition}{section}
+
+%\newcommand{\seq}[2]{({#1}_{#2})_{{#2}=1}^\infty}
+%\newcommand{\ser}[2]{\sum_{{#2}=1}^\infty {#1}_{#2}}
+
+\begin{document}
+	\maketitle
+	\doclicenseThis
+	\begin{itemize}
+		\item GitHub: \url{https://github.com/TianyuDu/Spikey_UofT_Notes}
+		\item Website: \url{TianyuDu.com/notes}
+	\end{itemize}
+        \paragraph{TO-DO}
+	    \begin{enumerate}
+	        \item Add Dedekind cut to section 1.
+	        \item Refine subsection titles.
+	    \end{enumerate}
+	\tableofcontents
+	\newpage
+	
+    \section{Real Numbers}
+        \subsection{Definitions}
+        \begin{definition}
+            Reals are \ul{proper initial segments} of $\Q$ with no maximum.
+        \end{definition}
+    
+        \begin{definition}
+            A subset $A \subset \Q$ is an \textbf{initial segment} if 
+            \begin{equation}
+                y \in A, x \in \Q, x < y \implies x \in A
+            \end{equation}
+        \end{definition}
+	   
+        \begin{definition}
+            $A$ is \textbf{proper} if $A \neq \Q$.
+        \end{definition}
+        
+        \begin{definition}
+            $A$ has no maximal elements if 
+            \begin{equation}
+                \forall x \in A,\ \exists y \in A\ s.t.\ y > x
+            \end{equation}
+        \end{definition}
+        
+        \begin{example}
+            \begin{align}
+                \sqrt{2} &\approx A_{\sqrt{2}} := \{q \in \Q: q < \sqrt{2}\} \equiv \{q \in \Q: q \leq 0 \lor q^2 < 2\} \\
+                x &\approx A_x := \{q \in \Q: q < x\}
+            \end{align}
+        \end{example}
+        
+        \subsection{The Axiom of Completeness}
+            \begin{axiom}[Axiom of Completeness]
+                Every non-empty subset $B \subset \R$ that is bounded has a supremum (i.e. the least upper bound). That's
+                \begin{equation}
+                    \forall B \subset \R,\ s.t.\ B \neq \varnothing\ \exists b \in \R\ s.t.\ 
+                    \begin{cases}
+                        \forall x \in B,\ x \leq b \tx{ (upper bound)} \\
+                        \forall c \in \R (\forall x \in B, x \leq c) \implies b \leq c \tx{ (least upper bound)}
+                    \end{cases}
+                \end{equation}
+            \end{axiom}
+            
+            \begin{theorem}
+                $\Q$ is \emph{dense} in $\R$, that's
+                \begin{equation}
+                    \forall x < y \in \R,\ \exists q \in \Q\ s.t.\ x < q < y
+                \end{equation}
+            \end{theorem}
+            
+            \begin{theorem}[Cardinality]
+                Let $A, B$ be non-empty subsets of $\R$, then the following statements are equivalent:
+                \begin{enumerate}[(i)]
+                    \item $\exists h: A \to B$ such that $h$ is bijective;
+                    \item $\exists f: A \to B$ and $g: B \to A$ such that both $f$ and $g$ are injective.
+                \end{enumerate}
+            \end{theorem}
+            
+            \begin{proof}
+                (i) is the definition for sets $A$ and $B$ to have the same cardinality. And the existence of injection from $A$ to $B$ implies the cardinality of $A$ cannot be greater than the cardinality of $B$. Similarly, the existence of injection from $B$ to $A$ implies the cardinality of $B$ cannot be greater than the cardinality of $A$. Therefore $A$ and $B$ share the same cardinality.
+            \end{proof}
+            
+            \begin{theorem}[Nested Intervals]
+                Let $(I_n)$ be a sequence of closed and non-empty intervals in $\R$ such that
+                \begin{equation}
+                    I_0 \supset I_1 \supset I_2 \supset \cdots \supset I_n \supset \cdots
+                \end{equation}
+                then 
+                \begin{equation}
+                    \bigcap_{n \in \N} I_n \neq \varnothing
+                \end{equation}
+            \end{theorem}
+            
+            \begin{proof}
+                Claim:
+                \begin{equation}
+                    x := \sup\{\min(I_n): n \in \N\} \in \bigcap_{n \in \N} I_n
+                \end{equation}
+                Let $n \in \N$, then $x \geq \min(I_n)$. Now show $x \leq \max(I_n)\ \forall n \in \N$. Suppose not, then $\exists k \in \N$ such that $x > \max(I_k)$. Then by the definition of supremum, there exists $j \in \N$ such that $\max(I_k) < \min(I_j)$. Note that if $k=j$, this leads to a contradiction. If $k < j$, then because $I_k\supset I_j$, $\max(I_k) \geq \max(I_j) \geq \min(I_j) \geq \min(I_k)$, this leads to a contradiction. If $k > j$, then $I_k \subset I_j$, thus $\min(I_j) \leq \min(I_k) \leq \max(I_k) \leq \max(I_j)$, which also leads to a contradiction.\\
+                Therefore we conclude
+                \begin{equation}
+                    \min(I_n) \leq x \leq \max(I_n)\ \forall n \in \N
+                \end{equation}
+                therefore $x \in I_n\ \forall n \in \N$, so $x \in \bigcap_{n \in \N}I_n$.
+            \end{proof}
+            
+            \begin{theorem}
+                There exists no injection from $\R$ to $\N$.
+            \end{theorem}
+            
+            \begin{proof}
+                $\R$ has cardinality $c$ but $\N$ has cardinality $\aleph_0$.
+            \end{proof}
+        
+    \section{Sequences and Series}
+        \begin{definition}
+            A sequence $\seq{a}{n}$ of real numbers \textbf{converges} to a real number $a$ if
+            \begin{equation}
+                \forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \forall n > N\ |a_n - a| < \varepsilon
+            \end{equation}
+            If there does not exist such $a$, we conclude $\seq{a}{n}$ is \textbf{divergent}.
+        \end{definition}
+        
+        \begin{theorem}
+            Every convergent sequence is bounded.
+        \end{theorem}
+        
+        \begin{proof}
+            Let $\seq{a}{n}$ be a convergent sequence in $\R$ with limit point $a$. Then take $\varepsilon=1$, there exists $N \in \N$ such that $n > N \implies |a_n - a| < 1 \implies |a_n| < |a| + 1$. Take 
+            \begin{equation}
+                M := \max\{\max_{n \leq N}\{|a_n|\}, |a| +1 \}
+            \end{equation}
+            and the sequence is bounded by $M$.
+        \end{proof}
+        
+        \begin{definition}
+            Let $\seq{a}{n}$ be a sequence, then a sub-sequence of $(a_n)$ is any sequence in the form $(a_{n_k})_{k=1}^\infty$ such that $n_1 < n_2 < \cdots < n_k < \cdots$.
+        \end{definition}
+        
+        \begin{remark}
+            A sub-sequence can be generated with a strictly increasing function defined on $\N$ and a sequence $(a_n)$.
+        \end{remark}
+        
+        \begin{theorem}[Bolzano-Weierstrass]
+            Every bounded sequence has a convergent sub-sequence.
+        \end{theorem}
+        
+        \begin{proof}
+            Let $\seq{a}{n}$ be a bounded sequence bounded by $M > 0$. Define
+            \begin{align}
+                I_0 &:= [-M, M] \\
+                J^0 &:= [-M, 0] \\
+                J^1 &:= [0, M] \\
+                X^0 &:= \{n \in \N: a_n \in J^0\} \\
+                X^1 &:= \{n \in \N: a_n \in J^1\}
+            \end{align}
+            therefore $\N = X^0 \cup X^1$. Thus at least one of $X^0$ and $X^1$ is infinite. If $X^0$ is infinite, define $I_1 := J^0$, otherwise, define $I_1 := J^1$. Let 
+            \begin{equation}
+                A := \{x \in \R: \{n \in \N: x < a_n\} \tx{ is infinite} \}
+            \end{equation}
+            which is the lower bound of selected infinite half intervals. And define $a:= \inf(A)$. we can construct a sub-sequence, for each $n \in \N$, take $a_n \in I_n$. And by the nested interval theorem, the intersection of all those selected intervals is non-empty. And $a$ is the limit point of the constructed sequence. So a convergent sub-sequence exists.
+        \end{proof}
+        
+        \begin{definition}
+            A sequence $\seq{a}{n}$ is a \textbf{Cauchy} sequence if 
+            \begin{equation}
+                \forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \forall m, n > N,\ |a_n - a_m| < \varepsilon
+            \end{equation}
+        \end{definition}
+        
+        \begin{theorem}[Convergent $\implies$ Cauchy]
+            Every convergent sequence is a Cauchy sequence.
+        \end{theorem}
+        
+        \begin{proof}
+            Let $(a_n)$ be a convergent sequence, fix $\varepsilon > 0$. Suppose $(a_n) \to a$, take $\varepsilon^* = \varepsilon / 2$. Thus, there exists $N \in \N$ such that $\forall n > N, |a_n - a| < \varepsilon^* = \varepsilon / 2$. By taking such $N$, $\forall n, m > N$, both $|a_n - a|$ and $|a_m - a| < \varepsilon / 2$. By triangle inequality, $|a_n - a_m| \leq |a_n - a| + |a_m - a| < \varepsilon / 2 + \varepsilon / 2 = \varepsilon$. Hence, we've shown that for an arbitrary $\varepsilon > 0$, there exists $N \in \N$ such that $\forall m, n > N, |a_n - a_m| < \varepsilon$. Therefore $(a_n)$ is Cauchy.
+        \end{proof}
+        
+        \begin{theorem}[Cauchy $\implies$ Convergent]
+            Every Cauchy sequence is convergent.
+        \end{theorem}
+        
+        \begin{proof}
+            Let $(a_n)$ be a Cauchy sequence. \\
+            Claim: $(a_n)$ is bounded.
+            \begin{proof}[Proof. Bounded]
+                Take $\varepsilon=1$, then $\exists N \in \N$ such that $\forall m, n > N, |a_n - a_m| < 1$. Take $m = N+1$ and define $a^* := a_m$. Then we have $\forall n > N$, $|a_n - a^*| < 1$, which implies $|a_n| < |a^*| + 1$. Define 
+                \begin{equation}
+                    M := \max\{
+                        \max\{a_n: n \leq N\}, |a^*| + 1
+                    \}
+                \end{equation}
+                So $(a_n)$ is bounded by $M$.
+            \end{proof}
+            Then by Bolzano-Weierstrass Theorem, there exists a sub-sequence $(a_{n_k})_{k=1}^\infty$ converges to some limit point $a \in \R$. We are going to show $(a_n) \to a$. Fix $\varepsilon>0$, by the convergence of the sub-sequence
+            \begin{equation}
+                \exists N_1 \in \N\ s.t.\ \forall n \geq N_1,\ |a_{n_k} - a| < \frac{\varepsilon}{2}
+            \end{equation}
+            Also since the sequence itself is Cauchy,
+            \begin{equation}
+                \exists N_2 \in \N,\ s.t.\ \forall m, n \geq N_2,\ |a_n - a| < \frac{\varepsilon}{2}
+            \end{equation}
+            Take $N^* := \max\{N_1, N2_\}$. Show $|a_n - a| < \varepsilon\ \forall n \geq N^*$. Note that 
+            \begin{align}
+                |a_n - a| &= |(a_n - a_{n_k}) + (a_{n_k} - a)| \\
+                &\leq |a_n - a_{n_k}| + |a_{n_k} - a| \\
+                &<\frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+            \end{align}
+            since $n_k \geq n$ by the definition of sub-sequences.
+        \end{proof}
+    
+        \begin{corollary}
+            A sequence is Cauchy if and only if it is convergent.
+        \end{corollary}
+        
+        \begin{proof}
+            Let $(a_n)$ be a Cauchy sequence. \\
+            Claim: $(a_n)$ is bounded.
+            \begin{proof}
+                Take $\varepsilon=1$, then there exists $N \in \N$ such that 
+                \begin{equation}
+                    \forall m, n > N\ |a_n - a_m| < 1
+                \end{equation}
+                take $m:=N+1$, define $a^*:=a_{m+1}$, then 
+                \begin{equation}
+                    \forall n > N,\  |a_n - a^*| < 1 \implies |a_n| \leq |a^*| + 1
+                \end{equation}
+                Define $M:= \max\{\max_{n \leq N}\{a_n\}, |a^*|+1\}$, and $(a_n)$ is bounded by $M$.
+            \end{proof}
+            By the Bolzano-Weierstrass Theorem, there exists a sub-sequence $(a_{n_k})_{k=1}^\infty$ converges to some limit point $a \in \R$. Show $(a_n) \to a$ as well. \\
+            Let $\varepsilon>0$, by convergence of the sub-sequence, 
+            \begin{equation}
+                \exists N_1 \in \N,\ s.t.\ \forall n \geq N_1,\ |a_{n_k} - a| < \varepsilon / 2
+            \end{equation}
+            By the Cauchy property of $(a_n)$,
+            \begin{equation}
+                \exists N_2 \in \N,\ s.t.\ \forall m, n \geq N_2,\ |a_n - a_m| < \varepsilon / 2
+            \end{equation}
+            take $N^* := \max\{N_1, N_2\}$. Let $n \geq N^*$ and note that $n_k \geq n \geq N^*$
+            \begin{align}
+                |a_n - a| &= |(a_n - a_{n_k}) + (a_{n_k} - a)| \\
+                &\leq |a_n - a_{n_k}| + |a_{n_k} - a| \\
+                &\varepsilon/2 + \varepsilon/2 = \varepsilon
+            \end{align}
+            then take such $N^*$ for the fixed $\varepsilon>0$. Convergence of $(a_n)$ shown.
+        \end{proof}
+        
+        \begin{theorem}[the Uniqueness of the Limit Point]
+            If $(a_n) \to a$ and $(a_n) \to b$, then $a=b$.
+        \end{theorem}
+        
+        \begin{proof}
+            Suppose $a \neq b$, define $s:= |a-b| > 0$. Take $\varepsilon = \frac{s}{2}$, there does not exist such $N \in \N$ satisfying 
+            \begin{equation}
+                \forall n \geq N,\ 
+                \begin{cases}
+                    |a_n - a| < \varepsilon \\
+                    |a_n - b| < \varepsilon
+                \end{cases}
+            \end{equation}
+            \emph{above notion indicates that the sequence is converging to two separate limit points simultaneously}.
+        \end{proof}
+        
+        \begin{theorem}[Properties of Limits]
+            If $(a_n) \to a$, $(b_n) \to b$, and $c \in \R$, then
+            \begin{enumerate}[(i)]
+                \item $(c \cdot a_n) \to c \cdot a$;
+                \item $(a_n + c) \to a + c$;
+                \item $(a_n + b_n) \to a + b$;
+                \item $(a_n \cdot b_n) \to a \cdot b$.
+            \end{enumerate}
+        \end{theorem}
+        
+    \section{Convergence of Series}
+        \begin{definition}
+            A series $\ser{a}{n}$ is \textbf{convergent} if
+            \begin{equation}
+                \exists a \in \R\ s.t.\ \ser{a}{n} = a
+            \end{equation}
+        \end{definition}
+        
+        \begin{definition}[Alternative Definition]
+            Let $(S_n) := (\sum_{i=1}^n a_i)_{n=1}^\infty$ denote the \emph{sequence of partial sums} associated with series $\ser{a}{n}$, then the series is convergent if and only if its partial sum converges to a real number.
+        \end{definition}
+        
+        \begin{theorem}[Cauchy Criterion]
+            A series $\ser{a}{n}$ is convergent \ul{if and only if}
+            \begin{equation}
+                \forall \varepsilon > 0 \exists N \in \N\ s.t.\ \forall m \geq n \geq N,\ |\sum_{i=n}^m a_i| < \varepsilon
+            \end{equation}
+            That's, the partial sum sequence is Cauchy.
+        \end{theorem}
+        
+        \begin{corollary}
+            If $\ser{a}{n}$ is convergent, then $\lim_{n \to \infty} a_n = 0$
+        \end{corollary}
+        
+        \begin{corollary}[Absolute Convergence Test]
+            If $\sum_{n=1}^\infty |a_n|$ is convergent, then $\ser{a}{n}$ is also convergent.
+        \end{corollary}
+        
+        \begin{corollary}
+            If $\sum_{n=1}^\infty |a_n|$ is convergent, and, let $f: \N \to \N$ be a bijection, then 
+            \begin{equation}
+                \sum_{n=1}^\infty a_{f(n)}
+            \end{equation}
+            is convergent.
+        \end{corollary}
+        \emph{Given the absolute convergence, the rearrangement of sequence does not affect the convergence of series}.
+        
+        \begin{theorem}
+            Suppose $a_1 \geq a_2 \geq \cdots \geq a_n \geq \cdots \geq 0$ and $a_n \to 0$, then $\sum_{n=1}^\infty (-1)^{n+1}a_n$ is convergent.
+        \end{theorem}
+        
+        \begin{theorem}
+            If $\sum_{n=1}^\infty |a_n|$ is convergent, let $f: \N \to \N$ be a bijection, then $\sum_{n=1}^\infty |a_{f(n)}|$ is also convergent.
+        \end{theorem}
+        
+        \begin{theorem}
+            Suppose $\sum_{n=1}^\infty |a_n|$ is convergent, let $f, g: \N \to \N$ be two bijections, then
+            \begin{equation}
+                \sum_{n=1}^\infty a_{f(n)} = \sum_{n=1}^\infty a_{g(n)}
+            \end{equation}
+        \end{theorem}
+        
+        \begin{theorem}[Monotone Convergence]
+            Every monotone sequence, which is bounded, is convergent.
+        \end{theorem}
+        
+        \begin{corollary}
+            Given sequence $(a_n) \subset \R_{++}$ and series $\ser{a}{n}$, the sequence of partial sums is therefore a monotonically increasing sequence, so the partial sum $(S_n)$ is convergent if it is bounded.
+        \end{corollary}
+        
+        \begin{example}
+            $\sum_{n=1}^\infty \frac{1}{n^2}$ is convergent.
+        \end{example}
+        
+        \begin{proof}
+            Let $m \in \N$, so
+            \begin{align}
+                S_m &= 1 + \frac{1}{2\times 2} + \frac{1}{3 \times 3} + \cdots + \frac{1}{m \times m} \\
+                &< 1 + \frac{1}{2\times 1} + \frac{1}{3\times 2} + \cdots + \frac{1}{m \times (m-1)} \\
+                &= 1 + (1-\frac{1}{2}) + (\frac{1}{2} - \frac{1}{3}) + \cdots + (\frac{1}{m-1} - \frac{1}{m}) \\
+                &= 2 - \frac{1}{m} < 2
+            \end{align}
+            therefore $(S_m)$ is non-decreasing and bounded above by $2$. So $(S_m)$ is convergent, so is  $\sum_{n=1}^\infty \frac{1}{n^2}$.
+        \end{proof}
+        
+	\section{Order and Converging Sequences}
+		\begin{proposition}
+			If $(a_n) \geq 0$ is convergent to $a \in \R$, then $a \geq 0$.
+		\end{proposition}
+		
+		\begin{proof}
+			By contradiction.
+		\end{proof}
+		
+		\begin{proposition}
+			If $(a_n) \leq (b_n)$ are convergent to $a$ and $b$, respectively, then $a \leq b$.
+		\end{proposition}
+		
+		\begin{proof}
+			Construct sequence $(b_n - a_n) \geq 0$ and apply the previous proposition.
+		\end{proof}
+		
+		\begin{definition}[limsup]
+			Let $(a_n)$ be a bounded sequence, for each $m \in \N$, define 
+			\begin{equation}
+				b_m := \sup_{n \geq m}a_n
+			\end{equation}
+			For any $m_0 \leq m_1 \in \N$, it by the definition of supremum, it must be the case $b_{m_0} \geq b_{m_1}$. Therefore, $(b_m)$ is a monotonically non-decreasing sequence. Also since $(a_n)$ is bounded, $(b_m)$ is bounded as well. Thus, according to the monotone sequence theorem, $(b_m)$ converges to some limit $b \in \R$. Define
+			\begin{equation}
+				\limsup_{n \to \infty} a_n := b
+			\end{equation}
+		\end{definition}
+		
+		\begin{definition}[liminf]
+			Let $(a_n)$ be a bounded sequence, for each $m \in \N$, define 
+			\begin{equation}
+				b_m := \inf_{n \geq m}a_n
+			\end{equation}
+			For any $m_0 \leq m_1 \in \N$, it by the definition of infimum, it must be the case $b_{m_0} \leq b_{m_1}$. Therefore, $(b_m)$ is a monotonically non-increasing sequence. Also since $(a_n)$ is bounded, $(b_m)$ is bounded as well. Thus, according to the monotone sequence theorem, $(b_m)$ converges to some limit $b \in \R$. Define
+			\begin{equation}
+				\liminf_{n \to \infty} a_n := b
+			\end{equation}
+		\end{definition}
+		
+		\begin{theorem}
+			\begin{equation}
+				\lim_{n \to \infty} = a \iff \limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n = a
+			\end{equation}
+		\end{theorem}
+		
+		\begin{proof}
+			$(\implies)$ Suppose $(a_n) \to a$, for each $m \in \N$, define
+			$b_m := \sup_{n \geq m}a_n$ and $c_m := \inf_{n \geq m}a_n$. By the definitions of infimum, supremum, and, the convergence of sequence. For each $\varepsilon > 0$, for large enough $m \in \N$, for every $n \geq m$, we can bound $a_n$ in the range $(a - \varepsilon, a + \varepsilon)$, so are the supremum and infimum.
+			\begin{equation}
+				\forall \varepsilon > 0,\ \exists m \in \N,\ s.t.\ 
+				\begin{cases}
+					b_m < a + \varepsilon \\
+					c_m > a - \varepsilon
+				\end{cases}
+			\end{equation}
+			Also, by the convergence of $(a_n)$, there exists $N^* \in \N$ such that $\forall n \geq N^*$, $|a_n - a| < \frac{\varepsilon}{2}$, which means $a - \frac{\varepsilon}{2} < a_n < a + \frac{\varepsilon}{2}$. Therefore,
+			\begin{equation}
+				a - \frac{\varepsilon}{2} 
+				\leq \underbrace{\inf_{n \geq \N} a_n}_{c_N}
+				\leq \underbrace{\sup_{n \geq \N} a_n}_{b_N}
+				\leq a + \frac{\varepsilon}{2}
+			\end{equation}
+			so, since $c_N$ is increasing, and $b_N$ is decreasing, $(c_N) \to a$ and $(b_N) \to a$.
+		\end{proof}
+		
+		\begin{definition}[Double Index Sequence]
+			A sequence is said to be in \textbf{double index form} (i.e. indexed by $\N^2$, which is also countable) if it can be written as
+			\begin{equation}
+				(a_{m, n}),\ m, n \in \N
+			\end{equation}
+			and $\lim_{m \to \infty, n \to \infty}a_{m, n} = r$ if
+			\begin{equation}
+				\forall \varepsilon > 0, \exists N \in \N,\ s.t.\ \forall m, n \geq N,\ |a_{m,n} - r| < \varepsilon
+			\end{equation}
+		\end{definition}
+		
+		\begin{theorem}
+			Suppose, for sequence $(a_{m, n})$,
+			\begin{gather}
+				\lim_{m \to \infty} (\lim_{n \to \infty} a_{m, n}) = a \\
+				\lim_{n \to \infty} (\lim_{m \to \infty} a_{m, n}) = b \\
+				\lim_{m \to \infty, n \to \infty}a_{m, n} = r
+			\end{gather}
+			if $a, b, r$ all exist, then $a=b=r$.
+		\end{theorem}
+		
+		\begin{remark}
+			The theorem extends to sequence with countably many indices.
+		\end{remark}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
