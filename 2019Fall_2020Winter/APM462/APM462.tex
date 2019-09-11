@@ -42,7 +42,7 @@
     \tableofcontents
     \newpage
     
-    \section{Backgrounds}
+    \section{Preliminaries}
     \subsection{Mean Value Theorems and Taylor Approximations.}
     \begin{definition}
         Let $f: S \subset \R^n \to \R$, the \textbf{gradient} of $f$ at $x \in S$, if exists, is a vector $\nabla f(x) \in \R^n$ characterized by the property
@@ -59,10 +59,10 @@
     \end{theorem}
     
     \begin{proof}
-        Define $g(s) := f(x + sv)$ and apply MVT for functions in $\R^{\R}$.
+        Let $x, v \in \R^n$, define $g(t): \R \to \R := f(x + tv)$, which is $C^1$. By the mean value theorem on $\R^\R$, there exists $\theta \in (0, 1)$ such that $g(0+1) = g(0) + g'(\theta)(1-0)$, that is, $f(x+v) = f(x) + g'(\theta)$. Note that $g'(\theta) = \nabla(x + \theta v) \cdot v$, what desired is immediate.
     \end{proof}
     
-    \begin{corollary}[The First Order Taylor Approximation]
+    \begin{proposition}[The First Order Taylor Approximation]
         Let $f: \R^n \to \R$ be a $C^1$ function, then
         \begin{equation}
             f(x + v) = f(x) + \nabla f(x) \cdot v + o(\norm{v})
@@ -71,7 +71,11 @@
         \begin{equation}
             \lim_{\norm{v} \to 0} \frac{f(x + v) - f(x) - \nabla f(x) \cdot v}{\norm{v}} = 0
         \end{equation}
-    \end{corollary}
+    \end{proposition}
+    
+    \begin{proof}
+    	By the mean value theorem, $\exists \theta \in (0, 1)$ such that $f(x+v) - f(x) = \nabla f(x + \theta v) \cdot v$. The limit becomes $\lim_{\norm{v} \to 0} \frac{[\nabla f(x + \theta v) - \nabla f(x)] \cdot v}{\norm{v}} = \lim_{\norm{v} \to 0; x + \theta v \to x} \frac{[\nabla f(x + \theta v) - \nabla f(x)] \cdot v}{\norm{v}}$. Since $f \in C^1$, $\lim_{x + \theta v \to x} \nabla f(x + \theta v) = \nabla f(x)$. And $\frac{v}{\norm{v}}$ is a unit vector, and every component of it is bounded, as the result, the limit of inner product vanishes instead of explodes.
+    \end{proof}
     
     \begin{theorem}[The Second Order Mean Value Theorem]
         Let $f: \R^n \to \R$ be a $C^2$ function, then for any $x, v \in \R^n$, there exists $\theta \in (0, 1)$ satisfying
@@ -81,7 +85,7 @@
         where $H_f$ is the Hessian matrix of $f$, may also be written as $\nabla^2 f$.
     \end{theorem}
     
-    \begin{corollary}[The Second Order Taylor Approximation]
+    \begin{proposition}[The Second Order Taylor Approximation]
         Let $f: \R^n \to \R$ be a $C^2$ function, and $x, v \in \R^n$, then
         \begin{equation}
             f(x + v) = f(x) + \nabla f(x) \cdot v + \frac{1}{2} v' H_f(x)\ v + o(\red{\norm{v}^2})
@@ -92,18 +96,22 @@
                 f(x + v) - f(x) - \nabla f(x) \cdot v - \frac{1}{2} v' H_f(x)\ v
             }{\norm{v}^2} = 0
         \end{equation}
-    \end{corollary}
+    \end{proposition}
     
-    \begin{remark}[Geometric Meaning of Gradient]
-        \emph{Gradient gives the direction $f$ increases most.}
-    \end{remark}
     \begin{proof}
-        Let $x_0 \in \R^n$, and $v$ be an unit vector. Note that 
-        \begin{equation}
-            \frac{d}{ds}\vert_{s=0} f(x_0 + sv) = \nabla f(x_0) \cdot v = \norm{\nabla f(x_0)}\ \norm{v} \cos(\theta)
-        \end{equation}
-        where $\theta$ is the angle between $\nabla f$ and $v$. And the derivative is maximized when $\theta=0$, that is, when $v$ and $\nabla f$ point the same direction.
+    	By the second mean value theorem, there exists $\theta \in (0, 1)$ such that the limit is equivalent to
+    	\begin{align}
+    		\lim_{\norm{v} \to 0} \frac{1}{2} \left(\frac{v}{\norm{v}}\right)' \left[H_f(x + \theta v) - H_f(x)\right] \frac{v}{\norm{v}}
+    	\end{align}
+    	Since $f \in C^2$, the limit of $\left[H_f(x + \theta v) - H_f(x)\right]$ is in fact $\textbf{0}_{n \times n}$. And every component of unit vector $\frac{v}{\norm{v}}$ is bounded, the quadratic form converges to zero as an immediate result.
     \end{proof}
+    
+    It is often noted that the gradient at a particular $x_0 \in dom(f) \subset \R^n$ gives the direction $f$ increases most rapidly.
+        Let $x_0 \in dom(f)$, and $v$ be a \ul{unit vector} representing a \emph{feasible direction} of change. That is, there exists $\delta > 0$ such that $x_0 + t v \in dom(f)$ $\forall t \in [0, \delta)$. Then the rate of change of $f$ along feasible direction $v$ can be written as
+        \begin{equation}
+            \left.\frac{d}{dt}\right\vert_{t=0} f(x_0 + tv) = \nabla f(x_0) \cdot v = \norm{\nabla f(x_0)}\ \norm{v} \cos(\theta)
+        \end{equation}
+        where $\theta = \angle (v, \nabla f(x_0)$. And the derivative is maximized when $\theta=0$, that is, when $v$ and $\nabla f$ point the same direction.
     
     \subsection{Implicit Function Theorem}
     \begin{theorem}[Implicit Function Theorem]
