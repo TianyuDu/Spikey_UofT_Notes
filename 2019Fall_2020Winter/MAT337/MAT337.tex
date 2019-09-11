@@ -41,6 +41,7 @@
 	\tableofcontents
 	\newpage
 	\section{The Axiom of Completeness}
+	\subsection{Preliminaries}
 	\begin{definition}
 		A set $A \subset \R$ is \textbf{bounded above} if
 		\begin{align}
@@ -128,15 +129,43 @@
 	\begin{theorem}[Archimedean Property] \quad
 		\begin{enumerate}[(i)]
 			\item $\forall x \in \R,\ \exists n \in \N\ s.t.\ n > x$;
-			\item $\forall y \in \R_{++},\ \exists \N\ s.t. \frac{1}{n} < y$.
+			\item $\forall y \in \R_{++},\ \exists n \in \N\ s.t. \frac{1}{n} < y$.
 		\end{enumerate}
 	\end{theorem}
 	
 	Archimedean property \emph{of natural numbers} can be interpreted as \emph{there is no real number that bounds $\N$}. This interpretation can be seen by considering the negations of above statements:
 	\begin{enumerate}[(i)]
 		\item $\exists x \in \R\ s.t.\ \forall n \in \N,\ n \leq x$;
-		\item $\exists y \in \R_{++}\ s.t.\ \forall n 
+		\item $\exists y \in \R_{++}\ s.t.\ \forall n \in \N,\ y \leq \frac{1}{n}$.
 	\end{enumerate}
+	
+	\begin{proof}[Proof of (i) by Contradiction.]
+		Suppose the negated statement (i) is true, $\N$ is bounded above. By the completeness axiom, there exists $a^* := \sup \N$. $\exists n \in \N\ s.t.\ a^* - 1< n$. In this case, $a^* < n + 1 \in \N$, which means $a^* \notin \N^\uparrow$ and leads to a contradiction.
+	\end{proof}
+	
+	\begin{proof}[Proof of (ii).]
+		Let $y^* \in \R_{++}$, take $x = \frac{1}{y}$. By statement (i), there exists $n^* \in \N$ such that $n >	\frac{1}{y}$. Because $y > 0$, $\frac{1}{n} < y$.
+	\end{proof}
+	
+	\subsection{Density of Rational Numbers}
+	\begin{theorem}
+		For every $a, b \in \R$ such that $a < b$, there exists $r \in \Q$ such that $a < r < b$.
+	\end{theorem}
+	
+	The above theorem says $\Q$ is in fact \textbf{dense} in $\R$. More generally, one says a set $A \subset X$ is dense whenever the closure of $A$, $\overline{A} = X$.
+	
+	\begin{proof}
+		\emph{Step 1:} Since $b - a > 0$, by the first Archimedean property, there exists $n \in \N$ such that $n > \frac{1}{b - a}$. Such natural number satisfies $\frac{1}{n} < b - a$.\\
+		\emph{Step 2:} Let $m$ be smallest integer such that $m > an$. That is, $m - 1 \leq an < m$. Obviously, $a < \frac{m}{n}$ since $n > 0$. Further, since $m \leq an + 1$, with results from step (i), $m < bn - 1 + 1 = bn$, and $\frac{m}{n} < b$. Therefore $\frac{m}{n} \in (a, b)$.
+	\end{proof}
+	
+	\begin{theorem}
+		$\exists \alpha \in \R\ s.t. \alpha^2 = 2$.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $\Omega := \{t \in \R: t^2 < 2\}$, which is obviously a set in $\R$ bounded from above. By the completeness axiom, $\Omega$ possesses a supremum, and we claim $\alpha := \sup \Omega$ satisfies $\alpha^2 = 2$. Suppose $\alpha^2 > 2$, then there exists $\varepsilon > 0$ such that $\alpha^2 - 2 \alpha \varepsilon + \varepsilon^2 > 2$. Therefore, $\alpha > \alpha - \varepsilon \in \Omega^\uparrow$, which contradicts the fact that $\alpha$ is the least upper bound. Suppose $\alpha^2 < 2$, then there exists some $\varepsilon > 0$ such that $\alpha + \varepsilon \in \Omega$, which contradicts the assumption that $\alpha$ is an upper bound. Hence, it must be the case that $\alpha^2 = 2$.
+	\end{proof}
 \end{document}
 
 
