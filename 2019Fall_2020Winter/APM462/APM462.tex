@@ -145,18 +145,38 @@
         \end{equation}
     \end{definition}
     
+    \subsection{Basic Properties of Convex Functions}
+    
     \begin{definition}
         A function $f: \Omega \to \R$ is \textbf{concave} if and only if $-f$ is \textbf{convex}.
     \end{definition}
     
-    \begin{proposition}Properties of Convex Functions
+    \begin{proposition}
         \begin{enumerate}[(i)]
             \item If $f_1, f_2$ are convex on $\Omega$, so is $f_1 + f_2$;
             \item If $f$ is convex on $\Omega$, then for any $a > 0$, $af$ is also convex on $\Omega$;
-            \item Any \emph{sub-level/lower contour set} of a convex function $f$ is convex.
+            \item Any \textbf{sub-level/lower contour set} of a convex function $f$ 
+            \begin{align}
+            	SL(c) := \{x \in \R^n: f(x) \leq c\}
+            \end{align}
+            is convex.
         \end{enumerate}
     \end{proposition}
     
+    \begin{proof}[Proof of (iii).]
+    	Let $c \in \R$, and $x_1 ,x_2 \in SL(c)$. Let $s \in [0, 1]$. Since $x_1, x_2 \in SL(c)$, and $f(\cdot)$ is convex, $f(s x_1 + (1-s) x_2) \leq s f(x_1) + (1-s) f(x_2) \leq s c + (1-s) c = c$. Which implies $s x_1 + (1-s) x_2 \in SL(c)$.
+    \end{proof}
+    
+    \begin{example}
+    	$f(x): \R^n \to \R := \norm{x}$ is convex.
+    \end{example}
+    
+    \begin{proof}
+    	Note that for any $u, v \in \R^n$, by triangle inequality, $\norm{u - (-v)} \leq \norm{u - 0} + \norm{0 - (-v)} = \norm{u} + \norm{v}$. Consequently, let $u, v \in \R^n$ and $s \in [0, 1]$, then $\norm{s u + (1-s) v} \leq \norm{su} + \norm{(1-s) v} = s \norm{u} + (1-s) \norm{v}$. Therefore, $\norm{\cdot}$ is convex.
+    \end{proof}
+	
+	\subsection{Characterization of $C^1$ Convex Functions}
+	
     \begin{theorem}
         Let $f \in C^1$, then $f$ is convex on a convex set $\Omega$ \ul{if and only if}
         \begin{equation}
@@ -165,17 +185,27 @@
         that is, \emph{the linear approximation is never an overestimation of value of $f$}.
     \end{theorem}
     \begin{proof}
-        ($\implies$) Suppose $f$ is convex on a convex set $\Omega$. Then $f(sy + (1-s) x) \leq sf(y) + (1-s)f(x)$ for every $x, y \in \Omega$ and $s \in [0, 1]$, which implies
+        ($\implies$) Suppose $f$ is convex on a convex set $\Omega$. Then $f(sy + (1-s) x) \leq sf(y) + (1-s)f(x)$ for every $x, y \in \Omega$ and $s \in [0, 1]$, which implies, for every $s \in (0, 1]$:
         \begin{equation}
             \frac{f(sy + (1-s) x) - f(x)}{s} \leq f(y) - f(x)
         \end{equation}
         By taking the limit of $s \to 0$,
         \begin{align}
             \lim_{s \to 0} \frac{f(x + s(y-x)) - f(x)}{s} &\leq f(y) - f(x) \\
-            \implies \frac{d}{ds}\vert_{s=0} f(x + s(y-x)) &\leq f(y) - f(x) \\
+            \implies \left.\frac{d}{ds}\right\vert_{s=0} f(x + s(y-x)) &\leq f(y) - f(x) \\
             \implies \nabla f(x) \cdot (y-x) &\leq f(y) - f(x)
         \end{align}
-        ($\impliedby$) Let $x_0, x_1 \in \Omega$, let $s \in (0, 1)$. Define $x = s x_0 + (1-s) x_1$, then $f(x_0) \geq f(x) + \nabla f(x) \cdot (x_0 - x)$. Hence, $f(x_0) \geq f(x) + \nabla f(x) \cdot [(1-s)(x_0 - x_1)]$. Similarly, $f(x_1) \geq f(x) + \nabla f(x) \cdot (x_1 - x)$ implies $f(x_1) \geq f(x) + \nabla f(x) [s(x_1 - x_0)]$. Therefore, $sf(x_0) + (1-s)f(x_1) \geq f(x) \equiv f \left(s x_0 + (1-s) x_1 \right)$.
+        ($\impliedby$) Let $x_0, x_1 \in \Omega$, let $s \in [0, 1]$. Define $x^* := s x_0 + (1-s) x_1$, then 
+        \begin{align}
+        	f(x_0) &\geq f(x^*) + \nabla f(x^*) \cdot (x_0 - x^*) \\
+        	\implies f(x_0) &\geq f(x^*) + \nabla f(x^*) \cdot [(1-s)(x_0 - x_1)]
+        \end{align}
+        Similarly,
+        \begin{align}
+        	f(x_1) &\geq f(x^*) + \nabla f(x^*) \cdot (x_1 - x^*) \\
+        	\implies f(x_1) &\geq f(x^*) + \nabla f(x^*) \cdot [s(x_1 - x_0)]
+        \end{align}
+        Therefore, $sf(x_0) + (1-s)f(x_1) \geq f(x^*)$.
     \end{proof}
     
     \begin{theorem}
