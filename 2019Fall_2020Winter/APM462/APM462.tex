@@ -175,9 +175,9 @@
     	Note that for any $u, v \in \R^n$, by triangle inequality, $\norm{u - (-v)} \leq \norm{u - 0} + \norm{0 - (-v)} = \norm{u} + \norm{v}$. Consequently, let $u, v \in \R^n$ and $s \in [0, 1]$, then $\norm{s u + (1-s) v} \leq \norm{su} + \norm{(1-s) v} = s \norm{u} + (1-s) \norm{v}$. Therefore, $\norm{\cdot}$ is convex.
     \end{proof}
 	
-	\subsection{Characterization of $C^1$ Convex Functions}
+	\subsection{Characteristics of $C^1$ Convex Functions}
 	
-    \begin{theorem}
+    \begin{theorem}[$C^1$ criterions for convexity]
         Let $f \in C^1$, then $f$ is convex on a convex set $\Omega$ \ul{if and only if}
         \begin{equation}
             \forall x, y \in \Omega,\ f(y) \geq f(x) + \nabla f(x) \cdot (y - x)
@@ -208,19 +208,47 @@
         Therefore, $sf(x_0) + (1-s)f(x_1) \geq f(x^*)$.
     \end{proof}
     
-    \begin{theorem}
-        $f \in C^2$ is a convex function on a convex set $\Omega \subset \R^n$ \ul{if and only if} $\nabla^2 f(x) \geq 0$ for all $x \in \Omega$.
+    \begin{theorem}[$C^2$ criterion for convexity]
+        $f \in C^2$ is a convex function on a convex set $\Omega \subset \R^n$ \ul{if and only if} $\nabla^2 f(x) \succcurlyeq 0$ for all $x \in \Omega$.
     \end{theorem}
     
+    \begin{remark}
+    	When $f$ is defined on $\R$, the $C^2$ criterion becomes $f''(x) \geq 0$.
+    \end{remark}
+    
     \begin{proof}
-        ($\impliedby$) Using the second-order Taylor's theorem and positive definiteness of $H_f$. \\
-        ($\implies$) Prove by contradiction.
+        ($\impliedby$) Suppose $\nabla^2 f(x) \succcurlyeq 0$ for every $x \in \Omega$, let $x, y \in \Omega$. By the second order MVT,
+        \begin{align}
+        	f(y) &= f(x) + \nabla f(x) \cdot (y - x) + \frac{1}{2} (y-x)^T \nabla^2 f(x + s (y - x)) (y - x)\tx{ for some } s \in [0, 1] \\
+        	&\implies f(y) \geq f(x) + \nabla f(x) \cdot (y - x)
+        \end{align}
+        So $f$ is convex by the $C^1$ criterion of convexity.\\
+        ($\implies$) Let $v \in \R^n$. Suppose, for contradiction, that for some $x \in \Omega$, $\nabla^2 f(x) \centernot \succcurlyeq 0$. If such $x \in \partial \Omega$, note that $v^T \nabla^2 f(\cdot) v$ is continuous because $f \in C^2$, then there exists $\varepsilon > 0$ such that $\forall x' \in V_\varepsilon(x) \cap \Omega^{int},\ v^T \nabla^2 f(x') v < 0$. Hence, one may assume with loss of generality that such $x \in \Omega^{int}$. Because $x \in \Omega^{int}$, exists $\varepsilon' > 0$, such that $V_{\varepsilon'}(x) \subseteq \Omega^{int}$. Define $\hat{v} := \frac{v}{\sqrt{\varepsilon'}}$, then for every $s \in [0, 1]$, $\hat{v}^T \nabla^2 f(x + s\hat{v}) \hat{v} < 0$. Let $y = x + \hat{v}$, by the mean value theorem, $f(y) = f(x) + \nabla f(x) \cdot (y - x) + \frac{1}{2} (y - x)^T \nabla^2 f (x + s (y - x)) (y - x)$ for some $s \in [0, 1]$. This implies $f(y) < f(x) + \nabla f(x) \cdot (y - x)$, which contradicts the $C^1$ criterion for convexity.
     \end{proof}
     
     \subsection{Minimum and Maximum of Convex Functions}
     \begin{theorem}
-        Let $\Omega \subset \R^n$ be a convex set, and $f: \Omega \to \R$ is a convex function. Suppose set $\Gamma := \min_{x \in \Omega} f(x) \neq \varnothing$, then $\Gamma$ is convex, further, any local minimum of $f$ is the global minimum.
+        Let $\Omega \subset \R^n$ be a convex set, and $f: \Omega \to \R$ is a convex function. Let
+        \begin{align}
+        	\Gamma := \left\{x \in \Omega: f(x) = \min_{x \in \Omega} f(x) \right\} \equiv \argmin_{x \in \Omega} f(x)
+        \end{align}
+        If $\Gamma \neq \varnothing$, then 
+        \begin{enumerate}[(i)]
+        	\item $\Gamma$ is convex;
+        	\item any local minimum of $f$ is the global minimum.
+        \end{enumerate}
     \end{theorem}
+    
+    \begin{proof}[Proof (i).]
+    	Let $x, y \in \Gamma$, $s \in [0, 1]$, then $sx+(1-s)y \in \Omega$ because $\Omega$ is convex. Since $f$ is convex, $f(sx+(1-s)y) \leq sf(x) + (1-s)f(y) = \min_{x \in \Omega} f(x)$. The inequality must be equality since it would contradicts the fact that $x, y \in \Gamma$. Therefore, $sx+(1-s)y \in \Gamma$.
+    \end{proof}
+    
+    \begin{proof}[Proof (ii).]
+    	Let $x \in \Omega$ be a local minimizer for $f$, but assume, for contradiction, it is not a global minimizer. That is, there exists some other $y$ such that $f(y) < f(x)$. Since $f$ is convex, \begin{align}
+ 				f(x + t(y-x)) = f((1-t)x + ty) \leq (1-t)f(x) + tf(y) < f(x)
+			\end{align}
+			for every $t \in (0, 1]$. Therefore, for every $\varepsilon > 0$, there exists $t^* \in (0, 1]$ such that $x + t^*(y-x) \in V_\varepsilon(x)$ and $f(x + t^*(y-x)) < f(x)$, this contradicts the fact that $x$ is a local minimum.
+    \end{proof}
     
     \begin{theorem}
         Let $\Omega \subset \R^n$ be a convex set, and $f: \Omega \to \R$ is a convex function. Then 
