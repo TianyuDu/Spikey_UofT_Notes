@@ -323,7 +323,7 @@
 %		
 %		Note that $0 \leq y_n - x_n \leq z_n - x_n$ for every $n \in \N$. \\
 %		\textbf{Claim ii:} $(y_n)$ converges to $\ell$. By the order limit theorem, $a_n \leq y_n \implies \ell \leq y$, and $y_n \leq z_n \implies \ell \geq y$. Therefore, $y = \ell$.
-Suppose $(y_n) \centernot \to \ell$, then there exists $\varepsilon > 0$ such that there are infinitely many $y_n \notin V_\varepsilon (\ell)$. Take the same $\varepsilon > 0$, there exists $N \in \N$ such that for every $n \geq N$, $x_n, z_n \in V_\varepsilon(\ell)$. Clearly, this contradicts $x_n \leq y_n \leq z_n$.
+	Suppose, for contradiction, $(y_n) \centernot \to \ell$, then there exists $\varepsilon > 0$ such that for every $N \in \N$, there exists  a $n \geq N$ satisfying $y_n \notin V_\varepsilon (\ell)$. Take the same $\varepsilon > 0$, there exists $N_1 \in \N$ such that for every $n \geq N_1$, $x_n, z_n \in V_\varepsilon(\ell)$. Note that every $y_n \in [x_n, z_n]$ can be written as a convex combination of $x_n, z_n$, and since $V_\varepsilon(\ell)$ is convex, $y_n \in V_\varepsilon(\ell)$. Taking $N := N_1$, this clearly contradicts our previous conclusion.
 	\end{proof}
 	
 \end{document}
