@@ -166,6 +166,121 @@
 	\begin{proof}
 		Let $\Omega := \{t \in \R: t^2 < 2\}$, which is obviously a set in $\R$ bounded from above. By the completeness axiom, $\Omega$ possesses a supremum, and we claim $\alpha := \sup \Omega$ satisfies $\alpha^2 = 2$. Suppose $\alpha^2 > 2$, then there exists $\varepsilon > 0$ such that $\alpha^2 - 2 \alpha \varepsilon + \varepsilon^2 > 2$. Therefore, $\alpha > \alpha - \varepsilon \in \Omega^\uparrow$, which contradicts the fact that $\alpha$ is the least upper bound. Suppose $\alpha^2 < 2$, then there exists some $\varepsilon > 0$ such that $\alpha + \varepsilon \in \Omega$, which contradicts the assumption that $\alpha$ is an upper bound. Hence, it must be the case that $\alpha^2 = 2$.
 	\end{proof}
+	
+	\section{Sequences}
+	\begin{theorem}[Triangle Inequality]
+		Let $a, b \in \R$, then $|a + b| \leq |a| + |b|$.
+	\end{theorem}
+	
+	\begin{corollary}
+		Let $a, b \in \R$, then
+		\begin{align}
+			\large| |a| - |b| \large| \leq |a - b|
+		\end{align}
+	\end{corollary}
+	
+	\begin{proof}
+		Note that $|a| = |a - b + b| \leq |a - b| + |b|$, which implies $|a| - |b| \leq |a - b|$. And $|b| = |b - a + a| \leq |b - a| + |a| = |a - b| + |a|$, which implies $|b| - |a| \leq |a - b|$. Therefore, by taking the absolute value, $||a| - |b|| \leq |a - b|$.
+	\end{proof}
+	
+	\begin{definition}
+		A sequence $(a_n) \subset \R$ \textbf{converges} to $a \in \R$ if 
+		\begin{align}
+			\forall \varepsilon > 0,\ \exists N \in \N,\ n \geq N \implies |a_n - a| < \varepsilon
+		\end{align}
+	\end{definition}
+	
+	Let $a \in \R$ and $\varepsilon > 0$, the open ball centred at $a$ with radius $\varepsilon$ is denoted as 
+	\begin{align}
+		V_\varepsilon(a) := \left\{x \in \R : |x - a| < \varepsilon \right\}
+	\end{align}
+	
+	\begin{theorem}
+		The limit of any convergent sequence is unique.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $(a_n)$ be a convergent sequence, assume, for contradiction, that $(a_n) \to L_1$ and $(a_n) \to L_2$ such that $L_1 \neq L_2$. Let $\varepsilon = \frac{|L_1 - L_2|}{3}$, because $(a_n) \to L_1$, there exists $N\in\N$ such that $n \geq N \implies |a_n - L_1| < \frac{|L_1 - L_2|}{3}$. Therefore, for every $n \geq N$,
+		\begin{align}
+			|a_n - L_2| &= |a_n - L_1 - (L_2 - L_1)| \\ 
+			&\geq ||a_n - L_1| - |L_2 - L_1|| \\
+			&= ||L_1 - L_2| - |a_n - L_1|| \\
+			&= 3\varepsilon - |a_n - L_1| \\
+			&> 2 \varepsilon
+		\end{align}
+		Therefore, there does not exist any $N' \in \N$ such that $|a_n - L_2| < \varepsilon$ for every $n \geq \N$.
+	\end{proof}
+	
+	\begin{definition}
+		A sequence $(a_n)$ is \textbf{divergent} if it does not converge.
+	\end{definition}
+	
+	\begin{example}
+		The sequence $(a_n) := (1, -1/2, 1/3, 1/4, -1/5, 1/5, -1/5, 1/5, \cdots)$ is divergent.
+	\end{example}
+	
+	\begin{proof}
+		Let $\varepsilon := \frac{2}{5 \times 3}$, assume, for contradiction, that $(a_n) \to L$ for some $L \in \R$. Then there exists $N \in \N$ such that for every $n \geq N$, $|a_n - L| < \frac{2}{15}$. Since the sequence is alternating, it must be the case that $\left|L - \frac{1}{5} \right| < \frac{2}{15}$. Similarly, 
+		\begin{align}
+			\left| - \frac{1}{5} - L\right| &= \left|\frac{1}{5} + L \right|\\
+			&= \left|\frac{1}{5} + L - \frac{1}{5} + \frac{1}{5} \right| \\
+			&= \left|(L - \frac{1}{5}) - (- \frac{2}{5})\right| \\
+			&\geq \left | \left | L - \frac{1}{5} \right | - \frac{6}{15} \right|\\
+			&= \frac{6}{15} - \left|L - \frac{1}{5}\right| \\
+			&> \frac{4}{15} \\
+			&> \varepsilon
+		\end{align}
+		the strict inequality suggests there cannot be a $M \in \N$ such that $|a_n - L| < \varepsilon$ for every $n \geq M$.
+	\end{proof}
+	
+	\begin{proof}[Alternative Proof.]
+		If $(a_n)$ is convergent, then all of its subsequences must converge to the same limit. Obviously, there are subsequences of $(a_n)$ converging to $\frac{1}{5}$ and $-\frac{1}{5}$ respectively, this leads to a contradiction.
+	\end{proof}
+	
+	\begin{definition}
+		A sequence is \textbf{bounded} if $\exists M \in \R$ such that $\forall n \in \N,\ |a_n| < M$.
+	\end{definition}
+	
+	\begin{theorem}
+		Every convergent sequence is bounded.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $(a_n) \to L$, take $\varepsilon = 1$, then there exists $N \in \N$ such that $|a_n - L| < 1$ for every $n > N$. Note that $|a_n| - |L| \leq ||a_n| - |L|| \leq |a_n - L| < \varepsilon$, which implies $|a_n| < |L| + 1$. Let $Q := \max_{n < N} a_n$, take $M := \max\{Q, |L| + 1\}$, then $M$ bounds $(a_n)$.
+	\end{proof}
+	
+	\begin{theorem}[Algebraic Limit Theorem]
+		Let $(a_n) \to a, (b_n) \to b$ be convergent sequences, and $c \in \R$, then
+		\begin{enumerate}[(i)]
+			\item $(c a_n) \to c a$;
+			\item $(a_n + b_n) \to a + b$;
+			\item $(a_n b_n) \to ab$;
+			\item $\left(\frac{a_n}{b_n}\right) \to \frac{a}{b}$, provided $b_n, b \neq 0$.
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}[Proof (i).]
+		Let $\varepsilon > 0$, there exists $N \in \N$ such that $\forall n \geq N$, $|a_n - a| < \frac{\varepsilon}{|c|}$. Then, for every $n \geq N$, $|c a_n - ca| = |c| |a_n - a| < \varepsilon$.
+	\end{proof}
+	
+	\begin{proof}[Proof (ii).]
+		Let $\varepsilon > 0$, there exists $N_1, N_2 \in \N$ such that $|a_n - a| < \frac{\varepsilon}{3}\ \forall n \geq N_1$ and $|b_n - b| < \frac{\varepsilon}{3}\ \forall n \geq N_2$. Take $N := \max\{N_1, N_2\}$, let $n \geq N$,
+		\begin{align}
+			|a_n + b_n - a - b| &\leq |a_n - a| + |b_n - b| < \frac{2\varepsilon}{3} < \varepsilon
+		\end{align}
+	\end{proof}
+	
+	\begin{proof}[Proof (iii).]
+		Note that
+		\begin{align}
+			|a_nb_n - ab| &= |a_n b_n + a_nb - a_nb - ab| \\
+			&\leq |a_n b_n - a_n b| + |a_n b - ab| \\
+			&\leq |a_n| |b_n - b| + |b| |a_n - a|
+		\end{align}
+		Let $N_1 \in \N$ such that $|a_n - a| < \frac{\varepsilon}{2 |b|}$ for every $n \geq N_1$. Because $(a_n)$ is convergent, let $M$ denote its bound such that $|a_n| < M\ \forall n \in \N$. Let $N_2 \in \N$ such that $|b_n - b| < \frac{\varepsilon}{2 M}$. Then for every $n \geq N_3 := \max\{N_1, N_2\}$, $|a_nb_n - ab| < \varepsilon$.
+	\end{proof}
+	\begin{proof}[Proof (iv).]
+		\hl{TODO}
+	\end{proof}
 \end{document}
 
 
