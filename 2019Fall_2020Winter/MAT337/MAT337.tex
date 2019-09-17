@@ -279,8 +279,53 @@
 		Let $N_1 \in \N$ such that $|a_n - a| < \frac{\varepsilon}{2 |b|}$ for every $n \geq N_1$. Because $(a_n)$ is convergent, let $M$ denote its bound such that $|a_n| < M\ \forall n \in \N$. Let $N_2 \in \N$ such that $|b_n - b| < \frac{\varepsilon}{2 M}$. Then for every $n \geq N_3 := \max\{N_1, N_2\}$, $|a_nb_n - ab| < \varepsilon$.
 	\end{proof}
 	\begin{proof}[Proof (iv).]
-		\hl{TODO}
+		\textbf{Claim i:} when $n$ is sufficiently larger, $|b_n| > 0$ is bounded away from zero by $M$. Let $\varepsilon = \frac{|b|}{10}$, then there exists $N_1 \in \N$ such that for every $n \geq N_1$, $|b_n - b| < \frac{|b|}{10}$. Note that for every such $n$,
+		\begin{align}
+			|b_n| &= |b_n - b - (-b)| \\
+			&\geq | |b_n - b| - |b| | \\
+			&\geq |b| - |b_n - b| \\
+			&> \frac{9|b|}{10}
+		\end{align}
+		\textbf{Claim ii:} $\left(\frac{1}{b_n}\right) \to \frac{1}{b}$. Let $\varepsilon > 0$, note that
+		\begin{align}
+			\left | \frac{1}{b_n} - \frac{1}{b} \right | &= \left | \frac{b}{b_nb} - \frac{b_n}{b_nb} \right | \\
+			&= \frac{1}{|b_n||b|} |b_n - b|
+		\end{align}
+		from the first claim, $\frac{1}{|b_n|} < \frac{10}{9 |b|}$ for every $n \geq N_1$. Since $(b_n) \to b$, there exists $N_2 \in \N$ such that for every $n \geq N_2$, $|b_n - b| < \frac{10 \varepsilon}{9|b|^2}$. Consequently, for every $n \geq N_3 := \max\{N_1, N_2\}$, $\left | \frac{1}{b_n} - \frac{1}{b} \right | < \varepsilon$. Then the result is immediate from property (iii) in the algebraic limit theorem. 
 	\end{proof}
+	
+	\begin{theorem}[Order Limit Theorem]
+		Let $(a_n) \to a$ and $(b_n) \to b$, then
+		\begin{enumerate}[(i)]
+			\item $a_n \geq 0\ \forall n \in \N \implies a \geq 0$;
+			\item $a_n \leq b_n\ \forall n \in \N \implies a \leq b$;
+			\item $\exists c \in \R\ s.t.\ c \leq b_n\ \forall n \in \N \implies c \leq b$;
+			\item $\exists c \in \R\ s.t.\ a_n \leq c\ \forall n \in \N \implies a \leq c$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		(i) Assume, for contradiction, $a < 0$. Take $\varepsilon = \frac{|a|}{2}$, then for some $N \in \N$, for every $n \geq N$ $a_n \in V_\varepsilon(a)$. However, this contradicts the fact that $a_n \geq 0$. \\
+		(ii) Consider sequence $(b_n - a_n)$ in which $b_n - a_n \geq 0$ for every $n \in \N$. $(b_n - a_n) \to (b - a)$ by the algebraic limit theorem. By property (i), $b - a \geq 0$. \\
+		(iii) and (iv) Consider constant sequence defined as $(c_n)$ such that $c_n = c$ for every $n \in \N$, the results are immediate by applying (ii).
+	\end{proof}
+	
+	\begin{theorem}[Squeeze Theorem]
+		Let $(x_n) \to L$ and $(z_n) \to \ell$. If for every $n \in \N$, $x_n \leq y_n \leq z_n$, then $(y_n) \to \ell$.
+	\end{theorem}
+	
+	\begin{proof}
+%		\textbf{Claim i:} $(y_n)$ converges to some limit $y$. Let $\varepsilon > 0$, then
+%		\begin{align}
+%			|y_n - \ell| &= |y_n + \ell - x_n - z_n + x_n - \ell + z_n - \ell| \\
+%			&\leq |y_n - x_n| + |z_n - \ell| + |x_n - \ell| + |z_n - \ell|
+%		\end{align}
+%		
+%		Note that $0 \leq y_n - x_n \leq z_n - x_n$ for every $n \in \N$. \\
+%		\textbf{Claim ii:} $(y_n)$ converges to $\ell$. By the order limit theorem, $a_n \leq y_n \implies \ell \leq y$, and $y_n \leq z_n \implies \ell \geq y$. Therefore, $y = \ell$.
+Suppose $(y_n) \centernot \to \ell$, then there exists $\varepsilon > 0$ such that there are infinitely many $y_n \notin V_\varepsilon (\ell)$. Take the same $\varepsilon > 0$, there exists $N \in \N$ such that for every $n \geq N$, $x_n, z_n \in V_\varepsilon(\ell)$. Clearly, this contradicts $x_n \leq y_n \leq z_n$.
+	\end{proof}
+	
 \end{document}
 
 
@@ -305,3 +350,4 @@
 
 
 
+d
