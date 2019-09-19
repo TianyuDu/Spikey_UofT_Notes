@@ -258,22 +258,59 @@
     \end{theorem}
     
     \begin{proof}
-        As we assumed, $\Omega$ is closed, therefore $\partial \Omega \subseteq \Omega$. Hence, $\max_{x \in \Omega} f \geq \max_{x \in \partial \Omega} f$. Suppose $\max_{x \in \Omega} f > \max_{x \in \partial \Omega} f$, let $x^* := \argmax_{x \in \Omega} f \in \Omega^{int}$. Then we can construct a string line through $x^*$ and intersects $\partial \Omega$ at two points, $y_1, y_2 \in \partial \Omega$, such that $x^* = s y_1 + (1-s) y_2$ for some $s \in (0, 1)$. Further, since $f$ is convex, $f(x^*) \leq s f(y_1) + (1-s) f(y_2) \leq s \max_{\partial \Omega} f + (1-s) \max_{\partial \Omega} f = \max_{\partial \Omega} f$, which leads to a contradiction.
+        As we assumed, $\Omega$ is closed, therefore $\partial \Omega \subseteq \Omega$. Hence, $\max_{x \in \Omega} f \geq \max_{x \in \partial \Omega} f$. Suppose $\max_{x \in \Omega} f > \max_{x \in \partial \Omega} f$, let $x^* := \argmax_{x \in \Omega} f \in \Omega^{int}$. Then we can construct a straight line through $x^*$ and intersects $\partial \Omega$ at two points, $y_1, y_2 \in \partial \Omega$, such that $x^* = s y_1 + (1-s) y_2$ for some $s \in (0, 1)$. Further, since $f$ is convex, $\max_{x \in \Omega}f(x) = f(x^*) \leq s f(y_1) + (1-s) f(y_2) \leq s \max_{\partial \Omega} f + (1-s) \max_{\partial \Omega} f = \max_{\partial \Omega} f$, which leads to a contradiction. Therefore, $\max_{x \in \Omega} f = \max_{x \in \partial \Omega} f$.
     \end{proof}
     
     \begin{proposition}
-        Let $f$ be continuous function on $\R^n$, then the level set and sub-level set of $f$ are closed. Further, since the intersection of arbitrary closed sets is closed, so the set defined by collection of continuous functions $\{h_i; g_j\}$
-        \begin{equation}
-            \{x \in \R^n: h_i(x) = 0 \land g_j(x) \leq 0\ \forall i, j\}
-        \end{equation}
-        is closed.
+    	For p, g > 1 and $\frac{1}{p} + \frac{1}{g} = 1$,
+    	\begin{align}
+    		|ab| \leq \frac{1}{p} |a|^p + \frac{1}{g}|b|^g
+    	\end{align}
     \end{proposition}
     
+    \begin{proof}
+    	\begin{align}
+    		(-\log) |ab| &= (-\log) |a| + (-\log) |b| \\
+    		&= \frac{1}{p} (-\log) |a|^p + \frac{1}{g} (-\log) |b|^p \\
+    		(\because (-\log) \tx{ is convex})\ &\geq (-\log)\left( \frac{1}{p} |a|^p + \frac{1}{g} |b|^p \right)
+    	\end{align}
+    	And since $(-\log)$ is monotonically decreasing,
+    	\begin{align}
+    		|ab| \leq \frac{1}{p} |a|^p + \frac{1}{g} |b|^p
+    	\end{align}
+    \end{proof}
+    
+    \begin{corollary}
+    	\begin{align}
+    		|ab| \leq \frac{|a|^2 + |b|^2}{2}
+    	\end{align}
+    \end{corollary}
+
+	\section{Basics of Unconstrained Optimization}
     \begin{theorem}[Extreme Value Theorem]
-        Let $\Omega \subset \R^n$ be a compact set, and $f: \Omega \to \R$ is continuous, then $f$ attains its maximum and minimum on $\Omega$.
+        Let $f: \R^n \to \R$ is continuous and $K \subset \R^n$ be a compact set, then the minimization problem $\min_{x \in K} f(x)$ has a solution.
     \end{theorem}
     
-    \begin{corollary} 
+    \begin{proposition}
+    	Let $K \subset \R^n$, then $K$ is compact if and only if $K$ is closed and bounded.
+    \end{proposition}
+    
+	\begin{proposition}
+		Let $\{h_i\}$ and $\{g_i\}$ be sets of continuous functions on $\R^n$, the the set of all points in $\R^n$ that satisfy
+		\begin{equation}
+			\begin{cases}
+				h_i(x) = 0\ \forall i\\
+				g_j(x) \leq 0\ \forall j
+			\end{cases}
+		\end{equation}
+		is a closed set. Moreover, if the qualified set is also bounded, then it is compact.
+	\end{proposition}
+	
+	\begin{example}
+		The set $\{(x, y) \in \R^2: x^2 - y^2 - 1 = 0\}$ is closed and bounded, therefore it is compact.
+	\end{example}
+    
+    \begin{corollary}
         Let $f: \R^n \to \R$ be a continuous function, if there exists $a \in \R^n$ such that $f(x) \geq f(a)$ for every $x \notin \mc{B}(r, a)$, then $f$ attains its minimum in $\mc{B}(r, a)$.
     \end{corollary}
     
@@ -286,3 +323,16 @@
     \end{proposition}
     
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+

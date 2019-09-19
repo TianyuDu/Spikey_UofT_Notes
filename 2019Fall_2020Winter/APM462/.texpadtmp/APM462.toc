@@ -7,3 +7,4 @@
 \contentsline {subsection}{\numberline {2.2}Basic Properties of Convex Functions}{3}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Characteristics of $C^1$ Convex Functions}{4}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Minimum and Maximum of Convex Functions}{5}{subsection.2.4}
+\contentsline {section}{\numberline {3}Basics of Unconstrained Optimization}{6}{section.3}
