@@ -323,10 +323,115 @@
 %		
 %		Note that $0 \leq y_n - x_n \leq z_n - x_n$ for every $n \in \N$. \\
 %		\textbf{Claim ii:} $(y_n)$ converges to $\ell$. By the order limit theorem, $a_n \leq y_n \implies \ell \leq y$, and $y_n \leq z_n \implies \ell \geq y$. Therefore, $y = \ell$.
-	Suppose, for contradiction, $(y_n) \centernot \to \ell$, then there exists $\varepsilon > 0$ such that for every $N \in \N$, there exists  a $n \geq N$ satisfying $y_n \notin V_\varepsilon (\ell)$. Take the same $\varepsilon > 0$, there exists $N_1 \in \N$ such that for every $n \geq N_1$, $x_n, z_n \in V_\varepsilon(\ell)$. Note that every $y_n \in [x_n, z_n]$ can be written as a convex combination of $x_n, z_n$, and since $V_\varepsilon(\ell)$ is convex, $y_n \in V_\varepsilon(\ell)$. Taking $N := N_1$, this clearly contradicts our previous conclusion.
+%	Suppose, for contradiction, $(y_n) \centernot \to \ell$, then there exists $\varepsilon > 0$ such that for every $N \in \N$, there exists  a $n \geq N$ satisfying $y_n \notin V_\varepsilon (\ell)$. Take the same $\varepsilon > 0$, there exists $N_1 \in \N$ such that for every $n \geq N_1$, $x_n, z_n \in V_\varepsilon(\ell)$. Note that every $y_n \in [x_n, z_n]$ can be written as a convex combination of $x_n, z_n$, and since $V_\varepsilon(\ell)$ is convex, $y_n \in V_\varepsilon(\ell)$. Taking $N := N_1$, this clearly contradicts our previous conclusion.
+%	\end{proof}
+	Let $\varepsilon > 0$, because both $(x_n) \to \ell$ and $(y_n) \to \ell$,
+	\begin{align}
+		\exists N_1\ s.t.\ n \geq N_1 \implies |x_n - \ell| < \varepsilon \implies x_n > \ell - \varepsilon \\
+		\exists N_2\ s.t.\ n \geq N_2 \implies |z_n - \ell| < \varepsilon \implies z_n < \ell +  \varepsilon
+	\end{align}
+	Take $N_3 := \max\{N_1, N_2\}$, then for every $n \geq N_3$,
+	\begin{align}
+		\ell - \varepsilon < x_n \leq &y_n \leq z_n < \ell + \varepsilon \\
+		\implies y_n &\in V_\varepsilon(\ell)
+	\end{align}
+	therefore $(y_n) \to \ell$ by definition.
+	\end{proof}
+	
+	\subsection{Monotone Convergence Theorem}
+	\begin{definition}
+		A sequence $(a_n)$ is said to be \textbf{monotone} if it is either increasing ($a_{n+1} \geq a_n\ \forall n \in \N$) or decreasing ($a_{n+1} \leq a_n\ \forall n \in \N$).
+	\end{definition}
+	
+	\begin{theorem}[Monotone Convergence Theorem]
+		If a sequence $(a_n)$ is bounded, then it converges.
+	\end{theorem}
+	
+	\begin{proof}
+		WLOG, assume $(a_n)$ is increasing, let $\Gamma := \{a_n: n \in \N\} \subset \R$, because $\Gamma$ is bounded, $s := \sup_n \Gamma$ is well-defined by the completeness of real numbers.\\
+		\textbf{Claim:} $(a_n) \to s$. Let $\varepsilon > 0$, by the definition of supremum, $\exists N \in \N$ such that $a_N > s - \varepsilon$. Because the sequence is increasing and $s + \varepsilon \in \Gamma^\uparrow$, $n \geq N \implies s - \varepsilon < a_n  < s + \varepsilon$. $(a_n) \to s$ by definition.
+	\end{proof}
+	
+	\subsection{Series}
+	\begin{definition}
+		Let $(a_i)$ be a sequence, then the $n$-th \textbf{partial sum} is defined as $s_n := \sum_{i=1}^n a_i$. And the \textbf{infinite sum/series} of $(a_n)$ is defined as 
+		\begin{align}
+			\sum_{i=1}^\infty a_i
+			= \begin{cases}
+				s &\tx{ if } (s_n) \to s \\
+				\tx{undefined/diverges} &\tx{ otherwise}
+			\end{cases}
+		\end{align}
+	\end{definition}
+	
+	\begin{example}
+		$\sum_{i=1}^\infty \frac{1}{i^2}$ converges.
+	\end{example}
+	
+	\begin{proof}
+		Obviously the corresponding partial sums are increasing because the sequence $(\frac{1}{i^2})$ is positive. \\
+		\textbf{Claim:} $(s_n)$ is bounded from above. Let $n \in \N$, observe
+		\begin{align}
+			\sum_{i=1}^n \frac{1}{i^2} &= 1 + \frac{1}{2 \times 2} + \frac{1}{3 \times 3} + \cdots + \frac{1}{n \times n} \\
+			&\leq 1 + \frac{1}{1 \times 2} + \frac{1}{2 \times 3} + \cdots + \frac{1}{(n-1) \times n} \\
+			&= 2 - \frac{1}{n} \leq 2
+		\end{align}
+		The result is immediate by the monotone convergence theorem.
+	\end{proof}
+	
+	\begin{example}[Harmonic Series]
+		$\sum_{n=1}^\infty \frac{1}{n}$ diverges.
+	\end{example}
+	
+	\begin{proof}
+		\textbf{Claim:} there exists a subsequence of $(s_n)$ diverges, so $(s_n)$ cannot be convergent. Consider the subsequence $(s_k)$ constructed by defining $s_k := s_{2^k}$. Note that
+		\begin{align}
+			s_{2^k} &= 1 + \frac{1}{2} + 
+			\left(
+			\frac{1}{3} + \frac{1}{4}
+			\right) +
+			\left(
+			\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}
+			\right) +
+			\cdots +
+			\left(
+			\frac{1}{2^{k-1} + 1} + \cdots + \frac{1}{2^k}
+			\right) \\
+			&> 1 + \frac{1}{2} k
+		\end{align}
+		Clearly, the subsequence is unbounded, and therefore cannot be convergent.
+	\end{proof}
+	
+	\begin{definition}
+		Let $(a_n)$ be a sequence, then for every \ul{strictly} increasing sequence $(n_i)_i$ in $\N$, $(a_{n_i})$ is a \textbf{subsequence} of $(a_n)$.
+	\end{definition}
+	
+	\begin{theorem}
+		All subsequences of a convergent sequence converge to the same limit as the original sequence.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $(a_n) \to \ell$, let $(a_{n_k})$ be a subsequence of $(a_n)$. Let $\varepsilon > 0$, there exists $N \in \N$ such that $n \geq N \implies a_n \in V_\varepsilon(\ell)$. By the definition of subsequences, there exists some $K \in \N$ such that $n_K = N$. Take such $K$, then for every $k \geq K$, it must be $n_k \geq N$. Therefore $a_{n_k} \in V_\varepsilon(\ell)$ for every $k \geq K$, and $(a_{n_k}) \to \ell$ by definition.
+	\end{proof}
+	
+	\begin{corollary}
+		A sequence $(a_n)$ must be divergent if there exists two subsequences of it converge to two different limits.
+	\end{corollary}
+	
+	\begin{proof}
+		Immediate by taking the contrapositive form of above theorem.
+	\end{proof}
+	
+	\begin{theorem}[Bolzano–Weierstrass]
+		Every bounded sequence contains a convergent subsequence.
+	\end{theorem}
+	
+	\begin{proof}
+		Suppose $(a_n)$ is bounded by certain $M > 0$, that's, for every $n \in \N$, $-M < a_n < M$. Consider the split $I_1^\ell := [-M, 0]$ and $I_1^u := [0, M]$. At least one of above closed intervals contain an infinitely many elements of $(a_n)$. Define the interval as $I_2$. At each $I_n$, one can split it evenly into two closed intervals such that at least one of these sub-intervals contain infinitely many element in the sequence, and $I_{n+1}$ is defined to be such sequence. Note that the sequence of closed intervals constructed from above recursive procedure is in fact nested. Obviously $\lim_{n \to \infty} |I_n| = 0$. Further, by the nested interval property, one can show that $\cap_{n \in \N} I_n \neq \varnothing$. Then $\cap_{n \in \N} I_n$ must be a singleton with $a$ in it. One can construct such that $a_{n_k} \in I_k$, and clearly $(a_{n_k}) \to a$.
 	\end{proof}
 	
 \end{document}
+
 
 
 
