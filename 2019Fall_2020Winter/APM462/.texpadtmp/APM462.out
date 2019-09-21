@@ -6,4 +6,7 @@
 \BOOKMARK [2][-]{subsection.2.2}{Basic Properties of Convex Functions}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.3}{Characteristics of C1 Convex Functions}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.4}{Minimum and Maximum of Convex Functions}{section.2}% 8
-\BOOKMARK [1][-]{section.3}{Basics of Unconstrained Optimization}{}% 9
+\BOOKMARK [1][-]{section.3}{Finite Dimensional Optimization}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Unconstraint Optimization}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Equality Constraints}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Inequality Constraints}{section.3}% 12

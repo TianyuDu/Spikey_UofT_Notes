@@ -285,15 +285,42 @@
     		|ab| \leq \frac{|a|^2 + |b|^2}{2}
     	\end{align}
     \end{corollary}
-
-	\section{Basics of Unconstrained Optimization}
+	
+	\section{Finite Dimensional Optimization}
+	\subsection{Unconstraint Optimization}
     \begin{theorem}[Extreme Value Theorem]
-        Let $f: \R^n \to \R$ is continuous and $K \subset \R^n$ be a compact set, then the minimization problem $\min_{x \in K} f(x)$ has a solution.
+        Let $f: \R^n \to \R$ is \ul{continuous} and $K \subset \R^n$ be a \ul{compact} set, then the minimization problem $\min_{x \in K} f(x)$ has a solution.
     \end{theorem}
     
+    \begin{remark}
+    	$f: \Omega \to \R$ is convex does not imply $f$ is continuous.
+    \end{remark}
+    
     \begin{proposition}
-    	Let $K \subset \R^n$, then $K$ is compact if and only if $K$ is closed and bounded.
+    	A convex function $f$ defined on a \ul{convex open} set is continuous.
     \end{proposition}
+    
+    \begin{proof}
+    	Let $f: \Omega \to \R$ be a convex function, where $\Omega \subset \R^n$ is open.
+    	\hl{TODO}
+    \end{proof}
+    
+    \begin{corollary}
+    	A convex function $f$ defined on an \ul{open interval} in $\R$ is continuous.
+    \end{corollary}
+    
+    \begin{proof}
+    	See homework 1, using squeeze theorem.
+    \end{proof}
+    
+    \begin{proof}[Proof of EVT.]
+    	Let $f: K \to \R$ be a continuous function defined on a compact set $K$.\\
+    	WLOG, we only prove the existence of $\min f$, since the existence of max can be easily proven by applying the exact same argument on $-f$. Because $K$ is compact, the continuity of $f$ implies $f(K)$ is compact. By the completeness axiom of $\R$, $m := \inf_{x \in K} f(x)$ is well-defined. There exists a sequence $(x_i) \subset K$, such that $(f(x_i)) \to m$. Because $K$ is compact, there exists a subsequence $(x_{ik})$ of $(x_i)$ converges to some limit $x^* \in K$. Because $f$ is continuous, $(f(x_{ik})) \to f(x^*)$, which is a subsequence of the convergent sequence $(f(x_i))$, and they must converge to the same limit. Hence, $f(x^*) = m$, and the infimum is attained at $x^* \in K$.
+    \end{proof}
+    
+    \begin{theorem}[Heine–Borel]
+    	Let $K \subset \R^n$, then $K$ is compact (every open cover of $K$ has a finite sub-cover) $\iff$ $K$ is closed and bounded.
+    \end{theorem}
     
 	\begin{proposition}
 		Let $\{h_i\}$ and $\{g_i\}$ be sets of continuous functions on $\R^n$, the the set of all points in $\R^n$ that satisfy
@@ -303,17 +330,40 @@
 				g_j(x) \leq 0\ \forall j
 			\end{cases}
 		\end{equation}
-		is a closed set. Moreover, if the qualified set is also bounded, then it is compact.
+		is a closed set (intersection of finitely many closed sets). Moreover, if the qualified set is also bounded, then it is compact.
 	\end{proposition}
+	
+	\begin{proof}
+		For every equality constraint $h_i$, it can be represented as the conjunction of two inequality constraint, namely $h_i^\alpha (x) := -h_i(x) \leq 0 \land h_i^\beta (x) := h_i(x) \leq 0$. Then the constraint collection is equivalent to
+		\begin{align}
+			\begin{cases}
+				h_i^\alpha (x) \leq 0\ \forall i \\
+				h_i^\beta (x) \leq 0\ \forall i \\
+				g_j(x) \leq 0\ \forall j
+			\end{cases}
+		\end{align}
+		The subset of $\R^n$ qualified by each individual constraint is closed by the property of continuous functions (i.e. the continuous function's pre-image of closed set is closed). And the intersection of arbitrarily many closed sets is closed.
+	\end{proof}
 	
 	\begin{example}
 		The set $\{(x, y) \in \R^2: x^2 - y^2 - 1 = 0\}$ is closed and bounded, therefore it is compact.
 	\end{example}
     
-    \begin{corollary}
-        Let $f: \R^n \to \R$ be a continuous function, if there exists $a \in \R^n$ such that $f(x) \geq f(a)$ for every $x \notin \mc{B}(r, a)$, then $f$ attains its minimum in $\mc{B}(r, a)$.
-    \end{corollary}
+    \begin{remark}
+    	Computer algorithms for solving minimization problems try to construct a sequence of $(x_i)$ such that $f(x_i)$ decreases to $\min f$ rapidly.
+    \end{remark}
     
+%    \begin{corollary}
+%        Let $f: \R^n \to \R$ be a continuous function, if there exists $a \in \R^n$ such that $f(x) \geq f(a)$ for every $x \notin \mc{B}(r, a)$, then $f$ attains its minimum in $\mc{B}(r, a)$.
+%    \end{corollary}
+
+    \par The optimization problems investigated in this section can be formulated as
+    \begin{align}
+    	\min_{x \in \Omega} f(x)
+    \end{align}
+    where $\Omega \subset \R^n$. Typically, for simplicity, $\Omega$ are often $\R^n$, an open subset of $R^n$, or the closure of some open subset of $\R^n$.
+    \par Everything above minimization discussed in this section is applicable to maximization as well using the proposition below.
+
     \begin{proposition}
         When $\Omega = \R^n$, the unconstrained minimization has the following properties
         \begin{enumerate}[(i)]
@@ -322,6 +372,58 @@
         \end{enumerate}
     \end{proposition}
     
+    \begin{proof}
+    	\emph{Omitted.}
+    \end{proof}
+   	
+   	\begin{definition}
+   		A function $f: \Omega \to \R$ has \textbf{local minimum} at $x_0 \in \Omega$ if
+   		\begin{align}
+   			\exists \varepsilon > 0\ s.t.\ \forall x \in V_\varepsilon(x_0) \cap \Omega\ f(x_0) \leq f(x)
+   		\end{align}
+   		$f$ attains \textbf{strictly local minimum} at $x_0$ if
+   		\begin{align}
+   			\exists \varepsilon > 0\ s.t.\ \forall x \in V_\varepsilon(x_0) \cap \Omega \backslash \{x_0\}\ f(x_0) < f(x)
+   		\end{align}
+   		$f$ attains \textbf{global minimum} at $x_0$ if
+   		\begin{align}
+   			\forall x \in \Omega\ f(x_0) \leq f(x)
+   		\end{align}
+   		$f$ attains \textbf{strict global minimum} at $x_0$ if
+   		\begin{align}
+   			\forall x \in \Omega \backslash \{x_0\} \ f(x_0) < f(x)
+   		\end{align}
+   		\ul{Note that strict global minimum is always unique.}
+   	\end{definition}
+   	
+   	\begin{theorem}[Necessary Condition for Local Minimum]
+   		Let $C^1 \ni f: \Omega \to \R$, let $x_0 \in \Omega$ be a local minimum of $f$ then, for every \emph{feasible direction} $v$ at $x_0$,
+   		\begin{align}
+   			\nabla f(x_0) \cdot v \geq 0
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{definition}
+   		For $x_0 \in \Omega \subset \R^n$,  $v \in \R^n$ is a \textbf{feasible direction}at $x_0$ if
+   		\begin{align}
+   			\exists \overline{s} > 0\ s.t.\ \forall s \in [0, \overline{s}], x_0 + s v \in \Omega
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{proof}[Proof of Necessary Condition]
+   		The prove is almost immediate, if there exists a feasible direction $v^*$ such that $\nabla f(x_0) \cdot v^* < 0$, for every $\varepsilon > 0$, one can construct $x' := x^* + s v^*$ with sufficiently small $s$ so that $x' \in V_\varepsilon(x^*) \cap  \Omega$ and $f(x') < f(x^*)$.
+   	\end{proof}
+   	
+   	\begin{corollary}
+   		When $\Omega$ is open, then $x_0$ is a local minimum $\implies \nabla f(x_0) = 0$.
+   	\end{corollary}
+   	\begin{proof}
+   		Since $\Omega$ is open, any sufficiently small $v \neq 0$ such that both $v$ and $-v$ are feasible directions at $x_0$, applying the necessary condition on both $v$ and $-v$ provides the equality.
+   	\end{proof}
+   	
+   	\subsection{Equality Constraints}
+   	
+   	\subsection{Inequality Constraints}
 \end{document}
 
 
