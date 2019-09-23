@@ -427,9 +427,61 @@
 	\end{theorem}
 	
 	\begin{proof}
-		Suppose $(a_n)$ is bounded by certain $M > 0$, that's, for every $n \in \N$, $-M < a_n < M$. Consider the split $I_1^\ell := [-M, 0]$ and $I_1^u := [0, M]$. At least one of above closed intervals contain an infinitely many elements of $(a_n)$. Define the interval as $I_2$. At each $I_n$, one can split it evenly into two closed intervals such that at least one of these sub-intervals contain infinitely many element in the sequence, and $I_{n+1}$ is defined to be such sequence. Note that the sequence of closed intervals constructed from above recursive procedure is in fact nested. Obviously $\lim_{n \to \infty} |I_n| = 0$. Further, by the nested interval property, one can show that $\cap_{n \in \N} I_n \neq \varnothing$. Then $\cap_{n \in \N} I_n$ must be a singleton with $a$ in it. One can construct such that $a_{n_k} \in I_k$, and clearly $(a_{n_k}) \to a$.
+		Suppose $(a_n)$ is bounded by certain $M > 0$, that's, for every $n \in \N$, $-M < a_n < M$. Consider the split $I_1^\ell := [-M, 0]$ and $I_1^u := [0, M]$. At least one of above closed intervals contain an infinitely many elements of $(a_n)$. Define the interval as $I_2$. At each $I_n$, one can split it evenly into two closed intervals such that at least one of these sub-intervals contain infinitely many element in the sequence, and $I_{n+1}$ is defined to be such sequence. Note that the sequence of closed intervals constructed from above recursive procedure is in fact nested. Obviously $\lim_{n \to \infty} |I_n| = 0$. Further, by the nested interval property, one can show that $\cap_{n \in \N} I_n \neq \varnothing$. Then $\cap_{n \in \N} I_n$ must be a singleton with $a$ in it. One can construct such that $a_{n_k} \in I_k$. Note that $|I_n| = \frac{1}{2^{n-1}}$, therefore, for every $\varepsilon > 0$, one can take $N \geq \log_2 \left({\frac{1}{\varepsilon}}\right) + 1$, so that for every $k \geq N$, by definition of subsequences, $n_k \geq n$, so that $a_{n_k}, a \in I_N$. This implies $a_{n_k} \in V_{\varepsilon}(a)$ and $(a_{n_k}) \to a$.
 	\end{proof}
 	
+	\subsection{Cauchy Criterion}
+	\begin{definition}
+		A sequence $(a_n)$ is a \textbf{Cauchy} sequence if
+		\begin{align}
+			\forall \varepsilon > 0\ \exists N \in \N\ s.t.\ m, n \geq N \implies |a_n - a_m| < \varepsilon
+		\end{align}
+	\end{definition}
+	
+	\begin{proposition}
+		Every convergent sequence is Cauchy.
+	\end{proposition}
+	
+	\begin{proof}
+		Let $(a_n) \to \ell$, let $\varepsilon > 0$. By the convergence of sequence, $\exists N \in \N$ such that for every $ n \geq N$, $|a_n - \ell| < \frac{\varepsilon}{2}$, which turns out to imply $a_n, a_m \in V_\varepsilon(\ell)$.
+	\end{proof}
+	
+	\begin{lemma}
+		Every Cauchy sequence is bounded.
+	\end{lemma}
+	
+	\begin{proof}
+		Let $(a_n)$ be a Cauchy sequence, take $\varepsilon = 1$, then there exists $N \in \N$ such that for every $m, n \geq N$, $|a_n - a_m| < 1$. In particular, take $m = N$, for every $n \geq N$, $|a_n - a_N| < 1$, and $|a_n| \leq |a_N| + 1$. Then $(a_n)$ is clearly bounded by:
+		\begin{align}
+			M := \max \{|a_n|: n \leq N\} \cup \{|a_N| + 1\}
+		\end{align}
+	\end{proof}
+	
+	\begin{theorem}[Cauchy Criterion]
+		A sequence \emph{of real numbers} is convergent if and only if it's Cauchy.
+	\end{theorem}
+	
+	\begin{proof}
+		($\impliedby$) Suppose $(a_n)$ is Cauchy, by the lemma established above, $(a_n)$ is bounded. By the Bolzano–Weierstrass theorem, there exists a subsequence $(a_{n_k}) \to \ell$. \\
+		\textbf{Claim:} $(a_n) \to \ell$. Let $\varepsilon > 0$, there exists $N_1 \in \N$ such that for every $n_k, n \geq N_1$, $|a_{n_k} - a_n| < \frac{\varepsilon}{2}$. 
+		And there exists another $N_2 \in \N$ such that for every $n_k \geq N_2$, $|a_{n_k} - \ell| < \frac{\varepsilon}{2}$. Take $N_3 := \max\{N_1, N_2\}$.
+		Note that for every $n \geq N_3$, one can choose some $n_k \geq n$ and derive
+		\begin{align}
+			|a_n - \ell| &= |a_n - a_{n_k} + a_{n_k} - \ell| \\
+			&\leq |a_n - a_{n_k}| + |a_{n_k} - \ell| \\
+			&< \varepsilon
+		\end{align}
+		($\implies$) Already shown in previous proposition.
+	\end{proof}
+	
+	\subsection{Convergence Test for Series}
+	\begin{theorem}[$n$-th term test; necessary condition for convergent series]
+		Series $\sum_{i=1}^\infty a_n$ converges $\implies \lim_{n \to \infty} a_n = 0$.
+	\end{theorem}
+	
+	\begin{proof}
+		Suppose the partial sums converges to $\ell$, by the definition of partial sums, $a_n = s_{n+1} - s_{n}$. Further, the convergence of partial sums guarantees the convergence of $(a_n)$. By taking limit on both sides of above identity, it can be shown $\lim_{n \to \infty} a_n = 0$.
+	\end{proof}
 \end{document}
 
 
