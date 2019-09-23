@@ -397,7 +397,7 @@
    	\end{definition}
    	
    	\begin{theorem}[Necessary Condition for Local Minimum]
-   		Let $C^1 \ni f: \Omega \to \R$, let $x_0 \in \Omega$ be a local minimum of $f$ then, for every \emph{feasible direction} $v$ at $x_0$,
+   		Let $C^1 \ni f: \Omega \to \R$, let $x_0 \in \Omega$ be a local minimum of $f$, then for every \emph{feasible direction} $v$ at $x_0$,
    		\begin{align}
    			\nabla f(x_0) \cdot v \geq 0
    		\end{align}
@@ -411,6 +411,23 @@
    	\end{definition}
    	
    	\begin{proof}[Proof of Necessary Condition]
+   		Let $x_0 \in \Omega$ be a local minimum, and let $v$ be a 
+   		Define auxiliary function $g(s) := f(x + sv)$. And since $g$ attains minimum at $s=0$, there exists some $\overline{s} > 0$ such that 
+   		\begin{align}
+   			g(s) - g(0) \geq 0\ \forall s \in [0, \overline{s}]
+   		\end{align}
+   		Therefore
+   		\begin{align}
+   			g'(0) := \lim_{s \to 0} \frac{g(s) - g(0)}{s - 0} \geq 0
+   		\end{align}
+   		The alternative form of derivative can be derived using chain rule as
+   		\begin{align}
+   			g'(0) = \nabla f(x + sv) \cdot v\ |_{s=0} = \nabla f(x) \cdot v
+   		\end{align}
+   		By combing the two identities above, $\nabla f(x) \cdot v \geq 0$.
+   	\end{proof}
+   	
+   	\begin{proof}[Alternative Proof of Necessary Condition (not that rigorous)]
    		The prove is almost immediate, if there exists a feasible direction $v^*$ such that $\nabla f(x_0) \cdot v^* < 0$, for every $\varepsilon > 0$, one can construct $x' := x^* + s v^*$ with sufficiently small $s$ so that $x' \in V_\varepsilon(x^*) \cap  \Omega$ and $f(x') < f(x^*)$.
    	\end{proof}
    	
@@ -419,6 +436,37 @@
    	\end{corollary}
    	\begin{proof}
    		Since $\Omega$ is open, any sufficiently small $v \neq 0$ such that both $v$ and $-v$ are feasible directions at $x_0$, applying the necessary condition on both $v$ and $-v$ provides the equality.
+   	\end{proof}
+   	
+   	\begin{example}
+   		Minimize $f(x, y)=x^{2}-x y+y^{2}-3 y$ over $\Omega = \R^2$.
+   	\end{example}
+   	
+   	\begin{example}
+   		Minimize $f(x, y)=x^{2}-x+y+x y$ over $\Omega = \max\{(x, y) \in \R^2: x, y \geq 0\}$.
+   	\end{example}
+   	
+   	\begin{theorem}[Second Order Necessary Condition for Local Minimum]
+   		Let $C^2 \ni f: \Omega \to \R$, let $x_0 \in \Omega$ be a local minimum of $f$, then for every non-zero feasible direction $v$ at $x_0$,
+   		\begin{enumerate}[(i)]
+   			\item $\nabla f(x_0) \cdot v \geq 0$;
+   			\item $\nabla f(x_0) \cdot v = 0 \implies v^T \nabla^2 f(x_0) v \geq 0$.
+   		\end{enumerate}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		Let $x_0$ be a local minimum and $v$ be a feasible direction at $\Omega$, and $s \in (0, \overline{s}]$. The first statement is the immediate result of the first order necessary condition. Now suppose $\nabla f(x_0) = 0$, by the Taylor's theorem,
+   		\begin{align}
+   			0 \leq f(x_0 + sv) - f(x_0) &= s \nabla f(x_0) \cdot v + \frac{s^2}{2} v^T \nabla^2 f(x_0) v + o(s^2) \\
+   			&=\frac{s^2}{2} v^T \nabla^2 f(x_0) v + o(s^2)
+   		\end{align}
+   		Since $s^2 > 0$, divide both sides by $s^2$ and take limit,
+   		\begin{align}
+   			\lim_{s \to 0} \frac{f(x_0 + sv) - f(x_0)}{s^2} &= \lim_{s \to 0} 
+   			\left \{\frac{1}{2} v^T \nabla^2 f(x_0) v + \frac{o(s^2)}{s^2} \right\}\\
+   			&= \frac{1}{2} v^T \nabla^2 f(x_0) v + \lim_{s \to 0} \frac{o(s^2)}{s^2} \\
+   			&= \frac{1}{2} v^T \nabla^2 f(x_0) v \geq 0
+   		\end{align}
    	\end{proof}
    	
    	\subsection{Equality Constraints}
