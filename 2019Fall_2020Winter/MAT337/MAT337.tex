@@ -482,6 +482,99 @@
 	\begin{proof}
 		Suppose the partial sums converges to $\ell$, by the definition of partial sums, $a_n = s_{n+1} - s_{n}$. Further, the convergence of partial sums guarantees the convergence of $(a_n)$. By taking limit on both sides of above identity, it can be shown $\lim_{n \to \infty} a_n = 0$.
 	\end{proof}
+	
+	\begin{theorem}[Cauchy Criterion for Series]
+		For series $\sum_{n=1}^\infty a_n$, TFAE:
+		\begin{enumerate}[(i)]
+			\item Series converges;
+			\item $\forall \varepsilon > 0,\ \exists N \in \N\ s.t.\ \forall n \geq N,\ \left |\sum_{k=\red{n+1}}^{\red{\infty}} a_k \right | < \varepsilon$ (i.e. \emph{tail} sum sequence converges);
+			\item $\forall \varepsilon > 0,\ \exists N \in \N\ s.t.\ \forall m > n \geq N,\ \left | \sum_{k=n+1}^m a_k \right | < \varepsilon$. (i.e. partial sum is Cauchy)
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}
+		$(i) \implies (ii)$: Suppose $(S_n)$ converges, let $\varepsilon > 0$, $\exists N\ s.t.\ \forall n \geq N, |S_n - L| < \varepsilon$. Note that 
+		\begin{align}
+			L - S_n &= \lim_{m \to \infty} \sum_{k=1}^m a_k  - S_n \\
+			&= \lim_{m \to \infty} \left [ \sum_{k=1}^m a_k  - S_n \right ]\\
+			&= \lim_{m \to \infty} \sum_{k=n+1}^m a_k
+		\end{align}
+		which implies the convergence of tail sums. \\
+		$(ii) \implies (iii)$: Suppose the tail sum converges, let $\varepsilon > 0$, note that
+		\begin{align}
+			\left | 
+			\sum_{k=n+1}^{m} a_k
+			\right| &= \left |
+			\sum_{k=m+1}^\infty a_k - \sum_{k=n+1}^\infty a_k
+			\right| \\
+			&\leq \left |
+			\sum_{k=m+1}^\infty a_k \right | + \left | \sum_{k=n+1}^\infty a_k
+			\right|
+		\end{align}
+		Both terms can be made arbitrarily small by $(ii)$, specifically, one can choose $N_1$ and $N_2$ such that both terms are strictly bounded by $\frac{\varepsilon}{2}$, and $N_3 := \max\{N_1, N_2\}$ is the desired value. \\
+		$(iii) \implies (i)$: Since the partial sum is a Cauchy sequence in a complete space, it must converges, so the series is well-defined.
+	\end{proof}
+	
+	\subsubsection{The Comparison Test}
+	\begin{definition}
+		A sequence $(a_n)$ is a \textbf{geometric sequence} with coefficient $r$ if $a_{n+1} = r a_n$.
+	\end{definition}
+	
+	\begin{proposition}
+		Geometric sequences whenever $r \in (-1, 1)$. Note that when $r = -1$, the sequence becomes an alternating sequence, and the convergence property is indefinite.
+	\end{proposition}
+	
+	\begin{proposition}
+		Let $(a_n)$ be a geometric sequence with coefficient $r$, then for every $m \in \N$,
+		\begin{align}
+			r S^a_m &= ra_0 + r^2 a_0 + \cdots + r^{n+1} a_0 \\
+			\implies (r - 1) S^a_m &= r^{n+1} a_0 - a_0 \\
+			\implies S^a_m &= a_0 \frac{1 - r^{m+1}}{1 - r}
+		\end{align}
+	\end{proposition}
+	
+	\begin{theorem}[The Comparison Test]
+		Let $(a_n)$ and $(b_n)$ be two sequences satisfy $|a_n| \leq b_n$ for every $n \in \N$. Then
+		\begin{enumerate}[(i)]
+			\item $\sum_{i=1}^\infty b_n$ converges $\implies$ $\sum_{i=1}^\infty a_n$ converges;
+			\item $\sum_{i=1}^\infty a_n$ diverges $\implies$ $\sum_{i=1}^\infty b_n$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		\emph{Part 1}: Suppose $(b_n)$ converges, it is therefore Cauchy. Let $\varepsilon > 0$.
+		Note that for every $m > n$:
+		\begin{align}
+			\abs{S^a_m - S^a_n} &= \abs{\sum_{k=n+1}^m a_k} \\
+			&\leq \sum_{k=n+1}^m \abs{a_k} \\
+			&\leq \sum_{k=n+1}^m b_k
+		\end{align}
+		Therefore exists $N \in \N$ such that $\sum_{k=n+1}^m b_k \leq \abs{\sum_{k=n+1}^m b_k} < \varepsilon$ for every $m, n \geq N$. Taking such $N$ provides the cutoff needed for $(S_n^a)$ to be Cauchy. Because $(S_n^a) \subset \R$, it converges. \\
+		\emph{Part 2}: The result is immediate by taking the contrapositive form of the previous statement.
+	\end{proof}
+	
+	\subsubsection{The Root Test}
+	
+	\begin{definition}
+		Let $(a_n)$ be a bounded sequence, then
+		\begin{align}
+			\limsup (a_n) &:= \sup_{\red{n} \to \infty} \{a_k : k \geq \red{n}\} \\
+			\liminf (a_n) &:= \inf_{\red{n} \to \infty} \{a_k : k \geq \red{n}\} \\
+		\end{align}
+	\end{definition}
+	
+	\begin{theorem}[The Root Test]
+		Let $(a_n)$ be a sequence in which $a_n \geq 0$ for every $n \in \N$, let $\ell = \limsup \sqrt{a_n}{n}$, then
+		\begin{enumerate}[(i)]
+			\item If $\ell < 1$, then $(S^a_n)$ converges;
+			\item If $\ell > 1$, then $(S^a_n)$ diverges;
+			\item If $\ell = 0$, inconclusive.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		\emph{Part 1:(Idea: compare with geometric series with $r < 1$)} Suppose $\ell < 1$, pick $r \in (\ell, 1)$, and let $\varepsilon = r - \ell$.
+	\end{proof}
+
 \end{document}
 
 
@@ -507,4 +600,3 @@
 
 
 
-d
