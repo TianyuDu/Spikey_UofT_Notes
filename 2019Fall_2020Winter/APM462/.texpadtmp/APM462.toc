@@ -9,5 +9,5 @@
 \contentsline {subsection}{\numberline {2.4}Minimum and Maximum of Convex Functions}{5}{subsection.2.4}
 \contentsline {section}{\numberline {3}Finite Dimensional Optimization}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Unconstraint Optimization}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Equality Constraints}{9}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Inequality Constraints}{9}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.2}Equality Constraints}{10}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Inequality Constraints}{10}{subsection.3.3}

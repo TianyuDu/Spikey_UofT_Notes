@@ -469,6 +469,91 @@
    		\end{align}
    	\end{proof}
    	
+	\begin{example}
+		$f(x, y) = x^2 - xy + y^2 - 3y: \Omega = \R^2 \to \R$. Then at $(x_0, y_0) = (1, 2)$, 
+		\begin{align}
+			\nabla f(x_0, y_0) &= (2x_0 - y, -x_0 + 2y_0 - 3) = (0, 0) \\
+			\nabla^2 f(x_0, y_0) &= 
+			\begin{pmatrix}
+				2 & -1 \\ -1 & 2
+			\end{pmatrix} \succcurlyeq 0 
+		\end{align}
+	\end{example}
+	
+	\begin{definition}
+		Let $A \in \R^{n \times n}$, $A$ is 
+		\begin{enumerate}[(i)]
+			\item \textbf{Positive definite} ($A \succ 0$) if $x^T A x > 0\ \forall x \neq 0$, if and only if all eigenvalues $\lambda_i > 0$;
+			\item \textbf{Positive Semi-definite} ($A \succcurlyeq 0$) if $x^T A x \geq\  \forall x \in \R^n$, if and only if all eigenvalues $\lambda_i \geq 0$.
+		\end{enumerate}
+	\end{definition}
+   	
+   	\begin{theorem}[Sylvester's Criterion]
+   		Let $A \in \R^{n \times n}$ be a Hermitian matrix (i.e. $A = \overline{A^T}$), then
+   		\begin{enumerate}
+   			\item $A \succ 0$ $\iff$ all \emph{leading principal minors} have positive determinants;
+   			\item $A \succcurlyeq 0$ $\iff$ all leading principal minors have non-negative determinants.
+   		\end{enumerate}
+   	\end{theorem}
+   	
+%   	\begin{example}
+%   		Let $f(x, y) = x^2 - x + y + xy$ defined on $\Omega = \R^2_+$. Consider the  point $(x_0, y_0) = (1/2, 0)$ found, any feasible direction $(v, w)$ at $(x_0, y_0)$ satisfies $w \geq 0$. $\nabla f(1/2, 0) = (0 , 2/3)$.
+%   		\begin{align}
+%   			\nabla f(1/2, 0) &= (0, \frac{3}{2}).
+%   		\end{align}
+%   	\end{example}
+   	
+   	\begin{theorem}[Second Order Sufficient Condition for Interior Local Minima]
+   		Let $C^2 \ni f: \Omega \to \R$, for some $x_0 \in \Omega$, if
+   		\begin{enumerate}[(i)]
+   			\item $\nabla f(x_0) = 0$,
+   			\item \emph{(and)} $\nabla^2 f(x_0) \succcurlyeq 0$,
+   		\end{enumerate}
+   		then $x_0$ is a \ul{strictly local minimizer}.
+   	\end{theorem}
+   	
+   	\begin{lemma}
+   		Suppose $\nabla^2 f(x_0)$ is positive definite, then 
+   		\begin{align}
+   			\exists a > 0\ s.t.\ v^T \nabla^2 f(x_0) v \geq a \norm{v}^2
+   		\end{align}
+   	\end{lemma}
+   	
+   	\begin{proof}[Proof of the Lemma]
+   		Recall that a squared matrix $Q$ is called \textbf{orthogonal} when every column and row of it is an orthogonal unit vector. So that for every orthogonal matrix $Q$, $Q^T Q = I$, which implies $Q^T = Q^{-1}$. Further, note that 
+   		\begin{align}
+   			\norm{Qv}^2 &= (Qv)^T (Qv)
+   			= v^T Q^T Q v 
+   			= \norm{v}^2 \\
+   			\implies \norm{Qv} &= \norm{v}\ \forall v \in \R^n
+   		\end{align}
+   		Let $v \in \R^n$, consider the eigenvector decomposition of $\nabla^2 f(x_0)$
+   		\begin{align}
+   			Q^T \nabla^2 f(x_0) Q &= \tx{diag}(\lambda_1, \cdots, \lambda_n) \\
+   			\implies v^T \nabla^2 f(x_0) v &= (Qw)^T \nabla^2 f(x_0) (Qw) \\
+   			&= w^T Q^T \nabla^2 f(x_0) Q w \\
+   			&= w^T \tx{diag}(\lambda_1, \cdots, \lambda_n) w \\
+   			&= \lambda_1 w_1^2 + \cdots + \lambda_n w_n^2
+   		\end{align}
+   		Let $a := \min\{\lambda_1, \cdots, \lambda_n\}$,
+   		\begin{align}
+   			... \geq a \norm{w}^2 = a\norm{Q^T v}^2 = a \norm{v}^2
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{proof}[Proof of the Theorem.]
+   		Let $x \in \Omega$, suppose $\nabla f(x_0) = 0$ and $\nabla^2 f(x_0) \succcurlyeq 0$. By the second order Taylor approximation,
+   		\begin{align}
+   			f(x_0 + v) - f(x_0) &= \nabla f(x_0)^T v + \frac{1}{2} v^T \nabla^2 f(x_0) v + o(\norm{v}^2) \\
+   			&= \frac{1}{2} v^T \nabla^2 f(x_0) v + o(\norm{v}^2) \\
+   			&\geq \frac{a}{2} \norm{v}^2 + o(\norm{v}^2) \tx{ for some }a > 0 \\
+   			&= \norm{v}^2 \left (
+   			\frac{a}{2} + \frac{o(\norm{v}^2)}{\norm{v}} \right) \\
+   			&>0\ \tx{ for sufficiently small } v
+   		\end{align}
+   		Therefore, $f(x_0) < f(x)\ \forall x \in V_\varepsilon(x_0)$.
+   	\end{proof}
+   	
    	\subsection{Equality Constraints}
    	
    	\subsection{Inequality Constraints}
