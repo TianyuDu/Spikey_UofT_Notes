@@ -563,7 +563,7 @@
 	\end{definition}
 	
 	\begin{theorem}[The Root Test]
-		Let $(a_n)$ be a sequence in which $a_n \geq 0$ for every $n \in \N$, let $\ell = \limsup \sqrt{a_n}{n}$, then
+		Let $(a_n)$ be a sequence in which $a_n \geq 0$ for every $n \in \N$, let $\ell = \limsup a_n^{1/n}$, then
 		\begin{enumerate}[(i)]
 			\item If $\ell < 1$, then $(S^a_n)$ converges;
 			\item If $\ell > 1$, then $(S^a_n)$ diverges;
@@ -572,9 +572,246 @@
 	\end{theorem}
 	
 	\begin{proof}
-		\emph{Part 1:(Idea: compare with geometric series with $r < 1$)} Suppose $\ell < 1$, pick $r \in (\ell, 1)$, and let $\varepsilon = r - \ell$.
+		\emph{Part 1:(Idea: compare with geometric series with $r < 1$)} Suppose $\ell < 1$, pick $r \in (\ell, 1)$, and let $\varepsilon = r - \ell$. By the convergence of supremum, there exists $N \in \N$ such that for every $n \geq N$,
+		\begin{align}
+			\abs{
+			\sup_{k \geq n} a_k^{1/k} - \ell
+			} &< \varepsilon \\
+			\implies a_n^{1/n} \leq \sup_{k \geq n} a_k^{1/k} &< \ell + \varepsilon =: r
+		\end{align}
+		Therefore, for every $n \geq N$, $a_n < r^{n}$. Because $(a_n)$ is assumed to be a non-negative sequence, then $|a_n| < r^{n}$. Construct new sequences:
+		\begin{align}
+			b_k = 
+			\begin{cases}
+				a_k\ \forall k < N \\
+				r^k\ \forall k \geq N \\
+			\end{cases}
+		\end{align}
+		Then, clearly $|a_n| \leq b_k$ for every $k \in \N$. And $(b_n)$ is a sequence with geometric tails (which has coefficient less than one). So $\sum^\infty b_k$ converges, which implies $\sum^\infty a_k$ converges by the comparison test.
+		\\
+		\emph{Part 2:} Suppose $\ell > 1$. \\
+		Note that the necessary condition for $\sum a_n^{1/n}$ to converge is $\lim_{n \to \infty} a_n^{1/n} = 0$, which implies every subsequence of $(a_n^{1/n})$ converges to zero. We are going to prove the divergence of series by constructing a subsequence of $(a_n^{1/n})$ does not converge to zero.\\
+		Take $\varepsilon = \ell - 1 > 0$, there exists $N$ such that for every $n \geq N$:
+		\begin{align}
+			\ell - \varepsilon &< \sup_{k \geq n} a_k^{1/k} \\
+			\implies 1 &< \sup_{k \geq n} a_k^{1/k}
+		\end{align}
+		By definition of supremum, there exists $n_1 \geq n$ such that
+		\begin{align}
+			a_{n_1}^{1/n_1} > 1
+		\end{align}
+		For every $n \geq \N$, we can construct a subsequence of $(a_n^{1/n})$ such that every term in it is strictly greater than 1, which means it cannot converge to 0. Therefore, series diverges.
+		\end{proof}
+	
+	\subsubsection{Other Tests}
+	\begin{theorem}[Limit Comparison Test]
+		Let $\ser{a}{n}$ and $\ser{b}{n}$ satisfy:
+		\begin{enumerate}[(i)]
+			\item $b_n \geq 0$;
+			\item $\limsup_n \frac{|a_n|}{b_n} < \infty$;
+			\item $\ser{b}{n}$ converges.
+		\end{enumerate}
+		Then $\ser{a}{n}$ converges as well.
+	\end{theorem}
+	
+	\begin{theorem}[Ratio Test]
+		Given sequence $\seq{a}{n}$ such that $a_n \geq 0$, then 
+		\begin{enumerate}
+			\item If $\limsup \frac{a_{n+1}}{a_n} < 1$, $\ser{a}{n}$ converges;
+			\item If $\limsup \frac{a_{n+1}}{a_n} > 1$, $\ser{a}{n}$ diverges.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}[Integral Test]
+		Let $f(x)$ be a \emph{positive} and \emph{monotone decreasing} function on $[1, \infty)$. Consider $(f(x_n))$, then
+		\begin{align}
+			\sum_{n=1}^\infty f(n) \tx{ conv} \iff \int_1^\infty f(x)\ dx < \infty
+		\end{align}
+	\end{theorem}
+	
+	\begin{theorem}[Alternating Series Test]
+		For an alternating sequence $\sum_{n=1}^\infty (-1)^n a_n$, if $(a_n) \searrow 0$, then the series converges.
+	\end{theorem}
+	
+	\begin{proof}
+		\hl{TODO}
 	\end{proof}
 
+
+	\subsection{Absolute and Conditional Convergence}
+	
+	\begin{corollary}[Corollary of Comparison Test]
+		If $\sum_{i=1}^\infty |a_n|$ converges, then $\ser{a}{n}$ converges.
+	\end{corollary}
+	
+	\begin{definition}
+		For any series $\ser{a}{n}$, if 
+		\begin{enumerate}
+			\item $\sum_{i=1}^\infty |a_n|$ converges, $\ser{a}{n}$ \textbf{converges absolutely};
+			\item $\sum_{i=1}^\infty |a_n|$ does not converge, then $\ser{a}{n}$ \textbf{converges conditionally}.
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{example}
+		Alternating harmonic series converges conditionally. \\However, $\sum_{n=1}^\infty \frac{(-1)^n}{n^2}$ converges absolutely.
+	\end{example}
+	
+	\begin{definition}
+		$\ser{b}{n}$ is called a \textbf{rearrangement} of series $\ser{a}{n}$ if there exists $f: \N \to \N$ such that $f$ is a bijection and $b_{f(k)} = a_k$ for every $k \in \N$.
+	\end{definition}
+	
+		\begin{theorem}[Riemann Series Theorem]
+		If series $\ser{a}{n}$ converges \ul{conditionally}, for every $\alpha \in \R$, there exists a rearrangement $\ser{b}{n}$ converges to $\alpha$.
+	\end{theorem}
+	
+	\begin{proof}
+		The proof is non-trivial and omitted.
+	\end{proof}
+	
+	\begin{theorem}
+		If series $\ser{a}{n}$ converges \ul{absolutely} to some value $A \in \R$, then every rearrangement $\ser{b}{n}$ converges to $A$.
+	\end{theorem}
+	
+	\begin{proof}
+		Define partial sum sequences
+		\begin{align}
+			S_n := \sum_{k=1}^n a_k \quad
+			T_m := \sum_{k=1}^m b_k
+		\end{align}
+		Suppose $(S_n) \to A$, want to show: $(T_n) \to A$.\\
+		Let $\varepsilon > 0$ fixed. \\
+		By convergence of $(S_n)$, there exists $N_1 \in \N$ such that
+		\begin{align}
+			n \geq N_1 \implies \abs{S_n - A} < \frac{\varepsilon}{2}
+		\end{align}
+		Because $\ser{a}{n}$ converges absolutely, by the Cauchy criterion for convergent series (i.e. partial sum sequence is Cauchy), there exists $N_2 \in \N$ such that
+		\begin{align}
+			n > m \geq N_2 \implies \sum_{k=n+1}^m \abs{a_k} < \frac{\varepsilon}{2}
+		\end{align}
+%		Note that, for every $m, n \in \N$:
+%		\begin{align}
+%			\abs{T_M - S_N} = \abs{b_1 + \cdots + b_M - a_1 - \cdots - a_N}
+%		\end{align}
+		Define $N := \max\{N_1, N_2\}$, $M := \max\{f(k): 1 \leq k \leq N\}$.
+		\begin{align}
+			\abs{T_m - S_N} &= \abs{b_1 + \cdots + b_m - a_1 - \cdots - a_N} \\
+			&= \abs{b_1 + \cdots + b_m	 - b_{f(1)} - \cdots - b_{f(N)}}
+		\end{align}
+		Note that for every $m \geq M$,
+		by construction, $\{b_{f(1)}, \cdots b_{f(N)}\} \subset \{b_1 \cdots, b_m\}$. \\
+		Note that for each $b_{f(k)} \in \{b_1 \cdots b_m\}$, either $k > N$ or $k \leq N$. But all $b_{f(k)}$ with $k \leq N$ were subtracted, so $b_{f(k)}$ elements left are all from $\{a_k: k \geq N+1\}$.
+		\begin{align}
+			... &= \abs{\sum_{k \in \mc{I} \geq N + 1} a_k} \\
+			&\leq \sum_{k=N+1}^\infty |a_k| < \frac{\varepsilon}{2}
+		\end{align}
+		Therefore, for all $m \geq M$, 
+		\begin{align}
+			\abs{T_m - A} &= \abs{T_M - S_n + S_n - A} \\
+			&\leq |T_M - S_n| + |S_n - A| \\
+			&< \varepsilon
+		\end{align}
+		The desired result is immediate.
+	\end{proof}
+	
+	\section{Topology in $\R$}
+	
+	\begin{definition}
+		\begin{align}
+			V_\varepsilon(x_0) := \{x \in \R: \norm{x, x_0} < \varepsilon\}
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}
+		A subset of $\mc{O} \subset \R$ is \textbf{open} if
+		\begin{align}
+			\forall x \in \mc{O}\ \exists\ \varepsilon > 0\ s.t.\ V_\varepsilon(x)\ s.t.\ V_\varepsilon(x) \subset \mc{O}
+		\end{align}
+	\end{definition}
+	
+	\begin{theorem}
+		Arbitrary union of open sets is open; Any finite intersection of open sets is open.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $\mc{O}_\alpha$ open for all $\alpha \in \mc{A}$. Let $\mc{O} := \bigcup_{\alpha \in \mc{A}} \mc{O}_\alpha$. If $x \in \mc{O}$, there exists some $\alpha \in \mc{A}$ such that $x \in \mc{O}_\alpha$. There exists $V_\varepsilon(x) \subset \mc{O}_{\alpha} \subset \mc{O}$. Hence $\mc{O}$ is open.
+		\\
+		Let $\{\mc{O}_i: 1 \leq i \leq n\}$ be a collection of open sets, let $\mc{O} := \bigcap_{i=1}^\infty \mc{O}_i$. If $x \in \mc{O}$, there exists $\varepsilon_i > 0$ such that $V_{\varepsilon_i}(x) \subset \mc{O}_i$ for every $i$. Take $\varepsilon := \max\{\varepsilon_i\}$, which exists and is strictly positive by finiteness of index set. Therefore $V_\varepsilon(x) \subset \mc{O}_i$ for every $i$, and therefore in $\mc{O}$.
+	\end{proof}
+	
+	\begin{definition}
+		$x$ is a \textbf{limit point} of $A$ if $\forall \varepsilon > 0$,
+		\begin{align}
+			V_\varepsilon(x) \cap A - \{x\} \neq \varnothing
+		\end{align}
+		\emph{Remark: this definition does not require $x$ to be an element of $A$.}
+	\end{definition}
+	
+	\begin{theorem}
+		$x$ is a limit point $A$ if and only if there exists a sequence $\seq{a}{n} \subset A$ such that \ul{$a_n \neq x\ \forall n \in \N$} and $\seq{a}{n} \to x$.
+	\end{theorem}
+	\begin{proof}
+		$(\implies)$ Let $x$ be a limit point, take $\varepsilon = \frac{1}{n}$, immediate by the definition of limit point. \\
+		$(\impliedby)$ Trivially by definition of sequential convergence.
+	\end{proof}
+	
+	\begin{definition}
+		$X \subset \R$ is \textbf{closed} if it contains all its limit points.
+	\end{definition}
+	
+	\begin{definition}
+		$x \in A$ is an \textbf{isolated point} is it is not a limit point of $A$.
+	\end{definition}
+	
+	\begin{example}
+		Let $A = \{\frac{1}{n}: n \in \N \}$, every point in $A$ is isolated, and 0 is the limit point.
+	\end{example}
+	
+	\begin{definition}
+		$A \subset X$ is \textbf{dense} in $X$ if $\overline{A} = X$.
+	\end{definition}
+	
+	\begin{theorem}
+		Let $x \in \R$, there exists a sequence $\seq{q}{n} \subset \Q$ such that $\seq{q}{n} \to x$.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $x \in \R$. Note that $\forall u < v \in \R$, there exists $q \in (u, v) \cap \Q$.
+		Hence, for every $n \in \N$, $\exists q_n \in \Q$ such that $x - \frac{1}{n} < q_n < x + \frac{1}{n}$. It is evident that $\seq{q}{n} \to x$.
+	\end{proof}
+	
+	\begin{definition}
+		The \textbf{closure} of $A$, denoted as $\overline{A}$, is defined to be the union of $A$ and all limit points of $A$.
+	\end{definition}
+	
+	\begin{lemma}
+		$\overline{A}$ is the smallest closed set containing $A$.
+	\end{lemma}
+	\begin{proof}
+		It is evident that $\overline{A}$ is a closed set containing $A$. \\
+		Now show the closure is in fact the smallest closed set. Let $B \subsetneq \overline{A}$ be a proper subset of the closure, we are going to show that $B$ is not closed. Let $x \in \overline{A} - B \neq \varnothing$.\\
+		Note that $\overline{A} \equiv A \cup A'$, then either $x \in A$ or $x \in A'$. If $x \in A$, then $B$ does not contain $A$. If $x \in A'$, then $B$ does not contain all limit points of $A$, so it is not closed.
+	\end{proof}
+	
+	\begin{theorem} Equivalent definitions of openness and closedness:
+		\begin{enumerate}[(i)]
+			\item $\mc{O}$ is open if and only if $\mc{O}^c$ is closed;
+			\item $\mc{O}$ is closed if and only if $\mc{O}^c$ is open.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		($\implies$) Let $\mc{O}$ be an open set, let $(x_n) \to x$ be a convergent sequence in $\mc{O}^c$. It is evident that if $x \in \mc{O}$, infinitely many elements in the tail of $(x_n)$ would be in $V_\varepsilon(x) \subset \mc{O}$, which leads to a contradiction. Therefore $\mc{O}^c$ contains all of its limit poitns, and $\mc{O}^c$ is therefore closed.
+		\\($\impliedby$) Let $\mc{O}^c$ be a closed set, suppose $\mc{O}$ is not open, there exists $x \in \mc{O}$ such that for all $\varepsilon > 0$, $V_\varepsilon(x) \cap \mc{O}^c \neq \varnothing$. Then we can construct a sequence in $\mc{O}^c$ converge to $x$, which leads to a contradiction that there is a limit point of a sequence in $\mc{O}^c$ not contained by $\mc{O}^c$. \\
+		The second part is immediate.
+	\end{proof}
+	
+	\begin{theorem}
+		Any intersection of closed sets is closed; any finite union of closed  sets is closed.
+	\end{theorem}
+	
+	\begin{proof}
+		Direct result from De Morgan's law and the previous theorem.
+	\end{proof}
 \end{document}
 
 
