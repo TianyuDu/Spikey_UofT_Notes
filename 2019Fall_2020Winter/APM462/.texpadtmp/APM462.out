@@ -8,5 +8,6 @@
 \BOOKMARK [2][-]{subsection.2.4}{Minimum and Maximum of Convex Functions}{section.2}% 8
 \BOOKMARK [1][-]{section.3}{Finite Dimensional Optimization}{}% 9
 \BOOKMARK [2][-]{subsection.3.1}{Unconstraint Optimization}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.2}{Equality Constraints}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.3}{Inequality Constraints}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.2}{Equality Constraints: Lagrangian Multiplier}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Tangent Space to a \(Hyper\) Surface at a Point}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{Inequality Constraints}{section.3}% 13
