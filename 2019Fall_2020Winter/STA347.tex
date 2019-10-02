@@ -1,0 +1,177 @@
+\documentclass{article}
+\usepackage{spikey}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{chngcntr}
+\usepackage{centernot}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1truein]{geometry}
+\usepackage{tkz-graph}
+\usepackage{dsfont}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{setspace}
+\linespread{1.15}
+\usepackage[margin=1truein]{geometry}
+
+\counterwithin{equation}{section}
+\counterwithin{figure}{section}
+
+\pagestyle{fancy}
+\lhead{STA347: Probability}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc},
+    version={4.0},
+]{doclicense}
+
+\title{STA347: Probability}
+\date{\today}
+\author{Tianyu Du}
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \newpage
+   	\section{Preliminaries}
+   	\begin{definition}
+   		A \textbf{standard uniform} is defined to be $\mc{U} \sim unif[0, 1]$ if and only if 
+   		\begin{align}
+   			P(\mc{U} \leq u) = u\ \forall u \in [0, 1]	
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		$Z \sim unif\{0, \cdots, p-1\}$ if and only if
+   		\begin{align}
+   			P(Z=i) = P(Z=j)\quad \forall i, j \in \{0, \cdots, p-1\}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{theorem}
+   		If $U = \sum_{n=1}^\infty Z_i p^{-i}$, then the following are equivalent:
+   		\begin{enumerate}[(i)]
+   			\item $U \sim unif[0, 1]$;
+   			\item $Z_i \overset{i.i.d.}{\sim} Z \overset{d}{=} unif\{0, \cdots, p-1\}$.
+   		\end{enumerate}
+   	\end{theorem}
+   	
+   	\begin{definition}
+   		Two random processes $X, Y$ on a common sample space $\mc{X}$ are \textbf{identically distributed}, $X \overset{d}{=} Y$ if and only if
+   		\begin{align}
+   			\expect{g(X)} = \expect{g(Y)}\quad \forall g: \mc{X} \to \R
+   		\end{align}
+   	\end{definition}
+   	\begin{proposition}
+   		Specifically, for $A \overset{d}{=} B$, take $g = I_A$ where $A \subset \mc{X}$. It is evident that for every such subset, the probability \textbf{probability} as 
+	   	\begin{align}
+	   		\prob{X \in A} = \expect{I_A(X)} = \expect{I_A(Y)} = \prob{Y \in A}
+	   	\end{align}
+   	\end{proposition}
+   	
+   	\begin{theorem}[Invariance]
+   		If $X \overset{d}{=} Y$, then 
+   		\begin{align}
+   			\varphi(X) \overset{d}{=} \varphi(Y)\quad \forall \varphi: \mc{X} \to \mc{Y}
+   		\end{align}
+   	\end{theorem}
+   	\begin{proof}
+   		\begin{align}
+   			\expect{h \circ \varphi(X)} = \expect{h \circ \varphi(Y)}\quad \forall h: \mc{Y} \to \R
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{definition}
+   		The \textbf{expectation} operator
+   		\begin{align}
+   			\mathbb{E}: \mc{R} \to \R \cup \{\pm\infty\} \cup \{ \tx{DNE} \}
+   		\end{align}
+   		where $\mc{R}$ is the space of \emph{real-valued} random processes.
+   	\end{definition}
+   	
+   	\begin{proposition}
+   		Let $W \sim unif\{1, \cdots, n\}$, then
+   		\begin{align}
+   			n + 1 - W &\overset{d}{=} W \\
+   			\implies (n + 1 - W)^2 &\overset{d}{=} W^2 \\
+   			\implies (n+1)^2 - 2(n+1)W + W^2 &\overset{d}{=} W^2 \\
+   			\implies \expect{(n+1)^2 - 2(n+1)W + W^2} &= \expect{W^2} \\
+   			\implies \expect{W} &= \frac{n+1}{2}
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{proposition}
+   		\begin{align}
+   			(n+1-W)^3 &\overset{d}{=} W^3 \\
+   			\implies 2 \expect{W^3} &= (n+1)^3 - 3(n+1)^2 \expect{W} + 3(n+1) \expect{W^2} \\
+   			\implies 2 \expect{W^3} &= (n+1)^3 - 3(n+1)^2 \frac{n+1}{2} + 3(n+1) \expect{W^2} \\
+   			\implies 2 \expect{W^3} &= - \frac{(n+1)^2}{2} + 3(n+1) \expect{W^2} \\
+   			\implies \expect{W^3} &= n (\expect{W})^2
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{proposition}
+   		$\expect{W^4}$. \hl{TODO}
+   	\end{proposition}
+   	
+   	\begin{definition}
+   		$W \sim unif\{1, \cdots, n\}$, then the \emph{distance between} $W^2$ and $\expect{W^2}$ is defined as
+   		\begin{align}
+   			d(W^2, \expect{W^2}) &:= \sqrt{\expect{W^2 - \expect{W})^2}^2} = \sqrt{\var{W^2}} = \sigma_{W^2}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{corollary}[Corollary of Jensen's Inequality]
+   		\begin{align}
+   			\expect{W^2} \geq (\expect{W})^2
+   		\end{align}
+   		and equality holds \ul{if and only if}
+   		\begin{align}
+   			\expect{(W - \expect{W})^2} &= 0
+   		\end{align}
+   		which is equivalent to
+   		\begin{align}
+   			P(W = \expect{W}) = 1
+   		\end{align}
+   	\end{corollary}
+   	\begin{proof}
+   		\begin{align}
+	   		\var{W} = \expect{(W - \expect{W})^2} \geq 0
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{lemma}
+   		$u = \sum_{i=1}^\infty z_i p^{-i}$, and let $z = (z_i: i \in \N) \in \dot{p}^\infty$, then 
+   		\begin{align}
+   			z_1 = b_1
+   		\end{align}
+   	\end{lemma}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,7 +14,7 @@
 
 \usepackage[margin=1truein]{geometry}
 \usepackage{setspace}
-\linespread{1.15}
+\linespread{1.5}
 
 \title{Introduction to Real Analysis}
 \date{\today}
@@ -762,10 +762,6 @@
 		$x \in A$ is an \textbf{isolated point} is it is not a limit point of $A$.
 	\end{definition}
 	
-	\begin{example}
-		Let $A = \{\frac{1}{n}: n \in \N \}$, every point in $A$ is isolated, and 0 is the limit point.
-	\end{example}
-	
 	\begin{definition}
 		$A \subset X$ is \textbf{dense} in $X$ if $\overline{A} = X$.
 	\end{definition}
@@ -811,6 +807,23 @@
 	
 	\begin{proof}
 		Direct result from De Morgan's law and the previous theorem.
+	\end{proof}
+	
+	\paragraph{} \emph{Remark: Limit points and boundary points are completely different.} Example: let $\Omega = [1, 2] \cup {3}$, then $3$ is a boundary point but not a limit point (i.e. it is isolated). And $0.5$ is a limit point but not a boundary point.
+	
+	\begin{definition}
+		A set $K \subset \R$ is \textbf{compact} if every sequence in $K$ has a convergent subsequence converges to some limit $x \in K$.
+	\end{definition}
+	
+	\begin{theorem}
+		A set $K \subset \R$ is compact \ul{if and only if} it is closed and bounded.
+	\end{theorem}
+	
+	\begin{proof}
+		($\implies$) Suppose $K \subset \R$ is compact. \\
+		\emph{Show $K$ is bounded}: suppose, for contradiction, $K$ is unbounded, then for every $N \in \N$, one can construct a sequence as following: $a_1 \in K$ and $a_{n+1} > \max\{a_n, n\}$. Such sequence diverges to positive infinity, and every subsequence of it converges to infinity as well (easy to verify). This leads to a contradiction to the compactness of $K$. \\
+		\emph{Show $K$ is closed}: Suppose, for contradiction, $K$ is not closed, then there exists some limit point of $K$ say $x \notin K$. Consider the sequence $(x_n) \to x$ in $K$, because every subsequence of such convergent sequence converges to the same limit $x \notin K$, which leads to a contradiction of compactness. \\
+		($\impliedby$) Let $(x_n) \subset K$, then $(x_n)$ is bounded and therefore possesses a convergent subsequence by Bolzano-Weierstrass Theorem. Further, because $K$ is closed, then the limit point must be in $K$.
 	\end{proof}
 \end{document}
 
