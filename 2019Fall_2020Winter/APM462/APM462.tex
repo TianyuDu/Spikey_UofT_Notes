@@ -19,7 +19,7 @@
 \usepackage{subcaption}
 
 \usepackage{setspace}
-\linespread{1.15}
+\linespread{1.5}
 \usepackage[margin=1truein]{geometry}
 
 \counterwithin{equation}{section}
@@ -605,6 +605,86 @@
    			\right \}
    		\end{align}
    	\end{example}
+   	
+   	\begin{definition}
+   		Let $\mc{M}$ be a surface defined using $C^1$ functions, a point $x_0 \in \mc{M}$ is a \textbf{regular point} of the constraints if 
+   		\begin{align}
+   			\{\nabla h_1(x_0), \cdots, \nabla h_k(x_0)\}
+   		\end{align}
+   		are linearly independent.
+   	\end{definition}
+   	
+   	\begin{notation}
+   		Define
+   		\begin{align}
+   			T_{x_0} := \{x \in \R^n: \inner{x_0}{\nabla h_i(x_0)}\ \forall i \in [k]\}
+   		\end{align}
+   	\end{notation}
+   	
+   	\begin{example}[Counter example]
+   		Define
+   		\begin{align}
+   			\mc{M} := \left \{
+   			(x, y) \in \R^2:
+   			h(x,y) = xy = 0
+   			\right \}
+   		\end{align}
+   		Then it is easy to verify that $(0,0)$ is not a regular point. And
+   		\begin{align}
+   			T_{0,0} &= \{(x, y) \in \R^2: (x, y) \cdot (0,0) = 0\} = \R^2 \\
+   			\neq T_{0,0}\mc{M} &= \{(x, y) \in \R^2: x = 0 \lor y = 0\}
+   		\end{align}
+   	\end{example}
+   	
+   	\begin{theorem}
+   		Suppose $x_0$ is a \emph{regular point} of $\mc{M} := \{h_i(x) = 0, i=1,\cdots,k\}$, then $T_{x_0} = T_{x_0} \mc{M}$.
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		\emph{Show} $T_{x_0} \mc{M} \subset T_{x_0}$.\\
+   		Suppose $x_0$ is a regular point of $\mc{M}$.
+   		Let $v \in T_{x_0} \mc{M}$, then there exists some differentiable curve $x(\cdot):V_\varepsilon(0) \to \mc{M}$ such that $x(0) = x_0$, such that
+   		\begin{align}
+   			v &= \frac{d}{ds} \bigg \vert_{s=0} x(s)
+   		\end{align}
+   		Note that $h_i(x(s)) = 0$ is constant for every $i \in [k]$, therefore
+   		\begin{align}
+   			\frac{d}{ds} \bigg \vert_{s=0} h_i(x(s))
+   		\end{align}
+   		By the chain rule, 
+   		\begin{align}
+   			\nabla h_i(x_0)\cdot v = 0\ \forall i
+   		\end{align}
+   		Therefore $v \in T_{x_0}$. \\
+   		\emph{Show} $T_{x_0} \subset T_{x_0} \mc{M}$.
+   		\begin{enumerate}[(i)]
+   			\item $x_0$ is regular $\implies T_{x_0} \mc{M}$ is a vector space;
+   			\item $T_{x_0} = \tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}^\perp$.
+   		\end{enumerate}
+   	\end{proof}
+   	
+   	\begin{lemma}
+   		Let $f, h_1, \cdots, h_k \in C^1$ defined on open subset $\Omega \subset \R^n$. Define $\mc{M} := \{x \in \R^n: h_i(x) = 0\ \forall i \}$. Suppose $x_0 \in \mc{M}$ is a local minimum of $f$ on $\mc{M}$, then 
+   		\begin{align}
+   			\nabla f(x_0) \perp T_{x_0} \mc{M}
+   		\end{align}
+   	\end{lemma}
+   	
+   	\begin{proof}
+   		WLOG $\Omega = \R^n$, take $v \in T_{x_0} \mc{M}$. Then there exists some differentiable curve $x$ on $\mc{M}$ satisfying $v = x'(0)$. Because $x_0$ is a local minimum of $f$ on $\Omega$, $s=0$ is a local minimum of $f(x(s))$, moreover, it is an interior minimum. By chain rule and the necessary condition of local minimum,
+   		\begin{align}
+   			D f(x(0)) &= \nabla f (x(0)) \cdot x'(0) = 0 \\
+   			\implies \nabla f(x_0) \cdot v &= 0
+   		\end{align}
+   		Therefore $\nabla f(x_0) \perp T_{x_0} \mc{M}$.
+   	\end{proof}
+   	
+   	\begin{theorem}[Lagrange Multipliers: First Order Necessary Condition]
+   		Let $f, h_1, \cdots, h_k \in C^1$ defined on open subset $\Omega \subset \R^n$. Let $x_0$ be a regular point of the constraint set $\mc{M} := \bigcap_{i=1}^k h^{-1}_i(0)$. Suppose $x_0$ is a local minimum of $\mc{M}$, then there exists $\lambda_1, \cdots, \lambda_k \in \R$ such that
+   		\begin{align}
+   			\nabla f(x_0) + \sum_{i=1}^k \lambda_i h_i(x_0) = 0
+   		\end{align}
+   	\end{theorem}
    	
    	\subsection{Inequality Constraints}
 \end{document}
