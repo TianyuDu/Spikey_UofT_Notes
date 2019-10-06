@@ -2,14 +2,14 @@
 \contentsline {section}{\numberline {1}The Axiom of Completeness}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}Preliminaries}{2}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Density of Rational Numbers}{4}{subsection.1.2}
-\contentsline {section}{\numberline {2}Sequences}{5}{section.2}
-\contentsline {subsection}{\numberline {2.1}Monotone Convergence Theorem}{9}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Series}{9}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Cauchy Criterion}{11}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Convergence Test for Series}{12}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}The Comparison Test}{13}{subsubsection.2.4.1}
-\contentsline {subsubsection}{\numberline {2.4.2}The Root Test}{14}{subsubsection.2.4.2}
-\contentsline {subsubsection}{\numberline {2.4.3}Other Tests}{15}{subsubsection.2.4.3}
-\contentsline {subsection}{\numberline {2.5}Absolute and Conditional Convergence}{16}{subsection.2.5}
-\contentsline {section}{\numberline {3}Topology in $\mathbb {R}$}{18}{section.3}
-\contentsline {paragraph}{}{20}{section*.2}
+\contentsline {section}{\numberline {2}Sequences}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Monotone Convergence Theorem}{7}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Series}{8}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Cauchy Criterion}{9}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Convergence Test for Series}{10}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}The Comparison Test}{11}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}The Root Test}{12}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}Other Tests}{13}{subsubsection.2.4.3}
+\contentsline {subsection}{\numberline {2.5}Absolute and Conditional Convergence}{13}{subsection.2.5}
+\contentsline {section}{\numberline {3}Topology in $\mathbb {R}$}{15}{section.3}
+\contentsline {paragraph}{}{16}{section*.2}

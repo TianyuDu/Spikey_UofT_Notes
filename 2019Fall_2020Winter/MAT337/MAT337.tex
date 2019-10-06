@@ -14,7 +14,7 @@
 
 \usepackage[margin=1truein]{geometry}
 \usepackage{setspace}
-\linespread{1.5}
+\linespread{1.15}
 
 \title{Introduction to Real Analysis}
 \date{\today}
@@ -824,6 +824,52 @@
 		\emph{Show $K$ is bounded}: suppose, for contradiction, $K$ is unbounded, then for every $N \in \N$, one can construct a sequence as following: $a_1 \in K$ and $a_{n+1} > \max\{a_n, n\}$. Such sequence diverges to positive infinity, and every subsequence of it converges to infinity as well (easy to verify). This leads to a contradiction to the compactness of $K$. \\
 		\emph{Show $K$ is closed}: Suppose, for contradiction, $K$ is not closed, then there exists some limit point of $K$ say $x \notin K$. Consider the sequence $(x_n) \to x$ in $K$, because every subsequence of such convergent sequence converges to the same limit $x \notin K$, which leads to a contradiction of compactness. \\
 		($\impliedby$) Let $(x_n) \subset K$, then $(x_n)$ is bounded and therefore possesses a convergent subsequence by Bolzano-Weierstrass Theorem. Further, because $K$ is closed, then the limit point must be in $K$.
+	\end{proof}
+	
+	\begin{theorem}[Nested Compact Set Property]
+		Let $\R^n \supset K_1 \supset K_2 \supset \cdots \supset K_n \supset \cdots$, where $K_n \neq \varnothing$ are all compact sets, then
+		\begin{align}
+			\bigcap_{n \in \N} K_n \neq \varnothing
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		Construct a sequence such that $x_n \in K_n$ for every $n \in \N$. In particular, $(x_n) \subset K_1$. Because $K_1$ is compact, it has  a convergent subsequence $(x_{n_k}) \to x \in K_1$. Then every subsequence of $(x_{n_k})$ converges to the same limit $x$.
+		\\Note that by dropping out the first element of the subsequence, the resulted sequence starts with $x_{n_2}$. By the definition of subsequences, $n_2 \geq 2$, therefore, the truncated subsequence is contained in $K_2$ because of the compactness of $K_2$. As a result, $x \in K_2$. Applying the same argument on all natural numbers, it is immediate that $x \in K_n\ \forall n \in \N$. So $x \in \bigcap_{n \in \N} K_n$.
+	\end{proof}
+	
+	\begin{proof}[Proof. (Cantor's Argument)]
+		Suppose, for contradiction, the intersection is empty. Define $U_n := K_1 \backslash K_n$. Note that $U_n = K_1 \cap K_n^c = K_n^c$, which is open. Further, $\bigcup_{n \in \N} U_n = \bigcup_{n \in \N} K_1 \cap K_n^c = K_1 \cap (\bigcup_{n \in \N}K_n^c) = K_1 \cap (\bigcap_{n \in \N}K_n)^c = K_1 \backslash \bigcap_{n \in \N}K_n = K_1$. Therefore, $\mc{C} = \{U_n: n \in \N\}$ is an open cover of $K_1$. Because $K_1$ is compact, there exists a finite subcover of $\mc{C}$. Take $n^*$ to be the greatest index in this finite subcover, then for every $x' \in K_{n^*+1} \subset K_1$, $x'$ is not in the union of the constructed subcover, which leads to a contradiction.
+	\end{proof}
+	
+	\begin{example}
+		Note that the closedness itself is not sufficient for the nest compact set property to hold. For instance, the following sequence of closed sets are nested: $F_n := [n, \infty)$, but indeed, for every $x \in \R$, there exists a natural number $n > x$, so that $x \notin \bigcap_{n \in \N} F_n$. Therefore, $\bigcap_{n \in \N} F_n = \varnothing$.
+	\end{example}
+	
+	\begin{definition}
+		Let $A \subset \R$, an \textbf{open cover} for $A$ is a collection of open sets $\{\mc{O}_\lambda: \lambda \in \Lambda\}$ such that $A \subseteq \bigcup_{\lambda \in \Lambda} \mc{O}_\lambda$.
+	\end{definition}
+	
+	\begin{theorem}[Heine-Borel]
+		Let $K \subset \R$, then the following are equivalent:
+		\begin{enumerate}[(i)]
+			\item $K$ is (sequentially) compact;
+			\item $K$ is closed and bounded;
+			\item Every open cover of $K$ has a finite subcover.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		The equivalence of $(i)$ and $(ii)$ has been proven previously. \\
+		\emph{Show} $(iii) \implies (ii)$: suppose every open cover of $K$ has a finite subcover, consider the following cover of $K$: $\mc{C} = \{[-n, n]: n \in \N\}$. Let $M$ be the greatest index in the finite subcover $\mc{C}$, and obviously $K$ is bounded by $M$. \\
+		Suppose, for contradiction, that $K$ is not closed. Let $y$ be a limit point of $K$ but $y \notin K$. Then, for every $\varepsilon > 0$, $V_\varepsilon^o(y) \cap K \neq \varnothing$. We've shown that $K$ is bounded, take $M \in \R$ such that $(-M, M) \supset K$. Define the following cover:
+		\begin{align}
+			\mc{C} := \left\{
+			(-M, M)\ \backslash\ \overline{V_\varepsilon(y)}
+			:\varepsilon \in \R_{++}
+			\right\}
+		\end{align}
+		Because $K$ is compact, there exists a finite subcover of $\mc{C}$, which is clearly a contradiction.
 	\end{proof}
 \end{document}
 
