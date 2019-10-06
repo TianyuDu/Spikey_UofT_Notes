@@ -19,7 +19,7 @@
 \usepackage{subcaption}
 
 \usepackage{setspace}
-\linespread{1.5}
+\linespread{1.15}
 \usepackage[margin=1truein]{geometry}
 
 \counterwithin{equation}{section}
@@ -661,10 +661,14 @@
    			\item $x_0$ is regular $\implies T_{x_0} \mc{M}$ is a vector space;
    			\item $T_{x_0} = \tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}^\perp$.
    		\end{enumerate}
+   		\emph{Show} $T_{x_0} \subset \tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}^\perp$: \\
+   		Let $v \in T_{x_0}$, then $v \perp \nabla h_i(x_0)$ for every $i$. Therefore $v$ is orthogonal to every linear combination of $\nabla h_i(x_0)$, and therefore orthogonal to the span.\\
+   		\emph{Show} $\tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}^\perp \subset T_{x_0}$: \\
+   		Let $v$ in the perp of the span, then $v$ is orthogonal to every basis of the span, so $v \in T_{x_0}$.
    	\end{proof}
    	
    	\begin{lemma}
-   		Let $f, h_1, \cdots, h_k \in C^1$ defined on open subset $\Omega \subset \R^n$. Define $\mc{M} := \{x \in \R^n: h_i(x) = 0\ \forall i \}$. Suppose $x_0 \in \mc{M}$ is a local minimum of $f$ on $\mc{M}$, then 
+   		Let $f, h_1, \cdots, h_k \in C^1$ defined on \ul{open} subset $\Omega \subset \R^n$. Define $\mc{M} := \{x \in \R^n: h_i(x) = 0\ \forall i \}$. Suppose $x_0 \in \mc{M}$ is a local minimum of $f$ on $\mc{M}$, then 
    		\begin{align}
    			\nabla f(x_0) \perp T_{x_0} \mc{M}
    		\end{align}
@@ -682,10 +686,73 @@
    	\begin{theorem}[Lagrange Multipliers: First Order Necessary Condition]
    		Let $f, h_1, \cdots, h_k \in C^1$ defined on open subset $\Omega \subset \R^n$. Let $x_0$ be a regular point of the constraint set $\mc{M} := \bigcap_{i=1}^k h^{-1}_i(0)$. Suppose $x_0$ is a local minimum of $\mc{M}$, then there exists $\lambda_1, \cdots, \lambda_k \in \R$ such that
    		\begin{align}
-   			\nabla f(x_0) + \sum_{i=1}^k \lambda_i h_i(x_0) = 0
+   			\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) = 0
    		\end{align}
+   		\emph{Remark: if we define Lagrangian $\mc{L}(x, \lambda_i) := f(x) + \sum_{i=1}^k h_i(x)$, then the theorem says the local minimum is a critical point of $\mc{L}$.}
    	\end{theorem}
    	
+   	\begin{proof}
+   		Because $x_0$ is a regular point, then by previous lemma, $\nabla f(x_0) \perp T_{x_0} \mc{M}$. Moreover,
+   		\begin{align}
+   			T_{x_0} \mc{M} = T_{x_0} = \left (\tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\} \right )^\perp
+   		\end{align}
+   		Also, because $x_0$ is a local minimum, 
+   		\begin{align}
+   			\nabla f(x_0) \perp T_{x_0} \mc{M}
+   		\end{align}
+   		Therefore, $\nabla f(x_0) \in (T_{x_0} \mc{M})^\perp = \left (\tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\} \right )^{\perp \perp} = \tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}$, where the last equality holds in finite dimensional cases. Hence, it is obvious that we can write $\nabla f(x_0)$ as a linear combination of $\{\nabla h_i(x_0)\}$.
+   	\end{proof}
+   	
+   	\begin{theorem}[Second Order Necessary Condition]
+   		Let $f, h_i \in C^2$, if $x_0$ is a local minimum on previously defined surface $\mc{M}$, then there exists Lagrangian multipliers $\{\lambda_i\}$ such that
+   		\begin{enumerate}[(i)]
+   			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) = 0$;
+   			\item And $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) \succcurlyeq 0$ on $T_{x_0} \mc{M}$.
+   		\end{enumerate}
+   		\emph{Remark: whenever $x_0$ is a local minimum, it must be a critical point of $\mc{L}$, and $\mc{L}$ is positive semidefinite on the tangent space at $x_0$.}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		The first result is exactly the same as the first order condition proven above. \\
+   		To show the second result, let $x(s) \in \mc{M}$ be an arbitrary differentiable curve on $\mc{M}$ such that $x(0) = x_0$. Then,
+   		\begin{align}
+   			\frac{d}{ds} f(x(s)) &= \nabla f(x(s)) \cdot x'(s) \\
+   			\frac{d^2}{ds^2} f(x(s)) &= x'(s)^T \nabla^2 f(x(s)) x'(s) + \nabla f(x(s)) x''(s)
+   		\end{align}
+   		By the second order Taylor theorem, for every $s$ such that $x(s) \in \mc{M}$, 
+   		\begin{align}
+   			f(x(s)) - f(x_0) = s \nabla f(x_0) \cdot x'(0) + \frac{s^2}{2} \left[
+   			x'(0)^T \nabla^2 f(x(0)) x'(s) + \nabla f(x(0)) x''(0)
+   			\right] + o(s^2)
+   		\end{align}
+   		Note that by definition, $x'(0)$ is in the tangent space at $x_0$. Also, we've shown previously that $\nabla f(x_0)$ is orthogonal to the tangent space at $x_0$, therefore,
+   		\begin{align}
+   			f(x(s)) - f(x_0) = \frac{s^2}{2} \left[
+   			x'(0)^T \nabla^2 f(x(0)) x'(s) + \nabla f(x(0)) x''(0)
+   			\right] + o(s^2)
+   		\end{align}
+   		Also, by the definition of $\mc{M}$, all constraints hold with equality:
+   		\begin{align}
+   			f(x_0) &= f(x_0) + \sum_{i=1}^k \lambda_i h_i(x_0)
+   		\end{align}
+   		where $\lambda_i$'s are from the first result. Hence,
+   		\begin{align}
+   			f(x(s)) - f(x_0) &= \frac{s^2}{2} \left [
+   			x'(0)^T \left(\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0)\right) x'(0)
+   			+ \left(
+   			\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0)
+   			\right)x''(0)
+   			\right ] + o(s^2) \\
+   			&= \frac{s^2}{2} x'(0)^T \left(\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0)\right) x'(0) + o(s^2)
+   		\end{align}
+   		And above expression is greater or equal to zero because $x_0$ is a local minimum,
+   		\begin{align}
+   			\frac{s^2}{2} x'(0)^T \left(\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0)\right) x'(0) + o(s^2) &\geq 0 \\
+   			\implies x'(0)^T \left(\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0)\right) x'(0) + \frac{o(s^2)}{s^2} &\geq 0 \\
+   			\overset{s\to 0}{\implies}x'(0)^T \left(\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0)\right) x'(0) &\geq 0
+   		\end{align}
+   		Where $x'(0)$ is a vector in the tangent space at $x_0$ by definition. Moreover, the curve $x(s)$ was chosen arbitrarily, so the argument works for every curve and therefore every tangent vector, and what's desired is shown.
+   	\end{proof}
    	\subsection{Inequality Constraints}
 \end{document}
 
