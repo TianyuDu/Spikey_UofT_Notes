@@ -9,5 +9,6 @@
 \BOOKMARK [1][-]{section.3}{Finite Dimensional Optimization}{}% 9
 \BOOKMARK [2][-]{subsection.3.1}{Unconstraint Optimization}{section.3}% 10
 \BOOKMARK [2][-]{subsection.3.2}{Equality Constraints: Lagrangian Multiplier}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.3}{Tangent Space to a \(Hyper\) Surface at a Point}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.4}{Inequality Constraints}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Tangent Space to a \(Hyper\) Surface at a Point}{subsection.3.2}% 12
+\BOOKMARK [2][-]{subsection.3.3}{Remark on the Connection Between Constrained and Unconstrained Optimizations}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.4}{Inequality Constraints}{section.3}% 14

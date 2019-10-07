@@ -515,7 +515,7 @@
    	\begin{lemma}
    		Suppose $\nabla^2 f(x_0)$ is positive definite, then 
    		\begin{align}
-   			\exists a > 0\ s.t.\ v^T \nabla^2 f(x_0) v \geq a \norm{v}^2
+   			\exists a > 0\ s.t.\ v^T \nabla^2 f(x_0) v \geq a \norm{v}^2\quad \forall v
    		\end{align}
    	\end{lemma}
    	
@@ -527,7 +527,7 @@
    			= \norm{v}^2 \\
    			\implies \norm{Qv} &= \norm{v}\ \forall v \in \R^n
    		\end{align}
-   		Let $v \in \R^n$, consider the eigenvector decomposition of $\nabla^2 f(x_0)$
+   		Let $v \in \R^n$, consider the eigenvector decomposition of $\nabla^2 f(x_0)$, let $w$ satisfy $v = Qw$:
    		\begin{align}
    			Q^T \nabla^2 f(x_0) Q &= \tx{diag}(\lambda_1, \cdots, \lambda_n) \\
    			\implies v^T \nabla^2 f(x_0) v &= (Qw)^T \nabla^2 f(x_0) (Qw) \\
@@ -555,7 +555,7 @@
    	\end{proof}
    	
    	\subsection{Equality Constraints: Lagrangian Multiplier}
-   	\subsection{Tangent Space to a (Hyper) Surface at a Point}
+   	\subsubsection{Tangent Space to a (Hyper) Surface at a Point}
    	\begin{definition}
    		A \textbf{surface} $\mc{M} \subset \R^n$ is defined as
    		\begin{align}
@@ -706,8 +706,8 @@
    	\begin{theorem}[Second Order Necessary Condition]
    		Let $f, h_i \in C^2$, if $x_0$ is a local minimum on previously defined surface $\mc{M}$, then there exists Lagrangian multipliers $\{\lambda_i\}$ such that
    		\begin{enumerate}[(i)]
-   			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) = 0$;
-   			\item And $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) \succcurlyeq 0$ on $T_{x_0} \mc{M}$.
+   			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) = 0$ ($\nabla_x \mc{L} = 0$);
+   			\item And $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) \succcurlyeq 0$ \red{on $T_{x_0} \mc{M}$} ($\nabla_x^2 \mc{L} \succcurlyeq 0$).
    		\end{enumerate}
    		\emph{Remark: whenever $x_0$ is a local minimum, it must be a critical point of $\mc{L}$, and $\mc{L}$ is positive semidefinite on the tangent space at $x_0$.}
    	\end{theorem}
@@ -753,6 +753,101 @@
    		\end{align}
    		Where $x'(0)$ is a vector in the tangent space at $x_0$ by definition. Moreover, the curve $x(s)$ was chosen arbitrarily, so the argument works for every curve and therefore every tangent vector, and what's desired is shown.
    	\end{proof}
+   	
+   	\begin{example}
+   		\begin{align}
+   			\min f(x, y) &= x^2 - y^2 \\
+   			s.t.\ h(x, y) &= y = 0
+   		\end{align}
+   		First order condition suggests $(x_0, y_0) = (0, 0)$ Note that the tangent space at $(x_0, y_0)$ is $\tx{span}\{\nabla h_i\}^\perp$:
+   		\begin{align}
+   			T_{x_0}\mc{M} = \{ (u, 0): u \in \R\}
+   		\end{align}
+   		and 
+   		\begin{align}
+   			\nabla_x^2 \mc{L} = \begin{pmatrix}
+   				2 & 0 \\ 0 & -2
+   			\end{pmatrix}
+   		\end{align}
+   		is obviously positive semidefinite (actually positive definition) on the tangent space.
+   	\end{example}
+   	
+   	\begin{theorem}[Second Order Sufficient Conditions]
+   		Let $f, h_i \in C^2$ on open $\Omega \subset \R^n$, and $x_0 \in \mc{M}$ is a regular point, if there exists $\lambda_i \in \R$ such that
+   		\begin{enumerate}[(i)]
+   			\item $\nabla_x \mc{L}(x_0, \lambda_i) = 0$;
+   			\item $\nabla_x^2 \mc{L}(x_0, \lambda_i) \succ 0$ \red{on $T_{x_0} \mc{M}$},
+   		\end{enumerate}
+   		then $x_0$ is a \emph{strict} local minimum.
+   	\end{theorem}
+   	\begin{proof}
+   		Recall that $\nabla^2 f(x_0) + \sum \lambda_i \nabla^2 h_i(x_0)$ positive definite on $T_{x_0} \mc{M}$ implies there exists $a > 0$ ($a$ is taken to be equal to the least eigenvalue of $\nabla^2_x \mc{L}$) such that 
+   		\begin{align}
+   			v^T [\nabla^2 f(x_0) + \sum \lambda_i \nabla^2 h_i(x_0)] v \geq a \norm{v}^2\quad \forall v \in T_{x_0} \mc{M}
+   		\end{align}
+   		Let $x(s) \in \mc{M}$ be a curve such that $x(0) = x_0$ and $v = x'(0)$. WLOG, $\norm{x'(0)} = 1$. By the second order Taylor expansion,
+   		\begin{align}
+   			f(x(s)) - f(x(0)) &= s \left. \frac{d}{ds} \right\vert_{s=0} f(x(s)) + \frac{s^2}{2} \left. \frac{d^2}{ds^2} \right\vert_{s=0} f(x(s)) + o(s^2) \\
+   			&= s \left. \frac{d}{ds} \right\vert_{s=0} \left[f(x(s)) + \sum \lambda_i h_i(x(s))\right] + \frac{s^2}{2} \left. \frac{d^2}{ds^2} \right\vert_{s=0} \left[f(x(s)) + \sum \lambda_i h_i(x(s))\right] + o(s^2) \\
+   			&= s \nabla_x \mc{L}(x_0, \lambda_i) \cdot x'(0)
+   			+ \frac{s^2}{2}
+   			\left[x'(0)^T \nabla_x^2 \mc{L}(x_0, \lambda_i) x'(0) + \nabla_x \mc{L}(x_0, \lambda_i) x''(0) \right]
+   			+ o(s^2) \\
+   			&= \frac{s^2}{2} x'(0)^T \nabla_x^2 \mc{L}(x_0, \lambda_i) x'(0) + o(s^2) \\
+   			&\geq \frac{s^2}{2} a \norm{x'(0)}^2 + o(s^2)\quad \tx{where } a > 0 \\
+   			&= s^2 \left(\frac{a}{2} + \frac{o(s^2)}{s^2}\right) \\
+   			&\overset{s \to 0}{>} 0
+   		\end{align}
+   		Therefore, for sufficiently small $s$, $f(x(s)) - f(x(0)) > 0$. And this is true for every curve $x$ on $\mc{M}$. So $x(0)$ is a strict local minimum.
+   	\end{proof}
+   	
+   	\subsection{Remark on the Connection Between Constrained and Unconstrained Optimizations}
+   	\begin{example}
+   		Consider
+   		\begin{align}
+   			&\min f(x,y,z) \\
+   			&s.t. g(x,y,z) = z - h(x,y) = 0
+   		\end{align}
+   		where $\mc{M}$ is the graph of $h$. Using Lagrangian multiplier provides necessary condition: $\nabla f + \lambda \nabla g = 0$,
+   		\begin{align}
+   			\begin{pmatrix}
+   				f_x \\ f_y \\ f_z
+   			\end{pmatrix}
+   			+ \lambda
+   			\begin{pmatrix}
+   				-h_x \\ -h_y \\ 1
+   			\end{pmatrix} = 0
+   		\end{align}
+   		Convert the constrained optimization into an unconstrained optimization as 
+   		\begin{align}
+   			\min_{(x,y) \in \R^2} F(x, y) = f(x, y, h(x, y))
+   		\end{align}
+   		The necessary condition for unconstrained optimization is
+   		\begin{align}
+   			\nabla F(x, y) &= \begin{pmatrix}
+   				f_x + f_z h_x \\
+   				f_y + f_z h_y
+   			\end{pmatrix} \\
+   			&= \begin{pmatrix}
+   				f_x \\ f_y
+   			\end{pmatrix} - f_z \begin{pmatrix}
+   				-h_x \\ -h_y
+   			\end{pmatrix} = \begin{pmatrix}
+   				0 \\ 0
+   			\end{pmatrix}
+   		\end{align}
+   		Define $\lambda := -f_z$.
+   		\begin{align}
+   			\nabla F(x, y) &= \begin{pmatrix}
+   				f_x \\ f_y \\ f_z
+   			\end{pmatrix} + \lambda
+   			\begin{pmatrix}
+   				-h_x \\ -h_y \\ 1
+   			\end{pmatrix} = \begin{pmatrix}
+   				0 \\ 0
+   			\end{pmatrix}
+   		\end{align}
+   	\end{example}
    	\subsection{Inequality Constraints}
 \end{document}
 

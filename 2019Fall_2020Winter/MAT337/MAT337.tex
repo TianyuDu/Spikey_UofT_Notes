@@ -809,7 +809,7 @@
 		Direct result from De Morgan's law and the previous theorem.
 	\end{proof}
 	
-	\paragraph{} \emph{Remark: Limit points and boundary points are completely different.} Example: let $\Omega = [1, 2] \cup {3}$, then $3$ is a boundary point but not a limit point (i.e. it is isolated). And $0.5$ is a limit point but not a boundary point.
+	\emph{Remark: Limit points and boundary points are completely different.} Example: let $\Omega = [1, 2] \cup {3}$, then $3$ is a boundary point but not a limit point (i.e. it is isolated). And $0.5$ is a limit point but not a boundary point.
 	
 	\begin{definition}
 		A set $K \subset \R$ is \textbf{compact} if every sequence in $K$ has a convergent subsequence converges to some limit $x \in K$.
@@ -869,7 +869,58 @@
 			:\varepsilon \in \R_{++}
 			\right\}
 		\end{align}
-		Because $K$ is compact, there exists a finite subcover of $\mc{C}$, which is clearly a contradiction.
+		Because $K$ is compact, there exists a finite subcover of $\mc{C}$, which is clearly a contradiction. \\
+		\emph{Show $(ii) \implies (iii)$}: Suppose $K$ is closed and bounded, because of the transitivity of covering, it it sufficient to show that for every $M \in \R_+$, every open cover of $[-M, M]$ has a finite subcover. \\
+		Let $M \in \R_+$, and $\mc{C} = \{\mc{O}_\lambda: \lambda \in \Lambda\}$ is an open cover of $[-M, M]$. Suppose, for contradiction, there is no finite subcover. Then either $[-M, 0]$ or $[0, M]$ does not have a finite subcover from $\mc{C}$. Define such interval as $I_1$. Interval $I_n$ is defined inductively from $I_{n-1}$ by firstly bisecting $I_{n-1}$ into two closed intervals and then taking the partition that cannot be covered by any finite subcover of $\mc{C}$. Note that $(I_n)$ is a sequence of nested compact sets, by Cantor's intersection theorem, there intersection is nonempty. Further, because the length of interval shrinks to zero as $n \to \infty$, the intersection must be a singleton. Let $\{x\} = \bigcap_{n \in \N} I_n$, there exists some $\lambda \in \Lambda$, such that $x \in \mc{O}_\lambda$. Because $\mc{O}_\lambda$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subset \mc{O}_\lambda$. Take $k \in \N$ such that $|I_k| < 2\varepsilon$, clearly $I_k \subset V_\varepsilon(x) \subset \mc{O}_\lambda$. Then $\mc{O}_\lambda$ is a finite subcover of $I_k$, which leads to a contradiction.
+	\end{proof}
+	\section{Connected Sets}
+	\begin{definition}
+		$\varnothing \neq A, B \subset \R$ are \textbf{separated} if and only if $\overline{A} \cap B = \varnothing$ and $A \cap \overline{B} = \varnothing$.
+	\end{definition}
+	
+	\begin{definition}
+		$E \subset \R$ is \textbf{disconnected} if $E = A \cup B$ where $A, B$ are nonempty separated sets.
+	\end{definition}
+	
+	\begin{proposition}[Equivalent Definiton]
+		$E \subset \R$ is disconnected if and only if it can be written as the union of two \emph{nonempty disjoint open} sets.
+	\end{proposition}
+	
+	\begin{proof}
+		($\impliedby$) Let $E \subset \R$, suppose there exists nonempty disjoint open sets such that $E = A \cup B$. Suppose, for contradiction, $\overline{A} \cap B \neq \varnothing$, let $x \in \overline{A} \cap B$. Because $\overline{A} \cap B = (A \cup A') \cap B = (A \cap B) \cup (A' \cap B) = \varnothing \cup (A' \cap B) = A' \cap B$, $x$ must be a limit point of $A$. Also, because $B$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subset B$. Because $x \in A'$, there exists $y \neq x$ such that $y \in V_\varepsilon(x) \cap A$. Then $y \in A \cap B$, which contradicts the assumption that $A$ and $B$ are disjoint. The argument to show $A \cap \overline{B} = \varnothing$ is similar, so $A$ and $B$ are separated.\\
+		($\implies$) Suppose $A$ and $B$ are nonempty separated sets such that $A \cup B = E$. Show: $A$ and $B$ are nonempty disjoint open sets \\
+		$(i)$ $A$ and $B$ are by construction nonempty. \\
+		$(ii)$ Suppose $A$ and $B$ are not disjoint, then $\overline{A} \cap  B$ must be nonempty, which is a contradiction. \\
+		$(iii)$ To show $A$ and $B$ are open, WLOG, suppose, for contradiction, $A$ is not open in $E$. There exists some $x \in A $ such that
+		\begin{align}
+			\forall \varepsilon > 0\ V_\varepsilon(x) \cap (E\backslash A) \neq \varnothing
+		\end{align}
+		\hl{TODO}
+	\end{proof}
+	
+	\begin{theorem}
+		A set $E \subset \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subset A$ converges to some point $a \in B$, and a sequence $(b_n) \subset B$ converges to some point $b \in A$.
+	\end{theorem}
+	
+	\begin{proof}
+		
+	\end{proof}
+	
+	\begin{theorem}
+		Let $E \subset \R$, the following are equivalent:
+		\begin{enumerate}[(i)]
+			\item $E$ is connected;
+			\item For every $a < c < b$, $a, b \in E \implies c \in E$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		($\implies$) Suppose $E$ is connected, considering the following sets
+		\begin{align}
+			A &:= (-\infty, c) \cap E \\
+			B &:= (c, \infty) \cap E
+		\end{align}
+		Note that $a \in A$ and $b \in B$, so both of them are nonempty. And $A$ and $B$ are separated. Suppose, for contradiction, $c \notin E$, $E = A \cup B$, which leads to a contradiction to the assumption that $E$ is connected.
 	\end{proof}
 \end{document}
 
