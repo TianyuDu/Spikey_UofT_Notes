@@ -849,6 +849,49 @@
    		\end{align}
    	\end{example}
    	\subsection{Inequality Constraints}
+   	\begin{definition}
+   		Let $x_0$ satisfy the set of constraints
+   		\begin{align}
+   			h_i(x) &= 0\quad i \in \{1, \cdots, k\} \\
+   			g_j(x) &\leq 0\quad j \in \{1, \cdots, \ell\}
+   		\end{align}
+   		we say that the constraint $g_i$ is \textbf{active} at $x_0$ if $g_i(x_0) = 0$, and is \textbf{inactive} at $x_0$ if $g_i(x_0) < 0$.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		Split the collection of inequality constraints into active and inactive constraints, let $\Theta(x_0)$ denote the collection of active indices, that's:
+   		\begin{align}
+   			g_j (x_0) = 0\ \forall j \in \Theta(x_0) \\
+   			g_j (x_0) < 0\ \forall j \notin \Theta(x_0)
+   		\end{align}
+   		Then $x_0$ is said to be a \textbf{regular point} of the constraint if 
+   		\begin{align}
+   			\{\nabla h_i(x_0)\ \forall i \in \{1, \cdots, k\}; \underbrace{\nabla g_j(x_0)\ \forall j \in \Theta(x_0)}_{\tx{Active Constraints}} \}
+   		\end{align}
+   		is linearly independent. 
+   	\end{definition}
+   	
+   	\begin{theorem}[The First Order Necessary Condition for Local Minimum: Kuhn-Tucker Conditions]
+   		Let $\Omega$ be an open subset of $\R^n$ with constraints $h_i$ and $g_i$ to be $C^1$ on $\Omega$. Suppose $x_0 \in \Omega$ is a regular point with respect to constraints, further suppose $x_0$ is a local minimum, then there exists some $\lambda_i \in \R$ and $\mu_j \in \red{\R_+}$ such that 
+   		\begin{enumerate}[(i)]
+   			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
+   			\item $\mu_j g_j(x_0) = 0$ (\emph{Complementary slackness}).
+   		\end{enumerate}
+   		\emph{Remark: by complementary slackness, all $\mu_j$ corresponding to inactive inequality constraints are zero.}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		Let $x_0$ be a local minimum for $f$ satisfying constraints, equivalently, it is a local minimum for equality constraints and active inequality constraints. \\
+   		By the first order necessary condition for local minimum with equality constraints, there exists $\lambda_i, \mu_j \in \R$ such that
+   		\begin{align}
+   			\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j \in \Theta(x_0)} \mu_j \nabla g_j(x_0) = 0
+   		\end{align}
+   		Then by setting $\mu_j = 0$ for all $j \notin \Theta(x_0)$ one have
+   		\begin{align}
+   			\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0
+   		\end{align}
+   		By construction, the complementary slackness is satisfied. At this stage, we have construct $\lambda_i \in \R$ and $\mu_j \in \R$ satisfying both conditions, we still need to argue that $\mu_j \geq 0$ for every $j$.
+   	\end{proof}
 \end{document}
 
 
