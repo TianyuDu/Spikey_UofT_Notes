@@ -921,6 +921,92 @@
 			B &:= (c, \infty) \cap E
 		\end{align}
 		Note that $a \in A$ and $b \in B$, so both of them are nonempty. And $A$ and $B$ are separated. Suppose, for contradiction, $c \notin E$, $E = A \cup B$, which leads to a contradiction to the assumption that $E$ is connected.
+		\\
+		($\impliedby$) Suppose $(ii)$, show $E$ is connected. Let $A$ and $B$ be two nonempty set such that $A \cup B = E$ and $A \cap B = \varnothing$. We are going to show that $A$ and $B$ must be separated in this case. Let $a_0 \in A$ and $b_0 \in B$, WLOG, suppose $a_0 < b_0$. By $(ii)$, the entire interval $[a_0, b_0] \subset E$. Split $[a_0, b_0]$ into two half intervals $[\alpha, \beta]$ and $[\beta, \gamma]$. Note that it is impossible for $\{\beta\}$ to be the only point intersect both $A$ $B$, because in this case $A$ and $B$ cannot be disjoint.
+		Take the one intersects both $A$ and $B$, denoted as $[a_1, b_1]$. \\
+		One can construct a sequence of closed intervals inductively, such that every $I_n$ intersects both $A$ and $B$. Also, previous result shows that $\cap_{n \in \N} I_n \neq \varnothing$, and is in fact a singleton. Let $x \in \cap_{n \in \N} I_n$, if $x \in A$, then there exists $(b_n) \subset B$ such that $(b_n) \to x$. Similarly, if $x \in B$, there exists $(a_n) \subset A$ such that $(a_n) \to x$. As a result, either $\overline{A} \cap B \neq \varnothing$ or $A \cap \overline{B} \neq \varnothing$. Therefore, $E$ is connected.
+	\end{proof}
+	
+	\section{Cantor Set}
+	\begin{definition}
+		Define sequence of sets 
+		\begin{align}
+			S_0 &= [0, 1] \\
+			S_1 &= [0, \frac{1}{3}] \cup [\frac{3}{2}, 1]
+		\end{align}
+		inductively, where $S_n$ is defined by removing the mid-one-third of elements from each component of $S_{n-1}$. The \textbf{Cantor set} is defined as
+		\begin{align}
+			\mc{C} := \bigcap_{n \in \N} S_n \neq \varnothing
+		\end{align}
+		$\mc{C}$ is nonempty because each $S_n$ is a finite union of closed set. Altogether with the fact that each of $S_n$ is bounded, so $\mc{C}$ is an intersection of nested compact sets. Therefore, $\mc{C}$ is nonempty by Cantor's intersection theorem.
+	\end{definition}
+	
+	\begin{definition}
+		A set is called \textbf{perfect} if it is closed and has no isolated point.
+	\end{definition}
+	
+	\begin{proposition}
+		$\mc{C}$ has measure zero.
+	\end{proposition}
+	
+	\begin{proof}
+		Note that on while constructing $S_n$, intervals with total length of $\frac{2^n}{3^{n+1}}$ are removed from $S_{n-1}$. To construct a Cantor set, the total length of intervals from $[0, 1]$ equals
+		\begin{align}
+			\sum_{n=0}^\infty \frac{2^n}{3^{n+1}} = \frac{1}{3} \sum_{n=0}^\infty \left(\frac{2}{3}\right)^n = 1
+		\end{align}
+		Therefore the length left for Cantor set is zero.
+	\end{proof}
+
+	\begin{proposition}
+		$\mc{C}^{int} = \varnothing$.
+	\end{proposition}
+	
+	\begin{proof}
+		Note that for any set to have nonempty interior, it must contains some open intervals. Claim: for every open interval $(a, b)$, it cannot be contained in $\mc{C}$. Let $a < b$, note that for every partition of $S_n$ has length $\frac{1}{3^n}$. Then there exists $n \in \N$ such that $\frac{1}{3^n} < b - a$. Therefore, $(b - a) \centernot \subset S_n$ for such $n$. So that $\mc{C}$ cannot contain any open interval.
+	\end{proof}
+	
+	\begin{proposition}
+		$\mc{C}$ is closed.
+	\end{proposition}
+	
+	\begin{proof}
+		$\mc{C}$ is the intersection of infinitely many closed sets, so it is closed.
+	\end{proof}
+
+	\begin{proposition}
+		$\mc{C}$ is compact.
+	\end{proposition}
+	
+	\begin{proof}
+		$\mc{C}$ is bounded by $[0, 1]$ and closed by previous proposition. Therefore, $\mc{C} \subset \R$ is compact.
+	\end{proof}
+	
+	\begin{proposition}
+		$\mc{C}$ is perfect.
+	\end{proposition}
+	
+	\begin{proof}
+		We are going to show that every point $x \in \mc{C}$ is the limit of some sequence in $\mc{C}$. \\
+		\emph{Case 1}: $x$ is not the right endpoint of any closed interval in $S_n$ for any $n \in \N$. Then for every $n \in \N$, let $x_n$ be the right endpoint of the interval in $S_n$ containing $x$. Obviously, $(x_n) \to x$. \\
+		\emph{Case 2}: $x$ is the right endpoint of some closed interval in some $S_n$. For every $n \in \N$, take $x_n$ to be the left end of $S_n$ containing $x$. Clearly, $(x_n) \to x$.
+	\end{proof}
+	
+	\begin{theorem}
+		Any nonempty perfect set $P$ is uncountable.
+	\end{theorem}
+	
+	\begin{proof}
+		Note that $P$ is obviously not finite. Suppose, for contradiction, $P$, then there exists an enumeration of $P = \{x_1, x_2, \cdots, x_n, \cdots \}$. Construct a sequence of compact sets as following: take $\varepsilon > 0$, there exists $y_1 \neq x_1$ such that $y_1 \in P \cap [x_1 - \varepsilon, x_1 + \varepsilon]$. Let $\delta_1 := \frac{|y_1 - x_1|}{2}$, and take $K_1 := [y_1 - \delta_1, y_1 + \delta_1] \cap P$. \hl{TODO: Show $K_1$ is compact.} Note that $x_1 \notin K_1$. \\
+		Apply the same argument on $K_1$ to construct $K_2$ such that $x_2 \notin K_2$, so that $P \supset K_1 \supset K_2 \supset \cdots $. \\
+		By construction, no points in $P$ is in the intersection $\bigcap_{n \in \N} K_n$. However, the intersection is nonempty and the element belongs to the intersection is clearly in $P$, which is a contradiction. 
+	\end{proof}
+
+	\begin{proposition}
+		$\mc{C}$ is uncountable.
+	\end{proposition}
+	
+	\begin{proof}
+		$\mc{C}$ is a nonempty perfect set, so it is uncountable.
 	\end{proof}
 \end{document}
 
