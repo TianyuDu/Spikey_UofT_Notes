@@ -892,6 +892,27 @@
    		\end{align}
    		By construction, the complementary slackness is satisfied. At this stage, we have construct $\lambda_i \in \R$ and $\mu_j \in \R$ satisfying both conditions, we still need to argue that $\mu_j \geq 0$ for every $j$.
    	\end{proof}
+   	
+	\begin{theorem}[The Second Order Necessary Conditions]
+		Let $\Omega$ be an open subset of $\R^n$, and $f, h_1, \cdots, h_k, g_1, \cdots, g_\ell \in C^2$. Let $x_0$ be a regular point of the constraints:
+		\begin{align}
+			(\dag ) \begin{cases}
+				h_i(x) = 0\quad \forall i \\
+				g_j(x) \leq 0\quad \forall j
+			\end{cases}
+		\end{align}
+		Suppose $x_0$ is a local minimum of $f$ subject to constraint ($\dag$), then there exists $\lambda_i \in \R$ and $\mu_j \geq 0$ such that
+		\begin{enumerate}[(i)]
+			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
+			\item $\mu_j g_j(x_0) = 0$;
+			\item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is positive definite on the tangent space to \ul{activate constraints} at $x_0$.
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}
+		(i) and (ii) are immediate result from the first order necessary condition. \\
+		Suppose $x_0$ is a local minimum for ($\dag$), then $x_0$ is a local minimum for active constraints at $x_0$. \\
+		Therefore, $\nabla^2 \hat{\mc{L}} = \nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j \in I(x_0)} \mu_j \nabla^2 g_j(x_0)$ is positive semidefinite on the tangent space to active constraints. Note that because $\mu_j = 0$ for inactive constraints, therefore $\nabla^2 \hat{\mc{L}} = \nabla^2 \mc{L}$ at $x_0$, and both of them are positive semidefinite on the tangent space corresponding to active constraints.
+	\end{proof}
 \end{document}
 
 

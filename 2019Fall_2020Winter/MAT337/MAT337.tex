@@ -58,19 +58,28 @@
 	\end{example}
 	
 	\begin{notation}
-		Let $A \subset \R$, we use $A^\uparrow$ and $A^\downarrow$ to denote collections of upper bounds of $A$ and lower bounds of $A$. Note that $A^\uparrow$ and $A^\downarrow$ are potentially empty.
+		Let $A \subset \R$, we use $A^\uparrow$ and $A^\downarrow$ to denote collections of upper bounds of $A$ and lower bounds of $A$. When $A$ is bounded, either $A^\uparrow$ or $A^\downarrow$ is empty.
 	\end{notation}
 	
 	\begin{definition}
-		A real number $s \in \R$ is the \textbf{least upper bound(supremum)} for a set $A \subset \R$ if $s \in A^\uparrow$ and $\forall u \in A^\uparrow,\ s \leq u$. Such $s$ is denoted as $s := \sup A$.
+		A real number $s \in \R$ is the \textbf{least upper bound (supremum)} for a set $A \subset \R$ if 
+		\begin{enumerate}[(i)]
+			\item $s \in A^\uparrow$;
+			\item and $\forall u \in A^\uparrow,\ s \leq u$.
+		\end{enumerate} Such $s$ is denoted as $s := \sup A$.
 	\end{definition}
 	
 	\begin{definition}
-		A real number $f \in \R$ is the \textbf{greatest lower bound (infimum)} for $A$ if $f \in A^\downarrow$ and $\forall l \in A^\downarrow,\ l \leq f$. Such $f$ is often written as $f := \inf A$.
+		A real number $f \in \R$ is the \textbf{greatest lower bound (infimum)} for $A$ if 
+		\begin{enumerate}[(i)]
+			\item $f \in A^\downarrow$;
+			\item and $\forall l \in A^\downarrow,\ l \leq f$.	
+		\end{enumerate}
+		Such $f$ is often written as $f := \inf A$.
 	\end{definition}
 	
 	\begin{axiom}[The Axiom of Completeness/Least Upper Bounded Property]
-		$\forall \es \neq A \subset \R$ such that $A^\uparrow \neq \es$, $\exists \sup A$.
+		$\forall \es \neq A \subset \R$ such that $A^\uparrow \neq \es$, $\exists\ \R \ni u = \sup A$.
 	\end{axiom}
 	
 	\begin{definition}
@@ -79,7 +88,7 @@
 	\end{definition}
 	
 	\begin{example}
-		$\Q \subset \R$ does not satisfy the axiom of completeness.
+		$\Q \subset \R$ does not satisfy the axiom of completeness. Let $A = \{r \in \Q: r < \sqrt{2}\}$, clearly $A$ is bounded above, but for every $r' \in \Q \cap A^\uparrow$, there exists $r'' \in (\sqrt{2}, r') \cap A^\uparrow$.
 	\end{example}
 	
 	\begin{proposition}
@@ -106,11 +115,11 @@
 	\end{lemma}
 	
 	\begin{proof}
-		Immediately.
+		The proof is immediate by the definition of supremum as the least upper bound.
 	\end{proof}
 	
 	\begin{theorem}[Nested Interval Property]
-		Let $(I_n)_n$ be a sequence of closed intervals $I_n := [a_n, b_n]$ such that these intervals are \emph{nested} in a sense that
+		Let $(I_n)_{n \in \N}$ be a sequence of closed intervals $I_n := [a_n, b_n]$ such that these intervals are \emph{nested} in a sense that
 		\begin{align}
 			I_{n+1} \subset I_n\ \forall n \in \N
 		\end{align}
@@ -121,10 +130,15 @@
 	\end{theorem}
 	
 	\begin{proof}
-		Note that the sequence $(a_n)_{n \in \N}$ is bounded above by any $b_k$, by the completeness axiom, there exists $a^* := \sup_{n \in \N} a_n$. Since $a^* \in (a_n)^\uparrow$, $a^* \geq a_n\ \forall n \in \N$. Further, because $a^*$ is the \emph{least} upper bound, then for every upper bound $b_n$, it must be $a^* \leq b_n\ \forall n \in \N$. Therefore, $x^* \in [a_n, b_n]\ \forall n \in \N$. That is, $x^* \in \bigcap_{n \in \N} I_n$.
+		Note that the sequence $(a_n)_{n \in \N}$ is bounded above by any $b_k$.\\
+		By the completeness axiom, there exists $a^* := \sup_{n \in \N} a_n$.\\
+		Since $a^* \in (a_n)^\uparrow$, $a^* \geq a_n\ \forall n \in \N$.\\
+		Further, because $a^*$ is the \emph{least} upper bound, then for every upper bound $b_n$, it must be $a^* \leq b_n\ \forall n \in \N$. Therefore, $x^* \in [a_n, b_n]\ \forall n \in \N$. That is, $x^* \in \bigcap_{n \in \N} I_n$.
 	\end{proof}
 	
+	\begin{remark}
 	Note that NIP requires all intervals to be closed. One instance when this fails to hold: $\bigcap_{n \in \N} \left(0, \frac{1}{n} \right) = \es$.
+	\end{remark}
 	
 	\begin{theorem}[Archimedean Property] \quad
 		\begin{enumerate}[(i)]
@@ -133,26 +147,35 @@
 		\end{enumerate}
 	\end{theorem}
 	
-	Archimedean property \emph{of natural numbers} can be interpreted as \emph{there is no real number that bounds $\N$}. This interpretation can be seen by considering the negations of above statements:
+	Archimedean property \emph{of natural numbers} can be interpreted as \emph{there is no real number that bounds $\N$}. This interpretation can be seen by considering the \ul{negations} of above statements:
 	\begin{enumerate}[(i)]
 		\item $\exists x \in \R\ s.t.\ \forall n \in \N,\ n \leq x$;
-		\item $\exists y \in \R_{++}\ s.t.\ \forall n \in \N,\ y \leq \frac{1}{n}$.
+		\item $\exists y \in \R_{++}\ s.t.\ \forall n \in \N,\ y \leq \frac{1}{n}$ (i.e. $n \leq \frac{1}{y}$).
 	\end{enumerate}
 	
-	\begin{proof}[Proof of (i) by Contradiction.]
-		Suppose the negated statement (i) is true, $\N$ is bounded above. By the completeness axiom, there exists $a^* := \sup \N$. $\exists n \in \N\ s.t.\ a^* - 1< n$. In this case, $a^* < n + 1 \in \N$, which means $a^* \notin \N^\uparrow$ and leads to a contradiction.
+	\begin{proof}[Proof of (i).]
+		Suppose, for contradiction, $(i)$ is not true, then $\N$ is bounded above in $\R$. \\
+		By the completeness axiom, there exists $a^* := \sup \N$.\\
+		Therefore, $\exists n \in \N\ s.t.\ a^* - 1< n$.\\
+		In this case, $a^* < n + 1 \in \N$, which means $a^* \notin \N^\uparrow$ and leads to a contradiction.
 	\end{proof}
 	
 	\begin{proof}[Proof of (ii).]
 		Let $y^* \in \R_{++}$, take $x = \frac{1}{y}$. By statement (i), there exists $n^* \in \N$ such that $n >	\frac{1}{y}$. Because $y > 0$, $\frac{1}{n} < y$.
 	\end{proof}
 	
+	\begin{remark}
+		The two statements of Archimedean property are equivalent.
+	\end{remark}
+	
 	\subsection{Density of Rational Numbers}
 	\begin{theorem}
 		For every $a, b \in \R$ such that $a < b$, there exists $r \in \Q$ such that $a < r < b$.
 	\end{theorem}
 	
-	The above theorem says $\Q$ is in fact \textbf{dense} in $\R$. More generally, one says a set $A \subset X$ is dense whenever the closure of $A$, $\overline{A} = X$.
+	\begin{remark}
+		The above theorem says $\Q$ is in fact \textbf{dense} in $\R$. More generally, one says a set $A \subset X$ is dense whenever the closure of $A$, $\overline{A} = X$.
+	\end{remark}
 	
 	\begin{proof}
 		\emph{Step 1:} Since $b - a > 0$, by the first Archimedean property, there exists $n \in \N$ such that $n > \frac{1}{b - a}$. Such natural number satisfies $\frac{1}{n} < b - a$.\\
@@ -168,6 +191,7 @@
 	\end{proof}
 	
 	\section{Sequences}
+	\subsection{Definitions}
 	\begin{theorem}[Triangle Inequality]
 		Let $a, b \in \R$, then $|a + b| \leq |a| + |b|$.
 	\end{theorem}
@@ -175,32 +199,37 @@
 	\begin{corollary}
 		Let $a, b \in \R$, then
 		\begin{align}
-			\large| |a| - |b| \large| \leq |a - b|
+			| |a| - |b| | \leq |a - b|
 		\end{align}
 	\end{corollary}
 	
 	\begin{proof}
-		Note that $|a| = |a - b + b| \leq |a - b| + |b|$, which implies $|a| - |b| \leq |a - b|$. And $|b| = |b - a + a| \leq |b - a| + |a| = |a - b| + |a|$, which implies $|b| - |a| \leq |a - b|$. Therefore, by taking the absolute value, $||a| - |b|| \leq |a - b|$.
+		Note that $|a| = |a - b + b| \leq |a - b| + |b|$, which implies $|a| - |b| \leq |a - b|$. \\
+		Similarly, $|b| = |b - a + a| \leq |b - a| + |a| = |a - b| + |a|$, which implies $|b| - |a| \leq |a - b|$. \\
+		Therefore, by taking the absolute value, $||a| - |b|| \leq |a - b|$.
 	\end{proof}
 	
 	\begin{definition}
 		A sequence $(a_n) \subset \R$ \textbf{converges} to $a \in \R$ if 
 		\begin{align}
-			\forall \varepsilon > 0,\ \exists N \in \N,\ n \geq N \implies |a_n - a| < \varepsilon
+			\forall \varepsilon > 0,\ \exists N \in \N,\ n \geq N \implies a_n \in V_\varepsilon(a)
 		\end{align}
 	\end{definition}
 	
-	Let $a \in \R$ and $\varepsilon > 0$, the open ball centred at $a$ with radius $\varepsilon$ is denoted as 
+	\begin{definition}
+		Let $a \in \R$ and $\varepsilon > 0$, the open ball centred at $a$ with radius $\varepsilon$ is denoted as 
 	\begin{align}
 		V_\varepsilon(a) := \left\{x \in \R : |x - a| < \varepsilon \right\}
 	\end{align}
+	\end{definition}
 	
 	\begin{theorem}
 		The limit of any convergent sequence is unique.
 	\end{theorem}
 	
 	\begin{proof}
-		Let $(a_n)$ be a convergent sequence, assume, for contradiction, that $(a_n) \to L_1$ and $(a_n) \to L_2$ such that $L_1 \neq L_2$. Let $\varepsilon = \frac{|L_1 - L_2|}{3}$, because $(a_n) \to L_1$, there exists $N\in\N$ such that $n \geq N \implies |a_n - L_1| < \frac{|L_1 - L_2|}{3}$. Therefore, for every $n \geq N$,
+		Let $(a_n)$ be a convergent sequence, assume, for contradiction, that $(a_n) \to L_1$ and $(a_n) \to L_2$ such that $L_1 \neq L_2$.\\
+		Let $\varepsilon = \frac{|L_1 - L_2|}{3}$, because $(a_n) \to L_1$, there exists $N\in\N$ such that $n \geq N \implies |a_n - L_1| < \frac{|L_1 - L_2|}{3}$. Therefore, for every $n \geq N$,
 		\begin{align}
 			|a_n - L_2| &= |a_n - L_1 - (L_2 - L_1)| \\ 
 			&\geq ||a_n - L_1| - |L_2 - L_1|| \\
@@ -208,7 +237,7 @@
 			&= 3\varepsilon - |a_n - L_1| \\
 			&> 2 \varepsilon
 		\end{align}
-		Therefore, there does not exist any $N' \in \N$ such that $|a_n - L_2| < \varepsilon$ for every $n \geq \N$.
+		Therefore, there does not exist any $N' \in \N$ such that $|a_n - L_2| < \varepsilon$ for every $n \geq N'$.
 	\end{proof}
 	
 	\begin{definition}
@@ -248,14 +277,15 @@
 	\begin{proof}
 		Let $(a_n) \to L$, take $\varepsilon = 1$, then there exists $N \in \N$ such that $|a_n - L| < 1$ for every $n > N$. Note that $|a_n| - |L| \leq ||a_n| - |L|| \leq |a_n - L| < \varepsilon$, which implies $|a_n| < |L| + 1$. Let $Q := \max_{n < N} a_n$, take $M := \max\{Q, |L| + 1\}$, then $M$ bounds $(a_n)$.
 	\end{proof}
-	
+
+	\subsection{Limit Theorems}
 	\begin{theorem}[Algebraic Limit Theorem]
 		Let $(a_n) \to a, (b_n) \to b$ be convergent sequences, and $c \in \R$, then
 		\begin{enumerate}[(i)]
 			\item $(c a_n) \to c a$;
 			\item $(a_n + b_n) \to a + b$;
 			\item $(a_n b_n) \to ab$;
-			\item $\left(\frac{a_n}{b_n}\right) \to \frac{a}{b}$, provided $b_n, b \neq 0$.
+			\item $\left(\frac{a_n}{b_n}\right) \to \frac{a}{b}$, provided $(b_n), b \neq 0$.
 		\end{enumerate}
 	\end{theorem}
 	\begin{proof}[Proof (i).]
@@ -279,14 +309,15 @@
 		Let $N_1 \in \N$ such that $|a_n - a| < \frac{\varepsilon}{2 |b|}$ for every $n \geq N_1$. Because $(a_n)$ is convergent, let $M$ denote its bound such that $|a_n| < M\ \forall n \in \N$. Let $N_2 \in \N$ such that $|b_n - b| < \frac{\varepsilon}{2 M}$. Then for every $n \geq N_3 := \max\{N_1, N_2\}$, $|a_nb_n - ab| < \varepsilon$.
 	\end{proof}
 	\begin{proof}[Proof (iv).]
-		\textbf{Claim i:} when $n$ is sufficiently larger, $|b_n| > 0$ is bounded away from zero by $M$. Let $\varepsilon = \frac{|b|}{10}$, then there exists $N_1 \in \N$ such that for every $n \geq N_1$, $|b_n - b| < \frac{|b|}{10}$. Note that for every such $n$,
+		\emph{Claim i:} when $n$ is sufficiently larger, $|b_n| > 0$ is bounded away from zero by $M$.\\
+		Let $\varepsilon = \frac{|b|}{10}$, then there exists $N_1 \in \N$ such that for every $n \geq N_1$, $|b_n - b| < \frac{|b|}{10}$. Note that for every such $n$,
 		\begin{align}
 			|b_n| &= |b_n - b - (-b)| \\
 			&\geq | |b_n - b| - |b| | \\
 			&\geq |b| - |b_n - b| \\
 			&> \frac{9|b|}{10}
 		\end{align}
-		\textbf{Claim ii:} $\left(\frac{1}{b_n}\right) \to \frac{1}{b}$. Let $\varepsilon > 0$, note that
+		\emph{Claim ii:} $\left(\frac{1}{b_n}\right) \to \frac{1}{b}$. Let $\varepsilon > 0$, note that
 		\begin{align}
 			\left | \frac{1}{b_n} - \frac{1}{b} \right | &= \left | \frac{b}{b_nb} - \frac{b_n}{b_nb} \right | \\
 			&= \frac{1}{|b_n||b|} |b_n - b|
@@ -311,7 +342,8 @@
 	\end{proof}
 	
 	\begin{theorem}[Squeeze Theorem]
-		Let $(x_n) \to L$ and $(z_n) \to \ell$. If for every $n \in \N$, $x_n \leq y_n \leq z_n$, then $(y_n) \to \ell$.
+		Let $(x_n) \to L$ and $(z_n) \to \ell$. If for every $n \in \N$, $x_n \leq y_n \leq z_n$, then $(y_n) \to \ell$. \\
+		\emph{Remark: squeeze theorem does not impose the prior that $(y_n)$ is convergent.}
 	\end{theorem}
 	
 	\begin{proof}
@@ -327,8 +359,8 @@
 %	\end{proof}
 	Let $\varepsilon > 0$, because both $(x_n) \to \ell$ and $(y_n) \to \ell$,
 	\begin{align}
-		\exists N_1\ s.t.\ n \geq N_1 \implies |x_n - \ell| < \varepsilon \implies x_n > \ell - \varepsilon \\
-		\exists N_2\ s.t.\ n \geq N_2 \implies |z_n - \ell| < \varepsilon \implies z_n < \ell +  \varepsilon
+		\exists N_1 \in \N \ s.t.\ n \geq N_1 \implies |x_n - \ell| < \varepsilon \implies x_n > \ell - \varepsilon \\
+		\exists N_2 \in \N \ s.t.\ n \geq N_2 \implies |z_n - \ell| < \varepsilon \implies z_n < \ell +  \varepsilon
 	\end{align}
 	Take $N_3 := \max\{N_1, N_2\}$, then for every $n \geq N_3$,
 	\begin{align}
@@ -344,12 +376,12 @@
 	\end{definition}
 	
 	\begin{theorem}[Monotone Convergence Theorem]
-		If a sequence $(a_n)$ is bounded, then it converges.
+		If a monotone sequence $(a_n)$ is bounded, then it converges.
 	\end{theorem}
 	
 	\begin{proof}
 		WLOG, assume $(a_n)$ is increasing, let $\Gamma := \{a_n: n \in \N\} \subset \R$, because $\Gamma$ is bounded, $s := \sup_n \Gamma$ is well-defined by the completeness of real numbers.\\
-		\textbf{Claim:} $(a_n) \to s$. Let $\varepsilon > 0$, by the definition of supremum, $\exists N \in \N$ such that $a_N > s - \varepsilon$. Because the sequence is increasing and $s + \varepsilon \in \Gamma^\uparrow$, $n \geq N \implies s - \varepsilon < a_n  < s + \varepsilon$. $(a_n) \to s$ by definition.
+		\emph{Claim:} $(a_n) \to s$. Let $\varepsilon > 0$, by the definition of supremum, $\exists N \in \N$ such that $a_N > s - \varepsilon$. Because the sequence is increasing and $s + \varepsilon \in \Gamma^\uparrow$, $n \geq N \implies s - \varepsilon < a_n  < s + \varepsilon$. $(a_n) \to s$ by definition.
 	\end{proof}
 	
 	\subsection{Series}
@@ -384,7 +416,7 @@
 	\end{example}
 	
 	\begin{proof}
-		\textbf{Claim:} there exists a subsequence of $(s_n)$ diverges, so $(s_n)$ cannot be convergent. Consider the subsequence $(s_k)$ constructed by defining $s_k := s_{2^k}$. Note that
+		\emph{Claim:} there exists a subsequence of $(s_n)$ diverges, so $(s_n)$ cannot be convergent. Consider the subsequence $(s_k)$ constructed by defining $s_k := s_{2^k}$. Note that
 		\begin{align}
 			s_{2^k} &= 1 + \frac{1}{2} + 
 			\left(
@@ -399,7 +431,7 @@
 			\right) \\
 			&> 1 + \frac{1}{2} k
 		\end{align}
-		Clearly, the subsequence is unbounded, and therefore cannot be convergent.
+		Clearly, the subsequence is unbounded, and therefore cannot be convergent. Therefore, the original sequence of partial sums cannot be convergent. 
 	\end{proof}
 	
 	\begin{definition}
@@ -411,8 +443,16 @@
 	\end{theorem}
 	
 	\begin{proof}
-		Let $(a_n) \to \ell$, let $(a_{n_k})$ be a subsequence of $(a_n)$. Let $\varepsilon > 0$, there exists $N \in \N$ such that $n \geq N \implies a_n \in V_\varepsilon(\ell)$. By the definition of subsequences, there exists some $K \in \N$ such that $n_K = N$. Take such $K$, then for every $k \geq K$, it must be $n_k \geq N$. Therefore $a_{n_k} \in V_\varepsilon(\ell)$ for every $k \geq K$, and $(a_{n_k}) \to \ell$ by definition.
+		Let $(a_n) \to \ell$, let $(a_{n_k})$ be a subsequence of $(a_n)$. Let $\varepsilon > 0$, there exists $N \in \N$ such that $n \geq N \implies a_n \in V_\varepsilon(\ell)$. By the definition of subsequences, there exists some $K \in \N$ such that $n_K \geq N$. Take such $K$, then for every $k \geq K$, it must be $n_k \geq N$. Therefore $a_{n_k} \in V_\varepsilon(\ell)$ for every $k \geq K$, and $(a_{n_k}) \to \ell$ by definition.
 	\end{proof}
+	
+	\begin{remark}
+		Note the implication of above theorem is two-fold:
+		\begin{enumerate}[(i)]
+			\item Every subsequence of a convergent sequence is convergent;
+			\item All subsequences converge to the same limit.
+		\end{enumerate}
+	\end{remark}
 	
 	\begin{corollary}
 		A sequence $(a_n)$ must be divergent if there exists two subsequences of it converge to two different limits.
@@ -427,7 +467,10 @@
 	\end{theorem}
 	
 	\begin{proof}
-		Suppose $(a_n)$ is bounded by certain $M > 0$, that's, for every $n \in \N$, $-M < a_n < M$. Consider the split $I_1^\ell := [-M, 0]$ and $I_1^u := [0, M]$. At least one of above closed intervals contain an infinitely many elements of $(a_n)$. Define the interval as $I_2$. At each $I_n$, one can split it evenly into two closed intervals such that at least one of these sub-intervals contain infinitely many element in the sequence, and $I_{n+1}$ is defined to be such sequence. Note that the sequence of closed intervals constructed from above recursive procedure is in fact nested. Obviously $\lim_{n \to \infty} |I_n| = 0$. Further, by the nested interval property, one can show that $\cap_{n \in \N} I_n \neq \varnothing$. Then $\cap_{n \in \N} I_n$ must be a singleton with $a$ in it. One can construct such that $a_{n_k} \in I_k$. Note that $|I_n| = \frac{1}{2^{n-1}}$, therefore, for every $\varepsilon > 0$, one can take $N \geq \log_2 \left({\frac{1}{\varepsilon}}\right) + 1$, so that for every $k \geq N$, by definition of subsequences, $n_k \geq n$, so that $a_{n_k}, a \in I_N$. This implies $a_{n_k} \in V_{\varepsilon}(a)$ and $(a_{n_k}) \to a$.
+		Suppose $(a_n)$ is bounded by certain $M > 0$, that's, for every $n \in \N$, $-M < a_n < M$. Consider the split $I_1^\ell := [-M, 0]$ and $I_1^u := [0, M]$. At least one of above closed intervals contain an infinitely many elements of $(a_n)$.\\
+		Define the interval as $I_2$. At each $I_n$, one can split it evenly into two closed intervals such that at least one of these sub-intervals contain infinitely many element in the sequence, and $I_{n+1}$ is defined to be such closed interval containing infinitely many elements.\\
+		Note that the sequence $(I_n)$ is nested by construction. By the nested interval property, one can show that $\cap_{n \in \N} I_n \neq \varnothing$.\\
+		Also, $\lim_{n \to \infty} |I_n| = 0$. Then $\cap_{n \in \N} I_n$ must be a singleton with $a$ in it. One can construct such that $a_{n_k} \in I_k$. Note that $|I_n| = \frac{1}{2^{n-1}}$, therefore, for every $\varepsilon > 0$, one can take $N \geq \log_2 \left({\frac{1}{\varepsilon}}\right) + 1$, so that for every $k \geq N$, by definition of subsequences, $n_k \geq n$, so that $a_{n_k}, a \in I_N$. This implies $a_{n_k} \in V_{\varepsilon}(a)$ and $(a_{n_k}) \to a$.
 	\end{proof}
 	
 	\subsection{Cauchy Criterion}
@@ -458,14 +501,15 @@
 	\end{proof}
 	
 	\begin{theorem}[Cauchy Criterion]
-		A sequence \emph{of real numbers} is convergent if and only if it's Cauchy.
+		A sequence in $\R$ is convergent if and only if it's Cauchy.
 	\end{theorem}
 	
 	\begin{proof}
 		($\impliedby$) Suppose $(a_n)$ is Cauchy, by the lemma established above, $(a_n)$ is bounded. By the Bolzano–Weierstrass theorem, there exists a subsequence $(a_{n_k}) \to \ell$. \\
-		\textbf{Claim:} $(a_n) \to \ell$. Let $\varepsilon > 0$, there exists $N_1 \in \N$ such that for every $n_k, n \geq N_1$, $|a_{n_k} - a_n| < \frac{\varepsilon}{2}$. 
-		And there exists another $N_2 \in \N$ such that for every $n_k \geq N_2$, $|a_{n_k} - \ell| < \frac{\varepsilon}{2}$. Take $N_3 := \max\{N_1, N_2\}$.
-		Note that for every $n \geq N_3$, one can choose some $n_k \geq n$ and derive
+		\emph{Claim:} $(a_n) \to \ell$. Let $\varepsilon > 0$, there exists $N_1 \in \N$ such that for every $n_k, n \geq N_1$, $|a_{n_k} - a_n| < \frac{\varepsilon}{2}$. 
+		And there exists another $N_2 \in \N$ such that for every $n_k \geq N_2$, $|a_{n_k} - \ell| < \frac{\varepsilon}{2}$. \\
+		Take $N_3 := \max\{N_1, N_2\}$. \\
+		Note that for every $n \geq N_3$, one can choose some $n_k \geq n$ as leverage and derive
 		\begin{align}
 			|a_n - \ell| &= |a_n - a_{n_k} + a_{n_k} - \ell| \\
 			&\leq |a_n - a_{n_k}| + |a_{n_k} - \ell| \\
@@ -475,8 +519,11 @@
 	\end{proof}
 	
 	\subsection{Convergence Test for Series}
-	\begin{theorem}[$n$-th term test; necessary condition for convergent series]
-		Series $\sum_{i=1}^\infty a_n$ converges $\implies \lim_{n \to \infty} a_n = 0$.
+	\begin{theorem}[$n$-th term test]
+		\begin{align}
+			\sum_{i=1}^\infty a_n \tx{ converges} \implies \lim_{n \to \infty} a_n = 0
+		\end{align}
+		\emph{Remark: this theorem is only a necessary condition for convergence of series.}
 	\end{theorem}
 	
 	\begin{proof}
@@ -484,7 +531,7 @@
 	\end{proof}
 	
 	\begin{theorem}[Cauchy Criterion for Series]
-		For series $\sum_{n=1}^\infty a_n$, TFAE:
+		For series $\sum_{n=1}^\infty a_n$, the following are equivalent:
 		\begin{enumerate}[(i)]
 			\item Series converges;
 			\item $\forall \varepsilon > 0,\ \exists N \in \N\ s.t.\ \forall n \geq N,\ \left |\sum_{k=\red{n+1}}^{\red{\infty}} a_k \right | < \varepsilon$ (i.e. \emph{tail} sum sequence converges);
@@ -608,7 +655,7 @@
 		Let $\ser{a}{n}$ and $\ser{b}{n}$ satisfy:
 		\begin{enumerate}[(i)]
 			\item $b_n \geq 0$;
-			\item $\limsup_n \frac{|a_n|}{b_n} < \infty$;
+			\item $\limsup \frac{|a_n|}{b_n} < \infty$;
 			\item $\ser{b}{n}$ converges.
 		\end{enumerate}
 		Then $\ser{a}{n}$ converges as well.
@@ -625,7 +672,7 @@
 	\begin{theorem}[Integral Test]
 		Let $f(x)$ be a \emph{positive} and \emph{monotone decreasing} function on $[1, \infty)$. Consider $(f(x_n))$, then
 		\begin{align}
-			\sum_{n=1}^\infty f(n) \tx{ conv} \iff \int_1^\infty f(x)\ dx < \infty
+			\sum_{n=1}^\infty f(n) \tx{ convergent} \iff \int_1^\infty f(x)\ dx < \infty
 		\end{align}
 	\end{theorem}
 	
@@ -660,7 +707,7 @@
 		$\ser{b}{n}$ is called a \textbf{rearrangement} of series $\ser{a}{n}$ if there exists $f: \N \to \N$ such that $f$ is a bijection and $b_{f(k)} = a_k$ for every $k \in \N$.
 	\end{definition}
 	
-		\begin{theorem}[Riemann Series Theorem]
+	\begin{theorem}[Riemann Series Theorem]
 		If series $\ser{a}{n}$ converges \ul{conditionally}, for every $\alpha \in \R$, there exists a rearrangement $\ser{b}{n}$ converges to $\alpha$.
 	\end{theorem}
 	
@@ -714,15 +761,9 @@
 	\end{proof}
 	
 	\section{Topology in $\R$}
-	
+	\subsection{Definitions}
 	\begin{definition}
-		\begin{align}
-			V_\varepsilon(x_0) := \{x \in \R: \norm{x, x_0} < \varepsilon\}
-		\end{align}
-	\end{definition}
-	
-	\begin{definition}
-		A subset of $\mc{O} \subset \R$ is \textbf{open} if
+		A set $\mc{O} \subset \R$ is \textbf{open} if
 		\begin{align}
 			\forall x \in \mc{O}\ \exists\ \varepsilon > 0\ s.t.\ V_\varepsilon(x)\ s.t.\ V_\varepsilon(x) \subset \mc{O}
 		\end{align}
@@ -811,6 +852,7 @@
 	
 	\emph{Remark: Limit points and boundary points are completely different.} Example: let $\Omega = [1, 2] \cup {3}$, then $3$ is a boundary point but not a limit point (i.e. it is isolated). And $0.5$ is a limit point but not a boundary point.
 	
+	\subsection{Compactness}
 	\begin{definition}
 		A set $K \subset \R$ is \textbf{compact} if every sequence in $K$ has a convergent subsequence converges to some limit $x \in K$.
 	\end{definition}
@@ -873,7 +915,7 @@
 		\emph{Show $(ii) \implies (iii)$}: Suppose $K$ is closed and bounded, because of the transitivity of covering, it it sufficient to show that for every $M \in \R_+$, every open cover of $[-M, M]$ has a finite subcover. \\
 		Let $M \in \R_+$, and $\mc{C} = \{\mc{O}_\lambda: \lambda \in \Lambda\}$ is an open cover of $[-M, M]$. Suppose, for contradiction, there is no finite subcover. Then either $[-M, 0]$ or $[0, M]$ does not have a finite subcover from $\mc{C}$. Define such interval as $I_1$. Interval $I_n$ is defined inductively from $I_{n-1}$ by firstly bisecting $I_{n-1}$ into two closed intervals and then taking the partition that cannot be covered by any finite subcover of $\mc{C}$. Note that $(I_n)$ is a sequence of nested compact sets, by Cantor's intersection theorem, there intersection is nonempty. Further, because the length of interval shrinks to zero as $n \to \infty$, the intersection must be a singleton. Let $\{x\} = \bigcap_{n \in \N} I_n$, there exists some $\lambda \in \Lambda$, such that $x \in \mc{O}_\lambda$. Because $\mc{O}_\lambda$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subset \mc{O}_\lambda$. Take $k \in \N$ such that $|I_k| < 2\varepsilon$, clearly $I_k \subset V_\varepsilon(x) \subset \mc{O}_\lambda$. Then $\mc{O}_\lambda$ is a finite subcover of $I_k$, which leads to a contradiction.
 	\end{proof}
-	\section{Connected Sets}
+	\subsection{Connected Sets}
 	\begin{definition}
 		$\varnothing \neq A, B \subset \R$ are \textbf{separated} if and only if $\overline{A} \cap B = \varnothing$ and $A \cap \overline{B} = \varnothing$.
 	\end{definition}
@@ -927,7 +969,7 @@
 		One can construct a sequence of closed intervals inductively, such that every $I_n$ intersects both $A$ and $B$. Also, previous result shows that $\cap_{n \in \N} I_n \neq \varnothing$, and is in fact a singleton. Let $x \in \cap_{n \in \N} I_n$, if $x \in A$, then there exists $(b_n) \subset B$ such that $(b_n) \to x$. Similarly, if $x \in B$, there exists $(a_n) \subset A$ such that $(a_n) \to x$. As a result, either $\overline{A} \cap B \neq \varnothing$ or $A \cap \overline{B} \neq \varnothing$. Therefore, $E$ is connected.
 	\end{proof}
 	
-	\section{Cantor Set}
+	\subsection{Cantor Set}
 	\begin{definition}
 		Define sequence of sets 
 		\begin{align}
