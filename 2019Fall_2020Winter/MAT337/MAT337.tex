@@ -1050,6 +1050,73 @@
 	\begin{proof}
 		$\mc{C}$ is a nonempty perfect set, so it is uncountable.
 	\end{proof}
+	
+	\section{Functional Limits and Continuity}
+	\begin{definition}
+		aLet $f: A \to \R$ be a function, let $c$ be a limit point of domain $A$, then $\lim_{x \to c} f(x) = L$ if 
+		\begin{align}
+			\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ x \in V_\delta^{\red{o}} (c) \implies f(x) \in V_\varepsilon(L)
+		\end{align}
+	\end{definition}
+	
+	\begin{example}
+		Let $g(x) = ^2$, show that $\lim_{x \to 2} g(x) = 4$.
+		\begin{proof}
+			Let $\varepsilon > 0$, note that for all $\delta < 1$, for all $x \in V_\delta^o(2)$,
+			\begin{align}
+				\abs{x^2 - 4} &= \abs{x-2} \abs{x+2} \\
+				\abs{x} = \abs{x-2+2} &\leq \abs{x-2} + 2 < 3 \\
+				\abs{x+2} &\leq \abs{x} + 2 < 5 \\
+				\implies \abs{x^2-4} &< 5 \delta
+			\end{align}
+			Take $\delta = \min\{\frac{1}{2}, \frac{\varepsilon}{5}\}$, both inequality reasoning (because $\delta < 1$) and $\varepsilon$ requirement are valid.
+		\end{proof}
+	\end{example}
+	
+	\begin{theorem}[Sequential Criterion for Functional Limit]
+		Given a function $f: A \to \R$ and $c \in A'$, then the following are equivalent:
+		\begin{enumerate}[(i)]
+			\item $\lim_{x \to c} f(x) = L$;
+			\item $\forall (x_n) \subset A \backslash \{c\}$ such that $(x_n) \to c$, $(f(x_n)) \to L$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		$(i) \implies (ii)$: assume $f(x) \to L$, let $(x_n) \subset A \backslash \{c\}$ be an arbitrary convergent sequence with limit $c$. \\
+		Let $\varepsilon > 0$, there exists $\delta > 0$ such that for every $x \in V_\delta^0(c)$, $f(x) \in V_\varepsilon(L)$.\\
+		Consider such $\delta$, by the convergence of sequence, there exists $N \in \N$ such that for all $n \geq N$, $x_n \in V_\delta(c)$.\\
+		Moreover, note that $x_n \neq c\ \forall n \in \N$, therefore $n \geq N \implies x_n \in V_\delta^o(c)$, which further implies $f(x_n) \in V_\varepsilon(L)$ by the limit property of $f$. \\
+		$(ii) \implies (i)$: assume, for contradiction, $\lim_{x \to c} f(x) \neq L$.\\
+		Negating the definition of functional limit gives
+		\begin{align}
+			\exists\ \varepsilon^* > 0\ s.t.\ \forall \delta > 0\ \exists x_\delta \in V_\delta^o(c)\ s.t.\ f(x_\delta) \notin V_{\varepsilon^*}(L)
+		\end{align}
+		For every $n \in \N$, take $\delta = \frac{1}{n}$, and define $x_n := x_\delta$ from above statement.\\
+		Clearly, $(x_n) \to c$ by construction, but $(f(x_n))$ is bounded away from $L$ by $\varepsilon^* > 0$. This leads to a contradiction of $(ii)$.
+	\end{proof}
+	
+	\begin{theorem}[Convergence Criterion for Functional Limits]
+		Let $f: A \to \R$ and $c \in A'$. If there exists two sequences $(x_n), (y_n) \subset A \backslash \{c\}$ converging to $c$, but $\lim_{n\to\infty} f(x_n) \neq \lim_{n\to\infty} f(y_n)$, then $\lim_{x \to c} f(x)$ does not exist.
+	\end{theorem}
+	
+	\begin{proof}
+		In the previous theorem, the negation of $(ii)$ proposes exactly the existence of two convergent sequences in $A \backslash \{c\}$ converging to the same limit $c$ but their image sequences does not converge to the same limit. The result is immediate by taking the contraposition of $(i) \implies (ii)$ part.
+	\end{proof}
+	
+	\begin{example}
+		Limit of $f(x) := \begin{cases}
+			\sin\left(\frac{1}{x}\right) &\tx{ if } x \neq 0 \\
+			0 &\tx{ if } x = 0
+		\end{cases}$ at 0 does not exist.
+	\end{example}
+	
+	\begin{example}
+		Limit of $f(x) := \id{x \in \Q}$ does not exist everywhere in $\R$.
+	\end{example}
+	
+	\begin{example}
+		Limit of $f(x) := x \id{x \in \Q}$ only exists at $x = 0$.
+	\end{example}
 \end{document}
 
 

@@ -18,3 +18,4 @@
 \contentsline {subsection}{\numberline {3.2}Compactness}{17}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Connected Sets}{18}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Cantor Set}{20}{subsection.3.4}
+\contentsline {section}{\numberline {4}Functional Limits and Continuity}{21}{section.4}
