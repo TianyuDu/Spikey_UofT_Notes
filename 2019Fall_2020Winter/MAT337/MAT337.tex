@@ -43,7 +43,7 @@
 	\section{The Axiom of Completeness}
 	\subsection{Preliminaries}
 	\begin{definition}
-		A set $A \subset \R$ is \textbf{bounded above} if
+		A set $A \subseteq \R$ is \textbf{bounded above} if
 		\begin{align}
 			\exists u \in \R\ s.t.\ \forall a \in A,\ u \geq a
 		\end{align} 
@@ -58,11 +58,11 @@
 	\end{example}
 	
 	\begin{notation}
-		Let $A \subset \R$, we use $A^\uparrow$ and $A^\downarrow$ to denote collections of upper bounds of $A$ and lower bounds of $A$. When $A$ is bounded, either $A^\uparrow$ or $A^\downarrow$ is empty.
+		Let $A \subseteq \R$, we use $A^\uparrow$ and $A^\downarrow$ to denote collections of upper bounds of $A$ and lower bounds of $A$. When $A$ is bounded, either $A^\uparrow$ or $A^\downarrow$ is empty.
 	\end{notation}
 	
 	\begin{definition}
-		A real number $s \in \R$ is the \textbf{least upper bound (supremum)} for a set $A \subset \R$ if 
+		A real number $s \in \R$ is the \textbf{least upper bound (supremum)} for a set $A \subseteq \R$ if 
 		\begin{enumerate}[(i)]
 			\item $s \in A^\uparrow$;
 			\item and $\forall u \in A^\uparrow,\ s \leq u$.
@@ -79,20 +79,20 @@
 	\end{definition}
 	
 	\begin{axiom}[The Axiom of Completeness/Least Upper Bounded Property]
-		$\forall \es \neq A \subset \R$ such that $A^\uparrow \neq \es$, $\exists\ \R \ni u = \sup A$.
+		$\forall \es \neq A \subseteq \R$ such that $A^\uparrow \neq \es$, $\exists\ \R \ni u = \sup A$.
 	\end{axiom}
 	
 	\begin{definition}
-		Let $\es \neq A \subset \R$, $a_0 \in A$ is the \textbf{maximum} of $A$ if $\forall a \in A, a_0 \geq a $; $a_1 \in A$ is the \textbf{minimum} of $A$ if 
+		Let $\es \neq A \subseteq \R$, $a_0 \in A$ is the \textbf{maximum} of $A$ if $\forall a \in A, a_0 \geq a $; $a_1 \in A$ is the \textbf{minimum} of $A$ if 
 		$\forall a \in A, a_1 \leq a$.
 	\end{definition}
 	
 	\begin{example}
-		$\Q \subset \R$ does not satisfy the axiom of completeness. Let $A = \{r \in \Q: r < \sqrt{2}\}$, clearly $A$ is bounded above, but for every $r' \in \Q \cap A^\uparrow$, there exists $r'' \in (\sqrt{2}, r') \cap A^\uparrow$.
+		$\Q \subseteq \R$ does not satisfy the axiom of completeness. Let $A = \{r \in \Q: r < \sqrt{2}\}$, clearly $A$ is bounded above, but for every $r' \in \Q \cap A^\uparrow$, there exists $r'' \in (\sqrt{2}, r') \cap A^\uparrow$.
 	\end{example}
 	
 	\begin{proposition}
-		Let $\es \neq A \subset \R$ bounded above, and $c \in \R$. Define $c + A := \{a + c: a \in A\}$. Then
+		Let $\es \neq A \subseteq \R$ bounded above, and $c \in \R$. Define $c + A := \{a + c: a \in A\}$. Then
 		\begin{align}
 			\sup (c + A) = c + \sup A
 		\end{align}
@@ -107,7 +107,7 @@
 	\end{proof}
 	
 	\begin{lemma}[Alternative Definition of Supremum]
-		Let $s \in A^\uparrow$ for some nonempty $A \subset \R$. The following statements are equivalent:
+		Let $s \in A^\uparrow$ for some nonempty $A \subseteq \R$. The following statements are equivalent:
 		\begin{enumerate}[(i)]
 			\item $s = \sup A$;
 			\item $\forall \varepsilon, \exists a \in A,\ s.t.\ a > s - \varepsilon$ (i.e. $s - \varepsilon \notin A^\uparrow$).
@@ -121,7 +121,7 @@
 	\begin{theorem}[Nested Interval Property]
 		Let $(I_n)_{n \in \N}$ be a sequence of closed intervals $I_n := [a_n, b_n]$ such that these intervals are \emph{nested} in a sense that
 		\begin{align}
-			I_{n+1} \subset I_n\ \forall n \in \N
+			I_{n+1} \subseteq I_n\ \forall n \in \N
 		\end{align}
 		Then,
 		\begin{align}
@@ -174,7 +174,7 @@
 	\end{theorem}
 	
 	\begin{remark}
-		The above theorem says $\Q$ is in fact \textbf{dense} in $\R$. More generally, one says a set $A \subset X$ is dense whenever the closure of $A$, $\overline{A} = X$.
+		The above theorem says $\Q$ is in fact \textbf{dense} in $\R$. More generally, one says a set $A \subseteq X$ is dense whenever the closure of $A$, $\overline{A} = X$.
 	\end{remark}
 	
 	\begin{proof}
@@ -210,7 +210,7 @@
 	\end{proof}
 	
 	\begin{definition}
-		A sequence $(a_n) \subset \R$ \textbf{converges} to $a \in \R$ if 
+		A sequence $(a_n) \subseteq \R$ \textbf{converges} to $a \in \R$ if 
 		\begin{align}
 			\forall \varepsilon > 0,\ \exists N \in \N,\ n \geq N \implies a_n \in V_\varepsilon(a)
 		\end{align}
@@ -380,7 +380,7 @@
 	\end{theorem}
 	
 	\begin{proof}
-		WLOG, assume $(a_n)$ is increasing, let $\Gamma := \{a_n: n \in \N\} \subset \R$, because $\Gamma$ is bounded, $s := \sup_n \Gamma$ is well-defined by the completeness of real numbers.\\
+		WLOG, assume $(a_n)$ is increasing, let $\Gamma := \{a_n: n \in \N\} \subseteq \R$, because $\Gamma$ is bounded, $s := \sup_n \Gamma$ is well-defined by the completeness of real numbers.\\
 		\emph{Claim:} $(a_n) \to s$. Let $\varepsilon > 0$, by the definition of supremum, $\exists N \in \N$ such that $a_N > s - \varepsilon$. Because the sequence is increasing and $s + \varepsilon \in \Gamma^\uparrow$, $n \geq N \implies s - \varepsilon < a_n  < s + \varepsilon$. $(a_n) \to s$ by definition.
 	\end{proof}
 	
@@ -595,7 +595,7 @@
 			&\leq \sum_{k=n+1}^m \abs{a_k} \\
 			&\leq \sum_{k=n+1}^m b_k
 		\end{align}
-		Therefore exists $N \in \N$ such that $\sum_{k=n+1}^m b_k \leq \abs{\sum_{k=n+1}^m b_k} < \varepsilon$ for every $m, n \geq N$. Taking such $N$ provides the cutoff needed for $(S_n^a)$ to be Cauchy. Because $(S_n^a) \subset \R$, it converges. \\
+		Therefore exists $N \in \N$ such that $\sum_{k=n+1}^m b_k \leq \abs{\sum_{k=n+1}^m b_k} < \varepsilon$ for every $m, n \geq N$. Taking such $N$ provides the cutoff needed for $(S_n^a)$ to be Cauchy. Because $(S_n^a) \subseteq \R$, it converges. \\
 		\emph{Part 2}: The result is immediate by taking the contrapositive form of the previous statement.
 	\end{proof}
 	
@@ -745,7 +745,7 @@
 			&= \abs{b_1 + \cdots + b_m	 - b_{f(1)} - \cdots - b_{f(N)}}
 		\end{align}
 		Note that for every $m \geq M$,
-		by construction, $\{b_{f(1)}, \cdots b_{f(N)}\} \subset \{b_1 \cdots, b_m\}$. \\
+		by construction, $\{b_{f(1)}, \cdots b_{f(N)}\} \subseteq \{b_1 \cdots, b_m\}$. \\
 		Note that for each $b_{f(k)} \in \{b_1 \cdots b_m\}$, either $k > N$ or $k \leq N$. But all $b_{f(k)}$ with $k \leq N$ were subtracted, so $b_{f(k)}$ elements left are all from $\{a_k: k \geq N+1\}$.
 		\begin{align}
 			... &= \abs{\sum_{k \in \mc{I} \geq N + 1} a_k} \\
@@ -763,9 +763,9 @@
 	\section{Topology in $\R$}
 	\subsection{Definitions}
 	\begin{definition}
-		A set $\mc{O} \subset \R$ is \textbf{open} if
+		A set $\mc{O} \subseteq \R$ is \textbf{open} if
 		\begin{align}
-			\forall x \in \mc{O}\ \exists\ \varepsilon > 0\ s.t.\ V_\varepsilon(x)\ s.t.\ V_\varepsilon(x) \subset \mc{O}
+			\forall x \in \mc{O}\ \exists\ \varepsilon > 0\ s.t.\ V_\varepsilon(x)\ s.t.\ V_\varepsilon(x) \subseteq \mc{O}
 		\end{align}
 	\end{definition}
 	
@@ -774,9 +774,9 @@
 	\end{theorem}
 	
 	\begin{proof}
-		Let $\mc{O}_\alpha$ open for all $\alpha \in \mc{A}$. Let $\mc{O} := \bigcup_{\alpha \in \mc{A}} \mc{O}_\alpha$. If $x \in \mc{O}$, there exists some $\alpha \in \mc{A}$ such that $x \in \mc{O}_\alpha$. There exists $V_\varepsilon(x) \subset \mc{O}_{\alpha} \subset \mc{O}$. Hence $\mc{O}$ is open.
+		Let $\mc{O}_\alpha$ open for all $\alpha \in \mc{A}$. Let $\mc{O} := \bigcup_{\alpha \in \mc{A}} \mc{O}_\alpha$. If $x \in \mc{O}$, there exists some $\alpha \in \mc{A}$ such that $x \in \mc{O}_\alpha$. There exists $V_\varepsilon(x) \subseteq \mc{O}_{\alpha} \subseteq \mc{O}$. Hence $\mc{O}$ is open.
 		\\
-		Let $\{\mc{O}_i: 1 \leq i \leq n\}$ be a collection of open sets, let $\mc{O} := \bigcap_{i=1}^\infty \mc{O}_i$. If $x \in \mc{O}$, there exists $\varepsilon_i > 0$ such that $V_{\varepsilon_i}(x) \subset \mc{O}_i$ for every $i$. Take $\varepsilon := \max\{\varepsilon_i\}$, which exists and is strictly positive by finiteness of index set. Therefore $V_\varepsilon(x) \subset \mc{O}_i$ for every $i$, and therefore in $\mc{O}$.
+		Let $\{\mc{O}_i: 1 \leq i \leq n\}$ be a collection of open sets, let $\mc{O} := \bigcap_{i=1}^\infty \mc{O}_i$. If $x \in \mc{O}$, there exists $\varepsilon_i > 0$ such that $V_{\varepsilon_i}(x) \subseteq \mc{O}_i$ for every $i$. Take $\varepsilon := \max\{\varepsilon_i\}$, which exists and is strictly positive by finiteness of index set. Therefore $V_\varepsilon(x) \subseteq \mc{O}_i$ for every $i$, and therefore in $\mc{O}$.
 	\end{proof}
 	
 	\begin{definition}
@@ -788,7 +788,7 @@
 	\end{definition}
 	
 	\begin{theorem}
-		$x$ is a limit point $A$ if and only if there exists a sequence $\seq{a}{n} \subset A$ such that \ul{$a_n \neq x\ \forall n \in \N$} and $\seq{a}{n} \to x$.
+		$x$ is a limit point $A$ if and only if there exists a sequence $\seq{a}{n} \subseteq A$ such that \ul{$a_n \neq x\ \forall n \in \N$} and $\seq{a}{n} \to x$.
 	\end{theorem}
 	\begin{proof}
 		$(\implies)$ Let $x$ be a limit point, take $\varepsilon = \frac{1}{n}$, immediate by the definition of limit point. \\
@@ -796,7 +796,7 @@
 	\end{proof}
 	
 	\begin{definition}
-		$X \subset \R$ is \textbf{closed} if it contains all its limit points.
+		$X \subseteq \R$ is \textbf{closed} if it contains all its limit points.
 	\end{definition}
 	
 	\begin{definition}
@@ -804,11 +804,11 @@
 	\end{definition}
 	
 	\begin{definition}
-		$A \subset X$ is \textbf{dense} in $X$ if $\overline{A} = X$.
+		$A \subseteq X$ is \textbf{dense} in $X$ if $\overline{A} = X$.
 	\end{definition}
 	
 	\begin{theorem}
-		Let $x \in \R$, there exists a sequence $\seq{q}{n} \subset \Q$ such that $\seq{q}{n} \to x$.
+		Let $x \in \R$, there exists a sequence $\seq{q}{n} \subseteq \Q$ such that $\seq{q}{n} \to x$.
 	\end{theorem}
 	
 	\begin{proof}
@@ -837,7 +837,7 @@
 	\end{theorem}
 	
 	\begin{proof}
-		($\implies$) Let $\mc{O}$ be an open set, let $(x_n) \to x$ be a convergent sequence in $\mc{O}^c$. It is evident that if $x \in \mc{O}$, infinitely many elements in the tail of $(x_n)$ would be in $V_\varepsilon(x) \subset \mc{O}$, which leads to a contradiction. Therefore $\mc{O}^c$ contains all of its limit poitns, and $\mc{O}^c$ is therefore closed.
+		($\implies$) Let $\mc{O}$ be an open set, let $(x_n) \to x$ be a convergent sequence in $\mc{O}^c$. It is evident that if $x \in \mc{O}$, infinitely many elements in the tail of $(x_n)$ would be in $V_\varepsilon(x) \subseteq \mc{O}$, which leads to a contradiction. Therefore $\mc{O}^c$ contains all of its limit poitns, and $\mc{O}^c$ is therefore closed.
 		\\($\impliedby$) Let $\mc{O}^c$ be a closed set, suppose $\mc{O}$ is not open, there exists $x \in \mc{O}$ such that for all $\varepsilon > 0$, $V_\varepsilon(x) \cap \mc{O}^c \neq \varnothing$. Then we can construct a sequence in $\mc{O}^c$ converge to $x$, which leads to a contradiction that there is a limit point of a sequence in $\mc{O}^c$ not contained by $\mc{O}^c$. \\
 		The second part is immediate.
 	\end{proof}
@@ -854,18 +854,18 @@
 	
 	\subsection{Compactness}
 	\begin{definition}
-		A set $K \subset \R$ is \textbf{compact} if every sequence in $K$ has a convergent subsequence converges to some limit $x \in K$.
+		A set $K \subseteq \R$ is \textbf{compact} if every sequence in $K$ has a convergent subsequence converges to some limit $x \in K$.
 	\end{definition}
 	
 	\begin{theorem}
-		A set $K \subset \R$ is compact \ul{if and only if} it is closed and bounded.
+		A set $K \subseteq \R$ is compact \ul{if and only if} it is closed and bounded.
 	\end{theorem}
 	
 	\begin{proof}
-		($\implies$) Suppose $K \subset \R$ is compact. \\
+		($\implies$) Suppose $K \subseteq \R$ is compact. \\
 		\emph{Show $K$ is bounded}: suppose, for contradiction, $K$ is unbounded, then for every $N \in \N$, one can construct a sequence as following: $a_1 \in K$ and $a_{n+1} > \max\{a_n, n\}$. Such sequence diverges to positive infinity, and every subsequence of it converges to infinity as well (easy to verify). This leads to a contradiction to the compactness of $K$. \\
 		\emph{Show $K$ is closed}: Suppose, for contradiction, $K$ is not closed, then there exists some limit point of $K$ say $x \notin K$. Consider the sequence $(x_n) \to x$ in $K$, because every subsequence of such convergent sequence converges to the same limit $x \notin K$, which leads to a contradiction of compactness. \\
-		($\impliedby$) Let $(x_n) \subset K$, then $(x_n)$ is bounded and therefore possesses a convergent subsequence by Bolzano-Weierstrass Theorem. Further, because $K$ is closed, then the limit point must be in $K$.
+		($\impliedby$) Let $(x_n) \subseteq K$, then $(x_n)$ is bounded and therefore possesses a convergent subsequence by Bolzano-Weierstrass Theorem. Further, because $K$ is closed, then the limit point must be in $K$.
 	\end{proof}
 	
 	\begin{theorem}[Nested Compact Set Property]
@@ -876,12 +876,12 @@
 	\end{theorem}
 	
 	\begin{proof}
-		Construct a sequence such that $x_n \in K_n$ for every $n \in \N$. In particular, $(x_n) \subset K_1$. Because $K_1$ is compact, it has  a convergent subsequence $(x_{n_k}) \to x \in K_1$. Then every subsequence of $(x_{n_k})$ converges to the same limit $x$.
+		Construct a sequence such that $x_n \in K_n$ for every $n \in \N$. In particular, $(x_n) \subseteq K_1$. Because $K_1$ is compact, it has  a convergent subsequence $(x_{n_k}) \to x \in K_1$. Then every subsequence of $(x_{n_k})$ converges to the same limit $x$.
 		\\Note that by dropping out the first element of the subsequence, the resulted sequence starts with $x_{n_2}$. By the definition of subsequences, $n_2 \geq 2$, therefore, the truncated subsequence is contained in $K_2$ because of the compactness of $K_2$. As a result, $x \in K_2$. Applying the same argument on all natural numbers, it is immediate that $x \in K_n\ \forall n \in \N$. So $x \in \bigcap_{n \in \N} K_n$.
 	\end{proof}
 	
 	\begin{proof}[Proof. (Cantor's Argument)]
-		Suppose, for contradiction, the intersection is empty. Define $U_n := K_1 \backslash K_n$. Note that $U_n = K_1 \cap K_n^c = K_n^c$, which is open. Further, $\bigcup_{n \in \N} U_n = \bigcup_{n \in \N} K_1 \cap K_n^c = K_1 \cap (\bigcup_{n \in \N}K_n^c) = K_1 \cap (\bigcap_{n \in \N}K_n)^c = K_1 \backslash \bigcap_{n \in \N}K_n = K_1$. Therefore, $\mc{C} = \{U_n: n \in \N\}$ is an open cover of $K_1$. Because $K_1$ is compact, there exists a finite subcover of $\mc{C}$. Take $n^*$ to be the greatest index in this finite subcover, then for every $x' \in K_{n^*+1} \subset K_1$, $x'$ is not in the union of the constructed subcover, which leads to a contradiction.
+		Suppose, for contradiction, the intersection is empty. Define $U_n := K_1 \backslash K_n$. Note that $U_n = K_1 \cap K_n^c = K_n^c$, which is open. Further, $\bigcup_{n \in \N} U_n = \bigcup_{n \in \N} K_1 \cap K_n^c = K_1 \cap (\bigcup_{n \in \N}K_n^c) = K_1 \cap (\bigcap_{n \in \N}K_n)^c = K_1 \backslash \bigcap_{n \in \N}K_n = K_1$. Therefore, $\mc{C} = \{U_n: n \in \N\}$ is an open cover of $K_1$. Because $K_1$ is compact, there exists a finite subcover of $\mc{C}$. Take $n^*$ to be the greatest index in this finite subcover, then for every $x' \in K_{n^*+1} \subseteq K_1$, $x'$ is not in the union of the constructed subcover, which leads to a contradiction.
 	\end{proof}
 	
 	\begin{example}
@@ -889,11 +889,11 @@
 	\end{example}
 	
 	\begin{definition}
-		Let $A \subset \R$, an \textbf{open cover} for $A$ is a collection of open sets $\{\mc{O}_\lambda: \lambda \in \Lambda\}$ such that $A \subseteq \bigcup_{\lambda \in \Lambda} \mc{O}_\lambda$.
+		Let $A \subseteq \R$, an \textbf{open cover} for $A$ is a collection of open sets $\{\mc{O}_\lambda: \lambda \in \Lambda\}$ such that $A \subseteq \bigcup_{\lambda \in \Lambda} \mc{O}_\lambda$.
 	\end{definition}
 	
 	\begin{theorem}[Heine-Borel]
-		Let $K \subset \R$, then the following are equivalent:
+		Let $K \subseteq \R$, then the following are equivalent:
 		\begin{enumerate}[(i)]
 			\item $K$ is (sequentially) compact;
 			\item $K$ is closed and bounded;
@@ -913,23 +913,23 @@
 		\end{align}
 		Because $K$ is compact, there exists a finite subcover of $\mc{C}$, which is clearly a contradiction. \\
 		\emph{Show $(ii) \implies (iii)$}: Suppose $K$ is closed and bounded, because of the transitivity of covering, it it sufficient to show that for every $M \in \R_+$, every open cover of $[-M, M]$ has a finite subcover. \\
-		Let $M \in \R_+$, and $\mc{C} = \{\mc{O}_\lambda: \lambda \in \Lambda\}$ is an open cover of $[-M, M]$. Suppose, for contradiction, there is no finite subcover. Then either $[-M, 0]$ or $[0, M]$ does not have a finite subcover from $\mc{C}$. Define such interval as $I_1$. Interval $I_n$ is defined inductively from $I_{n-1}$ by firstly bisecting $I_{n-1}$ into two closed intervals and then taking the partition that cannot be covered by any finite subcover of $\mc{C}$. Note that $(I_n)$ is a sequence of nested compact sets, by Cantor's intersection theorem, there intersection is nonempty. Further, because the length of interval shrinks to zero as $n \to \infty$, the intersection must be a singleton. Let $\{x\} = \bigcap_{n \in \N} I_n$, there exists some $\lambda \in \Lambda$, such that $x \in \mc{O}_\lambda$. Because $\mc{O}_\lambda$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subset \mc{O}_\lambda$. Take $k \in \N$ such that $|I_k| < 2\varepsilon$, clearly $I_k \subset V_\varepsilon(x) \subset \mc{O}_\lambda$. Then $\mc{O}_\lambda$ is a finite subcover of $I_k$, which leads to a contradiction.
+		Let $M \in \R_+$, and $\mc{C} = \{\mc{O}_\lambda: \lambda \in \Lambda\}$ is an open cover of $[-M, M]$. Suppose, for contradiction, there is no finite subcover. Then either $[-M, 0]$ or $[0, M]$ does not have a finite subcover from $\mc{C}$. Define such interval as $I_1$. Interval $I_n$ is defined inductively from $I_{n-1}$ by firstly bisecting $I_{n-1}$ into two closed intervals and then taking the partition that cannot be covered by any finite subcover of $\mc{C}$. Note that $(I_n)$ is a sequence of nested compact sets, by Cantor's intersection theorem, there intersection is nonempty. Further, because the length of interval shrinks to zero as $n \to \infty$, the intersection must be a singleton. Let $\{x\} = \bigcap_{n \in \N} I_n$, there exists some $\lambda \in \Lambda$, such that $x \in \mc{O}_\lambda$. Because $\mc{O}_\lambda$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subseteq \mc{O}_\lambda$. Take $k \in \N$ such that $|I_k| < 2\varepsilon$, clearly $I_k \subseteq V_\varepsilon(x) \subseteq \mc{O}_\lambda$. Then $\mc{O}_\lambda$ is a finite subcover of $I_k$, which leads to a contradiction.
 	\end{proof}
 	\subsection{Connected Sets}
 	\begin{definition}
-		$\varnothing \neq A, B \subset \R$ are \textbf{separated} if and only if $\overline{A} \cap B = \varnothing$ and $A \cap \overline{B} = \varnothing$.
+		$\varnothing \neq A, B \subseteq \R$ are \textbf{separated} if and only if $\overline{A} \cap B = \varnothing$ and $A \cap \overline{B} = \varnothing$.
 	\end{definition}
 	
 	\begin{definition}
-		$E \subset \R$ is \textbf{disconnected} if $E = A \cup B$ where $A, B$ are nonempty separated sets.
+		$E \subseteq \R$ is \textbf{disconnected} if $E = A \cup B$ where $A, B$ are nonempty separated sets.
 	\end{definition}
 	
 	\begin{proposition}[Equivalent Definiton]
-		$E \subset \R$ is disconnected if and only if it can be written as the union of two \emph{nonempty disjoint open} sets.
+		$E \subseteq \R$ is disconnected if and only if it can be written as the union of two \emph{nonempty disjoint open} sets.
 	\end{proposition}
 	
 	\begin{proof}
-		($\impliedby$) Let $E \subset \R$, suppose there exists nonempty disjoint open sets such that $E = A \cup B$. Suppose, for contradiction, $\overline{A} \cap B \neq \varnothing$, let $x \in \overline{A} \cap B$. Because $\overline{A} \cap B = (A \cup A') \cap B = (A \cap B) \cup (A' \cap B) = \varnothing \cup (A' \cap B) = A' \cap B$, $x$ must be a limit point of $A$. Also, because $B$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subset B$. Because $x \in A'$, there exists $y \neq x$ such that $y \in V_\varepsilon(x) \cap A$. Then $y \in A \cap B$, which contradicts the assumption that $A$ and $B$ are disjoint. The argument to show $A \cap \overline{B} = \varnothing$ is similar, so $A$ and $B$ are separated.\\
+		($\impliedby$) Let $E \subseteq \R$, suppose there exists nonempty disjoint open sets such that $E = A \cup B$. Suppose, for contradiction, $\overline{A} \cap B \neq \varnothing$, let $x \in \overline{A} \cap B$. Because $\overline{A} \cap B = (A \cup A') \cap B = (A \cap B) \cup (A' \cap B) = \varnothing \cup (A' \cap B) = A' \cap B$, $x$ must be a limit point of $A$. Also, because $B$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subseteq B$. Because $x \in A'$, there exists $y \neq x$ such that $y \in V_\varepsilon(x) \cap A$. Then $y \in A \cap B$, which contradicts the assumption that $A$ and $B$ are disjoint. The argument to show $A \cap \overline{B} = \varnothing$ is similar, so $A$ and $B$ are separated.\\
 		($\implies$) Suppose $A$ and $B$ are nonempty separated sets such that $A \cup B = E$. Show: $A$ and $B$ are nonempty disjoint open sets \\
 		$(i)$ $A$ and $B$ are by construction nonempty. \\
 		$(ii)$ Suppose $A$ and $B$ are not disjoint, then $\overline{A} \cap  B$ must be nonempty, which is a contradiction. \\
@@ -941,7 +941,7 @@
 	\end{proof}
 	
 	\begin{theorem}
-		A set $E \subset \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subset A$ converges to some point $a \in B$, and a sequence $(b_n) \subset B$ converges to some point $b \in A$.
+		A set $E \subseteq \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subseteq A$ converges to some point $a \in B$, and a sequence $(b_n) \subseteq B$ converges to some point $b \in A$.
 	\end{theorem}
 	
 	\begin{proof}
@@ -949,7 +949,7 @@
 	\end{proof}
 	
 	\begin{theorem}
-		Let $E \subset \R$, the following are equivalent:
+		Let $E \subseteq \R$, the following are equivalent:
 		\begin{enumerate}[(i)]
 			\item $E$ is connected;
 			\item For every $a < c < b$, $a, b \in E \implies c \in E$.
@@ -964,9 +964,9 @@
 		\end{align}
 		Note that $a \in A$ and $b \in B$, so both of them are nonempty. And $A$ and $B$ are separated. Suppose, for contradiction, $c \notin E$, $E = A \cup B$, which leads to a contradiction to the assumption that $E$ is connected.
 		\\
-		($\impliedby$) Suppose $(ii)$, show $E$ is connected. Let $A$ and $B$ be two nonempty set such that $A \cup B = E$ and $A \cap B = \varnothing$. We are going to show that $A$ and $B$ must be separated in this case. Let $a_0 \in A$ and $b_0 \in B$, WLOG, suppose $a_0 < b_0$. By $(ii)$, the entire interval $[a_0, b_0] \subset E$. Split $[a_0, b_0]$ into two half intervals $[\alpha, \beta]$ and $[\beta, \gamma]$. Note that it is impossible for $\{\beta\}$ to be the only point intersect both $A$ $B$, because in this case $A$ and $B$ cannot be disjoint.
+		($\impliedby$) Suppose $(ii)$, show $E$ is connected. Let $A$ and $B$ be two nonempty set such that $A \cup B = E$ and $A \cap B = \varnothing$. We are going to show that $A$ and $B$ must be separated in this case. Let $a_0 \in A$ and $b_0 \in B$, WLOG, suppose $a_0 < b_0$. By $(ii)$, the entire interval $[a_0, b_0] \subseteq E$. Split $[a_0, b_0]$ into two half intervals $[\alpha, \beta]$ and $[\beta, \gamma]$. Note that it is impossible for $\{\beta\}$ to be the only point intersect both $A$ $B$, because in this case $A$ and $B$ cannot be disjoint.
 		Take the one intersects both $A$ and $B$, denoted as $[a_1, b_1]$. \\
-		One can construct a sequence of closed intervals inductively, such that every $I_n$ intersects both $A$ and $B$. Also, previous result shows that $\cap_{n \in \N} I_n \neq \varnothing$, and is in fact a singleton. Let $x \in \cap_{n \in \N} I_n$, if $x \in A$, then there exists $(b_n) \subset B$ such that $(b_n) \to x$. Similarly, if $x \in B$, there exists $(a_n) \subset A$ such that $(a_n) \to x$. As a result, either $\overline{A} \cap B \neq \varnothing$ or $A \cap \overline{B} \neq \varnothing$. Therefore, $E$ is connected.
+		One can construct a sequence of closed intervals inductively, such that every $I_n$ intersects both $A$ and $B$. Also, previous result shows that $\cap_{n \in \N} I_n \neq \varnothing$, and is in fact a singleton. Let $x \in \cap_{n \in \N} I_n$, if $x \in A$, then there exists $(b_n) \subseteq B$ such that $(b_n) \to x$. Similarly, if $x \in B$, there exists $(a_n) \subseteq A$ such that $(a_n) \to x$. As a result, either $\overline{A} \cap B \neq \varnothing$ or $A \cap \overline{B} \neq \varnothing$. Therefore, $E$ is connected.
 	\end{proof}
 	
 	\subsection{Cantor Set}
@@ -1004,7 +1004,7 @@
 	\end{proposition}
 	
 	\begin{proof}
-		Note that for any set to have nonempty interior, it must contains some open intervals. Claim: for every open interval $(a, b)$, it cannot be contained in $\mc{C}$. Let $a < b$, note that for every partition of $S_n$ has length $\frac{1}{3^n}$. Then there exists $n \in \N$ such that $\frac{1}{3^n} < b - a$. Therefore, $(b - a) \centernot \subset S_n$ for such $n$. So that $\mc{C}$ cannot contain any open interval.
+		Note that for any set to have nonempty interior, it must contains some open intervals. Claim: for every open interval $(a, b)$, it cannot be contained in $\mc{C}$. Let $a < b$, note that for every partition of $S_n$ has length $\frac{1}{3^n}$. Then there exists $n \in \N$ such that $\frac{1}{3^n} < b - a$. Therefore, $(b - a) \centernot \subseteq S_n$ for such $n$. So that $\mc{C}$ cannot contain any open interval.
 	\end{proof}
 	
 	\begin{proposition}
@@ -1020,7 +1020,7 @@
 	\end{proposition}
 	
 	\begin{proof}
-		$\mc{C}$ is bounded by $[0, 1]$ and closed by previous proposition. Therefore, $\mc{C} \subset \R$ is compact.
+		$\mc{C}$ is bounded by $[0, 1]$ and closed by previous proposition. Therefore, $\mc{C} \subseteq \R$ is compact.
 	\end{proof}
 	
 	\begin{proposition}
@@ -1057,6 +1057,7 @@
 		\begin{align}
 			\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ x \in V_\delta^{\red{o}} (c) \implies f(x) \in V_\varepsilon(L)
 		\end{align}
+		\emph{Remark: The definition of continuity is stated in terms of punctuated ball, however, it is often easier to argue $x \in V_\delta(c) \implies f(x) \in V_\varepsilon(L)$}.
 	\end{definition}
 	
 	\begin{example}
@@ -1077,12 +1078,12 @@
 		Given a function $f: A \to \R$ and $c \in A'$, then the following are equivalent:
 		\begin{enumerate}[(i)]
 			\item $\lim_{x \to c} f(x) = L$;
-			\item $\forall (x_n) \subset A \backslash \{c\}$ such that $(x_n) \to c$, $(f(x_n)) \to L$.
+			\item $\forall (x_n) \subseteq A \backslash \{c\}$ such that $(x_n) \to c$, $(f(x_n)) \to L$.
 		\end{enumerate}
 	\end{theorem}
 	
 	\begin{proof}
-		$(i) \implies (ii)$: assume $f(x) \to L$, let $(x_n) \subset A \backslash \{c\}$ be an arbitrary convergent sequence with limit $c$. \\
+		$(i) \implies (ii)$: assume $f(x) \to L$, let $(x_n) \subseteq A \backslash \{c\}$ be an arbitrary convergent sequence with limit $c$. \\
 		Let $\varepsilon > 0$, there exists $\delta > 0$ such that for every $x \in V_\delta^0(c)$, $f(x) \in V_\varepsilon(L)$.\\
 		Consider such $\delta$, by the convergence of sequence, there exists $N \in \N$ such that for all $n \geq N$, $x_n \in V_\delta(c)$.\\
 		Moreover, note that $x_n \neq c\ \forall n \in \N$, therefore $n \geq N \implies x_n \in V_\delta^o(c)$, which further implies $f(x_n) \in V_\varepsilon(L)$ by the limit property of $f$. \\
@@ -1096,7 +1097,7 @@
 	\end{proof}
 	
 	\begin{theorem}[Convergence Criterion for Functional Limits]
-		Let $f: A \to \R$ and $c \in A'$. If there exists two sequences $(x_n), (y_n) \subset A \backslash \{c\}$ converging to $c$, but $\lim_{n\to\infty} f(x_n) \neq \lim_{n\to\infty} f(y_n)$, then $\lim_{x \to c} f(x)$ does not exist.
+		Let $f: A \to \R$ and $c \in A'$. If there exists two sequences $(x_n), (y_n) \subseteq A \backslash \{c\}$ converging to $c$, but $\lim_{n\to\infty} f(x_n) \neq \lim_{n\to\infty} f(y_n)$, then $\lim_{x \to c} f(x)$ does not exist.
 	\end{theorem}
 	
 	\begin{proof}
@@ -1110,13 +1111,85 @@
 		\end{cases}$ at 0 does not exist.
 	\end{example}
 	
-	\begin{example}
+	\begin{example}[Dirichlet Function]
 		Limit of $f(x) := \id{x \in \Q}$ does not exist everywhere in $\R$.
 	\end{example}
 	
 	\begin{example}
 		Limit of $f(x) := x \id{x \in \Q}$ only exists at $x = 0$.
 	\end{example}
+	
+	\begin{theorem}[Characterizations of Continuity: Alternative Notations]
+		Let $f: A \to \R$, $c \in A$, then $f$ is continuous at $c$ \ul{if and only if} one of the following holds:
+		\begin{enumerate}[(i)]
+			\item $\forall \varepsilon > 0\ \exists\ \delta > 0\ s.t.\ \abs{x - c} < \delta \implies \abs{f(x) - f(c)} < \varepsilon$;
+			\item $\forall V_\varepsilon(f(c))\ \exists\  V_\delta(c)\ s.t.\ x \in V_\delta (c) \cap A \implies f(x) \in V_\varepsilon (f(x))$;
+			\item $\forall A \supseteq (x_n) \to c \in A'\ (f(x_n)) \to f(c)$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proposition}[Criterion of Discontinuity]
+		Let $f: A \to \R$, $c \in A'$, if there exists sequence $(x_n) \subseteq A$ converges to $c$ but $(f(x_n)) \centernot \to f(c)$, then $f$ is not continuous at $c$.
+	\end{proposition}
+	
+	\begin{example}[Thomae's Function]
+		Define
+		\begin{align}
+			f(x) &= \begin{cases}
+				0 &\tx{ if } x \notin \Q\\
+				\frac{1}{q} &\tx{ if } x = \frac{p}{q} \in \Q \land \tx{gcd}(p, q) = 1 \\
+				1 &\tx{ if } x = 0
+			\end{cases}
+		\end{align}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{figure/thomae_function.png}
+			\caption{Thomae's Function in the Unit Interval}
+		\end{figure}
+		\textbf{Claim: } for every $a \in \R$, $\lim_{x \to a} f(x) = 0$.
+		\begin{proof}
+			WLOG, consider the domain $a \in (0, 1)$ only, show:
+			\begin{align}
+				\forall \varepsilon > 0\ \exists\ \delta > 0\ s.t.\ \forall x \in V_\delta^o(a),\ f(x) \in V_\varepsilon(0)
+			\end{align}
+			Fix $\varepsilon > 0$. \\
+			Note that there exists $N \in \N$ such that $n \geq N \implies \abs{\frac{1}{n}} < \varepsilon$.\\
+			Because $\Q$ is countable, define finite set $L$ following Cantor's diagonal order
+			\begin{align}
+				L := \left\{
+				0, 1, \frac{1}{2},  \frac{1}{3}, \frac{2}{3}, \frac{1}{4}, \frac{3}{4}, \cdots,
+				\frac{N-2}{N-1}
+				\right \} \backslash \{ a \}
+			\end{align}
+			That is, $L$ contains every rational number such that its denominator in the lowest form is less than $N$ excluding $a$ (if $a$ is rational). \\
+			Define $m := \min_{q_i \in L} \abs{a - q_i}$, which is well-defined because $L$ is finite. \\
+			Take $\delta := \frac{m}{2}$, note that $V_\delta (a) \cap \Q \cap L = \varnothing$ by construction. \\
+			Let $x \in V_\delta^o(a)$, either \\
+			(i) $x \in \Q \implies x \notin L \implies x = \frac{p}{q}$ where $q \geq N$, which implies $f(x) = \frac{1}{q} < \varepsilon$; \\
+			(ii) or $x \notin \Q \implies f(x) = 0 < \varepsilon$. \\
+			Either case implies the limit to be zero. \\
+			Therefore $f$ is discontinuous on $\Q$.
+		\end{proof}
+	\end{example}
+	
+	\begin{theorem}
+		Composition of continuous functions is continuous. \\
+		Given $f: A \to \R$, $g: B \to \R$ such that the range $f(A) \subseteq B$. If $f$ is continuous at $c \in A$, and if $g$ is continuous at $f(c) \in B$. Then $g \circ f$ is continuous at $c$.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $\varepsilon > 0$, and $g(x)$ is continuous at $f(c)$. 
+		\begin{align}
+			\exists\ \tilde{\delta}\ s.t.\ f(x) \in V_{\tilde{\delta}}(f(c)) &\implies g \circ f(x) \in V_\varepsilon (g \circ f(x)) \\
+			\exists\ \delta > 0\ s.t.\ x \in V_\delta(c) &\implies f(x) \in V_{\tilde{\varepsilon} = \tilde{\delta}} (f(c))
+		\end{align}
+	\end{proof}
+	
+	\subsection{Continuous Functions on Compact Sets}
+	
+	\begin{theorem}
+		Image of continuous function compact set is compact set.
+	\end{theorem}
 \end{document}
 
 
