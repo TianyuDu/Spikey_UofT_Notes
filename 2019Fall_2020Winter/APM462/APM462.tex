@@ -913,6 +913,96 @@
 		Suppose $x_0$ is a local minimum for ($\dag$), then $x_0$ is a local minimum for active constraints at $x_0$. \\
 		Therefore, $\nabla^2 \hat{\mc{L}} = \nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j \in I(x_0)} \mu_j \nabla^2 g_j(x_0)$ is positive semidefinite on the tangent space to active constraints. Note that because $\mu_j = 0$ for inactive constraints, therefore $\nabla^2 \hat{\mc{L}} = \nabla^2 \mc{L}$ at $x_0$, and both of them are positive semidefinite on the tangent space corresponding to active constraints.
 	\end{proof}
+	
+	\begin{theorem}[The Second Order Sufficient Conditions]
+		Let $\Omega$ be an open subset of $\R^n$, let $f, h_i, q_j \in C^2(\Omega)$. Consider minimizing $f(x)$ with the constraint
+		\begin{align}
+			(\dag ) \begin{cases}
+				h_i(x) = 0\quad \forall i \\
+				g_j(x) \leq 0\quad \forall j \\
+				x \in \Omega
+			\end{cases}
+		\end{align}
+		Suppose there exists a feasible $x_0$ satisfying $(\dag)$ and $\lambda_i \in \R$ and $\mu_j \in \R_{+}$ such that
+   		\begin{enumerate}[(i)]
+   			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
+   			\item $\mu_j g_j(x_0) = 0$ (\emph{Complementary slackness}).
+   		\end{enumerate}
+   		If the Hessian matrix for Lagrangian $\nabla_x^2 \mc{L}(x_0)$ is \ul{positive definite} on $\ttilde{T}_{x_0}$, the space of \textbf{strongly active} constraints at $x_0$, then $x_0$ is a strict local minimum.
+	\end{theorem}
+	
+	\begin{definition}
+		A constraint $g_j$ is \textbf{strongly active} at $x_0$ if $g_j(x_0) = 0$ (so it is active) and $\mu_j > 0$. 
+	\end{definition}
+	
+	\begin{notation}
+		For convenience, we can rearrange the collection of constraints such that, among the $\ell$ constrains in total, the first $\ell'$ constraints are \emph{active} at $x_0$ and the first $\ell''$ constraints are \emph{strongly active}. Note that $\ell'' \leq \ell ' \leq \ell$. \\
+		Define 
+		\begin{align}
+			\tilde{T}_{x_0} := \{
+			v \cdot \nabla h_i(x_0) = 0\ \forall i \land v \cdot \nabla g_j(x_0)\ \forall 1 \leq j \leq \ell'
+			\} \\
+			\ttilde{T}_{x_0} := \{
+			v \cdot \nabla h_i(x_0) = 0\ \forall i \land v \cdot \nabla g_j(x_0)\ \forall 1 \leq j \leq \ell''
+			\}
+		\end{align}
+		Clearly, $\tilde{T}_{x_0} \subseteq \ttilde{T}_{x_0}$ because there are (weakly) more active constraints than strongly active constraints.
+	\end{notation}
+	
+	\begin{proof}[Proof of the Sufficient Condition]
+		Suppose, for contradiction, $x_0$ is not a strict local minimum. \\
+		\textbf{Claim 1:} There exists unit vector $v \in \R^n$ such that 
+		\begin{enumerate}[(a)]
+			\item $\nabla f(x_0) \cdot v \leq 0$;
+			\item $\nabla h_i(x_0) \cdot v = 0$ for every $i$;
+			\item $\nabla g_j(x_0) \cdot v \leq 0$ for all $j \leq \ell'$ (active constraints).
+		\end{enumerate}
+		\begin{proof}[Proof of Claim 1]
+			Because $x_0$ is not a strictly local minimum, one can construct a sequence of feasible points $(x_k) \to x_0$ by setting $\varepsilon = \frac{1}{k}$ for every $k \in \N$ such that $f(x_k) \leq f(x_0)$. \\
+			Let $v_k := \frac{x_k - x_0}{\norm{x_k - x_0}}$, $s_k := \norm{x_k - x_0}$. Note that every $v_k$ is in unit sphere, which is compact. Therefore, there exists a subsequence of $(v_k)$ converges to some unit vector $v$.
+			\begin{align}
+				0 \geq f(x_k) - f(x_0) = f(x_0 + s_k v_k) - f(x_0)\ \forall k \in \N
+			\end{align}
+			The first order Taylor series suggests the following holds for every $k \in \N$:
+			\begin{align}
+				0 &\geq f(x_0 + s_k v_k) - f(x_0) \\
+				&= s_k \nabla f(x_0) \cdot v_k + o(s_k) \\
+				0 &= h_i(x_0 + s_k v_k) - h_i(x_0) = s_k \nabla h_i(x_0) \cdot v_k + o (s_k) \\
+				0 &\geq g_j(x_0 + s_k v_k) - g_j(x_0) = s_k \nabla g_j(x_0) \cdot v_k + o(s_k)\quad \forall j \leq \ell'
+			\end{align}
+			Above inequalities are preserved by limit operation, therefore,
+			\begin{align}
+				\nabla f(x_0) \cdot v_k + \frac{o(s_k)}{s_k} \to \nabla f(x_0) \cdot v &\leq 0 \\
+				\nabla h_i(x_0) \cdot v_k + \frac{o(s_k)}{s_k} \to \nabla h_i(x_0) \cdot v &= 0 \\
+				\nabla g_j(x_0) \cdot v_k + \frac{o(s_k)}{s_k} \to \nabla g_j(x_0) \cdot v &\leq 0\quad \forall j \leq \ell'
+			\end{align}
+		\end{proof}
+		\textbf{Claim 2:} $\nabla g_j(x_0) \cdot v = 0$ for $j = 1, \cdots, \ell''$.
+		\begin{proof}[Proof of Claim 2]
+			Suppose not, there exists $j \in \{1, \cdots, \ell''\}$ such that $\nabla g_j(x_0) \cdot v < 0$. Then by (i),
+			\begin{align}
+				0 \geq \nabla f(x_0) \cdot v &= - \sum_{i=1}^k \lambda_i \nabla h_i(x_0) \cdot v - \sum_{j=1}^{\ell} \mu_j \nabla g_j(x_0) \cdot v \\
+				&= - \sum_{j=1}^{\ell} \mu_j \nabla g_j(x_0) \cdot v > 0
+			\end{align}
+			the last inequality is from the fact that $\mu_j \nabla g_j (x_0) \cdot v \leq 0$ for all active constraints and $\mu_j = 0$ for all inactive constraints. \\
+		\end{proof}
+		(b) and claim 2 suggests $v \in \ttilde{T}_{x_0}$. \\
+		By the second order Taylor approximation,
+		\begin{align}
+			0 \geq f(x_k) - f(x_0) &= s_k \nabla f(x_0)\cdot v_k + \frac{s_k^2}{2} v_k \cdot \nabla^2 f(x_0) \cdot v_k + o(s_k^2) \\
+			0 = h_i(x_k) - h_i(x_0) &= s_k \nabla h_i(x_0)\cdot v_k + \frac{s_k^2}{2} v_k \cdot \nabla^2 h_i(x_0) \cdot v_k + o(s_k^2)\quad \forall i\\
+			0 \geq g(x_k) - g(x_0) &= s_k \nabla g_j(x_0)\cdot v_k + \frac{s_k^2}{2} v_k \cdot \nabla^2 g_j(x_0) \cdot v_k + o(s_k^2)\quad \forall j \leq \ell'
+		\end{align}
+		Multiply the second equation by $\lambda_i$ and third equation by $\mu_j$, and use the fact that $\mu_j = 0$ for every $j > \ell'$. Also, given $\nabla \mc{L} = 0$ in (i): 
+		\begin{align}
+			0 &\geq \frac{s_k^2}{2} v_k \cdot \nabla^2 \mc{L} \cdot v_k + o(s_k^2)
+		\end{align}
+		Divide by $s_k^2$ and take the limit $(v_k) \to v$:
+		\begin{align}
+			v\cdot \nabla^2 \mc{L}\cdot v \leq 0
+		\end{align}
+		which contradicts the assumption that $\nabla^2 \mc{L}$ is positive definite in $\ttilde{T}_{x_0}$ because we've shown that $v \in \ttilde{T}_{x_0}$.
+	\end{proof}
 \end{document}
 
 
