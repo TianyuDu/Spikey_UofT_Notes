@@ -45,25 +45,26 @@
     \section{Preliminaries}
     \subsection{Mean Value Theorems and Taylor Approximations.}
     \begin{definition}
-        Let $f: S \subset \R^n \to \R$, the \textbf{gradient} of $f$ at $x \in S$, if exists, is a vector $\nabla f(x) \in \R^n$ characterized by the property
+        Let $f: S \subseteq \R^n \to \R$, the \textbf{gradient} of $f$ at $x \in S$, if exists, is a vector $\nabla f(x) \in \R^n$ characterized by the property
         \begin{equation}
             \lim_{v \to 0} \frac{f(x+v) - f(x) - \nabla f(x) \cdot v}{\norm{v}} = 0
         \end{equation}
     \end{definition}
     
-    \begin{theorem}[The First Order of Mean Value Theorem]
-        Let $f$ be a $C^1$ real-valued function defined on $\R^n$, then for any $x, v \in \R^n$, there exists some $\theta \in (0, 1)$ such that
+    \begin{theorem}[The First Order Mean Value Theorem]
+        Let $f \in C^1(\R^n, \R)$, then for any $x, v \in \R^n$, there exists some $\theta \in (0, 1)$ such that
         \begin{equation}
             f(x + v) = f(x) + \nabla f(x + \theta v) \cdot v
         \end{equation}
     \end{theorem}
     
     \begin{proof}
-        Let $x, v \in \R^n$, define $g(t): \R \to \R := f(x + tv)$, which is $C^1$. By the mean value theorem on $\R^\R$, there exists $\theta \in (0, 1)$ such that $g(0+1) = g(0) + g'(\theta)(1-0)$, that is, $f(x+v) = f(x) + g'(\theta)$. Note that $g'(\theta) = \nabla(x + \theta v) \cdot v$, what desired is immediate.
+        Let $x, v \in \R^n$, define $g(t) := f(x + tv) \in C^1(\R, \R)$. \\
+        By the mean value theorem on $\R^\R$, there exists $\theta \in (0, 1)$ such that $g(0+1) = g(0) + g'(\theta)(1-0)$, that is, $f(x+v) = f(x) + g'(\theta)$. Note that $g'(\theta) = \nabla f(x + \theta v) \cdot v$.
     \end{proof}
     
     \begin{proposition}[The First Order Taylor Approximation]
-        Let $f: \R^n \to \R$ be a $C^1$ function, then
+        Let $f \in C^1(\R^n, \R)$, then
         \begin{equation}
             f(x + v) = f(x) + \nabla f(x) \cdot v + o(\norm{v})
         \end{equation}
@@ -74,26 +75,28 @@
     \end{proposition}
     
     \begin{proof}
-    	By the mean value theorem, $\exists \theta \in (0, 1)$ such that $f(x+v) - f(x) = \nabla f(x + \theta v) \cdot v$. The limit becomes $\lim_{\norm{v} \to 0} \frac{[\nabla f(x + \theta v) - \nabla f(x)] \cdot v}{\norm{v}} = \lim_{\norm{v} \to 0; x + \theta v \to x} \frac{[\nabla f(x + \theta v) - \nabla f(x)] \cdot v}{\norm{v}}$. Since $f \in C^1$, $\lim_{x + \theta v \to x} \nabla f(x + \theta v) = \nabla f(x)$. And $\frac{v}{\norm{v}}$ is a unit vector, and every component of it is bounded, as the result, the limit of inner product vanishes instead of explodes.
+    	By the mean value theorem, $\exists \theta \in (0, 1)$ such that $f(x+v) - f(x) = \nabla f(x + \theta v) \cdot v$.\\
+    	The limit becomes $\lim_{\norm{v} \to 0} \frac{[\nabla f(x + \theta v) - \nabla f(x)] \cdot v}{\norm{v}} = \lim_{\norm{v} \to 0; x + \theta v \to x} \frac{[\nabla f(x + \theta v) - \nabla f(x)] \cdot v}{\norm{v}}$.\\
+    	Since $f \in C^1$, $\lim_{x + \theta v \to x} \nabla f(x + \theta v) = \nabla f(x)$.\\
+    	And $\frac{v}{\norm{v}}$ is a unit vector, and every component of it is bounded, as the result, the limit of inner product vanishes instead of explodes.
     \end{proof}
     
     \begin{theorem}[The Second Order Mean Value Theorem]
         Let $f: \R^n \to \R$ be a $C^2$ function, then for any $x, v \in \R^n$, there exists $\theta \in (0, 1)$ satisfying
         \begin{equation}
-            f(x + v) = f(x) + \nabla f(x) \cdot v + \frac{1}{2} v' H_f(x + \theta v)\ v
+            f(x + v) = f(x) + \nabla f(x) \cdot v + \frac{1}{2} v^T \nabla^2 f(x + \theta v) v
         \end{equation}
-        where $H_f$ is the Hessian matrix of $f$, may also be written as $\nabla^2 f$.
     \end{theorem}
     
     \begin{proposition}[The Second Order Taylor Approximation]
-        Let $f: \R^n \to \R$ be a $C^2$ function, and $x, v \in \R^n$, then
+        Let $f: C^2(\R^n, \R)$ function, and $x, v \in \R^n$, then
         \begin{equation}
-            f(x + v) = f(x) + \nabla f(x) \cdot v + \frac{1}{2} v' H_f(x)\ v + o(\red{\norm{v}^2})
+            f(x + v) = f(x) + \nabla f(x) \cdot v + \frac{1}{2} v^T \nabla^2 f(x + \theta v) v + o(\red{\norm{v}^2})
         \end{equation}
         that is
         \begin{equation}
             \lim_{\norm{v} \to 0} \frac{
-                f(x + v) - f(x) - \nabla f(x) \cdot v - \frac{1}{2} v' H_f(x)\ v
+                f(x + v) - f(x) - \nabla f(x) \cdot v - \frac{1}{2} v^T \nabla^2 f(x) v
             }{\norm{v}^2} = 0
         \end{equation}
     \end{proposition}
@@ -101,12 +104,12 @@
     \begin{proof}
     	By the second mean value theorem, there exists $\theta \in (0, 1)$ such that the limit is equivalent to
     	\begin{align}
-    		\lim_{\norm{v} \to 0} \frac{1}{2} \left(\frac{v}{\norm{v}}\right)' \left[H_f(x + \theta v) - H_f(x)\right] \frac{v}{\norm{v}}
+    		\lim_{\norm{v} \to 0} \frac{1}{2} \left(\frac{v}{\norm{v}}\right)^T \left[\nabla^2 f(x + \theta v) - \nabla^2 f(x)\right] \frac{v}{\norm{v}}
     	\end{align}
     	Since $f \in C^2$, the limit of $\left[H_f(x + \theta v) - H_f(x)\right]$ is in fact $\textbf{0}_{n \times n}$. And every component of unit vector $\frac{v}{\norm{v}}$ is bounded, the quadratic form converges to zero as an immediate result.
     \end{proof}
     
-    It is often noted that the gradient at a particular $x_0 \in dom(f) \subset \R^n$ gives the direction $f$ increases most rapidly.
+    It is often noted that the gradient at a particular $x_0 \in dom(f) \subseteq \R^n$ gives the direction $f$ increases most rapidly.
         Let $x_0 \in dom(f)$, and $v$ be a \ul{unit vector} representing a \emph{feasible direction} of change. That is, there exists $\delta > 0$ such that $x_0 + t v \in dom(f)$ $\forall t \in [0, \delta)$. Then the rate of change of $f$ along feasible direction $v$ can be written as
         \begin{equation}
             \left.\frac{d}{dt}\right\vert_{t=0} f(x_0 + tv) = \nabla f(x_0) \cdot v = \norm{\nabla f(x_0)}\ \norm{v} \cos(\theta)
@@ -115,7 +118,7 @@
     
     \subsection{Implicit Function Theorem}
     \begin{theorem}[Implicit Function Theorem]
-        Let $f: \R^{n+1} \to \R$ be a $C^1$ function, let $(a, b) \in \R^n \times \R$ such that $f(a, b) = 0$. If $\nabla f(a, b) \neq 0$, then $\{(x, y) \in \R^n \times \R:f(x, y) = 0\}$ is locally a graph of a function $g: \R^n \to \R$.
+        Let $f: C^1(\R^{n+1}, \R)$, let $(a, b) \in \R^n \times \R$ such that $f(a, b) = 0$. If $\nabla f(a, b) \neq 0$, then $\{(x, y) \in \R^n \times \R:f(x, y) = 0\}$ is locally a graph of a function $g: \R^n \to \R$.
     \end{theorem}
     
     \begin{remark}
@@ -125,21 +128,21 @@
     \section{Convexity}
     \subsection{Terminologies}
     \begin{definition}
-        Set $\Omega \subset \R^n$ is \textbf{convex} if and only if 
+        Set $\Omega \subseteq \R^n$ is \textbf{convex} if and only if 
         \begin{equation}
             \forall x_1, x_2 \in \Omega,\ \lambda \in [0, 1],\ \lambda x_1 + (1 - \lambda) x_2 \in \Omega
         \end{equation}
     \end{definition}
     
     \begin{definition}
-        A function $f: \Omega \subset \R^n \to \R$ is \textbf{convex} if and only if $\Omega$ is convex, and 
+        A function $f: \Omega \subseteq \R^n \to \R$ is \textbf{convex} if and only if $\Omega$ is convex, and 
         \begin{equation}
             \forall x_1, x_2 \in \Omega,\ \lambda \in [0, 1],\ f\left(\lambda x_1 + (1- \lambda) x_2 \right) \leq \lambda f(x_1) + (1 - \lambda) f(x_2)
         \end{equation}
     \end{definition}
     
     \begin{definition}
-        A function $f: \Omega \subset \R^n \to \R$ is \textbf{strictly convex} if and only if $\Omega$ is convex and 
+        A function $f: \Omega \subseteq \R^n \to \R$ is \textbf{strictly convex} if and only if $\Omega$ is convex and 
         \begin{equation}
             \forall x_1, x_2 \in \Omega,\ \lambda \in (0, 1),\ f\left(\lambda x_1 + (1- \lambda) x_2 \right) < \lambda f(x_1) + (1 - \lambda) f(x_2)
         \end{equation}
@@ -151,28 +154,40 @@
         A function $f: \Omega \to \R$ is \textbf{concave} if and only if $-f$ is \textbf{convex}.
     \end{definition}
     
-    \begin{proposition}
+    \begin{proposition} Properties of convex functions:
         \begin{enumerate}[(i)]
             \item If $f_1, f_2$ are convex on $\Omega$, so is $f_1 + f_2$;
             \item If $f$ is convex on $\Omega$, then for any $a > 0$, $af$ is also convex on $\Omega$;
             \item Any \textbf{sub-level/lower contour set} of a convex function $f$ 
             \begin{align}
-            	SL(c) := \{x \in \R^n: f(x) \leq c\}
+            	\mc{L}(c) := \{x \in \R^n: f(x) \leq c\}
             \end{align}
             is convex.
         \end{enumerate}
     \end{proposition}
     
     \begin{proof}[Proof of (iii).]
-    	Let $c \in \R$, and $x_1 ,x_2 \in SL(c)$. Let $s \in [0, 1]$. Since $x_1, x_2 \in SL(c)$, and $f(\cdot)$ is convex, $f(s x_1 + (1-s) x_2) \leq s f(x_1) + (1-s) f(x_2) \leq s c + (1-s) c = c$. Which implies $s x_1 + (1-s) x_2 \in SL(c)$.
+    	Let $c \in \R$, and $x_1 ,x_2 \in SL(c)$. Let $s \in [0, 1]$. Since $x_1, x_2 \in \mc{L}(c)$, and $f(\cdot)$ is convex, $f(s x_1 + (1-s) x_2) \leq s f(x_1) + (1-s) f(x_2) \leq s c + (1-s) c = c$. Which implies $s x_1 + (1-s) x_2 \in \mc{L}(c)$.
     \end{proof}
     
     \begin{example}
-    	$f(x): \R^n \to \R := \norm{x}$ is convex.
+    	$\ell_2$ norm $f(x): \R^n \to \R := \norm{x}_2$ is convex.
     \end{example}
     
     \begin{proof}
     	Note that for any $u, v \in \R^n$, by triangle inequality, $\norm{u - (-v)} \leq \norm{u - 0} + \norm{0 - (-v)} = \norm{u} + \norm{v}$. Consequently, let $u, v \in \R^n$ and $s \in [0, 1]$, then $\norm{s u + (1-s) v} \leq \norm{su} + \norm{(1-s) v} = s \norm{u} + (1-s) \norm{v}$. Therefore, $\norm{\cdot}$ is convex.
+    \end{proof}
+    
+    \begin{proposition}
+    	Any norm function $\norm{\cdot}$ defined on a vector space $\mc{X}(\R)$ is convex.
+    \end{proposition}
+    
+    \begin{proof}
+    	The proof follows the defining properties of norm,
+    	\begin{align}
+    		\norm{\lambda x + (1 - \lambda) y} &\leq \norm{\lambda x}  + \norm{(1 - \lambda) y} \\
+    		&= \lambda \norm{x} + (1 - \lambda) \norm{y}
+    	\end{align}
     \end{proof}
 	
 	\subsection{Characteristics of $C^1$ Convex Functions}
@@ -209,12 +224,12 @@
     \end{proof}
     
     \begin{theorem}[$C^2$ criterion for convexity]
-        $f \in C^2$ is a convex function on a convex set $\Omega \subset \R^n$ \ul{if and only if} $\nabla^2 f(x) \succcurlyeq 0$ for all $x \in \Omega$.
+        $f \in C^2$ is a convex function on a convex set $\Omega \subseteq \R^n$ \ul{if and only if} $\nabla^2 f(x) \succcurlyeq 0$ (i.e. positive semidefinite) for all $x \in \Omega$.
     \end{theorem}
     
-    \begin{remark}
+    \begin{corollary}
     	When $f$ is defined on $\R$, the $C^2$ criterion becomes $f''(x) \geq 0$.
-    \end{remark}
+    \end{corollary}
     
     \begin{proof}
         ($\impliedby$) Suppose $\nabla^2 f(x) \succcurlyeq 0$ for every $x \in \Omega$, let $x, y \in \Omega$. By the second order MVT,
@@ -223,12 +238,22 @@
         	&\implies f(y) \geq f(x) + \nabla f(x) \cdot (y - x)
         \end{align}
         So $f$ is convex by the $C^1$ criterion of convexity.\\
-        ($\implies$) Let $v \in \R^n$. Suppose, for contradiction, that for some $x \in \Omega$, $\nabla^2 f(x) \centernot \succcurlyeq 0$. If such $x \in \partial \Omega$, note that $v^T \nabla^2 f(\cdot) v$ is continuous because $f \in C^2$, then there exists $\varepsilon > 0$ such that $\forall x' \in V_\varepsilon(x) \cap \Omega^{int},\ v^T \nabla^2 f(x') v < 0$. Hence, one may assume with loss of generality that such $x \in \Omega^{int}$. Because $x \in \Omega^{int}$, exists $\varepsilon' > 0$, such that $V_{\varepsilon'}(x) \subseteq \Omega^{int}$. Define $\hat{v} := \frac{v}{\sqrt{\varepsilon'}}$, then for every $s \in [0, 1]$, $\hat{v}^T \nabla^2 f(x + s\hat{v}) \hat{v} < 0$. Let $y = x + \hat{v}$, by the mean value theorem, $f(y) = f(x) + \nabla f(x) \cdot (y - x) + \frac{1}{2} (y - x)^T \nabla^2 f (x + s (y - x)) (y - x)$ for some $s \in [0, 1]$. This implies $f(y) < f(x) + \nabla f(x) \cdot (y - x)$, which contradicts the $C^1$ criterion for convexity.
+        ($\implies$) Let $v \in \R^n$. Suppose, for contradiction, that for some $x \in \Omega$, $\nabla^2 f(x) \centernot \succcurlyeq 0$.\\
+        If such $x \in \partial \Omega$, note that $v^T \nabla^2 f(\cdot) v$ is continuous because $f \in C^2$, then there exists $\varepsilon > 0$ such that $\forall x' \in V_\varepsilon(x) \cap \Omega^{int},\ v^T \nabla^2 f(x') v < 0$.\\
+        Hence, one may assume with loss of generality that such $x \in \Omega^{int}$.\\
+        Because $x \in \Omega^{int}$, exists $\varepsilon' > 0$, such that $V_{\varepsilon'}(x) \subseteq \Omega^{int}$.\\
+        Define $\hat{v} := \frac{v}{\sqrt{\varepsilon'}}$, then for every $s \in [0, 1]$, $\hat{v}^T \nabla^2 f(x + s\hat{v}) \hat{v} < 0$.\\
+        Let $y = x + \hat{v}$, by the mean value theorem, 
+        \begin{align}
+        	f(y) = f(x) + \nabla f(x) \cdot (y - x) + \frac{1}{2} (y - x)^T \nabla^2 f [x + s (y - x)] (y - x)
+        \end{align}
+	 	for some $s \in [0, 1]$.\\
+        This implies $f(y) < f(x) + \nabla f(x) \cdot (y - x)$, which contradicts the $C^1$ criterion for convexity.
     \end{proof}
     
     \subsection{Minimum and Maximum of Convex Functions}
     \begin{theorem}
-        Let $\Omega \subset \R^n$ be a convex set, and $f: \Omega \to \R$ is a convex function. Let
+        Let $\Omega \subseteq \R^n$ be a convex set, and $f: \Omega \to \R$ is a convex function. Let
         \begin{align}
         	\Gamma := \left\{x \in \Omega: f(x) = \min_{x \in \Omega} f(x) \right\} \equiv \argmin_{x \in \Omega} f(x)
         \end{align}
@@ -251,18 +276,21 @@
     \end{proof}
     
     \begin{theorem}
-        Let $\Omega \subset \R^n$ be a convex and compact  set, and $f: \Omega \to \R$ is a convex function. Then 
+        Let $\Omega \subseteq \R^n$ be a \ul{convex and compact} set, and $f: \Omega \to \R$ is a \ul{convex} function. Then 
         \begin{equation}
             \max_{x \in \Omega} f(x) = \max_{x \in \partial \Omega} f(x)
         \end{equation}
     \end{theorem}
     
     \begin{proof}
-        As we assumed, $\Omega$ is closed, therefore $\partial \Omega \subseteq \Omega$. Hence, $\max_{x \in \Omega} f \geq \max_{x \in \partial \Omega} f$. Suppose $\max_{x \in \Omega} f > \max_{x \in \partial \Omega} f$, let $x^* := \argmax_{x \in \Omega} f \in \Omega^{int}$. Then we can construct a straight line through $x^*$ and intersects $\partial \Omega$ at two points, $y_1, y_2 \in \partial \Omega$, such that $x^* = s y_1 + (1-s) y_2$ for some $s \in (0, 1)$. Further, since $f$ is convex, $\max_{x \in \Omega}f(x) = f(x^*) \leq s f(y_1) + (1-s) f(y_2) \leq s \max_{\partial \Omega} f + (1-s) \max_{\partial \Omega} f = \max_{\partial \Omega} f$, which leads to a contradiction. Therefore, $\max_{x \in \Omega} f = \max_{x \in \partial \Omega} f$.
+        As we assumed, $\Omega$ is closed, therefore $\partial \Omega \subseteq \Omega$. Hence, $\max_{x \in \Omega} f \geq \max_{x \in \partial \Omega} f$.\\
+        Suppose, for contradiction, $\max_{x \in \Omega} f > \max_{x \in \partial \Omega} f$, then $x^* := \argmax_{x \in \Omega} f \in \Omega^{int}$. \\
+        Then we can construct a straight line through $x^*$ and intersects $\partial \Omega$ at two points, $y_1, y_2 \in \partial \Omega$, such that $x^* = s y_1 + (1-s) y_2$ for some $s \in (0, 1)$. Further, since $f$ is convex, $\max_{x \in \Omega}f(x) = f(x^*) \leq s f(y_1) + (1-s) f(y_2) \leq s \max_{\partial \Omega} f + (1-s) \max_{\partial \Omega} f = \max_{\partial \Omega} f$, which leads to a contradiction.\\
+        Therefore, $\max_{x \in \Omega} f = \max_{x \in \partial \Omega} f$.
     \end{proof}
     
     \begin{proposition}
-    	For $p, g > 1$ and $\frac{1}{p} + \frac{1}{g} = 1$,
+    	For $p, g > 1$ satisfying $\frac{1}{p} + \frac{1}{g} = 1$,
     	\begin{align}
     		|ab| \leq \frac{1}{p} |a|^p + \frac{1}{g}|b|^g
     	\end{align}
@@ -289,7 +317,7 @@
 	\section{Finite Dimensional Optimization}
 	\subsection{Unconstraint Optimization}
     \begin{theorem}[Extreme Value Theorem]
-        Let $f: \R^n \to \R$ is \ul{continuous} and $K \subset \R^n$ be a \ul{compact} set, then the minimization problem $\min_{x \in K} f(x)$ has a solution.
+        Let $f: \R^n \to \R$ is \ul{continuous} and $K \subseteq \R^n$ be a \ul{compact} set, then the minimization problem $\min_{x \in K} f(x)$ has a solution.
     \end{theorem}
     
     \begin{remark}
@@ -301,7 +329,7 @@
     \end{proposition}
     
     \begin{proof}
-    	Let $f: \Omega \to \R$ be a convex function, where $\Omega \subset \R^n$ is open.
+    	Let $f: \Omega \to \R$ be a convex function, where $\Omega \subseteq \R^n$ is open.
     	\hl{TODO}
     \end{proof}
     
@@ -315,11 +343,11 @@
     
     \begin{proof}[Proof of EVT.]
     	Let $f: K \to \R$ be a continuous function defined on a compact set $K$.\\
-    	WLOG, we only prove the existence of $\min f$, since the existence of max can be easily proven by applying the exact same argument on $-f$. Because $K$ is compact, the continuity of $f$ implies $f(K)$ is compact. By the completeness axiom of $\R$, $m := \inf_{x \in K} f(x)$ is well-defined. There exists a sequence $(x_i) \subset K$, such that $(f(x_i)) \to m$. Because $K$ is compact, there exists a subsequence $(x_{ik})$ of $(x_i)$ converges to some limit $x^* \in K$. Because $f$ is continuous, $(f(x_{ik})) \to f(x^*)$, which is a subsequence of the convergent sequence $(f(x_i))$, and they must converge to the same limit. Hence, $f(x^*) = m$, and the infimum is attained at $x^* \in K$.
+    	WLOG, we only prove the existence of $\min f$, since the existence of max can be easily proven by applying the exact same argument on $-f$. Because $K$ is compact, the continuity of $f$ implies $f(K)$ is compact. By the completeness axiom of $\R$, $m := \inf_{x \in K} f(x)$ is well-defined. There exists a sequence $(x_i) \subseteq K$, such that $(f(x_i)) \to m$. Because $K$ is compact, there exists a subsequence $(x_{ik})$ of $(x_i)$ converges to some limit $x^* \in K$. Because $f$ is continuous, $(f(x_{ik})) \to f(x^*)$, which is a subsequence of the convergent sequence $(f(x_i))$, and they must converge to the same limit. Hence, $f(x^*) = m$, and the infimum is attained at $x^* \in K$.
     \end{proof}
     
     \begin{theorem}[Heine–Borel]
-    	Let $K \subset \R^n$, then $K$ is compact (every open cover of $K$ has a finite sub-cover) $\iff$ $K$ is closed and bounded.
+    	Let $K \subseteq \R^n$, then $K$ is compact (every open cover of $K$ has a finite sub-cover) $\iff$ $K$ is closed and bounded.
     \end{theorem}
     
 	\begin{proposition}
@@ -361,7 +389,7 @@
     \begin{align}
     	\min_{x \in \Omega} f(x)
     \end{align}
-    where $\Omega \subset \R^n$. Typically, for simplicity, $\Omega$ are often $\R^n$, an open subset of $R^n$, or the closure of some open subset of $\R^n$.
+    where $\Omega \subseteq \R^n$. Typically, for simplicity, $\Omega$ are often $\R^n$, an open subset of $R^n$, or the closure of some open subset of $\R^n$.
     \par Everything above minimization discussed in this section is applicable to maximization as well using the proposition below.
 
     \begin{proposition}
@@ -404,7 +432,7 @@
    	\end{theorem}
    	
    	\begin{definition}
-   		For $x_0 \in \Omega \subset \R^n$,  $v \in \R^n$ is a \textbf{feasible direction}at $x_0$ if
+   		For $x_0 \in \Omega \subseteq \R^n$,  $v \in \R^n$ is a \textbf{feasible direction}at $x_0$ if
    		\begin{align}
    			\exists \overline{s} > 0\ s.t.\ \forall s \in [0, \overline{s}], x_0 + s v \in \Omega
    		\end{align}
@@ -557,7 +585,7 @@
    	\subsection{Equality Constraints: Lagrangian Multiplier}
    	\subsubsection{Tangent Space to a (Hyper) Surface at a Point}
    	\begin{definition}
-   		A \textbf{surface} $\mc{M} \subset \R^n$ is defined as
+   		A \textbf{surface} $\mc{M} \subseteq \R^n$ is defined as
    		\begin{align}
    			\mc{M} := \left \{
    			x \in \R^n : h_i (x) = 0\ \forall i
@@ -641,7 +669,7 @@
    	\end{theorem}
    	
    	\begin{proof}
-   		\emph{Show} $T_{x_0} \mc{M} \subset T_{x_0}$.\\
+   		\emph{Show} $T_{x_0} \mc{M} \subseteq T_{x_0}$.\\
    		Suppose $x_0$ is a regular point of $\mc{M}$.
    		Let $v \in T_{x_0} \mc{M}$, then there exists some differentiable curve $x(\cdot):V_\varepsilon(0) \to \mc{M}$ such that $x(0) = x_0$, such that
    		\begin{align}
@@ -656,19 +684,19 @@
    			\nabla h_i(x_0)\cdot v = 0\ \forall i
    		\end{align}
    		Therefore $v \in T_{x_0}$. \\
-   		\emph{Show} $T_{x_0} \subset T_{x_0} \mc{M}$.
+   		\emph{Show} $T_{x_0} \subseteq T_{x_0} \mc{M}$.
    		\begin{enumerate}[(i)]
    			\item $x_0$ is regular $\implies T_{x_0} \mc{M}$ is a vector space;
    			\item $T_{x_0} = \tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}^\perp$.
    		\end{enumerate}
-   		\emph{Show} $T_{x_0} \subset \tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}^\perp$: \\
+   		\emph{Show} $T_{x_0} \subseteq \tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}^\perp$: \\
    		Let $v \in T_{x_0}$, then $v \perp \nabla h_i(x_0)$ for every $i$. Therefore $v$ is orthogonal to every linear combination of $\nabla h_i(x_0)$, and therefore orthogonal to the span.\\
-   		\emph{Show} $\tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}^\perp \subset T_{x_0}$: \\
+   		\emph{Show} $\tx{span}\{\nabla h_1 (x_0), \cdots, \nabla h_k(x_0)\}^\perp \subseteq T_{x_0}$: \\
    		Let $v$ in the perp of the span, then $v$ is orthogonal to every basis of the span, so $v \in T_{x_0}$.
    	\end{proof}
    	
    	\begin{lemma}
-   		Let $f, h_1, \cdots, h_k \in C^1$ defined on \ul{open} subset $\Omega \subset \R^n$. Define $\mc{M} := \{x \in \R^n: h_i(x) = 0\ \forall i \}$. Suppose $x_0 \in \mc{M}$ is a local minimum of $f$ on $\mc{M}$, then 
+   		Let $f, h_1, \cdots, h_k \in C^1$ defined on \ul{open} subset $\Omega \subseteq \R^n$. Define $\mc{M} := \{x \in \R^n: h_i(x) = 0\ \forall i \}$. Suppose $x_0 \in \mc{M}$ is a local minimum of $f$ on $\mc{M}$, then 
    		\begin{align}
    			\nabla f(x_0) \perp T_{x_0} \mc{M}
    		\end{align}
@@ -684,7 +712,7 @@
    	\end{proof}
    	
    	\begin{theorem}[Lagrange Multipliers: First Order Necessary Condition]
-   		Let $f, h_1, \cdots, h_k \in C^1$ defined on open subset $\Omega \subset \R^n$. Let $x_0$ be a regular point of the constraint set $\mc{M} := \bigcap_{i=1}^k h^{-1}_i(0)$. Suppose $x_0$ is a local minimum of $\mc{M}$, then there exists $\lambda_1, \cdots, \lambda_k \in \R$ such that
+   		Let $f, h_1, \cdots, h_k \in C^1$ defined on open subset $\Omega \subseteq \R^n$. Let $x_0$ be a regular point of the constraint set $\mc{M} := \bigcap_{i=1}^k h^{-1}_i(0)$. Suppose $x_0$ is a local minimum of $\mc{M}$, then there exists $\lambda_1, \cdots, \lambda_k \in \R$ such that
    		\begin{align}
    			\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) = 0
    		\end{align}
@@ -773,7 +801,7 @@
    	\end{example}
    	
    	\begin{theorem}[Second Order Sufficient Conditions]
-   		Let $f, h_i \in C^2$ on open $\Omega \subset \R^n$, and $x_0 \in \mc{M}$ is a regular point, if there exists $\lambda_i \in \R$ such that
+   		Let $f, h_i \in C^2$ on open $\Omega \subseteq \R^n$, and $x_0 \in \mc{M}$ is a regular point, if there exists $\lambda_i \in \R$ such that
    		\begin{enumerate}[(i)]
    			\item $\nabla_x \mc{L}(x_0, \lambda_i) = 0$;
    			\item $\nabla_x^2 \mc{L}(x_0, \lambda_i) \succ 0$ \red{on $T_{x_0} \mc{M}$},
