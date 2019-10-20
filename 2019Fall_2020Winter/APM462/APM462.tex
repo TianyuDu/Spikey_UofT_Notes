@@ -330,24 +330,33 @@
     
     \begin{proof}
     	Let $f: \Omega \to \R$ be a convex function, where $\Omega \subseteq \R^n$ is open.
-    	\hl{TODO}
+    	\todo{Is this true?}
     \end{proof}
     
-    \begin{corollary}
+    \begin{proposition}
     	A convex function $f$ defined on an \ul{open interval} in $\R$ is continuous.
-    \end{corollary}
+    \end{proposition}
     
     \begin{proof}
-    	See homework 1, using squeeze theorem.
+    	See homework 1. The proof involves squeeze theorem.
     \end{proof}
     
     \begin{proof}[Proof of EVT.]
     	Let $f: K \to \R$ be a continuous function defined on a compact set $K$.\\
-    	WLOG, we only prove the existence of $\min f$, since the existence of max can be easily proven by applying the exact same argument on $-f$. Because $K$ is compact, the continuity of $f$ implies $f(K)$ is compact. By the completeness axiom of $\R$, $m := \inf_{x \in K} f(x)$ is well-defined. There exists a sequence $(x_i) \subseteq K$, such that $(f(x_i)) \to m$. Because $K$ is compact, there exists a subsequence $(x_{ik})$ of $(x_i)$ converges to some limit $x^* \in K$. Because $f$ is continuous, $(f(x_{ik})) \to f(x^*)$, which is a subsequence of the convergent sequence $(f(x_i))$, and they must converge to the same limit. Hence, $f(x^*) = m$, and the infimum is attained at $x^* \in K$.
+    	WLOG, we only prove the existence of $\min f$, since the existence of max can be easily proven by applying the exact same argument on $-f$. \\
+    	That is, we claim the infimum of $f(K)$ is attained within $K$. \\
+    	Because $K$ is compact, the continuity of $f$ implies $f(K)$ is compact. \\
+    	By the completeness axiom of $\R$, $m := \inf_{x \in K} f(x)$ is well-defined. There exists a sequence $(x_i) \subseteq K$, such that $(f(x_i)) \to m$. Because $K$ is compact, there exists a subsequence $(x_{ik})$ of $(x_i)$ converges to some limit $x^* \in K$. \\
+    	Since $f$ is continuous, $(f(x_{ik})) \to f(x^*)$, which is a subsequence of the convergent sequence $(f(x_i))$, and they must converge to the same limit. Hence, $f(x^*) = m$, and the infimum is attained at $x^* \in K$.
     \end{proof}
     
     \begin{theorem}[Heine–Borel]
-    	Let $K \subseteq \R^n$, then $K$ is compact (every open cover of $K$ has a finite sub-cover) $\iff$ $K$ is closed and bounded.
+    	Let $K \subseteq \R^n$, then the following are equivalent:
+    	\begin{enumerate}[(i)]
+    		\item $K$ is compact (every open cover of $K$ has a finite sub-cover);
+    		\item $K$ is closed and bounded;
+    		\item Every sequence in $K$ has a convergent subsequence converges to a point in $K$.
+    	\end{enumerate}
     \end{theorem}
     
 	\begin{proposition}
@@ -358,7 +367,7 @@
 				g_j(x) \leq 0\ \forall j
 			\end{cases}
 		\end{equation}
-		is a closed set (intersection of finitely many closed sets). Moreover, if the qualified set is also bounded, then it is compact.
+		is a closed set. Moreover, if the qualified set is also bounded, then it is compact.
 	\end{proposition}
 	
 	\begin{proof}
@@ -370,13 +379,9 @@
 				g_j(x) \leq 0\ \forall j
 			\end{cases}
 		\end{align}
-		The subset of $\R^n$ qualified by each individual constraint is closed by the property of continuous functions (i.e. the continuous function's pre-image of closed set is closed). And the intersection of arbitrarily many closed sets is closed.
+		The subset of $\R^n$ qualified by each individual constraint is closed by the property of continuous functions (i.e. a continuous function's pre-image of closed set is closed). And the intersection of arbitrarily many closed sets is closed.
 	\end{proof}
 	
-	\begin{example}
-		The set $\{(x, y) \in \R^2: x^2 - y^2 - 1 = 0\}$ is closed and bounded, therefore it is compact.
-	\end{example}
-    
     \begin{remark}
     	Computer algorithms for solving minimization problems try to construct a sequence of $(x_i)$ such that $f(x_i)$ decreases to $\min f$ rapidly.
     \end{remark}
@@ -401,13 +406,13 @@
     \end{proposition}
     
     \begin{proof}
-    	\emph{Omitted.}
+    	Immediate by applying definitions of maximum and minimum.
     \end{proof}
    	
    	\begin{definition}
    		A function $f: \Omega \to \R$ has \textbf{local minimum} at $x_0 \in \Omega$ if
    		\begin{align}
-   			\exists \varepsilon > 0\ s.t.\ \forall x \in V_\varepsilon(x_0) \cap \Omega\ f(x_0) \leq f(x)
+   			\exists \varepsilon > 0\ s.t.\ \forall x \in V_\varepsilon(x_0) \cap \Omega,\  f(x_0) \leq f(x)
    		\end{align}
    		$f$ attains \textbf{strictly local minimum} at $x_0$ if
    		\begin{align}
@@ -429,10 +434,11 @@
    		\begin{align}
    			\nabla f(x_0) \cdot v \geq 0
    		\end{align}
+   		\emph{This theorem serves as the primary defining property of local minimum.}
    	\end{theorem}
    	
    	\begin{definition}
-   		For $x_0 \in \Omega \subseteq \R^n$,  $v \in \R^n$ is a \textbf{feasible direction}at $x_0$ if
+   		For $x_0 \in \Omega \subseteq \R^n$,  $v \in \R^n$ is a \textbf{feasible direction} at $x_0$ if
    		\begin{align}
    			\exists \overline{s} > 0\ s.t.\ \forall s \in [0, \overline{s}], x_0 + s v \in \Omega
    		\end{align}
@@ -466,13 +472,13 @@
    		Since $\Omega$ is open, any sufficiently small $v \neq 0$ such that both $v$ and $-v$ are feasible directions at $x_0$, applying the necessary condition on both $v$ and $-v$ provides the equality.
    	\end{proof}
    	
-   	\begin{example}
-   		Minimize $f(x, y)=x^{2}-x y+y^{2}-3 y$ over $\Omega = \R^2$.
-   	\end{example}
-   	
-   	\begin{example}
-   		Minimize $f(x, y)=x^{2}-x+y+x y$ over $\Omega = \max\{(x, y) \in \R^2: x, y \geq 0\}$.
-   	\end{example}
+%   	\begin{example}
+%   		Minimize $f(x, y)=x^{2}-x y+y^{2}-3 y$ over $\Omega = \R^2$.
+%   	\end{example}
+%   	
+%   	\begin{example}
+%   		Minimize $f(x, y)=x^{2}-x+y+x y$ over $\Omega = \max\{(x, y) \in \R^2: x, y \geq 0\}$.
+%   	\end{example}
    	
    	\begin{theorem}[Second Order Necessary Condition for Local Minimum]
    		Let $C^2 \ni f: \Omega \to \R$, let $x_0 \in \Omega$ be a local minimum of $f$, then for every non-zero feasible direction $v$ at $x_0$,
@@ -511,13 +517,13 @@
 	\begin{definition}
 		Let $A \in \R^{n \times n}$, $A$ is 
 		\begin{enumerate}[(i)]
-			\item \textbf{Positive definite} ($A \succ 0$) if $x^T A x > 0\ \forall x \neq 0$, if and only if all eigenvalues $\lambda_i > 0$;
-			\item \textbf{Positive Semi-definite} ($A \succcurlyeq 0$) if $x^T A x \geq\  \forall x \in \R^n$, if and only if all eigenvalues $\lambda_i \geq 0$.
+			\item \textbf{Positive definite} (denoted as $A \succ 0$) if $x^T A x > 0\ \forall x \neq 0$, if and only if all eigenvalues $\lambda_i > 0$;
+			\item \textbf{Positive Semi-definite} (denoted as $A \succcurlyeq 0$) if $x^T A x \geq\  \forall x \in \R^n$, if and only if all eigenvalues $\lambda_i \geq 0$.
 		\end{enumerate}
 	\end{definition}
    	
    	\begin{theorem}[Sylvester's Criterion]
-   		Let $A \in \R^{n \times n}$ be a Hermitian matrix (i.e. $A = \overline{A^T}$), then
+   		Let $A \in \R^{n \times n}$ be a Hermitian matrix (i.e. $A = \overline{A^T}$)\footnote{$\overline{A^T}$ denotes the complex conjugate of the transpose, a matrix with \emph{real entries} is Hermitian if and only if it is symmetric.}, then
    		\begin{enumerate}
    			\item $A \succ 0$ $\iff$ all \emph{leading principal minors} have positive determinants;
    			\item $A \succcurlyeq 0$ $\iff$ all leading principal minors have non-negative determinants.
@@ -535,7 +541,7 @@
    		Let $C^2 \ni f: \Omega \to \R$, for some $x_0 \in \Omega$, if
    		\begin{enumerate}[(i)]
    			\item $\nabla f(x_0) = 0$,
-   			\item \emph{(and)} $\nabla^2 f(x_0) \succcurlyeq 0$,
+   			\item \emph{(and)} $\nabla^2 f(x_0) \succ 0$.
    		\end{enumerate}
    		then $x_0$ is a \ul{strictly local minimizer}.
    	\end{theorem}
@@ -543,8 +549,9 @@
    	\begin{lemma}
    		Suppose $\nabla^2 f(x_0)$ is positive definite, then 
    		\begin{align}
-   			\exists a > 0\ s.t.\ v^T \nabla^2 f(x_0) v \geq a \norm{v}^2\quad \forall v
+   			\exists\ a > 0\ s.t.\ v^T \nabla^2 f(x_0) v \geq a \norm{v}^2\quad \forall v
    		\end{align}
+   		\emph{That is, the quadratic form of a positive definite matrix is bounded away from zero.}
    	\end{lemma}
    	
    	\begin{proof}[Proof of the Lemma]
@@ -598,8 +605,7 @@
    		A \textbf{differentiable curve} on a surface $\mc{M}$ is a $C^1$ function mapping from $(-\varepsilon, \varepsilon)$ to $\mc{M}$. \\
    		\emph{Remark: in previous calculus courses, differentiable curves are often referred to as parameterizations.}
    	\end{definition}
-   	
-   	Let $x(s)$ be a differentiable curve on $\mc{M}$ passes through $x_0 \in \mc{M}$, WLOG, $x(0) = x_0$. Then vector
+   	Let $x(s)$ be a differentiable curve on $\mc{M}$ passes through $x_0 \in \mc{M}$, re-parameterize it so that $x(0) = x_0$. Then vector
    	\begin{align}
    		v := \frac{d}{ds} \bigg \vert_{s=0} x(s)
    	\end{align}
@@ -610,12 +616,12 @@
    	\end{definition}
    	
    	\begin{definition}
-   		The set of all tangent vectors is defined to be the \textbf{tangent space} to $\mc{M}$ at $x_0$:
+   		The \textbf{tangent space} to $\mc{M}$ at $x_0$ is defined to be the set of all tangent vectors:
    		\begin{align}
    			T_{x_0} \mc{M} := \left \{
    			v \in \R^n
    			:
-   			v := \frac{d}{ds} \bigg \vert_{s=0} x(s) \tx{ for some } x(\cdot) \in \mc{M}^{(-\varepsilon, \varepsilon)}\ s.t.\ x(0) = x_0
+   			v := \frac{d}{ds} \bigg \vert_{s=0} x(s) \tx{ for some } x \in C^1((-\varepsilon, \varepsilon), \mc{M})\ s.t.\ x(0) = x_0
    			\right \}
    		\end{align}
    	\end{definition}
@@ -635,15 +641,16 @@
    	\end{example}
    	
    	\begin{definition}
-   		Let $\mc{M}$ be a surface defined using $C^1$ functions, a point $x_0 \in \mc{M}$ is a \textbf{regular point} of the constraints if 
+   		Let $\mc{M}$ be a surface defined using $C^1$ functions, a point $x_0 \in \mc{M}$ is a \ul{\textbf{regular point} of the constraints} if 
    		\begin{align}
    			\{\nabla h_1(x_0), \cdots, \nabla h_k(x_0)\}
    		\end{align}
-   		are linearly independent.
+   		are linearly independent. \\
+   		\emph{Remark: if there is only one constraint $h$, then $x_0$ is regular if and only if $\nabla h(x_0) \neq 0$.}
    	\end{definition}
    	
    	\begin{notation}
-   		Define
+   		Define the $T$ space on equality constraint as
    		\begin{align}
    			T_{x_0} := \{x \in \R^n: \inner{x_0}{\nabla h_i(x_0)}\ \forall i \in [k]\}
    		\end{align}
@@ -880,8 +887,10 @@
    	\begin{definition}
    		Let $x_0$ satisfy the set of constraints
    		\begin{align}
-   			h_i(x) &= 0\quad i \in \{1, \cdots, k\} \\
-   			g_j(x) &\leq 0\quad j \in \{1, \cdots, \ell\}
+   			(\dag)\begin{cases}
+	   			h_i(x) &= 0\quad i \in \{1, \cdots, k\} \\
+   				g_j(x) &\leq 0\quad j \in \{1, \cdots, \ell\}
+   			\end{cases}
    		\end{align}
    		we say that the constraint $g_i$ is \textbf{active} at $x_0$ if $g_i(x_0) = 0$, and is \textbf{inactive} at $x_0$ if $g_i(x_0) < 0$.
    	\end{definition}
@@ -902,10 +911,11 @@
    	\begin{theorem}[The First Order Necessary Condition for Local Minimum: Kuhn-Tucker Conditions]
    		Let $\Omega$ be an open subset of $\R^n$ with constraints $h_i$ and $g_i$ to be $C^1$ on $\Omega$. Suppose $x_0 \in \Omega$ is a regular point with respect to constraints, further suppose $x_0$ is a local minimum, then there exists some $\lambda_i \in \R$ and $\mu_j \in \red{\R_+}$ such that 
    		\begin{enumerate}[(i)]
-   			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
+   			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$ (i.e. $\nabla_x \mc{L}(x, \lambda, \mu) = 0$);
    			\item $\mu_j g_j(x_0) = 0$ (\emph{Complementary slackness}).
    		\end{enumerate}
-   		\emph{Remark: by complementary slackness, all $\mu_j$ corresponding to inactive inequality constraints are zero.}
+   		\emph{Remark 1: by complementary slackness, all $\mu_j$ corresponding to inactive inequality constraints are zero.} \\
+   		\emph{Remark 2: it is possible for an active constraint to have zero multiplier.}
    	\end{theorem}
    	
    	\begin{proof}
@@ -922,18 +932,18 @@
    	\end{proof}
    	
 	\begin{theorem}[The Second Order Necessary Conditions]
-		Let $\Omega$ be an open subset of $\R^n$, and $f, h_1, \cdots, h_k, g_1, \cdots, g_\ell \in C^2$. Let $x_0$ be a regular point of the constraints:
-		\begin{align}
-			(\dag ) \begin{cases}
-				h_i(x) = 0\quad \forall i \\
-				g_j(x) \leq 0\quad \forall j
-			\end{cases}
-		\end{align}
+		Let $\Omega$ be an open subset of $\R^n$, and $f, h_1, \cdots, h_k, g_1, \cdots, g_\ell \in C^2(\R^n, \R)$. Let $x_0$ be a regular point of the constraints ($\dag$).
+%		\begin{align}
+%			(\dag ) \begin{cases}
+%				h_i(x) = 0\quad \forall i \\
+%				g_j(x) \leq 0\quad \forall j
+%			\end{cases}
+%		\end{align}
 		Suppose $x_0$ is a local minimum of $f$ subject to constraint ($\dag$), then there exists $\lambda_i \in \R$ and $\mu_j \geq 0$ such that
 		\begin{enumerate}[(i)]
 			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
 			\item $\mu_j g_j(x_0) = 0$;
-			\item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is positive definite on the tangent space to \ul{activate constraints} at $x_0$.
+			\item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is \ul{positive definite} on the tangent space to \ul{activate constraints} at $x_0$.
 		\end{enumerate}
 	\end{theorem}
 	\begin{proof}
@@ -956,7 +966,7 @@
    			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
    			\item $\mu_j g_j(x_0) = 0$ (\emph{Complementary slackness}).
    		\end{enumerate}
-   		If the Hessian matrix for Lagrangian $\nabla_x^2 \mc{L}(x_0)$ is \ul{positive definite} on $\ttilde{T}_{x_0}$, the space of \textbf{strongly active} constraints at $x_0$, then $x_0$ is a strict local minimum.
+   		If the Hessian matrix for Lagrangian $\nabla_x^2 \mc{L}(x_0)$ is \ul{positive definite} on $\ttilde{T}_{x_0}$, the space of \textbf{strongly active} constraints at $x_0$, then $x_0$ is a \ul{strict} local minimum.
 	\end{theorem}
 	
 	\begin{definition}
@@ -967,11 +977,11 @@
 		For convenience, we can rearrange the collection of constraints such that, among the $\ell$ constrains in total, the first $\ell'$ constraints are \emph{active} at $x_0$ and the first $\ell''$ constraints are \emph{strongly active}. Note that $\ell'' \leq \ell ' \leq \ell$. \\
 		Define 
 		\begin{align}
-			\tilde{T}_{x_0} := \{
-			v \cdot \nabla h_i(x_0) = 0\ \forall i \land v \cdot \nabla g_j(x_0)\ \forall 1 \leq j \leq \ell'
+			\tilde{T}_{x_0} &:= \{
+			v \cdot \nabla h_i(x_0) = 0\ \forall i \land v \cdot \nabla g_j(x_0)\tx{ for all $g_j$ active.}
 			\} \\
-			\ttilde{T}_{x_0} := \{
-			v \cdot \nabla h_i(x_0) = 0\ \forall i \land v \cdot \nabla g_j(x_0)\ \forall 1 \leq j \leq \ell''
+			\ttilde{T}_{x_0} &:= \{
+			v \cdot \nabla h_i(x_0) = 0\ \forall i \land v \cdot \nabla g_j(x_0) \tx{ for all $g_j$ strongly active.}
 			\}
 		\end{align}
 		Clearly, $\tilde{T}_{x_0} \subseteq \ttilde{T}_{x_0}$ because there are (weakly) more active constraints than strongly active constraints.
