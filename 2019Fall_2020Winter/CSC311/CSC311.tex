@@ -152,7 +152,29 @@
 	\end{proposition}
 	
 	\begin{proof}
-		\todo{Proof this}
+		\begin{align}
+			H(Y|X) - H(Y) &=  \left( - \sum_{x \in \mc{X}} p(x) \sum_{y \in \mc{Y}}p(y|x) \log_2 p(y|x) \right) 
+			- \left(- \sum_{y \in \mc{Y}} p(y) \log_2 p(y) \right) \\
+			&= \sum_{y \in \mc{Y}} p(y) \log_2 p(y) - \sum_{x \in \mc{X}} p(x) \sum_{y \in \mc{Y}}p(y|x) \log_2 p(y|x) \\
+			&= \sum_{y \in \mc{Y}} \sum_{x \in \mc{X}} p(x, y) \log_2 p(y)
+			- \sum_{x \in \mc{X}} p(x) \sum_{y \in \mc{Y}} p(y|x) \log_2 p(y|x) \\
+			&= \sum_{y \in \mc{Y}} \sum_{x \in \mc{X}} p(x, y) \log_2 p(y)
+			- \sum_{x \in \mc{X}} \sum_{y \in \mc{Y}} p(y|x) p(x) \log_2 p(y|x) \\
+			&= \sum_{x \in \mc{X}} \sum_{y \in \mc{Y}} p(x, y) \log_2 p(y)
+			- p(x, y) \log_2 p(y|x) \\
+			&= \sum_{x \in \mc{X}} \sum_{y \in \mc{Y}} p(x, y) (\log_2 p(y) - \log_2 p(y|x) ) \\
+			&= \sum_{x \in \mc{X}} \sum_{y \in \mc{Y}} p(x, y) \log_2 \left(\frac{p(y)}{p(y|x)} \right) \\
+			&= \sum_{x \in \mc{X}} \sum_{y \in \mc{Y}} p(y|x) p(x) \log_2 \left(\frac{p(y)}{p(y|x)} \right) \\
+			&= \sum_{x \in \mc{X}} p(x) \sum_{y \in \mc{Y}} p(y|x) \log_2 \left(\frac{p(y)}{p(y|x)} \right) \\
+			&\leq \sum_{x \in \mc{X}} p(x) \log_2 \left(
+			\sum_{y \in \mc{Y}} p(y|x) \frac{p(y)}{p(y|x)}
+			\right) \\
+			&= \sum_{x \in \mc{X}} p(x) \log_2 \left(
+			\sum_{y \in \mc{Y}} p(y)
+			\right) \\
+			&= \sum_{x \in \mc{X}} p(x) \log_2 1 \\
+			&= 0
+		\end{align}
 	\end{proof}
 	
 	\begin{definition}

@@ -1,7 +1,7 @@
 \select@language {english}
 \contentsline {section}{\numberline {1}Decision Trees}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}Entropy: An Information Theoretical Metric}{2}{subsection.1.1}
-\contentsline {section}{\numberline {2}Decision Trees}{4}{section.2}
-\contentsline {section}{\numberline {3}Bias-Variance Decomposition}{4}{section.3}
+\contentsline {section}{\numberline {2}Decision Trees}{5}{section.2}
+\contentsline {section}{\numberline {3}Bias-Variance Decomposition}{5}{section.3}
 \contentsline {section}{\numberline {4}Bagging}{6}{section.4}
 \contentsline {section}{\numberline {5}Bayes Optimality}{6}{section.5}
