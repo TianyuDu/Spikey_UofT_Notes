@@ -1247,20 +1247,81 @@
 		Let $f: A \to \R$, the following are equivalent:
 		\begin{enumerate}[(i)]
 			\item $f$ fails to be uniformly continuous on $A$;
-			\item $\exists \varepsilon_0 > 0$ and two sequences $(x_n), (y_n) \subseteq A$ such that $\abs{x_n - y_n} \to 0$ but $\abs{f(x_n) - f(y_n)} > \varepsilon_0$ for every $n \in \N$.
+			\item $\exists \varepsilon_0 > 0$ and two sequences $(x_n), (y_n) \subseteq A$ such that $\abs{x_n - y_n} \to 0$ but $\abs{f(x_n) - f(y_n)} \geq \varepsilon_0$ for every $n \in \N$.
 		\end{enumerate}
 	\end{theorem}
 
 	\begin{proof}
 		$f: A \to \R$ is not uniformly continuous, \\
-		\ul{iff} $\exists \varepsilon > 0\ s.t.\ \forall \delta > 0\ \exists x, y \in \R\ s.t.\ \abs{x_\delta - y_\delta} < \delta \land \abs{f(x_\delta) - f(y_\delta)} > \varepsilon_0$. \\
+		\ul{iff} $\exists \varepsilon > 0\ s.t.\ \forall \delta > 0\ \exists x, y \in \R\ s.t.\ \abs{x_\delta - y_\delta} < \delta \land \abs{f(x_\delta) - f(y_\delta)} \geq \varepsilon_0$. \\
 		For each $n \in \N$, take $\delta = \frac{1}{n}$ and construct two sequences.
 	\end{proof}
 	
 	\begin{example}
 		Let $f(x) = \sin(x^{-1})$ defined on $A = (0, 1)$. \\
-		Take $x_n := \frac{1}{2n + \frac{\pi}{2}}$ and $y_n = \frac{1}{2n + \frac{3\pi}{2}}$. It is evident that $f(x_n) = 1$ and $f(y_n) = -1$ for every $n \in \N$. By taking $\varepsilon_0 = 1$, the proof is complete.
+		Take $x_n := \frac{1}{2n + \frac{\pi}{2}}$ and $y_n = \frac{1}{2n + \frac{3\pi}{2}}$. It is evident that $f(x_n) = 1$ and $f(y_n) = -1$ for every $n \in \N$. By taking $\varepsilon_0 = 2$, the proof is complete.
 	\end{example}
+	
+	\begin{example}
+		Claim: $f(x) = x^2$ is not uniformly continuous. \\
+		Consider two sequences $(x_n) = (n)$ and $(y_n) = \left (n + \frac{1}{n} \right )$. \\
+		Note that $\abs{x_n - y_n} = \abs{\frac{1}{n}} \to 0$. \\
+		Moreover, $\abs{f(x_n) - f(y_n)} = \abs{2 + \frac{1}{n^2}} > 2$. \\
+		Therefore $f$ is not uniformly continuous.
+	\end{example}
+	
+	\begin{theorem}[Uniform Continuity on Compact Set]
+		A continuous function fo $f$ on a compact $K$ is uniformly continuous.
+	\end{theorem}
+	
+	\begin{proof}
+		Suppose, for contradiction, $f$ is continuous but not uniformly continuous. \\
+		Then there exists $\varepsilon_0 > 0$ and $(x_n), (y_n) \subseteq K$ such that $\abs{x_n - y_n} \to 0$ and $\abs{f(x_n) - f(y_n)} \geq \varepsilon_0$. \\
+		Because $K$ is compact, there exists subsequences of $(x_n)$ and $(y_n)$ converging to $x, y \in K$. \\
+		Suppose $x \neq y$, it contradicts $\abs{x_n - y_n} \to 0$ because this property holds for subsequences as well. \\
+		Therefore, $(x_{n_k})$ and $(y_{n_k})$ converge to the same limit. \\
+		Because $f$ is continuous, $\lim_{k \to \infty} [f(x_{n_k}) - f(y_{n_k})] = 0 < \varepsilon_0$, contradiction.
+	\end{proof}
+	
+	\subsection{Intermediate Value Theorem}
+	\begin{theorem}
+		Let $f: [a, b] \to \R$ be a continuous function, if $L \in \R$ such that either
+		\begin{enumerate}[(i)]
+			\item $L \in (f(a), f(b))$,
+			\item or $L \in (f(b), f(a))$.
+		\end{enumerate}
+		Then $\exists\ c \in (a, b)$ such that $f(c) = L$.
+	\end{theorem}
+	
+	\begin{lemma}
+		All the connected subsets of $\R$ are intervals.
+	\end{lemma}
+	
+	\begin{theorem}
+		Continuous map preserves connectedness. That is, for some $f: G \to \R$ continuous with $G \subseteq \R$, then $E \subseteq G$ connected $\implies$ $f(E)$ connected.
+	\end{theorem}
+	
+	\begin{proof}
+		Suppose $f(E) = A \cup B$, where $A, B \neq \varnothing$ and disjoint. \\
+		Note that $E = f^{-1}(A) \cup f^{-1}(B)$ with $f^{-1}(A) \cap f^{-1}(B) = \varnothing$ (evident using contradiction). \\
+		Moreover, $E = f^{-1}(A) \cup f^{-1}(B)$. \\
+		Because $E$ is connected, either there exists a convergent sequence in $f^{-1}(A)$ converges to somewhere in $f^{-1}(B)$ or a convergent sequence in $f^{-1}(B)$ converges to somewhere in $f^{-1}(A)$. \\
+		WLOG, suppose there exists a sequence $(x_n) \in f^{-1}(A)$ converges to some point $x \in f^{-1}(B)$. \\
+		Because $f$ is continuous, $\lim_{n \to \infty} f(x_n) = f(x) \in B$. \\
+		That is, there exists sequence $(f(x_n)) \subseteq A$ converges to $f(x) \in B$. \\
+		$E$ is connected.
+	\end{proof}
+	
+	\begin{proof}[Proof of IVT.]
+		Let $f: [a, b] \to \R$ be a continuous function. \\
+		WLOG, suppose $f(a) < f(b)$. \\
+		Let $L \in (f(a), f(b))$. \\
+		Note that $f([a, b])$ is connected by previous theorem, therefore $f([a, b])$ is an interval by previous lemma. \\
+		hence, $f([a, b])$ contains every point between $f(a)$ and $f(b)$, in particular $L$. \\
+		Therefore, $\exists\ c \in [a, b]$ with $f(c) = L$. \\
+		Note that $f(a), f(b) \neq L$, so $c \neq a, b$. \\
+		Therefore, the chosen $c \in (a, b)$.
+	\end{proof}
 \end{document}
 
 
