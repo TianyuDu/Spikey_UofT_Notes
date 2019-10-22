@@ -1188,8 +1188,79 @@
 	\subsection{Continuous Functions on Compact Sets}
 	
 	\begin{theorem}
-		Image of continuous function compact set is compact set.
+		Let $K$ be a compact set in $\R$, and $f: K \to \R$ is a continuous function, then $f(K)$ is compact.
 	\end{theorem}
+	
+	\begin{proof}
+		Let $(y_n) \subseteq K$. Consider $f^{-1}(y_n) \neq \varnothing$, take $x_n \in f^{-1}(y_n)$ to construct a sequence.\\
+		Because $K$ is compact, there exists a subsequence of $(x_n)$ converges to $x \in K$.\\
+		Since $f$ is continuous, $f(x_n)$ converges to $f(x) \in f(K)$.
+	\end{proof}
+	
+	\begin{theorem}[Extreme Value Theorem]
+		If $f: K \to \R$ is continuous on a compact set $K \subset \R$. Then $f$ attains a maximum and minimum value. That is,
+		\begin{align}
+			\exists\ x_0, x_1 \in K,\ s.t.\ f(x_0) \leq f(x) \leq f(x_1)\ \forall x \in K
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		$f(K)$ is compact, in particular it is bounded in $\R$. So it possesses a supremum $\sup f(K)$. \\
+		Then there exists a sequence converging to the supremum. 
+		Because $f(K)$ is bounded as well, its limit can be attained in $K$. Therefore the maximum is attainable (minimum case is similar).
+	\end{proof}
+	
+	\subsection{Uniform Continuity}
+	\begin{example}[Uniformly Continuous]
+		$f(x) = 3x + 1$ is continuous for every $c \in \R$.
+	\end{example}
+	
+	\begin{proof}
+		Let $\varepsilon > 0$, take $\delta = \frac{\varepsilon}{3}$ gives the definition of continuity. \ul{Note that $\delta$ does not depend on particular $c$.}
+	\end{proof}
+	
+	\begin{example}[Non-uniformly Continuous]
+		$y = x^2$ is continuous for every $c \in \R$.
+	\end{example}
+	
+	\begin{proof}
+		Let $\varepsilon > 0$, \\
+		Note that $\abs{x+c} = \abs{x-c+2c} \leq \abs{x-c} + 2\abs{c}$. \\
+		Suppose $\delta \leq 1$ (the following argument works for $x \in V_1(c)$ only):
+		\begin{align}
+			\abs{x^2 - c^2} &= \abs{x-c}\abs{x+c} \\
+			&\leq \delta \abs{x+c} \\
+			&\leq \delta (\abs{x-c} + 2\abs{c}) \\
+			&\leq \delta(1 + 2 \abs{c}) < \varepsilon
+		\end{align}
+		Take $\delta := \min \left\{1, \frac{1}{1 + 2 \abs{c}} \right\}$. \ul{Note that $\delta$ depends on particular realization $c$.}
+	\end{proof}
+	
+	\begin{definition}
+		A function $f$ is \textbf{uniformly continuous} \ul{on $A \subset \R$} if 
+		\begin{align}
+			\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ \forall x, y \in \R\ \abs{x - y} < \delta \implies \abs{f(x) - f(y)} < \varepsilon
+		\end{align}
+	\end{definition}
+	
+	\begin{theorem}[Sequential Criterion for Absence of Uniform Continuity]
+		Let $f: A \to \R$, the following are equivalent:
+		\begin{enumerate}[(i)]
+			\item $f$ fails to be uniformly continuous on $A$;
+			\item $\exists \varepsilon_0 > 0$ and two sequences $(x_n), (y_n) \subseteq A$ such that $\abs{x_n - y_n} \to 0$ but $\abs{f(x_n) - f(y_n)} > \varepsilon_0$ for every $n \in \N$.
+		\end{enumerate}
+	\end{theorem}
+
+	\begin{proof}
+		$f: A \to \R$ is not uniformly continuous, \\
+		\ul{iff} $\exists \varepsilon > 0\ s.t.\ \forall \delta > 0\ \exists x, y \in \R\ s.t.\ \abs{x_\delta - y_\delta} < \delta \land \abs{f(x_\delta) - f(y_\delta)} > \varepsilon_0$. \\
+		For each $n \in \N$, take $\delta = \frac{1}{n}$ and construct two sequences.
+	\end{proof}
+	
+	\begin{example}
+		Let $f(x) = \sin(x^{-1})$ defined on $A = (0, 1)$. \\
+		Take $x_n := \frac{1}{2n + \frac{\pi}{2}}$ and $y_n = \frac{1}{2n + \frac{3\pi}{2}}$. It is evident that $f(x_n) = 1$ and $f(y_n) = -1$ for every $n \in \N$. By taking $\varepsilon_0 = 1$, the proof is complete.
+	\end{example}
 \end{document}
 
 

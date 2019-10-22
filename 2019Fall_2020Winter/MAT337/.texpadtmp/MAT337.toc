@@ -20,3 +20,4 @@
 \contentsline {subsection}{\numberline {3.4}Cantor Set}{20}{subsection.3.4}
 \contentsline {section}{\numberline {4}Functional Limits and Continuity}{21}{section.4}
 \contentsline {subsection}{\numberline {4.1}Continuous Functions on Compact Sets}{24}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Uniform Continuity}{24}{subsection.4.2}
