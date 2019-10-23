@@ -538,7 +538,7 @@
 %   	\end{example}
    	
    	\begin{theorem}[Second Order Sufficient Condition for Interior Local Minima]
-   		Let $C^2 \ni f: \Omega \to \R$, for some $x_0 \in \Omega$, if
+   		Let $f: C^2(\Omega, \R)$, for some $x_0 \in \Omega$, if
    		\begin{enumerate}[(i)]
    			\item $\nabla f(x_0) = 0$,
    			\item \emph{(and)} $\nabla^2 f(x_0) \succ 0$.
@@ -652,7 +652,7 @@
    	\begin{notation}
    		Define the $T$ space on equality constraint as
    		\begin{align}
-   			T_{x_0} := \{x \in \R^n: \inner{x_0}{\nabla h_i(x_0)}\ \forall i \in [k]\}
+   			T_{x_0} := \{x \in \R^n: \inner{x_0}{\nabla h_i(x_0)} = 0\ \forall i \in [k]\}
    		\end{align}
    	\end{notation}
    	
@@ -943,7 +943,7 @@
 		\begin{enumerate}[(i)]
 			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
 			\item $\mu_j g_j(x_0) = 0$;
-			\item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is \ul{positive definite} on the tangent space to \ul{activate constraints} at $x_0$.
+			\item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is \ul{positive semidefinite} on the tangent space to \ul{activate constraints} at $x_0$.
 		\end{enumerate}
 	\end{theorem}
 	\begin{proof}
