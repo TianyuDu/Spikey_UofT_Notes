@@ -62,7 +62,7 @@
    	\end{definition}
    	
    	\begin{definition}
-   		A process $W$ is said to be a \textbf{random process} if it satisfies the \emph{empirical law of large numbers}, in that, $\forall g \in \R^\Omega$:
+   		A process $W$ is said to be a \textbf{random process/variable} if it satisfies the \emph{empirical law of large numbers}, in that, $\forall g \in \R^\Omega$:
    		\begin{enumerate}[(i)]
    			\item \emph{stability}: $(\hat{\expe}_ng(W))_{n\in \N}$ converges;
    			\item \emph{Invariance}: $\forall\ (w_n)_{n \in \N} \subseteq \Omega$, the limits of $(\hat{\expe}_ng(W))_{n\in \N}$ are the same.
@@ -112,20 +112,60 @@
 
 
    	\section{Distributions}
-
+	
+	\subsection{Construction of Uniform Distributions}
    	\begin{definition}
-   		$Z \sim unif\{0, \cdots, p-1\}$ if and only if
+   		For any $n \in \N$, a random variable $X$ is said to have a \textbf{(finite discrete) uniform distribution} on the sample space $\Omega = \{1,\cdots,n\}$ if
    		\begin{align}
-   			P(Z=i) = P(Z=j)\quad \forall i, j \in \{0, \cdots, p-1\}
+   			P(X=k) = \frac{1}{n}\ \forall k \in \{1,\cdots,n\}
    		\end{align}
+   		Denoted as $X \sim unif\{1,\cdots,n\}$.
    	\end{definition}
 
    	\begin{definition}
-   		A \textbf{standard uniform} is defined to be $\mc{U} \sim unif[0, 1]$ if and only if 
+   		A random variable $U$ wit $\Omega = [0, 1]$ is said to follow a \textbf{(continuous) standard uniform} if 
    		\begin{align}
-   			P(\mc{U} \leq u) = u\ \forall u \in [0, 1]	
+   			P(U \leq u) = u\ \forall u \in [0, 1]	
    		\end{align}
+   		Denoted as $U \sim unif[0, 1]$.
    	\end{definition}
+   	
+   	\paragraph{Construction of Continuous Uniform} Let $Y$ be a random variable on $\{0, \cdots, 9\}$. For each sequence of realizations of $Y$, $(Y_i)_{i \in \N}$, one can construct $U \in [0, 1]$ using the following decimal expansion:
+   	\begin{align}
+   		U := \sum_{i=1}^\infty \frac{Y_i}{10^i}
+   	\end{align}
+   	
+   	\begin{proposition}
+   		It is evident that each finite decimal  of $Y$, $(Y_1, \cdots, Y_n)$, partitions the unitary into $10^n$ small intervals 
+   		\begin{align}
+   			P(0.Y_1\cdots Y_n \leq U \leq 0.Y_1\cdots Y_n + 10^{-n}) &= \frac{1}{10^n}
+   		\end{align}
+   		and 
+   		\begin{align}
+   			P(0 \leq U \leq 0.Y_1\cdots Y_n) &= \frac{Y_1 Y_2 \cdots Y_n}{10^n} = 0.Y_1\cdots Y_n
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{proposition}
+   		$P(a \leq U \leq b) = b - a$.
+   	\end{proposition}
+   	
+   	\begin{corollary}
+   		$P(U = u) = P(u \leq U \leq u) = u - u = 0$.
+   	\end{corollary}
+   	
+   	\begin{proposition}
+   		Let $U \sim unif[0, 1]$ and $V:=1-U$, then $V \eqd U$.
+   	\end{proposition}
+   	
+   	\begin{proof}
+   		\begin{align}
+   			P(V \leq u) &= P(1 - U \leq u) 
+   			= P(U \geq 1 - u) \\
+   			&= 1 - P(U \leq 1 - u)
+   			= 1 - 1 + u = u
+   		\end{align}
+   	\end{proof}
    	
    	\begin{theorem}
    		If $U = \sum_{n=1}^\infty Z_i p^{-i}$, then the following are equivalent:
@@ -135,40 +175,174 @@
    		\end{enumerate}
    	\end{theorem}
    	
-   	\begin{definition}
-   		Two random processes $X, Y$ on a common sample space $\mc{X}$ are \textbf{identically distributed}, $X \overset{d}{=} Y$ if and only if
-   		\begin{align}
-   			\expect{g(X)} = \expect{g(Y)}\quad \forall g: \mc{X} \to \R
-   		\end{align}
-   	\end{definition}
-   	\begin{proposition}
-   		Specifically, for $A \overset{d}{=} B$, take $g = I_A$ where $A \subset \mc{X}$. It is evident that for every such subset, the probability \textbf{probability} as 
-	   	\begin{align}
-	   		\prob{X \in A} = \expect{I_A(X)} = \expect{I_A(Y)} = \prob{Y \in A}
-	   	\end{align}
-   	\end{proposition}
-   	
-   	\begin{theorem}[Invariance]
-   		If $X \overset{d}{=} Y$, then 
-   		\begin{align}
-   			\varphi(X) \overset{d}{=} \varphi(Y)\quad \forall \varphi: \mc{X} \to \mc{Y}
-   		\end{align}
-   	\end{theorem}
    	\begin{proof}
-   		\begin{align}
-   			\expect{h \circ \varphi(X)} = \expect{h \circ \varphi(Y)}\quad \forall h: \mc{Y} \to \R
-   		\end{align}
+   		The result should be evident by construction of uniform distribution, (ii) is simply the $p$-bit expansion of real numbers, which is equivalent to the decimal expansion.
    	\end{proof}
    	
    	\begin{definition}
+   		Two random processes $W_1, W_2$ defined on $\Omega$ are \textbf{identically distributed}, $W_1 \eqd W_1$ if 
+   		\begin{align}
+   			\expe g(W_1) = \expe g(W_2) \quad \forall g: \Omega \to \R
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{theorem}[Invariance I]
+   		If $X \eqd Y$, then 
+   		\begin{align}
+   			\varphi(X) \overset{d}{=} \varphi(Y)\quad \forall \varphi: \Omega \to \mc{X}
+   		\end{align}
+   		Note that $\varphi(X)$ and $\varepsilon(Y)$ are random variable defined on sample space $\mc{X}$.
+   	\end{theorem}
+   	\begin{proof}
+   		Let $h: \mc{X} \to \R$, note that $h \circ \varepsilon: \Omega \to \R$. It is evident that $\expe h \circ \varphi(X) = \expe h \circ \varphi(Y)$.
+   	\end{proof}
+   	
+   	\begin{theorem}[Invariance II]
+   		\begin{align}
+   			W_1 \eqd W_2 \iff g(W_1) \eqd g(W_2)\quad \forall g: \Omega \to \R
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		($\implies$) The sufficient direction is direct by previous theorem. \\
+   		($\impliedby$) Suppose $g(W_1) \eqd g(W_2)\quad \forall g: \Omega \to \R$. The proof is immediate by applying identity mapping in the definition of $g(W_1) \eqd g(W_2)$, which implies $\expe g(W_1) = \expe g(W_2)$ for any function $g: \Omega \to \R$.
+   	\end{proof}
+
+   	\begin{corollary}
+   		Let $A \overset{d}{=} B$, for each $A \subseteq \Omega$, take $g = I_A$. Then,
+	   	\begin{align}
+	   		P(X \in A) = \expe I_A(X) = \expe I_A(Y) = P(Y \in A)
+	   	\end{align}
+   	\end{corollary}
+   	
+   	\subsection{Constructing Other Distributions}
+   	
+   	\begin{definition}
+   		Let $Z = - \ln U$ with $u \sim unif[0,1]$. Then $Z$ is said to follow \textbf{exponential distribution} such that
+   		\begin{align}
+   			P(s \leq Z \leq t) = e^{-s} - e^{-t}
+   		\end{align}
+   		The derivation of distribution is immediate from the monotone property of $-\ln$.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		The random variable $Z$ is said to have a \textbf{standard exponential distribution} on $\R_+$, denoted as $Z \sim exp(1)$ if
+   		\begin{align}
+   			P(Z \leq z) = 1 - \exp(-z)
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		The random variable $X$ is said to have a \textbf{scaled exponential distribution} with some $\theta > 0$, denoted as $X \sim exp(\theta)$ if
+   		\begin{align}
+   			X \eqd \theta Z\quad Z \sim exp(1)
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		For any real-valued random variable, $X$\footnote{A real-valued random variable can be deemed as the composite of an arbitrary random variable $W$ on $\Omega$ and a function $g: \Omega \to \R$}, the \textbf{distribution function} of $X$ is defined as
+   		\begin{align}
+   			F_X(x) := P(X \leq x)\ \forall x \in \R
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		A real-valued random variable, $X$, is said to be \textbf{absolutely continuous} with respective to length measure if there exists $f: \R \to \R_+$ such that
+   		\begin{align}
+   			P(s < X \leq t) = \int_s^t f_X(x)\ dx\quad \forall s \leq t
+   		\end{align}
+   		Where $f_X$ is defined as the \textbf{probability density function} of $X$. \\
+   		\emph{Remark 1: A random variable is absolutely continuous if there exists an integrable density function $f$.} \\
+   		\emph{Remark 2: The density function $f_X$ is not necessarily unique.}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		The \textbf{percentile/quantile function}, $x_p = g(p): [0, 1] \to \R$, is defined so that
+   		\begin{align}
+   			F(X \leq x_p) = p
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{remark}
+   		In any event, it is (or certainly should be) perfectly clear that each of the three methods outlined above will lead to the same basic result, each with its own probability density function, f, its own distribution function, F, and its own percentile function, g.
+   	\end{remark}
+   	
+   	\subsection{More on Expectation Operators}
+   	
+   	\begin{remark}
    		The \textbf{expectation} operator
    		\begin{align}
    			\mathbb{E}: \mc{R} \to \R \cup \{\pm\infty\} \cup \{ \tx{DNE} \}
    		\end{align}
    		where $\mc{R}$ is the space of \emph{real-valued} random processes.
-   	\end{definition}
+   	\end{remark}
+   	
+   	\begin{theorem}
+   		By the algebraic limit theorem, it is evident that for any pair of real-valued random process $X, Y$ and scalar $a$, the expectation operator is linear:
+   		\begin{enumerate}[(i)]
+   			\item $\expe (X+Y) + \expe X + \expe Y$;
+   			\item $\expe (aX) = a \expe X$.
+   		\end{enumerate}
+   	\end{theorem}
+   	
+   	\begin{proposition}[Expectation is Normed]
+   		$\expe c = c\ \forall c \in \R$.
+   	\end{proposition}
    	
    	\begin{proposition}
+   		$X \geq 0 \implies \expe X \geq 0$ by order limit theorem.
+   	\end{proposition}
+   	
+   	\begin{theorem}
+   		Let $W$ be a real-valued random variable. Then for any \ul{finite mutually disjoint} set $(A_1, \cdots, A_n)$, 
+   		\begin{align}
+   			P(W \in \sum_{i=1}^n A_i) = \sum_{i=1}^n P(W \in A_i)
+   		\end{align}
+   		That is, the probability measure is linear given mutual disjoining.
+   	\end{theorem}
+   	
+   	\begin{proposition}
+   		Properties of probability measure:
+   		\begin{enumerate}[(i)]
+   			\item $I_\Omega(W) = 1 \implies P(W \in \Omega) = \expe 1 = 1$;
+   			\item $0 \leq I_A(W) \leq 1 \implies 0 \leq P(W \in A) = \expe I_A(W) \leq 1$.
+   		\end{enumerate}
+   	\end{proposition}
+   	
+   	
+
+	\subsection{Expected Value for an Arbitrary Discrete Distribution}
+	\begin{definition}
+		A \textbf{finite scheme} or a \textbf{finite discrete distribution} can be written as
+		\begin{align}
+			W \sim\left(\begin{array}{lll}{\omega_{1}} & {\cdots} & {\omega_{N}} \\ {p_{1}} & {\cdots} & {p_{N}}\end{array}\right)
+		\end{align}
+		with \textbf{probability mass function} (pmf)
+		\begin{align}
+			P\left(W=\omega_{i}\right)=p_{i}\ s.t.\ \sum_{i=1}^N p_i = 1
+		\end{align}
+		With vector notation
+		\begin{align}
+			W \sim\left(\begin{array}{l}{\omega} \\ p\end{array}\right)\ s.t.\ \omega \subseteq \Omega,\ \inner{p}{1} = 1
+		\end{align}
+	\end{definition}
+	
+	\begin{proposition}
+		The expected value of a finite discrete random variable is more or less obvious:
+		\begin{align}
+			E g(W)=\sum_{i=1}^{N} g\left(\omega_{i}\right) P\left(W=\omega_{i}\right)=\sum_{i=1}^{N} g\left(\omega_{i}\right) p_{i}
+		\end{align}
+	\end{proposition}
+	
+	\begin{proposition}
+		A finite discrete random variable, $g(W)$, can be explicitly represented as a \emph{finite linear combination of simple indicator functions}:
+		\begin{align}
+			g(W)=\sum_{i=1}^{N} g\left(\omega_{i}\right) I\left(W=\omega_{i}\right)=\sum_{i=1}^{N} g\left(\omega_{i}\right) I_{\left\{\omega_{i}\right\}}(W)
+		\end{align}
+	\end{proposition}
+	
+	\subsection{Discrete Uniform Distributions}
+	   	\begin{proposition}
    		Let $W \sim unif\{1, \cdots, n\}$, then
    		\begin{align}
    			n + 1 - W &\overset{d}{=} W \\
@@ -219,12 +393,83 @@
    		\end{align}
    	\end{proof}
    	
-   	\begin{lemma}
-   		$u = \sum_{i=1}^\infty z_i p^{-i}$, and let $z = (z_i: i \in \N) \in \dot{p}^\infty$, then 
+   	
+   	
+   	\subsection{Bernoulli Trials}
+   	\begin{definition}
+   		A random variable $Z$ is said to be a \textbf{Bernoulli trial} if 
    		\begin{align}
-   			z_1 = b_1
+   			Z \sim\left(\begin{array}{ll}{0} & {1} \\ {q} & {p}\end{array}\right)
    		\end{align}
-   	\end{lemma}
+   		with $p \in [0, 1]$, denoted as $Z \sim bern(p)$.
+   	\end{definition}
+   	
+   	\begin{remark}
+   		Let $A \subseteq \Omega$, the \textbf{Bernoulli trial} associated with $A$ is defined to be the finite scheme distribution
+   		\begin{align}
+   			Z=I(A) \sim\left(\begin{array}{cc}{0} & {1} \\ {1-P(A)} & {P(A)}\end{array}\right)
+   		\end{align}
+   	\end{remark}
+   	
+   	\begin{proposition}[Invariance]
+   		Given the outcome space of Bernoulli trials to be $\{0, 1\}$, $Z^s = Z$ for every $s \in \N$. \\
+   		\emph{Remark: $Z^2$ and $Z$ are indeed equal, which is a stronger statement than equal in distribution.}
+   	\end{proposition}
+   	
+   	\begin{proposition}[Negation]
+   		$Z \sim bern(p) \quad \Leftrightarrow \quad 1-Z \sim bern(q)$ where $p + q = 1$.
+   	\end{proposition}
+   	
+   	\subsection{Standard Uniform Distribution}
+   	
+   	\subsection{Scaled Exponential Distribution}
+   	
+   	\subsection{Gamma Distribution}
+   	
+   	\subsection{Distribution Functions in General}
+   	\begin{definition}
+   		A probability measure $P: \mc{F} \to [0, 1]$ is said to be \textbf{$\sigma$-additive} if for any countable mutually disjoint events $(A_n)$,
+   		\begin{align}
+   			P(\sum_{n \in \N} A_n) = \sum_{n \in \N} P(A_n)
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		Let $(A_n)$ be a sequence of subsets of $\Omega$, let $A \subseteq \Omega$. Then $(A_n) \to A$ if and only if $(I(A_n))$ point-wise converges to $I(A)$.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		A probability measure $P$ is \textbf{continuous} if for any convergent sequence $(A_n) \to A$ in $\mc{F}$, $P(A_n) \to P(A)$. \\
+   		\emph{Remark: the continuity of $P$ is only defined through the sequential definition, there is $\delta$-$\varepsilon$ definition for it.}
+   	\end{definition}
+   	
+   	\begin{remark}
+   		The \emph{constructor of indicator function} is a bijection between $\mc{P}(\Omega)$ and function space $\{0, 1\}^\Omega$.
+   	\end{remark}
+   	
+   	\begin{proposition}[Set Theoretic Limits]
+   		A sequence of sets $(A_n)$ converges if and only if that $I(A_n)$ converges, which is equivalent to $\lim_{n \to \infty} I(A_n) = \limsup I(A_n) = \liminf I(A_n)$:
+   		\begin{align}
+   			\lim_{n \to \infty} I(A_n) &= \lim_{n=1}^\infty \sup_{k\geq n} I(A_k) \\
+   			&=\inf_{n=1}^\infty \sup_{k\geq n} I(A_k) \\
+   			&=\inf_{n=1}^\infty I(\bigcup_{k \geq n} A_k) \\
+   			&=I(\bigcap_{n=1}^\infty \bigcup_{k \geq n} A_k)
+   		\end{align}
+   		Similarly,
+   		\begin{align}
+   			\lim_{n \to \infty} I(A_n) &= \lim_{n=1}^\infty \inf_{k\geq n} I(A_k) \\
+   			&= \sup_{n=1}^\infty \inf_{k\geq n} I(A_k) \\
+   			&= I(\bigcup_{n=1}^\infty \bigcap_{k \geq n} A_k)
+   		\end{align}
+   		Therefore, 
+   		\begin{align}
+   			(A_n) \to A\ \iff\ A = \bigcup_{n=1}^\infty \bigcap_{k \geq n} A_k = \bigcap_{n=1}^\infty \bigcup_{k \geq n} A_k
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{proposition}[Special Cases]
+   		
+   	\end{proposition}
 \end{document}
 
 
