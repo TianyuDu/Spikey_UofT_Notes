@@ -34,6 +34,7 @@
     version={4.0},
 ]{doclicense}
 
+
 \title{STA347: Probability}
 \date{\today}
 \author{Tianyu Du}
@@ -43,16 +44,86 @@
     \newpage
    	\section{Preliminaries}
    	\begin{definition}
-   		A \textbf{standard uniform} is defined to be $\mc{U} \sim unif[0, 1]$ if and only if 
+   		A \textbf{process}\footnote{This is just a process, not necessarily a random process.} $W$ is a mechanism generating \textbf{outcomes} $w$ from a sample space $\Omega$. Any realized trail of process $W$ can be denoted as a potentially infinite sequence in $\Omega$:
    		\begin{align}
-   			P(\mc{U} \leq u) = u\ \forall u \in [0, 1]	
+   			W: w_1, w_2, \cdots, w_n, \cdots
    		\end{align}
    	\end{definition}
    	
    	\begin{definition}
+   		A \textbf{random variable} (extended process), $X := g(W)$, can be constructed from a process $W$ and a real-valued function $g: \Omega \to \R$.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		Given a random variable $X = g(W)$, the \textbf{sample mean} (i.e. empirical expectation) of the first $n$ trials from a sequence of realizations, $g(w_1), \cdots, g(w_n), \cdots$, is defined to be
+   		\begin{align}
+   			\hat{\expe}_n g(W) &:= \frac{\sum_{i=1}^n g(w_i)}{n}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		A process $W$ is said to be a \textbf{random process} if it satisfies the \emph{empirical law of large numbers}, in that, $\forall g \in \R^\Omega$:
+   		\begin{enumerate}[(i)]
+   			\item \emph{stability}: $(\hat{\expe}_ng(W))_{n\in \N}$ converges;
+   			\item \emph{Invariance}: $\forall\ (w_n)_{n \in \N} \subseteq \Omega$, the limits of $(\hat{\expe}_ng(W))_{n\in \N}$ are the same.
+   		\end{enumerate}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		Let $W$ be a random process and $g \in \R^\Omega$, the \textbf{expected value} of $g(W)$ is defined as
+   		\begin{align}
+   			\expe g(W) &:= \lim_{n \to \infty} \hat{\expe}_ng(W)
+   		\end{align}
+   		the limit is well-defined given ELLN.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		Let $W$ be a random process. For every $A \subseteq \Omega$, take $g := I_A \in \R^\Omega$, the \textbf{empirical relative frequencies} (i.e. empirical probability) is defined as
+   		\begin{align}
+   			\hat{P}(W \in A) &:= \hat{\expe}_n I_A(W)
+   		\end{align}
+   		Given ELLN, the limit is well-defined, then the \textbf{probability} is defined to be the limit:
+   		\begin{align}
+   			P(W \in A) &:= \lim_{n \to \infty} \hat{P}(W \in A)
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{remark}
+   		The notation of expected values and probabilities on $W$ is well-defined only when $W$ satisfies the empirical law of large numbers, that is, $W$ is a random process. \\
+   		Given $W$ defined on $\Omega$ satisfies ELLN, the behaviour of $W$ can be fully characterized by its \textbf{probability distribution}.
+   		\begin{align}
+   			W \sim P_W \tx{ on } \Omega
+   		\end{align}
+   	\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   	\section{Distributions}
+
+   	\begin{definition}
    		$Z \sim unif\{0, \cdots, p-1\}$ if and only if
    		\begin{align}
    			P(Z=i) = P(Z=j)\quad \forall i, j \in \{0, \cdots, p-1\}
+   		\end{align}
+   	\end{definition}
+
+   	\begin{definition}
+   		A \textbf{standard uniform} is defined to be $\mc{U} \sim unif[0, 1]$ if and only if 
+   		\begin{align}
+   			P(\mc{U} \leq u) = u\ \forall u \in [0, 1]	
    		\end{align}
    	\end{definition}
    	
