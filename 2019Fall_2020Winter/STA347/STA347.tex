@@ -176,7 +176,7 @@
    	\end{theorem}
    	
    	\begin{proof}
-   		The result should be evident by construction of uniform distribution, (ii) is simply the $p$-bit expansion of real numbers, which is equivalent to the decimal expansion.
+   		The result should be evident by construction of uniform distribution, (ii) is simply the base $p$ expansion of real numbers, which is equivalent to the decimal expansion.
    	\end{proof}
    	
    	\begin{definition}
@@ -393,6 +393,15 @@
    		\end{align}
    	\end{proof}
    	
+   	\begin{theorem}
+   		\begin{align}
+   			E U^{k}-E(U-1)^{k}=n^{k-1} \quad k \in \mathbb{N}
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		\todo{Prove this}
+   	\end{proof}
    	
    	
    	\subsection{Bernoulli Trials}
@@ -421,6 +430,16 @@
    	\end{proposition}
    	
    	\subsection{Standard Uniform Distribution}
+   	
+   	\begin{theorem}
+   		\begin{align}
+   			E U^{k}=1 /(k+1), \quad k \geq 0
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		\todo{Prove}
+   	\end{proof}
    	
    	\subsection{Scaled Exponential Distribution}
    	
@@ -467,9 +486,107 @@
    		\end{align}
    	\end{proposition}
    	
-   	\begin{proposition}[Special Cases]
-   		
+   	\begin{corollary}
+   		Let $A_n \uparrow$ be an increasing sequence, that is, $A_n \subseteq A_{n+1}$. Then
+   		\begin{align}
+   			A_n \uparrow \bigcup_{n=1}^\infty A_n
+   		\end{align}
+   	\end{corollary}
+   	
+   	\begin{proof}
+   		\todo{Prove this.}
+   	\end{proof}
+   	
+   	\begin{corollary}
+   		Let $A_n \downarrow$ be a decreasing sequence, that is, $A_{n} \supseteq A_{n+1}$. Then
+   		\begin{align}
+   			A_n \downarrow \bigcap_{n=1}^\infty A_n
+   		\end{align}
+   	\end{corollary}
+   	
+   	\begin{proof}
+   		\todo{Prove this.}
+   	\end{proof}
+   	
+   	\begin{proposition}
+   		If $A_n \uparrow A$ or $A_n \downarrow A$, then $P(A_n) \to P(A)$.
    	\end{proposition}
+   	
+   	\begin{proof}
+   		Let $A_0 = \varnothing$. Suppose $A_n \uparrow A$, then by previous corollary
+   		\begin{align}
+   			A = \bigcup_{n=1}^\infty A_n = \sum_{i=1}^\infty (A_i - A_{i-1})
+   		\end{align}
+   		Then 
+   		\begin{align}
+   			P(A) &= \sum_{i=1}^\infty P(A_i - A_{i-1}) \\
+   			&= \lim_{n\to\infty}\sum_{i=1}^n P(A_i - A_{i-1}) \\
+   			&= \lim_{n\to\infty}P(A_n) - P(A_0) \\
+   			&= \lim_{n\to\infty}P(A_n)
+   		\end{align}
+   		\todo{Prove the other case.}
+   	\end{proof}
+   	
+   	\begin{proposition}[Sequential Continuity]
+   		\begin{align}
+   			A_{n} \rightarrow A \implies P\left(A_{n}\right) \rightarrow P(A)
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{theorem}
+   		Any distribution function $F_X(x)$ is right-continuous. That is, $F(x+) = F(x)$.
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		Let $x \in \R$, let $x_n \downarrow x$. Construct sequence of sets as $A_n := (-\infty, x_n]$.\\
+   		By construction, $A_n \downarrow A$. \\
+   		Therefore, $F_X(x_n) = P_X(A_n) \downarrow P_X(A) = F_X(x)$.
+   	\end{proof}
+   	
+   	\begin{definition}
+   		Let $X$ be a real-valued random variable, then the \textbf{probability mass function} of $X$ is given by
+   		\begin{align}
+   			p_X(x) := P(X=x)
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{proposition}
+   		\begin{align}
+   			p(x) = F(x) - F(x-)
+   		\end{align}
+   	\end{proposition}
+   	\begin{proof}
+   		Let $x_n \uparrow\uparrow x$, let $A_n = (-\infty, x_n]$ and $A = (-\infty, x)$. Clearly, $A_n \uparrow A$. Then,
+   		\begin{align}
+   			F(x-) &= \lim_{n \to \infty} P(A_n) \\
+   			&= P(A) = P(X < x)
+   		\end{align}
+   		Hence $p(x) = P(X \leq x) - P(X < x) = F(x) - F(x-)$.
+   	\end{proof}
+   	
+   	\begin{proposition}
+   		It is evident that $p(x) = 0$ wherever $F(x)$ is continuous.
+   	\end{proposition}
+   	
+   	\begin{definition}
+   		The \textbf{points of continuity} of a distribution function $F$ is defined as
+   		\begin{align}
+   			C_F := p^{-1}(0)
+   		\end{align}
+   		And the \textbf{points of discontinuity} is simply $D_F := \R - C_F$.
+   	\end{definition}
+   	
+   	\begin{theorem}
+   		A distribution function $F$ can have at most countably many discontinuous point. That is, $|D_F| \leq \aleph_0$.
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		Note that
+   		\begin{align}
+   			D_F = \bigcup_{n=1}^\infty \left\{x\in \R: p(x) > \frac{1}{n}\right\}
+   		\end{align}
+   		Note that $\abs{\left\{x\in \R: p(x) > \frac{1}{n}\right\}} < n$, therefore $D_F$ is a countable union of countable sets, so $|D_F| \leq \aleph_0$.
+   	\end{proof}
 \end{document}
 
 
