@@ -587,6 +587,25 @@
    		\end{align}
    		Note that $\abs{\left\{x\in \R: p(x) > \frac{1}{n}\right\}} < n$, therefore $D_F$ is a countable union of countable sets, so $|D_F| \leq \aleph_0$.
    	\end{proof}
+   	
+   	\section{Conditional Probability}
+   	\begin{definition}
+   		Given a random variable $W$ on $\Omega$ with sequence of realizations $(w_n)$, let $A, B \subseteq \Omega$. Then the \textbf{conditional empirical relative frequency} for $A$ conditioned on $B$ is defined to be
+   		\begin{align}
+   			\hat{P}_{n}(W \in A | W \in B) &=\frac{I_{A}\left(w_{1}\right) I_{B}\left(w_{1}\right)+\cdots+I_{A}\left(w_{n}\right) I_{B}\left(w_{n}\right)}{I_{B}\left(w_{1}\right)+\cdots+I_{B}\left(w_{n}\right)} \\
+   			&= \frac{\hat{P}_n(W \in A \cap B)}{\hat{P}_n(W \in B)}
+   		\end{align}
+   		whenever $\hat{P}_n(W \in B) \neq 0$.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		Given random variable $W$ defined on sample space $\Omega$ and $A, B \subseteq \Omega$, the \textbf{conditional probability} of $A$ given $B$ is defined as
+   		\begin{align}
+   			P(W \in A | W \in B) &:= \lim_{n \to \infty} \frac{\hat{P}_n(W \in A \cap B)}{\hat{P}_n(W \in B)} \\
+   			&= \frac{P(W \in A \cap B)}{P(W \in B)}
+   		\end{align}
+   		provided that $P(W \in B) \neq 0$.
+   	\end{definition}
 \end{document}
 
 
