@@ -43,6 +43,7 @@
     \tableofcontents
     \newpage
    	\section{Preliminaries}
+   	\subsection{Random Processes}
    	\begin{definition}
    		A \textbf{process}\footnote{This is just a process, not necessarily a random process.} $W$ is a mechanism generating \textbf{outcomes} $w$ from a sample space $\Omega$. Any realized trail of process $W$ can be denoted as a potentially infinite sequence in $\Omega$:
    		\begin{align}
@@ -96,12 +97,54 @@
    		\end{align}
    	\end{remark}
 
+	\subsection{Indicator Functions and Set Operations}
+	\begin{proposition}
+		The \textbf{indicator map} $I: \mc{P}(\Omega) \to \{0, 1\}^\Omega$ is bijective.
+	\end{proposition}
+	
+	\begin{proof}
+		\emph{Injective:} Let $f, g \in \{0, 1\}^\Omega$, show the corresponding sets $A_f, A_g$ are the same. \\
+		Let $w \in A_f$, then $f(w) = 1 = g(w)$, which implies $w \in A_g$. Therefore, $A_f \subseteq A_g$. \\
+		The other direction is similar. \\
+		\emph{Surjective:} Let $f \in \{0, 1\}^\Omega$, then one can construct $A_f := \{w \in \Omega: f(w) = 1\}$ so that $I(A_f) = f$.
+	\end{proof}
+	
+	\begin{proposition}
+		Let $W$ be a random variable defined on outcome space $\Omega$, and let $(A_n)$ be a collection\footnote{The lecture note presents it as a countable set, indeed, it can be an arbitrary set.}, then
+		\begin{align}
+			I\bigcap_{n=1}^\infty A_n &= \inf_{n=1}^\infty I A_n \\
+			I\bigcup_{n=1}^\infty A_n &= \sup_{n=1}^\infty I A_n
+		\end{align}
+	\end{proposition}
 
+	\subsection{Real Analysis}
+	\begin{definition}
+		A sequence $(x_n)$ is \textbf{Cauchy} if $\sup_{i, j \geq n} \abs{x_i - x_j} \to 0$ as $n \to \infty$.
+	\end{definition}
+	
+	\begin{proposition}
+		\begin{align}
+			\sup_{i, j \geq n} \abs{x_i - x_j} = \sup_{i \geq n} x_i - \inf_{j \geq n} x_j
+		\end{align}
+	\end{proposition}
 
-
-
-
-
+	\begin{theorem}
+		Let $(x_n)$ be a sequence in a Hilbert space, then 
+		\begin{align}
+			(x_n) \to x \iff \liminf x_n = \limsup x_n
+		\end{align}
+	\end{theorem}
+	
+	\begin{proposition}[Corollary of Order Limit Theorem]
+	It is evident that
+	\begin{align}
+		\forall n \in \N, \inf_{i\geq n} x_i \leq \sup_{i \geq n} x_i	
+	\end{align}
+	therefore, 
+	\begin{align}
+		\liminf x_n \leq \limsup x_n
+	\end{align}
+	\end{proposition}
 
 
 
@@ -167,11 +210,11 @@
    		\end{align}
    	\end{proof}
    	
-   	\begin{theorem}
+   	\begin{theorem}[The Fundamental Theorem Applied Probability]
    		If $U = \sum_{n=1}^\infty Z_i p^{-i}$, then the following are equivalent:
    		\begin{enumerate}[(i)]
    			\item $U \sim unif[0, 1]$;
-   			\item $Z_i \overset{i.i.d.}{\sim} Z \overset{d}{=} unif\{0, \cdots, p-1\}$.
+   			\item $Z_i \overset{i.i.d.}{\sim} Z \overset{d}{=} unif\{0, \cdots, p-1\}$ for some $p \geq 2$.
    		\end{enumerate}
    	\end{theorem}
    	
@@ -400,7 +443,12 @@
    	\end{theorem}
    	
    	\begin{proof}
-   		\todo{Prove this}
+   	WLOG, let $U \sim unif\{1, \cdots, n\}$, it is evident that $U - 1 \sim unif\{0, \cdots, n-1\}$
+   		\begin{align}
+   			EU^k - E(U-1)^k &= \frac{\sum_{i=1}^n i^k - \sum_{i=0}^{n-1} i^k}{n} \\
+   			&= \frac{\sum_{i=1}^n i^k - \sum_{i=1}^{n-1} i^k}{n} \\
+   			&= \frac{n^k}{n} = n^{k-1}
+   		\end{align}
    	\end{proof}
    	
    	
@@ -432,20 +480,44 @@
    	\subsection{Standard Uniform Distribution}
    	
    	\begin{theorem}
+   		Let $U \sim unif[0, 1]$, then
    		\begin{align}
-   			E U^{k}=1 /(k+1), \quad k \geq 0
+   			E U^{k}=\frac{1}{k+1}, \quad k \geq 0
    		\end{align}
    	\end{theorem}
    	
    	\begin{proof}
-   		\todo{Prove}
+   	Given the outcome space of standard uniform, $P(U \leq t) = F(t) = t$ for every $t \in [0, 1]$.
+   		\begin{align}
+   			EU^k &= \int_0^1 F'(t) t^k\ dt \\
+   			&= \int_0^1 t^k\ dt\\
+   			&= \left. \frac{1}{k+1} t^{k+1} \right|_0^1 \\
+   			&= \frac{1}{k+1}
+   		\end{align}
    	\end{proof}
    	
    	\subsection{Scaled Exponential Distribution}
    	
    	\subsection{Gamma Distribution}
    	
-   	\subsection{Distribution Functions in General}
+   	\section{Distribution Functions in General}
+   	\subsection{Probability}
+   	\begin{definition}
+   		A \textbf{probability space} is a triple $(\Omega, \mc{F}, P)$ consisting of \textbf{sample space}, \textbf{event space}, and a \textbf{probability} satisfying the following properties: \\
+   		\emph{Properties of $\mc{F}$}:
+   		\begin{enumerate}[(i)]
+   			\item $\Omega \in \mc{F}$;
+   			\item Closed under complement;
+   			\item Closed under countable union.
+   		\end{enumerate}
+   		\emph{Properties of $P: \mc{F} \to [0, 1]$}: 
+   		\begin{enumerate}[(i)]
+   			\item $\sigma$-additivity;
+   			\item Non-negativity: $P(A) \geq 0$ for every $A \in \mc{F}$;
+   			\item Normality: $P(\Omega) = 1$.
+   		\end{enumerate}
+   	\end{definition}
+   	
    	\begin{definition}
    		A probability measure $P: \mc{F} \to [0, 1]$ is said to be \textbf{$\sigma$-additive} if for any countable mutually disjoint events $(A_n)$,
    		\begin{align}
@@ -586,6 +658,194 @@
    			D_F = \bigcup_{n=1}^\infty \left\{x\in \R: p(x) > \frac{1}{n}\right\}
    		\end{align}
    		Note that $\abs{\left\{x\in \R: p(x) > \frac{1}{n}\right\}} < n$, therefore $D_F$ is a countable union of countable sets, so $|D_F| \leq \aleph_0$.
+   	\end{proof}
+   	
+   	\subsection{Covariance as an Inner Product}
+   	\paragraph{Motivation} Let $W$ be a random variable defined on $\Omega$, let $X := f(W)$ and $Y := g(W)$. Let $(x_1, \cdots, x_n)$ and $(y_1, \cdots, y_n)$ denote the sequence of outcomes. \\
+   	Recall that the expectation of $X$ is defined as
+   	\begin{align}
+   		\expe X &:= \lim_{n \to \infty} \hat{\expe}_n X \\
+   		&= \lim_{n \to \infty} \frac{\sum_{i=1}^n x_n}{n}
+   	\end{align}
+   	Such limit is well defined given $X$ satisfies the empirical law of large numbers.
+   	
+   	\begin{definition}
+   		Define the \textbf{norm} (i.e. variance) of a random variable $X$ as 
+   		\begin{align}
+   			\norm{X} &:= \sqrt{\expe X^2} \\
+   			&= \lim_{n \to \infty} \frac{\sqrt{\sum_{i=1}^n x_i^2}}{\sqrt{n}}
+   		\end{align}
+   	\end{definition}
+   	\begin{definition}
+   		Define the \textbf{inner product} between two random variables $X, Y$ as 
+   		\begin{align}
+   			\inner{X}{Y} &:= \lim_{n \to \infty} \frac{\sum_{i=1}^n x_i y_i}{n}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		The \textbf{cosine similarity} between two random variable $X, Y$ can e written as
+   		\begin{align}
+   			\cos \angle (X, Y) &= \frac{\inner{X}{Y}}{\norm{X} \norm{Y}} \\
+   			&= \lim_{n \to \infty} \frac{\frac{\sum_{i=1}^n x_i y_i}{n}}{\frac{\sqrt{\sum_{i=1}^n x_i^2}}{\sqrt{n}} \frac{\sqrt{\sum_{i=1}^n y_i^2}}{\sqrt{n}}} \\
+   			&\overset{n \to \infty}{\to} \frac{\expe XY}{\sqrt{\expe X^2} \sqrt{\expe Y^2}}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		The \textbf{covariance} between two random variables $X, Y$ is defined to be the \ul{decentralized} cosine similarity:
+   		\begin{align}
+   			Cov(X, Y) &:= \expe (X - \expe X)(Y - \expe Y)
+   		\end{align}
+   		In particular, for single random variable $X$, the \textbf{variance} is defined as
+   		\begin{align}
+   			Var(X) &:= Cov(X, X)
+   		\end{align}
+   		The \textbf{coefficient of correlation} is defined to be the \ul{normalized} covariance:
+   		\begin{align}
+   			\rho(X, Y) := \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{proposition}
+   		$\expe X$ is the closest constant (in terms of norm defined on random variables) near $X$. That is, $\norm{X - \expe X} = \inf_{t \in \R} \norm{X - t}$.
+   	\end{proposition}
+   	
+   	\begin{proof}
+   		Define $g(t) := \expe (X - t)^2$, solving the first order condition gives $t^* = \expe X$.
+   	\end{proof}
+
+   	\begin{proposition}
+   		Random variable space is a vector space.
+   	\end{proposition}
+
+   	\begin{definition}
+   		The \textbf{centralization operator} for random variable is defined as
+   		\begin{align}
+   			\dot{X} := X - \expe X
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{proposition}
+   		The centralization operator is linear, that is,
+   		\begin{align}
+   			\dot{(X + Y)} &= \dot{X} + \dot{Y} \\
+   			\dot{(cX)} &= c \dot{X}
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{proof}
+   		The proof follows immediately from the linearity of expectation operator.
+   	\end{proof}
+   	
+   	\begin{theorem}
+   		Covariance operator is an inner product on the space of random variables.
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		\emph{Symmetry:} obviously, $Cov(X, Y) = Cov(Y, X)$. \\
+   		\emph{Bi-linearity:}
+   		\begin{align}
+   			Cov(X+Y, Z) &= \expe (\dot{X + Y} \dot{Z}) \\
+   			&= \expe (\dot{X} + \dot{Y}) \dot{Z} \\
+   			&= \expe \dot{X}\dot{Z} + \expe \dot{Y} \dot{Z} \\
+   			&= Cov(X, Z) + Cov(Y, Z)
+   		\end{align}
+   		\emph{Non-negativity}
+   		\begin{align}
+   			Cov(X, X) &= \expe \dot{X} \dot{X} \\
+   			&= \expe (\dot{X})^2 \geq 0
+   		\end{align}
+   		and the equality holds if and only if $X = \expe X$ with probability 1 (i.e. $X$ is deterministic).
+   	\end{proof}
+   	
+   	\subsection{Markov Inequality}
+   	\begin{theorem}[Markov Inequality]
+   		Let $Z \geq 0$ be a random variable, let $t \in \R_+$ and $g: \R_+ \to \R_+$ be a non-decreasing function, then
+   		\begin{align}
+   			P(Z \geq t) &\leq \frac{\expe g(Z)}{g(t)}
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{proof} Note that
+   		\begin{align}
+   			g(Z) &\geq g(t) 1(Z \geq t) \\
+   			\implies \expe g(Z) &\geq g(t) P(Z \geq t) \\
+   			\implies P(Z \geq t) &\leq \frac{\expe g(Z)}{g(t)}
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{corollary}[Chebyshev Inequality]
+   		\begin{align}
+   			P(|X - \expe X| \geq k) \leq \frac{\expe (X - \expe X)^2}{k^2}
+   		\end{align}
+   	\end{corollary}
+   	
+   	\begin{proof}
+   		Let $Z = \abs{X - \expe X}$, $g(t) = t^2$, and apply the Markov inequality.
+   	\end{proof}
+   	
+   	\begin{corollary}
+   		\begin{align}
+   			P(|X - \expe X| \geq k \sigma) \leq \frac{1}{k^2}
+   		\end{align}
+   		where $\sigma^2 = \expe (X - \expe X)^2$.
+   	\end{corollary}
+   	
+   	\begin{proof}
+   		Applying Chebyshev inequality gives
+   		\begin{align}
+   			P(|X - \expe X| \geq k \sigma) \leq \frac{\sigma^2}{(k \sigma)^2} = \frac{1}{k^2}
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{corollary}
+   		Let $X$ be a random variable, $Var(X) = 0$ if and only if $X = \expe X$ with probability 1.
+   	\end{corollary}
+   	
+   	\begin{proof}
+   		($\implies$) Suppose $Var(X) = 0$, then for every $n \in \N$,
+   		\begin{align}
+   			0 \leq P(|X - \expe X| \geq \frac{1}{n}) \leq Var(X) n^2 = 0
+   		\end{align}
+   		Because the above inequality holds for arbitrarily large $n$, the only case is that $P(|X - \expe X| > 0) = 0$.\\
+   		Given $|X - \expe X| \geq 0$, it must be $P(|X - \expe X| = 0) = 1$. \\
+   		($\impliedby$) Suppose $P(\abs{X - \expe X} = 0) = 1$. \\
+   		Let $Y := (X - \expe X)^2$, obviously $Var(X) = \expe Y$. \\
+   		It's been given that $P(Y = 0) = 1$, which means $\expe Y = 0$. Therefore, $Var(X) = 0$.
+   	\end{proof}
+   	
+   	\begin{theorem}[An Application]
+   		\begin{align}
+   			U \sim unif[0, 1] \iff [nU] \sim unif\{0, \cdots, n-1\}
+   		\end{align}
+   		where $[\ \cdot\ ]$ denotes the floor function.
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		($\implies$) Note that for every $0 \leq k \leq n-1$,
+   		\begin{align}
+   			P([nU] = k) &= P(k \leq nU < k + 1) \\
+   			&= P(\frac{k}{n} \leq U < \frac{k+1}{n}) \\
+   			&= \frac{k+1}{n} - \frac{k}{n} = \frac{1}{n}
+   		\end{align}
+   		($\impliedby$)
+   		Suppose $[nU] \sim unif\{0, \cdots, n-1\}$, we are going to show
+   		\begin{align}
+   			\forall \alpha \in [0, 1], P(U \leq \alpha) = \alpha
+   		\end{align}
+   		Considering $r \in [0, 1) \cap \Q$ such that $r = \frac{k}{n}$ for some $\Z \ni k < n$.\\
+   		Then
+   		\begin{align}
+   			P(U < r) &= P(nU < k) \\
+   			&= \sum_{i=0}^{n-1} P(nU < k \land [nU] = i) \\
+   			&= \sum_{i=0}^{n-1} P(0 \leq nU < k \land i \leq nU < i+1) \\
+   			&= \sum_{i=0}^{k-1} P(0 \leq nU < k \land i \leq nU < i+1) \\
+   			&= \sum_{i=0}^{k-1}P(i \leq nU < i + 1) \\
+   			&= \sum_{i=0}^{k-1}P([nu] = i) \\
+   			&= \frac{k}{n} = r
+   		\end{align}
+   		Therefore, $P(U < r) = r$ for every rational $r \in [0, 1)$. Because $\Q$ is dense in $\R$, every $x \in [0, 1]$ can be approximated using a rational number $r$ arbitrarily precisely. Hence, the result generalizes to $[0, 1]$.
    	\end{proof}
    	
    	\section{Conditional Probability}
