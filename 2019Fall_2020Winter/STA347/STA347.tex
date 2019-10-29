@@ -127,6 +127,10 @@
 			\sup_{i, j \geq n} \abs{x_i - x_j} = \sup_{i \geq n} x_i - \inf_{j \geq n} x_j
 		\end{align}
 	\end{proposition}
+	
+	\begin{proposition}
+		The sequence $(\sup_{n \geq k} a_k)_k$ is decreasing, and $(\inf_{n \geq k} a_k)_k$ is increasing.
+	\end{proposition}
 
 	\begin{theorem}
 		Let $(x_n)$ be a sequence in a Hilbert space, then 
@@ -336,6 +340,13 @@
    		$X \geq 0 \implies \expe X \geq 0$ by order limit theorem.
    	\end{proposition}
    	
+   	\begin{notation}
+   		Disjoint unions are often denoted as
+   		\begin{align}
+   			\sum_{n=1}^\infty A_i &:= \bigcup_{n=1}^\infty A_i
+   		\end{align}
+   	\end{notation}
+   	
    	\begin{theorem}
    		Let $W$ be a real-valued random variable. Then for any \ul{finite mutually disjoint} set $(A_1, \cdots, A_n)$, 
    		\begin{align}
@@ -443,7 +454,7 @@
    	\end{theorem}
    	
    	\begin{proof}
-   	WLOG, let $U \sim unif\{1, \cdots, n\}$, it is evident that $U - 1 \sim unif\{0, \cdots, n-1\}$
+   	Let $U \sim unif\{1, \cdots, n\}$, it is evident that $U - 1 \sim unif\{0, \cdots, n-1\}$
    		\begin{align}
    			EU^k - E(U-1)^k &= \frac{\sum_{i=1}^n i^k - \sum_{i=0}^{n-1} i^k}{n} \\
    			&= \frac{\sum_{i=1}^n i^k - \sum_{i=1}^{n-1} i^k}{n} \\
@@ -908,7 +919,7 @@
    	
    	\begin{proof} Note that
    		\begin{align}
-   			g(Z) &\geq g(t) 1(Z \geq t) \\
+   			g(Z) &\geq g(t) \id{Z \geq t} \\
    			\implies \expe g(Z) &\geq g(t) P(Z \geq t) \\
    			\implies P(Z \geq t) &\leq \frac{\expe g(Z)}{g(t)}
    		\end{align}
