@@ -210,7 +210,7 @@
    		\end{align}
    	\end{proof}
    	
-   	\begin{theorem}[The Fundamental Theorem Applied Probability]
+   	\begin{theorem}
    		If $U = \sum_{n=1}^\infty Z_i p^{-i}$, then the following are equivalent:
    		\begin{enumerate}[(i)]
    			\item $U \sim unif[0, 1]$;
@@ -476,6 +476,145 @@
    	\begin{proposition}[Negation]
    		$Z \sim bern(p) \quad \Leftrightarrow \quad 1-Z \sim bern(q)$ where $p + q = 1$.
    	\end{proposition}
+   	
+   	\subsection{Binomial Distribution}
+   	\begin{definition}
+   		Given $n \in \N$ and $0 \leq p \leq 1$, a random variable $X$ is said to follow \textbf{binomial distribution} with $n$ trails and chance $p$ if
+   		\begin{align}
+   			X &\eqd Z_1 + \cdots + Z_n\quad Z_i \iid  \begin{pmatrix}
+   				0 & 1 \\ q & p
+   			\end{pmatrix}
+   		\end{align}
+   		Denoted as $X \sim bin(n, p)$.
+   	\end{definition}
+   	
+   	\begin{proposition}
+   		$X^2 \eqd \left( \sum_{i=1}^n Z_i \right)^2$.
+   	\end{proposition}
+   	
+   	\begin{proof}
+   		The statement follows immediately from the definition of Binomial distribution.
+   	\end{proof}
+   	
+   	\begin{corollary}
+   		\begin{align}
+   			\expe (X^2) &= \expe \left ( \sum_{i=1}^n Z_i \right)^2 \\
+   			Var(X) &= Var \left( \sum_{i=1}^n Z_i \right)
+   			= \sum_{i=1}^n Var(Z_i) \\
+   			&= \sum_{i=1}^n pq
+   			= npq
+   		\end{align}
+   		More generally, for any $f: \R \to \R$, $f(X) \eqd f \left( \sum_{i=1}^n Z_i \right)^2$.
+   	\end{corollary}
+   	
+   	\begin{proposition}
+   		Let $X \sim bin (m, p)$, $X \sim bin(n, p)$ and $X \perp Y$, then $X + Y \sim bin(m + n, p)$.
+   	\end{proposition}
+   	
+   	\begin{proof}
+   		Note that the joint distribution of $(X, Y)$ follows 
+   		\begin{align}
+   			\begin{pmatrix}
+   				X \\ Y
+   			\end{pmatrix}
+   			\eqd
+   			\begin{pmatrix}
+   				Z_1 + \cdots + Z_m \\
+   				Z_{m+1} + \cdots + Z_{m+n}
+   			\end{pmatrix}
+   		\end{align}
+		then the result is immediate.
+   	\end{proof}
+   	
+   	\begin{example}
+   		Define $g(Z_1, \cdots, Z_n) := \sum_{i=1}^n a_i Z_i^i$, then 
+   		\begin{align}
+   			g(Z_1, \cdots, Z_n) &\eqd \sum_{i=1}^n a_i Z_i \\
+   			\implies \expe g(Z_1, \cdots, Z_n) &= \sum_{i=1}^n a_i p \\
+   			Var(g(Z_1, \cdots, Z_n)) &= \sum_{i=1}^n a_i pq
+   		\end{align}
+   	\end{example}
+   	
+   	\subsection{Probability Mass Function}
+   	\begin{definition}
+   		Let $X \sim bin(n, p)$, then for each $k \in \{0, \cdots, n\}$, the \textbf{probability mass function (pmf)} is defined as
+   		\begin{align}
+   			P(X = k) &:= P(\sum_{i=1}^n Z_i = k)
+   		\end{align}
+   		Conversely, for every $k \notin \{0, \cdots, n\}$, $P(X=k) := 0$.
+   	\end{definition}
+   	
+   	\begin{theorem}[pmf for Binomial]
+   		Note that $P(Z=z) = p^z q^{1-z}$ for $z \in \{0, 1\}$, then for every $(z_i)_{i=1}^n \in \{0, 1\}^n$, it is evident that
+   		\begin{align}
+   			P((Z_i)_{i=1}^n = (z_i)_{i=1}^n) &= P \left[\bigcap_{i=1}^n\{Z_i = z_i\}\right] \\
+   			&= \prod_{i=1}^n P(Z_i = z_i) \\
+   			&= \prod_{i=1}^n p^{z_i} q^{1-z_i} \\
+   			&= p^{\sum_{z_i}} q^{n - \sum z_i}
+   		\end{align}
+   		Define
+   		\begin{align}
+   			C_k^n := \{(z_1, \cdots, z_n) \in \{0, 1\}^n: \sum_{i=1}^k z_i = k\}
+   		\end{align}
+   		Then 
+   		\begin{align}
+   			P(X = k) &= \sum_{(z_1, \cdots, z_n) \in C_k^n} P[(Z_1, \cdots, Z_n) = (z_1, \cdots, z_n)] \\
+   			&= \sum_{(z_1, \cdots, z_n) \in C_k^n} p^k q^{n-k} \\
+   			&= |C_k^n| p^k q^{n-k}
+   		\end{align}
+   		Define $\binom{n}{k} := |C_k^n|$.
+   	\end{theorem}
+   	
+   	\begin{definition}
+   		Given $k, n \in \N$ such that $k < n$, the \textbf{descending operator} $n^{(k)}$ is defined as
+   		\begin{align}
+   			n^{(k)} := \underbrace{n (n-1) (n-2) \cdots (n-(k-1))}_{k\tx{ terms in total}} = \frac{n!}{(n-k)!}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{theorem}
+   		Let $X \sim bin(n, p)$, then
+   		\begin{align}
+   			\red{\expe X^{(r)} = \begin{cases}
+   				n^{(r)} p^r &0 \leq r \leq w \\
+   				0 &0\geq n+1
+   			\end{cases}}
+   		\end{align}
+   	\end{theorem}
+   	
+	\begin{proof}
+		Let $X \sim bin(n, p)$ with $\Omega_X = \{0, \cdots, n\}$. \\
+		By definition, $X^{(r)}$ is another random variable by construction:
+		\begin{align}
+			g(X) := X^{(r)} = X(X-1)(X-2)\cdots(X-(r-1))
+		\end{align}
+		Note that $g(X)$ is a polynomial with degree $r$ with sample space $\Omega_{g(X)}$. Then,
+		\begin{align}
+			\expe (X^{(r)}) &= \expe (g(X)) \\
+			&= \sum_{k=0}^n k^{(r)} \binom{n}{k} p^k q^{n-k} \\
+			&= \sum_{k=0}^n \frac{k!}{(k-r)!} \frac{n!}{k!(n-k)!} p^k q^{n-k} \\
+			&= \sum_{k=0}^n \frac{1}{k!}\frac{k!}{(k-r)!} n^{(k)} p^k q^{n-k} \\
+			&= \sum_{k=\red{r}}^n \frac{1}{k!}\frac{k!}{(k-r)!} n^{(k)} p^k q^{n-k} \\
+			&= \sum_{k=r}^n \frac{1}{k!}\frac{k!}{(k-r)!} \frac{n! p^r}{((n-r) - (k-r))!} p^{k-r} q^{(n-r)-(k-r)}\\
+			&= n^{(r)} p^r \sum_{k=r}^n \frac{1}{k!}\frac{k!}{(k-r)!} \frac{(n-r)!}{((n-r) - (k-r))!} p^{k-r} q^{(n-r)-(k-r)}\\
+			&= n^{(r)} p^r \sum_{k=r}^n \frac{1}{(k-r)!} \frac{(n-r)!}{((n-r) - (k-r))!} p^{k-r} q^{(n-r)-(k-r)}\\
+			&= n^{(r)} p^r \sum_{z=0}^{n-r} \frac{1}{z!} \frac{(n-r)!}{((n-r) - z)!} p^z q^{(n-r)-z}\\
+			&= n^{(r)} p^r \sum_{z=0}^{n-r}\binom{n-r}{z} p^z q^{(n-r)-z}\\
+			&= n^{(r)} p^r
+		\end{align}
+	\end{proof}
+   	
+   	\begin{example}
+   		Find $\expe X^{(3)}$ given $\expe \sim bin(n, p)$ with $n \geq 3$.
+   		\begin{align}
+   			\expe X^{(3)} &= \expe[X(X-1)(X-2)] \\
+   			&= \expe [X^3 - 3X^2 + 2X] \\
+   			&= \expe X^3 - 3 \expe X^2 + 2 \expe X \\
+   			&= \expe X^3 - 3 (npq + n^2 p^2) + 2 np \\
+   			&= n(n-1)(n-2) p^3 \\
+   			\implies \expe X^3 &= 3 (npq + n^2 p^2) - 2 np + n(n-1)(n-2) p^3
+   		\end{align}
+   	\end{example}
    	
    	\subsection{Standard Uniform Distribution}
    	

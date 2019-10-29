@@ -9,11 +9,13 @@
 \BOOKMARK [2][-]{subsection.2.4}{Expected Value for an Arbitrary Discrete Distribution}{section.2}% 9
 \BOOKMARK [2][-]{subsection.2.5}{Discrete Uniform Distributions}{section.2}% 10
 \BOOKMARK [2][-]{subsection.2.6}{Bernoulli Trials}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.7}{Standard Uniform Distribution}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.8}{Scaled Exponential Distribution}{section.2}% 13
-\BOOKMARK [2][-]{subsection.2.9}{Gamma Distribution}{section.2}% 14
-\BOOKMARK [1][-]{section.3}{Distribution Functions in General}{}% 15
-\BOOKMARK [2][-]{subsection.3.1}{Probability}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.2}{Covariance as an Inner Product}{section.3}% 17
-\BOOKMARK [2][-]{subsection.3.3}{Markov Inequality}{section.3}% 18
-\BOOKMARK [1][-]{section.4}{Conditional Probability}{}% 19
+\BOOKMARK [2][-]{subsection.2.7}{Binomial Distribution}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.8}{Probability Mass Function}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.9}{Standard Uniform Distribution}{section.2}% 14
+\BOOKMARK [2][-]{subsection.2.10}{Scaled Exponential Distribution}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.11}{Gamma Distribution}{section.2}% 16
+\BOOKMARK [1][-]{section.3}{Distribution Functions in General}{}% 17
+\BOOKMARK [2][-]{subsection.3.1}{Probability}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.2}{Covariance as an Inner Product}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.3}{Markov Inequality}{section.3}% 20
+\BOOKMARK [1][-]{section.4}{Conditional Probability}{}% 21
