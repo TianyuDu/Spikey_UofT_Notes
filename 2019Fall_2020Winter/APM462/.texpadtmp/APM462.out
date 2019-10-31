@@ -12,5 +12,6 @@
 \BOOKMARK [3][-]{subsubsection.3.2.1}{Tangent Space to a \(Hyper\) Surface at a Point}{subsection.3.2}% 12
 \BOOKMARK [2][-]{subsection.3.3}{Remark on the Connection Between Constrained and Unconstrained Optimizations}{section.3}% 13
 \BOOKMARK [2][-]{subsection.3.4}{Inequality Constraints}{section.3}% 14
-\BOOKMARK [2][-]{subsection.3.5}{Iterative Algorithms}{section.3}% 15
-\BOOKMARK [3][-]{subsubsection.3.5.1}{Newton's Method}{subsection.3.5}% 16
+\BOOKMARK [1][-]{section.4}{Iterative Algorithms for Optimization}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Newton's Method}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{Steepest/Gradient Descent}{section.4}% 17

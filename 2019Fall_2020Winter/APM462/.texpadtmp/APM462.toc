@@ -13,5 +13,6 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Tangent Space to a (Hyper) Surface at a Point}{10}{subsubsection.3.2.1}
 \contentsline {subsection}{\numberline {3.3}Remark on the Connection Between Constrained and Unconstrained Optimizations}{15}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Inequality Constraints}{16}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Iterative Algorithms}{19}{subsection.3.5}
-\contentsline {subsubsection}{\numberline {3.5.1}Newton's Method}{19}{subsubsection.3.5.1}
+\contentsline {section}{\numberline {4}Iterative Algorithms for Optimization}{19}{section.4}
+\contentsline {subsection}{\numberline {4.1}Newton's Method}{19}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Steepest/Gradient Descent}{22}{subsection.4.2}
