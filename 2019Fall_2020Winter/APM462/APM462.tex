@@ -1277,6 +1277,158 @@
 		\end{align}
 		Contradiction.
 	\end{proof}
+	
+	\subsubsection{Steepest Descent: the Quadratic Case}
+	\begin{example}
+		Let $f$ follow the general quadratic form
+		\begin{align}
+			f(x) &= \frac{1}{2} x^T Q x - b^T x
+		\end{align}
+		with $b, x \in \R^n$ and $Q$ is \ul{positive definite}. \\
+		Let $0 < \lambda = \lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n = \Lambda$ be eigenvalues of $Q$.
+	\end{example}
+	
+	\begin{proposition}
+		Gradient descent on  strictly convex(concave) quadratic functions is guaranteed to converge to the unique global minimum(maximum). \\
+		Essentially, we are going to define an auxiliary function $g$, preserving the optimizing behaviour in a sense that
+		\begin{align}
+			\argmin g(x) &= \argmin f(x)
+		\end{align}
+		and then show the convergence property on $f(x)$ indirectly by showing converging property on $g(x)$.
+	\end{proposition}
+	
+	\begin{lemma}
+		Recall that positive definite $Q$ implies the existence of \ul{unique} minimizer $x_*$. The minimizer satisfies the first order necessary condition.
+		\begin{align}
+			Q x_* - b &= 0 \\
+			\iff x_* &= Q^{-1} b
+		\end{align}
+		Where the second equation came from the invertibility of positive definite matrices.
+		One can rewrite auxiliary function capturing the optimization behaviours $f$ as following 
+		\begin{align}
+			g(x) &:= \frac{1}{2} (x - x_*)^T Q (x - x_*) \\
+			&= \underbrace{\frac{1}{2} x^T Q x - \overbrace{x^T Q x_*}^{x^T b}}_{f(x)} + \frac{1}{2} x_*^T Q x_*
+		\end{align}
+		Because $Q$ is positive definite:
+		\begin{align}
+			g(x) &\geq 0\ \forall x \in \R^n \\
+			g(x) &= 0 \iff x = x_*\\
+			\nabla f(x) &= \nabla g(x) = Q x - b
+		\end{align}
+		Where the last equation came from the fact that $f(x)$ and $g(x)$ differ by a constant.\\
+		Therefore, using the method of steepest descent,
+		\begin{align}
+			x_{k+1} &= x_k - \alpha_k \nabla g(x_k)
+		\end{align}
+		where $\alpha_k \in \argmin_{\alpha \geq 0}f(x_k - \alpha \nabla g(x_k))$. \\
+		The necessary condition for minimizations suggests $\alpha_k$ must satisfy
+		\begin{align}
+			0 = \left. \frac{d}{d\alpha}\right|_{\alpha = \alpha_k} f(x_k - \alpha \nabla g(x_k)) 
+			&= \nabla f(x_k - \alpha_k \nabla g(x_k)) \cdot (-\nabla g(x_k))\\
+			&= - [Q(x_k - \alpha_k \nabla g(x_k)) - b] \cdot \nabla g(x_k) \\
+			&= - [Qx_k - \alpha_k Q \nabla g(x_k) - b] \cdot \nabla g(x_k) \\
+			&= - [\nabla g(x_k) - \alpha_k Q \nabla g(x_k)] \cdot \nabla g(x_k) \\
+			&= - \norm{\nabla g(x_k)}_2^2 + \alpha_k \nabla g(x_k)^T Q \nabla g(x_k) \\
+			\implies \alpha_k &= \frac{\norm{\nabla g(x_k)}_2^2}{\nabla g(x_k)^T Q \nabla g(x_k)}
+		\end{align}
+	\end{lemma}
+	
+	\begin{assumption}
+		\todo{Need to check if this assumption is required.\\}
+		Assume $Q$ is symmetric.
+	\end{assumption}
+	
+	\begin{lemma}
+		The iterative updating from gradient descent on $g(x)$ is a contraction mapping. That is,
+		\begin{align}
+			g(x_{k+1}) &= \underbrace{\left(1 - \frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{-1} \nabla g(x_k)]} \right)}_{\in [-1, 1]} g(x_k)
+		\end{align}
+	\end{lemma}
+	\begin{proof}
+		\begin{align}
+			g(x_{k+1}) &\equiv g(x_k - \alpha_k \nabla g(x_k)) \\
+			&\equiv \frac{1}{2} [x_k - \alpha_k \nabla g(x_k) - x_*]^T Q [x_k - \alpha_k \nabla g(x_k) - x_*] \\
+			&= \frac{1}{2} [x_k - x_* - \alpha_k \nabla g(x_k)]^T Q [x_k - x_* - \alpha_k \nabla g(x_k)] \\
+			&= \underbrace{\frac{1}{2} (x_k - x_*)^T Q (x_k - x_*)}_{g(x_k)} - \alpha_k \nabla g(x_k)^T Q (x_k - x_*) + \frac{1}{2} a_k^2 \nabla g(x_k)^T Q \nabla g(x_k) \\
+			\implies g(x_k) - g(x_{k+1}) &= - \frac{1}{2} a_k^2 \nabla g(x_k)^T Q \nabla g(x_k) + \alpha_k \nabla g(x_k)^T Q \underbrace{(x_k - x_*)}_{=:y_k} \\
+			\implies \frac{g(x_k) - g(x_{k+1})}{g(x_k)} &= \frac{- \frac{1}{2} a_k^2 \nabla g(x_k)^T Q \nabla g(x_k) + \alpha_k \nabla g(x_k)^T Q y_k}{\frac{1}{2} y_k^T Q y_k} \\
+			&= \frac{2 \alpha_k \nabla g(x_k)^T Q y_k - a_k^2 \nabla g(x_k)^T Q \nabla g(x_k)}{y_k^T Q y_k}
+		\end{align}
+		Note that the first order condition implies $Qx_* = b$. \\
+		Therefore, $\nabla g(x_k) = Qx_k - b = Q x_k - Qx_* = Qy_k$, which implies $y_k = Q^{-1} \nabla g(x_k)$.
+		\begin{align}
+			\frac{2 \alpha_k \nabla g(x_k)^T Q y_k - a_k^2 \nabla g(x_k)^T Q \nabla g(x_k)}{y_k^T Q y_k}
+			&= \frac{2 \alpha_k \nabla g(x_k)^T Q Q^{-1}\nabla g(x_k) - a_k^2 \nabla g(x_k)^T Q \nabla g(x_k)}{\nabla g(x_k)^T Q^{-T} Q Q^{-1} \nabla g(x_k)} \\
+			&= \frac{2 \alpha_k \norm{\nabla g(x_k)}_2^2 - a_k^2 \nabla g(x_k)^T Q \nabla g(x_k)}{\nabla g(x_k)^T Q^{-T} \nabla g(x_k)}
+		\end{align}
+		Plug in the $\alpha_k$ computed before:
+		\begin{align}
+			... &= \frac{2 \frac{\norm{\nabla g(x_k)}_2^2}{\nabla g(x_k)^T Q \nabla g(x_k)} \norm{\nabla g(x_k)}_2^2 -  \frac{\norm{\nabla g(x_k)}_2^4}{(\nabla g(x_k)^T Q \nabla g(x_k))^2} \nabla g(x_k)^T Q \nabla g(x_k)}{\nabla g(x_k)^T Q^{-T} \nabla g(x_k)} \\
+			&= \frac{2 \frac{\norm{\nabla g(x_k)}_2^4}{\nabla g(x_k)^T Q \nabla g(x_k)} - \frac{\norm{\nabla g(x_k)}_2^4}{\nabla g(x_k)^T Q \nabla g(x_k)}}{\nabla g(x_k)^T Q^{-T} \nabla g(x_k)} \\
+			&= \frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{-T} \nabla g(x_k)]} \\
+			&=\frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{\red{-1}} \nabla g(x_k)]} \quad \because Q \in \mathbb{S}_n \\
+			\implies g(x_k) - g(x_{k+1}) &= \left \{
+				\frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{-1} \nabla g(x_k)]}
+			\right \} g(x_k) \\
+			\implies g(x_{k+1}) &= \left \{1 - \left [
+				\frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{-1} \nabla g(x_k)]}
+			\right ] \right \} g(x_k)
+		\end{align}
+		\begin{lemma}[Kantorovich Inequality]
+			Let $Q$ be a $n\times n$ positive definite symmetric matrix with eigenvalues $0 < \lambda = \lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n = \Lambda$. Then, for any $v \in \R^n$:
+			\begin{align}
+				\frac{\norm{v}^4_2}{(v^T Q v)(v^T Q^{-1} v)} \geq \frac{4 \lambda \Lambda}{(\lambda + \Lambda)^2}
+			\end{align}
+		\end{lemma}
+		\begin{proof}[Proof of Kantorovich Inequality]
+			\todo{Prove this lemma}
+		\end{proof}
+		Therefore, 
+		\begin{align}
+			g(x_{k+1}) &= \left \{1 - \left [
+				\frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{-1} \nabla g(x_k)]}
+			\right ] \right \} g(x_k) \\
+			&\leq \left \{1 -  \frac{4 \lambda \Lambda}{(\lambda + \Lambda)^2} \right \} g(x_k) \\
+			&= \frac{(\lambda - \Lambda)^2}{(\lambda + \Lambda)^2} g(x_k)
+		\end{align}
+	\end{proof}
+	\begin{theorem}
+		For any initial point $x_0 \in \R^n$, gradient descent converges to the unique minimum point $x_*$ of the quadratic $f(x) = x^T Q x - b^T x$.
+	\end{theorem}
+	
+	\begin{proof}
+		Define $q(x) := \frac{1}{2} (x - x_*)^T Q (x) (x - x_*)$. \\
+		Note that $q(x)$ and $f(x)$ differ by a constant, therefore $\argmin q(x) = \argmin f(x)$. \\
+		Moreover, we've shown:
+		\begin{align}
+			q(x_{k+1}) &\leq \underbrace{\left(\frac{\Lambda - \lambda}{\Lambda + \lambda} \right)^2}_{\in [0, 1)} q(x_k)
+		\end{align}
+		It is easy to notice that
+		\begin{align}
+			q(x_k) &\leq r q(x_{k-1}) \\
+			\implies q(x_k) &\leq r^k q(x_0) \\
+			\implies q(x_k) &\in \{x \in \R^k: q(x) \leq r^k q(x_0)\} =: \mc{L}_k
+		\end{align}
+		Note that the sub-level set $\mc{L}_k$ is strictly decreasing (i.e. $\mc{L}_{k+1} \subsetneq \mc{L}_k$). \\
+		Further, note that $x_*$ is the only point satisfying the inequality at the limit:
+		\begin{align}
+			q(x_*) = 0 = \lim_{k \to \infty} q(x_0)
+		\end{align}
+		Therefore, $\lim_{k \to \infty}\mc{L} = \{0\}$, and $(x_k) \to x_*$.
+	\end{proof}
+	
+	\begin{remark}
+		Note that 
+		\begin{align}
+			r &= \left(
+			\frac{\frac{\Lambda}{\lambda} - 1}{\frac{\Lambda}{\lambda} + 1}
+			\right)^2 \in [0, 1) \\
+			&= \left(\frac{C - 1}{C + 1}\right)^2
+		\end{align}
+		where $C = \frac{\Lambda}{\lambda}$ is the \textbf{condition number} of $Q$. \\
+		Clearly, when $\lambda = \Lambda$, $r = 0$ and gradient descent converges to the unique global minimum after only one epoch. \\
+		While $C \gg 1$, $r \approx 1$ and the \ul{worst case} of gradient descent converges slowly.
+	\end{remark}
 \end{document}
 
 

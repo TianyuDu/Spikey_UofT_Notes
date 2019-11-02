@@ -15,3 +15,4 @@
 \BOOKMARK [1][-]{section.4}{Iterative Algorithms for Optimization}{}% 15
 \BOOKMARK [2][-]{subsection.4.1}{Newton's Method}{section.4}% 16
 \BOOKMARK [2][-]{subsection.4.2}{Steepest/Gradient Descent}{section.4}% 17
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Steepest Descent: the Quadratic Case}{subsection.4.2}% 18
