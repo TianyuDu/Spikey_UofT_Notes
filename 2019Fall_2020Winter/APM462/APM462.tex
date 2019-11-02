@@ -1366,7 +1366,7 @@
 			... &= \frac{2 \frac{\norm{\nabla g(x_k)}_2^2}{\nabla g(x_k)^T Q \nabla g(x_k)} \norm{\nabla g(x_k)}_2^2 -  \frac{\norm{\nabla g(x_k)}_2^4}{(\nabla g(x_k)^T Q \nabla g(x_k))^2} \nabla g(x_k)^T Q \nabla g(x_k)}{\nabla g(x_k)^T Q^{-T} \nabla g(x_k)} \\
 			&= \frac{2 \frac{\norm{\nabla g(x_k)}_2^4}{\nabla g(x_k)^T Q \nabla g(x_k)} - \frac{\norm{\nabla g(x_k)}_2^4}{\nabla g(x_k)^T Q \nabla g(x_k)}}{\nabla g(x_k)^T Q^{-T} \nabla g(x_k)} \\
 			&= \frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{-T} \nabla g(x_k)]} \\
-			&=\frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{\red{-1}} \nabla g(x_k)]} \quad \because Q \in \mathbb{S}_n \\
+			&=\frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{\red{-1}} \nabla g(x_k)]} \quad \because Q \in \mathbb{S}^n \\
 			\implies g(x_k) - g(x_{k+1}) &= \left \{
 				\frac{\norm{\nabla g(x_k)}_2^4}{[\nabla g(x_k)^T Q \nabla g(x_k)][\nabla g(x_k)^T Q^{-1} \nabla g(x_k)]}
 			\right \} g(x_k) \\
@@ -1429,7 +1429,98 @@
 		Clearly, when $\lambda = \Lambda$, $r = 0$ and gradient descent converges to the unique global minimum after only one epoch. \\
 		While $C \gg 1$, $r \approx 1$ and the \ul{worst case} of gradient descent converges slowly.
 	\end{remark}
+	
+	\subsection{Method of Conjugate Directions}
+	\paragraph{Motivation} Method of conjugate directions is designed for quadratic functions with form $\frac{1}{2} x^T Q x - b^T x$. For other functional forms, one can approximate the function using quadratic form firstly and then apply method of conjugate directions.
+	
+	\begin{definition}
+		Let $Q \in \mathbb{S}^n$, $d, d' \in \R^n$ are \textbf{$Q$-orthogonal or $Q$-conjugate} if 
+		\begin{align}
+			d^T Q d' = 0
+		\end{align}
+		\emph{Remark: note that $d^T Q d' = d'^T Q d$ because $Q$ is symmetric.}
+	\end{definition}
+	
+	\begin{definition}
+		Finite set $D = (d_0, \cdots, d_k) \subseteq \R^n$ is a \textbf{$Q$-orthogonal} set if
+		\begin{align}
+			\forall i \neq j,\ d_i^T Q d_j = 0
+		\end{align}
+		That is, $D$ is \emph{orthogonal in pairs}.
+	\end{definition}
+	
+	\begin{example}
+		When $Q = I_n$, the notional of $Q$-orthogonal becomes the conventional notion of orthogonality.
+	\end{example}
+	
+	\begin{proposition}
+		Let $d, d'$ be two eigenvectors of $Q$ with different eigenvalues $\lambda, \lambda'$, then $d, d'$ are $Q$-orthogonal.
+	\end{proposition}
+	
+	\begin{proof}
+		Let $Q v = \lambda v$ and $Q w = \lambda' w$ where $\lambda \neq \lambda'$. \\
+		Note that 
+		\begin{align}
+			\inner{v}{Qw} &= \inner{v}{\lambda' w} \\
+			&= \lambda' \inner{v}{w}
+		\end{align}
+		because inner product is bilinear. \\
+		Similarly,
+		\begin{align}
+			\inner{v}{Qw} &= \inner{Q^T v}{w} \\
+			&= \inner{Q v}{w} \\
+			&= \inner{\lambda v}{w} \\
+			&= \lambda \inner{v}{w}\\
+			\implies (\lambda'  - \lambda) \inner{v}{w} &= 0
+		\end{align}
+		where $\lambda'  - \lambda \neq 0$. \\
+		Therefore, $\inner{v}{w} = 0$. \\
+		Further, 
+		\begin{align}
+			v^T Q w &= \inner{v}{Qw} \\
+			&= \inner{v}{\lambda w} \\
+			&= \lambda \inner{v}{w} = 0
+		\end{align}
+		So $v, w$ are $Q$-orthogonal.
+	\end{proof}
+	
+	\begin{proposition}
+		Let $Q \in \mathbb{S}^n$, then there exists a set of orthogonal eigen-basis of $Q$.
+	\end{proposition}
+	
+	\begin{corollary}
+		The orthogonal eigen-basis of $Q$ is also $Q$-orthogonal.
+	\end{corollary}
+	
+	\begin{proof}
+		\begin{align}
+			\forall i \neq j,\ d_i^T Q d_j &= d_i^T \lambda_j d_j = \lambda_j \inner{d_i}{d_j} = 0
+		\end{align}
+	\end{proof}
+	
+	\begin{proposition}
+		Let $Q \in \mathbb{S}_+^n$, let $d_0, \cdots, d_k \neq 0$ be a set of $Q$-orthogonal vectors with $k \leq n - 1$, then $d_0, \cdots, d_k$ are linearly independent.
+	\end{proposition}
+	
+	\begin{proof}
+		Suppose
+		\begin{align}
+			\alpha_0 d_0 + \alpha_1 d_1 + \cdots + \alpha_k d_k = 0
+		\end{align}
+		 For every $i \in \{0, 1, \cdots, k\}$, multiply $d_i^T Q$ on both sides of the equation:
+		 \begin{align}
+		 	\underbrace{\alpha_0 d_i^T Q d_0
+		 	\alpha_1 + d_i^T Q d_1 
+		 	+ \cdots}_{=0}
+		 	+ \alpha_i d_i^T Q d_i
+		 	+ \underbrace{\cdots 
+		 	+\alpha_k d_i^T Q d_k}_{=0} = 0
+		 \end{align}
+		 Further, $d_i^T Q d_i > 0$ because $Q$ is positive definite. Hence, $\alpha_i = 0$ for every $i$, and $d_0, \cdots, d_k$ are linearly independent.
+	\end{proof}
 \end{document}
+
+
 
 
 
