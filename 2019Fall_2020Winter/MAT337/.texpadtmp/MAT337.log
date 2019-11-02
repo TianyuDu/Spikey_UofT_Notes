@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  22 OCT 2019 15:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  1 NOV 2019 13:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -443,6 +443,7 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 \c@property=\count109
 \c@axiom=\count110
 \c@rules=\count111
+\c@algorithm=\count112
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@word=\toks27
@@ -456,7 +457,7 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@ulht=\dimen115
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count112
+\c@float@type=\count113
 \float@exts=\toks32
 \float@box=\box28
 \@float@everytoks=\toks33
@@ -481,7 +482,7 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count113
+\Gread@gobject=\count114
 ))
 \Gin@req@height=\dimen116
 \Gin@req@width=\dimen117
@@ -534,14 +535,14 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen118
-\Hy@linkcounter=\count114
-\Hy@pagecounter=\count115
+\Hy@linkcounter=\count115
+\Hy@pagecounter=\count116
  (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2016/05/05 v6.83n Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count116
+\Hy@SavedSpaceFactor=\count117
  (/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
@@ -552,14 +553,14 @@ Package hyperref Info: Plain pages OFF on input line 4461.
 Package hyperref Info: Backreferencing OFF on input line 4466.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4691.
-\c@Hy@tempcnt=\count117
+\c@Hy@tempcnt=\count118
  (/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5044.
 \XeTeXLinkMargin=\dimen119
-\Fld@menulength=\count118
+\Fld@menulength=\count119
 \Field@Width=\dimen120
 \Fld@charsize=\dimen121
 Package hyperref Info: Hyper figures OFF on input line 6298.
@@ -571,17 +572,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6323.
 Package hyperref Info: PDF/A mode OFF on input line 6328.
 LaTeX Info: Redefining \ref on input line 6368.
 LaTeX Info: Redefining \pageref on input line 6372.
-\Hy@abspage=\count119
-\c@Item=\count120
-\c@Hfootnote=\count121
+\Hy@abspage=\count120
+\c@Item=\count121
+\c@Hfootnote=\count122
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2016/05/05 v6.83n Hyperref driver for pdfTeX
-\Fld@listcount=\count122
-\c@bookmark@seq@number=\count123
+\Fld@listcount=\count123
+\c@bookmark@seq@number=\count124
  (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
@@ -610,7 +611,7 @@ Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 Package: datetime 2015/03/20 v2.60 Date Time Package
  (/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count124
+\etb@tempcnta=\count125
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/fmtcount/fmtcount.sty
 Package: fmtcount 2015/05/05 v3.01
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
@@ -621,45 +622,45 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks35
 \XKV@tempa@toks=\toks36
 )
-\XKV@depth=\count125
+\XKV@depth=\count126
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/local/texlive/2016/texmf-dist/tex/latex/fmtcount/fcprefix.sty
 Package: fcprefix 2012/09/28
  (/usr/local/texlive/2016/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
 Package: fcnumparser 2012/09/28
-\fc@digit@counter=\count126
+\fc@digit@counter=\count127
 ))
-\c@padzeroesN=\count127
-\fc@tmpcatcode=\count128
+\c@padzeroesN=\count128
+\fc@tmpcatcode=\count129
  (/usr/local/texlive/2016/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2013/08/17
 )
-\@DT@modctr=\count129
-\@ordinalctr=\count130
-\@orgargctr=\count131
-\@strctr=\count132
-\@tmpstrctr=\count133
-\@DT@loopN=\count134
-\@DT@X=\count135
+\@DT@modctr=\count130
+\@ordinalctr=\count131
+\@orgargctr=\count132
+\@strctr=\count133
+\@tmpstrctr=\count134
+\@DT@loopN=\count135
+\@DT@X=\count136
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/datetime/datetime-defaults.sty
 Package: datetime-defaults 2013/09/10
 )
-\@day=\count136
-\@month=\count137
-\@year=\count138
-\c@HOUR=\count139
-\c@HOURXII=\count140
-\c@MINUTE=\count141
-\c@TOHOUR=\count142
-\c@TOMINUTE=\count143
-\c@SECOND=\count144
-\currenthour=\count145
-\currentminute=\count146
-\currentsecond=\count147
+\@day=\count137
+\@month=\count138
+\@year=\count139
+\c@HOUR=\count140
+\c@HOURXII=\count141
+\c@MINUTE=\count142
+\c@TOHOUR=\count143
+\c@TOMINUTE=\count144
+\c@SECOND=\count145
+\currenthour=\count146
+\currentminute=\count147
+\currentsecond=\count148
 Package datetime Info: No datetime.cfg file found, using default settings on input line 308.
-\@dtctr=\count148
-\dayofyear=\count149
-\dayofweek=\count150
+\@dtctr=\count149
+\dayofyear=\count150
+\dayofweek=\count151
 LaTeX Info: Redefining \today on input line 736.
 \dt@a=\toks37
 \dt@b=\toks38
@@ -669,12 +670,12 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@outerparindent=\dimen122
 \enit@toks=\toks39
 \enit@inbox=\box30
-\enitdp@description=\count151
+\enitdp@description=\count152
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count152
-\Gm@cntv=\count153
-\c@Gm@tempcnt=\count154
+\Gm@cnth=\count153
+\Gm@cntv=\count154
+\c@Gm@tempcnt=\count155
 \Gm@bindingoffset=\dimen123
 \Gm@wd@mp=\dimen124
 \Gm@odd@mp=\dimen125
@@ -692,15 +693,15 @@ Package: doclicense 2016/04/24 v1.5.0 Support for putting documents under a lice
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
  (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count155
-\calc@Bcount=\count156
+\calc@Acount=\count156
+\calc@Bcount=\count157
 \calc@Adimen=\dimen131
 \calc@Bdimen=\dimen132
 \calc@Askip=\skip52
 \calc@Bskip=\skip53
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count157
+\calc@Ccount=\count158
 \calc@Cskip=\skip54
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
 Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
@@ -717,12 +718,12 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 File: doclicense-english.ldf 
 )) (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
-\csq@reset=\count158
-\csq@gtype=\count159
-\csq@glevel=\count160
-\csq@qlevel=\count161
-\csq@maxlvl=\count162
-\csq@tshold=\count163
+\csq@reset=\count159
+\csq@gtype=\count160
+\csq@glevel=\count161
+\csq@qlevel=\count162
+\csq@maxlvl=\count163
+\csq@tshold=\count164
 \csq@ltx@everypar=\toks43
  (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
@@ -753,16 +754,16 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count164
+\scratchcounter=\count165
 \scratchdimen=\dimen133
 \scratchbox=\box31
-\nofMPsegments=\count165
-\nofMParguments=\count166
+\nofMPsegments=\count166
+\nofMParguments=\count167
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count167
+\MPscratchCnt=\count168
 \MPscratchDim=\dimen134
-\MPnumerator=\count168
-\makeMPintoPDFobject=\count169
+\MPnumerator=\count169
+\makeMPintoPDFobject=\count170
 \everyMPtoPDFconversion=\toks45
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -782,7 +783,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count170
+\c@section@level=\count171
 )
 LaTeX Info: Redefining \ref on input line 38.
 LaTeX Info: Redefining \pageref on input line 38.
@@ -838,7 +839,7 @@ Underfull \hbox (badness 1454) in paragraph at lines 40--40
 []\OT1/cmr/m/n/10.95 This work is li-censed un-der a []Cre-ative Com-mons \  Attribution-
  []
 
-<doclicense-CC-by-nc.pdf, id=98, 121.45375pt x 43.16125pt>
+<doclicense-CC-by-nc.pdf, id=102, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 40.
@@ -862,35 +863,35 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 LaTeX Font Info:    Try loading font information for U+dsrom on input line 1115.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [22] <figure/thomae_function.png, id=484, 401.5pt x 206.7725pt>
+) [22] <figure/thomae_function.png, id=489, 401.5pt x 206.7725pt>
 File: figure/thomae_function.png Graphic file (type png)
  <use figure/thomae_function.png>
 Package pdftex.def Info: figure/thomae_function.png used on input line 1146.
 (pdftex.def)             Requested size: 234.8775pt x 120.96616pt.
- [23 <./figure/thomae_function.png>] [24] [25]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1330.
- [26]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1330.
+ [23 <./figure/thomae_function.png>] [24] [25] [26] [27] [28]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1441.
+ [29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1441.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/MAT337/.texpadtmp/MAT337.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1330.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1330.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1441.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1441.
 Package rerunfilecheck Info: File `MAT337.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1330.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1441.
  ) 
 Here is how much of TeX's memory you used:
- 10704 strings out of 493014
- 152890 string characters out of 6133351
- 289816 words of memory out of 5000000
- 13700 multiletter control sequences out of 15000+600000
+ 10746 strings out of 493014
+ 153351 string characters out of 6133351
+ 290916 words of memory out of 5000000
+ 13710 multiletter control sequences out of 15000+600000
  15290 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,20n,68p,1162b,611s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/MAT337/.texpadtmp/MAT337.pdf (26 pages, 316197 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/MAT337/.texpadtmp/MAT337.pdf (29 pages, 327028 bytes).
 PDF statistics:
- 664 PDF objects out of 1000 (max. 8388607)
- 608 compressed objects within 7 object streams
- 325 named destinations out of 1000 (max. 500000)
- 195 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 714 PDF objects out of 1000 (max. 8388607)
+ 655 compressed objects within 7 object streams
+ 357 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 

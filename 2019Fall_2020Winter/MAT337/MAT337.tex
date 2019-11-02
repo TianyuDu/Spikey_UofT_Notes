@@ -1327,6 +1327,117 @@
 		EVT says the continuous functions' image of a compact set is compact. \\
 		IVT says the continuous functions' image of a connected set is connected.
 	\end{remark}
+	
+	\section{Series of Functions}
+	\begin{definition}
+		A series of function $\sum_{i=1}^\infty f_n(x)$ converges point-wise/uniformly if $\sum_{i=1}^k f_n(x)$ converges point-wise/uniformly.
+ 	\end{definition}
+ 	
+ 	\begin{example}
+ 		Note that $\sum_{i=1}^\infty \frac{\sin(nx)}{n^2}$ converges uniformly.
+ 		\begin{align}
+ 			\abs{\sum_{i=1}^k \frac{\sin(nx)}{n^2} - \sum_{i=1}^\ell \frac{\sin(nx)}{n^2}} \leq \sum_{n=\ell+1}^k \frac{1}{n^2} < \varepsilon
+ 		\end{align}
+ 		Hence Cauchy.
+ 	\end{example}
+ 	
+ 	\begin{theorem}
+ 		If $f_n: S \subseteq \R^k \to \R^m$ continuous, then if $\sum_{n=1}^\infty f_n \to f$ uniformly, then $f$ is also continuous.
+ 	\end{theorem}
+ 	
+ 	\begin{definition}
+ 		Let $f_k: S \to \R^m$, then $(f_k)$ is \textbf{uniformly Cauchy} on $S$ if 
+ 		\begin{align}
+ 			\forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \sup_{x \in S} \norm{\sum_{i=k+1}^\ell f_i(x)} \leq \varepsilon\ \forall \ell > k \geq N
+ 		\end{align}
+ 	\end{definition}
+ 	
+ 	\begin{theorem}
+ 		$(f_k)$ is uniformly Cauchy $\iff$ $\sum f_k \to f$ uniformly.
+ 	\end{theorem}
+ 	\begin{proof}
+ 		($\impliedby$)\\
+ 		Let $g_m := \sum_{k=1}^m f_k(x)$, suppose $g_k \to f$ uniformly. Then, 
+ 		\begin{align}
+ 			\forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \abs{g_k - f} < \frac{\varepsilon}{2}\ \forall k \geq N, \forall x \in S
+ 		\end{align}
+ 		For every $k > \ell \geq N$,
+ 		\begin{align}
+ 			\abs{g_k - g_\ell} \leq \abs{g_k - f} + \abs{f - g_\ell} < \varepsilon\ \forall x \in S
+ 		\end{align}
+ 		Therefore, $(f_k)$ is uniformly Cauchy. \\
+ 		($\implies$) \\
+ 		Suppose $f(f_k)$ is uniformly Cauchy. Then for every fixed $x \in S$, $(g_k(x))$ is Cauchy. \\
+ 		So $f(x) = \lim_{k \to \infty} g_k(x)$ exists.
+ 		\begin{align}
+ 			&\forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \abs{g_k(x) - g_\ell(x)} < \varepsilon\ \forall k > \ell \geq N,\forall x \in S \\
+ 			&\implies \abs{f(x) - g_k(x)} = \lim_{\ell \to \infty} \abs{g_\ell(x) - g_k(x)} \leq \varepsilon\ \forall x \in S\\
+ 			&\implies g_k \to f \tx{ uniformly}
+ 		\end{align}
+ 	\end{proof}
+ 	
+ 	\begin{theorem}[Weierstrass M-test]
+ 		Let $a_n: S \to \R^m$, and sequence $M_n \in \R$. If
+ 		\begin{align}
+ 			\exists N \in \N\ \forall k \geq N\ \sup_{x \in S} \abs{a_n(x)} \leq M_n
+ 		\end{align}
+ 		then $\sum_{n=1}^\infty M_n$ \ul{converges} implies $\sum_{n=1}^\infty a_n$ \ul{converges uniformly}.
+ 	\end{theorem}
+ 	
+ 	\begin{proof}
+ 		\begin{align}
+ 			\forall x \in S \sum_{n=1}^\infty \abs{a_n(x)} &\leq \sum_{n=1}^\infty \sup_{x \in S} \abs{a_n(x)} \\
+ 			&\leq \sum_{n=1}^N \sup_{x \in S} \abs{a_n(x)} + \sum_{n=N+1}^\infty M_n < \infty
+ 		\end{align}
+ 		Therefore, $f(x) = \sum_{n=1}^\infty a_n(x)$ exists. \\
+ 		Note that $\forall x \in S, \forall \ell \geq N$:
+ 		\begin{align}
+ 			\abs{f(x) - \sum_{k=1}^\ell a_k(x)} &= \abs{\sum_{k = \ell + 1}^\infty a_k(x)}  \\
+ 			&\leq \sum_{k=\ell+1}^\infty \abs{a_n(x)} \\
+ 			&\leq \sum_{k=\ell+1}^\infty M_k < \infty \\
+ 			\implies \lim_{\ell \to \infty} \sup_{x \in S} \abs{f(x) - \sum_{k=1}^\ell a_k(x)} &\leq \lim_{\ell \to \infty} \sum_{k=\ell+1}^\infty M_n = 0
+ 		\end{align}
+ 		Therefore $\sum a_k \to f$ uniformly.
+ 	\end{proof}
+ 	
+ 	\begin{example}
+ 		Consider $\sum \frac{x^n}{n!}$ defined on $x \in [-A, A]$. Note that
+ 		\begin{align}
+ 			\sup_{x \in S} \abs{\frac{x^n}{n!}} &\leq \frac{A^n}{n!} =: M_n
+ 		\end{align}
+ 		By ratio test, $\sum M_n$ converges. \\
+ 		By M-test $\sum \frac{x^n}{n!}$ converges uniformly on $[-A, A]$. \\
+ 		Therefore, $\sum \frac{x^n}{n!}$ is continuous on $[-A, A]$.
+ 	\end{example}
+ 	
+ 	\begin{example}[Geometric Series]
+ 		\begin{align}
+ 			\sum_{n=1}^\infty (-x^2)^n
+ 		\end{align}
+ 		By ratio test, the series converges only on $(-1 ,1)$. In particular, it converges to $\frac{1}{1 + x^2}$. \\
+ 		For every $0 < r < 1$, for $x \in [-r, r]$, then 
+ 		\begin{align}
+ 			\sup_{x \in [-r, r]} \abs{(-x^2)^n} = r^{2n}
+ 		\end{align}
+ 		and $\sum_{n=1}^\infty r^{2n} = \frac{1}{1+r^2}$ implies $\sum_{n=1}^\infty (-x^2)^n$ converges uniformly on $[-r, r]$.
+ 	\end{example}
+ 	
+ 	\begin{example}[Weierstrass Function]
+ 		Define
+ 		\begin{align}
+ 			f(x) = \sum_{n=1}^\infty \underbrace{\frac{1}{2^n} \cos(10^n \pi x)}_{f_n(x)}
+ 		\end{align}
+ 		Note that $\sup_{x \in S} \abs{f_n(x)} \leq \frac{1}{2^n}$, and $\sum_{n=1}^\infty \frac{1}{2^n} \to 1$. Therefore, $\sum f_n \to f$ uniformly on $\R$, so that $f$ is continuous. \\
+ 		Claim: $f$ is nowhere differentiable.\\
+ 		Let $x \in \R$ with decimal expansion $x_0\cdot x_1 x_2 \cdots$. \\
+ 		Construct sequence $(z_n) \to x$ as following: \\
+		Fix $n$, let $y_0 = x_0.x_1 \cdot x_n$ and $y_1 = y_0 + \frac{1}{10^n}$. \\
+		Note that $10^n \pi y_i$ is an integer multiplied by $\pi$, which implies $f(y_0) = \frac{(-1)^{x_n}}{2^n}$, $f(y_1) = \frac{(-1)^{x_{n+1}}}{2^n}$
+ 		such that
+ 		\begin{align}
+ 			\abs{\frac{f(z_n) - f(x)}{z_n - x}} \to \infty
+ 		\end{align}
+ 	\end{example}
 \end{document}
 
 

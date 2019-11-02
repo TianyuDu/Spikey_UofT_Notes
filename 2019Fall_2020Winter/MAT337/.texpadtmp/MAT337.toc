@@ -22,3 +22,4 @@
 \contentsline {subsection}{\numberline {4.1}Continuous Functions on Compact Sets}{24}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Uniform Continuity}{24}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Intermediate Value Theorem}{25}{subsection.4.3}
+\contentsline {section}{\numberline {5}Series of Functions}{26}{section.5}
