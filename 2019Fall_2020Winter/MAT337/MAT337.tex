@@ -6,7 +6,7 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{chngcntr}
 \usepackage{centernot}
 \usepackage{datetime}
@@ -941,7 +941,8 @@
 	\end{proof}
 	
 	\begin{theorem}
-		A set $E \subseteq \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subseteq A$ converges to some point $a \in B$, and a sequence $(b_n) \subseteq B$ converges to some point $b \in A$.
+		A set $E \subseteq \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subseteq A$ converges to some point $a \in B$, and a sequence $(b_n) \subseteq B$ converges to some point $b \in A$. \\
+		\emph{Remark: Essentially, a set E is connected if, no matter how it is partitioned into two nonempty disjoint sets, it is always possible to show that at least one of the sets contains a limit point of the other.}
 	\end{theorem}
 	
 	\begin{proof}
@@ -954,6 +955,7 @@
 			\item $E$ is connected;
 			\item For every $a < c < b$, $a, b \in E \implies c \in E$.
 		\end{enumerate}
+		\emph{Remark: the collection of connected subsets of $\R$ is exactly the collection of all intervals.}
 	\end{theorem}
 	
 	\begin{proof}
@@ -1356,7 +1358,28 @@
 		$f_n(x) - \frac{(x^2 + nx)}{n}$ has point-wise limit to $f(x) = x$ but it does not converge uniformly.
 	\end{example}
 	
-	\subsection{Cauchy Criterion for Uniform Convergence}
+	\section{Sequences and Series of Functions}
+	\subsection{Sequences of Functions}
+	
+	\begin{definition}
+		For each $n \in \N$, let $f_n$ be a function defined on $A \subseteq \R$. The sequence $(f_n)_{n \in \N}$ \textbf{converges point-wise} on $A$ to a function $f: A \to \R$ if
+		\begin{align}
+			\forall x \in A, (f_n(x)) \to f(x)
+		\end{align}
+		That is,
+		\begin{align}
+			\forall x \in A,\forall \varepsilon > 0\ \exists N_x \in \N\ s.t.\ \forall n \geq N_x,\ f_n(x) \in V_\varepsilon(f(x))
+		\end{align}
+		\emph{That is, the sequence induced at each $x \in A$ is convergent, and the value of $N_x$ can depend on specific $x$.}
+	\end{definition}
+	
+	\begin{definition}
+		Let $(f_n)$ be a sequence of functions defined on $A \subseteq \R$. Then $(f_n)$t \textbf{converges uniformly} on $A$ to $f: A \to \R$ if 
+		\begin{align}
+			\forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \forall x \in A\ \forall n \geq N,\ f_n(x) \in V_\varepsilon(f(x))
+		\end{align}
+		\emph{The uniform convergence requires a single $N$ to work for every $x \in A$.}
+	\end{definition}
 	
 	\begin{theorem}[Cauchy Criterion]
 		Given a sequence of functions $(f_n)$ defined on $A \subseteq \R$, the following are equivalent:
@@ -1395,30 +1418,75 @@
 		\end{align}
 	\end{proof}
 	
-	\section{Sequences and Series of Functions}
-	\subsection{Sequences of Functions}
-	\begin{example}
-		Any constructor mapping $\mc{F}: \N \to \R^\R$ creates a sequence of functions $\R \to \R$. \\
-		Taylor's polynomial is one example of sequence of functions.
-	\end{example}
+	\begin{theorem}[Continuous Limit Theorem]
+		Let $(f_n)$ be a sequence of functions defined on $A \subseteq \R$ that \ul{converges uniformly} on $A$ to a function $f$. If each $f_n$ is continuous at $c \in A$, then $f$ is continuous at $c$.
+	\end{theorem}
 	
-	\begin{definition}
-		For each $n \in \N$, let $f_n$ be a function defined on $A \subseteq \R$. The sequence $(f_n)_{n \in \N}$ \textbf{converges point-wise} on $A$ to a function $f: A \to \R$ if
+	\begin{proof}
+		Let $(f_n)$ be a sequence of continuous functions, let $c \in A$, note that for arbitrary $N \in \N$, 
 		\begin{align}
-			\forall x \in A, (f_n(x)) \to f(x)
+			\abs{f(x) - f(c)} &= \abs{f(x) - f_N(x) + f_N(x) - f_N(c) + f_N(c) - f(c)} \\
+			&\leq \abs{f(x) - f_N(x)} + \abs{f_N(x) - f_N(c)} + \abs{f_N(c) - f(c)}
 		\end{align}
-		That is,
-		\begin{align}
-			\forall x \in A,\forall \varepsilon > 0\ \exists N_x \in \N\ s.t.\ \forall n \geq N_x,\ f_n(x) \in V_\varepsilon(f(x))
-		\end{align}
-	\end{definition}
+		Where the last term can be made arbitrarily small given the uniform convergence property of $(f_n)$. And the first two terms can be made arbitrarily small as well given the continuity properties. \\
+		This concludes the continuity of $f$. 
+	\end{proof}
 	
-	\begin{definition}
-		Let $(f_n)$ be a sequence of functions defined on $A \subseteq \R$. Then $(f_n)$ converges uniformly on $A$ to $f: A \to \R$ if 
+	\begin{theorem}[Differentiable Limit Theorem]
+		Let $(f_n) \to f$ \ul{pointwise} on closed interval $[a, b]$, and assume that each $f_n$ is differentiable.
+		If $(f'_n) \to g$ \ul{uniformly} on $[a, b]$, then the limit $f$ is differentiable and $f' = g$.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $c \in [a, b]$, note that 
 		\begin{align}
-			\forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \forall x \in A\ \forall n \geq N,\ f_n(x) \in V_\varepsilon(f(x))
+			f'(c) &= \lim_{x \to c} \frac{f(x) - f(c)}{x - c}
 		\end{align}
-	\end{definition}
+		The following holds for every $n \in \N$:
+		\begin{align}
+			&\quad\abs{\frac{f(x) - f(c)}{x - c} - g(c)} \\
+			&=\abs{\frac{f(x) - f(c)}{x - c} - \frac{f_n(x) - f_n(c)}{x - c} + \frac{f_n(x) - f_n(c)}{x - c} - f'_n(c) + f'_n(c) - g(c)} \\
+			&\leq \abs{\frac{f(x) - f(c)}{x - c} - \frac{f_n(x) - f_n(c)}{x - c}} + \abs{\frac{f_n(x) - f_n(c)}{x - c} - f'_n(c)} + \abs{f_n'(c) - g(c)}
+		\end{align}
+		In particular, one may choose $N_1 \in \N$ such that 
+		\begin{align}
+			\abs{f'_n(c) - g(c)} < \frac{\varepsilon}{3}	
+		\end{align}
+		for every $n \geq N_1$. \\
+		Moreover, given the Cauchy property of uniform convergence, there exists $N_2 \in \N$ such that $\forall m, n \geq N_2$, $\abs{f'_m(x) - f'_n(x)} < \frac{\varepsilon}{3}$ for every $x \in A$. \\
+		Define $N = \max\{N_1, N_2\}$.\\
+		Note that $\exists\ \delta > 0$ such that 
+		\begin{align}
+			x \in V^o_\delta(c) \implies \abs{\frac{f_N(x) - f_N(c)}{x - c} - f'_N(c)} < \frac{\varepsilon}{3}
+		\end{align}
+		Let $m \geq N$, for an arbitrary $x \in V^o_\delta(c)$, WLOG, suppose $x < c$. Applying the mean value theorem on $f_m - f_N$ gives
+		\begin{align}
+			f'_m(\eta) - f'_N(\eta) &= \frac{f_m(c) - f_N(c) - [f_m(x) - f_N(x)]}{c-x} \\
+			\implies \frac{\varepsilon}{3} > \abs{f'_m(\eta) - f'_N(\eta)} &= \abs{
+			\frac{f_m(c) - f_m(x)}{c-x} - \frac{f_N(c) - f_N(x)}{c-x}
+			} \\
+			\implies \lim_{m \to \infty} \abs{
+			\frac{f_m(c) - f_m(x)}{c-x} - \frac{f_N(c) - f_N(x)}{c-x}
+			} &= \abs{
+			\frac{f(c) - f(x)}{c-x} - \frac{f_N(c) - f_N(x)}{c-x}
+			} \\
+			&\leq \frac{\varepsilon}{3} \tx{ (order limit theorem)}
+		\end{align}
+		Therefore, for every $x \in V_\delta^0(c)$, 
+		\begin{align}
+			\abs{\frac{f(x) - f(c)}{x - c} - g(c)} < \varepsilon
+		\end{align}
+	\end{proof}
+	
+	\begin{theorem}
+		Let $(f_n)$ be a sequence of differentiable functions defined on the closed interval $[a, b]$, and assume $(f'_n)$ \ul{converges uniformly} on $[a, b]$. If there exists a point $x_0 \in [a, b]$ where $f_n(x_n)$ converges, then $(f_n)$ converges uniformly on $[a, b]$.
+	\end{theorem}
+	
+	\begin{theorem}[Stronger Version]
+		Let $(f_n)$ be a sequence of differentiable functions defined on the closed interval $[a, b]$, and assume $(f'_n)$ converges uniformly to a function $g$ on $[a, b]$. \\
+		If there exists a point $x_0 \in [a, b]$ for which $f_n(x_0)$ converges, then $(f_n)$ converges uniformly, \\
+		Then the limit function $f$ is differentiable and satisfies $f' = g$.
+	\end{theorem}
 	
 	\subsection{Series of Functions}
 	\begin{definition}
@@ -1590,19 +1658,34 @@
  		$\forall \varepsilon > 0,\ V_\varepsilon(\alpha) \cap V \neq \varnothing$, then by definition, $\alpha \in \partial U \subseteq U$ and $\alpha \in \partial U \subseteq U$ because $U$ and $V$ are closed. \\
  		This leads to a contradiction that $U \cap V = \varnothing$.
  	\end{proof}
+ 	
+ 	\begin{proposition}[Sample Midterm 2]
+ 		Let $\mc{K} = \{K_\lambda: \lambda \in \Lambda \}$ be a collection of compact subsets of $\R$ such that the intersection of every finite sub-collection is nonempty. Then $\bigcap_{\lambda \in \Lambda} K_\lambda \neq \varnothing$.
+ 	\end{proposition}
+ 	
+ 	\begin{proof}
+ 		Suppose, for contradiction, $\bigcap_{\lambda \in \Lambda} K_\lambda = \varnothing$. \\
+ 		Take an arbitrary $K_0 \in \mc{K}$, which is obviously non-empty. \\
+ 		Then,
+ 		\begin{align}
+ 			K_0 &= K_0 \cap \varnothing^c \\
+ 			&= K_0 \cap \left(\bigcap_{\lambda \in \Lambda} K_\lambda\right)^c \\
+ 			&= K_0 \cap \bigcup_{\lambda \in \Lambda} K_\lambda^c \\
+ 			&= \bigcup_{\lambda \in \Lambda} K_0 \cap K_\lambda^c
+ 		\end{align}
+ 		For an arbitrary $\lambda \in \Lambda$, let $x \in K_0 \cap K_\lambda^c \neq \varnothing$. \\
+ 		Because $K_\lambda^c$ is open in $\R$, $\exists\ V_\varepsilon(x) \subseteq K_\lambda^c$. \\
+ 		Further, $V_\varepsilon(x) \cap K_0 \subseteq K_\lambda^c \cap K_0$, therefore, $K_\lambda^c$ is open in $K_0$. \\
+ 		Hence, $\bigcup_{\lambda \in \Lambda} K_0 \cap K_\lambda^c$ is an open cover of $K_0$. The compactness of $K_0$ suggests it has a finite subcover, say $\bigcup_{\lambda=1}^n K_0 \cap K_\lambda^c$. That is,
+ 		\begin{align}
+ 			K_0 &= \bigcup_{\lambda=1}^n K_0 \cap K_\lambda^c \\
+ 			&= K_0 \cap \bigcup_{\lambda=1}^n K_\lambda^c \\
+ 			&= K_0 \backslash \bigcap_{\lambda=1}^n K_\lambda \\
+ 			\implies &\bigcap_{\lambda=1}^n K_\lambda = \varnothing
+ 		\end{align}
+ 		$\contradiction$
+ 	\end{proof}
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
