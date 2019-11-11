@@ -19,3 +19,4 @@
 \contentsline {subsubsection}{\numberline {4.2.1}Steepest Descent: the Quadratic Case}{24}{subsubsection.4.2.1}
 \contentsline {subsection}{\numberline {4.3}Method of Conjugate Directions}{27}{subsection.4.3}
 \contentsline {paragraph}{Motivation}{27}{section*.2}
+\contentsline {subsection}{\numberline {4.4}Geometric Interpretations of Method of Conjugate Directions}{31}{subsection.4.4}

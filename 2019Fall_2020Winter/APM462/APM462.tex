@@ -1518,6 +1518,103 @@
 		 \end{align}
 		 Further, $d_i^T Q d_i > 0$ because $Q$ is positive definite. Hence, $\alpha_i = 0$ for every $i$, and $d_0, \cdots, d_k$ are linearly independent.
 	\end{proof}
+	
+	\begin{lemma}[Theorems Covered so Far]
+		Recall that 
+		\begin{enumerate}[(i)]
+			\item $d_i, d_j$ are $Q$-orthogonal if $d_i^T Q d_j = 0$;
+			\item Eigen-vectors with different eigenvalues are $Q$-orthogonal;
+			\item $Q$ symmetric $\implies$ there exists an orthogonal basis $\implies$ the set of basis is $Q$-orthogonal as well;
+			\item $Q$-orthogonal vectors are linearly independent.
+		\end{enumerate}
+	\end{lemma}
+	
+	\begin{example}[Special Case: Method of Conjugate Direction on Quadratic Functions]
+		Let $Q \in \S_{++}^n$ and minimizing the quadratic function
+		\begin{align}
+			\min f(x) = \frac{1}{2} x^T Q x - b^T 
+		\end{align}
+		Recall that the unique global minimum is $x^* = Q^{-1} b$. \\
+		Let $d_0, d_1, \cdots, d_{n-1}$ be non-zero $Q$-orthogonal vectors. \\
+		Note that they are linearly independent by the previous theorem. \\
+		Therefore, they form a basis of $\R^n$. \\
+		The global minimum can be represented as 
+		\begin{align}
+			x^* &= \sum_{j=1}^{n-1} \alpha_j d_j\ \alpha_j \in \R
+		\end{align}
+		For every $j$, the following holds
+		\begin{align}
+			d_j^T Q x^* &= \alpha_j d_j^T Q d_j \\
+			\implies \alpha_j &= \frac{d_j^T Q x^*}{d_j^T Q d_j}
+		\end{align}
+	\end{example}
+	
+	\begin{algorithm}[Method of Conjugate Directions]
+		Let $Q \in \S_{++}^n$ and $\{d_j\}_{j=0}^{n-1}$ be a set of non-zero $Q$-orthogonal vectors, note that they form a basis of $\R^n$. \\
+		Given initial point $x_0 \in \R^n$, the method of conjugate direction generates a sequence of points $\{x_k\}_{k=0}^n$ as the following:
+		\begin{align}
+			x_{k+1} &\leftarrow x_k + \alpha_k d_k \\
+			\alpha_k &:= - \frac{\inner{g_k}{d_k}}{d_k^T Q d_k} \quad g_k := \nabla f(x_k)
+		\end{align}
+	\end{algorithm}
+	
+	\begin{theorem}
+		Given the method of conjugate, the sequence of points generated eventually reaches the global minimum. That is, $x_k = x^*$.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $x^*, x_0 \in \R^n$, consider
+		\begin{align}
+			x^* - x_0 &= \sum_{j=0}^{n-1} \beta_j d_j \\
+			\iff x^* &= x_0 + \sum_{j=0}^{n-1} \beta_j d_j \\
+			d_j^T Q (x^* - x_0) &= \beta_j d_j^T Q d_j \\
+			\implies \beta_j &= \frac{d_j^T Q(x^* - x_0)}{d_j^T Q d_j}
+		\end{align}
+		Note that the algorithm generates the sequence as following:
+		\begin{align}
+			x_k &= x_0 + \sum_{j=0}^{k-1} \alpha_j d_j \\
+			\implies (x_k - x_0) &= \sum_{j=0}^{k-1} \alpha_j d_j \\
+			\implies d_k^T Q (x_k - x_0) &= \sum_{j=0}^{k-1} \alpha_j d_k^T Q d_j = 0
+		\end{align}
+		Therefore, 
+		\begin{align}
+			\beta_k &= \frac{d_k^T Q(x^* - x_0)}{d_k^T Q d_k} \\
+			&= \frac{d_k^T Q(x^* - x_0) - d_k^T Q (x_k - x_0)}{d_k^T Q d_k} \\
+			&= \frac{d_k^T Q(x^* - x_k)}{d_k^T Q d_k} \\
+			&= \frac{d_k^T (Qx^* - Qx_k)}{d_k^T Q d_k}
+		\end{align}
+		The first order necessary condition suggests $Qx_* = b$,
+		\begin{align}
+			\beta_k &= \frac{d_k^T (Qx^* - Qx_k)}{d_k^T Q d_k} \\
+			&= \frac{d_k^T (b - Qx_k)}{d_k^T Q d_k}  \\
+			&= - \frac{d_k^T (Qx_k - b)}{d_k^T Q d_k} \\
+			&= - \frac{d_k^T \nabla f(x_k)}{d_k^T Q d_k} = \alpha_k
+		\end{align}
+		Consequently, 
+		\begin{align}
+			x^* &= x_0 + \sum_{j=0}^{n-1} \beta_j d_j \\
+			&= x_0 + \sum_{j=0}^{n-1} \alpha_j d_j \\
+			&= x_k
+		\end{align}
+	\end{proof}
+	
+	\subsection{Geometric Interpretations of Method of Conjugate Directions}
+	\begin{theorem}
+		Let $f \in C^1(\Omega, \R)$, where $\Omega$ is a convex subset of $\R^n$, then $x_0$ is a local minimum of $f$ on $\Omega$ if and only if 
+		\begin{align}
+			\nabla f(x_0) \cdot (y - x_0) \geq 0\ \forall y \in \Omega
+		\end{align}
+	\end{theorem}
+	
+	\begin{example}
+		Now consider the special case in which $\Omega$ is an affine hyperplane, that is,
+		\begin{align}
+			\Omega &= \{x \in \R^n: cx + b = 0\}
+		\end{align}
+		where dim($\Omega$) is $n-1$. \\
+		Note that for every $y \in \Omega$, $\nabla f(x_0) \cdot (y - x_0) \geq 0$. For any feasible direction $a$ at point $x_0$, by the definition of hyperplane, $-a$ is a feasible direction as well. \\
+		Consequently, $a \cdot \nabla f(x_0)$ for every feasible direction. That is, $\nabla f(x_0) \perp \Omega$.
+	\end{example}
 \end{document}
 
 
