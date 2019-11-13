@@ -1550,7 +1550,7 @@
 	\end{example}
 	
 	\begin{algorithm}[Method of Conjugate Directions]
-		Let $Q \in \S_{++}^n$ and $\{d_j\}_{j=0}^{n-1}$ be a set of non-zero $Q$-orthogonal vectors, note that they form a basis of $\R^n$. \\
+		Let $Q \in \mathbb{S}_{++}^n$ and $\{d_j\}_{j=0}^{n-1}$ be a set of non-zero $Q$-orthogonal vectors, note that they form a basis of $\R^n$. \\
 		Given initial point $x_0 \in \R^n$, the method of conjugate direction generates a sequence of points $\{x_k\}_{k=0}^n$ as the following:
 		\begin{align}
 			x_{k+1} &\leftarrow x_k + \alpha_k d_k \\
@@ -1559,7 +1559,7 @@
 	\end{algorithm}
 	
 	\begin{theorem}
-		Given the method of conjugate, the sequence of points generated eventually reaches the global minimum. That is, $x_k = x^*$.
+		Given the method of conjugate, the sequence of points generated eventually reaches the global minimum. That is, $x_n = x^*$.
 	\end{theorem}
 	
 	\begin{proof}
@@ -1594,7 +1594,7 @@
 		\begin{align}
 			x^* &= x_0 + \sum_{j=0}^{n-1} \beta_j d_j \\
 			&= x_0 + \sum_{j=0}^{n-1} \alpha_j d_j \\
-			&= x_k
+			&= x_n
 		\end{align}
 	\end{proof}
 	
