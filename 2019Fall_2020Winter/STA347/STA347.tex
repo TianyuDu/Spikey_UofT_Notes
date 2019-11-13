@@ -25,6 +25,7 @@
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
 
+
 \pagestyle{fancy}
 \lhead{STA347: Probability}
 
@@ -997,6 +998,101 @@
    		\end{align}
    		Therefore, $P(U < r) = r$ for every rational $r \in [0, 1)$. Because $\Q$ is dense in $\R$, every $x \in [0, 1]$ can be approximated using a rational number $r$ arbitrarily precisely. Hence, the result generalizes to $[0, 1]$.
    	\end{proof}
+   	
+   	\section{Binomial Process}
+   	
+   	\section{Poisson Process}
+   	
+   	\section{Conditional Expectation and Probability}
+   	\begin{definition}
+   		Let $X$ be a real-valued random variable, the conditional  expectation is defined using orthogonal projection:
+   		\begin{align}
+   			\expe (X | W) := op (X | L_2(W))
+   		\end{align}
+   		where 
+   		\begin{align}
+   			L_2(W) = \{g(W) | g: \mc{W} \to \R,\ \expe g(W)^2 < \infty \}
+   		\end{align}
+   		in which $\mc{W}$ is the sample space of $W$;\\
+   		$\mc{R}$ is the set of all $\R$-valued random variable;\\
+   		$L_2$ is the set of all $\R$-valued random variable $X$ such that $\expe X^2 < \infty$. \\
+   		Therefore, $L_2 \subseteq \mc{R}$.
+   	\end{definition}
+   	
+   	\begin{proposition}
+   		Note that $\mc{R}$ itself is a vector space, in which the inner product is defined using covariance.
+   	\end{proposition}
+   	
+   	\begin{proposition}
+   		Let $X, Y \in L_2$, such that $\expe X^2, \expe Y^2 < \infty$. Then, $\expe \abs{\inner{X}{Y}} < \infty$.
+   	\end{proposition}
+   	
+   	\begin{proof}
+   		\begin{align}
+   			\abs{\inner{X}{Y}} &\leq \frac{X^2 + Y^2}{2} < \infty
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{corollary}
+   		\begin{align}
+   			X, Y \in L_2 &\implies X + Y \in L_2
+   		\end{align}
+   		That is, $L_2$ is a sub-vector space of $\mc{R}$
+   	\end{corollary}
+   	
+   	\begin{proof}
+   		\begin{align}
+   			(X + Y)^2 = X^2 + 2 X Y + Y^2 \leq X^2 + \abs{XY} + Y^2
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{definition}
+   		Let $X, Y \in L_2$, then the \textbf{orthogonal projection} of $X$ onto $Y$, $\tx{op}(X|Y) \equiv \widehat{Y}$, is defined to satisfies the following requirements:
+   		\begin{enumerate}[(i)]
+   			\item $\widehat{Y} = t Y$ for some $t \in \R$;
+   			\item $(X - \widehat{Y}) \perp Y$.
+   		\end{enumerate}
+   	\end{definition}
+   	   	
+   	\begin{proposition}
+   		\begin{align}
+   			\tx{op}(X|Y) &= \frac{\inner{X}{Y}}{\inner{Y}{Y}} Y
+   		\end{align}
+   	\end{proposition}
+
+   	\begin{proof}
+   		Note that second defining property of $\tx{op}(X|Y)$ is equivalent to
+   		\begin{align}
+   			\inner{Y}{X - \widehat{Y}} = 0
+   		\end{align}
+   		Together with the first property,
+   		\begin{align}
+   			\inner{Y}{X - t Y} &= 0 \\
+   			\iff t = \frac{\inner{X}{Y}}{\inner{Y}{Y}} &= \frac{\expe XY}{\expe Y^2}
+   		\end{align}
+   		Recall that $\inner{X}{Y} := \sqrt{\expe XY}$ on $L_2$.
+   	\end{proof}
+   	
+   	\begin{proposition}
+   		Further notice that, 
+   		\begin{align}
+   			\cos \angle (X, Y)
+   			&= \frac{\norm{\widehat{Y}}}{\norm{X}}
+   			= \frac{t\norm{Y}}{\norm{X}}
+   			\\
+   			&= \frac{\expe XY \sqrt{\expe Y^2}}{\expe Y^2 \sqrt{\expe X^2}}
+   			= \frac{\expe XY}{\norm{X} \norm{Y}}
+   		\end{align}
+   	\end{proposition}
+	
+	\begin{definition}
+		\begin{align}
+			\sigma(X) &:= \norm{\dot{X}} = \sqrt{\inner{X - \expe X}{X - \expe X}}
+		\end{align}
+		\begin{align}
+			\rho(X, Y) &:= \frac{cov(X, Y)}{\sigma(X) \sigma(Y)}
+		\end{align}
+	\end{definition}
    	
    	\section{Conditional Probability}
    	\begin{definition}

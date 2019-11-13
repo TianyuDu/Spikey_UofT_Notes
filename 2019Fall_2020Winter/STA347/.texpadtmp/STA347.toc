@@ -21,4 +21,7 @@
 \contentsline {subsection}{\numberline {3.2}Covariance as an Inner Product}{15}{subsection.3.2}
 \contentsline {paragraph}{Motivation}{15}{section*.3}
 \contentsline {subsection}{\numberline {3.3}Markov Inequality}{16}{subsection.3.3}
-\contentsline {section}{\numberline {4}Conditional Probability}{18}{section.4}
+\contentsline {section}{\numberline {4}Binomial Process}{18}{section.4}
+\contentsline {section}{\numberline {5}Poisson Process}{18}{section.5}
+\contentsline {section}{\numberline {6}Conditional Expectation and Probability}{18}{section.6}
+\contentsline {section}{\numberline {7}Conditional Probability}{20}{section.7}
