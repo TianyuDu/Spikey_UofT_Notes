@@ -17,12 +17,12 @@
 \contentsline {subsection}{\numberline {3.1}Definitions}{16}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Compactness}{18}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Connected Sets}{19}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Cantor Set}{21}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.4}Cantor Set}{20}{subsection.3.4}
 \contentsline {section}{\numberline {4}Functional Limits and Continuity}{22}{section.4}
 \contentsline {subsection}{\numberline {4.1}Continuous Functions on Compact Sets}{25}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Uniform Continuity}{25}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Intermediate Value Theorem}{26}{subsection.4.3}
-\contentsline {section}{\numberline {5}Sequences and Series of Functions}{28}{section.5}
-\contentsline {subsection}{\numberline {5.1}Sequences of Functions}{28}{subsection.5.1}
+\contentsline {section}{\numberline {5}Sequences and Series of Functions}{27}{section.5}
+\contentsline {subsection}{\numberline {5.1}Sequences of Functions}{27}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Series of Functions}{30}{subsection.5.2}
-\contentsline {section}{\numberline {6}Appendix: Miscellaneous}{33}{section.6}
+\contentsline {section}{\numberline {6}Appendix: Miscellaneous}{35}{section.6}

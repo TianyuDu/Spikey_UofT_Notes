@@ -925,20 +925,16 @@
 	\end{definition}
 	
 	\begin{proposition}[Equivalent Definiton]
-		$E \subseteq \R$ is disconnected if and only if it can be written as the union of two \emph{nonempty disjoint open} sets.
+		$E \subseteq \R$ is disconnected if and only if it can be expressed as the union of two \emph{nonempty disjoint open} (open in $E$) sets.
 	\end{proposition}
 	
-	\begin{proof}
-		($\impliedby$) Let $E \subseteq \R$, suppose there exists nonempty disjoint open sets such that $E = A \cup B$. Suppose, for contradiction, $\overline{A} \cap B \neq \varnothing$, let $x \in \overline{A} \cap B$. Because $\overline{A} \cap B = (A \cup A') \cap B = (A \cap B) \cup (A' \cap B) = \varnothing \cup (A' \cap B) = A' \cap B$, $x$ must be a limit point of $A$. Also, because $B$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subseteq B$. Because $x \in A'$, there exists $y \neq x$ such that $y \in V_\varepsilon(x) \cap A$. Then $y \in A \cap B$, which contradicts the assumption that $A$ and $B$ are disjoint. The argument to show $A \cap \overline{B} = \varnothing$ is similar, so $A$ and $B$ are separated.\\
-		($\implies$) Suppose $A$ and $B$ are nonempty separated sets such that $A \cup B = E$. Show: $A$ and $B$ are nonempty disjoint open sets \\
-		$(i)$ $A$ and $B$ are by construction nonempty. \\
-		$(ii)$ Suppose $A$ and $B$ are not disjoint, then $\overline{A} \cap  B$ must be nonempty, which is a contradiction. \\
-		$(iii)$ To show $A$ and $B$ are open, WLOG, suppose, for contradiction, $A$ is not open in $E$. There exists some $x \in A $ such that
-		\begin{align}
-			\forall \varepsilon > 0\ V_\varepsilon(x) \cap (E\backslash A) \neq \varnothing
-		\end{align}
-		\hl{TODO}
-	\end{proof}
+%	\begin{proof}
+%		($\impliedby$) Let $E \subseteq \R$, suppose there exists nonempty disjoint open sets such that $E = A \cup B$. Suppose, for contradiction, $\overline{A} \cap B \neq \varnothing$, let $x \in \overline{A} \cap B$. Because $\overline{A} \cap B = (A \cup A') \cap B = (A \cap B) \cup (A' \cap B) = \varnothing \cup (A' \cap B) = A' \cap B$, $x$ must be a limit point of $A$. Also, because $B$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subseteq B$. Because $x \in A'$, there exists $y \neq x$ such that $y \in V_\varepsilon(x) \cap A$. Then $y \in A \cap B$, which contradicts the assumption that $A$ and $B$ are disjoint. The argument to show $A \cap \overline{B} = \varnothing$ is similar, so $A$ and $B$ are separated.\\
+%		($\implies$) Suppose $A$ and $B$ are nonempty separated sets such that $A \cup B = E$. Show: $A$ and $B$ are nonempty disjoint open sets \\
+%		$(i)$ $A$ and $B$ are by construction nonempty. \\
+%		$(ii)$ Suppose $A$ and $B$ are not disjoint, then $\overline{A} \cap  B$ and $A \cap \overline{B}$ must be nonempty, which is a contradiction. \\
+%		$(iii)$ 
+%	\end{proof}
 	
 	\begin{theorem}
 		A set $E \subseteq \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subseteq A$ converges to some point $a \in B$, and a sequence $(b_n) \subseteq B$ converges to some point $b \in A$. \\
@@ -946,14 +942,14 @@
 	\end{theorem}
 	
 	\begin{proof}
-		
+		Suppose $E$ is connected, then for any partition $E = A \cup B$, either $\overline{A} \cap B \neq \varnothing$ or $A \cap \overline{B} \neq \varnothing$. WLOG, $\overline{A} \cap B \neq \varnothing$, take $a \in A' \cap B \subseteq B$, and there exists a convergent sequence in $A$ converging to $a \in B$.
 	\end{proof}
 	
 	\begin{theorem}
 		Let $E \subseteq \R$, the following are equivalent:
 		\begin{enumerate}[(i)]
 			\item $E$ is connected;
-			\item For every $a < c < b$, $a, b \in E \implies c \in E$.
+			\item For every $a < c < b$, $a, b \in E \implies c \in E$ (intervals).
 		\end{enumerate}
 		\emph{Remark: the collection of connected subsets of $\R$ is exactly the collection of all intervals.}
 	\end{theorem}
@@ -1031,14 +1027,14 @@
 	
 	\begin{proof}
 		We are going to show that every point $x \in \mc{C}$ is the limit of some sequence in $\mc{C}$. \\
-		\emph{Case 1}: $x$ is not the right endpoint of any closed interval in $S_n$ for any $n \in \N$. Then for every $n \in \N$, let $x_n$ be the right endpoint of the interval in $S_n$ containing $x$. Obviously, $(x_n) \to x$. \\
-		\emph{Case 2}: $x$ is the right endpoint of some closed interval in some $S_n$. For every $n \in \N$, take $x_n$ to be the left end of $S_n$ containing $x$. Clearly, $(x_n) \to x$.
+		\emph{Case 1}: $x$ is not the right endpoint of any intervals in $S_n$ for any $n \in \N$. Then for every $n \in \N$, let $x_n$ be the right endpoint of the interval in $S_n$ containing $x$. Obviously, $(x_n) \to x$. \\
+		\emph{Case 2}: $x$ is the right endpoint of some closed interval in some $S_n$ (the implication of this observation is that we cannot simply take the right endpoint, so take the left endpoint). For every $n \in \N$, take $x_n$ to be the left end of $S_n$ containing $x$. Clearly, $(x_n) \to x$.
 	\end{proof}
 	
 	\begin{theorem}
 		Any nonempty perfect set $P$ is uncountable.
 	\end{theorem}
-	
+
 	\begin{proof}
 		Note that $P$ is obviously not finite. Suppose, for contradiction, $P$, then there exists an enumeration of $P = \{x_1, x_2, \cdots, x_n, \cdots \}$. Construct a sequence of compact sets as following: take $\varepsilon > 0$, there exists $y_1 \neq x_1$ such that $y_1 \in P \cap [x_1 - \varepsilon, x_1 + \varepsilon]$. Let $\delta_1 := \frac{|y_1 - x_1|}{2}$, and take $K_1 := [y_1 - \delta_1, y_1 + \delta_1] \cap P$. \hl{TODO: Show $K_1$ is compact.} Note that $x_1 \notin K_1$. \\
 		Apply the same argument on $K_1$ to construct $K_2$ such that $x_2 \notin K_2$, so that $P \supset K_1 \supset K_2 \supset \cdots $. \\
@@ -1053,9 +1049,14 @@
 		$\mc{C}$ is a nonempty perfect set, so it is uncountable.
 	\end{proof}
 	
+	\begin{proof}[Another Direct Proof.]
+		Consider the ternary expansions of all numbers in $\mc{C}$, it is easy to observe that for every $x \in \mc{C}$, if the ternary expansion of $x$ contains $1$ somewhere, $x$ cannot be in $\mc{C}$. \\
+		Therefore, $\mc{C}$ has the same cardinality as the collection of all binary expansions, which has the same cardinality of $\R$ (refer to the construction of real numbers).
+	\end{proof}
+	
 	\section{Functional Limits and Continuity}
 	\begin{definition}
-		aLet $f: A \to \R$ be a function, let $c$ be a limit point of domain $A$, then $\lim_{x \to c} f(x) = L$ if 
+		Let $f: A \to \R$ be a function, let $c$ be a limit point of domain $A$, then $\lim_{x \to c} f(x) = L$ if 
 		\begin{align}
 			\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ x \in V_\delta^{\red{o}} (c) \implies f(x) \in V_\varepsilon(L)
 		\end{align}
@@ -1063,7 +1064,7 @@
 	\end{definition}
 	
 	\begin{example}
-		Let $g(x) = ^2$, show that $\lim_{x \to 2} g(x) = 4$.
+		Let $g(x) = x^2$, show that $\lim_{x \to 2} g(x) = 4$.
 		\begin{proof}
 			Let $\varepsilon > 0$, note that for all $\delta < 1$, for all $x \in V_\delta^o(2)$,
 			\begin{align}
@@ -1114,7 +1115,7 @@
 	\end{example}
 	
 	\begin{example}[Dirichlet Function]
-		Limit of $f(x) := \id{x \in \Q}$ does not exist everywhere in $\R$.
+		Limit of $f(x) := \id{x \in \Q}$ does not exist anywhere in $\R$.
 	\end{example}
 	
 	\begin{example}
@@ -1148,7 +1149,9 @@
 			\includegraphics[width=0.5\linewidth]{figure/thomae_function.png}
 			\caption{Thomae's Function in the Unit Interval}
 		\end{figure}
-		\textbf{Claim: } for every $a \in \R$, $\lim_{x \to a} f(x) = 0$.
+	\end{example}
+	\begin{proposition}
+		For every $a \in \R$, $\lim_{x \to a} f(x) = 0$. As a result, $D_f = \Q$.
 		\begin{proof}
 			WLOG, consider the domain $a \in (0, 1)$ only, show:
 			\begin{align}
@@ -1172,7 +1175,7 @@
 			Either case implies the limit to be zero. \\
 			Therefore $f$ is discontinuous on $\Q$.
 		\end{proof}
-	\end{example}
+	\end{proposition}
 	
 	\begin{theorem}
 		Composition of continuous functions is continuous. \\
@@ -1265,7 +1268,7 @@
 	\end{example}
 	
 	\begin{example}
-		Claim: $f(x) = x^2$ is not uniformly continuous. \\
+		$f(x) = x^2$ is not uniformly continuous. \\
 		Consider two sequences $(x_n) = (n)$ and $(y_n) = \left (n + \frac{1}{n} \right )$. \\
 		Note that $\abs{x_n - y_n} = \abs{\frac{1}{n}} \to 0$. \\
 		Moreover, $\abs{f(x_n) - f(y_n)} = \abs{2 + \frac{1}{n^2}} > 2$. \\
@@ -1374,7 +1377,7 @@
 	\end{definition}
 	
 	\begin{definition}
-		Let $(f_n)$ be a sequence of functions defined on $A \subseteq \R$. Then $(f_n)$t \textbf{converges uniformly} on $A$ to $f: A \to \R$ if 
+		Let $(f_n)$ be a sequence of functions defined on $A \subseteq \R$. Then $(f_n)$ \textbf{converges uniformly} on $A$ to $f: A \to \R$ if 
 		\begin{align}
 			\forall \varepsilon > 0\ \exists N \in \N\ s.t.\ \forall x \in A\ \forall n \geq N,\ f_n(x) \in V_\varepsilon(f(x))
 		\end{align}
@@ -1479,13 +1482,13 @@
 	\end{proof}
 	
 	\begin{theorem}
-		Let $(f_n)$ be a sequence of differentiable functions defined on the closed interval $[a, b]$, and assume $(f'_n)$ \ul{converges uniformly} on $[a, b]$. If there exists a point $x_0 \in [a, b]$ where $f_n(x_n)$ converges, then $(f_n)$ converges uniformly on $[a, b]$.
+		Let $(f_n)$ be a sequence of \ul{differentiable} functions defined on the closed interval $[a, b]$, and assume $(f'_n)$ \ul{converges uniformly} on $[a, b]$. If there exists a point $x_0 \in [a, b]$ where $f_n(x_n)$ converges, then $(f_n)$ \ul{converges uniformly} on $[a, b]$.
 	\end{theorem}
 	
 	\begin{theorem}[Stronger Version]
-		Let $(f_n)$ be a sequence of differentiable functions defined on the closed interval $[a, b]$, and assume $(f'_n)$ converges uniformly to a function $g$ on $[a, b]$. \\
+		Let $(f_n)$ be a sequence of \ul{differentiable} functions defined on the closed interval $[a, b]$, and assume $(f'_n)$ converges uniformly to a function $g$ on $[a, b]$. \\
 		If there exists a point $x_0 \in [a, b]$ for which $f_n(x_0)$ converges, then $(f_n)$ converges uniformly, \\
-		Then the limit function $f$ is differentiable and satisfies $f' = g$.
+		Furthermore, the limit function $f$ is differentiable and satisfies $f' = g$.
 	\end{theorem}
 	
 	\subsection{Series of Functions}
@@ -1498,7 +1501,7 @@
  		\begin{align}
  			\abs{\sum_{i=1}^k \frac{\sin(nx)}{n^2} - \sum_{i=1}^\ell \frac{\sin(nx)}{n^2}} \leq \sum_{n=\ell+1}^k \frac{1}{n^2} < \varepsilon
  		\end{align}
- 		Hence Cauchy.
+ 		Hence, uniformly Cauchy.
  	\end{example}
  	
  	\begin{theorem}
@@ -1513,7 +1516,8 @@
  	\end{definition}
  	
  	\begin{theorem}
- 		$(f_k)$ is uniformly Cauchy $\iff$ $\sum f_k \to f$ uniformly.
+ 		$(f_k)$ is uniformly Cauchy $\iff$ $\sum f_k \to f$ uniformly. \\
+ 		\emph{This is the same as the theorem mentioned in previous section. Simply define $g_n := \sum_{i=1}^ns f_i(x)$, and $(g_n)$ is uniformly Cauchy if and only if it converges to $g_\infty \equiv \sum_{n=1}^\infty f_n(x)$ uniformly.}
  	\end{theorem}
  	\begin{proof}
  		($\impliedby$)\\
@@ -1536,6 +1540,24 @@
  		\end{align}
  	\end{proof}
  	
+ 	\begin{theorem}[Term-by-term Continuity Theorem]
+ 		Let $f_n$ be continuous functions defined on a set $A \subseteq \R$, suppose $\sum^\infty_{n=1} f_n \to f$ \ul{uniformly}, then $f$ is continuous on $A$.
+ 	\end{theorem}
+ 	
+ 	\begin{theorem}[Term-by-term Differentiability Theorem] 
+ 		Let $f_n$ be continuous functions defined on $A \subseteq \R$, and suppose
+ 		\begin{enumerate}[(i)]
+ 			\item $\sum^\infty_{n=1} f'_n \to g$ \ul{uniformly};
+ 			\item There exists a point $x_0$ such that the series converges at $x_0$.
+ 		\end{enumerate}
+ 		Then, $\sum^\infty_{n=1} f_n \to f$ converges \ul{uniformly} to a differentiable function $f$ with $f'(x) = g(x)$.\\
+ 		That is
+ 		\begin{align}
+ 			f(x) &= \sum_{n=1}^\infty f_n(x) \\
+ 			f'(x) &= \sum_{n=1}^\infty f'_n(x)
+ 		\end{align}
+ 	\end{theorem}
+ 	
  	\begin{theorem}[Weierstrass M-test]
  		Let $a_n: S \to \R^m$, and sequence $M_n \in \R$. If
  		\begin{align}
@@ -1543,6 +1565,19 @@
  		\end{align}
  		then $\sum_{n=1}^\infty M_n$ \ul{converges} implies $\sum_{n=1}^\infty a_n$ \ul{converges uniformly}.
  	\end{theorem}
+ 	
+ 	\begin{proof}
+ 		The desired result can be shown by showing the sequence of partial sums is Cauchy. \\
+ 		Let $\varepsilon > 0$, show that there exists $k \in \N$ such that
+ 		\begin{align}
+ 			\forall m, n \geq k,\quad \abs{S_m(x) - S_n(x)} < \varepsilon
+ 		\end{align}
+ 		WLOG, suppose $m > n$, then 
+ 		\begin{align}
+ 			\abs{S_m(x) - S_n(x)} &= \abs{a_{n+1}(x) + \cdots a_m(x)} \\
+ 			&\leq \abs{M_{n+1} + \cdots + M_n}
+ 		\end{align}
+ 	\end{proof}
  	
  	\begin{proof}
  		\begin{align}
@@ -1587,8 +1622,12 @@
  		\begin{align}
  			f(x) = \sum_{n=1}^\infty \underbrace{\frac{1}{2^n} \cos(10^n \pi x)}_{f_n(x)}
  		\end{align}
- 		Note that $\sup_{x \in S} \abs{f_n(x)} \leq \frac{1}{2^n}$, and $\sum_{n=1}^\infty \frac{1}{2^n} \to 1$. Therefore, $\sum f_n \to f$ uniformly on $\R$, so that $f$ is continuous. \\
- 		Claim: $f$ is nowhere differentiable.\\
+ 		Note that $\sup_{x \in S} \abs{f_n(x)} \leq \frac{1}{2^n}$, and $\sum_{n=1}^\infty \frac{1}{2^n} \to 1$. Therefore, $\sum f_n \to f$ uniformly on $\R$, so that $f$ is continuous.
+ 	\end{example}
+ 	\begin{proposition}
+ 		$f$ is nowhere differentiable.
+ 	\end{proposition}
+ 	\begin{proof}
  		Let $x \in \R$ with decimal expansion $x_0\cdot x_1 x_2 \cdots$. \\
  		Construct sequence $(z_n) \to x$ as following: \\
 		Fix $n$, let $y_0 = x_0.x_1 \cdot x_n$ and $y_1 = y_0 + \frac{1}{10^n}$. \\
@@ -1597,8 +1636,9 @@
  		\begin{align}
  			\abs{\frac{f(z_n) - f(x)}{z_n - x}} \to \infty
  		\end{align}
- 	\end{example}
+ 	\end{proof}
  	
+ 	\newpage
  	\section{Appendix: Miscellaneous}
  	\begin{proposition}[Midterm 1, Q7]
  		Let $(a_n)$ be a bounded sequence,\\
