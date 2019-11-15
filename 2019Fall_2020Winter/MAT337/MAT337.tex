@@ -802,7 +802,11 @@
 	\begin{definition}
 		$x \in A$ is an \textbf{isolated point} is it is not a limit point of $A$.
 	\end{definition}
-	
+
+	\begin{definition}
+		The \textbf{closure} of $A$, denoted as $\overline{A}$, is defined to be the union of $A$ and all limit points of $A$.
+	\end{definition}
+
 	\begin{definition}
 		$A \subseteq X$ is \textbf{dense} in $X$ if $\overline{A} = X$.
 	\end{definition}
@@ -816,10 +820,6 @@
 		Hence, for every $n \in \N$, $\exists q_n \in \Q$ such that $x - \frac{1}{n} < q_n < x + \frac{1}{n}$. It is evident that $\seq{q}{n} \to x$.
 	\end{proof}
 	
-	\begin{definition}
-		The \textbf{closure} of $A$, denoted as $\overline{A}$, is defined to be the union of $A$ and all limit points of $A$.
-	\end{definition}
-	
 	\begin{lemma}
 		$\overline{A}$ is the smallest closed set containing $A$.
 	\end{lemma}
@@ -832,13 +832,13 @@
 	\begin{theorem} Equivalent definitions of openness and closedness:
 		\begin{enumerate}[(i)]
 			\item $\mc{O}$ is open if and only if $\mc{O}^c$ is closed;
-			\item $\mc{O}$ is closed if and only if $\mc{O}^c$ is open.
+			\item $\mc{F}$ is closed if and only if $\mc{F}^c$ is open.
 		\end{enumerate}
 	\end{theorem}
 	
 	\begin{proof}
-		($\implies$) Let $\mc{O}$ be an open set, let $(x_n) \to x$ be a convergent sequence in $\mc{O}^c$. It is evident that if $x \in \mc{O}$, infinitely many elements in the tail of $(x_n)$ would be in $V_\varepsilon(x) \subseteq \mc{O}$, which leads to a contradiction. Therefore $\mc{O}^c$ contains all of its limit poitns, and $\mc{O}^c$ is therefore closed.
-		\\($\impliedby$) Let $\mc{O}^c$ be a closed set, suppose $\mc{O}$ is not open, there exists $x \in \mc{O}$ such that for all $\varepsilon > 0$, $V_\varepsilon(x) \cap \mc{O}^c \neq \varnothing$. Then we can construct a sequence in $\mc{O}^c$ converge to $x$, which leads to a contradiction that there is a limit point of a sequence in $\mc{O}^c$ not contained by $\mc{O}^c$. \\
+		($\implies$) Let $\mc{O}$ be an open set, let $(x_n) \to x$ be a convergent sequence in $\mc{O}^c$. It is evident that if $x \in \mc{O}$, infinitely many elements in the tail of $(x_n)$ would be in $V_\varepsilon(x) \subseteq \mc{O}$, which leads to a contradiction. Therefore $\mc{O}^c$ contains all of its limit points, and $\mc{O}^c$ is therefore closed.
+		\\($\impliedby$) Let $\mc{F}^c$ be a closed set, suppose $\mc{F}$ is not open, there exists $x \in \mc{F}$ such that for all $\varepsilon > 0$, $V_\varepsilon(x) \cap \mc{F}^c \neq \varnothing$. Then we can construct a sequence in $\mc{F}^c$ converge to $x$, which leads to a contradiction that there is a limit point of a sequence in $\mc{F}^c$ not contained by $\mc{F}^c$. \\
 		The second part is immediate.
 	\end{proof}
 	
@@ -937,7 +937,7 @@
 %	\end{proof}
 	
 	\begin{theorem}
-		A set $E \subseteq \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subseteq A$ converges to some point $a \in B$, and a sequence $(b_n) \subseteq B$ converges to some point $b \in A$. \\
+		A set $E \subseteq \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subseteq A$ converges to some point $a \in B$, or a sequence $(b_n) \subseteq B$ converges to some point $b \in A$. \\
 		\emph{Remark: Essentially, a set E is connected if, no matter how it is partitioned into two nonempty disjoint sets, it is always possible to show that at least one of the sets contains a limit point of the other.}
 	\end{theorem}
 	
@@ -1077,7 +1077,7 @@
 		\end{proof}
 	\end{example}
 	
-	\begin{theorem}[Sequential Criterion for Functional Limit]
+	\begin{theorem}[Sequential Criterion for Functional Limits]
 		Given a function $f: A \to \R$ and $c \in A'$, then the following are equivalent:
 		\begin{enumerate}[(i)]
 			\item $\lim_{x \to c} f(x) = L$;
@@ -1309,7 +1309,7 @@
 	\begin{proof}
 		Suppose $f(E) = A \cup B$, where $A, B \neq \varnothing$ and disjoint. \\
 		Note that $E = f^{-1}(A) \cup f^{-1}(B)$ with $f^{-1}(A) \cap f^{-1}(B) = \varnothing$ (evident using contradiction). \\
-		Moreover, $E = f^{-1}(A) \cup f^{-1}(B)$. \\
+%		Moreover, $E = f^{-1}(A) \cup f^{-1}(B)$. \\
 		Because $E$ is connected, either there exists a convergent sequence in $f^{-1}(A)$ converges to somewhere in $f^{-1}(B)$ or a convergent sequence in $f^{-1}(B)$ converges to somewhere in $f^{-1}(A)$. \\
 		WLOG, suppose there exists a sequence $(x_n) \in f^{-1}(A)$ converges to some point $x \in f^{-1}(B)$. \\
 		Because $f$ is continuous, $\lim_{n \to \infty} f(x_n) = f(x) \in B$. \\
