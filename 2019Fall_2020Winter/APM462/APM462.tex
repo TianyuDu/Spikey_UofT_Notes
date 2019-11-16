@@ -1671,6 +1671,71 @@
 	\begin{proof}
 		The result is immediate by noting that $x_0 + \mc{B}_{k-1} \subseteq x_0 + \mc{B}_k$.
 	\end{proof}
+	
+	\section{Infinite Dimensional Optimization}
+	\subsection{Calculus of Variation}
+	\subsubsection{The Canonical Example}
+	\paragraph{Problem Setup} Let
+	\begin{align}
+		\mc{A} := \{u:[0, 1] \to \R : u \in C^1 \land u(0) = u(1) = 1\}
+	\end{align}
+	And let $F[\cdot]: \mc{A} \to \R$ denote the \textbf{functional} defined as 
+	\begin{align}
+		F[u(\cdot)] := \frac{1}{2} \int_0^1 u^2(x) + u'^2(x)\ dxs
+	\end{align}
+	Consider the minimization problem over the \emph{space of functions}:
+	\begin{align}
+		\min F[u]\ s.t.\ u \in \mc{A}
+	\end{align}
+	\paragraph{Optimizing via Disturbance} The general idea of solving such infinite dimensional problem would be \ul{reducing it to a collection of one dimensional problems}. \\
+	Let $v(\cdot) \in C^1([0, 1], \R)$ such that $v(0) = v(1) = 0$. \\
+	Suppose $u^*(\cdot)$ is the minimizer of the problem stated above. \\
+	Consider
+	\begin{align}
+		u^*(\cdot) + s v(\cdot)\quad s \in \R
+	\end{align}
+	Notice that by construction, $u^*(\cdot) + s v(\cdot) \in \mc{A}$ for every $s \in \R$. \\
+	Define the auxiliary function 
+	\begin{align}
+		f(s) := F[u^* + sv] \in \R^\R
+	\end{align}
+	The attained when $s=0$, the first order necessary condition of minimization suggests:
+	\begin{align}
+		f'(0) &= \left. \frac{d}{ds} \right|_{s=0} F[u^*(\cdot) + sv(\cdot)] \\
+		&= \left. \frac{d}{ds} \right|_{s=0} \frac{1}{2}
+		\int_0^1 \left[u_*(x) + sv(x) \right]^2 + \left[u_*'(x) + sv'(x) \right]^2\ dx \\
+		&= \left. \frac{d}{ds} \right|_{s=0} \left \{
+		\frac{1}{2} \int_0^1 [u_*(x)^2 + u_*'(x)^2]\ dx
+		+ \int_0^1 s[u_*(x) v(x) + u_*'(x) v'(x)]\ dx 
+		+ \frac{s^2}{2} \int_0^1 v^2(x) + v'^2(x)\ dx
+		\right \} \\
+		&= \left. \frac{d}{ds} \right|_{s=0} \int_0^1 s[u_*(x) v(x) + u_*'(x) v'(x)]\ dx \\
+		&= \int_0^1\left. \frac{d}{ds} \right|_{s=0} s[u_*(x) v(x) + u_*'(x) v'(x)]\ dx \\
+		&= \int_0^1 u_*(x) v(x) + u_*'(x) v'(x)\ dx = 0\quad (\dagger')
+	\end{align}
+	Where $(\dagger')$ is the primitive form of the first order necessary condition. \\
+	Furthermore,
+	\begin{align}
+		\int_0^1 u_*(x) v(x) + u_*'(x) v'(x)\ dx
+		&= \int_0^1 u_*(x) v(x)\ dx + \int_0^1 u_*'(x) v'(x)\ dx \\
+		&= \int_0^1 u_*(x) v(x)\ dx
+		+ \left. u_*(x) v(x) \right|_{0}^1
+		+ \int_0^1 u_*''(x) v(x)\ dx \\
+		&= \int_0^1 u_*(x) v(x)\ dx
+		+ \int_0^1 u_*''(x) v(x)\ dx \\
+		&= \int_0^1 [u_*(x) + u_*''(x)] v(x)\ dx
+	\end{align}
+	The first order necessary condition is amount to
+	\begin{align}
+		\int_0^1 [u_*(x) + u_*''(x)] v(x)\ dx = 0
+	\end{align}
+	for every function $v \in C^1([0, 1], \R)$ such that $v(0) = v(1) = 0$.
+	
+	\begin{proposition}
+		\begin{align}
+			\int_0^1 u_*(x) + u_*''(x)\ dx = 0
+		\end{align}
+	\end{proposition}
 \end{document}
 
 
