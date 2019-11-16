@@ -1530,7 +1530,7 @@
 	\end{lemma}
 	
 	\begin{example}[Special Case: Method of Conjugate Direction on Quadratic Functions]
-		Let $Q \in \S_{++}^n$ and minimizing the quadratic function
+		Let $Q \in \mathbb{S}_{++}^n$ and minimizing the quadratic function
 		\begin{align}
 			\min f(x) = \frac{1}{2} x^T Q x - b^T 
 		\end{align}
@@ -1606,7 +1606,7 @@
 		\end{align}
 	\end{theorem}
 	
-	\begin{example}
+	\begin{corollary}
 		Now consider the special case in which $\Omega$ is an affine hyperplane, that is,
 		\begin{align}
 			\Omega &= \{x \in \R^n: cx + b = 0\}
@@ -1614,7 +1614,63 @@
 		where dim($\Omega$) is $n-1$. \\
 		Note that for every $y \in \Omega$, $\nabla f(x_0) \cdot (y - x_0) \geq 0$. For any feasible direction $a$ at point $x_0$, by the definition of hyperplane, $-a$ is a feasible direction as well. \\
 		Consequently, $a \cdot \nabla f(x_0)$ for every feasible direction. That is, $\nabla f(x_0) \perp \Omega$.
-	\end{example}
+	\end{corollary}
+	
+	\begin{notation}
+		Let $d_0, d_1, \cdots, d_{n-1}$ be a set of non-zero $Q$-orthogonal vectors in $\R^n$.\\
+		For every $k \in \{0, 1, \cdots, n\}$, let
+		\begin{align}
+			\mc{B}_k &= \tx{span} \{d_0, \cdots, d_{k-1}\}
+		\end{align}
+		In particular, $\mc{B}_0 = \{0\}$ and $\mc{B}_{n} = \R^n$.
+	\end{notation}
+	
+	\begin{theorem}
+		The sequence $\{x_k\}$ generated from $x_0 \in \R^n$ by conjugate direction method has the property that $x_k$ minimizes $f(x) = \frac{1}{2}x^T Q x - b^Tx$ on the affine hyperplane $x_0 + \mc{B}_k$. \\
+		That is, 
+		\begin{align}
+			x_k \in \argmin_{x \in x_0 + \mc{B}_k} f(x)
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		Recall that $x_k$ is the the minimizer of $f$ on the affine hyperplane if and only if $\nabla f(x_k) \perp x_0 + \mc{B}_k$. \\
+%		Note
+%		\begin{align}
+%			f(x) &= (x - x^*)^T Q (x - x^*) = \sum_{i=1}^n \lambda_i y_i^2
+%		\end{align}
+		It is enough to show that $\nabla f(x_k) \perp \mc{B}_k$.
+		\emph{Base Case:} $g_0 := \nabla f(x_0) \perp \{0\}$ trivially. \\
+		\emph{Inductive Step:} Assume $g_k \perp \mc{B}_k$, show $g_{k+1} \perp \mc{B}_{k+1}$:
+		\begin{align}
+			g_k &\perp \mc{B}_k \\
+			\implies g_k &\perp \tx{span}\{d_0, \cdots, d_{k-1}\} \\
+			\inner{g_{k+1}}{d_k} &= \inner{g_{k} + \alpha_k Q d_k}{d_k} \\
+			&= \inner{g_{k}}{d_k} + \alpha_k \inner{Q d_k}{d_k} \\
+			&= \inner{g_{k}}{d_k} - \frac{\inner{g_k}{d_k}}{d^T_k Q d_k} d_k^T Q d_k
+			= 0 \\
+			\implies g_{k+1} &\perp d_k \\
+			\inner{g_{k+1}}{d_i} &= \inner{g_{k} + \alpha_k Q d_k}{d_i} \quad 0 \leq i < k \\
+			&= \inner{g_{k}}{d_i} + \inner{\alpha_k Q d_k}{d_i} \\
+			&= 0 + 0 = 0 \\
+			\implies g_{k+1} &\perp \mc{B}_k
+		\end{align}
+	\end{proof}
+	
+	\begin{corollary}
+		$x_n$ (the final output of the method of conjugate gradient) minimizes $f(x)$ on $x_0 + \mc{B}_n = \R^n$.
+	\end{corollary}
+	
+	\begin{corollary}
+		Let $q(\cdot)$ be a quadratic function, then
+		\begin{align}
+			0 \leq q(x_k) = \min_{x \in x_0 + \mc{B}_k} q(x) \leq q(x_k) = \min_{x \in x_0 + \mc{B}_{k-1}} q(x)
+		\end{align}
+	\end{corollary}
+	
+	\begin{proof}
+		The result is immediate by noting that $x_0 + \mc{B}_{k-1} \subseteq x_0 + \mc{B}_k$.
+	\end{proof}
 \end{document}
 
 
