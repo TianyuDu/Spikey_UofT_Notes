@@ -1687,7 +1687,7 @@
 	\begin{align}
 		\min F[u]\ s.t.\ u \in \mc{A}
 	\end{align}
-	\paragraph{Optimizing via Disturbance} The general idea of solving such infinite dimensional problem would be \ul{reducing it to a collection of one dimensional problems}. \\
+	\paragraph{Optimizing via Disturbance (Test Functions)} The general idea of solving such infinite dimensional problem would be \ul{reducing it to a collection of one dimensional problems}. \\
 	Let $v(\cdot) \in C^1([0, 1], \R)$ such that $v(0) = v(1) = 0$. \\
 	Suppose $u^*(\cdot)$ is the minimizer of the problem stated above. \\
 	Consider
@@ -1731,11 +1731,59 @@
 	\end{align}
 	for every function $v \in C^1([0, 1], \R)$ such that $v(0) = v(1) = 0$.
 	
+	\begin{lemma}[Du Bois-Reymond Lemma]
+		Provided that $u_*(\cdot) \in \mc{A}$ is $C^1$, altogether with the fact that it is the minimizer, $u_*(\cdot)$ is automatically $C^2$.
+	\end{lemma}
+	
+	\begin{notation}
+		We call all $v \in C^1([0, 1], \R)$ such that $v(0) = v(1) = 0$ \textbf{test functions}.
+	\end{notation}
+	
+	\begin{lemma}[The Fundamental Lemma of Calculus of Variation]
+		Suppose $g$ is continuous on interval $[a, b]$ such that
+		\begin{align}
+			\int_a^b g(x) v(x)\ dx = 0\ \forall \tx{ test function } v(\cdot)
+		\end{align}
+		Then $g(x) \equiv 0$ on $[a, b]$.
+	\end{lemma}
+	
+	\begin{proof}\renewcommand{\qedsymbol}{$\contradiction$}
+		Suppose, for contradiction, $g(\eta) \neq 0$ for some $\eta \in [0, 1]$. \\
+		WLOG, assume $g(\eta) > 0$. \\
+		Note that if $\eta$ is at either endpoint, by continuity of $g$, one may choose another $\eta' \in V_\varepsilon(\eta)$ such that $\eta' \in (a, b)$. Therefore, we may assume $\eta \in (a, b)$ without loss of generality. \\
+		Then there exists an open interval $(c, d) \subsetneq (a, b)$ such that $g(x) > 0\ \forall x \in (c, d)$. \\
+		Define
+		\begin{align}
+			v(x) := \begin{cases}
+				(x-c)^2 (x-d)^2 &\tx{ if } x \in (c, d) \\
+				0 &\tx{ otherwise}
+			\end{cases}
+		\end{align}
+		Clearly, $v(\cdot) \in C^1([0, 1], \R)$ by noticing
+		\begin{align}
+			v'(x) = \begin{cases}
+				2(x-c)(x-d)^2 + 2 (x-c)^2(x-d) &\tx{ if } x \in (c, d) \\
+				0 &\tx{ otherwise}
+			\end{cases}
+		\end{align}
+		Obviously,
+		\begin{align}
+			\int_a^b g(x) v(x)\ dx = \int_c^d g(x) v(x)\ dx > 0
+		\end{align}
+	\end{proof}
+	
 	\begin{proposition}
 		\begin{align}
-			\int_0^1 u_*(x) + u_*''(x)\ dx = 0
+			\int_0^1 (u_*(x) + u_*''(x))v(x)\ dx = 0\ \forall v \implies u_*(\cdot) + u_*''(\cdot) \equiv 0
 		\end{align}
 	\end{proposition}
+	
+	\begin{proof}
+		By Du Bois-Reymond Lemma, $u_*(\cdot) + u_*''(\cdot)$ is continuous. Because $v(\cdot)$ is a test function and by the fundamental lemma of calculus of variation, $u_*(\cdot) + u_*''(\cdot) \equiv 0$.
+	\end{proof}
+	
+	\subsection{A Classical Example from Physics: Brachistochrone}
+	\paragraph{Brachistochrone}(Galileo, 1638) Find the curve connecting two points $A$ and $B$ on which a point mass moves without friction under the influence of gravity moves from $A$ to $B$ in the least time possible.
 \end{document}
 
 
