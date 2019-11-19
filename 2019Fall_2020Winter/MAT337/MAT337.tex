@@ -1638,6 +1638,96 @@
  		\end{align}
  	\end{proof}
  	
+ 	\begin{example}
+ 		Let
+ 		\begin{align}
+ 			h(x) &:= \sum_{n=1}^\infty \frac{1}{x^2 + n^2} \equiv \sum_{n=1}^\infty h_n(x)
+ 		\end{align}
+ 		Claim: $h(x)$ is continuous and differentiable on $\R$.
+ 	\end{example}
+ 	
+ 	\begin{proof}[Continuity]
+ 		Note that each $h_n(x)$ is continuous, so is each partial sum $S_k := \sum_{n=1}^k h_n(x)$. \\
+ 		By Weierstrass M-test, each $\abs{h_n(x)} \leq \frac{1}{n^2} \equiv M_n$, the series converges to $h(x)$ uniformly. \\
+ 		Therefore, by the definition of series convergence, the sequence of partial sums, in which all elements are continuous, converges uniformly to $h(x)$, hence $h(x)$ is continuous as well. 
+ 	\end{proof}
+ 	
+ 	\begin{proof}[Differentiability]
+ 		We've already shown the sequence of partial sum converges uniformly to $h(x)$. \\
+ 		All we need to show is the derivative of partial sums converges uniformly to some function. \\
+ 		Equivalently, we are showing the uniform convergence of series of derivatives. \\
+ 		In particular,
+ 		\begin{align}
+ 			h_n'(x) &= -\frac{2x}{(x^2 + n^2)^2} \\
+ 			S'_k(x) &= \sum_{n=1}^k h_n'(x) = - \sum_{n=1}^k \frac{2x}{(x^2 + n^2)^2}
+ 		\end{align}
+ 		Apply M-Test again,
+ 		\begin{align}
+ 			\abs{h_n'(x)} &= \abs{-\frac{2x}{(x^2 + n^2)^2}} \\
+ 			&= \frac{2}{\frac{x^2+n^2}{x}(x^2+n^2)} \\
+ 			&= \frac{2}{(x + \frac{n^2}{x})(x^2 + n^2)}
+ 		\end{align}
+ 		Note that 
+ 		\begin{align}
+ 			\left(\sqrt{x} - \frac{n}{\sqrt{x}} \right)^2 = x - 2n + \frac{n^2}{x} \geq 0 \\
+ 			\implies \left(x + \frac{n^2}{x} \right) \geq 2n
+ 		\end{align}
+ 		Therefore,
+ 		\begin{align}
+ 			\abs{h_n'(x)} &\leq \frac{2}{2n(x^2 + n^2)} \\
+ 			&\leq \frac{1}{n^3}
+ 		\end{align}
+ 		Therefore,
+ 		\begin{align}
+ 			\sum_{n=1}^\infty h'_n(x) \to g(x) \tx{ uniformly}
+ 		\end{align}
+ 		Hence, $h(x)$ is differentiable, in particular, $h'(x) = g(x)$.
+ 	\end{proof}
+ 	
+ 	\subsection{Power Series}
+ 	\begin{definition}
+ 		A \textbf{power series} takes the form of 
+ 		\begin{align}
+ 			f(x) &= \sum_{n=0}^\infty a_n x^n
+ 		\end{align}
+ 		in which $f(0) < \infty$ trivially.
+ 	\end{definition}
+ 	
+ 	\begin{theorem}
+ 		If a power series converges at some point $x_0 \in \R$, then it it converges absolutely for any $x$ such that $\abs{x} \leq \abs{x_0}$. \todo{verify the inequality, strictly?}
+ 	\end{theorem}
+ 	
+ 	\begin{proof}
+ 		The result can be easily established via comparison test. \\
+ 		Suppose $f(x_0)$ converges, let $x \in \overline{V}_{\abs{x_0}}(0)$. \\
+ 		By the convergence of $f(x_0)$, $(a_n x_0^n) \to 0$, so that $\abs{a_n x_0^n} \leq M\ \forall n \in \N$.
+ 		\begin{align}
+ 			\abs{a_n x^n} &= \abs{a_n} \abs{\frac{x^n}{x_0^n} x_0^n} \\
+ 			&= \abs{a_n x_0^n} \abs{\frac{x}{x_0}}^n \\
+ 			&\leq M \abs{\frac{x}{x_0}}^n 
+ 		\end{align}
+ 		In which $\sum_{n=0}^\infty M \abs{\frac{x}{x_0}}^n$ converges as a power series with ratio less than 1. \\
+ 		Therefore, $\sum_{n=0}^\infty a_n x^n$ is convergent by comparison test.
+ 	\end{proof}
+ 	
+ 	\begin{definition}
+ 		\textbf{Radius of convergence} and \textbf{interval of convergence}
+ 		\todo{Do we need to define this?}
+ 	\end{definition}
+ 	
+ 	\begin{theorem}[Abel's Theorem]
+ 		Suppose $g(x) = \sum_{n=0}^\infty a_n x^n$ converge somewhere $x = R > 0$, then $g(x)$ converges uniformly (as a series of functions) on $[0, R]$. \\
+ 		The same holds for $-R$: if $g(-R)$ converges, then $g(x)$ converges uniformly on $[-R, 0]$.
+ 	\end{theorem}
+ 	
+ 	\begin{theorem}
+ 		If a power series $g(x) = \sum_{n=0}^\infty a_n x^n$ converges point-wisely on $A \subseteq \R$, then it converges uniformly on any compact subset $K \subseteq A$.
+ 	\end{theorem}
+ 	
+ 	\begin{proof}
+ 		\todo{Complete this proof.}
+ 	\end{proof}
+  	
  	\newpage
  	\section{Appendix: Miscellaneous}
  	\begin{proposition}[Midterm 1, Q7]

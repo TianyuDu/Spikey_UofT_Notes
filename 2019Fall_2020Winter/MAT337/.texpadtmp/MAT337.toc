@@ -25,4 +25,5 @@
 \contentsline {section}{\numberline {5}Sequences and Series of Functions}{27}{section.5}
 \contentsline {subsection}{\numberline {5.1}Sequences of Functions}{27}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Series of Functions}{30}{subsection.5.2}
-\contentsline {section}{\numberline {6}Appendix: Miscellaneous}{35}{section.6}
+\contentsline {subsection}{\numberline {5.3}Power Series}{35}{subsection.5.3}
+\contentsline {section}{\numberline {6}Appendix: Miscellaneous}{37}{section.6}

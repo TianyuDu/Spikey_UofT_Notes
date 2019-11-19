@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  15 NOV 2019 12:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  18 NOV 2019 21:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -841,7 +841,7 @@ Underfull \hbox (badness 1454) in paragraph at lines 40--40
 []\OT1/cmr/m/n/10.95 This work is li-censed un-der a []Cre-ative Com-mons \  Attribution-
  []
 
-<doclicense-CC-by-nc.pdf, id=114, 121.45375pt x 43.16125pt>
+<doclicense-CC-by-nc.pdf, id=118, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc.pdf Graphic file (type pdf)
  <use doclicense-CC-by-nc.pdf>
 Package pdftex.def Info: doclicense-CC-by-nc.pdf used on input line 40.
@@ -865,35 +865,35 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 LaTeX Font Info:    Try loading font information for U+dsrom on input line 1118.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) <figure/thomae_function.png, id=492, 401.5pt x 206.7725pt>
+) <figure/thomae_function.png, id=497, 401.5pt x 206.7725pt>
 File: figure/thomae_function.png Graphic file (type png)
  <use figure/thomae_function.png>
 Package pdftex.def Info: figure/thomae_function.png used on input line 1149.
 (pdftex.def)             Requested size: 234.8775pt x 120.96616pt.
- [23] [24 <./figure/thomae_function.png>] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1728.
- [36]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1728.
+ [23] [24 <./figure/thomae_function.png>] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1818.
+ [38]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1818.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/MAT337/.texpadtmp/MAT337.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1728.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1728.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1818.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1818.
 Package rerunfilecheck Info: File `MAT337.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1728.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1818.
  ) 
 Here is how much of TeX's memory you used:
- 10899 strings out of 493014
- 155490 string characters out of 6133351
- 293887 words of memory out of 5000000
- 13786 multiletter control sequences out of 15000+600000
+ 10924 strings out of 493014
+ 155804 string characters out of 6133351
+ 294887 words of memory out of 5000000
+ 13787 multiletter control sequences out of 15000+600000
  15290 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,20n,68p,1162b,611s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/MAT337/.texpadtmp/MAT337.pdf (36 pages, 351134 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/MAT337/.texpadtmp/MAT337.pdf (38 pages, 358910 bytes).
 PDF statistics:
- 837 PDF objects out of 1000 (max. 8388607)
- 770 compressed objects within 8 object streams
- 431 named destinations out of 1000 (max. 500000)
- 227 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 881 PDF objects out of 1000 (max. 8388607)
+ 811 compressed objects within 9 object streams
+ 455 named destinations out of 1000 (max. 500000)
+ 235 words of extra memory for PDF output out of 10000 (max. 10000000)
 
