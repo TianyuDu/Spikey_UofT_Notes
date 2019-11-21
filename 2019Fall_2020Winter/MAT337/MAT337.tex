@@ -1815,6 +1815,108 @@
  		\end{align}
  		$\contradiction$
  	\end{proof}
+ 	
+ 	\begin{theorem}
+ 		If $\sum_{n=0}^\infty a_n x^n$ \ul{converges} for all $x \in (-R, R)$, then the differentiated series $\sum_{n=0}^\infty n a_n x^{n-1}$ \ul{converges} for all $x \in (-R, R)$ as well. \\
+ 		Further, the differentiated series \ul{converges uniformly} for every compact $K \subseteq (-R, R)$. \\
+ 		Moreover, provided the uniform convergence of differentiated series, the limit function $\sum_{n=0}^\infty a_n x^n$ is differentiable. Therefore,
+ 		\begin{align}
+ 			\frac{d}{dx} \sum_{n=0}^\infty a_n x^n &= \sum_{n=0}^\infty n a_n x^{n-1}
+ 		\end{align}
+ 		\emph{Remark: Differentiating a power series does not change its radius of convergence.}
+ 	\end{theorem}
+ 	
+ 	\begin{proof}
+ 		Prove using comparison test.
+ 	\end{proof}
+ 	
+ 	\subsection{Taylor's Series}
+ 	\paragraph{Idea} Given $f(x) \in C^\infty$, we are trying express $f(x)$ as a series $\sum_{n=0}^\infty a_n x^n$ such that the series converges somewhere else other than $x=0$. If such series exists, it must satisfy
+ 	\begin{align}
+ 		a_n = \frac{f^{(n)}(0)}{n!}
+ 	\end{align}
+ 	
+ 	\begin{example}
+ 		\begin{align}
+ 			f(x) = e^x = \sum_{n=0}^\infty \frac{x^n}{n!}
+ 		\end{align}
+ 		This series has infinity radius of convergence, specifically,
+ 		\begin{align}
+ 			\abs{\frac{x^{n+1}}{(n+1)!} / \frac{x^n}{n!}} &= \abs{\frac{x}{n+1}} \\
+ 			\implies \limsup \abs{\frac{x}{n+1}} &= 0 < 1
+ 		\end{align}
+ 	\end{example}
+ 	
+ 	\begin{theorem}[Lagrangian Remainder Theorem]
+ 		Let $f$ be differentiable for $N+1$ times on $(-R, R)$, let 
+ 		\begin{align}
+ 			a_n = \frac{f^{(n)}(0)}{n!}\quad \forall n \in \{0, \cdots, N\}
+ 		\end{align}
+ 		And the \textbf{Taylor's polynomial} of order $N$ is defined as
+ 		\begin{align}
+ 			S_N(x) &:= \sum_{n=0}^N a_n x^n
+ 		\end{align}
+ 		For every $x \neq 0$ in $(-R, R)$, define the \textbf{error term} associated with the Taylor's polynomial of order $N$:
+ 		\begin{align}
+ 			E_N(x) &:= f(x) - S_N(x)
+ 		\end{align}
+ 		Then there exists $c \in V_x(0)$ such that 
+ 		\begin{align}
+ 			E_N(x) &:= \frac{f^{N+1}(c)}{(N+1)!} x^{N+1}
+ 		\end{align}
+ 	\end{theorem}
+ 	
+ 	\begin{example}[Bound Estimation Error]
+ 		Consider $f(x) = \sin(x0$ and its Taylor's polynomial of order 5 in $V_2(0)$:
+ 		\begin{align}
+ 			S_5(x) &= x - \frac{x^3}{3} + \frac{x^5}{5} \\
+ 			\abs{E_5(x)} &= \abs{\sin(x) - x + \frac{x^3}{3} - \frac{x^5}{5}} \\
+ 			&= \abs{
+ 				\frac{\frac{d^6 \sin(x)}{dx^6}}{6!} x^6
+ 			} \tx{ for some } c \in V_2(0) \\
+ 			&\leq \frac{\abs{x^6}}{6!} \approx 0.089
+ 		\end{align}
+ 		In general, for every fixed $N \in \N$, the tail of Taylor's series 
+ 		\begin{align}
+ 			\abs{\sin(x) - S_N(x)} &= \frac{
+ 			\left. \frac{d^n \sin(x)}{dx^n} \right |_{x=c} \abs{x}^N		
+ 			}{
+ 			(N+1)!} \\
+ 			&\leq \frac{R^N}{(N+1)!} \to 0 \tx{ uniformly by Cauchy's criterion}
+ 		\end{align}
+ 	\end{example}
+ 
+	\begin{theorem}[Cauchy Mean Value Theorem]
+		Let $f$ and $g$ be two continuous functions defined on $[a, b]$, and differentiable on $(a, b)$. Then, there exists $c \in (a, b)$ such that
+		\begin{align}
+			\frac{f'(c)}{g'(c)} &= \frac{f(b) - f(a)}{g(b) - g(a)}
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		Define 
+		\begin{align}
+			h(x) &:= [f(b) - f(a)] g(x) - [g(b) - g(a)] f(x)
+		\end{align}
+		Apply the Lagrange's mean value theorem on $h(x)$, there exists $c \in (a, b)$ such that
+		\begin{align}
+			h'(c) &= \frac{h(b)-h(a)}{b-a} \\
+			&= \frac{f(b)g(b) - f(a)g(b) - g(b)f(b) + g(a) f(b) - f(b)g(a) + f(a)g(a) + g(b)f(a) - g(a)f(a)}{b-a} = 0
+		\end{align}
+		Therefore,
+		\begin{align}
+			h'(c) = [f(b) - f(a)]g'(c) - [g(b) - g(a)]f'(c) = 0 \\
+			\implies \frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(c)}{g'(c)}
+		\end{align}
+	\end{proof}
+	
+	\begin{proof}[Proof of Lagrange's Reminder Theorem]
+		Apply Cauchy MVT on $E_N(x)$ and $x^{N+1}$ on $[0, x]$, there exists $x_1 \in (0, x)$ such that
+		\begin{align}
+			\frac{E_N(x) - E_N(0)}{x^{N+1} - 0} &= \frac{E_N(x)}{x^{N+1}} \\
+			&=\frac{E'_N(x_1)}{(N+1)x_1^N} = \cdots
+		\end{align}
+	\end{proof}
 \end{document}
 
 
