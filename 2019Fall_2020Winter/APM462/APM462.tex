@@ -1784,6 +1784,125 @@
 	
 	\subsection{A Classical Example from Physics: Brachistochrone}
 	\paragraph{Brachistochrone}(Galileo, 1638) Find the curve connecting two points $A$ and $B$ on which a point mass moves without friction under the influence of gravity moves from $A$ to $B$ in the least time possible.
+	
+	\subsection{General Class of Problems in Calculus of Variations}
+	\paragraph{Constraint}
+	\begin{align}
+		\mc{A} &:=\{
+		u:[a, b] \to \R:
+		u \in C^1, u(a) = A, u(b) = B
+		\}
+	\end{align}
+	\paragraph{Objective function}
+	\begin{align}
+		F[u(\cdot)] &:= \int_a^b L(x, u(x), u'(x))\ dx
+	\end{align}
+	where $L(x, z, p): [a, b] \times \R \times \R \to \R$.
+	
+	\begin{example}
+		\begin{align}
+			L(x, z, p) &= \frac{1}{2}(z^2 + p^2) \\
+			F[u(\cdot)] &= \int_0^1 \frac{u(x)^2 + u'(x)^2}{2}\ dx
+		\end{align}
+	\end{example}
+	
+	\begin{definition}
+		Given $u(\cdot) \in \mc{A}$, suppose $\exists$ function $g(\cdot)$ on $[a, b]$ such that 
+		\begin{align}
+			\left. \frac{d}{ds} \right |_{s=0} F[u(\cdot) + sv(\cdot)] = \int_a^b g(x) v(x)\ dx\ \forall \tx{ test functions} v(\cdot)
+		\end{align}
+		Then $g(\cdot)$ is called the \textbf{variational derivative} of $F$ at $u(\cdot)$, often denoted as $\frac{\delta F}{\delta u}(u)(\cdot)$.
+	\end{definition}
+	
+	\begin{remark}[Analogy to the finite dimensional case]
+		In finite dimensional case:
+		\begin{align}
+			\left. \frac{d}{ds} \right |_{s=0} f(u + sv) = \nabla f(u) \cdot v = \sum_{i=1}^n \nabla_i f(u) v_i\ \forall v \in \R^n
+		\end{align}
+		And in the infinite dimensional case:
+		\begin{align}
+			\left. \frac{d}{ds} \right |_{s=0} F[u(\cdot) + s v(\cdot)] = \int_a^b \frac{\delta F}{\delta u}(u)(x) v(x)\ dx\ \forall v \in \mc{T}
+		\end{align}
+	\end{remark}
+	
+	\begin{lemma}[Necessary condition on the variational derivative]
+		Let 
+		\begin{align}
+			\mc{A} &:=\{u:[a, b] \to \R:u \in C^1, u(a) = A, u(b) = B\}
+		\end{align}
+		If $u_*(\cdot) \in \mc{A}$ minimizes $F$ over $\mc{A}$, and if $\frac{\delta F}{\delta u}(u_*)(\cdot)$ exists and is continuous, then it must satisfy
+		\begin{align}
+			\frac{\delta F}{\delta u}(u_*)(\cdot) \equiv 0
+		\end{align}
+	\end{lemma}
+	
+	\begin{proof}
+		Note that for every test function $v$, $u_*(\cdot) + s v(\cdot) \in \mc{A}$. \\
+		Suppose $u_*$ minimizes $F$ over $\mc{A}$, equivalently,
+		\begin{align}
+			f(0) = F[u_*] &\leq F[u_* + sv] = f(s) \tx{ for every test function $v$} \\
+			\iff f(0) &\leq f(s)\ \forall s \in \R \\
+			\implies 0 = f'(0) 
+			&= \left. \frac{d}{ds} \right |_{s=0} f(s)
+			= \left. \frac{d}{ds} \right |_{s=0} F[u_* + sv] \\
+			&= \int_a^b \frac{\delta F}{\delta u}(u)(x)v(x)\ dx \\
+			\implies &\frac{\delta F}{\delta u}(u)(\cdot) \equiv 0
+		\end{align}
+	\end{proof}
+	
+	\begin{theorem}
+		Let 
+		\begin{align}
+			\mc{A} &:=\{u:[a, b] \to \R:u \in C^1, u(a) = A, u(b) = B\}
+		\end{align}
+		Let $L \in C^2$ such that
+		\begin{align}
+			F[u(\cdot)] &= \int_a^b L(x, u(x), u'(x))\ dx
+		\end{align}
+		Then, if $u(\cdot) \in C^1$, then $\frac{\delta F}{\delta u}(u)(\cdot)$ exists and is continuous. \\
+		Moreover,
+		\begin{align}
+			\red{\frac{\delta F}{\delta u}(u)(\cdot)(x) = - \frac{d}{dx} [L_p(x, u(x), u'(x))] + L_z(x, u(x), u'(x))}
+		\end{align}
+	\end{theorem}
+	
+	\begin{example}
+		In the model example,
+		\begin{align}
+			L(x, z, p) &= \frac{1}{2}(z^2 + p^2) \\
+			L_p(x, z, p) &= p \implies L_p(x, u(x), u'(x)) = u'(x) \\
+			L_z(x, z, p) &= z \implies L_z(x, u(x), u'(x)) = u(x) \\
+			\frac{\delta F}{\delta u}(u)(\cdot) &= - \frac{d}{dx}[u'(x)] + u(x) = -u''(x) + u(x)
+		\end{align}
+		By above theorem, if $u_*$ is the minimizer, it must be
+		\begin{align}
+			-u''(x) + u(x) \equiv 0
+		\end{align} 
+	\end{example}
+	
+	\begin{example}[Min Arclength]
+		Suppose we are trying to minimize
+		\begin{align}
+			F[u] = \int_a^b \sqrt{1 + u'(x)^2}\ dx = \tx{arclength of } u(\cdot)
+		\end{align}
+		where 
+		\begin{align}
+			\mc{A} &:=\{u:[a, b] \to \R:u \in C^1, u(a) = A, u(b) = B\}
+		\end{align}
+		and
+		\begin{align}
+			L(x, z, p) &= \sqrt{1 + p^2} \\
+			L_z &= 0 \\
+			L_p &= \frac{p}{\sqrt{1+p^2}} \\
+			\implies \frac{\delta F}{\delta u}(u)(\cdot) 
+			&= - \frac{d}{dx} \frac{u'(x)}{\sqrt{1+u'(x)^2}} \equiv 0 \\
+			\implies & \frac{u'(x)}{\sqrt{1+u'(x)^2}} = C \\
+			\implies u'(x)^2 &= C (1+u'(x)^2) \\
+			\implies u'(x)^2 &= C \\
+			\implies u'(x) &= \alpha \\
+			\implies u(x) &= \alpha x + \beta
+		\end{align}
+	\end{example}
 \end{document}
 
 
