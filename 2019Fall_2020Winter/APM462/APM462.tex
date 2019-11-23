@@ -1850,7 +1850,7 @@
 		\end{align}
 	\end{proof}
 	
-	\begin{theorem}
+	\begin{theorem}[Euler-Lagrange]
 		Let 
 		\begin{align}
 			\mc{A} &:=\{u:[a, b] \to \R:u \in C^1, u(a) = A, u(b) = B\}
@@ -1866,6 +1866,23 @@
 		\end{align}
 		This equation is often referred to as the \textbf{Euler-Lagrange  equation}.
 	\end{theorem}
+	
+	\begin{proof}
+		Let $v$ be a test function.
+		\begin{align}
+			\left. \frac{d}{ds} \right|_{s=0} F[u(\cdot) + sv(\cdot)]
+			&= \left. \frac{d}{ds} \right|_{s=0} \int_a^b
+			L(x, u(x) + sv(x), u'(x) + sv'(x))\ dx \\
+			&= \int_a^b \left. \frac{d}{ds} \right|_{s=0}
+			L(x, z, p)\ dx \\
+			&= \int_a^b L_z(\cdot) v(x) + L_p(\cdot) v'(x)\ dx \\
+			&= \int_a^b L_z(\cdot) v(x)\ dx + \int_a^b L_p(\cdot) v'(x)\ dx \\
+			&= \int_a^b L_z(\cdot) v(x)\ dx + L_p(\cdot) v(x) \Big |_a^b - \int_a^b \frac{d}{dx} L_p(\cdot) v(x)\ dx \\
+			&= \int_a^b [-\frac{d}{dx}L_p(\cdot) + L_p(\cdot)] v(x)\ dx\ \forall \tx{ test functions }v(\cdot)
+		\end{align}
+		The result follows definition of variational derivative. \\
+		Further, because $L(\cdot) \in C^2$, $-\frac{d}{dx}L_p(\cdot)$ is continuous. Moreover, $u(\cdot)$ 	and $u'(\cdot)$ are continuous, so is the composite function. Hence, the variational derivative is continuous.
+	\end{proof}
 	
 	\begin{example}
 		In the model example,
@@ -1902,6 +1919,53 @@
 			\implies u'(x)^2 &= C \\
 			\implies u'(x) &= \alpha \\
 			\implies u(x) &= \alpha x + \beta
+		\end{align}
+	\end{example}
+	
+	\begin{example}[Surface Area of Revolution]
+		Suppose $u(\cdot) \in C^1$ on $[a, b]$, the surface area of rotating the curve $u$ connecting $a$ and $b$ can be computed as
+		\begin{align}
+			F[u(\cdot)] &= \int_a^b 2\pi u(x) \sqrt{1 + u'(x)^2}\ dx
+		\end{align}
+		For simplicity, assume $u > 0$. \\
+		In this example, the space of feasible functions is 
+		\begin{align}
+			\mc{A} &:= \{u: [a, b] \to \R: u \in C^1, u(a) = A, u(b) = B, u > 0\}
+		\end{align}
+		If $u(\cdot)$ solves the minimization problem, it must be the case that
+		\begin{align}
+			\frac{\delta F}{\delta u}(u)(\cdot) &\equiv 0\quad (\dagger)
+		\end{align}
+		Notice
+		\begin{align}
+			L(x, z, p) &= 2 \pi z \sqrt{1 + p^2} \\
+			L_z(x, z, p) &= 2 \pi \sqrt{1 + p^2} \\
+			L_p(x, z, p) &= 2 \pi z \frac{p}{\sqrt{1 + p^2}}
+		\end{align}
+		\textbf{Claim}: the family of $u(\cdot) = \beta \cosh \left(\frac{x-\alpha}{\beta}\right)$ solves the necessary condition $(\dagger)$. \\
+		\textbf{Instance 1} When $a=0, b=1, A=B=1$, plugging in the initial condition gives
+		\begin{align}
+			\begin{cases}
+				\beta \cosh \left(\frac{0-\alpha}{\beta}\right) &= 1 \\
+				\beta \cosh \left(\frac{1-\alpha}{\beta}\right) &= 1
+			\end{cases}
+		\end{align}
+		solving above system of equations provides the solution. \\
+		\textbf{Instance 2} When $a=0, b=1, A=1, B=0$, plugging in these initial conditions gives
+		\begin{align}
+			\begin{cases}
+				\beta \cosh \left(\frac{0-\alpha}{\beta}\right) &= 1 \\
+				\beta \cosh \left(\frac{1-\alpha}{\beta}\right) &= 0
+			\end{cases}
+		\end{align}
+		because $\cosh > 0$, the second equation suggests $\beta=0$, but in this case the first equation would never hold. \\
+		Therefore, there is no solution to this calculus of variation. \\
+		In face, the surface area is minimized by
+		\begin{align}
+			u(x) = \begin{cases}
+				1 &\tx{ if } x = 0 \\
+				0 &\tx{ otherwise}
+			\end{cases}
 		\end{align}
 	\end{example}
 \end{document}
