@@ -1913,10 +1913,156 @@
 	\begin{proof}[Proof of Lagrange's Reminder Theorem]
 		Apply Cauchy MVT on $E_N(x)$ and $x^{N+1}$ on $[0, x]$, there exists $x_1 \in (0, x)$ such that
 		\begin{align}
-			\frac{E_N(x) - E_N(0)}{x^{N+1} - 0} &= \frac{E_N(x)}{x^{N+1}} \\
-			&=\frac{E'_N(x_1)}{(N+1)x_1^N} = \cdots
+			\frac{E_N(x) - E_N(0)}{x^{N+1} - 0} 
+			&= \frac{E_N(x)}{x^{N+1}} \\
+			&=\frac{E'_N(x_1)}{(N+1)x_1^N}
+		\end{align}
+		Apply the GMT again on $[0, x_1]$, there exists $x_2 \in (0, x_1)$ such that
+		\begin{align}
+			\frac{E'_N(x_1) - E'_N(0)}{(N+1)x_1^N - 0}
+			&= \frac{E'_N(x_1)}{(N+1)x_1^N} \\
+			&= \frac{E''_N(x_2)}{N(N+1)x_2^{N-1}}
+		\end{align}
+		where the first equality holds because 
+		\begin{align}
+			E_N^{(k)}(0) = f^{(k)} - k!a_k = 0
+		\end{align}
+		Applying the GMT iteratively suggests that there exists $c \in (0, x)$ such that 
+		\begin{align}
+			\frac{E_N(x)}{x^{N+1}}
+			&= \frac{E''_N(x_2)}{N(N+1)x_2^{N-1}} \\
+			&= \frac{E^{(3)}_N(x_3)}{(N-1)N(N+1)x_3^{N-2}} \\
+			&= \cdots \\
+			&= \frac{E^{(N+1)}_N(c)}{(N+1)!} \\
+			\implies E_N(x)
+			&= \frac{E^{(N+1)}_N(c)}{(N+1)!} x^{N+1}
+		\end{align}
+		Further, observe that $E_N(x) = f(x) - S_N(x)$ and $E_N^{(N+1)}(x) = f^{(N+1)}(x)$. \\
+		Therefore,
+		\begin{align}
+			E_N(x) &= \frac{f^{(N+1)}(c)}{(N+1)!} x^{N+1}
 		\end{align}
 	\end{proof}
+	
+	\begin{remark}[Motivation for Taylor's Series]
+		For function $f(\cdot)$, we want a power series converges to $f(\cdot)$ on some interval. \\
+		As mentioned before, it must be the case
+		\begin{align}
+			a_n &= \frac{f^{(n)}(0)}{n!}
+		\end{align}
+		Let $f(\cdot) \in C^\infty$, \emph{can we always find a suitable power series?} \\
+		Potential problems are
+		\begin{enumerate}[(i)]
+			\item The found series converges at $\{0\}$;
+			\item Converges to some function $g(\cdot) \neq f(\cdot)$.
+		\end{enumerate}
+	\end{remark}
+	
+	\begin{example}
+		\begin{align}
+			g(x)=\left\{\begin{array}{ll}{\operatorname{exp}\left(-\frac{1}{x^{2}}\right)} & {\text { if } x \neq 0} \\ {0} & {\text { if } x=0}\end{array}\right.
+		\end{align}
+		observe that $\eta_0 = g(0) = 0$, and
+		\begin{align}
+			\eta_1 = g'(0) = \lim_{h \to 0} \frac{\exp (-1/h^2)}{h} = 0
+		\end{align}
+		The same argument is applicable for higher order terms $\eta_k$, therefore, 
+		\begin{align}
+			S_\infty(x) &= \sum_{k=1}^\infty \frac{\eta_k}{k!} f^{(k)}(0)x^k = 0
+		\end{align}
+		The Taylor's series converges to zero function, which is clearly not $g$.
+	\end{example}
+	
+	\section{Integration}
+
+	\begin{remark}
+		In this section, we are assuming $f$ to be bounded unless otherwise mentioned.
+	\end{remark}
+	
+	\subsection{Riemann Integrable Functions}
+	\begin{definition}
+		A \textbf{partition} $P$ of interval $[a, b]$ is a finite set of points that has $a, b$ as its elements, and 
+		\begin{align}
+			a = x_0 < x_1 < \cdots < x_n = b
+		\end{align}
+	\end{definition}
+	
+	\begin{notation}
+		Given a function partition $P$, for every $x_k \in P$, define
+		\begin{align}
+			m_k &:= \inf \{f(x): x \in [x_{k-1}, x_k]\} \\
+			M_k &:= \sup \{f(x): x \in [x_{k-1}, x_k]\}
+		\end{align}
+	\end{notation}
+	
+	\begin{definition}
+		The \textbf{lower sum} and \textbf{upper sum} of a function $f$ and a partition $P$ on $[a, b]$ are defined 
+		\begin{align}
+			L(f, P) &= \sum_{k=1}^n (x_k - x_{k-1}) m_k \\
+			U(f, P) &= \sum_{k=1}^n (x_k - x_{k-1}) M_k
+		\end{align}
+	\end{definition}
+	
+	\begin{example}
+		For every partition $P$ of every interval $I \subseteq \R$,
+		\begin{align}
+			U(\id{x \in \Q}, P) = 1\\
+			L(\id{x \in \Q}, P) = 0
+		\end{align}
+	\end{example}
+	
+	\begin{definition}
+		A partition $Q$ is a \textbf{refinement} of another partition $P$ if 
+		\begin{align}
+			P \subseteq Q
+		\end{align}
+	\end{definition}
+	
+	\begin{lemma}
+		If $P \subseteq Q$, then for every function $f$,
+		\begin{align}
+			L(f, P) \leq L(f, Q) \\
+			U(f, P) \geq U(f, Q)
+		\end{align}
+	\end{lemma}
+	
+	\begin{proof}
+		Suppose $Q$ contains one extra split $z \in [x_{k-1}, x_k]$, then 
+		\begin{align}
+			m_k(x_k - x_{k-1}) &= m_k(x_k - z + z - x_{k-1}) \\
+			&= m_k(x_k - z) + m_k(z - x_{k-1}) \\
+			&\geq 
+			(z - x_{k-1}) \inf_{x \in [x_{k-1}, z]} f(x)
+			+
+			(x_k - z) \inf_{x \in [z, x_k]} f(x)
+		\end{align}
+	\end{proof}
+	
+	\begin{lemma}
+		Let $P_1, P_2$ be any two partitions,
+		\begin{align}
+			L(f, P_1) \leq U(f, P_2)
+		\end{align}
+		\emph{Therefore, lower sums are bounded above and upper sums are bounded from below.}
+	\end{lemma}
+	
+	\begin{proof}
+		\begin{align}
+			L(f, P_1) &\leq L(f, P_1 \cup P_2) \\
+			&\leq U(f, P_1 \cup P_2) \\
+			&\leq U(f, P_2)
+		\end{align}
+	\end{proof}
+	
+	\begin{definition}
+		Define the \textbf{upper} and \textbf{lower integrals} as 
+		\begin{align}
+			U(f) &:= \inf_P U(f, P) \\
+			L(f) &:= \sup_P L(f, P)
+		\end{align}
+		note that the infimum and supremum over partitions are well-defined by the previous lemma. \\
+		$f$ is \textbf{(Riemann) integrable} if $U(f) = L(f)$
+	\end{definition}
 \end{document}
 
 
