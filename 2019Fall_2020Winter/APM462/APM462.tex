@@ -1968,6 +1968,47 @@
 			\end{cases}
 		\end{align}
 	\end{example}
+	
+	\subsection{Euler-Lagrange Equations in $\R^n$}
+	\paragraph{Setup}
+	\begin{align}
+		F[u(\cdot)] &= \int_a^b L(x, u(x), u'(x))\ dx \\
+		u &: [a, b] \to \R^n \\
+		L(x, z, p) &: [a, b] \times \R^n \times \R^n \to \R \\
+		\mc{A} &:= \left\{
+			u: [a, b] \to \R^n: u \in C^1, u(a) = \textbf{A}, u(b) = \textbf{B}
+		\right\}
+	\end{align}
+
+	\begin{theorem}[Euler-Lagrange Equations in Vector Forms]
+		\begin{align}
+			- \frac{d}{dx} \nabla_p L(x, z, p) + \nabla_z L(x, z, p) &= \textbf{0} \in \R^n \quad (\dagger)
+		\end{align}
+	\end{theorem}
+	
+	\begin{example}[Classical Lagrangian Mechanics]
+		\begin{align}
+			V(x): \R^n \to \R &\tx{ potential energy} \\
+			\frac{1}{2} m \norm{v}_2^2 &\tx{ kinetic energy} \\
+			L(t, x, v):= \frac{1}{2} m \norm{v}_2^2 - V(x) &\tx{ difference between KE and PE}
+		\end{align}
+		Consider a path $x(t)$ in $\R^n$, define objective function as
+		\begin{align}
+			F[x(\cdot)] &= \int_a^b L(t, x(t), x'(t))\ dt \\
+			&= \int_a^b \frac{1}{2} m \norm{\dot{x}(t)}_2^2 - V(x(t))\ dt
+		\end{align}
+		The Euler-Lagrange equation in vector form implies
+		\begin{align}
+			- \frac{d}{dt} \nabla_{(3)} L(t, x(t), \dot{x}(t))
+			+ \nabla_{(2)} L(t, x(t), \dot{x}(t)) &= 0 \\
+			\implies - \frac{d}{dt} m \dot{x}(t) - \nabla V(x(t)) &= 0 \\
+			\implies m \ddot{x}(t) &= \nabla V(x(t))\quad (\dagger \dagger)
+		\end{align}
+	\end{example}
+	
+	\begin{remark}
+		($\dagger \dagger$) is often referred to as \emph{Newtown's second law}.
+	\end{remark}
 \end{document}
 
 

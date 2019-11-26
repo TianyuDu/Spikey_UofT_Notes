@@ -30,3 +30,5 @@
 \contentsline {subsection}{\numberline {5.3}General Class of Problems in Calculus of Variations}{34}{subsection.5.3}
 \contentsline {paragraph}{Constraint}{34}{section*.6}
 \contentsline {paragraph}{Objective function}{34}{section*.7}
+\contentsline {subsection}{\numberline {5.4}Euler-Lagrange Equations in $\mathbb {R}^n$}{38}{subsection.5.4}
+\contentsline {paragraph}{Setup}{38}{section*.8}
