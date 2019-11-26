@@ -1727,9 +1727,9 @@
  	\begin{proof}
  		\todo{Complete this proof.}
  	\end{proof}
-  	
+
  	\newpage
- 	\section{Appendix: Miscellaneous}
+ 	\section{Appendix I: Midterms}
  	\begin{proposition}[Midterm 1, Q7]
  		Let $(a_n)$ be a bounded sequence,\\
  		let $S:= \{x \in \R: x < a_n \tx{ for infinitely many terms }a_n\}$. \\
@@ -1830,7 +1830,7 @@
  		Prove using comparison test.
  	\end{proof}
  	
- 	\subsection{Taylor's Series}
+ 	\section{Taylor's Series}
  	\paragraph{Idea} Given $f(x) \in C^\infty$, we are trying express $f(x)$ as a series $\sum_{n=0}^\infty a_n x^n$ such that the series converges somewhere else other than $x=0$. If such series exists, it must satisfy
  	\begin{align}
  		a_n = \frac{f^{(n)}(0)}{n!}
@@ -2175,18 +2175,117 @@
 		\begin{align}
 			c = a + \frac{\varepsilon}{4M}
 		\end{align}
-		and 
+		Note that because $f$ is integrable on $[c, b]$, there exists another partition $P'$ of $[c, b]$ such that
 		\begin{align}
-			P_\varepsilon = \{a, a+c, b\}
+			U(f, P') - L(f, P') < \frac{\varepsilon}{2} 
 		\end{align}
-		Note that 
+		Construct $P_\varepsilon$ as
 		\begin{align}
-			U(f, P_\varepsilon) - L(f, P_\varepsilon) &= \left[\sup_{x \in [a, c]} f(x) - \inf_{x \in [a, c]} f(x) \right] \frac{\varepsilon}{4M} \\
-			&\leq 2M \frac{\varepsilon}{4M} \\
+			P_\varepsilon = \{a\} \cup P'
+		\end{align}
+		so that $P_\varepsilon$ is a partition of $[a, b]$, and
+		\begin{align}
+			U(f, P_\varepsilon) - L(f, P_\varepsilon) &= \left[\sup_{x \in [a, c]} f(x) - \inf_{x \in [a, c]} f(x) \right] \frac{\varepsilon}{4M} + U(f, P') - L(f, P') \\
+			&< 2M \frac{\varepsilon}{4M} + \frac{\varepsilon}{2} \\
 			&< \varepsilon
 		\end{align}
 		Therefore, by the criterion of integrability, $f$ is integrable on $[a, b]$.
 	\end{proof}
+	
+	\subsection{Properties of the Integral}
+	\begin{theorem}
+		Assume $f: [a, b] \to \R$ is bounded and let $c \in (a, b)$. Then $f$ is integrable on $[a, b]$ \ul{iff} $f$ is integrable on $[a, c]$ and $[c, b]$.
+	\end{theorem}
+	
+	\begin{proof}
+		($\implies$) Suppose $f$ is integrable on $[a, b]$. \\
+		Let $\varepsilon > 0$, there exists $P_\varepsilon'$ of $[a, b]$ such that
+		\begin{align}
+			U(f, P_\varepsilon') - L(f, P_\varepsilon') < \varepsilon
+		\end{align}
+		Define $P_\varepsilon := P_\varepsilon' \cup \{a, c, b\}$ so that
+		\begin{align}
+			U(f, P_\varepsilon) - L(f, P_\varepsilon) 
+			\leq U(f, P_\varepsilon') - L(f, P_\varepsilon')
+			< \varepsilon
+		\end{align}
+		one can obtain partitions of $[a, c]$ and $[c, b]$, $P_\varepsilon^1$ and $P_\varepsilon^2$, following
+		\begin{align}
+			P_\varepsilon^1 := \{x \in P_\varepsilon: x \leq c\} \\
+			P_\varepsilon^2 := \{x \in P_\varepsilon: x \geq c\}
+		\end{align}
+		In the case,
+		\begin{align}
+			U(f, P_\varepsilon) - L(f, P_\varepsilon)
+			= U(f, P_\varepsilon^1) - L(f, P_\varepsilon^1) + U(f, P_\varepsilon^2) - L(f, P_\varepsilon^2)
+			<\varepsilon
+		\end{align}
+		Because $U(f, P_\varepsilon^i) - L(f, P_\varepsilon^i) \geq 0$ for $i \in \{1, 2\}$,
+		\begin{align}
+			 U(f, P_\varepsilon^i) - L(f, P_\varepsilon^i)
+			 \leq U(f, P_\varepsilon^1) - L(f, P_\varepsilon^1) + U(f, P_\varepsilon^2) - L(f, P_\varepsilon^2) < \varepsilon\quad  \forall i \in \{1, 2\}
+		\end{align}
+		($\impliedby$) Assume $f$ is integrable on both $[a, c]$ and $[c, b]$. \\
+		Let $\varepsilon > 0$ be given, $\exists P_\varepsilon'$ of $[a, c]$ and $P_\varepsilon''$ of $[c, b]$ such that
+		\begin{align}
+			U(f, P_\varepsilon') - L(f, P_\varepsilon') < \frac{\varepsilon}{2} \\
+			U(f, P_\varepsilon'') - L(f, P_\varepsilon'') < \frac{\varepsilon}{2}
+		\end{align}
+		Take $P_\varepsilon = P_\varepsilon' \cup P_\varepsilon''$ so that
+		\begin{align}
+			U(f, P_\varepsilon) - L(f, P_\varepsilon) < \varepsilon
+		\end{align}
+		\begin{lemma}
+			\begin{align}
+				\int_a^b f = \int_a^b f + \int_c^b f
+			\end{align}
+		\end{lemma}
+		
+		\begin{proof}
+			Recall
+			\begin{align}
+				\int_a^b f = U(f) = L(f)
+			\end{align}
+			Given any $\varepsilon > 0$, there exists partition $P$ such that
+			\begin{align}
+				\int_a^b f
+				&< L(f, P) + \varepsilon \\
+				&= L(f, P_1) + L(f, P_2) + \varepsilon \\
+				&\leq \int_a^c f + \int_a^b f + \varepsilon \\
+				\implies \int_a^b f &\leq \int_a^c f + \int_c^b f
+			\end{align}
+			Further, note that
+			\begin{align}
+				\int_a^c f + \int_c^b f &< L(f, P_1) + L(f, P_2) + \varepsilon \\
+				&= L(f, P) + \varepsilon \\
+				&\leq \int_a^b f + \varepsilon \\
+				\implies \int_a^c f &+ \int_c^b f \leq \int_a^b f
+			\end{align}
+		\end{proof}
+		Hence, for any $\varepsilon > 0$, $\exists P_1, P_2$ of $[a, c]$ and $[c, b]$ such that
+		\begin{align}
+			U(f, P_1) - L(f, P_1) < \frac{\varepsilon}{2} \\
+			U(f, P_2) - L(f, P_2) < \frac{\varepsilon}{2}
+		\end{align}
+	\end{proof}
+	
+	\begin{theorem}
+		Assume $f$ and $g$ are integrable on $[a, b]$,
+		\begin{enumerate}[(i)]
+			\item $f + g$ is integrable on $[a, b]$ and
+				\begin{align}
+					\int_a^b f + g &= \int_a^b f + \int_a^b g
+				\end{align}
+			\item For any $k \in \R$, $kf$ is integrable and 
+				\begin{align}
+					\int_a^b kf &= k \int_a^b f
+				\end{align}
+			\item If $m \leq f \leq M$ on $[a, b]$, then 
+				\begin{align}
+					m (b-a) \leq \int_a^b f \leq M (b-a)
+				\end{align}
+		\end{enumerate}
+	\end{theorem}
 \end{document}
 
 
