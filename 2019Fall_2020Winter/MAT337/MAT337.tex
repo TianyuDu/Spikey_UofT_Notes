@@ -2063,6 +2063,130 @@
 		note that the infimum and supremum over partitions are well-defined by the previous lemma. \\
 		$f$ is \textbf{(Riemann) integrable} if $U(f) = L(f)$
 	\end{definition}
+	
+	\begin{lemma}
+		For any bounded function $f: [a, b] \to \R$,
+		\begin{align}
+			U(f) \geq L(f)
+		\end{align}
+	\end{lemma}
+	
+	\begin{proof}
+		Fix an arbitrary partition $P$. \\
+		For every partition $P'$
+		\begin{align}
+			U(f, P') &\geq L(f, P) \\
+			\implies \sup_{P'} L(f, P') &\leq U(f, P) \\
+			\iff L(f) &\leq U(f, P)
+		\end{align}
+		The last inequality holds for every partition $P$, hence $L(f) \in \{U(f, P): P\}^\downarrow$ and
+		\begin{align}
+			L(f) &\leq \inf_{P} U(f, P) \\
+			\iff L(f) &= U(f)
+		\end{align}
+	\end{proof}
+	
+	\begin{theorem}[Criterion of Integrability]
+		A bounded function $f: [a, b] \to \R$ is integrable \ul{if and only if}
+		\begin{align}
+			\forall \varepsilon > 0\ \exists P_\varepsilon\ s.t.\ U(f, P_\varepsilon) - L(f, P_\varepsilon) < \varepsilon
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		($\implies$) Suppose $f$ is integrable, let $\varepsilon > 0$. \\
+		Because $U(f)$ is the infimum of upper sums,
+		\begin{align}
+			\exists\ P_1\ s.t.\ U(f) \leq U(f, P_1) < U(f) + \frac{\varepsilon}{2}
+		\end{align}
+		And $L(f)$ is the the supremum of lower sums,
+		\begin{align}
+			\exists\ P_2\ s.t.\ L(f) - \frac{\varepsilon}{2} < L(f, P_2) \leq L(f)
+		\end{align}
+		Take $P = P_1 \cup P_2$,
+		\begin{align}
+			L(f) - \frac{\varepsilon}{2} < L(f, P_2) \leq L(f, P) &\leq U(f, P) \leq U(f, P_1) < U(f) + \frac{\varepsilon}{2} \\
+			\implies U(f, P) - L(f, P) &< \varepsilon
+		\end{align}
+		($\impliedby$) Suppose, for contradiction, $f$ is not integrable:
+		\begin{align}
+			L(f) < U(f)
+		\end{align}
+		Take
+		\begin{align}
+			\varepsilon = \frac{U(f) - L(f)}{2}
+		\end{align}
+		In this case, for every partition $P$,
+		\begin{align}
+			L(f, P) \leq L(f) &< U(f) \leq U(f, P) \\
+			\implies U(f, P) - L(f, P) &\geq U(f) - L(f) > \varepsilon
+		\end{align}
+		Contradiction.
+	\end{proof}
+	
+	\begin{theorem}
+		If $f$ is continuous on $[a, b]$, then it is integrable.
+	\end{theorem}
+	
+	\begin{proof}
+		Because $[a, b]$ is compact, $f([a, b])$ is bounded and $f$ is uniformly continuous on $[a, b]$. \\
+		Let $\varepsilon > 0$, by the definition of continuity:
+		\begin{align}
+			\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ \forall x, y \in [a, b],\ \abs{x - y} < \delta \implies \abs{f(x) - f(y)} < \frac{\varepsilon}{b - a}
+		\end{align}
+		Construct partition $P$ using by splitting $[a, b]$ into intervals of length $\delta / 2$: $I_k := [a + k \frac{\delta}{2}, a + (k + 1) \frac{\delta}{2}]$ so that there are $\frac{2(b-a)}{\delta}$ intervals in total.
+		\begin{align}
+			U(f, P) - L(f, P) &= \sum_k [\sup_{x \in I_k} f(x) - \inf_{x \in I_k} f(x)] \abs{I_k} \\
+			&= \sum_k [\sup_{x \in I_k} f(x) - \inf_{x \in I_k} f(x)] \frac{\delta}{2} \\
+			&< \frac{\varepsilon}{b - a} \frac{2 (b - a)}{\delta} \frac{\delta}{2} = \varepsilon
+		\end{align}
+		By the criterion of integrability, $f$ is integrable on $[a, b]$.
+	\end{proof}
+	
+	\begin{example}[Functions with Point Discontinuity]
+		Define $f$ on $[0, 2]$ as
+		\begin{align}
+			f(x) &= \begin{cases}
+				1 &\tx{ if } x \neq 1 \\
+				0 &\tx{ if } x = 1
+			\end{cases}
+		\end{align}
+		Let $\varepsilon > 0$, define partition
+		\begin{align}
+			P_\varepsilon &= \left \{0, 1 - \frac{\varepsilon}{4}, 1 + \frac{\varepsilon}{4}, 1 \right \}
+		\end{align}
+		Note that $U(f, P_\varepsilon) = 2$ and 
+		\begin{align}
+			L(f, P_\varepsilon) &= \left(1 - \frac{\varepsilon}{4} \right) * 1 + \frac{\varepsilon}{2} * 0 + \left(1 - \frac{\varepsilon}{4} \right) = 2 - \frac{\varepsilon}{2}
+		\end{align}
+		and 
+		\begin{align}
+			U(f, P_\varepsilon) - L(f, P_\varepsilon) \leq \frac{\varepsilon}{2} < \varepsilon
+		\end{align}
+	\end{example}
+	
+	\begin{theorem}
+		If $f$ is bounded on $[a, b]$ and integrable on $[c, d]$ for every $c \in (a, b)$.
+	\end{theorem}
+	
+	\begin{proof}
+		Suppose $\abs{f(x)} \leq M\ \forall x \in [a, b]$, let $\varepsilon > 0$. \\
+		Take
+		\begin{align}
+			c = a + \frac{\varepsilon}{4M}
+		\end{align}
+		and 
+		\begin{align}
+			P_\varepsilon = \{a, a+c, b\}
+		\end{align}
+		Note that 
+		\begin{align}
+			U(f, P_\varepsilon) - L(f, P_\varepsilon) &= \left[\sup_{x \in [a, c]} f(x) - \inf_{x \in [a, c]} f(x) \right] \frac{\varepsilon}{4M} \\
+			&\leq 2M \frac{\varepsilon}{4M} \\
+			&< \varepsilon
+		\end{align}
+		Therefore, by the criterion of integrability, $f$ is integrable on $[a, b]$.
+	\end{proof}
 \end{document}
 
 
