@@ -2007,8 +2007,33 @@
 	\end{example}
 	
 	\begin{remark}
-		($\dagger \dagger$) is often referred to as \emph{Newtown's second law}.
+		($\dagger \dagger$) is often referred to as \emph{Newtown's second law}: object moves along the path on which the total conversion between kinetic and potential energies is minimized.
 	\end{remark}
+	
+	\begin{example}[3-Dimensional Pendulum]
+		Suppose the pendulum is moving on a path such that the total conversion between kinetic and potential energies is minimized, that is
+		\begin{align}
+			\min \int_a^b L(t)\ dt &= \int_a^b \frac{1}{2} m (\dot{x}(t)^2 + \dot{y}(t)^2 + \dot{z}(t)^2) - m g z(t)\ dt
+		\end{align}
+		with the restriction that $\norm{\textbf{x}(t)} = \ell$, where $\ell$ is the radius of the sphere. \\
+		The restriction can be embodied by framing the problem using spherical coordinates:
+		\begin{align}
+			x &:= \ell \cos \varphi \sin \theta \\
+			y &:= \ell \sin \varphi \sin \theta \\
+			z &:= - \ell \cos \theta
+		\end{align}
+		where the path of motion can be characterized using $(\theta(t), \varphi(t))$. \\
+		The objective function is therefore
+		\begin{align}
+			L\left( t, \begin{pmatrix} \theta(t) \\ \varphi(t)	\end{pmatrix}, \begin{pmatrix} \dot{\theta}(t) \\ \dot{\varphi}(t) \end{pmatrix} \right) &= \frac{1}{2} m \ell^2 (\dot{\theta}^2 + \dot{\varphi}^2 \sin^2 (\theta)) + mg\ell \cos \theta
+		\end{align}
+		So the Euler-Lagrange equation can be written as
+		\begin{align}
+			- \frac{d}{dt} \nabla_{(3)} L \left( t, \begin{pmatrix} \theta(t) \\ \varphi(t)	\end{pmatrix}, \begin{pmatrix} \dot{\theta}(t) \\ \dot{\varphi}(t) \end{pmatrix} \right)
+			+ \nabla_{(2)} L\left( t, \begin{pmatrix} \theta(t) \\ \varphi(t)	\end{pmatrix}, \begin{pmatrix} \dot{\theta}(t) \\ \dot{\varphi}(t) \end{pmatrix} \right)
+			= \textbf{0}
+		\end{align}
+	\end{example}
 \end{document}
 
 
