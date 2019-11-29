@@ -12,16 +12,23 @@
 \contentsline {subsection}{\numberline {2.5}Discrete Uniform Distributions}{7}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Bernoulli Trials}{8}{subsection.2.6}
 \contentsline {subsection}{\numberline {2.7}Binomial Distribution}{9}{subsection.2.7}
-\contentsline {subsection}{\numberline {2.8}Probability Mass Function}{9}{subsection.2.8}
-\contentsline {subsection}{\numberline {2.9}Standard Uniform Distribution}{11}{subsection.2.9}
-\contentsline {subsection}{\numberline {2.10}Scaled Exponential Distribution}{12}{subsection.2.10}
-\contentsline {subsection}{\numberline {2.11}Gamma Distribution}{12}{subsection.2.11}
-\contentsline {section}{\numberline {3}Distribution Functions in General}{12}{section.3}
-\contentsline {subsection}{\numberline {3.1}Probability}{12}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Covariance as an Inner Product}{15}{subsection.3.2}
-\contentsline {paragraph}{Motivation}{15}{section*.3}
-\contentsline {subsection}{\numberline {3.3}Markov Inequality}{16}{subsection.3.3}
-\contentsline {section}{\numberline {4}Binomial Process}{18}{section.4}
-\contentsline {section}{\numberline {5}Poisson Process}{18}{section.5}
-\contentsline {section}{\numberline {6}Conditional Expectation and Probability}{18}{section.6}
-\contentsline {section}{\numberline {7}Conditional Probability}{20}{section.7}
+\contentsline {subsection}{\numberline {2.8}Negative Binomial Distribution}{9}{subsection.2.8}
+\contentsline {subsection}{\numberline {2.9}Geometric Distribution}{10}{subsection.2.9}
+\contentsline {subsection}{\numberline {2.10}Poisson Distribution and Poisson Process}{11}{subsection.2.10}
+\contentsline {paragraph}{Construction of Poisson Distribution}{11}{section*.3}
+\contentsline {subsection}{\numberline {2.11}Standard Uniform Distribution}{13}{subsection.2.11}
+\contentsline {subsection}{\numberline {2.12}Exponential Distribution}{13}{subsection.2.12}
+\contentsline {subsection}{\numberline {2.13}Gamma Distribution}{13}{subsection.2.13}
+\contentsline {subsection}{\numberline {2.14}Beta Distribution}{15}{subsection.2.14}
+\contentsline {subsection}{\numberline {2.15}$\chi ^2$ Distribution}{17}{subsection.2.15}
+\contentsline {subsection}{\numberline {2.16}Normal Distribution}{17}{subsection.2.16}
+\contentsline {subsection}{\numberline {2.17}Probability Mass Function}{18}{subsection.2.17}
+\contentsline {section}{\numberline {3}Distribution Functions in General}{20}{section.3}
+\contentsline {subsection}{\numberline {3.1}Probability}{20}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Covariance as an Inner Product}{22}{subsection.3.2}
+\contentsline {paragraph}{Motivation}{22}{section*.4}
+\contentsline {subsection}{\numberline {3.3}Markov Inequality}{24}{subsection.3.3}
+\contentsline {section}{\numberline {4}Binomial Process}{26}{section.4}
+\contentsline {section}{\numberline {5}Poisson Process}{26}{section.5}
+\contentsline {section}{\numberline {6}Conditional Expectation and Probability}{26}{section.6}
+\contentsline {section}{\numberline {7}Conditional Probability}{27}{section.7}

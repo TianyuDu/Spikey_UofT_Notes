@@ -10,15 +10,21 @@
 \BOOKMARK [2][-]{subsection.2.5}{Discrete Uniform Distributions}{section.2}% 10
 \BOOKMARK [2][-]{subsection.2.6}{Bernoulli Trials}{section.2}% 11
 \BOOKMARK [2][-]{subsection.2.7}{Binomial Distribution}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.8}{Probability Mass Function}{section.2}% 13
-\BOOKMARK [2][-]{subsection.2.9}{Standard Uniform Distribution}{section.2}% 14
-\BOOKMARK [2][-]{subsection.2.10}{Scaled Exponential Distribution}{section.2}% 15
-\BOOKMARK [2][-]{subsection.2.11}{Gamma Distribution}{section.2}% 16
-\BOOKMARK [1][-]{section.3}{Distribution Functions in General}{}% 17
-\BOOKMARK [2][-]{subsection.3.1}{Probability}{section.3}% 18
-\BOOKMARK [2][-]{subsection.3.2}{Covariance as an Inner Product}{section.3}% 19
-\BOOKMARK [2][-]{subsection.3.3}{Markov Inequality}{section.3}% 20
-\BOOKMARK [1][-]{section.4}{Binomial Process}{}% 21
-\BOOKMARK [1][-]{section.5}{Poisson Process}{}% 22
-\BOOKMARK [1][-]{section.6}{Conditional Expectation and Probability}{}% 23
-\BOOKMARK [1][-]{section.7}{Conditional Probability}{}% 24
+\BOOKMARK [2][-]{subsection.2.8}{Negative Binomial Distribution}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.9}{Geometric Distribution}{section.2}% 14
+\BOOKMARK [2][-]{subsection.2.10}{Poisson Distribution and Poisson Process}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.11}{Standard Uniform Distribution}{section.2}% 16
+\BOOKMARK [2][-]{subsection.2.12}{Exponential Distribution}{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.13}{Gamma Distribution}{section.2}% 18
+\BOOKMARK [2][-]{subsection.2.14}{Beta Distribution}{section.2}% 19
+\BOOKMARK [2][-]{subsection.2.15}{2 Distribution}{section.2}% 20
+\BOOKMARK [2][-]{subsection.2.16}{Normal Distribution}{section.2}% 21
+\BOOKMARK [2][-]{subsection.2.17}{Probability Mass Function}{section.2}% 22
+\BOOKMARK [1][-]{section.3}{Distribution Functions in General}{}% 23
+\BOOKMARK [2][-]{subsection.3.1}{Probability}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.2}{Covariance as an Inner Product}{section.3}% 25
+\BOOKMARK [2][-]{subsection.3.3}{Markov Inequality}{section.3}% 26
+\BOOKMARK [1][-]{section.4}{Binomial Process}{}% 27
+\BOOKMARK [1][-]{section.5}{Poisson Process}{}% 28
+\BOOKMARK [1][-]{section.6}{Conditional Expectation and Probability}{}% 29
+\BOOKMARK [1][-]{section.7}{Conditional Probability}{}% 30

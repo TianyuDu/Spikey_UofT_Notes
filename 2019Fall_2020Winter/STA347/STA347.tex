@@ -547,7 +547,390 @@
    		\end{align}
    	\end{example}
    	
-   	\subsection{Probability Mass Function}
+   	\subsection{Negative Binomial Distribution}
+   	
+   	\begin{definition}
+   		Let $S_n = \sum_{i=1}^n Z_i$ where $Z_i \iid Bern(p)$, recall that $S_n \sim Bin(n, p)$.\\
+   		Then,
+   		\begin{align}
+   			T_k \sim NegBin(k, p) \iff P(T_k = n) = P(S_{n-1}=k-1, Z_n = 1)
+   		\end{align}
+   		\emph{$P(T_k=n)$ measures the probability of observing the $k$-th success after exactly $n$ trails.} \\
+   		Therefore, range($T_k$)=$\N$.
+   	\end{definition}
+   	
+   	\begin{theorem}
+   		\begin{align}
+   			T_k > n \iff S_n < k
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		The equivalence follows the interpretation of negative binomial distribution directly: $T_k > n$ measures the event that the $k$-th successes is observed \ul{after} $n$ trails, the can happen if and only if less than $k$ successes are observed at the $n$-th trail, which is $S_n < k$.
+   	\end{proof}
+   	
+   	\subsection{Geometric Distribution}
+   	\begin{definition}
+   		$W \sim Geo(p)$ if and only if $W \eqd T_1$. \\
+   		That is,
+   		\begin{align}
+   			P(W=n) &= P(T_1=n) \\
+   			&= P(S_{n-1}=0 \land Z_n = 1) \\
+   			&= p q^{n-1}
+   		\end{align}
+   	\emph{$P(W=n)$ measures the probability of observing the first success after $n$ trials.}
+   	\end{definition}
+   	
+   	\begin{theorem}[Mean of Geometric Distribution]
+   		\begin{align}
+   			\expe W &= \sum_{n=1}^\infty n P(W=n) \\
+   			&= \sum_{n=0}^\infty n p q^{n-1} \\
+   			&= p \sum_{n=0}^\infty n q^{n-1} \\
+   			&= p \frac{d}{dq} \sum_{n=0}^\infty q^n \\
+   			&= p \frac{d}{dq} \frac{1}{1-q} \\
+   			&= (1-q) \frac{1}{(1-q)^2} \\
+   			&= \frac{1}{1-q} = \frac{1}{p}
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{theorem}[Variance of Geometric Distribution]
+   		\begin{align}
+   			\expe W^2 - \expe W &= \expe W(W-1) \\
+   			&= \sum_{n=1}^\infty n(n-1)P(W=n) \\
+   			&= p \sum_{n=0}^\infty n(n-1) q^{n-1} \\
+   			&= pq \sum_{n=0}^\infty n(n-1) q^{n-2} \\ 
+   			&= pq \frac{d^2}{dq^2} \sum_{n=0}^\infty q^n \\
+   			&= pq \frac{d^2}{dq^2} \frac{1}{1-q} \\
+   			&= 2 pq \frac{1}{(1-q)^3} \\
+   			&= \frac{2q}{p^2} \\
+   			\implies \expe W^2 &= \frac{2q}{p^2} + \frac{1}{p} \\
+   			&= \frac{2- p}{p^2} \\
+   			\implies \var{W} &= \expe W^2 - (\expe W)^2 \\
+   			&= \frac{2- p}{p^2} - \frac{1}{p^2} \\
+   			&= \frac{q}{p^2}
+   		\end{align}
+   	\end{theorem}
+   	
+   	\subsection{Poisson Distribution and Poisson Process}
+   	
+   	\paragraph{Construction of Poisson Distribution} Consider a binomial distribution $Bin(n, p)$ in which
+   	\begin{align}
+   		n &\gg 0 \\
+   		np &= \lambda
+   	\end{align}
+   	The density of binomial distribution suggests
+   	\begin{align}
+   		P(S_n=k) &= \binom{n}{k} p^k (1-p)^{n-k} \\
+   		&= \frac{n!}{(n-k)!k!} p^k (1-p)^{n-k} \\
+   		&= \frac{n!}{(n-k)!k!} \frac{\lambda^k}{n^k}\left(1 - \frac{\lambda}{n}\right)^{n-k} \\
+   		&= \frac{n!}{(n-k)!k! \left(1 - \frac{\lambda}{n}\right)^{k}} \frac{\lambda^k}{n^k}\left(1 - \frac{\lambda}{n}\right)^{n} \\
+   		&= \frac{n!}{(n-k)!n^k \left(1 - \frac{\lambda}{n}\right)^{k}}
+   		 \frac{\lambda^k}{k!}
+   		 \left(1 - \frac{\lambda}{n}\right)^{n} \\
+   		&= \frac{n(n-1)\cdots(n-k+1)}{n^k \left(1 - \frac{\lambda}{n}\right)^{k}}
+   		 \frac{\lambda^k}{k!}
+   		 \left(1 - \frac{\lambda}{n}\right)^{n} \\
+   		&= \frac{n}{n} \frac{n-1}{n} \cdots \frac{n-k+1}{n} \frac{1}{\left(1 - \frac{\lambda}{n}\right)^{k}}
+   		\frac{\lambda^k}{k!}
+   		\left(1 - \frac{\lambda}{n}\right)^{n} \\
+   		&\overset{n \to \infty}{=}\frac{\lambda^k}{k!} e^{-\lambda}
+   	\end{align}
+   	
+   	\begin{definition}
+   		$N \sim Poisson(\lambda)$ if and only if
+   		\begin{align}
+   			P(N=k) &= \lim_{n \to \infty} P(S_n=k) = \frac{\lambda^k}{k!} e^{-\lambda}
+   		\end{align}
+   		\emph{$N$ expresses the probability of a given number of events occurring in a fixed interval of time or space (characterized by $\lambda$) if these events occur with a known constant rate and independently of the time since the last event.}
+   	\end{definition}
+   	
+   	\begin{theorem}[Mean of Poisson]
+   		\begin{align}
+   			\expe N &= \sum_{k=0}^\infty k \frac{\lambda^k}{k!} e^{-\lambda} \\
+   			&= \sum_{k=1}^\infty k \frac{\lambda^k}{k!} e^{-\lambda} \\
+   			&= \sum_{k=1}^\infty \frac{\lambda^k}{(k-1)!} e^{-\lambda}\\
+   			&= \lambda \sum_{k=1}^\infty \frac{\lambda^{k-1}}{(k-1)!} e^{-\lambda}\\
+   			&= \lambda \sum_{k=0}^\infty \frac{\lambda^{k}}{k!} e^{-\lambda}\\
+   			&= \lambda \sum_{k=0}^\infty P(N=k) \\
+   			&= \lambda
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{definition}
+   		A set of random variables $\{N_t | t \in \R_{++}\}$ is a \textbf{poisson process} if and only if
+   		\begin{enumerate}[(i)]
+   			\item $N_t \sim Poisson(\lambda t)$ for all $t > 0$;
+   			\item (Memoryless) For any strictly increasing sequence of $t$, $(t_n)\uparrow \uparrow$, for every $i \neq j \in \N$,
+   			\begin{align}
+   				(N_{t_i} - N_{t_{i-1}})
+   				\perp
+   				(N_{t_j} - N_{t_{j-1}})
+   			\end{align}
+   		\end{enumerate}
+   	\end{definition}
+   	
+   	\subsection{Standard Uniform Distribution}
+   	
+   	\begin{theorem}
+   		Let $U \sim unif[0, 1]$, then
+   		\begin{align}
+   			E U^{k}=\frac{1}{k+1}, \quad k \geq 0
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   	Given the outcome space of standard uniform, $P(U \leq t) = F(t) = t$ for every $t \in [0, 1]$.
+   		\begin{align}
+   			EU^k &= \int_0^1 F'(t) t^k\ dt \\
+   			&= \int_0^1 t^k\ dt\\
+   			&= \left. \frac{1}{k+1} t^{k+1} \right|_0^1 \\
+   			&= \frac{1}{k+1}
+   		\end{align}
+   	\end{proof}
+   	
+   	\subsection{Exponential Distribution}
+   	\begin{definition}
+   		$Z \sim exp(1)$ if and only if
+   		\begin{align}
+   			f_Z(z) = e^{-z}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		$X \sim exp(\theta)$ is said to follow the \textbf{scaled exponential distribution} if and only if
+   		\begin{align}
+   			X = \theta Z
+   		\end{align}
+   	\end{definition}
+   	
+   	\subsection{Gamma Distribution}
+   	
+   	\begin{definition}
+   		$Z \sim Gamma(p)$ for $p \in \R_{++}$ if and only if
+   		\begin{align}
+   			f_Z(z) &= \frac{z^{p-1} e^{-z}}{\Gamma(p)}
+   		\end{align}
+   	\end{definition}
+ 
+   	\begin{definition}
+   		The \textbf{Gamma function} is defined as
+   		\begin{align}
+   			\Gamma(p) := \int_0^\infty x^{p-1} e^{-x}\ dx
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{proposition}
+   		\begin{align}
+   			\forall n \in \N,\ \Gamma(n) = (n-1)!
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{proposition}
+   		\begin{align}
+   			\Gamma\left(\frac{1}{2}\right) = \int_0^\infty \frac{e^{-x}}{\sqrt{x}}\ dx = \sqrt{\pi}
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{theorem}[Moments of Gamma Distribution]
+   		Let $Z \sim Gamma(p)$, for $s \in \N$:
+   		\begin{align}
+   			\expe Z^s &= \frac{\Gamma(p+s)}{\Gamma(p)}
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		\begin{align}
+   			\expe Z^s &= \frac{1}{\Gamma(p)}\int_0^\infty z^s z^{p-1} e^{-z}\ dz \\
+   			&= \frac{1}{\Gamma(p)}\int_0^\infty z^{p+s-1} e^{-z}\ dz \\
+   			&= \frac{\Gamma(p+s)}{\Gamma(p)}
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{theorem}
+   		Let $X \sim Gamma(a)$ and $Y \sim Gamma(b)$, then
+   		\begin{align}
+   			X + Y \sim Gamma(a + b)
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		\begin{align}
+   			f_{X+Y}(z) &= \int_0^z f_X(z) f_Y(z-x)\ dx \\
+   			&= \int_0^z \frac{1}{\Gamma(a) \Gamma(b)} x^{a-1} e^{-x} (z-x)^{b-1} e^{-z+x}\ dx \\
+   			&= e^{-z} \int_0^z \frac{x^{a-1} (z-x)^{b-1}}{\Gamma(a) \Gamma(b)} \ dx \\
+   			&= e^{-z} \int_0^1 \frac{(zt)^{a-1} (z - zt)^{b-1}}{\Gamma(a) \Gamma(b)} z\ dt \\
+   			&= e^{-z} \int_0^1 \frac{(zt)^{a-1} (z(1 - t))^{b-1}}{\Gamma(a) \Gamma(b)} z\ dt \\
+   			&= e^{-z} z^{a+b-1} \int_0^1 \frac{t^{a-1} (1 - t)^{b-1}}{\Gamma(a) \Gamma(b)}\ dt \\
+   			&= \frac{e^{-z} z^{a+b-1}}{\Gamma(a+b)} \underbrace{\int_0^1 \frac{\Gamma(a+b)}{\Gamma(a) \Gamma(b)} t^{a-1} (1 - t)^{b-1} \ dt}_{Beta(a, b)} \\
+   			&= \frac{e^{-z} z^{a+b-1}}{\Gamma(a+b)} 
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{theorem}
+   		\begin{align}
+   			Z \sim \mc{N}(0, 1) \iff \begin{cases}
+   				- Z \eqd Z \\
+   				\frac{Z^2}{2} \sim Gamma \left(\frac{1}{2}\right)
+   			\end{cases}
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		($\implies$) Suppose $Z \sim \mc{N}(0, 1)$, then because the density of standard normal is symmetric, $-Z \eqd Z$. \\
+   		Moreover, let $W = \frac{Z^2}{2}$, for every $w \geq 0$,
+   		\begin{align}
+   			P(W \leq w) &= P(Z^2 \leq 2 w)\\
+   			&= P(-\sqrt{2w} \leq Z \leq \sqrt{2w}) \\
+   			&= 2 P(0 \leq Z \leq \sqrt{2w}) \\
+   			&= 2 (P(Z \leq \sqrt{2w}) - 0.5) \\
+   			&= 2 P(Z \leq \sqrt{2w}) - 1 \\
+   			&= 2 \Phi(\sqrt{2w}) - 1
+   		\end{align}
+   		Take the derivative with respect to $w$ to construct the density function:
+   		\begin{align}
+   			\frac{d}{dw} P(W \leq w) &= \frac{d}{dw} \left( 2 \Phi(\sqrt{2w}) - 1 \right) \\
+   			&= 2 \phi(\sqrt{2w}) \frac{1}{2} \frac{1}{\sqrt{2w}} 2 \\
+   			&= \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}(\sqrt{2w})^2} \frac{1}{\sqrt{2w}} 2\\
+   			&= \frac{1}{\sqrt{2\pi}} e^{-w} \frac{1}{\sqrt{2w}} 2 \\
+   			&= \frac{1}{\sqrt{\pi}} w^{\frac{1}{2} - 1} e^{-w} \\
+   			&= \frac{w^{\frac{1}{2} - 1} e^{-w}}{\Gamma\left(\frac{1}{2}\right)}
+   		\end{align}
+   		($\impliedby$) \todo{Proof}
+   	\end{proof}
+   	
+%   	\begin{theorem}
+%   		Let $Z \sim \Gamma$ and $s \in \N$,
+%   		\begin{align}
+%   			\expe Z^s = \frac{\Gamma(p+s)}
+%   		\end{align}
+%   	\end{theorem}
+
+   	\subsection{Beta Distribution}
+   	
+   	\begin{theorem}
+   		Define $T = Z + W$ and $U = \frac{Z}{T}$, then
+   		\begin{enumerate}[(i)]
+   			\item $Z \sim Gamma(p)$;
+   			\item $W \sim Gamma(q)$;
+   			\item $Z \perp W$.
+   		\end{enumerate}
+   		if and only if
+   		\begin{enumerate}[(i)]
+   			\item $T \sim Gamma(p + q)$;
+   			\item $f_U(u) = \frac{\Gamma(p+q)}{\Gamma(p)\Gamma(q)} u^{p-1} (1-u)^{q-1}$;
+   			\item $T \perp U$.
+   		\end{enumerate}
+   	\end{theorem}
+   	
+   	\begin{proof}
+   		\begin{align}
+   			g(z, w) &= f_Z(z) f_W(w) \\
+   			&= \frac{1}{\Gamma(p) \Gamma(q)} z^{p-1} w^{q-1} e^{-z} e^{-w}
+   		\end{align}
+   		Apply the change of variable formula 
+   		\begin{align}
+   			h(u, t) &= g(z(u, t), w(u, t)) \abs{D \begin{bmatrix}
+   				z(u, t) \\ w(u, t)
+   			\end{bmatrix}} \\
+   			&= g(z(u, t), w(u, t)) 
+   			\abs{D \begin{bmatrix}
+ 				ut \\ t - ut
+ 			\end{bmatrix}} \\
+ 			&= g(z(u, t), w(u, t)) 
+   			\abs{\begin{bmatrix}
+ 				t & u \\
+ 				-t & 1 - u
+ 			\end{bmatrix}} \\
+ 			&= g(z(u, t), w(u, t)) (t - ut + ut) \\
+ 			&= g(z(u, t), w(u, t)) t \\
+ 			&= \frac{1}{\Gamma(p) \Gamma(q)} (ut)^{p-1} (t - ut)^{q-1} e^{-(ut + t - ut)} t \\
+ 			&= \frac{1}{\Gamma(p) \Gamma(q)} (ut)^{p-1} ((1-u)t)^{q-1} e^{-(ut + t - ut)} t \\
+ 			&= \frac{1}{\Gamma(p) \Gamma(q)} u^{p-1} (1-u)^{q-1} t^{p-1} t^{q-1} e^{-t} t \\
+ 			\implies f_U(u) &= \int_0^\infty h(u, t)\ dt \\
+ 			&= \int_0^\infty \frac{1}{\Gamma(p) \gamma(q)} u^{q-1} (1-u)^{p-1} t^{p+q-1} e^{-t}\ dt \\
+ 			&= \frac{1}{\Gamma(p) \gamma(q)} u^{q-1} (1-u)^{p-1} \int_0^\infty t^{p+q-1} e^{-t}\ dt \\
+ 			&= \frac{1}{\Gamma(p) \gamma(q)} u^{q-1} (1-u)^{p-1}
+   		\end{align}
+   	\end{proof}
+		
+	\begin{definition}
+		$U \sim Beta(p, q)$ if and only if
+		\begin{align}
+			U = \frac{Z}{Z+W}\quad \tx{and} \quad
+			\begin{cases}
+				Z \sim Gamma(p) \\
+				W \sim Gamma(q) \\
+				Z \perp W
+			\end{cases}
+		\end{align}
+	\end{definition}
+	
+	\begin{theorem}[Variance of Beta]
+		\begin{align}
+			T &= Z + U \\
+			\implies Z^2	 &= U^2 T^2 \\
+			\implies \expe U^2 &= \frac{\expe Z^2}{\expe T^2}\ \because Z \perp U \\
+			&= \frac{\frac{\Gamma(p+2)}{\Gamma(p)}}
+			{\frac{\Gamma(q+2)}{{\Gamma(q)}}}
+		\end{align}
+	\end{theorem}
+	
+	\begin{theorem}[Moments of Beta Distribution]
+		Let $U \sim Beta(p, q)$, then for every $s \in \N$,
+		\begin{align}
+			\expe U^s &= \expe \frac{Z^s}{T^s} \\
+			&= \frac{\expe Z^s}{\expe T^s}\ \because Z \perp U \\
+			&= \frac{
+			\frac{\Gamma(p+s)}{\Gamma(p)}
+			}{
+			\frac{\Gamma(q+s)}{\Gamma(q)}
+			}
+		\end{align}
+	\end{theorem}
+	
+   	\subsection{$\chi^2$ Distribution}
+ 	\begin{definition}
+ 		$W \sim \mc{X}^2_{(m)}$ for some $m \in \N$ if and only if 
+ 		\begin{align}
+ 			W \eqd 2Z \tx{ where } Z \sim Gamma\left(\frac{m}{2}\right)
+ 		\end{align}
+ 	\end{definition}
+ 	
+ 	\begin{theorem}[Equivalent Definition]
+ 		Let $Z_1, \cdots, Z_m \iid \mc{N}(0, 1)$, then 
+ 		\begin{align}
+ 			\frac{Z_1^2}{2}, \cdots, \frac{Z_m^2}{2} &\iid Gamma\left(\frac{1}{2}\right) \\
+ 			\implies \sum_{i=1}^m \frac{Z_i^2}{2} &\sim Gamma\left(\frac{m}{2}\right) \\
+ 			\implies \sum_{i=1}^m Z_i^2 &\sim 2 Gamma\left(\frac{m}{2}\right) \\
+ 			\implies \sum_{i=1}^m Z_i^2
+ 			&\eqd \mc{X}_{(m)}^2
+ 		\end{align}
+ 	\end{theorem}
+ 	
+ 	\subsection{Normal Distribution}
+ 	\begin{definition}[Defintion 1]
+ 		$Z \sim \mc{N}(0, 1)$ if and only if
+ 		\begin{align}
+ 			\varphi(z) &= \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}z^2}
+ 		\end{align}
+ 	\end{definition}
+ 	
+ 	\begin{definition}[Definition 2]
+ 		$Z \sim \mc{N}(0, 1)$ if and only if
+ 		\begin{align}
+ 			\frac{Z^2}{2} \sim Gamma\left(\frac{1}{2}\right)
+ 		\end{align}
+ 	\end{definition}
+ 	
+ 	\begin{definition}
+ 		$X_{\mu, \sigma^2} \sim \mc{N}(\mu, \sigma^2)$ if and only if
+ 		\begin{align}
+ 			X_{\mu, \sigma^2} \eqd \mu + \sigma Z
+ 		\end{align}
+ 		where $Z \sim \mc{N}(0, 1)$.
+ 	\end{definition}
+ 	
+    \subsection{Probability Mass Function}
    	\begin{definition}
    		Let $X \sim bin(n, p)$, then for each $k \in \{0, \cdots, n\}$, the \textbf{probability mass function (pmf)} is defined as
    		\begin{align}
@@ -627,30 +1010,7 @@
    			\implies \expe X^3 &= 3 (npq + n^2 p^2) - 2 np + n(n-1)(n-2) p^3
    		\end{align}
    	\end{example}
-   	
-   	\subsection{Standard Uniform Distribution}
-   	
-   	\begin{theorem}
-   		Let $U \sim unif[0, 1]$, then
-   		\begin{align}
-   			E U^{k}=\frac{1}{k+1}, \quad k \geq 0
-   		\end{align}
-   	\end{theorem}
-   	
-   	\begin{proof}
-   	Given the outcome space of standard uniform, $P(U \leq t) = F(t) = t$ for every $t \in [0, 1]$.
-   		\begin{align}
-   			EU^k &= \int_0^1 F'(t) t^k\ dt \\
-   			&= \int_0^1 t^k\ dt\\
-   			&= \left. \frac{1}{k+1} t^{k+1} \right|_0^1 \\
-   			&= \frac{1}{k+1}
-   		\end{align}
-   	\end{proof}
-   	
-   	\subsection{Scaled Exponential Distribution}
-   	
-   	\subsection{Gamma Distribution}
-   	
+ 
    	\section{Distribution Functions in General}
    	\subsection{Probability}
    	\begin{definition}
