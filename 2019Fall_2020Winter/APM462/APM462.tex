@@ -2034,7 +2034,98 @@
 			= \textbf{0}
 		\end{align}
 	\end{example}
+	
+	\subsection{Calculus of Variation with Equality Constraints}
+	\paragraph{Recall: Finite Dimensional Case} Given $f, g: \R^n \to \R$, consider
+	\begin{align}
+		\begin{cases}
+			\min_{x \in \R^n} f(x) \\
+			g(x) = \tx{contant}
+		\end{cases}
+	\end{align}
+	Suppose $x_*$ is a regular point ($\nabla g(x_*) \neq 0$) is a minimizer, then there exists $\lambda \in \R$ such that
+	\begin{align}
+		\nabla f(x_*) + \lambda \nabla g(x_*) = 0 \quad \tx{ (Lagrange Multiplier)}
+	\end{align}
+	\begin{remark}
+		$x_*$ is a critical point minimizing $f + \lambda g$ as well. Effectively, the method of Lagrange multiplier converts the constrained optimization to an unconstrained optimization problem.
+	\end{remark}
+	
+	\paragraph{Infinite Dimensional Case} Consider the objective and constraint functions
+	\begin{align}
+		F[u(\cdot)] &= \int_a^b L^F(x, u(x), u'(x))\ dx \\
+		G[u(\cdot)] &= \int_a^b L^G(x, u(x), u'(x))\ dx
+	\end{align}
+	and the optimization problem
+	\begin{align}
+		\begin{cases}
+			\min_{u(\cdot) \in \mc{A}} F[u(\cdot)] \\
+			G[u(\cdot)] = \tx{constant}
+		\end{cases}
+	\end{align}
+
+	\begin{theorem}
+		Suppose $u_*(\cdot)$ is a regular point, that is, the variational derivative $\frac{\delta G}{\delta u}(u_*) \neq 0$.\\
+		Further, if $u_*(\cdot)$ is a minimizer of above constrained optimization problem, then $\exists \lambda \in \R$ such that:
+		\begin{align}
+			\frac{\delta F}{\delta u}(u_*) + \lambda \frac{\delta G}{\delta u}(u_*) \equiv 0
+		\end{align}
+	\end{theorem}
+
+	\begin{example}
+		\begin{align}
+			\mc{A} &:= \{
+			u: [-a, a] \to \R, u \in C^1, u(-a) = u(a) = 0
+			\} \\
+			L^G(x, z, p) &= \sqrt{1 + p^2} \\
+			G[u(\cdot)] &= \int_a^b \sqrt{1 + u'(x)^2}\ dx = \ell > 0 \\
+			L^F(x, z, p) &= z \\
+			L^{-F}(x, z, p) &= -z \\
+			F[u(\cdot)] &= \int_a^b u(x)\ dx \\
+			&\begin{cases}
+				\min_{u(\cdot) \in \mc{A}} (-F)[u(\cdot)] \\
+				G[u(\cdot)] = \ell
+			\end{cases}
+		\end{align}
+		Let $u_*(\cdot)$ be a minimizer, then Euler Lagrange equation suggests 
+		\begin{align}
+			\frac{\delta (-F)}{\delta u} &= - \frac{d}{dx} L_p^{-F} + L_z^{-F} \equiv 0 \\
+			\frac{\delta G}{\delta u} &= - \frac{d}{dx} L_p^G + L_z^G \equiv 0
+		\end{align}
+		By the necessary condition of minimization,
+		\begin{align}
+			\frac{\delta (-F)}{\delta u} + \lambda \frac{\delta G}{\delta u} &\equiv 0 \\
+			\implies -1 + \lambda \left(
+			- \frac{d}{dx} \frac{p}{\sqrt{1+p^2}} + 0 \right) &\equiv 0 \\
+			\implies \lambda \frac{d}{dx} \frac{p}{\sqrt{1+p^2}} &\equiv -1 \\
+			\implies \lambda \frac{p}{\sqrt{1+p^2}} &\equiv -x + C_1 \\
+			\implies \lambda_*^2 \frac{u'_*(x)^2}{1 + u'_*(x)^2} &\equiv (C_1 - x)^2\quad  (\dagger)
+		\end{align}
+		\textbf{Claim}: Note that any solution $u_*(\cdot)$ to $(\dagger)$ satisfies
+		\begin{align}
+			(x-C_1)^2 + (u_*(x) - C_2)^2 &= \lambda^2
+		\end{align}
+		\emph{Check}: 
+		\begin{align}
+			\frac{d}{dx} \left[ 2(x - C_1) + 2(u_*(x) - C_2)u_*'(x) \right] &= 0
+		\end{align}
+		which implies
+		\begin{align}
+			u'_*(x) &= - \frac{x - C_1}{u_*(x) - C_2} \\
+			\implies u'_*(x)^2 &= \frac{(x - C_1)^2}{(u_*(x) - c_2)^2}\quad (\S)
+		\end{align}
+		Also, 
+		\begin{align}
+			(u_*'(x)^2)(u_*(x) - C_2)^2  &= (x - C_1)^2 + (u_*(x) - C_2)^2 = \lambda^2 \\
+			\implies (u_*(x) - C_2)^2 &= \frac{\lambda^2}{1 + u'_*(x)^2}\quad (\S \S)
+		\end{align}
+		Combine $(\S)$ and $(\S \S)$,
+		\begin{align}
+			\frac{\lambda^2}{1 + u_*'(x)^2} u_*'(x)^2 &= (x - C_1)^2
+		\end{align}
+	\end{example}
 \end{document}
+
 
 
 

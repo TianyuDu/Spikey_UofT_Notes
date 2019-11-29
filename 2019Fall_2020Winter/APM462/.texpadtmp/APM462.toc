@@ -32,3 +32,6 @@
 \contentsline {paragraph}{Objective function}{34}{section*.7}
 \contentsline {subsection}{\numberline {5.4}Euler-Lagrange Equations in $\mathbb {R}^n$}{38}{subsection.5.4}
 \contentsline {paragraph}{Setup}{38}{section*.8}
+\contentsline {subsection}{\numberline {5.5}Calculus of Variation with Equality Constraints}{39}{subsection.5.5}
+\contentsline {paragraph}{Recall: Finite Dimensional Case}{39}{section*.9}
+\contentsline {paragraph}{Infinite Dimensional Case}{39}{section*.10}
