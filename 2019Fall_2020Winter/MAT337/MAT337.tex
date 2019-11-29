@@ -2284,8 +2284,144 @@
 				\begin{align}
 					m (b-a) \leq \int_a^b f \leq M (b-a)
 				\end{align}
+			\item If $f(x) \leq g(x)\ \forall x \in [a, b]$, then
+				\begin{align}
+					\int_a^b f \leq \int_a^b g
+				\end{align}
+			\item
+				\begin{align}
+					\int_a^b \abs{f} \geq \abs{\int_a^b f}
+				\end{align}
 		\end{enumerate}
 	\end{theorem}
+	
+	\begin{proof}[Proof (i).] \quad \\
+		Let $\varepsilon > 0$, by the criterion of integrability, there exists $P_1$ and $P_2$ on $[a, b]$ such that
+		\begin{align}
+			U(f, P_1) - L(f, P_1) < \varepsilon / 2 \\
+			U(g, P_2) - L(g, P_2) < \varepsilon / 2
+		\end{align}
+		Take $P = P_1 \cup P_2$,
+		\begin{align}
+			U(f, P) - L(f, P) < \varepsilon / 2 \\
+			U(g, P) - L(g, P) < \varepsilon / 2
+		\end{align}
+		Notice that
+		\begin{align}
+			U(f, P) + U(g, P) = U(f+g, P) \\
+			L(f, P) + L(g, P) = L(f+g, P)
+		\end{align}
+		which implies
+		\begin{align}
+			U(f+g, P) - L(f+g, P) < \varepsilon/2 + \varepsilon/2 = \varepsilon
+		\end{align}
+		Therefore $f+g$ is integrable. \\
+		The value of integration is simply from the additivity of lower and upper integrals as summations.
+	\end{proof}
+	
+	\begin{theorem}[Sequential Criterion of Integrability]
+		Let $f$ be a \ul{bounded} function defined on $[a, b]$, the the following are equivalent:
+		\begin{enumerate}[(i)]
+			\item $f$ is integrable on $[a, b]$;
+			\item There exists a sequence of partitions $(P_n)_{n=1}^\infty$ such that
+			\begin{align}
+				\lim_{n \to \infty} [U(f, P_n) - L(f, P_n)] = 0
+			\end{align}
+		\end{enumerate}
+		and in this case
+		\begin{align}
+			\int_a^b f = \lim_{n \to \infty} U(f, P_n) = \lim_{n \to \infty} L(f, P_n)
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof} \quad \\
+		($\implies$) Suppose $f$ is integrable, for every $n \in \N$, take $\varepsilon = 1/n$. \\
+		By the criterion of integrability, there exists $P_n$ such that
+		\begin{align}
+			U(f, P_n) - L(f, P_n) < \varepsilon = 1/n
+		\end{align}
+		Take above $P_n$ for each $n \in \N$ and the sequence $(P_n)_{n=1}^\infty$ is what was desired. \\
+		($\impliedby$) Suppose there exists such sequence, then for every $\varepsilon > 0$, simply take any natural number $n \geq \frac{1}{\varepsilon}$, and $P_n$ satisfies
+		\begin{align}
+			U(f, P_n) - L(f, P_n) < \varepsilon
+		\end{align}
+		Therefore, $f$ is integrable.
+	\end{proof}
+	
+	\begin{proof}[Proof (ii).] \quad \\
+		\ul{Case 1} For $k \geq 0$,
+		\begin{align}
+			U(kf, P) = kU(f, P) \\
+			L(kf, P) = kL(f, P)
+		\end{align}
+		for any partition $P$. \\
+		Because $f$ is integrable, there exists $(P_n)$ satisfying the sequential criterion of integrability:
+		\begin{align}
+			(U(kf, P_n) - L(kf, P_n))_{n \in \N} &= (kU(f, P_n) - kL(f, P_n))_{n \in \N} \\
+			&= k (U(f, P_n) - L(f, P_n))_{n \in \N} \\
+			&\to 0 \tx{ as } n \to \infty
+		\end{align}
+		Therefore $kf$ is integrable. \\
+		\ul{Case 2} For $k < 0$,
+		\begin{align}
+			\sup (kf) = \inf(-kf) = (-k) \inf f \\
+			\inf (kf) = \sup(-kf) = (-k) \sup f
+		\end{align}
+		In this case, 
+		\begin{align}
+			U(kf, P) = (-k)L(f, P) \\
+			L(kf, P) = (-k)U(f, P)
+		\end{align}
+		for any partition $P$. \\
+		The same sequence $(P_n)$ satisfying the sequential criterion of integrability of $f$ works for $kf$ as well. \\
+		Therefore, $kf$ is integrable.
+	\end{proof}
+	
+	\begin{proof}[Proof (iii).]
+		Suppose $m \leq f \leq M$ on $[a, b]$, take partition $P=\{a, b\}$:
+		\begin{align}
+			(b-a)m = L(f, P) \leq \int_a^b f \leq U(f, P) = (b-a)M
+		\end{align}
+	\end{proof}
+	
+	\begin{proof}[Proof (iv).]
+		Suppose $f \leq g$ on $[a, b]$, define $h := g - f \geq 0$. By theorem (i) and (iii), 
+		\begin{align}
+			0 = (b-a) 0 \leq \int_a^b h &= \int_a^b (g - f) = \int_a^b g - \int_a^b f \\
+			\implies \int_a^b f &\leq \int_a^b g
+		\end{align}
+	\end{proof}
+	
+	\begin{proof}[Proof (v).]
+		\begin{align}
+			-\abs{f} \leq &f \leq \abs{f} \\
+			\implies - \int_a^b \abs{f} &\leq \int_a^b f \leq \int_a^b \abs{f} \\
+			\implies \abs{\int_a^b f} &\leq \int_a^b \abs{f}
+		\end{align}
+	\end{proof}
+	
+	\subsection{Convergence and Integrability}
+	\paragraph{Motivation} Is there a sequence of integrable functions that converges to a function that is not integrable?
+	
+	\begin{example}
+		Consider the sequence of functions $(f_n) \to f$ in which each $f_n(x)$ is defined on $[a, b]$.
+		\begin{align}
+			f_n(x) := \begin{cases}
+				n &\tx{ if } 0 < x < s \\
+				0 &\tx{ otherwise}
+			\end{cases}
+		\end{align}
+		The (point-wise) limit function $f \equiv 0$. \\
+		For every $n$,
+		\begin{align}
+			\int_0^1 f_n(x)\ dx &= 1
+		\end{align}
+		But 
+		\begin{align}
+			\int_0^1 f(x)\ dx &= 0
+		\end{align}
+		Therefore, \emph{the value of integral is not necessarily preserved under point-wise convergence.}
+	\end{example}
 \end{document}
 
 
