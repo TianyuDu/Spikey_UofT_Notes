@@ -2035,7 +2035,7 @@
 		\end{align}
 	\end{example}
 	
-	\subsection{Calculus of Variation with Equality Constraints}
+	\subsection{Equality Constraints: Isoperimetric Case}
 	\paragraph{Recall: Finite Dimensional Case} Given $f, g: \R^n \to \R$, consider
 	\begin{align}
 		\begin{cases}
@@ -2068,7 +2068,7 @@
 		Suppose $u_*(\cdot)$ is a regular point, that is, the variational derivative $\frac{\delta G}{\delta u}(u_*) \neq 0$.\\
 		Further, if $u_*(\cdot)$ is a minimizer of above constrained optimization problem, then $\exists \lambda \in \R$ such that:
 		\begin{align}
-			\frac{\delta F}{\delta u}(u_*) + \lambda \frac{\delta G}{\delta u}(u_*) \equiv 0
+			\red{\frac{\delta F}{\delta u}(u_*) + \lambda \frac{\delta G}{\delta u}(u_*) \equiv 0}
 		\end{align}
 	\end{theorem}
 
@@ -2087,7 +2087,7 @@
 				G[u(\cdot)] = \ell
 			\end{cases}
 		\end{align}
-		Let $u_*(\cdot)$ be a minimizer, then Euler Lagrange equation suggests 
+		Let $u_*(\cdot)$ be a minimizer, then Euler-Lagrange equation suggests 
 		\begin{align}
 			\frac{\delta (-F)}{\delta u} &= - \frac{d}{dx} L_p^{-F} + L_z^{-F} \equiv 0 \\
 			\frac{\delta G}{\delta u} &= - \frac{d}{dx} L_p^G + L_z^G \equiv 0
@@ -2124,6 +2124,98 @@
 			\frac{\lambda^2}{1 + u_*'(x)^2} u_*'(x)^2 &= (x - C_1)^2
 		\end{align}
 	\end{example}
+	
+	\subsection{Equality Constraints: Holonomic Case}
+	\paragraph{Setup (3-Dim Special Case)} Minimize
+	\begin{align}
+		F[x(\cdot), y(\cdot), z(\cdot)]
+		&= \int_a^b L(t, x(t), y(t), z(t), \dot{x}(t), \dot{y}(t), \dot{z}(t))\ dt
+	\end{align}
+	with constraint
+	\begin{align}
+		H(x(t), y(t), z(t)) \equiv 0
+	\end{align}
+	
+	\begin{theorem}[Euler-Lagrange Equations]
+		Let $\vex_*(t) := \begin{pmatrix}x_*(t)\\y_*(t)\\z_*(t)\end{pmatrix}$ be the minimizer subject to constraint, then
+		\begin{align}
+			\begin{pmatrix}
+				\frac{\delta F}{\delta x}[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t) \\
+				\frac{\delta F}{\delta y}[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t) \\
+				\frac{\delta F}{\delta z}[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t)
+			\end{pmatrix}
+			+ \red{\lambda(t)}
+			\begin{pmatrix}
+				H_x[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t) \\
+				H_y[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t) \\
+				H_z[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t)
+			\end{pmatrix} = 0\quad \forall t \in \R
+		\end{align}
+		where $\lambda(t)$ is a function here.
+	\end{theorem}
+	
+	\begin{example}[3-Dim Pendulum]
+		\begin{align}
+			\min_{\vex(\cdot) \in \mc{A}} F[x, y, z] &= \int_a^b \frac{1}{2} m (\dot{x}(t)^2 + \dot{y}(t)^2 + \dot{z}(t)^2) - mgz(t)\ dt \\
+			s.t.&\ H = \frac{1}{2} \left(x^2 + y^2 + z^2 - \ell^2 \right) = 0
+		\end{align}
+		In this case,
+		\begin{align}
+			&L(t, z_1, z_2, z_3, p_1, p_2, p_3) = \frac{1}{2} m (p_1^2 + p_2^2 + p_3^2) - mgz_3 \\
+			&\begin{cases}
+				L_{p_1} = mp_1 \quad
+				L_{p_2} &= mp_2 \quad
+				L_{p_3} = mp_3 \\
+				L_{z_1} = 0 \quad \quad \ 
+				L_{z_2} &= 0 \quad \quad \ 
+				L_{z_3} = - mg
+			\end{cases}
+		\end{align}
+		Because
+		\begin{align}
+			\frac{\delta F}{\delta x_i(t)} = - \frac{d}{dt} L_{p_i} + L_{z_i}
+		\end{align}
+		The Euler-Lagrange equation in this case is
+		\begin{align}
+			\begin{pmatrix}
+				- m \ddot{x}(t) \\
+				- m \ddot{y}(t) \\
+				- m \ddot{z}(t) - mg
+			\end{pmatrix}
+			+ \lambda(t)
+			\begin{pmatrix}
+				x(t) \\
+				y(t) \\
+				z(t)
+			\end{pmatrix} \equiv 0\quad (\dagger \dagger)
+		\end{align}
+		Combing ($\dagger \dagger$) and the constraint
+		\begin{align}
+			\begin{cases}
+				m \ddot{x}(t) = x(t) \\
+				m \ddot{y}(t) = y(t) \\
+				m \ddot{z}(t) = z(t) \\
+				x^2 + y^2 + z^2 = \ell^2
+			\end{cases}
+		\end{align}
+		Solving above system of equations provides the minimizer function to the proposed problem.
+	\end{example}
+	
+	\subsection{Geodesics on the Cylinder}
+	\paragraph{Problem} Find the string connecting two points on a cylinder of radius $r$ such that the arc-length is minimized:
+	\begin{align}
+		\min\ F[x(t), y(t), z(t)] &:= \int_a^b \sqrt{\dot{x}(t)^2 + \dot{y}(t)^2 + \dot{z}(t)^2}\ dt \\
+		s.t.\ H &:= x^2 + y^2 - r^2 = 0
+	\end{align}
+	The Euler-Lagrange equations in this case are
+	\begin{align}
+		\begin{cases}
+			- \frac{d}{dt}L_{\dot{x}} + L_x &= - 2 \lambda(t) x(t) \\
+			- \frac{d}{dt}L_{\dot{y}} + L_y &= - 2 \lambda(t) y(t) \\
+			- \frac{d}{dt}L_{\dot{z}} + L_z &= - 2 \lambda(t) z(t)
+		\end{cases} \\
+		\tx{where } L := \sqrt{p_1^2 + p_2^2 + p_3^2}
+	\end{align}
 \end{document}
 
 

@@ -32,6 +32,10 @@
 \contentsline {paragraph}{Objective function}{34}{section*.7}
 \contentsline {subsection}{\numberline {5.4}Euler-Lagrange Equations in $\mathbb {R}^n$}{38}{subsection.5.4}
 \contentsline {paragraph}{Setup}{38}{section*.8}
-\contentsline {subsection}{\numberline {5.5}Calculus of Variation with Equality Constraints}{39}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.5}Equality Constraints: Isoperimetric Case}{39}{subsection.5.5}
 \contentsline {paragraph}{Recall: Finite Dimensional Case}{39}{section*.9}
 \contentsline {paragraph}{Infinite Dimensional Case}{39}{section*.10}
+\contentsline {subsection}{\numberline {5.6}Equality Constraints: Holonomic Case}{41}{subsection.5.6}
+\contentsline {paragraph}{Setup (3-Dim Special Case)}{41}{section*.11}
+\contentsline {subsection}{\numberline {5.7}Geodesics on the Cylinder}{42}{subsection.5.7}
+\contentsline {paragraph}{Problem}{42}{section*.12}
