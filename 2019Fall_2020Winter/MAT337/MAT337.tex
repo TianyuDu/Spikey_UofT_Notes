@@ -2429,6 +2429,135 @@
 		\end{align}
 		Therefore, \emph{the value of integral is not necessarily preserved under point-wise convergence.}
 	\end{example}
+	
+	\begin{theorem}[Integrable Limit Theorem]
+		Assume $(f_n) \to f$ \ul{uniformly} on $[a, b]$ and each $f_n$ is integrable for all $n \in \N$, then $f$ is integrable and 
+		\begin{align}
+			\lim_{n \to \infty} \int_a^b f_n = \int_a^b f	
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		\emph{Step 1: Show $f$ is integrable} \\
+		Because $f_n \to f$ uniformly, there exists $N \in \N$ such that for all $n \geq N$, $\abs{f_n(x) - f(x)} < \frac{\varepsilon}{3(b-a)}$ for every $x \in [a, b]$. \\
+		Since $f_N$ is integrable, there exists $P_\varepsilon$ such that $U(f_N, P_\varepsilon) - L(f_N, P_\varepsilon) < \frac{\varepsilon}{3}$. \\
+		Consider
+		\begin{align}
+			U(f, P_\varepsilon) - L(f, P_\varepsilon) &= \abs{U(f, P_\varepsilon) - L(f, P_\varepsilon)} \\
+			&= \abs{U(f, P_\varepsilon) - U(f_N, P_\varepsilon) + U(f_N, P_\varepsilon)
+			- L(f, P_\varepsilon) + L(f_N, P_\varepsilon) - L(f_N, P_\varepsilon)
+			} \\
+			&\leq \abs{U(f, P_\varepsilon) - U(f_N, P_\varepsilon)}
+			+ \abs{U(f_N, P_\varepsilon) - L(f, P_\varepsilon)}
+			+ \abs{L(f_N, P_\varepsilon) - L(f_N, P_\varepsilon)} \\
+			&< \frac{\varepsilon}{3(b-a)}(b-a) + \frac{\varepsilon}{3(b-a)}(b-a) + \frac{\varepsilon}{3} \\
+			&= \varepsilon
+		\end{align}
+		\todo{Verify this proof.}
+	\end{proof}
+	
+	\begin{theorem}[Fundamental Theorem of Calculus]
+		\quad
+		\begin{enumerate}[(i)]
+			\item If $f: [a, b] \to \R$ is integrable and $F: [a, b] \to \R$ satisfies $F'(x) = f(x)$ for all $x \in [a, b]$, then
+				\begin{align}
+					\int_a^b f = F(b) - F(a)
+				\end{align}
+			\item Let $g: [a, b]$ be integrable, define $G(x) = \int_a^x g$. Then $G(x)$ is continuous on $[a, b)$. Moreover, if $g$ is continuous at $c \in [a, b]$, then $G$ is differentiable at $c$ and $G'(c) = g(c)$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}[Proof. Part I]
+		Let $P$ be some partition of $[a, b]$, in which each segment is denoted as $[x_{k-1}, x_k]$. \\
+		In every segment, by the mean value theorem, there exists $t_k$ such that
+		\begin{align}
+			\frac{F(x_k) - F(x_{k-1})}{x_k - x_{k-1}} &= F'(t_k) = f(t_k)
+		\end{align}
+		Within each segment, $m_k \leq f(t_k) \leq M_k$,
+		\begin{align}
+			L(f, P) &\leq \sum_k \frac{F(x_k) - F(x_{k-1})}{x_k - x_{k-1}} (x_k - x_{k-1}) \leq U(f, P) \\
+			\implies & L(f, P) \leq \sum_k F(x_k) - F(x_{k-1}) \leq U(f, P) \\
+			\implies & L(f, P) \leq F(b) - F(a) \leq U(f, P) \\
+			\implies & L(f) \leq F(b) - F(a) \leq U(f) \\
+			\implies & \int_a^b f = F(b) - F(a)
+		\end{align}
+	\end{proof}
+	
+	\begin{proof}[Proof. Part II]
+		Note that $g$ is integrable implies $g$ is bounded by some $M \in \N$. \\
+		Take $x, y \in [a, b]$, WLOG, assume $x > y$. \\
+		Then
+		\begin{align}
+			G(x) - G(y) &= \int_a^x g - \int_a^y g  = \int_y^x g \\
+			\implies \abs{G(x) - G(y)} &= \abs{\int_y^x g} \leq \int_y^x \abs{g} \leq M (x - y)
+		\end{align}
+	
+		\begin{lemma}
+			Lipschitz continuous implies $G(x)$ is uniformly continuous.
+		\end{lemma}
+		\begin{proof}	
+			Let $\varepsilon > 0$ be given, take $\delta = \frac{\varepsilon}{M}$:
+				\begin{align}
+					\abs{x - y} < \delta \implies \abs{G(x) - G(y)} < M \frac{\varepsilon}{M} = \varepsilon
+				\end{align}
+			\todo{Complete definitions of Lipschitz continuity}
+		\end{proof}
+		Let $c \in [a, b]$ be given, and suppose $g$ is continuous at $c$. \\
+		Want to show $G'(c) = g(c)$, need to show
+		\begin{align}
+			\lim_{x \to c} \frac{G(x) - G(c)}{x - c} = g(c)
+		\end{align}
+		Need to show
+		\begin{align}
+			\forall \varepsilon > 0, \exists \delta > 0\ s.t.\ 0 < \abs{x - c} < \delta \implies \abs{\frac{G(x) - G(c)}{x - c} - g(c)} < \varepsilon \quad (\dagger)
+		\end{align}
+		Note that 
+		\begin{align}
+			\frac{G(x) - G(c)}{x - c} &= \frac{1}{x - c}\int_c^x g(t) \\
+			g(c) &= \frac{1}{x-c} \int_c^x g(c)
+		\end{align}
+		Substitute into ($\dagger$)
+		\begin{align}
+			\abs{\frac{G(x) - G(c)}{x - c} - g(c)} &= \abs{
+			\frac{1}{x-c} \int_c^x [g(t) - g(c)]}
+		\end{align}
+		Because $g$ is continuous at $c$, then
+		\begin{align}
+			\exists \delta > 0,\ s.t.\ \abs{t - c} < \delta \implies \abs{g(t) - g(c)} < \varepsilon
+		\end{align}
+		Further, since $t \in [x, c]$, then $\abs{x - c} < \delta \implies \abs{t - c} < \delta$. \\
+		Therefore,
+		\begin{align}
+			\abs{x - c} < \delta \implies \abs{\frac{1}{x - c} \int_c^x [g(t) - g(c)]}
+			\leq \frac{1}{x-c} \int_c^x \abs{g(t) - g(c)} < \frac{1}{x-c} \int_c^x \varepsilon = \varepsilon
+		\end{align}
+	\end{proof}
+	
+	\subsection{Riemann Integral}
+	\begin{example}
+		Consider the Thomae's function:
+		\begin{align}
+			t(x) := \begin{cases}
+				1 &\tx{ if } x = 0 \\
+				\frac{1}{n} &\tx{ if } x = \frac{m}{n} \in \Q \land \gcd(m, n) = 1 \\
+				0 &\tx{ if } x \notin \Q
+			\end{cases}
+		\end{align}
+		\emph{$t(x)$ is integrable on $[0, 1]$ because the set of discontinuity is $\Q \cap [0, 1]$ which is countable and has measure zero.}
+		\begin{align}
+			\int_0^1 t(x) = 0 
+		\end{align}
+	\end{example}
+	
+	\begin{proof}
+		Because $\Q$ is dense in $[0, 1]$, therefore, $L(t, P) = 0$. \\
+		Now show
+		\begin{align}
+			\forall \varepsilon > 0, \exists P_\varepsilon,\ s.t.\ U(t, P_\varepsilon) < \varepsilon
+		\end{align}
+		Let $\varepsilon > 0$ fixed, there exists $N \in \N$ such that for all $n \geq N$, $\frac{1}{N} < \frac{\varepsilon}{2}$. \\
+		Then find the smallest such $N$, and make the lower sum close to 0.
+	\end{proof}
 \end{document}
 
 
