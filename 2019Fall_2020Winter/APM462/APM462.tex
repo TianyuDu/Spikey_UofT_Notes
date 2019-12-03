@@ -1809,7 +1809,7 @@
 	\begin{definition}
 		Given $u(\cdot) \in \mc{A}$, suppose $\exists$ function $g(\cdot)$ on $[a, b]$ such that 
 		\begin{align}
-			\left. \frac{d}{ds} \right |_{s=0} F[u(\cdot) + sv(\cdot)] = \int_a^b g(x) v(x)\ dx\ \forall \tx{ test functions} v(\cdot)
+			\red{\left. \frac{d}{ds} \right |_{s=0} F[u(\cdot) + sv(\cdot)] = \int_a^b g(x) v(x)\ dx\ \forall \tx{ test functions} v(\cdot)}
 		\end{align}
 		Then $g(\cdot)$ is called the \textbf{variational derivative} of $F$ at $u(\cdot)$, often denoted as $\frac{\delta F}{\delta u}(u)(\cdot)$.
 	\end{definition}
@@ -2068,7 +2068,7 @@
 		Suppose $u_*(\cdot)$ is a regular point, that is, the variational derivative $\frac{\delta G}{\delta u}(u_*) \neq 0$.\\
 		Further, if $u_*(\cdot)$ is a minimizer of above constrained optimization problem, then $\exists \lambda \in \R$ such that:
 		\begin{align}
-			\red{\frac{\delta F}{\delta u}(u_*) + \lambda \frac{\delta G}{\delta u}(u_*) \equiv 0}
+			\red{\frac{\delta F}{\delta u}[u_*] + \lambda \frac{\delta G}{\delta u}[u_*] \equiv 0}
 		\end{align}
 	\end{theorem}
 
@@ -2216,6 +2216,179 @@
 		\end{cases} \\
 		\tx{where } L := \sqrt{p_1^2 + p_2^2 + p_3^2}
 	\end{align}
+	The Euler-Lagrange equations can be reduced to
+	\begin{align}
+		\frac{d}{dt}
+		\begin{pmatrix}
+			x' / \sqrt{x'^2 + y'^2 + z'^2} \\
+			y' / \sqrt{x'^2 + y'^2 + z'^2} \\
+			z' / \sqrt{x'^2 + y'^2 + z'^2}
+		\end{pmatrix} &= \lambda(t)
+		\begin{pmatrix}
+			2 x \\ 2y \\ 0
+		\end{pmatrix}  \quad (\dagger)
+	\end{align}
+	
+	\begin{definition}
+		A curve is called \textbf{geodesic} if it satisfies the Euler-Lagrange necessary condition ($\dagger$).
+	\end{definition}
+	
+	\begin{definition}
+		Given two points on the cylinder, being geodesic is not a sufficient condition to show one curve is actually the distance minimizing curve connecting these two points.
+	\end{definition}
+	
+	\begin{example}
+		Spirals are geodesics.
+	\end{example}
+	
+	\begin{proof}
+		A spiral can be parametrized using time $t$ as
+		\begin{align}
+			\begin{cases}
+				x(t) &= r \cos (t) \\
+				y(t) &= r \sin (t) \\
+				z(t) &= r \alpha
+			\end{cases} \implies
+			\begin{cases}
+				x'(t) &= - r \sin (t) \\
+				y'(t) &= r \cos (t) \\
+				z'(t) &= \alpha
+			\end{cases}
+		\end{align}
+		Therefore,
+		\begin{align}
+			\sqrt{x'^2 + y'^2 + z'^2} = \sqrt{r^2 + \alpha^2} = \tx{constant}
+		\end{align}
+		The Euler-Lagrange equations become 
+		\begin{align}
+			\frac{1}{\tx{constant}}\frac{d}{dt}
+			\begin{pmatrix}
+				-r \sin(t) \\
+				r \cos(t) \\
+				\alpha
+			\end{pmatrix} &= 2 \lambda(t) \begin{pmatrix}
+				r \cos (t) \\
+				r \sin (t) \\
+				0
+			\end{pmatrix} \\
+			\implies
+			\frac{1}{\tx{constant}}
+			\begin{pmatrix}
+				- r \cos(t) \\
+				- r \sin(t) \\
+				\alpha
+			\end{pmatrix} &= 2 \lambda(t) \begin{pmatrix}
+				r \cos (t) \\
+				r \sin (t) \\
+				0
+			\end{pmatrix} \\
+			\implies
+			\lambda(t) &= - \frac{1}{2\tx{ constant}} \\
+			&= - \frac{1}{2 \sqrt{r^2 + \alpha^2}}
+		\end{align}
+	\end{proof}
+	
+	\begin{example}
+		Straight line is also geodesic.
+	\end{example}
+	
+	\begin{proof}
+		Consider the straight line parameterized as 
+		\begin{align}
+			\begin{cases}
+				x(t) &= \alpha \\
+				y(t) &= \beta \\
+				z(t) &= \gamma t
+			\end{cases} \implies 
+			\begin{cases}
+				x'(t) &= 0 \\
+				y'(t) &= 0 \\
+				z'(t) &= \gamma
+			\end{cases}
+		\end{align}
+		In this case, $\sqrt{x'^2 + y'^2 + z'^2} = \gamma$. \\
+		The Euler-Lagrange equations are
+		\begin{align}
+			\frac{d}{dt} \frac{1}{\gamma} \begin{pmatrix}
+				0 \\ 0 \\ \gamma
+			\end{pmatrix} &= 2 \lambda(t) \begin{pmatrix}
+				\alpha \\ \beta \\ 0
+			\end{pmatrix} \\
+			\implies \lambda(t) &= 0
+		\end{align}
+	\end{proof}
+	
+	\begin{example}[Another Example of Isoperimetric Constraints]
+		Consider
+		\begin{align}
+			F[u(\cdot)] &= \int_0^a u(x) \sqrt{1 + u'(x)^2}\ dx \\
+			L^F &= z \sqrt{1 + p^2} \\
+			u \in \mc{A} &:= \{u: [0, a] \to \R: u \in C^1, u(x) \geq 0, u(0) = b, u(a) = 0 \} \\
+			G[u(\cdot)] &= \int_0^a u(X)\ dx = \frac{ab}{2} \\
+			L^G &= z - \frac{b}{2}
+		\end{align}
+		\textbf{Part 1:} Derive the Euler-Lagrange equations.
+		\begin{align}
+			\frac{\delta F}{\delta u} &= - \frac{d}{dx} \frac{z p}{\sqrt{1+p^2}} + \sqrt{1 + p^2} \\
+			\frac{\delta G}{\delta u} &= 1
+		\end{align}
+		The Euler-Lagrange equations are
+		\begin{align}
+			\frac{d}{dx} \frac{z p}{\sqrt{1+p^2}} - \sqrt{1 + p^2} &= \lambda
+		\end{align}
+		\textbf{Part 2:} Show that the following function satisfies the necessary condition.
+		\begin{align}
+			u(x) &= b \left(1 - \frac{x}{a}\right) \\
+			u'(x) &= - \frac{b}{a}
+		\end{align}
+		Therefore,
+		\begin{align}
+			\frac{d}{dx} \frac{z p}{\sqrt{1+p^2}} - \sqrt{1 + p^2} &= \frac{p^2}{\sqrt{1+p^2}} - \sqrt{1 + p^2} \\
+			&= \frac{\frac{b^2}{a^2}}{\sqrt{1 + \frac{b^2}{a^2}}} - \sqrt{1 + \frac{b^2}{a^2}} \\
+			&= \frac{\frac{b^2}{a}}{\sqrt{a^2 + b^2}} - \frac{1}{a} \sqrt{a^2 + b^2} \\\
+			&= \frac{b^2}{a \sqrt{a^2 + b^2}} - \frac{a^2 + b^2}{a \sqrt{a^2 + b^2}} \\
+			&= \frac{-a}{\sqrt{a^2 + b^2}} = \lambda
+		\end{align}
+		Obviously, $u(\cdot) \in C^1$ and $u(0) = b, u(a) = 0$. \\
+		Also, 
+		\begin{align}
+			G[u(\cdot)] &= \int_0^a b(1 - \frac{x}{a})\ dx \\ 
+			&= \int_0^a b - \frac{bx}{a}\ dx \\
+			&= \left. bx - \frac{bx^2}{2a} \right|_0^a \\
+			&= ab - \frac{ba^2}{2a} \\
+			&= \frac{ab}{2}
+		\end{align}
+	\end{example}
+	
+	\begin{example}[The Brachistochrone Problem]
+		Parametrize the problem using $c: [0, T] \to \R^2$ to describe the curve such that $c(0) = A = (0, a)$ and $c(T) = B = (b, 0)$. \\
+		In particular, for each path of motion $x(t)$, the parametric representation can be constructed as
+		\begin{align}
+			c(t) &= (x(t), y(t)) = (x(t), u(x(t))) \\
+			\implies v(t) &= \frac{d}{dt}c(t) = \dot{x}(t) \begin{pmatrix}
+				1 \\ \dot{u}(x(t))
+			\end{pmatrix}
+		\end{align} 
+		The kinetic energy at time $t$ is 
+		\begin{align}
+			T(t) &= \frac{1}{2} m \dot{x}(t)^2 [1 + \dot{u}(x(t))^2]
+		\end{align}
+		The potential energy at time $t$ is
+		\begin{align}
+			V(t) &= m g u(x(t))
+		\end{align}
+		By the conservation of energy, the total energy $E(t) := T(t) + V(t)$ is a constant function. \\
+		Re-write the total energy function
+		\begin{align}
+			E(t) &= \frac{1}{2} m \dot{x}(t)^2 [1 + \dot{u}(x(t))^2] + m g u(x(t)) = m g a\ \forall t \in [0, T] \\
+			\implies \dot{x}(t) &= \sqrt{\frac{2g(a - u(x(t)))}{1 + \dot{u}(x(t))^2}}
+		\end{align}
+		The total time for the point mass to travel from $A$ to $B$ is $T$:
+		\begin{align}
+			T &= \int_0^T 1\ dt = \int_0^T \frac{1}{\dot{x}(t)} \dot{x}(t)\ dt \\
+			&= \int_0^T \sqrt{\frac{1 + \dot{u}(x(t))^2}{2g(a - u(x(t)))}} \dot{x}(t)\ dt
+		\end{align}
+	\end{example}
 \end{document}
 
 
