@@ -2533,7 +2533,7 @@
 		\end{align}
 	\end{proof}
 	
-	\subsection{Riemann Integral}
+	\subsection{Lebesgue Criterion for Reimann Integrability}
 	\begin{example}
 		Consider the Thomae's function:
 		\begin{align}
@@ -2550,13 +2550,174 @@
 	\end{example}
 	
 	\begin{proof}
+		\todo{revise this proof}
 		Because $\Q$ is dense in $[0, 1]$, therefore, $L(t, P) = 0$. \\
 		Now show
 		\begin{align}
 			\forall \varepsilon > 0, \exists P_\varepsilon,\ s.t.\ U(t, P_\varepsilon) < \varepsilon
 		\end{align}
 		Let $\varepsilon > 0$ fixed, there exists $N \in \N$ such that for all $n \geq N$, $\frac{1}{N} < \frac{\varepsilon}{2}$. \\
-		Then find the smallest such $N$, and make the lower sum close to 0.
+		Take the smallest natural number and denote it as $N$. \\
+		Consider the set of $K$ fractions:
+		\begin{align}
+			\{p_1, \cdots, p_K\} =  \left\{1, \frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \cdots, \frac{N-2}{N-1} \right\}
+		\end{align}
+		take $\delta = \frac{\varepsilon}{4K}$, construct partition $[p_k - \delta, p_k + \delta]$.
+		\begin{align}
+			U(t, P) &= \sum_{i=1}^n M_i \Delta x_i = \sum_{i \in \mc{A}} M_i \Delta x_i + \sum_{i \notin \mc{A}} M_i \Delta x_i
+		\end{align}
+		where $\mc{A}$ denotes all the intervals contains $x_i$ such that $t(x_i) \geq \frac{\varepsilon}{2}$. \\
+		Notice that
+		\begin{align}
+			&\sum_{i \in \mc{A}} M_i \Delta x_i 
+			\leq \sum_{i \in \mc{A}} \Delta x_i 
+			\leq \frac{2 \varepsilon}{4k} k 
+			= \frac{\varepsilon}{2} \\
+			&\sum_{i \notin \mc{A}} M_i \Delta x_i
+			< \sum_{i \notin \mc{A}} \frac{\varepsilon}{2} \Delta x_i
+			< \frac{\varepsilon}{2}
+		\end{align}
+		Therefore, with the provided partition $P$, $U(t, P) < \varepsilon$.
+	\end{proof}
+	
+	\begin{definition}
+		A set $A \subseteq \R$ has measure zero if $\forall \varepsilon > 0$, there exists a \ul{countable} collection of open intervals $\mc{O}_n = [a_n, b_n]$ such that 
+		\begin{align}
+			A \subseteq \bigcup_{n \in \N} \mc{O}_n\ \land \ \sum_{n\in\N}\abs{\mc{O}_n} \leq \varepsilon
+		\end{align}
+		where $\abs{\mc{O}_n} := \abs{b_n - a_n}$.
+	\end{definition}
+	
+	\begin{proposition}
+		Finite sets have measure zero.
+	\end{proposition}
+	
+	\begin{proof}
+		Let $A = \{x_n\}_{n=1}^N$. Let $\varepsilon > 0$ fixed. \\
+		For every $n \in [N]$, define $\mc{O}_n := \left(x_n - \frac{\varepsilon}{2N}, x_n + \frac{\varepsilon}{2N} \right)$. \\
+		The result is immediate.
+	\end{proof}
+	
+	\begin{proposition}
+		Countable sets have measure zero.
+	\end{proposition}
+	
+	\begin{proof}
+		Let $A = \{x_1, x_2, \cdots \}$. Let $\varepsilon > 0$ fixed. \\
+		For every $n \in \N$, define
+		\begin{align}
+			\mc{O}_n := \left(
+			x_n - \frac{\varepsilon}{2^{n+1}},
+			x_n + \frac{\varepsilon}{2^{n+1}}
+			\right)
+		\end{align}
+		Obviously, $A$ is covered by $\{\mc{O}_n:n\in\N\}$.
+		\begin{align}
+			\sum_{n\in\N} \abs{\mc{O}_n}
+			&= \sum_{n=1}^\infty \frac{\varepsilon}{2^n} \\
+			&= \sum_{n=0}^\infty \frac{\varepsilon}{2^{n+1}} \\
+			&= \frac{\varepsilon}{2} \sum_{n=0}^\infty \frac{\varepsilon}{2^n} \\
+			&= \frac{\varepsilon}{2} 2 = \varepsilon
+		\end{align}
+	\end{proof}
+	
+	\begin{remark}
+		Measure zero $\centernot \implies$ countable. \\
+		Counter example: Cantor set is uncountable but has measure zero.
+	\end{remark}
+	
+	\begin{theorem}
+		Countable union of sets of measure zero has measure zero.
+	\end{theorem}
+	
+	\begin{proof}
+		Let $A = \bigcup_{n\in \N} A_n$, in which every $A_n$ has measure zero. \\
+		For each $n \in \N$, because $A_n$ has measure zero, there exists a countable collection of open intervals $\{\mc{O}^n_j: j \in \N\}$ covers it and satisfies $\sum_{j \in \N} \abs{\mc{O}^n_j} \leq \frac{\varepsilon}{2^n}$. \\
+		Clearly, the union $\bigcup_{n \in \N} \{\mc{O}^n_j: j \in \N\}$ is consisting of open intervals and covers $A$. \\
+		Moreover
+		\begin{align}
+			\sum_{n\in\N} \sum_{j\in\N} \abs{\mc{O}^n_j} &\leq \sum_{n\in\N} \frac{\varepsilon}{2^n} = \frac{\varepsilon}{2} \sum_{n=0}^\infty \frac{1}{2^n} = \varepsilon
+		\end{align}
+	\end{proof}
+	
+	\begin{definition}
+		The \textbf{oscillation} of a function $f$ on \textbf{set} $A$ is defined as
+		\begin{align}
+			osc(f, A) := \sup\left\{
+			\abs{f(x) - f(y)}: x, y \in A \cap Dom(f)
+			\right\}
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}
+		The \textbf{oscillation} of $f$ at a \textbf{point} $x$ is defined as
+		\begin{align}
+			osc(f; x) &:=\lim_{h \to 0^+} \left(
+			\sup\{
+			\abs{f(x') - f(x'')}: x', x'' \in V_h(x) \cap Dom(f)
+			\}
+			\right) \\
+			&= \lim_{h \to 0^+} osc(f, V_h(x))
+		\end{align}
+	\end{definition}
+	
+	\begin{theorem}
+		A function $f$ defined on $A \subseteq \R$ is continuous at $x \in A$ \ul{if and only if} $osc(f;x) = 0$.
+	\end{theorem}
+	
+	\begin{proof}
+		\quad \\
+		($\impliedby$) Suppose $osc(f; x) = 0$, for every $\varepsilon > 0$, there exists $\delta$ such that (by the definition of limits)
+		\begin{align}
+			0 < h < \delta
+			\implies
+			\sup\{
+			\abs{f(x') - f(x'')}: x', x'' \in V_h(x) \cap Dom(f)
+			\} < \varepsilon
+		\end{align}
+		Take the same $\delta$, let $z \in V_\delta(x)$, then $\abs{f(z) - f(x)} < \varepsilon$.
+		($\implies$) Suppose $f$ is continuous at $x$, then for every $\varepsilon > 0$ fixed, there exists $\delta > 0$ such that
+		\begin{align}
+			\forall z \in V_\delta(x),\ \abs{f(z) - f(x)} < \frac{\varepsilon}{2}
+		\end{align}
+		Take the same $\delta > 0$, and for every $0 < h < \delta$, for every $x', x'' \in V_{\varepsilon/2}(x)$
+		\begin{align}
+			\abs{f(x') - f(x'')} &= \abs{f(x') - f(x) + f(x) - f(x'')} \\
+			&\leq \abs{f(x') - f(x)} + \abs{f(x) - f(x'')} \\
+			&< 2 \frac{\varepsilon}{2} = \varepsilon \\
+			\implies \sup \abs{f(x') - f(x'')} &< \varepsilon
+		\end{align}
+	\end{proof}
+	
+	\begin{theorem}[The Riemann Lebesgue Theorem]
+		Let $f$ be a function defined on $[a, b]$, then the following statements are equivalent:
+		\begin{enumerate}[(i)]
+			\item $f$ is integrable on $[a, b]$;
+			\item The set of discontinuity of $f$ on $[a, b]$, $D_f \cap [a, b]$, has measure zero.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		Define $A := D_f \cap [a, b] = \{x \in [a, b]: osc(f;x) > 0\}$. WTS: $A$ has measure zero.\\
+		Suppose $f$ is Riemann integrable on $[a, b]$, construct the subsets of $A$ as 
+		\begin{align}
+			A_k := \left\{x \in [a, b]: osc(f;x) \geq \frac{1}{k} \right\}
+		\end{align}
+		Note that $A = \bigcup_{k \in \N} A_k$. \\
+		Let $\varepsilon > 0$ fixed, then there exists $P_\varepsilon$ of $[a, b]$ such that
+		\begin{align}
+			U(f, P_\varepsilon) - L(f, P_\varepsilon) < \frac{\varepsilon}{k}
+		\end{align}
+		For a given $i$, $x \in A_k \cup (x_{i-1}, x_i)$
+		\begin{align}
+			[M_i(f) - m_i(f)] \Delta_i &\geq \frac{1}{k} \Delta_i\ \because osc(f;x) \geq \frac{1}{k} \\
+			\implies \frac{\varepsilon}{k} &> U(f, P_\varepsilon) - L(f, P_\varepsilon) \\
+			&= \sum_{i=1}^m [M_i(f) - m_i(f)] \Delta_i \\
+			&\geq \sum_\tx{over intervals s.t. $[(x_{i-1}, x_i) \cap A_k] \neq \varnothing$} [M_i(f) - m_i(f)] \Delta_i \\
+			&\geq \frac{1}{k} \sum \Delta_i \\
+			\implies \sum \Delta_i &< \varepsilon
+		\end{align}
+		Therefore the partition covers $A_k$ and has measure zero. Moreover, $A$ is a countable union of measure zero sets, so $A$ has measure zero.
 	\end{proof}
 \end{document}
 

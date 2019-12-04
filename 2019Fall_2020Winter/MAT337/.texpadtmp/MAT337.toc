@@ -34,4 +34,4 @@
 \contentsline {subsection}{\numberline {8.2}Properties of the Integral}{46}{subsection.8.2}
 \contentsline {subsection}{\numberline {8.3}Convergence and Integrability}{51}{subsection.8.3}
 \contentsline {paragraph}{Motivation}{51}{section*.3}
-\contentsline {subsection}{\numberline {8.4}Riemann Integral}{54}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.4}Lebesgue Criterion for Reimann Integrability}{54}{subsection.8.4}
