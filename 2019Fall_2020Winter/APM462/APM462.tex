@@ -2386,9 +2386,70 @@
 		The total time for the point mass to travel from $A$ to $B$ is $T$:
 		\begin{align}
 			T &= \int_0^T 1\ dt = \int_0^T \frac{1}{\dot{x}(t)} \dot{x}(t)\ dt \\
-			&= \int_0^T \sqrt{\frac{1 + \dot{u}(x(t))^2}{2g(a - u(x(t)))}} \dot{x}(t)\ dt
+			&= \int_0^T \sqrt{\frac{1 + \dot{u}(x(t))^2}{2g(a - u(x(t)))}} \dot{x}(t)\ dt \\
+			&= \int_{x(t_0)}^{x(t_1)} \sqrt{\frac{1 + \dot{u}(x(t))^2}{2g(a - u(x(t)))}}\ dx \\
+			&= \int_0^b \sqrt{\frac{1 + \dot{u}(x(t))^2}{2g(a - u(x(t)))}}\ dx
+		\end{align}
+		The minimization problem becomes 
+		\begin{align}
+			&\min F[u(\cdot)] = \int_0^b \sqrt{\frac{1 + \dot{u}(x(t))^2}{2g(a - u(x(t)))}}\ dx \\
+			s.t.\ u(\cdot) \in \mc{A} &= \{u:[0, b] \to \R: u \in C^1, u(0) = a, u(b) = 0 \}
+		\end{align}
+		The Euler-Lagrange equation is
+		\todo{verify this point}
+		\begin{align}
+			(1 + u'(x)^2)(a - u(x))c^2 = 1\ \tx{where $c=$ constant}
+		\end{align}
+		\textbf{Claim:} the solution to above differentiable equation takes the form
+		\begin{align}
+			u(x(t)) = a - k(1 - \cos t)
+		\end{align}
+		To verify the validation of the proposed solution
+		\begin{align}
+			\frac{d}{dt} u'(x(t)) x'(t) &= - k \sin t \\
+			\implies u'(x(t)) &= -\frac{k \sin t}{x'(t)} \\
+			\implies c^2 \left(1 + \frac{k^2 \sin^2 t}{x'(t)^2} \right) k (1 - \cos t) &= 1
+		\end{align}
+		In particular, choose $c^2 k = \frac{1}{2}$:
+		\begin{align}
+			\left(1 + \frac{k^2 \sin^2 t}{x'(t)^2} \right) (1 - \cos t) &= 2 \\
+			\implies k^2 \sin^2 t (1 - \cos t) &= x'(t)^2 (1 + \cos t) \\
+			\implies k^2 \sin^2 t (1 - \cos t)^2 &= x'(t)^2 (1 + \cos t) (1 - \cos t) \\
+			&= x'(t)^2(1 - \cos^2 t) = x'(t) \sin^2 t \\
+			\implies k^2(1 - \cos t)^2 &= x'(t)^2 \\
+			\implies k (1 - \cos t) &= x'(t) \\
+			\implies k t - k \sin t &= x(t) + C \\
+			\implies c(t) &= \begin{pmatrix}
+				x(t) \\ y(t)
+			\end{pmatrix} = \begin{pmatrix}
+				x(t) \\ u(x(t))
+			\end{pmatrix} \\
+			&= \begin{pmatrix}
+				kt - k\sin t \\
+				a - k(1 - \cos t)
+			\end{pmatrix}
+		\end{align}
+		With initial conditions:
+		\begin{align}
+			c(0) &= (0, a) = A \\
+			c(T) &= \begin{pmatrix}
+				k(T - \sin T) \\
+				a - k(1 - \cos T)
+			\end{pmatrix} = \begin{pmatrix}
+				b \\ 0
+			\end{pmatrix}
 		\end{align}
 	\end{example}
+	
+	\section{Appendix}
+	\paragraph{Some Basic ODEs}
+	\begin{align}
+		u'(x) = 0 &\implies u(x) = c \\
+		u'(x) = u(x) &\implies u(x) = A e^x \\
+		u''(x) = 0 &\implies u(x) = Ax + B \\
+		u''(x) = u(x) &\implies u(x) = A e^x + B e^{-x} \\
+		u''(x) = -u(x) &\implies u(x) = A \sin x + B \cos x
+	\end{align}
 \end{document}
 
 
