@@ -1727,108 +1727,6 @@
  	\begin{proof}
  		\todo{Complete this proof.}
  	\end{proof}
-
- 	\newpage
- 	\section{Appendix I: Midterms}
- 	\begin{proposition}[Midterm 1, Q7]
- 		Let $(a_n)$ be a bounded sequence,\\
- 		let $S:= \{x \in \R: x < a_n \tx{ for infinitely many terms }a_n\}$. \\
- 		Then $\exists (a_{n_k}) \to s := \sup S$.
- 	\end{proposition}
- 	
- 	\begin{lemma}
- 		$S$ is bounded above, therefore $s := \sup S$ is well-defined.
- 	\end{lemma}
- 	\begin{proof}
- 		Every element in $S$ is bounded from above by infinitely many elements from $(a_n)$, which are themselves bounded. Therefore $S$ is bounded from above. \\
- 		So $s$ is well-defined by the completeness axiom.
- 	\end{proof}
- 	
- 	\begin{proof}[Proof. Case 1]
- 		Suppose there are infinitely many $a_n > s$. \\
- 		Then either $\forall k \in \N\ \exists a_{n_k} \in [s, s + \frac{1}{k})$, such subsequence $(a_{n_k}) \to s$. \\
- 		Or $\exists k \in \N$ such that no $a_n$ in $[s, s + \frac{1}{k})$, this leads to a contradiction to the assumption that $s$ is the least upper bound.
- 	\end{proof}
- 	
- 	\begin{proof}[Proof. Case 2]
- 		Suppose there are only finitely many $a_n > s$. \\
- 		Consider $(s - \frac{1}{k}, s]$, by the definition of supremum, $\forall k \in \N,\ \exists s_k \in (s - \frac{1}{k}, s] \cap S$. \\
- 		But $s_k < a_n$ for infinitely many $a_n$ by definition of $S$. \\
- 		In particular, because there are only finitely many $a_n > s$, there must be infinitely many $a_n$ clustered in $(s - \frac{1}{k}, s]$ for every $k \in N$.\\
- 		For each $k \in \N$, one can pick $a_{n_k} \in (s - \frac{1}{k}, s]$ and $(a_{n_k}) \to s$.
- 	\end{proof}
- 	
- 	\begin{proposition}[Another Midterm Question]
- 		The open clopen set in $\R$ is $\varnothing$ and $\R$.
- 	\end{proposition}
- 	
- 	\begin{proof}
- 		Suppose, for contradiction, there exists $U, V \neq \varnothing$ and $V = U^c$, further $U$ is clopen. \\
- 		By definition of closedness and openness, $V$ is clopen as well. \\
- 		Pick $a \in U$ and $b \in V$. WLOG, assume $a < b$. \\
- 		Construct $X \subseteq U$ as
- 		\begin{align}
- 			X := \{x \in U: x < b\}
- 		\end{align}
- 		$X$ is nonempty because $a \in X$.\\
- 		$X$ is certainly bounded above by $b$, hence, by the completeness axiom, $\exists\ \alpha = \sup X$. \\
- 		\textbf{Calim:} $\alpha \in \partial U$.\\
- 		By the definition of supremum, for every $\varepsilon > 0$, 
- 		\begin{align}
- 			\forall \varepsilon > 0,\ V_\varepsilon(\alpha) \cap X \neq \varnothing \\
- 			\implies V_\varepsilon(\alpha) \cap U \neq \varnothing
- 		\end{align}
- 		\emph{Case 1:} \\
- 		If $V_\varepsilon(\alpha) \cap V = \varnothing$ for some $\varepsilon > 0$, then $V_\varepsilon(\alpha) \subseteq U$. \\
- 		\emph{Subcase 1:} \\
- 		If $\alpha + \frac{\varepsilon}{2} \leq b$, then $\alpha \neq \sup X$ (contradiction); \\
- 		\emph{Subcase 2:} \\
- 		If $\alpha + \frac{\varepsilon}{2} > b$, then $b \in V_{\varepsilon/2}(\alpha) \cap V \subseteq V_\varepsilon(\alpha) \cap V = \varnothing$ (contradiction).\\
- 		\emph{Case 2:}
- 		$\forall \varepsilon > 0,\ V_\varepsilon(\alpha) \cap V \neq \varnothing$, then by definition, $\alpha \in \partial U \subseteq U$ and $\alpha \in \partial U \subseteq U$ because $U$ and $V$ are closed. \\
- 		This leads to a contradiction that $U \cap V = \varnothing$.
- 	\end{proof}
- 	
- 	\begin{proposition}[Sample Midterm 2]
- 		Let $\mc{K} = \{K_\lambda: \lambda \in \Lambda \}$ be a collection of compact subsets of $\R$ such that the intersection of every finite sub-collection is nonempty. Then $\bigcap_{\lambda \in \Lambda} K_\lambda \neq \varnothing$.
- 	\end{proposition}
- 	
- 	\begin{proof}
- 		Suppose, for contradiction, $\bigcap_{\lambda \in \Lambda} K_\lambda = \varnothing$. \\
- 		Take an arbitrary $K_0 \in \mc{K}$, which is obviously non-empty. \\
- 		Then,
- 		\begin{align}
- 			K_0 &= K_0 \cap \varnothing^c \\
- 			&= K_0 \cap \left(\bigcap_{\lambda \in \Lambda} K_\lambda\right)^c \\
- 			&= K_0 \cap \bigcup_{\lambda \in \Lambda} K_\lambda^c \\
- 			&= \bigcup_{\lambda \in \Lambda} K_0 \cap K_\lambda^c
- 		\end{align}
- 		For an arbitrary $\lambda \in \Lambda$, let $x \in K_0 \cap K_\lambda^c \neq \varnothing$. \\
- 		Because $K_\lambda^c$ is open in $\R$, $\exists\ V_\varepsilon(x) \subseteq K_\lambda^c$. \\
- 		Note that because $K_\lambda^c$ is open in $\R$, therefore $K_0 \cap K_\lambda^c$ is open in $K_0$. \\
- 		Hence, $\bigcup_{\lambda \in \Lambda} K_0 \cap K_\lambda^c$ is an open cover of $K_0$. The compactness of $K_0$ suggests it has a finite subcover, say $\bigcup_{\lambda=1}^n K_0 \cap K_\lambda^c$. That is,
- 		\begin{align}
- 			K_0 &= \bigcup_{\lambda=1}^n K_0 \cap K_\lambda^c \\
- 			&= K_0 \cap \bigcup_{\lambda=1}^n K_\lambda^c \\
- 			&= K_0 \backslash \bigcap_{\lambda=1}^n K_\lambda \\
- 			\implies &\bigcap_{\lambda=1}^n K_\lambda = \varnothing
- 		\end{align}
- 		$\contradiction$
- 	\end{proof}
- 	
- 	\begin{theorem}
- 		If $\sum_{n=0}^\infty a_n x^n$ \ul{converges} for all $x \in (-R, R)$, then the differentiated series $\sum_{n=0}^\infty n a_n x^{n-1}$ \ul{converges} for all $x \in (-R, R)$ as well. \\
- 		Further, the differentiated series \ul{converges uniformly} for every compact $K \subseteq (-R, R)$. \\
- 		Moreover, provided the uniform convergence of differentiated series, the limit function $\sum_{n=0}^\infty a_n x^n$ is differentiable. Therefore,
- 		\begin{align}
- 			\frac{d}{dx} \sum_{n=0}^\infty a_n x^n &= \sum_{n=0}^\infty n a_n x^{n-1}
- 		\end{align}
- 		\emph{Remark: Differentiating a power series does not change its radius of convergence.}
- 	\end{theorem}
- 	
- 	\begin{proof}
- 		Prove using comparison test.
- 	\end{proof}
  	
  	\section{Taylor's Series}
  	\paragraph{Idea} Given $f(x) \in C^\infty$, we are trying express $f(x)$ as a series $\sum_{n=0}^\infty a_n x^n$ such that the series converges somewhere else other than $x=0$. If such series exists, it must satisfy
@@ -2748,6 +2646,108 @@
 			\sum (M_i - m_i) \Delta x_i &= \sum_{C'} (M_i - m_i) \Delta x_i + \sum_{C''} (M_i - m_i) \Delta x_i < \varepsilon
 		\end{align}
 	\end{proof}
+
+ 	\newpage
+ 	\section{Appendix I: Midterms}
+ 	\begin{proposition}[Midterm 1, Q7]
+ 		Let $(a_n)$ be a bounded sequence,\\
+ 		let $S:= \{x \in \R: x < a_n \tx{ for infinitely many terms }a_n\}$. \\
+ 		Then $\exists (a_{n_k}) \to s := \sup S$.
+ 	\end{proposition}
+ 	
+ 	\begin{lemma}
+ 		$S$ is bounded above, therefore $s := \sup S$ is well-defined.
+ 	\end{lemma}
+ 	\begin{proof}
+ 		Every element in $S$ is bounded from above by infinitely many elements from $(a_n)$, which are themselves bounded. Therefore $S$ is bounded from above. \\
+ 		So $s$ is well-defined by the completeness axiom.
+ 	\end{proof}
+ 	
+ 	\begin{proof}[Proof. Case 1]
+ 		Suppose there are infinitely many $a_n > s$. \\
+ 		Then either $\forall k \in \N\ \exists a_{n_k} \in [s, s + \frac{1}{k})$, such subsequence $(a_{n_k}) \to s$. \\
+ 		Or $\exists k \in \N$ such that no $a_n$ in $[s, s + \frac{1}{k})$, this leads to a contradiction to the assumption that $s$ is the least upper bound.
+ 	\end{proof}
+ 	
+ 	\begin{proof}[Proof. Case 2]
+ 		Suppose there are only finitely many $a_n > s$. \\
+ 		Consider $(s - \frac{1}{k}, s]$, by the definition of supremum, $\forall k \in \N,\ \exists s_k \in (s - \frac{1}{k}, s] \cap S$. \\
+ 		But $s_k < a_n$ for infinitely many $a_n$ by definition of $S$. \\
+ 		In particular, because there are only finitely many $a_n > s$, there must be infinitely many $a_n$ clustered in $(s - \frac{1}{k}, s]$ for every $k \in N$.\\
+ 		For each $k \in \N$, one can pick $a_{n_k} \in (s - \frac{1}{k}, s]$ and $(a_{n_k}) \to s$.
+ 	\end{proof}
+ 	
+ 	\begin{proposition}[Another Midterm Question]
+ 		The open clopen set in $\R$ is $\varnothing$ and $\R$.
+ 	\end{proposition}
+ 	
+ 	\begin{proof}
+ 		Suppose, for contradiction, there exists $U, V \neq \varnothing$ and $V = U^c$, further $U$ is clopen. \\
+ 		By definition of closedness and openness, $V$ is clopen as well. \\
+ 		Pick $a \in U$ and $b \in V$. WLOG, assume $a < b$. \\
+ 		Construct $X \subseteq U$ as
+ 		\begin{align}
+ 			X := \{x \in U: x < b\}
+ 		\end{align}
+ 		$X$ is nonempty because $a \in X$.\\
+ 		$X$ is certainly bounded above by $b$, hence, by the completeness axiom, $\exists\ \alpha = \sup X$. \\
+ 		\textbf{Calim:} $\alpha \in \partial U$.\\
+ 		By the definition of supremum, for every $\varepsilon > 0$, 
+ 		\begin{align}
+ 			\forall \varepsilon > 0,\ V_\varepsilon(\alpha) \cap X \neq \varnothing \\
+ 			\implies V_\varepsilon(\alpha) \cap U \neq \varnothing
+ 		\end{align}
+ 		\emph{Case 1:} \\
+ 		If $V_\varepsilon(\alpha) \cap V = \varnothing$ for some $\varepsilon > 0$, then $V_\varepsilon(\alpha) \subseteq U$. \\
+ 		\emph{Subcase 1:} \\
+ 		If $\alpha + \frac{\varepsilon}{2} \leq b$, then $\alpha \neq \sup X$ (contradiction); \\
+ 		\emph{Subcase 2:} \\
+ 		If $\alpha + \frac{\varepsilon}{2} > b$, then $b \in V_{\varepsilon/2}(\alpha) \cap V \subseteq V_\varepsilon(\alpha) \cap V = \varnothing$ (contradiction).\\
+ 		\emph{Case 2:}
+ 		$\forall \varepsilon > 0,\ V_\varepsilon(\alpha) \cap V \neq \varnothing$, then by definition, $\alpha \in \partial U \subseteq U$ and $\alpha \in \partial U \subseteq U$ because $U$ and $V$ are closed. \\
+ 		This leads to a contradiction that $U \cap V = \varnothing$.
+ 	\end{proof}
+ 	
+ 	\begin{proposition}[Sample Midterm 2]
+ 		Let $\mc{K} = \{K_\lambda: \lambda \in \Lambda \}$ be a collection of compact subsets of $\R$ such that the intersection of every finite sub-collection is nonempty. Then $\bigcap_{\lambda \in \Lambda} K_\lambda \neq \varnothing$.
+ 	\end{proposition}
+ 	
+ 	\begin{proof}
+ 		Suppose, for contradiction, $\bigcap_{\lambda \in \Lambda} K_\lambda = \varnothing$. \\
+ 		Take an arbitrary $K_0 \in \mc{K}$, which is obviously non-empty. \\
+ 		Then,
+ 		\begin{align}
+ 			K_0 &= K_0 \cap \varnothing^c \\
+ 			&= K_0 \cap \left(\bigcap_{\lambda \in \Lambda} K_\lambda\right)^c \\
+ 			&= K_0 \cap \bigcup_{\lambda \in \Lambda} K_\lambda^c \\
+ 			&= \bigcup_{\lambda \in \Lambda} K_0 \cap K_\lambda^c
+ 		\end{align}
+ 		For an arbitrary $\lambda \in \Lambda$, let $x \in K_0 \cap K_\lambda^c \neq \varnothing$. \\
+ 		Because $K_\lambda^c$ is open in $\R$, $\exists\ V_\varepsilon(x) \subseteq K_\lambda^c$. \\
+ 		Note that because $K_\lambda^c$ is open in $\R$, therefore $K_0 \cap K_\lambda^c$ is open in $K_0$. \\
+ 		Hence, $\bigcup_{\lambda \in \Lambda} K_0 \cap K_\lambda^c$ is an open cover of $K_0$. The compactness of $K_0$ suggests it has a finite subcover, say $\bigcup_{\lambda=1}^n K_0 \cap K_\lambda^c$. That is,
+ 		\begin{align}
+ 			K_0 &= \bigcup_{\lambda=1}^n K_0 \cap K_\lambda^c \\
+ 			&= K_0 \cap \bigcup_{\lambda=1}^n K_\lambda^c \\
+ 			&= K_0 \backslash \bigcap_{\lambda=1}^n K_\lambda \\
+ 			\implies &\bigcap_{\lambda=1}^n K_\lambda = \varnothing
+ 		\end{align}
+ 		$\contradiction$
+ 	\end{proof}
+ 	
+ 	\begin{theorem}
+ 		If $\sum_{n=0}^\infty a_n x^n$ \ul{converges} for all $x \in (-R, R)$, then the differentiated series $\sum_{n=0}^\infty n a_n x^{n-1}$ \ul{converges} for all $x \in (-R, R)$ as well. \\
+ 		Further, the differentiated series \ul{converges uniformly} for every compact $K \subseteq (-R, R)$. \\
+ 		Moreover, provided the uniform convergence of differentiated series, the limit function $\sum_{n=0}^\infty a_n x^n$ is differentiable. Therefore,
+ 		\begin{align}
+ 			\frac{d}{dx} \sum_{n=0}^\infty a_n x^n &= \sum_{n=0}^\infty n a_n x^{n-1}
+ 		\end{align}
+ 		\emph{Remark: Differentiating a power series does not change its radius of convergence.}
+ 	\end{theorem}
+ 	
+ 	\begin{proof}
+ 		Prove using comparison test.
+ 	\end{proof}
 \end{document}
 
 
