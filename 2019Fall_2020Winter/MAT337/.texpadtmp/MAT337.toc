@@ -5,33 +5,32 @@
 \contentsline {section}{\numberline {2}Sequences}{5}{section.2}
 \contentsline {subsection}{\numberline {2.1}Definitions}{5}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Limit Theorems}{7}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Monotone Convergence Theorem}{9}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Series}{9}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Cauchy Criterion}{11}{subsection.2.5}
-\contentsline {subsection}{\numberline {2.6}Convergence Test for Series}{11}{subsection.2.6}
-\contentsline {subsubsection}{\numberline {2.6.1}The Comparison Test}{12}{subsubsection.2.6.1}
-\contentsline {subsubsection}{\numberline {2.6.2}The Root Test}{13}{subsubsection.2.6.2}
-\contentsline {subsubsection}{\numberline {2.6.3}Other Tests}{14}{subsubsection.2.6.3}
-\contentsline {subsection}{\numberline {2.7}Absolute and Conditional Convergence}{15}{subsection.2.7}
-\contentsline {section}{\numberline {3}Topology in $\mathbb {R}$}{16}{section.3}
-\contentsline {subsection}{\numberline {3.1}Definitions}{16}{subsection.3.1}
+\contentsline {subsection}{\numberline {2.3}Series}{9}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Cauchy Criterion for Convergence}{11}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Convergence Test for Series*}{12}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}The Comparison Test}{13}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.2}The Root Test}{14}{subsubsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.3}Other Tests for Series Convergence}{15}{subsubsection.2.5.3}
+\contentsline {subsection}{\numberline {2.6}Absolute and Conditional Convergence}{15}{subsection.2.6}
+\contentsline {section}{\numberline {3}Topology in $\mathbb {R}$}{17}{section.3}
+\contentsline {subsection}{\numberline {3.1}Definitions}{17}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Compactness}{18}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Connected Sets}{19}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Cantor Set}{20}{subsection.3.4}
-\contentsline {section}{\numberline {4}Functional Limits and Continuity}{22}{section.4}
+\contentsline {subsection}{\numberline {3.3}Connected Sets}{20}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Cantor Set}{21}{subsection.3.4}
+\contentsline {section}{\numberline {4}Functional Limits and Continuity}{23}{section.4}
 \contentsline {subsection}{\numberline {4.1}Continuous Functions on Compact Sets}{25}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Uniform Continuity}{25}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Intermediate Value Theorem}{26}{subsection.4.3}
-\contentsline {section}{\numberline {5}Sequences and Series of Functions}{27}{section.5}
-\contentsline {subsection}{\numberline {5.1}Sequences of Functions}{27}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Series of Functions}{30}{subsection.5.2}
+\contentsline {subsection}{\numberline {4.2}Uniform Continuity}{26}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Intermediate Value Theorem}{27}{subsection.4.3}
+\contentsline {section}{\numberline {5}Sequences and Series of Functions}{28}{section.5}
+\contentsline {subsection}{\numberline {5.1}Sequences of Functions}{28}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Series of Functions}{31}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}Power Series}{35}{subsection.5.3}
 \contentsline {section}{\numberline {6}Taylor's Series}{36}{section.6}
 \contentsline {paragraph}{Idea}{36}{section*.2}
-\contentsline {section}{\numberline {7}Integration}{39}{section.7}
-\contentsline {subsection}{\numberline {7.1}Riemann Integrable Functions}{39}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Properties of the Integral}{43}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}Convergence and Integrability}{48}{subsection.7.3}
-\contentsline {paragraph}{Motivation}{48}{section*.3}
-\contentsline {subsection}{\numberline {7.4}Lebesgue Criterion for Reimann Integrability}{51}{subsection.7.4}
+\contentsline {section}{\numberline {7}Integration}{40}{section.7}
+\contentsline {subsection}{\numberline {7.1}Riemann Integrable Functions}{40}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Properties of the Integral}{44}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Convergence and Integrability}{49}{subsection.7.3}
+\contentsline {paragraph}{Motivation}{49}{section*.3}
+\contentsline {subsection}{\numberline {7.4}Lebesgue Criterion for Reimann Integrability}{52}{subsection.7.4}
 \contentsline {section}{\numberline {8}Appendix I: Midterms}{57}{section.8}
