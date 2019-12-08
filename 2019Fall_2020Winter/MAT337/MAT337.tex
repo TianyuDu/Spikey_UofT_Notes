@@ -2698,6 +2698,7 @@
 	\end{theorem}
 	
 	\begin{proof}
+		\quad \\ ($\implies$)
 		Define $A := D_f \cap [a, b] = \{x \in [a, b]: osc(f;x) > 0\}$. WTS: $A$ has measure zero.\\
 		Suppose $f$ is Riemann integrable on $[a, b]$, construct the subsets of $A$ as 
 		\begin{align}
@@ -2717,7 +2718,35 @@
 			&\geq \frac{1}{k} \sum \Delta_i \\
 			\implies \sum \Delta_i &< \varepsilon
 		\end{align}
-		Therefore the partition covers $A_k$ and has measure zero. Moreover, $A$ is a countable union of measure zero sets, so $A$ has measure zero.
+		Therefore the partition covers $A_k$ and has measure zero. Moreover, $A$ is a countable union of measure zero sets, so $A$ has measure zero. \\
+		($\impliedby$) Suppose $|D_f \cap [a,b]| = 0$. \\
+		\emph{Idea: construct partitions in which high oscillations are found in intervals with small $\Delta x$ and low oscillations are found in high $\Delta$}. \\
+		Let $A := D_f \cap [a, b]$, and $|A| = 0$. \\
+		By the defining property of oscillations,
+		\begin{align}
+			A &= \{x \in [a, b]: osc(f; x) > 0\}
+		\end{align}
+		For every $s > 0$, define
+		\begin{align}
+			A_s &= \{x \in [a, b]: osc(f; x) \geq s\} \subseteq A
+		\end{align}
+		Let $\varepsilon > 0$ fixed, take $\ell = \frac{\varepsilon}{2(b-a)}$. \\
+		Since $|A_\ell| = 0$, there exists a countable collection of open intervals $(I_i)$ that covers $A_\ell$. Moreover,
+		\begin{align}
+			\sum_{i=1}^\infty m \abs{I_i} < \frac{\varepsilon}{2(M-m)}
+		\end{align}
+		Since $A_\ell$ is compact, there exists a finite subcover $I_1, \cdots, I_n$, then
+		\begin{align}
+			Z := [a, b] \cap (\cup_i^n I_i)^c
+		\end{align}
+		is still compact. \\
+		And $osc(f; x) < \frac{\varepsilon}{2(b-a)}$ for every $x \in Z$. \\
+		For every $x \in Z$, $\exists \delta_x > 0$ such that $x', x'' \in (x - \delta_x, x + \delta_x)$. \\
+		Exists a finite subcover $U_1, \cdots, U_k$. \\
+		Let $P_\varepsilon$ be the partition such that $[x_{i-1}, x_i)$ in either $U_j$ or $I_k$, then
+		\begin{align}
+			\sum (M_i - m_i) \Delta x_i &= \sum_{C'} (M_i - m_i) \Delta x_i + \sum_{C''} (M_i - m_i) \Delta x_i < \varepsilon
+		\end{align}
 	\end{proof}
 \end{document}
 
