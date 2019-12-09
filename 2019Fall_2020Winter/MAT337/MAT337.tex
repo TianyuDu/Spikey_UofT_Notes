@@ -934,9 +934,9 @@
 			:\varepsilon \in \R_{++}
 			\right\}
 		\end{align}
-		Because $K$ is compact, there exists a finite subcover of $\mc{C}$, which is clearly a contradiction. \\
+		There exists no finite subcover of $\mc{C}$. $\contradict$ \\
 		\emph{Show $(ii) \implies (iii)$}: Suppose $K$ is closed and bounded, because of the transitivity of covering, it it sufficient to show that for every $M \in \R_+$, every open cover of $[-M, M]$ has a finite subcover. \\
-		Let $M \in \R_+$, and $\mc{C} = \{\mc{O}_\lambda: \lambda \in \Lambda\}$ is an open cover of $[-M, M]$. Suppose, for contradiction, there is no finite subcover. Then either $[-M, 0]$ or $[0, M]$ does not have a finite subcover from $\mc{C}$. Define such interval as $I_1$. Interval $I_n$ is defined inductively from $I_{n-1}$ by firstly bisecting $I_{n-1}$ into two closed intervals and then taking the partition that cannot be covered by any finite subcover of $\mc{C}$. Note that $(I_n)$ is a sequence of nested compact sets, by Cantor's intersection theorem, there intersection is nonempty. Further, because the length of interval shrinks to zero as $n \to \infty$, the intersection must be a singleton. Let $\{x\} = \bigcap_{n \in \N} I_n$, there exists some $\lambda \in \Lambda$, such that $x \in \mc{O}_\lambda$. Because $\mc{O}_\lambda$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subseteq \mc{O}_\lambda$. Take $k \in \N$ such that $|I_k| < 2\varepsilon$, clearly $I_k \subseteq V_\varepsilon(x) \subseteq \mc{O}_\lambda$. Then $\mc{O}_\lambda$ is a finite subcover of $I_k$, which leads to a contradiction.
+		Let $M \in \R_+$, and $\mc{C} = \{\mc{O}_\lambda: \lambda \in \Lambda\}$ is an open cover of $[-M, M]$. Suppose, for contradiction, there is no finite subcover. Then either $[-M, 0]$ or $[0, M]$ does not have a finite subcover from $\mc{C}$. Define such interval as $I_1$. Interval $I_n$ is defined inductively from $I_{n-1}$ by firstly bisecting $I_{n-1}$ into two closed intervals and then taking the partition that cannot be covered by any finite subcover of $\mc{C}$. Note that $(I_n)$ is a sequence of nested compact sets, by Cantor's intersection theorem, there intersection is nonempty. Further, because the length of interval shrinks to zero as $n \to \infty$, the intersection must be a singleton. Let $\{x\} = \bigcap_{n \in \N} I_n$, there exists some $\lambda \in \Lambda$, such that $x \in \mc{O}_\lambda$. Because $\mc{O}_\lambda$ is open, there exists $\varepsilon > 0$ such that $V_\varepsilon(x) \subseteq \mc{O}_\lambda$. Take $k \in \N$ such that $|I_k| < 2\varepsilon$, clearly $I_k \subseteq V_\varepsilon(x) \subseteq \mc{O}_\lambda$. Then $\mc{O}_\lambda$ is a finite subcover of $I_k$, however, every interval in $(I_n)_{n \in \N}$ has no finite subcover from $\mc{C}$ by construction. $\contradict$
 	\end{proof}
 	\subsection{Connected Sets}
 	\begin{definition}
@@ -959,20 +959,28 @@
 %		$(iii)$ 
 %	\end{proof}
 	
+	\begin{definition}
+		$E \subseteq \R$ is \textbf{connected} if it is not disconnected.
+	\end{definition}
+	
 	\begin{theorem}
-		A set $E \subseteq \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subseteq A$ converges to some point $a \in B$, or a sequence $(b_n) \subseteq B$ converges to some point $b \in A$. \\
+		A set $E \subseteq \R$ is connected if for every nonempty disjoint sets $A, B$ such that $E = A \cup B$, then there exists a sequence $(a_n) \subseteq A$ converges to some point $a \in B$, \ul{or} a sequence $(b_n) \subseteq B$ converges to some point $b \in A$. \\
 		\emph{Remark: Essentially, a set E is connected if, no matter how it is partitioned into two nonempty disjoint sets, it is always possible to show that at least one of the sets contains a limit point of the other.}
 	\end{theorem}
 	
 	\begin{proof}
-		Suppose $E$ is connected, then for any partition $E = A \cup B$, either $\overline{A} \cap B \neq \varnothing$ or $A \cap \overline{B} \neq \varnothing$. WLOG, $\overline{A} \cap B \neq \varnothing$, take $a \in A' \cap B \subseteq B$, and there exists a convergent sequence in $A$ converging to $a \in B$.
+		Suppose $E$ is connected, then for any partition $E = A \cup B$, $A$ and $B$ are not separated. Then either $\overline{A} \cap B \neq \varnothing$ or $A \cap \overline{B} \neq \varnothing$. WLOG, $\overline{A} \cap B \neq \varnothing$, take $a \in A' \cap B \subseteq B$, and there exists a convergent sequence in $A$ converging to $a \in B$.
 	\end{proof}
+	
+	\begin{definition}
+		$E \subseteq \R$ is an \textbf{interval} if for all $a, b \in E$, $a < c < b \implies c \in E$.
+	\end{definition}
 	
 	\begin{theorem}
 		Let $E \subseteq \R$, the following are equivalent:
 		\begin{enumerate}[(i)]
 			\item $E$ is connected;
-			\item For every $a < c < b$, $a, b \in E \implies c \in E$ (intervals).
+			\item $E$ is an interval.
 		\end{enumerate}
 		\emph{Remark: the collection of connected subsets of $\R$ is exactly the collection of all intervals.}
 	\end{theorem}
@@ -985,7 +993,8 @@
 		\end{align}
 		Note that $a \in A$ and $b \in B$, so both of them are nonempty. And $A$ and $B$ are separated. Suppose, for contradiction, $c \notin E$, $E = A \cup B$, which leads to a contradiction to the assumption that $E$ is connected.
 		\\
-		($\impliedby$) Suppose $(ii)$, show $E$ is connected. Let $A$ and $B$ be two nonempty set such that $A \cup B = E$ and $A \cap B = \varnothing$. We are going to show that $A$ and $B$ must be separated in this case. Let $a_0 \in A$ and $b_0 \in B$, WLOG, suppose $a_0 < b_0$. By $(ii)$, the entire interval $[a_0, b_0] \subseteq E$. Split $[a_0, b_0]$ into two half intervals $[\alpha, \beta]$ and $[\beta, \gamma]$. Note that it is impossible for $\{\beta\}$ to be the only point intersect both $A$ $B$, because in this case $A$ and $B$ cannot be disjoint.
+		($\impliedby$) Suppose $(ii)$, show $E$ is connected. Let $A$ and $B$ be two nonempty sets such that $A \cup B = E$ and $A \cap B = \varnothing$. We are going to show that $A$ and $B$ must be separated in this case. Let $a_0 \in A$ and $b_0 \in B$, WLOG, suppose $a_0 < b_0$. \\
+		By $(ii)$, the entire interval $[a_0, b_0] \subseteq E$. Split $[a_0, b_0]$ into two half intervals $[\alpha, \beta]$ and $[\beta, \gamma]$. Note that it is impossible for $\{\beta\}$ to be the only point intersect both $A$ $B$, because in this case $A$ and $B$ cannot be disjoint.
 		Take the one intersects both $A$ and $B$, denoted as $[a_1, b_1]$. \\
 		One can construct a sequence of closed intervals inductively, such that every $I_n$ intersects both $A$ and $B$. Also, previous result shows that $\cap_{n \in \N} I_n \neq \varnothing$, and is in fact a singleton. Let $x \in \cap_{n \in \N} I_n$, if $x \in A$, then there exists $(b_n) \subseteq B$ such that $(b_n) \to x$. Similarly, if $x \in B$, there exists $(a_n) \subseteq A$ such that $(a_n) \to x$. As a result, either $\overline{A} \cap B \neq \varnothing$ or $A \cap \overline{B} \neq \varnothing$. Therefore, $E$ is connected.
 	\end{proof}
@@ -1083,7 +1092,6 @@
 		\begin{align}
 			\forall \varepsilon > 0\ \exists \delta > 0\ s.t.\ x \in V_\delta^{\red{o}} (c) \implies f(x) \in V_\varepsilon(L)
 		\end{align}
-		\emph{Remark: The definition of continuity is stated in terms of punctuated ball, however, it is often easier to argue $x \in V_\delta(c) \implies f(x) \in V_\varepsilon(L)$}.
 	\end{definition}
 	
 	\begin{example}
@@ -1154,9 +1162,9 @@
 		\end{enumerate}
 	\end{theorem}
 	
-	\begin{proposition}[Criterion of Discontinuity]
+	\begin{theorem}[Criterion of Discontinuity]
 		Let $f: A \to \R$, $c \in A'$, if there exists sequence $(x_n) \subseteq A$ converges to $c$ but $(f(x_n)) \centernot \to f(c)$, then $f$ is not continuous at $c$.
-	\end{proposition}
+	\end{theorem}
 	
 	\begin{example}[Thomae's Function]
 		Define
@@ -1312,7 +1320,7 @@
 	\end{proof}
 	
 	\subsection{Intermediate Value Theorem}
-	\begin{theorem}
+	\begin{theorem}[The Intermediate Value Theorem]
 		Let $f: [a, b] \to \R$ be a continuous function, if $L \in \R$ such that either
 		\begin{enumerate}[(i)]
 			\item $L \in (f(a), f(b))$,
@@ -1376,17 +1384,8 @@
 		$g(x): [-1, 1] \to [-1 , 1]$ satisfies IVP, but $g(x)$ is not continuous on $[-1, 1]$, in particular, $g(x)$ is discontinuous at 0.
 	\end{remark}
 	
-	\begin{proposition}
-		If a sequence of functions $(f_n)$ converges uniformly to $f$, then $(f_n)$ converges point-wise to $f$ as well.
-	\end{proposition}
-	
-	\begin{example}
-		$f_n(x) - \frac{(x^2 + nx)}{n}$ has point-wise limit to $f(x) = x$ but it does not converge uniformly.
-	\end{example}
-	
 	\section{Sequences and Series of Functions}
 	\subsection{Sequences of Functions}
-	
 	\begin{definition}
 		For each $n \in \N$, let $f_n$ be a function defined on $A \subseteq \R$. The sequence $(f_n)_{n \in \N}$ \textbf{converges point-wise} on $A$ to a function $f: A \to \R$ if
 		\begin{align}
@@ -1406,7 +1405,15 @@
 		\end{align}
 		\emph{The uniform convergence requires a single $N$ to work for every $x \in A$.}
 	\end{definition}
+
+	\begin{proposition}
+		If a sequence of functions $(f_n)$ converges uniformly to $f$, then $(f_n)$ converges point-wise to $f$ as well.
+	\end{proposition}
 	
+	\begin{example}
+		$f_n(x) - \frac{(x^2 + nx)}{n}$ has point-wise limit to $f(x) = x$ but it does not converge uniformly.
+	\end{example}
+
 	\begin{theorem}[Cauchy Criterion]
 		Given a sequence of functions $(f_n)$ defined on $A \subseteq \R$, the following are equivalent:
 		\begin{enumerate}[(i)]
@@ -1445,7 +1452,8 @@
 	\end{proof}
 	
 	\begin{theorem}[Continuous Limit Theorem]
-		Let $(f_n)$ be a sequence of functions defined on $A \subseteq \R$ that \ul{converges uniformly} on $A$ to a function $f$. If each $f_n$ is continuous at $c \in A$, then $f$ is continuous at $c$.
+		Let $(f_n)$ be a sequence of functions defined on $A \subseteq \R$ that \ul{converges uniformly} on $A$ to a function $f$. For every $c \in A$, if each $f_n$ is continuous at $c$, then $f$ is continuous at $c$ as well. \\
+		\emph{That is, the continuity is preserved under uniform convergence.}
 	\end{theorem}
 	
 	\begin{proof}
@@ -1507,6 +1515,10 @@
 	\begin{theorem}
 		Let $(f_n)$ be a sequence of \ul{differentiable} functions defined on the closed interval $[a, b]$, and assume $(f'_n)$ \ul{converges uniformly} on $[a, b]$. If there exists a point $x_0 \in [a, b]$ where $f_n(x_n)$ converges, then $(f_n)$ \ul{converges uniformly} on $[a, b]$.
 	\end{theorem}
+	
+	\begin{remark}
+		The uniform convergence of $(f'_n)$ ensures the shape of function at limit, and the single point convergence fixes the position of the limit.
+	\end{remark}
 	
 	\begin{theorem}[Stronger Version]
 		Let $(f_n)$ be a sequence of \ul{differentiable} functions defined on the closed interval $[a, b]$, and assume $(f'_n)$ converges uniformly to a function $g$ on $[a, b]$. \\
@@ -1717,7 +1729,7 @@
  	\end{definition}
  	
  	\begin{theorem}
- 		If a power series converges at some point $x_0 \in \R$, then it it converges absolutely for any $x$ such that $\abs{x} \leq \abs{x_0}$. \todo{verify the inequality, strictly?}
+ 		If a power series converges at some point $x_0 \in \R$, then it it converges absolutely for any $x$ such that $\abs{x} < \abs{x_0}$.
  	\end{theorem}
  	
  	\begin{proof}
@@ -2087,7 +2099,7 @@
 	\end{example}
 	
 	\begin{theorem}
-		If $f$ is bounded on $[a, b]$ and integrable on $[c, d]$ for every $c \in (a, b)$.
+		If $f$ is bounded on $[a, b]$ and integrable on $[c, b]$ for every $c \in (a, b)$, then $f$ is integrable on $[a, b]$.
 	\end{theorem}
 	
 	\begin{proof}
