@@ -553,7 +553,7 @@
 		For series $\sum_{n=1}^\infty a_n$, the following are equivalent:
 		\begin{enumerate}[(i)]
 			\item Series converges;
-			\item $\forall \varepsilon > 0,\ \exists N \in \N\ s.t.\ \forall n \geq N,\ \left |\sum_{k=\red{n+1}}^{\red{\infty}} a_k \right | < \varepsilon$ (i.e. \emph{tail} sum sequence converges);
+			\item $\forall \varepsilon > 0,\ \exists N \in \N\ s.t.\ \forall n \geq N,\ \left |\sum_{k=\red{n+1}}^{\red{\infty}} a_k \right | < \varepsilon$ (i.e. \emph{tail} sum sequence vanishes);
 			\item $\forall \varepsilon > 0,\ \exists N \in \N\ s.t.\ \forall m > n \geq N,\ \left | \sum_{k=n+1}^m a_k \right | < \varepsilon$. (i.e. partial sum is Cauchy)
 		\end{enumerate}
 	\end{theorem}
@@ -2483,8 +2483,7 @@
 	\end{example}
 	
 	\begin{proof}
-		\todo{revise this proof}
-		Because $\Q$ is dense in $[0, 1]$, therefore, $L(t, P) = 0$. \\
+		Because $\Q$ is dense in $[0, 1]$, therefore, $L(t, P) = 0$ for every partition $P$ of $[0,1]$. \\
 		Now show
 		\begin{align}
 			\forall \varepsilon > 0, \exists P_\varepsilon,\ s.t.\ U(t, P_\varepsilon) < \varepsilon
