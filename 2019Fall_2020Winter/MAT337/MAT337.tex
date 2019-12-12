@@ -1666,7 +1666,7 @@
  		Let $x \in \R$ with decimal expansion $x_0\cdot x_1 x_2 \cdots$. \\
  		Construct sequence $(z_n) \to x$ as following: \\
 		Fix $n$, let $y_0 = x_0.x_1 \cdot x_n$ and $y_1 = y_0 + \frac{1}{10^n}$. \\
-		Note that $10^n \pi y_i$ is an integer multiplied by $\pi$, which implies $f(y_0) = \frac{(-1)^{x_n}}{2^n}$, $f(y_1) = \frac{(-1)^{x_{n+1}}}{2^n}$
+		Note that for both $i=0,1$, $10^n \pi y_i$ is a multiple of $\pi$, which implies $f(y_0) = \frac{(-1)^{x_n}}{2^n}$, $f(y_1) = \frac{(-1)^{x_{n+1}}}{2^n}$
  		such that
  		\begin{align}
  			\abs{\frac{f(z_n) - f(x)}{z_n - x}} \to \infty
@@ -1746,8 +1746,11 @@
  	\end{proof}
  	
  	\begin{definition}
- 		\textbf{Radius of convergence} and \textbf{interval of convergence}
- 		\todo{Do we need to define this?}
+ 		The \textbf{radius of convergence} is defined to be
+ 		\begin{align}
+ 			R := \sup \left\{r: \sum_{n=0}^\infty a_n r^n \tx{ converges} \right\}
+ 		\end{align}
+ 		and \textbf{interval of convergence} is defined to be the set on which the series converges.
  	\end{definition}
  	
  	\begin{theorem}[Abel's Theorem]
