@@ -1,0 +1,231 @@
+
+\section{Appendix: List of Theorems}
+\subsection{Finite Dimensional: Unconstrained}
+    \begin{theorem}[Necessary Condition for Local Minimum]
+        Let $f \in C^1(\Omega, \R)$, let $x_0 \in \Omega$ be a local minimum of $f$, then for every \emph{feasible direction} $v$ at $x_0$,
+        \begin{align}
+            \nabla f(x_0) \cdot v \geq 0
+        \end{align}
+        \emph{This theorem serves as the primary defining property of local minimum.}
+    \end{theorem}
+
+    \begin{theorem}[Second Order Necessary Condition for Local Minimum]
+        Let $f: \in C^2(\Omega, \R)$, let $x_0 \in \Omega$ be a local minimum of $f$, then for every non-zero feasible direction $v$ at $x_0$,
+        \begin{enumerate}[(i)]
+            \item $\nabla f(x_0) \cdot v \geq 0$;
+            \item $\nabla f(x_0) \cdot v = 0 \implies v^T \nabla^2 f(x_0) v \geq 0$.
+        \end{enumerate}
+    \end{theorem}
+
+    \begin{theorem}[Second Order Sufficient Condition for Interior Local Minima]
+        Let $f: C^2(\Omega, \R)$, for some $x_0 \in \Omega$, if
+        \begin{enumerate}[(i)]
+            \item $\nabla f(x_0) = 0$,
+            \item \emph{(and)} $\nabla^2 f(x_0) \succ 0$.
+        \end{enumerate}
+        then $x_0$ is a \ul{strictly local minimizer}.
+    \end{theorem}
+
+\subsection{Finite Dimensional: Equality Constraints}
+    \begin{definition}
+        The \textbf{tangent space} to $\mc{M}$ at $x_0$ is defined to be the set of all tangent vectors:
+        \begin{align}
+            T_{x_0} \mc{M} := \left \{
+            v \in \R^n
+            :
+            v := \frac{d}{ds} \bigg \vert_{s=0} x(s) \tx{ for some } x \in C^1(V_\varepsilon(0), \mc{M})\ s.t.\ x(0) = x_0
+            \right \}
+        \end{align}
+    \end{definition}
+
+    \begin{notation}
+        Define the $T$ space on equality constraint as
+        \begin{align}
+            T_{x_0} := \{x \in \R^n: \inner{x_0}{\nabla h_i(x_0)} = 0\ \forall i \in [k]\} = \{\nabla_i(x_0)\}^\perp
+        \end{align}
+    \end{notation}
+
+    \begin{theorem}
+        Suppose $x_0$ is a \emph{regular point} of $\mc{M} := \{h_i(x) = 0, i=1,\cdots,k\}$, then $T_{x_0} = T_{x_0} \mc{M}$.
+    \end{theorem}
+
+    \begin{theorem}[Lagrange Multipliers: First Order Necessary Condition]
+        Let $f, h_1, \cdots, h_k \in C^1$ defined on open subset $\Omega \subseteq \R^n$. Let $x_0$ be a regular point of the constraint set $\mc{M} := \bigcap_{i=1}^k h^{-1}_i(0)$. Suppose $x_0$ is a local minimum of $\mc{M}$, then there exists $\lambda_1, \cdots, \lambda_k \in \R$ such that
+        \begin{align}
+            \nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) = 0
+        \end{align}
+        \emph{Remark: if we define Lagrangian $\mc{L}(x, \lambda_i) := f(x) + \sum_{i=1}^k h_i(x)$, then the theorem says the local minimum is a critical point of $\mc{L}$.}
+    \end{theorem}
+
+    \begin{theorem}[Second Order Necessary Condition]
+        Let $f, h_i \in C^2$, if $x_0$ is a local minimum on previously defined surface $\mc{M}$, then there exists Lagrangian multipliers $\{\lambda_i\}$ such that
+        \begin{enumerate}[(i)]
+            \item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) = 0$ ($\nabla_x \mc{L} = 0$);
+            \item And $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) \succcurlyeq 0$ \red{on $T_{x_0} \mc{M}$} ($\nabla_x^2 \mc{L} \succcurlyeq 0$).
+        \end{enumerate}
+        \emph{Remark: whenever $x_0$ is a local minimum, it must be a critical point of $\mc{L}$, and $\mc{L}$ is positive semidefinite on the tangent space at $x_0$.}
+    \end{theorem}
+
+    \begin{theorem}[Second Order Sufficient Conditions]
+        Let $f, h_i \in C^2$ on open $\Omega \subseteq \R^n$, and $x_0 \in \mc{M}$ is a regular point, if there exists $\lambda_i \in \R$ such that
+        \begin{enumerate}[(i)]
+            \item $\nabla_x \mc{L}(x_0, \lambda_i) = 0$;
+            \item $\nabla_x^2 \mc{L}(x_0, \lambda_i) \succ 0$ \red{on $T_{x_0} \mc{M}$},
+        \end{enumerate}
+        then $x_0$ is a \emph{strict} local minimum.
+    \end{theorem}
+
+\subsection{Finite Dimensional: Inequality Constraints}
+    \begin{theorem}[The First Order Necessary Condition for Local Minimum: Kuhn-Tucker Conditions]
+        Let $\Omega$ be an open subset of $\R^n$ with constraints $h_i$ and $g_i$ to be $C^1$ on $\Omega$. Suppose $x_0 \in \Omega$ is a regular point with respect to constraints, further suppose $x_0$ is a local minimum, then there exists some $\lambda_i \in \R$ and $\mu_j \in \red{\R_+}$ such that 
+        \begin{enumerate}[(i)]
+            \item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$ (i.e. $\nabla_x \mc{L}(x, \lambda, \mu) = 0$);
+            \item $\mu_j g_j(x_0) = 0$ (\emph{Complementary slackness}).
+        \end{enumerate}
+        \emph{Remark 1: by complementary slackness, all $\mu_j$ corresponding to inactive inequality constraints are zero.} \\
+        \emph{Remark 2: it is possible for an active constraint to have zero multiplier.}
+    \end{theorem}
+
+    \begin{theorem}[The Second Order Necessary Conditions]
+        Let $\Omega$ be an open subset of $\R^n$, and $f, h_1, \cdots, h_k, g_1, \cdots, g_\ell \in C^2(\R^n, \R)$. Let $x_0$ be a regular point of the constraints ($\dag$).
+        Suppose $x_0$ is a local minimum of $f$ subject to constraint ($\dag$), then there exists $\lambda_i \in \R$ and $\mu_j \geq 0$ such that
+        \begin{enumerate}[(i)]
+            \item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
+            \item $\mu_j g_j(x_0) = 0$;
+            \item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is \ul{positive semidefinite} on the tangent space to \ul{activate constraints} at $x_0$.
+        \end{enumerate}
+    \end{theorem}
+
+    \begin{theorem}[The Second Order Sufficient Conditions]
+        Let $\Omega$ be an open subset of $\R^n$, let $f, h_i, q_j \in C^2(\Omega)$. Consider minimizing $f(x)$ with the constraint
+        \begin{align}
+            (\dag ) \begin{cases}
+                h_i(x) = 0\quad \forall i \\
+                g_j(x) \leq 0\quad \forall j \\
+                x \in \Omega
+            \end{cases}
+        \end{align}
+        Suppose there exists a feasible $x_0$ satisfying $(\dag)$ and $\lambda_i \in \R$ and $\mu_j \in \R_{+}$ such that
+        \begin{enumerate}[(i)]
+            \item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
+            \item $\mu_j g_j(x_0) = 0$ (\emph{Complementary slackness}).
+        \end{enumerate}
+        If the Hessian matrix for Lagrangian $\nabla_x^2 \mc{L}(x_0)$ is \ul{positive definite} on $\ttilde{T}_{x_0}$, the space of \textbf{strongly active} constraints at $x_0$, then $x_0$ is a \ul{strict} local minimum.
+    \end{theorem}
+
+
+\subsection{Iterative Algorithms}
+    \begin{algorithm}[Newton's Method in $\R$]
+        Given initial point $x_0 \in I$, while not terminated:
+        \begin{align}
+            x_{n+1} \leftarrow x_n - \frac{f'(x_n)}{f''(x_n)}
+        \end{align}
+    \end{algorithm}
+
+    \begin{theorem}
+        Let $f \in C^3$ on open interval $I \subseteq \R$. Suppose $x_* \in I$ satisfies $f'(x_*) = 0$ and $f''(x_*) \neq 0$, then the sequence of points $(x_n)$ generated by Newton's method converges to $x_*$ if \emph{$x_0$ is sufficiently close to $x_*$}.
+    \end{theorem}
+
+    \begin{algorithm}[Newton's Method in $\R^n$]
+        Let $f: \Omega \subseteq \R^n \to \R$ where $\Omega$ is open, let initial point $x_0 \in \Omega$. \\
+        Suppose $\nabla^2 f(x_n)$ is invertible for every generated $n$, and $\nabla f(x_*) = 0$ so that algorithm stops at minimum. \\
+        The iterative algorithm is defined as following:
+        \begin{align}
+            x_{n+1} \leftarrow x_n - [\nabla^2 f(x_n)]^{-1} \nabla f(x_n)
+        \end{align}
+    \end{algorithm}
+
+    \begin{algorithm}[Steepest Descent]
+        Let $f: \Omega \to \R$ where $\Omega$ is an open subset of $\R^n$. Let initial point $x_0 \in \Omega$. \\
+        To minimize $f$ on $\Omega$, iteratively update $x$ follows at each step $k$:
+        \begin{align}
+            x_{k+1} \leftarrow x_k - \alpha_k \nabla f(x_k)
+        \end{align}
+        where $\alpha_k = \argmin_{\alpha \geq 0} f(x_k - \alpha \nabla f(x_k)$. \\
+        \emph{Remark: There might be multiple minimizing $\alpha$, in real world implementations, we take the least minimizer found.}
+    \end{algorithm}
+
+    \begin{theorem}
+        For any initial point $x_0 \in \R^n$, gradient descent converges to the unique minimum point $x_*$ of the quadratic $f(x) = x^T Q x - b^T x$.
+    \end{theorem}
+
+    \begin{theorem}
+        Given the method of conjugate, the sequence of points generated eventually reaches the global minimum. That is, $x_n = x^*$.
+    \end{theorem}
+
+    \begin{algorithm}[Method of Conjugate Directions] \quad
+        \begin{enumerate}[(i)]
+            \item Let $Q \in \mathbb{S}_{++}^n$ and $\{d_j\}_{j=0}^{n-1}$ be a set of non-zero $Q$-orthogonal vectors, note that they form a basis of $\R^n$. \\
+            \item Given initial point $x_0 \in \R^n$, the method of conjugate direction generates a sequence of points $\{x_k\}_{k=0}^n$ as the following:
+            \begin{align}
+                x_{k+1} &\leftarrow x_k + \alpha_k d_k \\
+                \alpha_k &:= - \frac{\inner{g_k}{d_k}}{d_k^T Q d_k} \quad g_k := \nabla f(x_k)
+            \end{align}
+        \end{enumerate}
+    \end{algorithm}
+
+\subsection{Infinite Dimensional Analysis: Calculus of Variation}
+    \begin{lemma}[The Fundamental Lemma of Calculus of Variation]
+        Suppose $g$ is continuous on interval $[a, b]$ such that
+        \begin{align}
+            \int_a^b g(x) v(x)\ dx = 0\ \forall \tx{ test function } v(\cdot)
+        \end{align}
+        Then $g(x) \equiv 0$ on $[a, b]$.
+    \end{lemma}
+
+    \begin{definition}
+        Given $u(\cdot) \in \mc{A}$, suppose $\exists$ function $g(\cdot)$ on $[a, b]$ such that 
+        \begin{align}
+            \red{\left. \frac{d}{ds} \right |_{s=0} F[u(\cdot) + sv(\cdot)] = \int_a^b g(x) v(x)\ dx\ \forall \tx{ test functions} v(\cdot)}
+        \end{align}
+        Then $g(\cdot)$ is called the \textbf{variational derivative} of $F$ at $u(\cdot)$, often denoted as $\frac{\delta F}{\delta u}(u)(\cdot)$.
+    \end{definition}
+
+    \begin{theorem}[Euler-Lagrange]
+        Let 
+        \begin{align}
+            \mc{A} &:=\{u:[a, b] \to \R:u \in C^1, u(a) = A, u(b) = B\}
+        \end{align}
+        Let $L \in C^2$ such that
+        \begin{align}
+            F[u(\cdot)] &= \int_a^b L(x, u(x), u'(x))\ dx
+        \end{align}
+        Then, if $u(\cdot) \in C^1$, then $\frac{\delta F}{\delta u}(u)(\cdot)$ exists and is continuous. \\
+        Moreover,
+        \begin{align}
+            \red{\frac{\delta F}{\delta u}(u)(\cdot)(x) = - \frac{d}{dx} [L_p(x, u(x), u'(x))] + L_z(x, u(x), u'(x))}
+        \end{align}
+        This equation is often referred to as the \textbf{Euler-Lagrange  equation}.
+    \end{theorem}
+
+    \begin{theorem}[Euler-Lagrange Equations in Vector Forms]
+        \begin{align}
+            - \frac{d}{dx} \nabla_p L(x, z, p) + \nabla_z L(x, z, p) &= \textbf{0} \in \R^n \quad (\dagger)
+        \end{align}
+    \end{theorem}
+
+    \begin{theorem}
+        Suppose $u_*(\cdot)$ is a regular point, that is, the variational derivative $\frac{\delta G}{\delta u}(u_*) \neq 0$.\\
+        Further, if $u_*(\cdot)$ is a minimizer of above constrained optimization problem, then $\exists \lambda \in \R$ such that:
+        \begin{align}
+            \red{\frac{\delta F}{\delta u}[u_*] + \lambda \frac{\delta G}{\delta u}[u_*] \equiv 0}
+        \end{align}
+    \end{theorem}
+
+    \begin{theorem}[Euler-Lagrange Equations]
+        Let $\vex_*(t) := \begin{pmatrix}x_*(t)\\y_*(t)\\z_*(t)\end{pmatrix}$ be the minimizer subject to constraint, then
+        \begin{align}
+            \begin{pmatrix}
+                \frac{\delta F}{\delta x}[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t) \\
+                \frac{\delta F}{\delta y}[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t) \\
+                \frac{\delta F}{\delta z}[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t)
+            \end{pmatrix}
+            + \red{\lambda(t)}
+            \begin{pmatrix}
+                H_x[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t) \\
+                H_y[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t) \\
+                H_z[x_*(\cdot), y_*(\cdot), z_*(\cdot)](t)
+            \end{pmatrix} = 0\quad \forall t \in \R
+        \end{align}
+        where $\lambda(t)$ is a function here.
+    \end{theorem}

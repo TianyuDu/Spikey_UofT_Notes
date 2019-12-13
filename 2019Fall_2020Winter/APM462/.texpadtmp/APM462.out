@@ -27,4 +27,10 @@
 \BOOKMARK [2][-]{subsection.5.5}{Equality Constraints: Isoperimetric Case}{section.5}% 27
 \BOOKMARK [2][-]{subsection.5.6}{Equality Constraints: Holonomic Case}{section.5}% 28
 \BOOKMARK [2][-]{subsection.5.7}{Geodesics on the Cylinder}{section.5}% 29
-\BOOKMARK [1][-]{section.6}{Appendix}{}% 30
+\BOOKMARK [1][-]{section.6}{Appendix I: Some Basic ODEs}{}% 30
+\BOOKMARK [1][-]{section.7}{Appendix II: List of Theorems}{}% 31
+\BOOKMARK [2][-]{subsection.7.1}{Finite Dimensional: Unconstrained}{section.7}% 32
+\BOOKMARK [2][-]{subsection.7.2}{Finite Dimensional: Equality Constraints}{section.7}% 33
+\BOOKMARK [2][-]{subsection.7.3}{Finite Dimensional: Inequality Constraints}{section.7}% 34
+\BOOKMARK [2][-]{subsection.7.4}{Iterative Algorithms}{section.7}% 35
+\BOOKMARK [2][-]{subsection.7.5}{Infinite Dimensional Analysis: Calculus of Variation}{section.7}% 36
