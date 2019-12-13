@@ -259,6 +259,28 @@
 		\\ \ul{Drawbacks} (i) More data (ii) Slower (iii) Overfitting.
 		\item Decision of linear models: $\textbf{W} \cdot \vex + \veb = \textbf{0}$ (hyperplane).
 	\end{enumerate}
+	\begin{minipage}[t]{0.3\linewidth}
+		\textbf{SVM}
+		\begin{align*}
+			\begin{aligned} \text {0-1 loss: } & \mathcal{L}_{0-1}(z, t)=\mathbb{I}\{\operatorname{sign}(z) \neq t\} \\ \text { Hinge loss: } & \mathcal{L}_{\mathrm{H}}(z, t)=\max \{0,1-z t\} \end{aligned} \\
+			\min _{\mathbf{w}, b} \Sigma_{i=1}^{N} \max \left\{0,1-t^{(i)} z^{(i)}(\mathbf{w}, b)\right\} \\
+			\min _{\mathbf{w}, b} \Sigma_{i=1}^{N} \max \left\{0,1-t^{(i)} z^{(i)}(\mathbf{w}, b)\right\}+\frac{\lambda}{2}\|\mathbf{w}\|_{2}^{2}
+		\end{align*}
+		\par Optimize: gradient descent.
+%		\centering
+%		\includegraphics[width=0.5\linewidth]{loss.jpg}
+	\end{minipage}
+	\vline
+	\begin{minipage}[t]{0.3\linewidth}
+		\textbf{Boosting} \\
+		\par Weighted training set: we can learn a classier using different costs (aka weights) for examples.
+		\begin{align*}
+			\Sigma_{n=1}^{N} w^{(n)} \mathbb{I}[h(x^{(n)}) \neq t^{(n)}] \\
+			w^(n) > 0 \land \Sigma_{n=1}^{N} w^{(n)}=1
+		\end{align*}
+		\par \textbf{Decision Stump} A decision tree with a single split. \\
+		AdaBoost \textbf{reduces bias} by making each classier focus on previous mistakes.
+	\end{minipage}
 \end{document}
 
 
