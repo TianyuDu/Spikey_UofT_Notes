@@ -9,28 +9,27 @@
 \BOOKMARK [1][-]{section.3}{Finite Dimensional Optimization}{}% 9
 \BOOKMARK [2][-]{subsection.3.1}{Unconstraint Optimization}{section.3}% 10
 \BOOKMARK [2][-]{subsection.3.2}{Equality Constraints: Lagrangian Multiplier}{section.3}% 11
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Tangent Space to a \(Hyper\) Surface at a Point}{subsection.3.2}% 12
-\BOOKMARK [2][-]{subsection.3.3}{Remark on the Connection Between Constrained and Unconstrained Optimizations}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.4}{Inequality Constraints}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Iterative Algorithms for Optimization}{}% 15
-\BOOKMARK [2][-]{subsection.4.1}{Newton's Method}{section.4}% 16
-\BOOKMARK [2][-]{subsection.4.2}{Steepest/Gradient Descent}{section.4}% 17
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Steepest Descent: the Quadratic Case}{subsection.4.2}% 18
-\BOOKMARK [2][-]{subsection.4.3}{Method of Conjugate Directions}{section.4}% 19
-\BOOKMARK [2][-]{subsection.4.4}{Geometric Interpretations of Method of Conjugate Directions}{section.4}% 20
-\BOOKMARK [1][-]{section.5}{Infinite Dimensional Optimization}{}% 21
-\BOOKMARK [2][-]{subsection.5.1}{Calculus of Variation}{section.5}% 22
-\BOOKMARK [3][-]{subsubsection.5.1.1}{The Canonical Example}{subsection.5.1}% 23
-\BOOKMARK [2][-]{subsection.5.2}{A Classical Example from Physics: Brachistochrone}{section.5}% 24
-\BOOKMARK [2][-]{subsection.5.3}{General Class of Problems in Calculus of Variations}{section.5}% 25
-\BOOKMARK [2][-]{subsection.5.4}{Euler-Lagrange Equations in Rn}{section.5}% 26
-\BOOKMARK [2][-]{subsection.5.5}{Equality Constraints: Isoperimetric Case}{section.5}% 27
-\BOOKMARK [2][-]{subsection.5.6}{Equality Constraints: Holonomic Case}{section.5}% 28
-\BOOKMARK [2][-]{subsection.5.7}{Geodesics on the Cylinder}{section.5}% 29
-\BOOKMARK [1][-]{section.6}{Appendix I: Some Basic ODEs}{}% 30
-\BOOKMARK [1][-]{section.7}{Appendix II: List of Theorems}{}% 31
-\BOOKMARK [2][-]{subsection.7.1}{Finite Dimensional: Unconstrained}{section.7}% 32
-\BOOKMARK [2][-]{subsection.7.2}{Finite Dimensional: Equality Constraints}{section.7}% 33
-\BOOKMARK [2][-]{subsection.7.3}{Finite Dimensional: Inequality Constraints}{section.7}% 34
-\BOOKMARK [2][-]{subsection.7.4}{Iterative Algorithms}{section.7}% 35
-\BOOKMARK [2][-]{subsection.7.5}{Infinite Dimensional Analysis: Calculus of Variation}{section.7}% 36
+\BOOKMARK [2][-]{subsection.3.3}{Remark on the Connection Between Constrained and Unconstrained Optimizations}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.4}{Inequality Constraints}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Iterative Algorithms for Optimization}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Newton's Method}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Steepest/Gradient Descent}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Steepest Descent: the Quadratic Case}{subsection.4.2}% 17
+\BOOKMARK [2][-]{subsection.4.3}{Method of Conjugate Directions}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.4}{Geometric Interpretations of Method of Conjugate Directions}{section.4}% 19
+\BOOKMARK [1][-]{section.5}{Infinite Dimensional Optimization}{}% 20
+\BOOKMARK [2][-]{subsection.5.1}{Calculus of Variation}{section.5}% 21
+\BOOKMARK [3][-]{subsubsection.5.1.1}{The Canonical Example}{subsection.5.1}% 22
+\BOOKMARK [2][-]{subsection.5.2}{A Classical Example from Physics: Brachistochrone}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.3}{General Class of Problems in Calculus of Variations}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.4}{Euler-Lagrange Equations in Rn}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.5}{Equality Constraints: Isoperimetric Case}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.6}{Equality Constraints: Holonomic Case}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.7}{Geodesics on the Cylinder}{section.5}% 28
+\BOOKMARK [1][-]{section.6}{Appendix I: Some Basic ODEs}{}% 29
+\BOOKMARK [1][-]{section.7}{Appendix II: List of Theorems}{}% 30
+\BOOKMARK [2][-]{subsection.7.1}{Finite Dimensional: Unconstrained}{section.7}% 31
+\BOOKMARK [2][-]{subsection.7.2}{Finite Dimensional: Equality Constraints}{section.7}% 32
+\BOOKMARK [2][-]{subsection.7.3}{Finite Dimensional: Inequality Constraints}{section.7}% 33
+\BOOKMARK [2][-]{subsection.7.4}{Iterative Algorithms}{section.7}% 34
+\BOOKMARK [2][-]{subsection.7.5}{Infinite Dimensional Analysis: Calculus of Variation}{section.7}% 35
