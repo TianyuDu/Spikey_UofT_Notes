@@ -175,24 +175,28 @@
     \end{example}
     
     \begin{proof}
-    	Note that for any $u, v \in \R^n$, by triangle inequality, $\norm{u - (-v)} \leq \norm{u - 0} + \norm{0 - (-v)} = \norm{u} + \norm{v}$. Consequently, let $u, v \in \R^n$ and $s \in [0, 1]$, then $\norm{s u + (1-s) v} \leq \norm{su} + \norm{(1-s) v} = s \norm{u} + (1-s) \norm{v}$. Therefore, $\norm{\cdot}$ is convex.
+    	Note that for any $u, v \in \R^n$, by triangle inequality, $\norm{u - (-v)} \leq \norm{u - 0} + \norm{0 - (-v)} = \norm{u} + \norm{v}$. Consequently, let $u, v \in \R^n$ and $s \in [0, 1]$, then $\norm{s u + (1-s) v} \leq \norm{su} + \norm{(1-s) v} = s \norm{u} + (1-s) \norm{v}$. Therefore, $\norm{x}$ is convex.
     \end{proof}
     
     \begin{proposition}
-    	Any norm function $\norm{\cdot}$ defined on a vector space $\mc{X}(\R)$ is convex.
+    	Any norm function $\norm{x}_\ell$ is convex.
     \end{proposition}
     
     \begin{proof}
     	The proof follows the defining properties of norm,
     	\begin{align}
-    		\norm{\lambda x + (1 - \lambda) y} &\leq \norm{\lambda x}  + \norm{(1 - \lambda) y} \\
-    		&= \lambda \norm{x} + (1 - \lambda) \norm{y}
+    		\norm{\lambda x + (1 - \lambda) y}_\ell &\leq \norm{\lambda x}_\ell  + \norm{(1 - \lambda) y}_\ell \\
+    		&= \lambda \norm{x}_\ell + (1 - \lambda) \norm{y}_\ell
     	\end{align}
     \end{proof}
     
     \begin{proposition}
     	$\norm{x}_2^2$ is strictly convex.
     \end{proposition}
+    
+    \begin{proof}
+    	Immediately, $\norm{x}_2$ is convex, and $x^2$ is strictly convex on the range of norm.
+    \end{proof}
 	
 	\subsection{Characteristics of $C^1$ Convex Functions}
 	
@@ -254,6 +258,10 @@
 	 	for some $s \in [0, 1]$.\\
         This implies $f(y) < f(x) + \nabla f(x) \cdot (y - x)$, which contradicts the $C^1$ criterion for convexity.
     \end{proof}
+    
+    \begin{remark}
+    	It is possible for some \ul{strictly convex} function $f$ to have $f''(x) = 0$ for some $x$.
+    \end{remark}
     
     \subsection{Minimum and Maximum of Convex Functions}
     \begin{theorem}
@@ -326,6 +334,15 @@
     \begin{proof}
     	Suppose $f$ is continuous, let $K \subseteq \R^n$ be a compact set, then $f(K)$ is compact as well. Therefore, the $\sup f(K)$ exists (b/c bounded) and is attainable (b/c closed).
     \end{proof}
+
+    \begin{proof}[Detailed Proof of EVT.]
+    	Let $f: K \to \R$ be a continuous function defined on a compact set $K$.\\
+    	WLOG, we only prove the existence of $\min f$, since the existence of max can be easily proven by applying the exact same argument on $-f$. \\
+    	That is, we claim the infimum of $f(K)$ is attained within $K$. \\
+    	Because $K$ is compact, the continuity of $f$ implies $f(K)$ is compact. \\
+    	By the completeness axiom of $\R$, $m := \inf_{x \in K} f(x)$ is well-defined. There exists a sequence $(x_i) \subseteq K$, such that $(f(x_i)) \to m$. Because $K$ is compact, there exists a subsequence $(x_{ik})$ of $(x_i)$ converges to some limit $x^* \in K$. \\
+    	Since $f$ is continuous, $(f(x_{ik})) \to f(x^*)$, which is a subsequence of the convergent sequence $(f(x_i))$, and they must converge to the same limit. Hence, $f(x^*) = m$, and the infimum is attained at $x^* \in K$.
+    \end{proof}
     
     \begin{remark}
     	$f: \Omega \to \R$ is convex does not imply $f$ is continuous.
@@ -346,15 +363,6 @@
     
     \begin{proof}
     	See homework 1. The proof involves squeeze theorem.
-    \end{proof}
-    
-    \begin{proof}[Detailed Proof of EVT.]
-    	Let $f: K \to \R$ be a continuous function defined on a compact set $K$.\\
-    	WLOG, we only prove the existence of $\min f$, since the existence of max can be easily proven by applying the exact same argument on $-f$. \\
-    	That is, we claim the infimum of $f(K)$ is attained within $K$. \\
-    	Because $K$ is compact, the continuity of $f$ implies $f(K)$ is compact. \\
-    	By the completeness axiom of $\R$, $m := \inf_{x \in K} f(x)$ is well-defined. There exists a sequence $(x_i) \subseteq K$, such that $(f(x_i)) \to m$. Because $K$ is compact, there exists a subsequence $(x_{ik})$ of $(x_i)$ converges to some limit $x^* \in K$. \\
-    	Since $f$ is continuous, $(f(x_{ik})) \to f(x^*)$, which is a subsequence of the convergent sequence $(f(x_i))$, and they must converge to the same limit. Hence, $f(x^*) = m$, and the infimum is attained at $x^* \in K$.
     \end{proof}
     
     \begin{theorem}[Heine–Borel]
@@ -397,7 +405,7 @@
 %        Let $f: \R^n \to \R$ be a continuous function, if there exists $a \in \R^n$ such that $f(x) \geq f(a)$ for every $x \notin \mc{B}(r, a)$, then $f$ attains its minimum in $\mc{B}(r, a)$.
 %    \end{corollary}
 
-    \par The optimization problems investigated in this section can be formulated as
+    The optimization problems investigated in this section can be formulated as
     \begin{align} y
     	\min_{x \in \Omega} f(x)
     \end{align}
@@ -1334,20 +1342,15 @@
 		where $\alpha_k \in \argmin_{\alpha \geq 0}f(x_k - \alpha \nabla g(x_k))$. \\
 		The necessary condition for minimizations suggests $\alpha_k$ must satisfy
 		\begin{align}
-			0 = \left. \frac{d}{d\alpha}\right|_{\alpha = \alpha_k} f(x_k - \alpha \nabla g(x_k)) 
-			&= \nabla f(x_k - \alpha_k \nabla g(x_k)) \cdot (-\nabla g(x_k))\\
-			&= - [Q(x_k - \alpha_k \nabla g(x_k)) - b] \cdot \nabla g(x_k) \\
-			&= - [Qx_k - \alpha_k Q \nabla g(x_k) - b] \cdot \nabla g(x_k) \\
-			&= - [\nabla g(x_k) - \alpha_k Q \nabla g(x_k)] \cdot \nabla g(x_k) \\
-			&= - \norm{\nabla g(x_k)}_2^2 + \alpha_k \nabla g(x_k)^T Q \nabla g(x_k) \\
-			\implies \alpha_k &= \frac{\norm{\nabla g(x_k)}_2^2}{\nabla g(x_k)^T Q \nabla g(x_k)}
+			0 = \left. \frac{d}{d\alpha}\right|_{\alpha = \alpha_k} f(x_k - \alpha \nabla f(x_k)) 
+			&= \nabla f(x_k - \alpha_k \nabla f(x_k)) \cdot (-\nabla f(x_k)) \tx{ (chain rule)}\\
+			&= - [Q[x_k - \alpha_k \nabla f(x_k)] - b] \cdot \nabla f(x_k) \\
+			&= - [Qx_k - \alpha_k Q \nabla f(x_k) - b] \cdot \nabla g(x_k) \\
+			&= - [\nabla f(x_k) - \alpha_k Q \nabla f(x_k)] \cdot \nabla f(x_k) \\
+			&= - \norm{\nabla f(x_k)}_2^2 + \alpha_k \nabla f(x_k)^T Q \nabla f(x_k) \\
+			\implies \alpha_k &= \frac{\norm{\nabla f(x_k)}_2^2}{\nabla f(x_k)^T Q \nabla f(x_k)}
 		\end{align}
 	\end{lemma}
-	
-	\begin{assumption}
-		\todo{Need to check if this assumption is required.\\}
-		Assume $Q$ is symmetric.
-	\end{assumption}
 	
 	\begin{lemma}
 		The iterative updating from gradient descent on $g(x)$ is a contraction mapping. That is,
@@ -1391,9 +1394,6 @@
 				\frac{\norm{v}^4_2}{(v^T Q v)(v^T Q^{-1} v)} \geq \frac{4 \lambda \Lambda}{(\lambda + \Lambda)^2}
 			\end{align}
 		\end{lemma}
-		\begin{proof}[Proof of Kantorovich Inequality]
-			\todo{Prove this lemma}
-		\end{proof}
 		Therefore, 
 		\begin{align}
 			g(x_{k+1}) &= \left \{1 - \left [
@@ -1404,15 +1404,28 @@
 		\end{align}
 	\end{proof}
 	\begin{theorem}
-		For any initial point $x_0 \in \R^n$, gradient descent converges to the unique minimum point $x_*$ of the quadratic $f(x) = x^T Q x - b^T x$.
+		For any initial point $x_0 \in \R^n$, gradient descent converges to the unique minimum point $x_*$ of the quadratic $f(x) = \frac{1}{2} x^T Q x - b^T x$.
 	\end{theorem}
 	
 	\begin{proof}
-		Define $q(x) := \frac{1}{2} (x - x_*)^T Q (x) (x - x_*)$. \\
+		Define $q(x) := \frac{1}{2} (x - x_*)^T Q (x - x _*) = f(x) - f(x_*)$ because
+		\begin{align}
+			q(x) &= \frac{1}{2} x^T Q x - x^T Q x_* - \frac{1}{2} x_*^T Q x_* + x_*^T Q x_* \\
+			&= \red{\frac{1}{2} x^T Q x} - x^T Q x_* - \blue{\frac{1}{2} x_*^T Q x_*} + x_*^T Q x_* + (\blue{b^T x_*} - b^T x_*) + (b^T x - \red{b^T x}) \\
+			&= \red{\left(\frac{1}{2} x^T Q x - b^T x\right)}
+			- \blue{\left(\frac{1}{2} x_*^T Q x_* - b^T x_*\right)}
+			- x^T Q x_* + x^T_* Q x_* - b^T x_* + b^T x \\
+			&= f(x) - f(x_*) - x^T b + x_*^T b - b^T x_* + b^T x \\
+			&= f(x) - f(x_*)
+		\end{align}
 		Note that $q(x)$ and $f(x)$ differ by a constant, therefore $\argmin q(x) = \argmin f(x)$. \\
 		Moreover, we've shown:
 		\begin{align}
 			q(x_{k+1}) &\leq \underbrace{\left(\frac{\Lambda - \lambda}{\Lambda + \lambda} \right)^2}_{\in [0, 1)} q(x_k)
+		\end{align}
+		In particular, for error term after $k$ iterations, $E_k := f(x_k) - f(x_*)$,
+		\begin{align}
+			E_k \leq \left(\frac{\Lambda - \lambda}{\Lambda + \lambda} \right)^{2k} E_0 
 		\end{align}
 		It is easy to notice that
 		\begin{align}
@@ -1442,10 +1455,10 @@
 	\end{remark}
 	
 	\subsection{Method of Conjugate Directions}
-	\paragraph{Motivation} Method of conjugate directions is designed for quadratic functions with form $\frac{1}{2} x^T Q x - b^T x$. For other functional forms, one can approximate the function using quadratic form firstly and then apply method of conjugate directions.
+	\paragraph{Motivation} Method of conjugate directions is designed for quadratic functions with form $\frac{1}{2} x^T Q x - b^T x$. For other functional forms, one can approximate the function using quadratic form firstly and then apply method of conjugate directions. Unlike, Newton's method, conjugate direction method does not require computing inverse of Hessian.
 	
 	\begin{definition}
-		Let $Q \in \mathbb{S}^n$, $d, d' \in \R^n$ are \textbf{$Q$-orthogonal or $Q$-conjugate} if 
+		Let $Q \in \mathbb{S}^n$, $d, d' \in \R^n$ are \textbf{$Q$-orthogonal} or \textbf{$Q$-conjugate} if 
 		\begin{align}
 			d^T Q d' = 0
 		\end{align}
@@ -1535,7 +1548,7 @@
 		\begin{enumerate}[(i)]
 			\item $d_i, d_j$ are $Q$-orthogonal if $d_i^T Q d_j = 0$;
 			\item Eigen-vectors with different eigenvalues are $Q$-orthogonal;
-			\item $Q$ symmetric $\implies$ there exists an orthogonal basis $\implies$ the set of basis is $Q$-orthogonal as well;
+			\item $Q$ symmetric $\implies$ there exists an orthogonal eigen-basis $\implies$ the set of eigen-basis is $Q$-orthogonal as well;
 			\item $Q$-orthogonal vectors are linearly independent.
 		\end{enumerate}
 	\end{lemma}
@@ -1638,7 +1651,7 @@
 		In particular, $\mc{B}_0 = \{0\}$ and $\mc{B}_{n} = \R^n$.
 	\end{notation}
 	
-	\begin{theorem}
+	\begin{theorem}[Expanding Subspace Theorem]
 		The sequence $\{x_k\}$ generated from $x_0 \in \R^n$ by conjugate direction method has the property that $x_k$ minimizes $f(x) = \frac{1}{2}x^T Q x - b^Tx$ on the affine hyperplane $x_0 + \mc{B}_k$. \\
 		That is, 
 		\begin{align}
@@ -1652,18 +1665,19 @@
 %		\begin{align}
 %			f(x) &= (x - x^*)^T Q (x - x^*) = \sum_{i=1}^n \lambda_i y_i^2
 %		\end{align}
-		It is enough to show that $\nabla f(x_k) \perp \mc{B}_k$.
+		It is enough to show that $g_k := \nabla f(x_k) \perp \mc{B}_k$.
 		\emph{Base Case:} $g_0 := \nabla f(x_0) \perp \{0\}$ trivially. \\
-		\emph{Inductive Step:} Assume $g_k \perp \mc{B}_k$, show $g_{k+1} \perp \mc{B}_{k+1}$:
+		\emph{Inductive Step:} Assume $g_k \perp \mc{B}_k$, show $g_{k+1} \perp \mc{B}_{k+1}$: \\
+		Step 1: Show $g_{k+1} \perp d_k$:
 		\begin{align}
-			g_k &\perp \mc{B}_k \\
-			\implies g_k &\perp \tx{span}\{d_0, \cdots, d_{k-1}\} \\
 			\inner{g_{k+1}}{d_k} &= \inner{g_{k} + \alpha_k Q d_k}{d_k} \\
 			&= \inner{g_{k}}{d_k} + \alpha_k \inner{Q d_k}{d_k} \\
 			&= \inner{g_{k}}{d_k} - \frac{\inner{g_k}{d_k}}{d^T_k Q d_k} d_k^T Q d_k
-			= 0 \\
-			\implies g_{k+1} &\perp d_k \\
-			\inner{g_{k+1}}{d_i} &= \inner{g_{k} + \alpha_k Q d_k}{d_i} \quad 0 \leq i < k \\
+			= 0
+		\end{align}
+		Step 2: Show $g_{k+1} \perp d_i$ for all $i \in \{0, 1, \cdots, k-1\}$:
+		\begin{align}
+			\inner{g_{k+1}}{d_i} &= \inner{g_{k} + \alpha_k Q d_k}{d_i} \\
 			&= \inner{g_{k}}{d_i} + \inner{\alpha_k Q d_k}{d_i} \\
 			&= 0 + 0 = 0 \\
 			\implies g_{k+1} &\perp \mc{B}_k
@@ -1677,7 +1691,7 @@
 	\begin{corollary}
 		Let $q(\cdot)$ be a quadratic function, then
 		\begin{align}
-			0 \leq q(x_k) = \min_{x \in x_0 + \mc{B}_k} q(x) \leq q(x_k) = \min_{x \in x_0 + \mc{B}_{k-1}} q(x)
+			0 \leq q(x_k) = \min_{x \in x_0 + \mc{B}_k} q(x) \leq q(x_{k-1}) = \min_{x \in x_0 + \mc{B}_{k-1}} q(x)
 		\end{align}
 	\end{corollary}
 	
@@ -1701,14 +1715,14 @@
 		\min F[u]\ s.t.\ u \in \mc{A}
 	\end{align}
 	\paragraph{Optimizing via Disturbance (Test Functions)} The general idea of solving such infinite dimensional problem would be \ul{reducing it to a collection of one dimensional problems}. \\
-	Let $v(\cdot) \in C^1([0, 1], \R)$ such that $v(0) = v(1) = 0$. \\
+	Let $v(\cdot) \in C^1([0, 1], \R)$ such that $v(0) = v(1) = 0$, this family of functions are in general referred to as \textbf{test functions.} \\
 	Suppose $u^*(\cdot)$ is the minimizer of the problem stated above. \\
 	Consider
 	\begin{align}
 		u^*(\cdot) + s v(\cdot)\quad s \in \R
 	\end{align}
 	Notice that by construction, $u^*(\cdot) + s v(\cdot) \in \mc{A}$ for every $s \in \R$. \\
-	Define the auxiliary function 
+	Define
 	\begin{align}
 		f(s) := F[u^* + sv] \in \R^\R
 	\end{align}
@@ -1820,11 +1834,15 @@
 	\end{example}
 	
 	\begin{definition}
-		Given $u(\cdot) \in \mc{A}$, suppose $\exists$ function $g(\cdot)$ on $[a, b]$ such that 
+		Given $u(\cdot) \in \mc{A}$, if $\exists$ function $g(\cdot)$ defined on $[a, b]$ such that 
 		\begin{align}
-			\red{\left. \frac{d}{ds} \right |_{s=0} F[u(\cdot) + sv(\cdot)] = \int_a^b g(x) v(x)\ dx\ \forall \tx{ test functions } v(\cdot)}
+			\left. \frac{d}{ds} \right |_{s=0} F[u(\cdot) + sv(\cdot)] = \int_a^b g(x) v(x)\ dx\ \forall \tx{ test functions } v(\cdot)
 		\end{align}
-		Then $g(\cdot)$ is called the \textbf{variational derivative} of $F$ at $u(\cdot)$, often denoted as $\frac{\delta F}{\delta u}(u)(\cdot)$.
+		Then $g(\cdot)$ is called the \textbf{variational derivative} of $F$ at $u(\cdot)$, often denoted as $\frac{\delta F}{\delta u}(u)(\cdot)$. \\
+		That is,
+		\begin{align}
+			\red{\left. \frac{d}{ds} \right |_{s=0} F[u(\cdot) + sv(\cdot)] = \int_a^b \frac{\delta F}{\delta u}(u)(x)\ v(x)\ dx\ \forall \tx{ test functions } v(\cdot)}
+		\end{align}
 	\end{definition}
 	
 	\begin{remark}[Analogy to the finite dimensional case]
@@ -1859,7 +1877,7 @@
 			&= \left. \frac{d}{ds} \right |_{s=0} f(s)
 			= \left. \frac{d}{ds} \right |_{s=0} F[u_* + sv] \\
 			&= \int_a^b \frac{\delta F}{\delta u}(u)(x)v(x)\ dx \\
-			\implies &\frac{\delta F}{\delta u}(u)(\cdot) \equiv 0
+			\implies &\frac{\delta F}{\delta u}(u)(\cdot) \equiv 0 \tx{ by the fundamental lemma}
 		\end{align}
 	\end{proof}
 	
@@ -1929,7 +1947,7 @@
 			&= - \frac{d}{dx} \frac{u'(x)}{\sqrt{1+u'(x)^2}} \equiv 0 \\
 			\implies & \frac{u'(x)}{\sqrt{1+u'(x)^2}} = C \\
 			\implies u'(x)^2 &= C (1+u'(x)^2) \\
-			\implies u'(x)^2 &= C \\
+			\implies u'(x)^2 &= \frac{C}{1-C} \\
 			\implies u'(x) &= \alpha \\
 			\implies u(x) &= \alpha x + \beta
 		\end{align}
@@ -1999,7 +2017,7 @@
 		\end{align}
 		That is
 		\begin{align}
-			- \frac{d}{dx}\pd{L}{p_j} + \pd{L}{z_j} = 0\quad \forall j
+			- \frac{d}{dx}\pd{L}{p_j} + \pd{L}{z_j} = 0\tx{ (zero function)}\quad \forall j
 		\end{align}
 	\end{theorem}
 	
@@ -2075,10 +2093,8 @@
 	\end{align}
 	and the optimization problem
 	\begin{align}
-		\begin{cases}
-			\min_{u(\cdot) \in \mc{A}} F[u(\cdot)] \\
-			G[u(\cdot)] = \tx{constant}
-		\end{cases}
+		&\min_{u(\cdot) \in \mc{A}} F[u(\cdot)] \\
+		s.t.\ &G[u(\cdot)] = \tx{constant}
 	\end{align}
 
 	\begin{theorem}
@@ -2412,10 +2428,9 @@
 			&\min F[u(\cdot)] = \int_0^b \sqrt{\frac{1 + \dot{u}(x(t))^2}{2g(a - u(x(t)))}}\ dx \\
 			s.t.\ u(\cdot) \in \mc{A} &= \{u:[0, b] \to \R: u \in C^1, u(0) = a, u(b) = 0 \}
 		\end{align}
-		The Euler-Lagrange equation is
-		\todo{verify this point}
+		The Euler-Lagrange equation is (this is shown in homework 5)
 		\begin{align}
-			(1 + u'(x)^2)(a - u(x))c^2 = 1\ \tx{where $c=$ constant}
+			(1 + u'(x)^2)(a - u(x))c^2 = 1\ \tx{where $c$ is a constant}
 		\end{align}
 		\textbf{Claim:} the solution to above differentiable equation takes the form
 		\begin{align}
