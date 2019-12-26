@@ -2,7 +2,7 @@
 
 Lecture notes for courses taken at University of Toronto, star this repository if you found it helpful : )
 
-## Website for Lecture Notes
+## Webpage for Lecture Notes
 
 ==> https://tianyudu.com/notes/
 
