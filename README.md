@@ -1,176 +1,137 @@
 # Tianyu's Note Repository @U*of*Toronto
 
-Lecture notes for courses taken at University of Toronto.
+Lecture notes for courses taken at University of Toronto, star this repository if you found it helpful : )
 
-## Lecture Notes by Terms
+## Website for Lecture Notes
 
-### Fall 2019
-* ECO2020H Microeconomic Theory I [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2019Fall_2020Winter/ECO2020/eco2020.pdf)
-  
-* MAT337H Introduction to Real Analysis [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/tree/master/2019Fall_2020Winter/MAT337)
-  
-  <details><summary>Course Content</summary>
-  <p>
-  Construction of Real Numbers. Metric spaces; compactness and connectedness. Sequences and series of functions, power series; modes of convergence. Interchange of limiting processes; differentiation of integrals. Function spaces; Weierstrass approximation; Fourier series. Contraction mappings; existence and uniqueness of solutions of ordinary differential equations. Countability; Cantor set; Hausdorff dimension.  
-  </p>
-  </details>
+==> https://tianyudu.com/notes/
 
-### Summer 2019
-* CS229: Machine Learning (Stanford University) [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/tree/master/2019Summer/CS229)
-  <details><summary> Course Content</summary>
-  <p>
-    This course provides a broad introduction to machine learning and statistical pattern recognition. Topics include: supervised learning (generative/discriminative learning, parametric/non-parametric learning, neural networks, support vector machines); unsupervised learning (clustering, dimensionality reduction, kernel methods); learning theory (bias/variance tradeoffs, practical advice); reinforcement learning and adaptive control. The course will also discuss recent applications of machine learning, such as to robotic control, data mining, autonomous navigation, bioinformatics, speech recognition, and text and web data processing.
-  </p>
-  </details>
-
-* MAT395H Independent Reading in Mathematics [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2019Summer/MAT395/mat395.pdf)
-
-  <details><summary>Course Content</summary>
-  <p>
-  Mathematical Economics, based on the textbook Microeconomic Theory by Andreu Mas-Colell, Michael D. Whinston, and Jerry R. Green  
-  </p>
-  </details>
-
-### Winter 2019
-
-* ECO326H Advanced Microeconomics - Game Theory [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2018Fall_2019Winter/ECO326/eco326.pdf)
-
-  <details><summary>Course Content</summary>
-  <p>
-  This is a class in game theory. Game theory analyzes the behavior of small groups of agents in strategic situations, ie., situations where the actions of each of the agents may affect payoffs or incentives of the others. The class will be quite rigorous as one of its goals is to give you some idea about what people study in a formal economics graduate program. The main emphasis will be on learning formal concepts and methods how to approach and think about games. As illustrations, we will see a broad range of application from economics, political science, sociology, job search, dating, etc.
-  </p>
-  </details>
-
-* ECO374H Forecasting and Time Series Econometrics [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2018Fall_2019Winter/ECO374/eco374.pdf)
-
-  <details><summary>Course Content</summary>
-  <p>
-  The primary objective of the course is to provide students with a solid theoretical and practical foundation for forecasting and time series analysis. The course is built around the statistical foundations and economic application of modeling stochastic processes. Key examples will be drawn from business and financial economics. Students will gain practical experience working with economic and financial data, making use of statistical software.
-  </p>
-  </details>
-
-* MAT237Y Multivariable Calculus [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2018Fall_2019Winter/MAT237/mat237.pdf)
-
-  <details><summary>Course Content</summary>
-  <p>
-  Sequences and series. Uniform convergence. Convergence of integrals. Elements of topology in R^2 and R^3. Differential and integral calculus of vector valued functions of a vector variable, with emphasis on vectors in two and three dimensional euclidean space. Extremal problems, Lagrange multipliers, line and surface integrals, vector analysis, Stokes' theorem, Fourier series, calculus of variations.
-  </p>
-  </details>
-
-* MAT344H Introduction to Combinatorics [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2018Fall_2019Winter/MAT344/mat344.pdf)
-
-  <details><summary>Course Content</summary>
-  <p>
-  Basic counting principles, generating functions, permutations with restrictions. Fundamentals of graph theory with algorithms; applications (including network flows). Combinatorial structures including block designs and finite geometries.
-  </p>
-  </details>
-
-### Fall 2018
-
-* ECO325H1 (Fall) Advanced Economic Theory - Macro [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2018Fall_2019Winter/ECO325/eco325.pdf)
-
-  <details><summary>Course Content</summary>
-  <p>
-  This course is designed for majors and specialists in economics who wish to prepare for graduate work in economics and /or expand their understanding of modern macroeconomics theory. During this half course students will develop analytical skills in solving and constructing macroeconomic models. The advanced topics covered will include topics such as: growth theory and the Solow growth model, theories of consumption, investment and savings, general equilibrium models, and business cycles theory.
-  </p>
-  </details>
-
-* ECO375H1 (Fall) Applied Econometrics I [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2018Fall_2019Winter/ECO375/eco375.pdf)
-
-  <details><summary>Course Content</summary>
-  <p>
-  Econometrics combines elements of economic theory, statistics, probability theory, and mathematics. The
-  primary objective of the course is to provide students with a solid theoretical and practical foundation for
-  the interpretation of empirical evidence in economics. The course is built around the statistical
-  foundations and economic application of the multiple regression model. Students will gain practical
-  experience working with economic data using statistical software.
-  </p>
-  </details>
-
-* MAT246H1 (Fall) Concepts in Abstract Mathematics [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2018Fall_2019Winter/MAT246/mat246_lec_notes.pdf)
-
-  <details><summary>Course Content</summary>
-  <p>
-    Designed to introduce students to mathematical proofs and abstract
-    mathematical concepts. Topics will include modular arithmetic, sizes
-    of infinite sets, and a proof that some angles cannot be trisected with
-    straightedge and compass.
-    </p>
-  	<p>
-    <b>Topics</b>
-    </p>
-    <p>
-    - Mathematical induction, complete induction, well-ordering
-    principle.
-    </p>
-    <p>
-  		- Congruences and modular arithmetic.
-    </p>
-    <p>
-    	- Primes and Fundamental theorem of arithmetic, Fermat's theorem, Wilson’s theorem.
-    </p>
-    <p>
-     	- Applications to cryptography, RSA method. 
-    </p>
-    <p>
-      - Euclidean algorithm and applications.
-    </p>
-    <p>
-      - Rational and irrational numbers, complex numbers, Fundmental Theorem of Algebra.
-    </p>
-    <p>
-      - Cardinality, Countable and Uncountable sets, comparing cardinalities.
-    </p>
-    <p>
-      - Constructibility, constructions with straightedge and compass, constructible numbers, surds, constructions of geometric figures.
-    </p>
-  </details>
-
-### Summer 2018
-
-* ECO206Y1 (Summer) Microeconomic Theory [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/tree/master/2018Summer/ECO206)
-* ECO208Y1 (Summer) Macroeconomic Theory [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/tree/master/2018Summer/ECO208)
-
-* ECO220Y1 (Summer) Quantitive Methods in Economics [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/tree/master/2018Summer/ECO220)
-
-### Winter 2018
-
-* MAT137Y1 (Full Session) Calculus [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2017Fall_2018Winter/MAT137/mat137_video_play_list.pdf)
-* MAT224H1 (Winter) Linear Algebra II [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2017Fall_2018Winter/MAT224/mat224.pdf)
-
-### Fall 2017
-
-* MAT223H1 (Fall) Linear Algebra I [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2017Fall_2018Winter/MAT223/mat223.pdf)
-* PSY100H1 (Fall) Introduction to Psychology [Download](https://github.com/TianyuDu/Spikey_UofT_Notes/blob/master/2017Fall_2018Winter/PSY100/psy100_tophat_1_10.pdf)
-
-
-
-## File Tree
+## Directory Structure
 
 ```text
+.
 ├── 2017Fall_2018Winter
 │   ├── MAT137
+│   │   ├── mat137_video_play_list.pdf
+│   │   └── mat137_video_play_list.tex
 │   ├── MAT223
+│   │   ├── 223_pic
+│   │   ├── mat223\ 2.pdf
+│   │   ├── mat223.pdf
+│   │   ├── mat223.tex
+│   │   ├── mat223_tophat\ 2.pdf
+│   │   ├── mat223_tophat.pdf
+│   │   └── mat223_tophat.tex
 │   ├── MAT224
+│   │   ├── mat224\ 2.pdf
+│   │   ├── mat224.pdf
+│   │   └── mat224.tex
 │   └── PSY100
+│       ├── pic
+│       ├── psy100
+│       ├── psy100\ 2.pdf
+│       ├── psy100.pdf
+│       ├── psy100.tex
+│       ├── psy100_tophat_1_10\ 2.pdf
+│       ├── psy100_tophat_1_10.pdf
+│       ├── psy100_tophat_1_10.tex
+│       ├── psy100_tophat_ch7_8_9_10\ 2.pdf
+│       ├── psy100_tophat_ch7_8_9_10.pdf
+│       └── psy100_tophat_ch7_8_9_10.tex
 ├── 2018Fall_2019Winter
 │   ├── ECO325
+│   │   ├── eco325.pdf
+│   │   ├── eco325.tex
+│   │   └── figures
 │   ├── ECO326
+│   │   ├── eco326.dvi
+│   │   ├── eco326.pdf
+│   │   ├── eco326.ps
+│   │   ├── eco326.tex
+│   │   ├── eco326_duplicate.pdf
+│   │   ├── eco326_duplicate.tex
+│   │   ├── egameps.sty
+│   │   └── fig
 │   ├── ECO374
+│   │   ├── eco374.pdf
+│   │   ├── eco374.tex
+│   │   └── figures
 │   ├── ECO375
+│   │   ├── eco375.pdf
+│   │   ├── eco375.tex
+│   │   └── figures
 │   ├── MAT237
+│   │   ├── mat237.pdf
+│   │   └── mat237.tex
 │   ├── MAT246
+│   │   ├── figures
+│   │   ├── mat246_lec_notes.pdf
+│   │   ├── mat246_lec_notes.tex
+│   │   ├── theorem_ref.pdf
+│   │   └── theorem_ref.tex
 │   └── MAT344
+│       ├── mat344.pdf
+│       └── mat344.tex
 ├── 2018Summer
 │   ├── ECO206
+│   │   ├── ECO206\ TT2.pdf
+│   │   ├── ECO206FinalReview.pdf
+│   │   ├── ECO206FinalReview.tex
+│   │   ├── ECO206_SDPD.pdf
+│   │   └── ECO206_SDPD.tex
 │   ├── ECO208
+│   │   ├── ECO208\ Final\ Review\ Complete\ Version.pdf
+│   │   ├── ECO208\ TT1\ Summary
+│   │   └── ECO208\ TT3\ Summary
 │   ├── ECO220
+│   │   ├── ECO220\ Summary
+│   │   ├── eco220.pdf
+│   │   ├── eco220.tex
+│   │   ├── fig1.png
+│   │   ├── fig2.png
+│   │   ├── fig3.png
+│   │   └── mycommands.sty
 │   └── mycommands.sty
+├── 2019Fall_2020Winter
+│   ├── APM462
+│   │   ├── APM462.pdf
+│   │   ├── APM462.tex
+│   │   └── thm.tex
+│   ├── CSC311
+│   │   ├── CSC311.pdf
+│   │   ├── CSC311.tex
+│   │   ├── loss.jpg
+│   │   ├── midterm_cheat_sheet.pdf
+│   │   ├── midterm_cheat_sheet.tex
+│   │   ├── rl.pdf
+│   │   └── rl.tex
+│   ├── ECO2020
+│   │   ├── ECO2020.pdf
+│   │   ├── ECO2020.tex
+│   │   └── figures
+│   ├── MAT337
+│   │   ├── MAT337.pdf
+│   │   ├── MAT337.tex
+│   │   ├── MAT337_sup.pdf
+│   │   ├── MAT337_sup.tex
+│   │   └── figure
+│   └── STA347
+│       ├── STA347.pdf
+│       └── STA347.tex
 ├── 2019Summer
+│   ├── CS229
+│   │   ├── CS229.pdf
+│   │   └── CS229.tex
 │   └── MAT395
-├── Other Courses
-│   └── Probability Theory
+│       ├── figures
+│       ├── mat395.pdf
+│       └── mat395.tex
+├── Other\ Courses
+│   └── Probability\ Theory
+│       ├── prob_theory.pdf
+│       └── prob_theory.tex
 ├── README.md
+├── _config.yml
 └── spikey.sty
 ```
 
