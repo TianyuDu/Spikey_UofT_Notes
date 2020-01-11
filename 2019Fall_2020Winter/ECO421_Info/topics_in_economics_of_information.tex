@@ -43,11 +43,107 @@
     \newpage
     
     \section{Knowledge}
+    \begin{notation}
+    	Let $\Omega$ denote the all possible states of world, and let $A$ denote the set of all agents.
+    \end{notation}
+	
+	\begin{definition}
+		Every $E \subseteq \Omega$ is called an \textbf{event} or a type/piece of \textbf{information}.
+	\end{definition}
+	
     \begin{definition}
-    	
+    	Let $E \subseteq \Omega$ be a piece of information and $i \in A$, and we say agent $i$ \textbf{knows} $E$ in state $\omega \in \Omega$ if this agent knows
+    	\begin{enumerate}[(i)]
+    		\item The true state of world $\omega^* \in E$;
+    		\item but, all $\omega \in E$ are considered to be possible.
+    	\end{enumerate}
+    	Remark: the agent is certain about the true state $\omega^*$ if and only if $E = \{\omega^*\}$.
     \end{definition}
     
+    \begin{definition}
+    	For an agent $i \in A$, the \textbf{information structure} of this agent, $\mc{T}_i$, is a \emph{partition} of $\Omega$.
+    \end{definition}
+    
+    \begin{notation}
+    	Each element of the partition corresponds to one piece of information. \\
+    	One may define a mapping $T_i(\cdot): \Omega \to \mc{T}_i$, such that for every $\omega \in \Omega$, let $T_i(\omega) \in \mc{T}_i$ denote the piece of information known by this agent in state $\omega$. \\
+    	Equivalently, $T_i(\omega) \subseteq \Omega$ denotes the set of all states that $i$ considers possible given her information in state $\omega$.
+    \end{notation}
+    
+    \begin{definition}
+    	A \textbf{knowledge-based type space} is defined to be a tuple
+    	\begin{align}
+    		(\Omega, (\mc{T}_i)_{i \in A})
+    	\end{align}
+    \end{definition}
+   
+   	\begin{definition}[Equivalent Definition]
+   		An agent $i$ is said to \textbf{know} information $E$ in state $\omega$ if and only if
+   		\begin{align}
+   			T_i(\omega) \subseteq E
+   		\end{align}
+   		That is, the true state $\omega^* \in T_i(\omega) \subseteq E$, so that $i$ believes $E$ to be certain.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		Define $K_i(E)$ to be the set of states in which agent $i$ knows $E$, that is,
+   		\begin{align}
+   			K_i(E) := \{\omega \in \Omega: T_i(\omega) \subseteq E\}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		Given a piece of information $F \subseteq \Omega$ characterizing that $\omega^* \in F$, the new \textbf{information structure updated by $F$} is defined to be
+   		\begin{align}
+   			(\Omega^F, (T^F_i(\cdot)))
+   		\end{align}
+   		where
+   		\begin{align}
+   			\Omega^F &= \Omega \cap F \\
+   			T_i^F(\omega) &= T_i(\omega) \cap F\quad \forall \omega \in \Omega^F
+   		\end{align}
+   	\end{definition}
+   	\begin{definition}
+   		The set of states where $E$ is known given $F$ is 
+   		\begin{align}
+   			K_i(E|F) := \left\{
+   			\omega \in \Omega^F: T_i^F(\omega) \subseteq E
+   			\right\}
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{notation}
+   		For $i, j \in A$, the following are equivalent:
+   		\begin{enumerate}
+   			\item states in which $i$ knows that player $j$ knows $E$;
+   			\item states in which $i$ knows $K_j(E)$.
+   		\end{enumerate}
+   		This set of states can be denoted as
+   		\begin{align}
+   			K_i(K_j(E))
+   		\end{align}
+   	\end{notation}
+   	
+   	\begin{definition}
+   		An event $E \subseteq \Omega$ is a \textbf{common knowledge} in state $\omega$ if
+   		\begin{align}
+   			\omega &\in \bigcap_{i \in A} K_i(E) \\
+   			\omega &\in \bigcap_{j \in A} K_j \left(\bigcap_{i \in A} K_i(E) \right) \\
+   			\omega &\in \bigcap_{k \in A} K_k \left[
+	   			\bigcap_{j \in A} K_j \left(\bigcap_{i \in A} K_i(E) \right)
+   			\right]
+   		\end{align}
+   	\end{definition}
 \end{document}
+
+
+
+
+
+
+
+
+
 
 
 
