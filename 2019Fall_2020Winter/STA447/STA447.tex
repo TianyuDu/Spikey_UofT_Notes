@@ -41,8 +41,186 @@
     \maketitle
     \tableofcontents
     \newpage
-    \section{Markov Chain}
+    \section{Markov Chain Probabilities}
+    
+    \begin{definition}
+    	A \textbf{discrete-time, discrete-space, and time-homogenous Markov chain} is a triple of $(S, v, p)$ in which
+    	\begin{enumerate}[(i)]
+    		\item $S$ represents the \emph{state space}, which is nonempty and countable;
+    		\item \emph{initial probability} $v$, which is a distribution on $S$;
+    		\item and \emph{transition probability} $p_{ij}$.
+    	\end{enumerate}
+    \end{definition}
+    
+    \begin{definition}
+    	A Markov chain satisfies the \textbf{time-homogenous property} if
+    	\begin{align}
+    		P(X_{n+1}=j|X_n=i) = P(X_1=j|X_0=i) = p_{ij}\quad \forall n \in \N
+    	\end{align}
+    \end{definition}
+    
+    \begin{definition}
+    	A Markov chain satisfies the \textbf{Markov property} if
+    	\begin{align}
+    		P(X_{n+1}=j|X_n=i_n, X_{n-1}=i_{n-1}, \cdots, X_0=i_0) = P(X_{n+1}=j|X_n=i_n)
+    	\end{align}
+    	That is, the chain is \emph{memoryless}.
+    \end{definition}
+    
+    \begin{proposition}[Multistep Arrival Probability]
+    	Let $m = |S|$ and $\mu_i^{(n)} := P(X_n=i)$ denote the probability that the state ends up at $i$ after $n$ step. By the law of total expectation,
+    	\begin{align}
+    		P(X_n=i) &= \sum_{j \in S} P(X_n=i, X_{n-1}=j) \\
+    		&= \sum_{j \in S} P(X_n=i | X_{n-1}=j) P(X_{n-1}=j) \\
+    		&= \sum_{j \in S} P(X_{n-1}=j) p_{ij} \\
+    		&= \sum_{j \in S} \mu_{j}^{(n)} p_{ij}
+    	\end{align}
+    	Let $\mu^{(n)} := \left[\mu_1^{(n)}, \mu_2^{(n)}, \cdots, \mu_m^{(n)} \right] \in \R^{1 \times m}$ and $P = [p_{ij}] \in \R^{m \times m}$. In matrix notation:
+    	\begin{align}
+    		\mu^{(n)} = \mu^{(n-1)} P
+    	\end{align}
+    	where $\mu^{(0)} = v = [v_1, v_2, \cdots, v_m]$. Define $P^0 = I_m$, then
+    	\begin{align}
+    		\mu^{(n)} = v P^n
+    	\end{align}
+    \end{proposition}
+    
+    \begin{proposition}[Multistep Transition Probability]
+    	Define $p_{ij}^{(n)} := P(X_{m+n}=j|X_{m}=i)$ to be the probability of arriving state $j$ after $n$ steps, starting from state $i$. By the time-homogenous property,
+    	\begin{align}
+    		p_{ij}^{(n)} = P(X_{m+n}=j|X_{m}=i)\quad \forall m \in \N
+    	\end{align}
+    	Let $P^{(n)} := [p_{ij}^{(n)}] \in \R^{m \times m}$. \\
+    	\ul{Initial Step}: for $n = 1$, $P^{(1)} = P$ by definition. \\
+    	\ul{Inductive Step}: for $n \in \N$,
+    	\begin{align}
+    		p_{ij}^{(n+1)} &= P(X_{n+1}=j|X_0=i) \\
+    		&= \sum_{k \in S} P(X_{n+1}=j|X_n = k, X_0=i) P(X_n=k|X_0=i) \\
+    		&= \sum_{k \in S} P(X_{n+1}=j|X_n = k) p_{ik}^{(n)} \\
+    		&= \sum_{k \in S} p_{ik}^{(n)} p_{kj} \\
+    		&= [P^{(n)} P]_{ij}
+    	\end{align}
+    	Therefore,
+    	\begin{align}
+    		P^{(n+1)} = P^{(n)} P
+    	\end{align}
+    	and 
+    	\begin{align}
+    		P^{(n)} = P^n
+    	\end{align}
+    \end{proposition}
+    
+    \begin{theorem}[Chapman-Kolmogorov Equations]
+    	Let $n = (n_1, n_2, \cdots, n_k)$ be a multi-set of non-negative integers, then
+    	\begin{align}
+    		P^{(\sum_{i=1}^k n_i)} = \prod_{i=1}^k P^{(n_i)}\quad (\dagger)
+    	\end{align}
+    \end{theorem}
+    
+    \begin{proof}
+    	Prove by induction on the size of multi-set: \\
+    	\ul{Base case} is trivial for $k=1$. \\
+    	\ul{Inductive step} for $k > 1$, suppose $(\dagger)$ holds for every set of length $k$, consider another multi-set with length $k+1$: $n' = (n_1, n_2, \cdots, n_k, n_{k+1})$. Let $\delta := \sum_{i=1}^k n_i$.
+    	\begin{align}
+    		P^{(\delta + n_{k+1})}_{ij}
+    		&= P(X_{\delta + n_{k+1}}=j|X_0=i) \\
+    		&= \sum_{k \in S} P(X_{\delta + n_{k+1}}=j|X_\delta=k, X_0=i) P(X_\delta | X_0=i) \\
+    		&= \sum_{k \in S} P(X_{\delta + n_{k+1}}=j|X_\delta=k) P(X_\delta | X_0=i) \\
+    		&= \sum_{k \in S} P(X_{n_{k+1}}=j|X_0=k) P(X_\delta=k | X_0=i) \\
+    		&= \sum_{k \in S} p^{n_{k+1}}_{kj} p^{(\delta)}_{ik} \\
+    		&= [P^{(\delta)} P^{(n_{k+1})}]_{ij} \\
+    		\implies P^{(\delta + n_{k+1})} &= P^{(\delta)} P^{(n_{k+1})}
+    	\end{align}
+    \end{proof}
+    
+    \begin{corollary}[Chapman-Kolmogorov Inequality]
+    	For every $k \in S$,
+    	\begin{align}
+    		p_{ij}^{(m+n)} \geq p_{ik}^{(m)} p_{kj}^{(n)}
+    	\end{align}
+    	For $k,\ell \in S$,
+    	\begin{align}
+    		p_{ij}^{(m+s+n)} \geq p_{ik}^{(m)} p_{k\ell}^{(s)} p_{\ell j}^{(n)}
+    	\end{align}
+    \end{corollary}
+    
+    \begin{notation}
+    	Let $N(i) := |\{n \geq 1: X_n = i\}|$ denote the number of arrivals to state $i$ of the chain.
+    \end{notation}
+    
+    \begin{definition}
+    	Define the \textbf{return probability} from state $i$ to $j$, $f_{ij}$, as the probability of arriving state $j$ starting from state $i$. That is,
+    	\begin{align}
+    		f_{ij} &= P(\exists n \geq 1\ s.t.\ X_n = j | X_0 = i) \\
+    		&= P(N(j) \geq 1 | X_0 = i)
+    	\end{align}
+    \end{definition}
+    
+    \begin{proposition}
+    	The probability of \ul{firstly arriving $j$, then arriving $k$} (denoted as event $E$) starting from $i$ equals
+    	\begin{align}
+    		P(E|X_0=i) = f_{ij} f_{jk}
+    	\end{align}
+    \end{proposition}
+    
+    \begin{proof}
+    	The proof follows the time-homogenous property.
+    \end{proof}
+    
+    \begin{corollary}
+    	\begin{align}
+    		P(N(i) \geq k| X_0 = i) &= (f_{ii})^k \\
+    		P(N(j) \geq k| X_0 = i) &= f_{ij}(f_{jj})^{k-1}
+    	\end{align}
+    \end{corollary}
+    
+    \begin{definition}
+    	A state $i$ in a Markov chain is \textbf{recurrent} if $f_{ii} = 1$. Otherwise, this state is \textbf{transient}.
+    \end{definition}
+    
+    \begin{theorem}[Recurrent State Theorem]
+    	The following statements are equivalent:
+    	\begin{enumerate}[(i)]
+    		\item State $i$ is recurrent;
+    		\item $P(N(i) = \infty|X_0=i) = 1$, that is, state $i$ will be visited infinitely often;
+    		\item $\sum_{n=1}^\infty p_{ii}^{(n)} = \infty$.
+    	\end{enumerate}
+    	The following statements are equivalent:
+    	\begin{enumerate}[(a)]
+    		\item State $i$ is transient;
+    		\item $P(N(i) = \infty|X_0=i) = 0$, that is, state $i$ will only be visited finitely many times;
+    		\item $\sum_{n=1}^\infty p_{ii}^{(n)} < \infty$.
+    	\end{enumerate}
+    \end{theorem}
+
+    \begin{proof}
+    	We only show the equivalence of $(i)\sim(iii)$, $(a)\sim(c)$ are simply the negation of previous statements. \\
+    	$(i) \iff (ii)$:
+    	\begin{align}
+    		P(N(i) = \infty|X_0=i) &= P(\lim_{k \to \infty} N(i) \geq k| X_0=i) \\
+    		&= \lim_{k \to \infty} P(N(i) \geq k| X_0=i) \\
+    		&= \lim_{k \to \infty} (f_{ii})^k = 1 \tx{ if and only if } f_{ii} = 1
+    	\end{align}
+    	$(i) \iff (iii)$:
+    	\begin{align}
+    		\sum_{n=1}^\infty p_{ii}^{(n)}
+    		&= \sum_{n=1}^\infty P(X_n = i | X_0 = i) \\
+    		&= \sum_{n=1}^\infty \expe (1_{X_n=i} | X_0 = i) \\
+    		&= \expe \left(
+    		\sum_{n=1}^\infty 1_{X_n=i} \Big| X_0 = i
+    		\right ) \\
+    		&= \expe (N(i) | X_0=i) \\
+    		&= \sum_{n=k}^\infty k P(N(i)=k | X_0=i) \\
+    		&= \sum_{n=k}^\infty P(N(i) \geq k | X_0=i) \\
+    		&= \sum_{n=k}^\infty (f_{ii})^k \\
+    		&= \infty \tx{ if and only if } f_{ii} = 1
+    	\end{align}
+    \end{proof}
 \end{document}
+
+
+
+
 
 
 
