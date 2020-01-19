@@ -25,6 +25,9 @@
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
 
+\newcommand{\upn}[0]{^{(n)}}
+\newcommand{\upk}[0]{^{(k)}}
+
 \pagestyle{fancy}
 \lhead{STA447: Stochastic Processes}
 
@@ -181,7 +184,7 @@
     \begin{theorem}[Recurrent State Theorem]
     	The following statements are equivalent:
     	\begin{enumerate}[(i)]
-    		\item State $i$ is recurrent;
+    		\item State $i$ is recurrent (i.e., $f_{ii}=1$);
     		\item $P(N(i) = \infty|X_0=i) = 1$, that is, state $i$ will be visited infinitely often;
     		\item $\sum_{n=1}^\infty p_{ii}^{(n)} = \infty$.
     	\end{enumerate}
@@ -216,7 +219,231 @@
     		&= \infty \tx{ if and only if } f_{ii} = 1
     	\end{align}
     \end{proof}
+    
+    \begin{lemma}[Stirling's Approximation]
+    	\begin{align}
+    		n! \approx (n/e)^n \sqrt{2\pi n}
+    	\end{align}
+    \end{lemma}
+    
+    \begin{proposition}
+    	For simple random walk, if $p=1/2$, then $f_{ii} = 1\ \forall i \in S$. Otherwise, all states are transient.
+    	\begin{align}
+    		\forall i \in S,\ f_{ii} = 1 \iff p = \frac{1}{2}
+    	\end{align}
+    \end{proposition}
+    
+    \begin{proof}
+    	For simplicity, consider state $0$ and the series $\sum_{n=1}^\infty p_{00}\upn$. \\
+    	Note that for odd $n$'s, $p_{00}\upn = 0$. \\
+    	For all even $n$'s such that $n = 2k$,
+    	\begin{align}
+    		\sum_{n=1}^\infty p_{00}\upn &= \sum_{k=1}^\infty p_{00}^{(2k)} \\
+    		&= \sum_{k=1}^\infty \binom{2k}{k}p^k (1-p)^k \\
+    		&= \sum_{k=1}^\infty \frac{2k!}{(k!)^2} p^k (1-p)^k \\
+    		&\approx \sum_{k=1}^\infty
+    		\frac{(2k/e)^{2k}\sqrt{4 \pi k}}{(k^k e^{-k} \sqrt{2 \pi k})^2}
+    		p^k (1-p)^k \\
+    		&= \sum_{k=1}^\infty
+    		\frac{2^{2k} k^{2k} e^{-2k} 2 \sqrt{\pi k}}
+    		{k^{2k} e^{-2k} 2 \pi k}
+    		p^k (1-p)^k \\
+    		&= \sum_{k=1}^\infty
+    		\frac{2^{2k}}
+    		{\sqrt{\pi k}}
+    		p^k (1-p)^k \\
+    		&= \sum_{k=1}^\infty
+    		\frac{4^k}
+    		{\sqrt{\pi k}}
+    		p^k (1-p)^k \\
+    		&= \sum_{k=1}^\infty
+    		\frac{1}
+    		{\sqrt{\pi k}}
+    		[4p(1-p)]^k
+    	\end{align}
+    	When $p = \frac{1}{2}$, 
+    	\begin{align}
+    		\sum_{n=1}^\infty p_{00}\upn &= \frac{1}{\sqrt{\pi}} \sum_{k=1}^\infty k^{-1/2} \\
+    		&= \infty
+    	\end{align}
+    	When $p \neq \frac{1}{2}$,
+    	\begin{align}
+    		\sum_{n=1}^\infty p_{00}\upn &< \frac{1}{\sqrt{\pi}} \sum_{k=1}^\infty [4 \pi (1 - p)]^k \\
+    		&< \infty
+    	\end{align}
+    	By the recurrent state theorem, $f_{ii} = 1 \iff p = 1/2$. \\
+    	For other $i \neq 0$, the prove is similar.
+    \end{proof}
+    
+    \begin{theorem}[f-Expansion]
+    	\begin{align}
+    		f_{ij} = p_{ij} + \sum_{k \in S \backslash \{j\}} p_{ik} f_{kj}
+    	\end{align}
+    \end{theorem}
+    
+    \begin{proof}
+    	\begin{align}
+	    	f_{ij} &= P(\exists n \in \Z_{++} \ s.t.\ X_n = j|X_0 = i) \\
+	    	&= \sum_{k \in S} P(\exists n \in \Z_{++} \ s.t.\ X_n = j|X_0 = i, X_1 = k) P(X_1=k|X_0=i) \\
+	    	&= \sum_{k \in S} P(\exists n \in \Z_{++} \ s.t.\ X_n = j| X_1 = k) P(X_1=k|X_0=i) \tx{ (Markov Property)} \\
+	    	&= \underbrace{P(\exists n \in \Z_{++} \ s.t.\ X_n = j| X_1 = j)}_{=1} P(X_1=j|X_0=i)
+	    	+ \sum_{k \neq j} f_{kj} P(X_1=k|X_0=i) \\
+	    	&= p_{ij} + \sum_{k \neq j} f_{kj} p_{ik}
+    	\end{align}
+    \end{proof}
+    
+    \begin{definition}
+    	State $i$ is said to \textbf{communicate} with state $j$, denoted as $i \to j$, if $f_{ij} > 0$.
+    \end{definition}
+    
+    \begin{proposition}[Alternative Defintion]
+    	The following statements are equivalent:
+    	\begin{enumerate}[(i)]
+    		\item $i \to j$;
+    		\item $\exists m \geq 1,\ s.t.\ p_{ij}^{(m)} > 0$.
+    	\end{enumerate}
+    \end{proposition}
+    
+    \begin{proof}
+    	\todo{Proof.}
+    \end{proof}
+    
+    \begin{definition}
+    	A Markov chain s \textbf{irreducible} if $i \to j\ \forall i,j \in S$.
+    \end{definition}
+    
+    
+    \subsection{Recurrence and Transience Equivalence Theorem}
+    \begin{theorem}[Sum Lemma]
+    	If
+    	\begin{enumerate}[(i)]
+    		\item $i \to k$;
+    		\item $\ell \to j$;
+    		\item $\sum_{n=1}^\infty p_{k \ell}\upn = \infty$.
+    	\end{enumerate}
+    	Then, $\sum_{n=1}^\infty p_{ij}\upn = \infty$.
+    \end{theorem}
+    
+    \begin{proof}
+    	Suppose $i \to k$ and $\ell \to j$, then there exists $m$ and $r$ such that $p_{ik}^{(m)} > 0$ and $p_{\ell j}^{(r)} > 0$. \\
+    	By the Chapman-Kolmogorov inequality, $p_{ij}^{(m+n+r)} \geq p_{ik}^{(m)} p_{k \ell}^{(n)} p_{\ell j}^{(r)}$. \\
+    	Then,
+    	\begin{align}
+    		\sum_{n=1}^\infty p_{ij}\upn
+    		&\geq \sum_{n=m+r+1}^\infty p_{ij}\upn \\
+    		&= \sum_{s=1}^\infty p_{ij}^{(m+s+r)} \\
+    		&\geq \sum_{s=1}^\infty p_{ik}^{(m)} p_{k \ell}^{(s)} p_{\ell j}^{(r)} \\
+    		&= p_{ik}^{(m)} p_{\ell j}^{(r)} \sum_{s=1}^\infty p_{k \ell}^{(s)} = \infty
+    	\end{align}
+    \end{proof}
+    
+    \begin{theorem}
+    	If $i \leftrightarrow k$, then
+    	\begin{align}
+    		f_{ii} = 1 \iff f_{kk} = 1
+    	\end{align}
+    \end{theorem}
+    
+    \begin{proof}
+    	\todo{Proof.}
+    \end{proof}
+    
+    \begin{theorem}[Case Theorem]
+    	For an \emph{irreducible} Markov chain, it is either
+    	\begin{enumerate}[(a)]
+    		\item a \textbf{recurrent} Markov chain: $\forall i \in S,\ f_{ii} = 1$ and  $\sum_{n=1}^\infty p_{ij}\upn = \infty\ \forall i, j \in S$;
+    		\item or a \textbf{transient} Markov chain: $\forall i \in S,\ f_{ii} < 1$ and $\sum_{n=1}^\infty p_{ij}\upn < \infty\ \forall i, j \in S$.
+    	\end{enumerate}
+    \end{theorem}
+    
+    \begin{proof}
+    	\todo{Proof.}
+    \end{proof}
+    
+    \begin{theorem}[Finite Space Theorem]
+    	An \emph{irreducible} Markov chain on a \emph{finite} state space is always recurrent.
+    \end{theorem}
+    
+    \begin{proof}
+    	Let $i \in S$ (u.i.),
+    	\begin{align}
+    		\sum_{j \in S} \sum_{n=1}^\infty p_{ij}\upn
+    		&= \sum_{n=1}^\infty \sum_{j \in S} p_{ij}\upn \\
+    		&= \sum_{n=1}^\infty 1 = \infty
+    	\end{align}
+    	Because $S$ is finite, $\exists k \in S$ such that $\sum_{n=1}^\infty p_{ik}\upn = \infty$. Therefore, all states are recurrent.
+    \end{proof}
+    
+    \begin{theorem}[Hit-Lemma]
+    	Define $H_{ij}$ as the event in which the chain starts from $j$ and visits $i$ without firstly returning to $j$ (\emph{direct path from $j$ to $i$}) \footnote{Notation abuse: $H_{ij}$ describes the event starting from $j$ and ending at $i$, instead of the other way round.}:
+    	\begin{align}
+    		H_{\red{ij}} := \{\exists n \in \N\ s.t.\ X_n = i \land X_m \neq j\ \forall m < n\}
+    	\end{align}
+    	If $j \to i$ with $j \neq i$, then $P(H_{ij}|X_0=j) > 0$.
+    \end{theorem}
+    
+    \begin{theorem}[f-Lemma]
+    	For all $i, j \in S$, if $j \to i$ and $f_{jj} = 1$, then $f_{ij} = 1$.
+    \end{theorem}
+    
+    \begin{proof}
+    	For $i = j$, trivial. \\
+    	Suppose $i \neq j$, since $j \to i$, then $P(H_{ij}|X_0=j)> 0$. \\
+    	Further,
+    	\begin{align}
+    		P(X_n \neq j\ \forall n \in \Z_{++} | X_0=j)
+    		&\geq P(H_{ij}|X_0=j) P(X_n \neq j\ \forall n \in \Z_{++} | X_0=i)\\
+    		\implies 0 = 1 - f_{jj} &\geq P(H_{ij}|X_0=j) (1 - f_{ij}) \\
+    		\implies f_{ij} &= 1
+    	\end{align}
+    \end{proof}
+    
+    \begin{theorem}[Infinite Returns Lemma]
+    	For an \emph{irreducible} Markov chain,
+    	\begin{enumerate}[(i)]
+    		\item if this chain is recurrent, then $P(N(j)=\infty|X_0=i)=1\ \forall i, j \in S$;
+    		\item if this chain is transient, then $P(N(j)=\infty|X_0=i)=0\ \forall i, j \in S$.
+    	\end{enumerate}
+    \end{theorem}
+    
+    \begin{proof}
+    	Let $i, j \in S$. \\
+    	Suppose the chain is irreducible and recurrent, if $i = j$, then $f_{ii} = f_{jj} = 1$. \\
+    	Otherwise, $i \neq j$. Since $j \to i$, by the f-Lemma, $f_{jj} = f_{ii} = f_{ij} = f_{ji} = 1$.
+    	\begin{align}
+    		P(N(j) = \infty | X_0 = i)
+    		&= \lim_{k \to \infty} P(N(j) \geq k | X_0 = i) \\
+    		&= \lim_{k \to \infty} f_{ij} f_{jj}^{k-1} \\
+    		&= 1
+    	\end{align}
+    	When the chain is transient, $f_{jj} < 1$, and $\lim_{k \to \infty} f_{ij} f_{jj}^{k-1} = 0$.
+    \end{proof}
+    
+    \begin{theorem}[Recurrent Equivalences Theorem]
+    	For a irreducible Markov chain (so that $i \to j$ for all $i, j \in S$), the following statements are equivalent:
+    	\begin{enumerate}[(1)]
+    		\item $\exists k, \ell \in S$ such that $\sum_{n=1}^\infty p_{k \ell}\upn = \infty$;
+    		\item $\forall i,j \in S,\ \sum_{n=1}^\infty p_{ij}\upn = \infty$;
+    		\item $\exists k \in S\ s.t.\ f_{kk} = 1$;
+    		\item $\forall j \in S,\ f_{jj} = 1$;
+    		\item $\forall i,j \in S,\ f_{ij} = 1$;
+    		\item $\exists k, \ell \in S$ such that $P(N(\ell) = \infty | X_0 = k) = 1$;
+    		\item $\forall i, j \in S,\ P(N(j) = \infty | X_0 = i)$.
+    	\end{enumerate}
+    \end{theorem}
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
