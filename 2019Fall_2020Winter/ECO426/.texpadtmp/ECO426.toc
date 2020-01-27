@@ -1,0 +1,3 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Private Value Auctions}{5}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Standard Auctions}{5}{section.1.1}% 

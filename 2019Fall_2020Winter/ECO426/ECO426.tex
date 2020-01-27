@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
 \usepackage{spikey}
 \usepackage{amsmath}
 \usepackage{mathrsfs}
@@ -25,12 +25,142 @@
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
 
-\title{ECO426H1 Market Design: Auction and Matching}
+\title{ECO426H1 Market Design: Auctions and Matching Markets}
 \author{Tianyu Du}
 \date{\today}
 
 \begin{document}
 	\maketitle
+	\tableofcontents
+	\chapter{Private Value Auctions}
+	\section{Standard Auctions}
+	\begin{definition}
+		An \textbf{auction} is an \emph{informational environment} consisting of
+		\begin{enumerate}[(i)]
+			\item a valuation structure for the bidders;
+			\item a distribution of information available to the bidders.
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{assumption}
+		In this chapter, we shall impose the following assumption on bidders' valuations:
+		\begin{enumerate}[(i)]
+			\item Each bidder's valuation is independently and identically distributed on some interval $[0, \omega]$ according to a distribution function $F$:
+			\begin{align}
+				V_i \overset{i.i.d.}{\sim} F\ s.t.\ \tx{supp}(F) = \R_+
+			\end{align}
+			\item $F$ belongs to the common knowledge in this system;
+			\item Bidders' valuations have finite expectations:
+			\begin{align}
+				\expect{V_i} < \infty
+			\end{align}
+		\end{enumerate}
+	\end{assumption}
+	
+	\begin{assumption}
+		Moreover, we assume bidders' behaviours to satisfy the following properties:
+		\begin{enumerate}[(i)]
+			\item Bidders are risk neutral, they are maximizing expected profits;
+			\item Each bidder it both willing and able to pay up to his or her value.
+		\end{enumerate}
+	\end{assumption}
+	
+	\begin{definition}
+		A \textbf{strategy} of a bidder is a mapping from the space of his/her valuation to a bid:
+		\begin{align}
+			s: [0, \omega] \to \R_+
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}
+		An equilibrium of auction is \textbf{symmetric} if all bidders are following the same bidding strategy $s$.
+	\end{definition}
+	
+	\begin{proposition}
+		In a symmetric equilibrium of the \ul{second-price} auction, $s(v) = v$ is a weakly dominant strategy.
+	\end{proposition}
+	
+	\begin{proof}
+		For a fixed valuation $v_i \in [0, \omega]$ of bidder $i$. \\
+		Let $p := \max_{j \neq i} b_j$ be highest bidding price by other bidders. \\
+		Let $\pi_i(b, p)$ denote bidder $i$'s profit when bidding $b$ given the highest price from other bidders to be $p$. \\
+		\textbf{Part 1:} consider another bidding $z_i < v_i$, the following cases are possible: 
+		\begin{enumerate}[(i)]
+			\item $v_i < p \implies z_i < v_i < p \implies \pi_i(v_i, p) = \pi_i(z_i, p) = 0$ (bidder $i$ losses anyway).
+			\item $v_i = p \implies \pi_i(v_i, p) = \pi_i(z_i, p) = 0$ (bidder $i$ is indifferent).
+			\item $v_i > p$:
+			\begin{enumerate}
+				\item $v_i > z_i > p \implies \pi_i(v_i, p) = \pi_i(z_i, p) = v_i - p$;
+				\item $v_i > z_i = p \implies \pi_i(v_i, p) \geq \pi_i(z_i, p)$;
+				\item $v_i > p > z_i \implies \pi_i(v_i, p) > \pi_i(z_i, p)$.
+			\end{enumerate}
+		\end{enumerate}
+		Hence, bidding $v_i$ weakly dominates bidding any value below it. \\
+		\textbf{Part 2}: for $z_i > v_i$, the following cases are possible:
+		\begin{enumerate}[(i)]
+			\item \todo{}
+		\end{enumerate}
+		Therefore, bidding $v_i$ weakly dominates bidding any other values.
+	\end{proof}
+	
+	\begin{proposition}
+		In a symmetric equilibrium of the \ul{first-price} auction, equilibrium bidding strategies are given by
+		\begin{align}
+			s(v_i) = \expect{\max_{j \neq i} v_j | v_j \leq v_i}
+		\end{align}
+		which is the \emph{expected second highest valuation conditional on $v_i$ being the highest valuation.}
+	\end{proposition}
+	
+	\begin{proof}
+		Let $s(v)$ denote an equilibrium strategy.
+		\begin{lemma}
+			For any agent, bidding more than $s(\omega)$ can never be optimal. Bidding $b > s(\omega)$ makes this agent win for sure. In such case, bidding $b' \in (s(\omega), b)$ strictly dominates bidding $b$.
+		\end{lemma}
+		\begin{lemma}
+			For any agent, $s(0) = 0$. Bidding any positive number would cause negative payoff with positive probability, and therefore, leads to a negative expected profit.
+		\end{lemma}
+		\begin{lemma}
+			Because $s$ is monotonically increasing, therefore,
+			\begin{align}
+				\max_{j \neq i} s(v_j) = s(\max_{j \neq i} v_j)
+			\end{align}
+		\end{lemma}
+		Let $p$ denote the highest price among all other $N-1$ bidders and let $F^{(N-1)}(x)$ denote the distribution of $p$. \\
+		The expected profit of bidder $i$ by bidding an arbitrary $b \in \R_+$ is
+		\begin{align}
+			\pi_i(b, v_i) &= P(b > p) (v_i - s(v_i))
+			+ P(b = p) (v_i - s(v_i))
+			+ P(b < p) 0
+		\end{align}
+		Note that $b > p = s(\max_{j \neq i}v_j)$ if and only if $s^{-1}(b) > \max_{j \neq i}v_j$. It follows
+		\begin{align}
+			P(b > p) = P(\max_{j \neq i}v_j < s^{-1}(b)) = F^{(N-1)}(s^{-1}(b))
+		\end{align}
+		Therefore,
+		\begin{align}
+			\pi_i(b, v_i) = F^{(N-1)}(s^{-1}(b)) (v_i - b)
+		\end{align}
+		The first order condition implies
+		\begin{align}
+			\pd{\pi_i}{b} \pi_i (b, v_i) 
+			&= \pd{\pi_i}{b} F^{N-1} (s^{-1}(b)) v_i - F^{N-1} (s^{-1}(b)) b \\
+			&= f^{(N-1)}(s^{-1}(b)) \frac{v_i - b}{s'(v_i)}
+			- F^{(N-1)}(s^{-1}(b)) = 0
+		\end{align}
+		For a symmetric equilibrium, all other bidders are following the same strategy $s$ so that $s(v_i) = b$, therefore, 
+		\begin{align}
+			f^{(N-1)}(s^{-1}(b)) \frac{v_i - b}{s'(v_i)}
+			- F^{(N-1)}(s^{-1}(b)) = 0 \\
+			\implies f^{(N-1)}(s^{-1}(b)) (v_i - b)
+			- F^{(N-1)}(s^{-1}(b)) s'(v_i) = 0 \\
+			\implies f^{(N-1)}(s^{-1}(b)) v_i = F^{(N-1)}(s^{-1}(b)) s'(v_i) + f^{(N-1)}(s^{-1}(b)) s(v_i) \\
+			\implies f^{(N-1)}(v_i) v_i = \frac{d}{dv_i} \left[ F^{(N-1)}(v_i) s(v_i) \right] \\
+			\implies \int_{0}^{v_i} f^{(N-1)}(y) y\ dy = F^{(N-1)}(v_i) s(v_i) - F^{(N-1)}(0) s(0) \\
+			\implies F^{(N-1)}(v_i) s(v_i) = \int_{0}^{v_i} f^{(N-1)}(y) y\ dy \\
+			\implies s(v_i) = \frac{1}{F^{(N-1)}(v_i)} \int_{0}^{v_i} f^{(N-1)}(y) y\ dy \\
+			\implies s(v_i) = \expe \left[\max_{j \neq i} v_j \right|\left. \max_{j \neq i} v_j < v_i \right]
+		\end{align}
+	\end{proof}
 \end{document}
 
 
