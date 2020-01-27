@@ -134,6 +134,226 @@
    			\right]
    		\end{align}
    	\end{definition}
+   	
+   	\section{Beliefs}
+   	
+   	\section{Adverse Selection}
+   	\subsection{Market for Lemons}
+   	\par Two types of cars
+   	\begin{enumerate}
+   		\item high quality $P(h) = \lambda$
+   		\item low quality $P(l) = 1 - \lambda$
+   	\end{enumerate}
+   	Assuming sellers know the quality of car but buyers don't.
+   	\begin{enumerate}
+   		\item $b_\theta$: value of car with type $\theta \in \{h, l\}$ for the buyer.
+   		\item $s_\theta$ value for the seller.
+   	\end{enumerate}
+   	Assume
+   	\begin{enumerate}
+   		\item $b_h > b_l$ and $s_h > s_l$ (defining what high quality is);
+   		\item $b_h > s_h$ and $b_l > s_l$ (benefit to trade).
+   	\end{enumerate}
+   	Therefore, if the car quality is observed, then it is beneficial to trade, and two prices exist such that
+   	\begin{align}
+   		b_\theta > p_\theta > s_\theta\ \forall \theta \in \{l, h\}
+   	\end{align}
+   	If the quality is not observed, only one price $p$ exists. \\
+   	Seller type $h$ sells if and only if $p > s_h$ and type $l$ if and only if $p > s_l$. \\
+   	\textbf{Seller behaviours}:
+   	\begin{enumerate}[(a)]
+   		\item Both types sell: $p > s_h$;
+   		\item Only type $h$ sells: $s_h > p > s_l$;
+   		\item Nobody wants to sell: $s_l > p$.
+   	\end{enumerate}
+   	\textbf{Buyer behaviours}:
+   	\begin{enumerate}[(a)]
+   		\item Both types sell: buyers buy if average quality $\lambda b_ + (1 - \lambda)b_l > p$;
+   		\item Only type $l$ sells, buyers buy if
+   		\begin{align}
+   			\exists\ p\in \R_+\ s.t.\ b_l > p > s_l
+   		\end{align}
+   	\end{enumerate}
+   	
+   	\paragraph{Aggregate conditions}
+   	\begin{enumerate}[(a)]
+   		\item Trade with both types if and only if
+   		\begin{align}
+   			\exists\ p\in \R_+\ s.t. \lambda b_h + (1 - \lambda) b_l > p > s_h
+   		\end{align}
+   		That is, 
+   		\begin{align}
+   			\lambda b_h + (1 - \lambda) b_l > s_h\quad (\dagger)
+   		\end{align}
+   		\item The second case (low quality trading) is always satisfied given assumption $b_l > s_l$.
+   	\end{enumerate}
+   	The \textbf{market failure} occurs because high quality cars are withdrawn from the market.
+   	\subsection{Market for Insurances}
+   	\begin{itemize}
+   		\item $p$ denote the price;
+   		\item $C$ denote the compensation (paid out if claim);
+   		\item $D$ denote the damage;
+   		\item $\Delta$ denote value of peace of mind;
+   		\item $\pi_h > \pi_l$ probability of damage;
+   		\item $\lambda = P(h)$.
+   	\end{itemize}
+   	
+   	\paragraph{Buyer behaviours} for type $\theta \in \{l, h\}$:
+   	\begin{enumerate}
+   		\item Buy: $\Delta - p + \pi_\theta (C - D)$;
+   		\item Don't buy: $\pi_\theta(-D)$.
+   	\end{enumerate}
+   	Buy if and only if
+   	\begin{align}
+   		\Delta - p + \pi_\theta (C - D) \geq \pi_\theta(-D) \\
+   		\implies p \leq \Delta + \underbrace{\pi_\theta C}_{\tx{expected compensation}}\quad (\dagger\dagger)
+   	\end{align}
+   	Not that ($\dagger\dagger$) is independent from $D$.
+	
+   	\paragraph{Seller behaviour}
+   	\begin{enumerate}[(a)]
+   		\item If both types buy insurance:
+   		\begin{align}
+   			\pi = \lambda \pi_h + (1 - \lambda) \pi_l
+   		\end{align}
+   		Sellers sell if 
+   		\begin{align}
+   			p - \pi C \geq 0
+   		\end{align}
+   		Aggregated conditions:
+   		\begin{align}
+   			\exists\ p \in \R_+\ &s.t.\ \Delta + \pi_l C \geq p \geq \pi C \\
+   			\iff \Delta + \pi_l C &> \lambda \pi_h + (1 - \lambda) \pi_l C \\
+   			\iff \Delta &> \lambda (\pi_h - \pi_l) C \\
+   			\iff \pi_h - \pi_l &< \frac{\Delta}{\lambda C}\quad (\dagger)
+   		\end{align}
+   		($\dagger$) says both types of buyers participate in the market and sellers sell insurances if \ul{the difference between two types is insignificant}. \\
+   		If ($\dagger$) is not satisfied, then there is \ul{no trade with both type (only one type trades)}.
+   		\item (\ul{Price is high enough so that low type does not want to buy}) Suppose only type $h$ trades, insurer sells if and only if 
+   		\begin{align}
+   			\pi _h C < p 
+   		\end{align}
+   		And buyer type $h$ wants
+   		\begin{align}
+   			\Delta + \pi_h C > p
+   		\end{align}
+   		Given $\Delta > 0$, there would always be trading between sellers and type $h$ buyers.
+   	\end{enumerate}
+   	
+   	\subsection{Monopoly Under Adverse Selection}
+   	\paragraph{Sellers}
+   	\begin{enumerate}
+   		\item Decision $(p, q)$ where $p$ denotes price and $q$ denotes quality;
+   		\item Profit $\pi(p, q) = p - 1/2q^2$.
+   	\end{enumerate}
+   	\paragraph{Buyers}
+   	\begin{enumerate}
+   		\item $u_\theta (p, q) = \theta q - p$;
+   		\item $\theta$ denotes the taste for quality: $\theta_h > \theta_l$;
+   		\item $P(\theta_h) = \lambda$.
+   	\end{enumerate}
+   	
+   	\paragraph{Case 1: 1th degree price discrimination}
+   	Monopolist knows type $\theta$ for each consumer, and design good such that
+   	\begin{align}
+   		&\max_{(p, q)} p - 1/2 q^2 \\
+   		s.t.&\ \theta q - p \geq 0 \tx{ (Individual Rationality)}
+   	\end{align}
+   	Solution:
+   	\begin{align}
+   		q^* = \theta^*,\ p^* = \theta^{*2}
+   	\end{align}
+   	
+   	\paragraph{Case 2: 2nd degree price discrimination} Monopolist does not the $\theta$. \\
+   	Monopolist design a \emph{menu} of products
+   	\begin{align}
+   		(p_1, q_1), (p_2, q_2), \cdots, (p_j, q_j)
+   	\end{align}
+   	Provided there are only two types, it is sufficient to construct a menu with two types:
+   	\begin{align}
+   		 (p_l, q_l), (p_h, q_h)
+   	\end{align}
+   	Note that it is possible that $(p_l, q_l) = (p_h, q_h)$. Further, it is allowed to exclude certain type of consumers by setting $(p_i, q_i) = (0, 0)$. \\
+   	\textbf{Monopolist's problem} designing an optimal menu such that both types are willing to purchase and each type only buy the bundle designed for them.
+   	\begin{align}
+   		\max_{(p_l, q_l) \in \R^2_+, (p_h, q_h) \in \R^2_+} &\lambda (p_h - 1/2 q_h^2) + (1 - \lambda) (p_l - 1/2 q_l^2) \\
+   		\theta_l q_l - p_l &\geq 0 \tx{ (Individual rationality for low type)} \\
+   		\theta_h q_h - p_h &\geq 0 \tx{ (Individual rationality for high type)} \\
+   		\theta_h q_h - p_h &\geq \theta_h q_l - p_l \tx{ (Incentive compatibility for high type)} \\
+   		\theta_l q_l - p_l &\geq \theta_l q_h - p_h \tx{ (Incentive compatibility for low type)}
+   	\end{align}
+   	\begin{proposition}[Step 0]
+   		\begin{align}
+   			\tx{IC}_h \land \tx{IC}_l \implies q_h \geq q_l
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{proof}
+   		\begin{align}
+   			\tx{IC}_h \iff \theta_h (q_h - q_l) \geq p_h - p_l \\
+   			\tx{IC}_l \iff \theta_l (q_l - q_h) \geq p_l - p_h
+   		\end{align}
+   		Summing two conditions:
+   		\begin{align}
+   			(q_h - q_l)(\theta_h - \theta_l) \geq 0
+   		\end{align}
+   		Provided that $\theta_h > \theta_l$,
+   		\begin{align}
+   			q_h \geq q_l
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{proposition}[Step 1]
+   		\begin{align}
+   			\tx{IC}_h \land \tx{IR}_l \implies \tx{IR}_h
+   		\end{align}
+   	\end{proposition}
+   	
+   	\begin{proof}
+   		\begin{align}
+   			\tx{IC}_h \iff \theta_h q_h - p_h &\geq \theta_h q_l - p_l \\
+   			\implies \theta_h q_h - p_h &\geq \theta_h q_l - p_l \geq \theta_l q_l - p_l \geq 0 \tx{ (By IR for low type)}\\
+   			\implies \theta_h q_h - p_h &\geq 0 \iff \tx{IR}_h
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{proposition}[Step 2]
+   		Given step 1, IC$_h$ constrain is binding.
+   	\end{proposition}
+   	
+   	\begin{proposition}[Step 3]
+   		IC$_h$ is binding and $q_h \geq q_l$ imply IC$_l$.
+   	\end{proposition}
+   	
+   	\begin{proof}
+   		\begin{align}
+   			\tx{binding IC}_h \iff \theta_h(q_h - q_l) = p_h - p_l \\
+   			\implies \theta_l(q_h - q_l) \leq \theta_h(q_h - q_l) = p_h - p_l \\
+   			\implies \theta_l(q_h - q_l) \leq p_h - p_l \\
+   			\iff \theta_l q_l - p_l \geq \theta_l q_h - p_h \\
+   			\iff \tx{IC}_l
+   		\end{align}
+   	\end{proof}
+   	
+   	\begin{proposition}[Step 4]
+   		IR$_l$ is binding.
+   	\end{proposition}
+   	
+   	\paragraph{Solving the reduced problem}
+   	\begin{align}
+   		\max_{(p_l, q_l) \in \R^2_+, (p_h, q_h) \in \R^2_+} &\lambda (p_h - 1/2 q_h^2) + (1 - \lambda) (p_l - 1/2 q_l^2) \\
+   		\theta_l q_l - p_l &= 0 \tx{ (Individual rationality for low type)} \\
+   		\theta_h q_h - p_h &= \theta_h q_l - p_l \tx{ (Incentive compatibility for high type)}
+   	\end{align}
+   	The problem reduced to
+   	\begin{align}
+   		\max_{q_l, q_h \in \R_+} ...
+   	\end{align}
+   	Solving the problem gives
+   	\begin{align}
+   		q_h &= \theta_h \\
+   		q_l &= \theta_l - \frac{\lambda}{1 - \lambda}(\theta_h - \theta_l)
+   	\end{align}
 \end{document}
 
 
