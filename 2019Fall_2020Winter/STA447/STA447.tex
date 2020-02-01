@@ -51,7 +51,10 @@
     	\begin{enumerate}[(i)]
     		\item $S$ represents the \emph{state space}, which is nonempty and countable;
     		\item \emph{initial probability} $v$, which is a distribution on $S$;
-    		\item and \emph{transition probability} $p_{ij}$.
+    		\item and \emph{transition probability} $(p_{ij})$ satisfying
+    		\begin{align}
+    			\sum_{j \in S} p_{ij} = 1\quad \forall i \in S
+    		\end{align}
     	\end{enumerate}
     \end{definition}
     
@@ -70,30 +73,65 @@
     	That is, the chain is \emph{memoryless}.
     \end{definition}
     
-    \begin{proposition}[Multistep Arrival Probability]
-    	Let $m = |S|$ and $\mu_i^{(n)} := P(X_n=i)$ denote the probability that the state ends up at $i$ after $n$ step. By the law of total expectation,
+    \begin{proposition}
+    	As an immediate result from the Markov property, the joint probability
     	\begin{align}
-    		P(X_n=i) &= \sum_{j \in S} P(X_n=i, X_{n-1}=j) \\
-    		&= \sum_{j \in S} P(X_n=i | X_{n-1}=j) P(X_{n-1}=j) \\
-    		&= \sum_{j \in S} P(X_{n-1}=j) p_{ij} \\
-    		&= \sum_{j \in S} \mu_{j}^{(n)} p_{ij}
+    		P(X_0=i_0, X_1=i_1, X_2=i_2, \cdots, X_n=i_n)
+    		&= P(X_0=i_0) P(X_1=i_1, X_2=i_2, \cdots, X_n=i_n|X_0=i_0) \\
+    		&= v_{i_0} P(X_1=i_1|X_0=i_0) P(X_2=i_2, \cdots, X_n=i_n|X_0=i_0, X_1=i_1) \\
+    		&= v_{i_0} P(X_1=i_1|X_0=i_0) P(X_2=i_2, \cdots, X_n=i_n|X_1=i_1) \tx{ (Markov property)}\\
+    		&= v_{i_0} p_{i_0 i_1} \cdots p_{i_{n-1}i_n}
     	\end{align}
-    	Let $\mu^{(n)} := \left[\mu_1^{(n)}, \mu_2^{(n)}, \cdots, \mu_m^{(n)} \right] \in \R^{1 \times m}$ and $P = [p_{ij}] \in \R^{m \times m}$. In matrix notation:
-    	\begin{align}
-    		\mu^{(n)} = \mu^{(n-1)} P
-    	\end{align}
-    	where $\mu^{(0)} = v = [v_1, v_2, \cdots, v_m]$. Define $P^0 = I_m$, then
+    \end{proposition}
+    
+    \begin{definition}[$n$-step Arrival Probability]
+    	Let $m = |S|$ and $\mu_i^{(n)} := P(X_n=i)$ denote \ul{the probability that the state ends up at $i$ after $n$ step (starting point follows $v$)}.
+    \end{definition}	
+    
+    \begin{proposition}
     	\begin{align}
     		\mu^{(n)} = v P^n
     	\end{align}
     \end{proposition}
+	\begin{proof}
+    	By the law of total expectation,
+    	\begin{align}
+    		P(X_n=i) &= \sum_{j \in S} P(X_n=i, X_{n-1}=j) \\
+    		&= \sum_{j \in S} P(X_n=i | X_{n-1}=j) P(X_{n-1}=j) \\
+    		&= \sum_{j \in S} P(X_{n-1}=j) p_{ij} \\
+    		&= \sum_{j \in S} \mu_{j}^{(n-1)} p_{ij}
+    	\end{align}
+    	Let $\mu^{(n)} := \left[\mu_1^{(n)}, \mu_2^{(n)}, \cdots, \mu_m^{(n)} \right] \in \R^{1 \times m}$ and $P = [p_{ij}] \in \R^{m \times m}$. The recurrence relation can be expressed in matrix notation as:
+    	\begin{align}
+    		\mu^{(n)} = \mu^{(n-1)} P
+    	\end{align}
+    	where $\mu^{(0)} = v = [v_1, v_2, \cdots, v_m]$ by construction. Define $P^0$ to be the identity matrix $I_m$, then
+    	\begin{align}
+    		\mu^{(0)} &= v = v P^0 \\
+    		\mu^{(1)} &= \mu^{(0)} P = v P^1 \\
+    		&\vdots \\
+    		\mu^{(n)} &= v P^n
+    	\end{align}
+    \end{proof}
     
-    \begin{proposition}[Multistep Transition Probability]
-    	Define $p_{ij}^{(n)} := P(X_{m+n}=j|X_{m}=i)$ to be the probability of arriving state $j$ after $n$ steps, starting from state $i$. By the time-homogenous property,
+    \begin{definition}[$n$-step Transition Probability]
+    	Define 
+    	\begin{align}
+    		p_{ij}^{(n)} := P(X_{m+n}=j|X_{m}=i)
+    	\end{align}
+    	to be the probability of arriving state $j$ after $n$ steps, \ul{starting from state $i$}\footnote{In the definition of $\mu^{(n)}_j$, the starting state is random following distribution $v$. While defining $p^{(n)}_{ij}$ the initial state is fixed to be $i$.}. By the time-homogenous property,
     	\begin{align}
     		p_{ij}^{(n)} = P(X_{m+n}=j|X_{m}=i)\quad \forall m \in \N
     	\end{align}
-    	Let $P^{(n)} := [p_{ij}^{(n)}] \in \R^{m \times m}$. \\
+    \end{definition}
+    
+    \begin{proposition}
+    Let $P^{(n)} := [p_{ij}^{(n)}] \in \R^{m \times m}$, then
+    	\begin{align}
+    		P^{(n)} = P^n
+    	\end{align}
+    \end{proposition}
+    \begin{proof}
     	\ul{Initial Step}: for $n = 1$, $P^{(1)} = P$ by definition. \\
     	\ul{Inductive Step}: for $n \in \N$,
     	\begin{align}
@@ -111,9 +149,16 @@
     	\begin{align}
     		P^{(n)} = P^n
     	\end{align}
-    \end{proposition}
+    \end{proof}
     
-    \begin{theorem}[Chapman-Kolmogorov Equations]
+    \begin{theorem}
+    	\begin{align}
+    		p_{i j}^{(m+n)} &=\sum_{k \in S} p_{i k}^{(m)} p_{k j}^{(n)} \\
+    		p_{i j}^{(m+s+n)}&=\sum_{k \in S} \sum_{\ell \in S} p_{i k}^{(m)} p_{k \ell}^{(s)} p_{\ell j}^{(n)}
+    	\end{align}
+    \end{theorem}
+    
+    \begin{theorem}[Chapman-Kolmogorov Equations (Generalization)]
     	Let $n = (n_1, n_2, \cdots, n_k)$ be a multi-set of non-negative integers, then
     	\begin{align}
     		P^{(\sum_{i=1}^k n_i)} = \prod_{i=1}^k P^{(n_i)}\quad (\dagger)
@@ -146,36 +191,70 @@
     		p_{ij}^{(m+s+n)} \geq p_{ik}^{(m)} p_{k\ell}^{(s)} p_{\ell j}^{(n)}
     	\end{align}
     \end{corollary}
+
+	\begin{proof}[Informal Proof.]
+		Note that $p_{ik}^{(m)} p_{kj}^{(n)}$ is exactly the probability of arriving $j$ from $i$ in $m+n$ steps (say, event $E$), \ul{conditioned on passing state $k$ at $m$ steps}. And $p_{ij}^{(m+n)}$ is the unconditional probability of event $E$, which is no less than the 
+	\end{proof}
+
+	\subsection{Recurrent and Transience}
+	\begin{notation}
+		For an arbitrary event $E$,
+		\begin{align}
+			P_i(E) &:= P(E|X_0=i) \\
+			\expe_i(E) &:= \expect{E|X_0=i}
+		\end{align}
+	\end{notation}
     
     \begin{notation}
-    	Let $N(i) := |\{n \geq 1: X_n = i\}|$ denote the number of arrivals to state $i$ of the chain.
+    	Let $N(i) := |\{n \geq 1: X_n = i\}|$ denote the number of times the Markov chain arrives state $i$. Note that $N(i)$ does not count the initial state.
     \end{notation}
     
     \begin{definition}
     	Define the \textbf{return probability} from state $i$ to $j$, $f_{ij}$, as the probability of arriving state $j$ starting from state $i$. That is,
     	\begin{align}
     		f_{ij} &= P(\exists n \geq 1\ s.t.\ X_n = j | X_0 = i) \\
-    		&= P(N(j) \geq 1 | X_0 = i)
+    		&= P(N(j) \geq 1 | X_0 = i) \\
+    		&= P_i(N(j) \geq 1)
     	\end{align}
     \end{definition}
     
     \begin{proposition}
     	The probability of \ul{firstly arriving $j$, then arriving $k$} (denoted as event $E$) starting from $i$ equals
     	\begin{align}
-    		P(E|X_0=i) = f_{ij} f_{jk}
+    		P_i(E) = f_{ij} f_{jk}
     	\end{align}
     \end{proposition}
     
     \begin{proof}
-    	The proof follows the time-homogenous property.
+    	\begin{align}
+    		P_i(E) &= P(\exists 1 \leq m \leq n \ s.t.\ X_m=j,\ X_n = k) \\
+    		&= P_i(\exists 1 \leq m \leq n \ s.t.\ X_n = k|\exists m \geq 1\ s.t.\ X_m=j) P_i(\exists m \geq 1\ s.t.\ X_m=j) \\
+    		&= P_{\red{i}}(\exists 1 \leq m \leq n \ s.t.\ X_n = k|\exists m \geq 1\ s.t.\ X_m=j) f_{ij} \\
+    		&= P(\exists 1 \leq m \leq n \ s.t.\ X_n = k|X_m=j) f_{ij} \tx{ (Markov property)} \\
+    		&= P(\exists 1 \leq n \ s.t.\ X_n = k|X_0=j) f_{ij} \tx{ (time homogenous property)} \\
+    		&= f_{ij}f_{jk}
+    	\end{align}
     \end{proof}
     
     \begin{corollary}
     	\begin{align}
-    		P(N(i) \geq k| X_0 = i) &= (f_{ii})^k \\
-    		P(N(j) \geq k| X_0 = i) &= f_{ij}(f_{jj})^{k-1}
+    		P_i(N(i) \geq k) &= (f_{ii})^k \\
+    		P_i(N(j) \geq k) &= f_{ij}(f_{jj})^{k-1}
     	\end{align}
     \end{corollary}
+
+	\begin{corollary}
+		\begin{align}
+			f_{ij} \geq f_{ik}f_{kj}
+		\end{align}
+	\end{corollary}
+    
+    \begin{proposition}
+    	$1-f_{i j}$ captures the probability that the Markov chain does not return to $j$ from $i$.
+    	\begin{align}
+    		1-f_{i j}=P_{i}\left(X_{n} \neq j \text { for all } n \geq 1\right)
+    	\end{align}
+    \end{proposition}
     
     \begin{definition}
     	A state $i$ in a Markov chain is \textbf{recurrent} if $f_{ii} = 1$. Otherwise, this state is \textbf{transient}.
@@ -185,19 +264,12 @@
     	The following statements are equivalent:
     	\begin{enumerate}[(i)]
     		\item State $i$ is recurrent (i.e., $f_{ii}=1$);
-    		\item $P(N(i) = \infty|X_0=i) = 1$, that is, state $i$ will be visited infinitely often;
+    		\item $P_i(N(i) = \infty) = 1$, that is, starting from state $i$, state $i$ will be visited infinitely often;
     		\item $\sum_{n=1}^\infty p_{ii}^{(n)} = \infty$.
-    	\end{enumerate}
-    	The following statements are equivalent:
-    	\begin{enumerate}[(a)]
-    		\item State $i$ is transient;
-    		\item $P(N(i) = \infty|X_0=i) = 0$, that is, state $i$ will only be visited finitely many times;
-    		\item $\sum_{n=1}^\infty p_{ii}^{(n)} < \infty$.
     	\end{enumerate}
     \end{theorem}
 
     \begin{proof}
-    	We only show the equivalence of $(i)\sim(iii)$, $(a)\sim(c)$ are simply the negation of previous statements. \\
     	$(i) \iff (ii)$:
     	\begin{align}
     		P(N(i) = \infty|X_0=i) &= P(\lim_{k \to \infty} N(i) \geq k| X_0=i) \\
@@ -219,13 +291,26 @@
     		&= \infty \tx{ if and only if } f_{ii} = 1
     	\end{align}
     \end{proof}
-    
+ 
+	\begin{theorem}[Transient State Theorem]
+		The following statements are equivalent:
+    	\begin{enumerate}[(i)]
+    		\item State $i$ is transient;
+    		\item $P_i(N(i) = \infty) = 0$, that is, state $i$ will only be visited finitely many times;
+    		\item $\sum_{n=1}^\infty p_{ii}^{(n)} < \infty$.
+    	\end{enumerate}
+	\end{theorem}
+ 
+ 	\begin{proof}
+ 		Take negation of the recurrent state theorem.
+ 	\end{proof}
+ 
     \begin{lemma}[Stirling's Approximation]
     	\begin{align}
     		n! \approx (n/e)^n \sqrt{2\pi n}
     	\end{align}
     \end{lemma}
-    
+
     \begin{proposition}
     	For simple random walk, if $p=1/2$, then $f_{ii} = 1\ \forall i \in S$. Otherwise, all states are transient.
     	\begin{align}
@@ -291,7 +376,9 @@
 	    	&= p_{ij} + \sum_{k \neq j} f_{kj} p_{ik}
     	\end{align}
     \end{proof}
-    
+
+	\subsection{Communicating States}
+
     \begin{definition}
     	State $i$ is said to \textbf{communicate} with state $j$, denoted as $i \to j$, if $f_{ij} > 0$.
     \end{definition}
@@ -305,11 +392,11 @@
     \end{proposition}
     
     \begin{proof}
-    	\todo{Proof.}
+    	If $p^{(m)}_{ij} = 0$ for every $m \geq 1$, then it's impossible to get state $j$ from state $i$, that's, $f_{ij} = 0$.
     \end{proof}
     
     \begin{definition}
-    	A Markov chain s \textbf{irreducible} if $i \to j\ \forall i,j \in S$.
+    	A Markov chain s \textbf{irreducible} if $i \to j\ \forall i,j \in S$. That is, all states are attainable regardless of the starting point.
     \end{definition}
     
     
@@ -420,17 +507,19 @@
     \end{proof}
     
     \begin{theorem}[Recurrent Equivalences Theorem]
-    	For a irreducible Markov chain (so that $i \to j$ for all $i, j \in S$), the following statements are equivalent:
+    	For a \ul{irreducible} Markov chain (so that $i \to j$ for all $i, j \in S$), the following statements are equivalent:
     	\begin{enumerate}[(1)]
     		\item $\exists k, \ell \in S$ such that $\sum_{n=1}^\infty p_{k \ell}\upn = \infty$;
     		\item $\forall i,j \in S,\ \sum_{n=1}^\infty p_{ij}\upn = \infty$;
     		\item $\exists k \in S\ s.t.\ f_{kk} = 1$;
     		\item $\forall j \in S,\ f_{jj} = 1$;
     		\item $\forall i,j \in S,\ f_{ij} = 1$;
-    		\item $\exists k, \ell \in S$ such that $P(N(\ell) = \infty | X_0 = k) = 1$;
-    		\item $\forall i, j \in S,\ P(N(j) = \infty | X_0 = i)$.
+    		\item $\exists k, \ell \in S$ such that $P_k(N(\ell) = \infty) = 1$;
+    		\item $\forall i, j \in S,\ P_i(N(j) = \infty)$.
     	\end{enumerate}
     \end{theorem}
+    
+    \subsection{Closed Subset of a Markov Chain}
 \end{document}
 
 
