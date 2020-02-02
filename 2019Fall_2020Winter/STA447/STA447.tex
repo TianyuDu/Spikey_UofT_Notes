@@ -47,7 +47,7 @@
     \section{Markov Chain Probabilities}
     
     \begin{definition}
-    	A \textbf{discrete-time, discrete-space, and time-homogenous Markov chain} is a triple of $(S, v, p)$ in which
+    	A \textbf{discrete-time, discrete-space, and time-homogenous Markov chain} is a triple of $\mc{S} = (S, v, P)$ in which
     	\begin{enumerate}[(i)]
     		\item $S$ represents the \emph{state space}, which is nonempty and countable;
     		\item \emph{initial probability} $v$, which is a distribution on $S$;
@@ -520,6 +520,198 @@
     \end{theorem}
     
     \subsection{Closed Subset of a Markov Chain}
+    
+    \begin{definition}
+    	For a Markov chain with state space $S$, then any $C \subseteq S$ satisfies
+    	\begin{align}
+    		p_{ij} = 0\quad \forall i \in C,\ j \notin C
+    	\end{align}
+    	is a \textbf{closed subset} of the original Markov chain.
+    \end{definition}
+    
+    \begin{proposition}
+    	For a simple random walk, if $p \geq \frac{1}{2}$, then $f_{ij} = 1$ for every $j > i$.
+    \end{proposition}
+    
+    \section{Markov Chain Convergence}
+    \subsection{Stationary Distributions}
+    \begin{definition}
+    	Let $\pi \in \Delta(S)$, $\pi$ is \textbf{stationary} for a Markov chain if
+    	\begin{align}
+    		\pi_j = \sum_{i \in S} \pi_i p_{ij}\quad \forall j \in S
+    	\end{align}
+    	In matrix notation
+    	\begin{align}
+    		\pi = \pi P
+    	\end{align}
+    \end{definition}
+    
+    \begin{proposition}
+    	Let $\pi$ be a stationary distribution of $\mc{M}$, then 
+    	\begin{align}
+    		\pi_j = \sum_{i \in S} \pi_i p_{ij}^{\red{(n)}}
+    	\end{align}
+    \end{proposition}
+    
+    \begin{proof}
+    	Using the matrix notation, it can be shown that $\pi = \pi P^n$ for every $n \in \N$. Therefore,
+    	\begin{align}
+    		\pi_j &= \sum_{i \in S} \pi_i [P^n]_{ij} \\
+    		&= \pi_j = \sum_{i \in S} \pi_i p_{ij}\upn \tx{ since } P\upn = P^n
+    	\end{align}
+    \end{proof}
+    
+    \begin{definition}
+    	A chain is \textbf{doubly stochastic} if
+    	\begin{align}
+    		\forall j \in S\ \sum_{i \in S} p_{ij} = 1
+    	\end{align}
+    	That is, for every state $j$, the arrival probability is one.
+    \end{definition}
+    
+    \subsection{Constructing Stationary Distributions}
+    \begin{definition}
+    	A Markov chain is \textbf{reversible} with respect to a distribution $\pi$ if 
+	    \begin{align}
+	    	\pi_i p_{ij} = \pi_j p_{ji}\quad \forall i, j \in S
+	    \end{align}
+	\end{definition}
+
+	\begin{theorem}
+		If a chain is reversible with respect to $\pi$, then $\pi$ is a stationary distribution.
+	\end{theorem}
+	
+	\begin{proof}
+		\begin{align}
+			\sum_{i \in S} \pi_i p_{ij} &= \sum_{i \in S} \pi_j p_{ji} \\
+			&= \pi_j \sum_{i \in S} p_{ji} \tx{ (reverse the chain)}\\
+			&= \pi_j
+		\end{align}
+	\end{proof}
+	
+	\begin{theorem}[Vanishing Probability]
+		Let $\mc{M} := (S, v, P)$, if
+		\begin{align}
+			\forall i, j \in S,\ \lim_{n\to\infty} p_{ij}\upn = 0
+		\end{align}
+		Then $\mc{M}$ cannot have a stationary distribution.
+	\end{theorem}
+	
+	\begin{proof}
+		Suppose, for contradiction, there is a stationary distribution $\pi$. Then,
+		\begin{align}
+			\pi_j &= \lim_{n \to \infty} \pi_j \\
+			&= \lim_{n \to \infty} \sum_{i \in S} \pi_i p_{ij}\upn \\
+			&= \sum_{i \in S} \lim_{n \to \infty} \pi_i p_{ij}\upn \\
+			&= \sum_{i \in S} \pi_i \lim_{n \to \infty} p_{ij}\upn \\
+			&= 0 \neq 1
+		\end{align}
+		$\contradiction$
+	\end{proof}
+	
+	\begin{lemma}[Vanishing Lemma]
+		If $\mc{M}$ has some $k, \ell$ such that $\lim_{n \to \infty} p_{k\ell}\upn = 0$, then for all $i, j \in S$, $\lim_{n \to \infty} p_{ij} = 0$.
+	\end{lemma}
+	
+	\begin{proof}
+		
+	\end{proof}
+	
+	\begin{corollary}
+		For an \ul{irreducible} Markov chain, either
+		\begin{enumerate}[(i)]
+			\item $\lim _{n \rightarrow \infty} p_{i j}^{(n)}=0$ for all $i, j \in S$;
+			\item $\lim _{n \rightarrow \infty} p_{i j}^{(n)}\neq 0$ for all $i, j \in S$.
+		\end{enumerate}
+	\end{corollary}
+	
+	\begin{corollary}
+		If there exists $i, j \in S$, $\lim_{n \to \infty} p_{ij} = 0$, then $\mc{M}$ cannot have a stationary distribution.
+	\end{corollary}
+	
+	\begin{corollary}
+		A Markov chain which is \ul{irreducible} and \ul{transient} cannot have a stationary distribution.
+	\end{corollary}
+	
+	\begin{definition}
+		The \textbf{period} of a state $i$ is the greatest common divisor of the set
+		\begin{align}
+			\Phi = \{n \geq 1: p_{ii}\upn > 0\}
+		\end{align}
+		Note that if $f_{ii} = 0$, then $\Phi = \varnothing$, and period is not well-defined.
+	\end{definition}
+	
+	\begin{definition}
+		If all states in $\mc{M}$ has period of 1, then $\mc{M}$ is said to be \textbf{aperiodic}.
+	\end{definition}
+	
+	\begin{lemma}
+		If $i \leftrightarrow j$, then the periods of $i$ and $j$ are equal.
+	\end{lemma}
+	
+	\begin{corollary}
+		If $\mc{M}$ is \ul{irreducible}, then all states have the same period.
+	\end{corollary}
+	
+	\begin{corollary}
+		If $\mc{M}$ is \ul{irreducible}, and $p_{ii} > 0$ for some $i \in S$ (so that state $i$ has period 1), then the whole chain $\mc{M}$ is aperiodic.
+	\end{corollary}
+	
+	\subsection{Convergence Theorem}
+	
+	\begin{theorem}[Markov Chain Convergence Theorem]
+		If a Markov chain $\mc{M}$ is 
+		\begin{enumerate}[(i)]
+			\item irreducible;
+			\item and aperiodic;
+			\item with a stationary distribution $\pi$
+		\end{enumerate}
+		Then 
+		\begin{align}
+			\lim_{n \to \infty} p_{ij}\upn = \pi_j\quad\forall i, j \in S
+		\end{align}
+		and for any initial probability $v$,
+		\begin{align}
+			\lim_{n \to \infty} P(X_n = j) = \pi_j
+		\end{align}
+	\end{theorem}
+	
+	\begin{theorem}[Stationary Recurrence Theorem]
+		For an irreducible chain $\mc{M}$ with a stationary distribution, $\mc{M}$ is always recurrent.
+	\end{theorem}
+	
+	\begin{proposition}
+		If a state $i$ has $f_{ii}$ and is aperiodic, then there is $n_0(i) \in \N$ such that
+		\begin{align}
+			p_{ii}\upn > 0\quad \forall n \geq n_0(i)
+		\end{align}
+	\end{proposition}
+
+	\begin{corollary}
+		If a chain is \ul{irreducible} and \ul{aperiodic}, then for any states $i, j \in S$, there is $n_0(i, j) \in \N$ such that
+		\begin{align}
+			p_{ii}\upn > 0\quad \forall n \geq n_0(i)
+		\end{align}
+	\end{corollary}
+	
+	\begin{lemma}[Markov Forgetting Lemma]
+		If a Markov chain $\mc{M}$ is
+		\begin{enumerate}[(i)]
+			\item irreducible;
+			\item and aperiodic;
+			\item with a stationary distribution $\pi$
+		\end{enumerate}
+		then for all $i, j, k \in S$, then
+		\begin{align}
+			\lim_{n \to \infty} \abs{
+				p_{ik}\upn - p_{jk}\upn
+			} = 0
+		\end{align}
+	\end{lemma}
+	
+	\begin{corollary}
+		If $\mc{M}$ is \ul{irreducible} and \ul{aperiodic} then it has at most one stationary distribution.
+	\end{corollary}
 \end{document}
 
 
