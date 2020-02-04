@@ -213,7 +213,6 @@
     	Define the \textbf{return probability} from state $i$ to $j$, $f_{ij}$, as the probability of arriving state $j$ starting from state $i$. That is,
     	\begin{align}
     		f_{ij} &= P(\exists n \geq 1\ s.t.\ X_n = j | X_0 = i) \\
-    		&= P(N(j) \geq 1 | X_0 = i) \\
     		&= P_i(N(j) \geq 1)
     	\end{align}
     \end{definition}
@@ -257,7 +256,8 @@
     \end{proposition}
     
     \begin{definition}
-    	A state $i$ in a Markov chain is \textbf{recurrent} if $f_{ii} = 1$. Otherwise, this state is \textbf{transient}.
+    	A state $i$ in a Markov chain is \textbf{recurrent} if $f_{ii} = 1$. That is, starting from state $i$, the chain returns state $i$ for sure.
+    	Otherwise, state $i$ is \textbf{transient}.
     \end{definition}
     
     \begin{theorem}[Recurrent State Theorem]
@@ -380,10 +380,10 @@
 	\subsection{Communicating States}
 
     \begin{definition}
-    	State $i$ is said to \textbf{communicate} with state $j$, denoted as $i \to j$, if $f_{ij} > 0$.
+    	State $i$ is said to \textbf{communicate} with state $j$, denoted as $i \to j$, if $f_{ij} > 0$. That is, it is possible to get from state $i$ to state $j$ given arbitrarily long period of time.
     \end{definition}
     
-    \begin{proposition}[Alternative Defintion]
+    \begin{proposition}[Equivalent Defintion]
     	The following statements are equivalent:
     	\begin{enumerate}[(i)]
     		\item $i \to j$;
@@ -392,16 +392,16 @@
     \end{proposition}
     
     \begin{proof}
-    	If $p^{(m)}_{ij} = 0$ for every $m \geq 1$, then it's impossible to get state $j$ from state $i$, that's, $f_{ij} = 0$.
+    	(Proving the negation) If $p^{(m)}_{ij} = 0$ for every $m \geq 1$, then it's impossible to get state $j$ from state $i$, that's, $f_{ij} = 0$.
     \end{proof}
     
     \begin{definition}
-    	A Markov chain s \textbf{irreducible} if $i \to j\ \forall i,j \in S$. That is, all states are attainable regardless of the starting point.
+    	A Markov chain s \textbf{irreducible} if $i \to j\ \forall i,j \in S$.
     \end{definition}
     
     
     \subsection{Recurrence and Transience Equivalence Theorem}
-    \begin{theorem}[Sum Lemma]
+    \begin{lemma}[Sum Lemma]
     	If
     	\begin{enumerate}[(i)]
     		\item $i \to k$;
@@ -409,7 +409,7 @@
     		\item $\sum_{n=1}^\infty p_{k \ell}\upn = \infty$.
     	\end{enumerate}
     	Then, $\sum_{n=1}^\infty p_{ij}\upn = \infty$.
-    \end{theorem}
+    \end{lemma}
     
     \begin{proof}
     	Suppose $i \to k$ and $\ell \to j$, then there exists $m$ and $r$ such that $p_{ik}^{(m)} > 0$ and $p_{\ell j}^{(r)} > 0$. \\
@@ -423,20 +423,37 @@
     		&= p_{ik}^{(m)} p_{\ell j}^{(r)} \sum_{s=1}^\infty p_{k \ell}^{(s)} = \infty
     	\end{align}
     \end{proof}
-    
-    \begin{theorem}
+
+	\begin{remark}
+		Note that sum lemma is still applicable when $k = \ell$ or $i = j$.		
+	\end{remark}
+
+    \begin{corollary}[Sum Corollary]
     	If $i \leftrightarrow k$, then
     	\begin{align}
     		f_{ii} = 1 \iff f_{kk} = 1
     	\end{align}
-    \end{theorem}
+    \end{corollary}
     
     \begin{proof}
-    	\todo{Proof.}
+    	Provided $i \leftrightarrow k$, there exists $m, r \in \N$ such that 
+    	\begin{align}
+    		p_{ik}^{(m)} > 0 \\
+    		p_{kj}^{(r)} > 0
+    	\end{align}
+    	Suppose $f_{ii} = 1$, 
+    	\begin{align}
+    		\sum_{i=1}^\infty p_{kk}\upn 
+    		&\geq \sum_{i=1}^\infty p_{ik}^{(m)} p_{ii}^{(s)} p_{kj}^{(r)} \\
+    		&\geq \sum_{s=1}^\infty p_{ik}^{(m)} p_{ii}^{(s)} p_{kj}^{(r)} \\
+    		&= p_{ik}^{(m)} p_{kj}^{(r)} \sum_{s=1}^\infty p_{ii}^{(s)} \\
+    		&= \infty \\
+    		\iff f_{kk} &= 1
+    	\end{align}
     \end{proof}
     
     \begin{theorem}[Case Theorem]
-    	For an \emph{irreducible} Markov chain, it is either
+    	For an \ul{irreducible} Markov chain, it is either
     	\begin{enumerate}[(a)]
     		\item a \textbf{recurrent} Markov chain: $\forall i \in S,\ f_{ii} = 1$ and  $\sum_{n=1}^\infty p_{ij}\upn = \infty\ \forall i, j \in S$;
     		\item or a \textbf{transient} Markov chain: $\forall i \in S,\ f_{ii} < 1$ and $\sum_{n=1}^\infty p_{ij}\upn < \infty\ \forall i, j \in S$.
@@ -444,11 +461,11 @@
     \end{theorem}
     
     \begin{proof}
-    	\todo{Proof.}
+    	Let $\mc{M}$ be an irreducible Markov chain, if there exists $i \neq j \in S$ such that $f_{ii} = 1$ but $f_{jj} < 1$, this leads to a contradiction to the sum corollary because irreducibility of $\mc{M}$ implies $i \leftrightarrow j$. Also, if there exists. some $i, j \in S$ such that $\sum_{n=1}^\infty p_{ij}\upn = \infty$. Then for every other $k, \ell \in S$, $k \leftrightarrow i$ and $j \leftrightarrow \ell$ by the irreducibility of $\mc{M}$. Then $\sum_{n=1}^\infty p_{k \ell}\upn = \infty$ by sum lemma.
     \end{proof}
     
     \begin{theorem}[Finite Space Theorem]
-    	An \emph{irreducible} Markov chain on a \emph{finite} state space is always recurrent.
+    	An \ul{irreducible} Markov chain on a \ul{finite} state space is always recurrent.
     \end{theorem}
     
     \begin{proof}
@@ -464,12 +481,12 @@
     \begin{theorem}[Hit-Lemma]
     	Define $H_{ij}$ as the event in which the chain starts from $j$ and visits $i$ without firstly returning to $j$ (\emph{direct path from $j$ to $i$}) \footnote{Notation abuse: $H_{ij}$ describes the event starting from $j$ and ending at $i$, instead of the other way round.}:
     	\begin{align}
-    		H_{\red{ij}} := \{\exists n \in \N\ s.t.\ X_n = i \land X_m \neq j\ \forall m < n\}
+    		H_{ij} := \{\exists n \in \N\ s.t.\ X_n = i \land X_m \neq j\ \forall m < n\}
     	\end{align}
     	If $j \to i$ with $j \neq i$, then $P(H_{ij}|X_0=j) > 0$.
     \end{theorem}
     
-    \begin{theorem}[f-Lemma]
+    \begin{theorem}[$f$-Lemma]
     	For all $i, j \in S$, if $j \to i$ and $f_{jj} = 1$, then $f_{ij} = 1$.
     \end{theorem}
     
@@ -485,13 +502,13 @@
     	\end{align}
     \end{proof}
     
-    \begin{theorem}[Infinite Returns Lemma]
-    	For an \emph{irreducible} Markov chain,
+    \begin{lemma}[Infinite Returns Lemma]
+    	For an \ul{irreducible} Markov chain,
     	\begin{enumerate}[(i)]
     		\item if this chain is recurrent, then $P(N(j)=\infty|X_0=i)=1\ \forall i, j \in S$;
     		\item if this chain is transient, then $P(N(j)=\infty|X_0=i)=0\ \forall i, j \in S$.
     	\end{enumerate}
-    \end{theorem}
+    \end{lemma}
     
     \begin{proof}
     	Let $i, j \in S$. \\
@@ -515,10 +532,34 @@
     		\item $\forall j \in S,\ f_{jj} = 1$;
     		\item $\forall i,j \in S,\ f_{ij} = 1$;
     		\item $\exists k, \ell \in S$ such that $P_k(N(\ell) = \infty) = 1$;
-    		\item $\forall i, j \in S,\ P_i(N(j) = \infty)$.
+    		\item $\forall i, j \in S,\ P_i(N(j) = \infty) = 1$.
     	\end{enumerate}
     \end{theorem}
-    
+
+	\begin{proof}
+		(1)$\implies$(2) by sum lemma; \\
+		(2)$\implies$(3) take the special case when $i = j$, use recurrent state theorem; \\
+		(3)$\implies$(4) by sum corollary; \\
+		(4)$\implies$(5) by $f$-lemma; \\
+		(5)$\implies$(6) by infinite returns lemma; \\
+		(6)$\implies$(7)  \\
+		(7)$\implies$(1)
+	\end{proof}
+
+    \begin{theorem}[Transience Equivalences Theorem]
+    	For a \ul{irreducible} Markov chain (so that $i \to j$ for all $i, j \in S$), the following statements are equivalent:
+    	\begin{enumerate}[(1)]
+    		\item $\forall k, \ell \in S \sum_{n=1}^\infty p_{k \ell}\upn < \infty$;
+    		\item $\exists i,j \in S,\ s.t.\ \sum_{n=1}^\infty p_{ij}\upn < \infty$;
+    		\item $\forall k \in S\ f_{kk} < 1$;
+    		\item $\exists j \in S,\ s.t.\ f_{jj} < 1$;
+    		\item $\exists i,j \in S,\ s.t.\ f_{ij} < 1$;
+    		\item $\forall k, \ell \in S,\ P_k(N(\ell) = \infty) = 0$;
+    		\item $\exists i, j \in S,\ s.t.\ P_i(N(j) = \infty) = 0$.
+    	\end{enumerate}
+    \end{theorem}
+
+
     \subsection{Closed Subset of a Markov Chain}
     
     \begin{definition}
@@ -526,8 +567,12 @@
     	\begin{align}
     		p_{ij} = 0\quad \forall i \in C,\ j \notin C
     	\end{align}
-    	is a \textbf{closed subset} of the original Markov chain.
+    	is a \textbf{closed subset} of the original Markov chain. That is, the chain will stay in the closed subset once enters it.
     \end{definition}
+
+	\begin{remark}
+		All theorems hold on the closed subset as well.
+	\end{remark}
     
     \begin{proposition}
     	For a simple random walk, if $p \geq \frac{1}{2}$, then $f_{ij} = 1$ for every $j > i$.
@@ -551,6 +596,10 @@
     	\begin{align}
     		\pi_j = \sum_{i \in S} \pi_i p_{ij}^{\red{(n)}}
     	\end{align}
+    	In matrix notation,
+    	\begin{align}
+    		\pi = \pi P^n
+    	\end{align}
     \end{proposition}
     
     \begin{proof}
@@ -568,8 +617,22 @@
     	\end{align}
     	That is, for every state $j$, the arrival probability is one.
     \end{definition}
+
+	\begin{proposition}
+		Uniform distribution is stationary for all finite state doubly stochastic Markov chains.
+	\end{proposition}
+
+	\begin{proof}
+		Let $\pi_i = \frac{1}{|S|}$ for all $i \in S$, then
+		\begin{align}
+			\sum_{i \in S} \pi_i p_{ij} &= \sum_{i \in S} \frac{1}{|S|} p_{ij} \\
+			&= \frac{1}{|S|} \sum_{i \in S} p_{ij} \\
+			&= \frac{1}{|S|} \tx{ (doubly stochastic)} \\
+			&= \pi_j
+		\end{align}
+	\end{proof}
     
-    \subsection{Constructing Stationary Distributions}
+    \subsection{Searching for Stationarity}
     \begin{definition}
     	A Markov chain is \textbf{reversible} with respect to a distribution $\pi$ if 
 	    \begin{align}
@@ -590,11 +653,12 @@
 	\end{proof}
 	
 	\begin{theorem}[Vanishing Probability]
-		Let $\mc{M} := (S, v, P)$, if
+		For a Markov chain $\mc{M}$, if
 		\begin{align}
 			\forall i, j \in S,\ \lim_{n\to\infty} p_{ij}\upn = 0
 		\end{align}
-		Then $\mc{M}$ cannot have a stationary distribution.
+		that is, the chain moves chaotically, 
+		then $\mc{M}$ cannot have a stationary distribution.
 	\end{theorem}
 	
 	\begin{proof}
@@ -610,11 +674,34 @@
 	\end{proof}
 	
 	\begin{lemma}[Vanishing Lemma]
-		If $\mc{M}$ has some $k, \ell$ such that $\lim_{n \to \infty} p_{k\ell}\upn = 0$, then for all $i, j \in S$, $\lim_{n \to \infty} p_{ij}\upn = 0$.
+		If $\mc{M}$ has some $k, \ell$ such that $\lim_{n \to \infty} p_{k\ell}\upn = 0$, then for all $i, j \in S$
+		such that $k \to i$ and $j \to \ell$,
+		$\lim_{n \to \infty} p_{ij}\upn = 0$.
 	\end{lemma}
 	
 	\begin{proof}
-		
+		Because $k \to i$ and $j \to \ell$, there exists $r, s \in \N$ such that
+		\begin{align}
+			p_{ki}^{(r)} > 0,\ 
+			p_{j\ell}^{(s)} > 0
+		\end{align}
+		Note that for arbitrary $n \in \N$,
+		\begin{align}
+			p_{k \ell}^{(r+n+s)}
+			&\geq p_{ki}^{(r)} p_{ij}^{(n)} p_{j\ell}^{(s)} \\
+			\implies p_{ij}^{(n)}
+			&\leq \frac{p_{k \ell}^{(r+n+s)}}{p_{ki}^{(r)}p_{j\ell}^{(s)}}
+		\end{align}
+		Therefore, 
+		\begin{align}
+			0 \geq \lim_{n \to \infty} p_{ij}\upn &\leq \lim_{n \to \infty} \frac{p_{k \ell}^{(r+n+s)}}{p_{ki}^{(r)}p_{j\ell}^{(s)}} \\
+			&= \frac{1}{{p_{ki}^{(r)}p_{j\ell}^{(s)}}} \lim_{n \to \infty} {p_{k \ell}^{(r+n+s)}} \\
+			&= \frac{1}{{p_{ki}^{(r)}p_{j\ell}^{(s)}}} 0 = 0 
+		\end{align}
+		Therefore,
+		\begin{align}
+			\lim_{n \to \infty} p_{ij}\upn &= 0
+		\end{align}
 	\end{proof}
 	
 	\begin{corollary}
@@ -625,7 +712,11 @@
 		\end{enumerate}
 	\end{corollary}
 	
-	\begin{corollary}
+	\begin{proof}
+		Immediate result from vanishing lemma.
+	\end{proof}
+	
+	\begin{corollary}[Vanishing Probabilities Corollary]
 		If there exists $i, j \in S$, $\lim_{n \to \infty} p_{ij}\upn = 0$, then $\mc{M}$ cannot have a stationary distribution.
 	\end{corollary}
 	
@@ -663,25 +754,30 @@
 		If a Markov chain $\mc{M}$ is 
 		\begin{enumerate}[(i)]
 			\item irreducible;
-			\item and aperiodic;
+			\item aperiodic;
 			\item with a stationary distribution $\pi$
 		\end{enumerate}
-		Then 
+		(i. conditioned on initial state) then
 		\begin{align}
 			\lim_{n \to \infty} p_{ij}\upn = \pi_j\quad\forall i, j \in S
 		\end{align}
-		and for any initial probability $v$,
+		In fact, the limiting probability does not depend on initial state $i$. \\
+		(ii. unconditional) and for any initial probability $v$,
 		\begin{align}
 			\lim_{n \to \infty} P(X_n = j) = \pi_j
 		\end{align}
 	\end{theorem}
 	
 	\begin{theorem}[Stationary Recurrence Theorem]
-		For an irreducible chain $\mc{M}$ with a stationary distribution, $\mc{M}$ is always recurrent.
+		For an \ul{irreducible} chain $\mc{M}$ with a stationary distribution, $\mc{M}$ is always recurrent.
 	\end{theorem}
 	
+	\begin{proof}
+		Suppose not, this contradicts the previous result \emph{irreducible transient Markov chain cannot have stationary distribution}.
+	\end{proof}
+	
 	\begin{proposition}
-		If a state $i$ has $f_{ii}$ and is aperiodic, then there is $n_0(i) \in \N$ such that
+		If a state $i$ has $f_{ii} > 0$ and is \ul{aperiodic}, then there is $n_0(i) \in \N$ such that
 		\begin{align}
 			p_{ii}\upn > 0\quad \forall n \geq n_0(i)
 		\end{align}
@@ -690,7 +786,7 @@
 	\begin{corollary}
 		If a chain is \ul{irreducible} and \ul{aperiodic}, then for any states $i, j \in S$, there is $n_0(i, j) \in \N$ such that
 		\begin{align}
-			p_{ii}\upn > 0\quad \forall n \geq n_0(i)
+			p_{ij}\upn > 0\quad \forall n \geq n_0(i)
 		\end{align}
 	\end{corollary}
 	
@@ -698,7 +794,7 @@
 		If a Markov chain $\mc{M}$ is
 		\begin{enumerate}[(i)]
 			\item irreducible;
-			\item and aperiodic;
+			\item aperiodic;
 			\item with a stationary distribution $\pi$
 		\end{enumerate}
 		then for all $i, j, k \in S$, then
@@ -709,8 +805,24 @@
 		\end{align}
 	\end{lemma}
 	
+	\begin{proof}
+		Proof by constructing coupled Markov chain.
+	\end{proof}
+	
 	\begin{corollary}
 		If $\mc{M}$ is \ul{irreducible} and \ul{aperiodic} then it has at most one stationary distribution.
+	\end{corollary}
+
+	\begin{proof}
+		Suppose $\mc{M}$ has a stationary distribution, then by the Markov chain convergence theorem, $\pi_j$ is the limit of 
+		\begin{align}
+			\lim_{n \to \infty} P(X_n = j)
+		\end{align}
+		and such limit must be unique if it exists.
+	\end{proof}
+
+	\begin{corollary}[Generalized Version]
+		If $\mc{M}$ is \ul{irreducible} then it has at most one stationary distribution.
 	\end{corollary}
 \end{document}
 
