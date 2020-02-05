@@ -151,12 +151,16 @@
     	\end{align}
     \end{proof}
     
-    \begin{theorem}
+    \begin{theorem}[Chapman-Kolmogorov Equations]
     	\begin{align}
     		p_{i j}^{(m+n)} &=\sum_{k \in S} p_{i k}^{(m)} p_{k j}^{(n)} \\
     		p_{i j}^{(m+s+n)}&=\sum_{k \in S} \sum_{\ell \in S} p_{i k}^{(m)} p_{k \ell}^{(s)} p_{\ell j}^{(n)}
     	\end{align}
     \end{theorem}
+
+	\begin{proof}
+		\todo{}
+	\end{proof}
     
     \begin{theorem}[Chapman-Kolmogorov Equations (Generalization)]
     	Let $n = (n_1, n_2, \cdots, n_k)$ be a multi-set of non-negative integers, then
@@ -528,7 +532,7 @@
     	\begin{enumerate}[(1)]
     		\item $\exists k, \ell \in S$ such that $\sum_{n=1}^\infty p_{k \ell}\upn = \infty$;
     		\item $\forall i,j \in S,\ \sum_{n=1}^\infty p_{ij}\upn = \infty$;
-    		\item $\exists k \in S\ s.t.\ f_{kk} = 1$;
+    		\item $\exists k \in S\ s.t.\ f_{\red{kk}} = 1$ (need two nodes to be the same to form a strong condition);
     		\item $\forall j \in S,\ f_{jj} = 1$;
     		\item $\forall i,j \in S,\ f_{ij} = 1$;
     		\item $\exists k, \ell \in S$ such that $P_k(N(\ell) = \infty) = 1$;
@@ -727,7 +731,7 @@
 	\begin{definition}
 		The \textbf{period} of a state $i$ is the greatest common divisor of the set
 		\begin{align}
-			\Phi = \{n \geq 1: p_{ii}\upn > 0\}
+			\Phi_i = \{n \geq 1: p_{ii}\upn > 0\}
 		\end{align}
 		Note that if $f_{ii} = 0$, then $\Phi = \varnothing$, and period is not well-defined.
 	\end{definition}
@@ -740,13 +744,34 @@
 		If $i \leftrightarrow j$, then the periods of $i$ and $j$ are equal.
 	\end{lemma}
 	
+	\begin{proof}
+		Let $t_i$ and $t_j$ be the periods of $i$ and $j$. \\
+		Because $i \leftrightarrow j$, there exists $r, s \in \N$ such that $p_{ij}^{(r)}, p_{ji}^{(s)} > 0$. \\
+		For any $n \in \N$ such that $p_{jj}\upn > 0$ (i.e., $n \in \Phi_j$), it must be the case that
+		\begin{align}
+			p^{(r+n+s)}_{ii} &\geq p_{ij}^{(r)} p_{jj}\upn p_{ji}^{(s)} > 0 \\
+			p^{(r+s)}_{ii} &\geq p_{ij}^{(r)} p_{ji}^{(s)} > 0
+		\end{align}
+		Therefore, $r+n+s$ and $r + s \in \Phi_i$, and $t_i | r + n + s$ and $t_i | r + s$. \\
+		Hence $t_i | n$. \\
+		Because $n$ is chosen to be an arbitrary element in $\Phi_j$, therefore, $t_i \leq t_j$. \\
+		Proving $t_i \geq t_j$ is similar. 
+	\end{proof}
+	
 	\begin{corollary}
 		If $\mc{M}$ is \ul{irreducible}, then all states have the same period.
 	\end{corollary}
+	\begin{proof}
+		Follows the equal period lemma directly.
+	\end{proof}
 	
 	\begin{corollary}
 		If $\mc{M}$ is \ul{irreducible}, and $p_{ii} > 0$ for some $i \in S$ (so that state $i$ has period 1), then the whole chain $\mc{M}$ is aperiodic.
 	\end{corollary}
+
+	\begin{proof}
+		Follows the equal period corollary directly.
+	\end{proof}
 	
 	\subsection{Convergence Theorem}
 	
@@ -764,7 +789,9 @@
 		In fact, the limiting probability does not depend on initial state $i$. \\
 		(ii. unconditional) and for any initial probability $v$,
 		\begin{align}
-			\lim_{n \to \infty} P(X_n = j) = \pi_j
+			\lim_{n \to \infty} P(X_n = j) 
+			= \lim_{n \to \infty} \mu_j\upn
+			= \pi_j
 		\end{align}
 	\end{theorem}
 	
@@ -782,13 +809,37 @@
 			p_{ii}\upn > 0\quad \forall n \geq n_0(i)
 		\end{align}
 	\end{proposition}
+	
+	\begin{proof}
+		Because $f_{ii} > 0$, $\Phi_i := \{n \geq 1: p_{ii}\upn > 0\} \neq \varnothing$. \\
+		Let $m, n \in \Phi_i$, then $p_{ii}^{(m+n)} \geq p_{ii}^{(m)} p_{jj}^{(n)} > 0$, so that $m + n \in \Phi_i$. \\
+		Therefore, $\Phi_i$ satisfies aditivity property. \\
+		Also, $\gcd(\Phi_i) = 1$. \\
+		\ul{Lemma} show that $n \in \Phi_i$ implies $n' \in \Phi_i\ \forall n' \geq n$. \\
+		Let $n(i) \in \Phi_i$, then for all $n' \geq n(i)$, $n' \in \Phi_i$.
+	\end{proof}
 
 	\begin{corollary}
 		If a chain is \ul{irreducible} and \ul{aperiodic}, then for any states $i, j \in S$, there is $n_0(i, j) \in \N$ such that
 		\begin{align}
-			p_{ij}\upn > 0\quad \forall n \geq n_0(i)
+			p_{ij}\upn > 0\quad \forall n \geq n_0(i, j)
 		\end{align}
 	\end{corollary}
+
+	\begin{proof}
+		Let $n_0(i) \in \N$ such that for all $n' \geq n_0(i)$, $n' \in \Phi_i$. \\
+		Provided $i \rightarrow j$, there exists $m \in \N$ such that $p_{ij}^{(m)} >0$. \\
+		Let $n_0(i, j) = n_0(i) + m$. \\
+		For every $n \geq n_0(i, j)$, $n$ can be written as $n = n' + m$ for some $n' \geq n_0(i)$, 
+		\begin{align}
+			n' \geq n_0(i) \implies p_{ii}^{(n')} > 0
+		\end{align}
+		Then
+		\begin{align}
+			p_{ij}\upn &= p_{ij}^{(n' + m)} \\
+			&\geq p_{ii}^{(n')} p_{ij}^{(m)} > 0
+		\end{align}
+	\end{proof}
 	
 	\begin{lemma}[Markov Forgetting Lemma]
 		If a Markov chain $\mc{M}$ is
@@ -806,7 +857,7 @@
 	\end{lemma}
 	
 	\begin{proof}
-		Proof by constructing coupled Markov chain.
+		\hl{Omitted.}
 	\end{proof}
 	
 	\begin{corollary}
