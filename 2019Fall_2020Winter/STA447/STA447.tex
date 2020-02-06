@@ -150,18 +150,7 @@
     		P^{(n)} = P^n
     	\end{align}
     \end{proof}
-    
-    \begin{theorem}[Chapman-Kolmogorov Equations]
-    	\begin{align}
-    		p_{i j}^{(m+n)} &=\sum_{k \in S} p_{i k}^{(m)} p_{k j}^{(n)} \\
-    		p_{i j}^{(m+s+n)}&=\sum_{k \in S} \sum_{\ell \in S} p_{i k}^{(m)} p_{k \ell}^{(s)} p_{\ell j}^{(n)}
-    	\end{align}
-    \end{theorem}
 
-	\begin{proof}
-		\todo{}
-	\end{proof}
-    
     \begin{theorem}[Chapman-Kolmogorov Equations (Generalization)]
     	Let $n = (n_1, n_2, \cdots, n_k)$ be a multi-set of non-negative integers, then
     	\begin{align}
@@ -241,14 +230,14 @@
     
     \begin{corollary}
     	\begin{align}
-    		P_i(N(i) \geq k) &= (f_{ii})^k \\
-    		P_i(N(j) \geq k) &= f_{ij}(f_{jj})^{k-1}
+    		\red{P_i(N(i) \geq k) &= (f_{ii})^k} \\
+    		\red{P_i(N(j) \geq k) &= f_{ij}(f_{jj})^{k-1}}
     	\end{align}
     \end{corollary}
 
 	\begin{corollary}
 		\begin{align}
-			f_{ij} \geq f_{ik}f_{kj}
+			\red{f_{ij} \geq f_{ik}f_{kj}}
 		\end{align}
 	\end{corollary}
     
@@ -284,14 +273,14 @@
     	\begin{align}
     		\sum_{n=1}^\infty p_{ii}^{(n)}
     		&= \sum_{n=1}^\infty P(X_n = i | X_0 = i) \\
-    		&= \sum_{n=1}^\infty \expe (1_{X_n=i} | X_0 = i) \\
+    		&= \sum_{n=1}^\infty \expe (\id{X_n=i} | X_0 = i) \\
     		&= \expe \left(
-    		\sum_{n=1}^\infty 1_{X_n=i} \Big| X_0 = i
+    		\sum_{n=1}^\infty \id{X_n=i} \Big| X_0 = i
     		\right ) \\
     		&= \expe (N(i) | X_0=i) \\
-    		&= \sum_{n=k}^\infty k P(N(i)=k | X_0=i) \\
-    		&= \sum_{n=k}^\infty P(N(i) \geq k | X_0=i) \\
-    		&= \sum_{n=k}^\infty (f_{ii})^k \\
+    		&= \sum_{k=1}^\infty k P(N(i)=k | X_0=i) \\
+    		&= \sum_{k=1}^\infty P(N(i) \geq k | X_0=i) \\
+    		&= \sum_{k=1}^\infty (f_{ii})^k \\
     		&= \infty \tx{ if and only if } f_{ii} = 1
     	\end{align}
     \end{proof}
@@ -463,7 +452,7 @@
     		\item or a \textbf{transient} Markov chain: $\forall i \in S,\ f_{ii} < 1$ and $\sum_{n=1}^\infty p_{ij}\upn < \infty\ \forall i, j \in S$.
     	\end{enumerate}
     \end{theorem}
-    
+
     \begin{proof}
     	Let $\mc{M}$ be an irreducible Markov chain, if there exists $i \neq j \in S$ such that $f_{ii} = 1$ but $f_{jj} < 1$, this leads to a contradiction to the sum corollary because irreducibility of $\mc{M}$ implies $i \leftrightarrow j$. Also, if there exists. some $i, j \in S$ such that $\sum_{n=1}^\infty p_{ij}\upn = \infty$. Then for every other $k, \ell \in S$, $k \leftrightarrow i$ and $j \leftrightarrow \ell$ by the irreducibility of $\mc{M}$. Then $\sum_{n=1}^\infty p_{k \ell}\upn = \infty$ by sum lemma.
     \end{proof}
@@ -491,7 +480,7 @@
     \end{theorem}
     
     \begin{theorem}[$f$-Lemma]
-    	For all $i, j \in S$, if $j \to i$ and $f_{jj} = 1$, then $f_{ij} = 1$.
+    	\red{For all $i, j \in S$, if $j \to i$ and $f_{jj} = 1$, then $f_{ij} = 1$.}
     \end{theorem}
     
     \begin{proof}
@@ -656,14 +645,14 @@
 		\end{align}
 	\end{proof}
 	
-	\begin{theorem}[Vanishing Probability]
+	\begin{proposition}[Vanishing Probability Proposition]
 		For a Markov chain $\mc{M}$, if
 		\begin{align}
 			\forall i, j \in S,\ \lim_{n\to\infty} p_{ij}\upn = 0
 		\end{align}
 		that is, the chain moves chaotically, 
 		then $\mc{M}$ cannot have a stationary distribution.
-	\end{theorem}
+	\end{proposition}
 	
 	\begin{proof}
 		Suppose, for contradiction, there is a stationary distribution $\pi$. Then,
@@ -708,7 +697,7 @@
 		\end{align}
 	\end{proof}
 	
-	\begin{corollary}
+	\begin{corollary}[Vanishing Together Corollary]
 		For an \ul{irreducible} Markov chain, either
 		\begin{enumerate}[(i)]
 			\item $\lim _{n \rightarrow \infty} p_{i j}^{(n)}=0$ for all $i, j \in S$;
@@ -721,12 +710,22 @@
 	\end{proof}
 	
 	\begin{corollary}[Vanishing Probabilities Corollary]
-		If there exists $i, j \in S$, $\lim_{n \to \infty} p_{ij}\upn = 0$, then $\mc{M}$ cannot have a stationary distribution.
+		If \ul{there exists} $i, j \in S$, $\lim_{n \to \infty} p_{ij}\upn = 0$, then $\mc{M}$ cannot have a stationary distribution.
 	\end{corollary}
 	
-	\begin{corollary}
+	\begin{proof}
+		Omitted.
+	\end{proof}
+	
+	\begin{corollary}[Transient Not Stationary Corollary]
 		A Markov chain which is \ul{irreducible} and \ul{transient} cannot have a stationary distribution.
 	\end{corollary}
+	
+	\begin{proof}
+		\begin{align}
+			\forall i, j \in S\ \sum_{n=1}^\infty f_{ij}\upn < \infty \implies \lim_{n\to\infty}p_{ij}\upn = 0
+		\end{align}
+	\end{proof}
 	
 	\begin{definition}
 		The \textbf{period} of a state $i$ is the greatest common divisor of the set
@@ -857,7 +856,7 @@
 	\end{lemma}
 	
 	\begin{proof}
-		\hl{Omitted.}
+		Omiited
 	\end{proof}
 	
 	\begin{corollary}
