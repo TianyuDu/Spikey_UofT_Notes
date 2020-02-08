@@ -43,7 +43,7 @@
     \newpage
     
     \section{Knowledge}
-    \subsection{Defining an Information Structure}
+    \subsection{Information Structure}
     \begin{notation}
     	Let $\Omega$ denote the all possible states of world, and let $A$ denote the set of all agents. Let $\omega^* \in \Omega$ denote the true state of world.
     \end{notation}
@@ -75,6 +75,7 @@
     	At some state of world, $\omega^*$, agent $i$ receives information $T_i(\omega^*)$ but \ul{not} $\omega^*$. This agent only knows $\omega^* \in T_i(\omega^*)$. The information encoding mechanism is a kind of blurring system preventing the agent from identifying the exact $\omega^*$.
     \end{remark}
     
+    \subsection{Knowledge Space}
     \begin{definition}
     	A \textbf{knowledge-based type space} is defined to be a tuple
     	\begin{align}
@@ -148,6 +149,124 @@
    	\end{definition}
    	
    	\section{Beliefs}
+   	\subsection{Type Space}
+   	\begin{definition}
+   		A \textbf{type space} is a triple $(\Omega, (T_i), (\mu_i(\omega, t_{-i}|t_i)))$.
+   		\begin{enumerate}[(i)]
+	   		\item $\Omega$ is the state space. 
+	   		\item $T_i$ is the collection of types for player $i$.
+	   		\item The \textbf{belief} of type $t_i$ player $i$ is a probability distribution:
+	   		\begin{align}
+	   			\mu_i(\omega, t_{-i}|t_i) \in \Delta(\Omega \times T_{-i})\tx{ where } T_{-i} = \prod_{j \neq i} T_j
+	   		\end{align}
+	   	\end{enumerate}
+   	\end{definition}
+   	
+   	\begin{remark}
+   		In the definition, we were overloading the notion of $T_i$, here $T_i$ is a fixed set representing the collection of all possible types of player $i$. In the previous section, $T_i(\cdot)$ was a function maps a state $\omega \in \Omega$ to the information possessed by agent $i$ in state $\omega$.
+   	\end{remark}
+   	
+   	\begin{proposition}[Relation between type space and knowledge space]
+   		For a type space $(\Omega, (T_i), (\mu_i(\omega, t_{-i}|t_i)))$, define
+   		\begin{align}
+   			\Omega^{*}:=\Omega \times T_{1} \times \ldots \times T_{n}
+   		\end{align}
+   		and for every $\omega^* \in \Omega^*$, define
+   		\begin{align}
+   			T^*_i(\omega^*) \equiv T^*_i(\omega, t_{1:n}) = \{(\omega', t'_{1:n}): t'_i = t_i \} \subseteq \Omega^*
+   		\end{align}
+   		That is, player $i$ only knows his own type and cannot distinguish types of any other players. And $T^*_i(\cdot)$  defines a partition over $\Omega^*$. Therefore, $(\Omega^*, (T^*_i(\cdot)))$ is a knowledge space induced by the type space.
+   	\end{proposition}
+   	
+   	\subsection{Prior and interim beliefs}
+   	
+   	\begin{definition}
+   		The \textbf{interim belief} of player $i$ is defined to be the distribution $\mu_i(\omega, t_{-i}|t_i)$ in the type space.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		The \textbf{posterior belief} of player $i$ is defined as the belief after the player learns the types of all other players:
+   		\begin{align}
+   			\mu_i(\omega|t_{1:n})
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		The \textbf{prior belief} $\mu$, is a distribution over $(\omega, t_i, t_{-i})$. Then player $i$ can compute the prior belief on $t_i$ by marginalizing
+   		\begin{align}
+   			\mu\left(t_{i}\right)=\sum_{\omega, t_{-i}} \mu_{i}\left(\omega, t_{-i}, t_{i}\right)
+   		\end{align}
+   		Note that the prior belief $\mu$ does not have a subscript $i$ because the prior belief is the same for all players.
+   	\end{definition}
+   	
+   	\begin{remark}
+	   	Ex-ante approach:
+	   	\begin{enumerate}[(i)]
+	   		\item Player $i$ learn (overall) prior $\mu\left(\omega, t_{i}, t_{-i}\right)$;
+	   		\item Player $i$ deduces his type prior following
+	   		\begin{align}
+	   			\mu\left(t_{i}\right)=\sum_{\omega, t_{-i}} \mu_{i}\left(\omega, t_{-i}, t_{i}\right)
+	   		\end{align}
+	   		\item Player $i$ deduces interim belief following
+	   		\begin{align}
+	   			\mu_{i}\left(\omega, t_{-i} |t_i \right)
+	   			=\frac{\mu\left(\omega, t_{i}, t_{-i}\right)}{\mu\left(t_{i}\right)}
+	   		\end{align}
+	   	\end{enumerate}
+   	\end{remark}
+   	
+   	\subsection{Bayesian Games}
+   	\begin{definition}
+   		A \textbf{Bayesian game} consists of
+   		\begin{enumerate}[(i)]
+   			\item A set of players $i \in \{1, \cdots, N\}$;
+   			\item Action space $A_i$ for each player $i$;
+   			\item Type space $(\Omega, (T_i), \mu_i)$;
+   			\item Payoff function for each player $i$:
+   			\begin{align}
+   				u_{i}\left(a_{i}, a_{-i}, t_{i}, t_{-i}, \omega\right)
+   			\end{align}
+   			\item Strategies for each player $i$, $\sigma_i: T_i \to \Delta (A_i)$.
+   		\end{enumerate}
+   	\end{definition}
+   	
+   	\begin{assumption}
+   		Players are assumed to maximize their expected payoffs. Moreover, players calculate their expected payoffs with respect to their interim beliefs.
+   	\end{assumption}
+   	
+   	\begin{definition}
+   		The \textbf{expected payoff} of player $i$ with type $t_i$ from a \ul{pure strategy} $a_i \in A_i$ given opponents' strategies $\sigma_{-i}$ is
+   		\begin{align}
+   			U_{i}\left(a_{i}, \sigma_{-i}, t_{i}\right)=\sum_{t_{-i}, \omega} u_{i}\left(a_{i}, \sigma_{-i}\left(t_{-i}\right), t_{i}, t_{-i}, \omega\right) \underbrace{\mu_{i}\left(t_{-i}, \omega | t_{i}\right)}_{\tx{interim belief}}
+   		\end{align}
+   	\end{definition}
+
+   	\begin{definition}[Generalization]
+   		The \textbf{expected payoff} of player $i$ with type $t_i$ from a \ul{mixed strategy} $\sigma_i \in \Delta(A_i)$ given opponents' strategies $\sigma_{-i}$ is
+   		\begin{align}
+   			U_{i}\left(\sigma_{i}, \sigma_{-i}, t_{i}\right)
+   			=\sum_{a_i \in \sigma_i(t_i)}
+   			\sigma_i(t_i)(a_i) \sum_{t_{-i}, \omega} u_{i}\left(a_{i}, \sigma_{-i}\left(t_{-i}\right), t_{i}, t_{-i}, \omega\right) \mu_{i}\left(t_{-i}, \omega | t_{i}\right)
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		An action $a_i$ is a \textbf{best response} \ul{for type $t_i$ against $\sigma_{-i}$} if
+   		\begin{align}
+   			\forall a_i' \in A_i \backslash \{a_i\},\ U_{i}\left(a_{i}, \sigma_{-i} ; t_{i}\right) \geq U_{i}\left(a_{i}^{\prime}, \sigma_{-i} ; t_{i}\right)
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		An action $a_i$ is \textbf{strictly dominated} \ul{for type $t_i$} if
+   		\begin{align}
+   			\exists a_i' \in A_i \backslash \{a_i\}\ s.t.\ \forall \sigma_{-i}\ U_{i}\left(a_{i}, \sigma_{-i} ; t_{i}\right)<U_{i}\left(a_{i}^{\prime}, \sigma_{-i} ; t_{i}\right)
+   		\end{align}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		A \textbf{Bayesian Nash equilibrium} is a profile of strategies $\sigma=\left(\sigma_{1}, \ldots, \sigma_{l}\right)$ such that \ul{for each player $i$ and each type $t_i$ of player $i$}, the action $\sigma_{i}\left(t_{i}\right)$ is a best response for type $t_{i}$ against $\sigma_{-i}$.
+   	\end{definition}
    	
    	\section{Adverse Selection}
    	\subsection{Market for Lemons}

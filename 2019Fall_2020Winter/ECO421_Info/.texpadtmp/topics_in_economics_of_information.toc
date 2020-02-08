@@ -1,18 +1,22 @@
 \babel@toc {english}{}
 \contentsline {section}{\numberline {1}Knowledge}{2}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Defining an Information Structure}{2}{subsection.1.1}% 
-\contentsline {subsection}{\numberline {1.2}Learning}{3}{subsection.1.2}% 
-\contentsline {subsection}{\numberline {1.3}Knowledge Hierarchies and Common knowledges}{3}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.1}Information Structure}{2}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Knowledge Space}{2}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Learning}{3}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}Knowledge Hierarchies and Common knowledges}{3}{subsection.1.4}% 
 \contentsline {section}{\numberline {2}Beliefs}{3}{section.2}% 
-\contentsline {section}{\numberline {3}Adverse Selection}{3}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Market for Lemons}{3}{subsection.3.1}% 
-\contentsline {paragraph}{Aggregate conditions}{4}{section*.2}% 
-\contentsline {subsection}{\numberline {3.2}Market for Insurances}{4}{subsection.3.2}% 
-\contentsline {paragraph}{Buyer behaviours}{5}{section*.3}% 
-\contentsline {paragraph}{Seller behaviour}{5}{section*.4}% 
-\contentsline {subsection}{\numberline {3.3}Monopoly Under Adverse Selection}{5}{subsection.3.3}% 
-\contentsline {paragraph}{Sellers}{5}{section*.5}% 
-\contentsline {paragraph}{Buyers}{6}{section*.6}% 
-\contentsline {paragraph}{Case 1: 1th degree price discrimination}{6}{section*.7}% 
-\contentsline {paragraph}{Case 2: 2nd degree price discrimination}{6}{section*.8}% 
-\contentsline {paragraph}{Solving the reduced problem}{7}{section*.9}% 
+\contentsline {subsection}{\numberline {2.1}Type Space}{3}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Prior and interim beliefs}{4}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Bayesian Games}{5}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}Adverse Selection}{5}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Market for Lemons}{5}{subsection.3.1}% 
+\contentsline {paragraph}{Aggregate conditions}{6}{section*.2}% 
+\contentsline {subsection}{\numberline {3.2}Market for Insurances}{6}{subsection.3.2}% 
+\contentsline {paragraph}{Buyer behaviours}{7}{section*.3}% 
+\contentsline {paragraph}{Seller behaviour}{7}{section*.4}% 
+\contentsline {subsection}{\numberline {3.3}Monopoly Under Adverse Selection}{8}{subsection.3.3}% 
+\contentsline {paragraph}{Sellers}{8}{section*.5}% 
+\contentsline {paragraph}{Buyers}{8}{section*.6}% 
+\contentsline {paragraph}{Case 1: 1th degree price discrimination}{8}{section*.7}% 
+\contentsline {paragraph}{Case 2: 2nd degree price discrimination}{8}{section*.8}% 
+\contentsline {paragraph}{Solving the reduced problem}{10}{section*.9}% 
