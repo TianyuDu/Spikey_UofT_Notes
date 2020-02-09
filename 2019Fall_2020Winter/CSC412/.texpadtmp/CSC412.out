@@ -1,0 +1,10 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Probabilistic Models}{}% 2
+\BOOKMARK [1][-]{section.3}{Directed Graphical Models}{}% 3
+\BOOKMARK [1][-]{section.4}{Exact Inference}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Variable Elimination}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Intermediate Factors}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Sum-Product Inference}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{Complexity of Variable Elimination Ordering}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Message passing, Hidden Markov Models, and Sampling}{}% 9
+\BOOKMARK [1][-]{section.6}{Sampling and Monte Carlo Methods}{}% 10
