@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 FEB 2020 21:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 FEB 2020 22:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -730,33 +730,33 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
  [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<figures/week_4_2.png, id=68, 281.05pt x 250.9375pt>
+<figures/week_4_2.png, id=83, 281.05pt x 250.9375pt>
 File: figures/week_4_2.png Graphic file (type png)
 <use figures/week_4_2.png>
-Package pdftex.def Info: figures/week_4_2.png  used on input line 90.
+Package pdftex.def Info: figures/week_4_2.png  used on input line 91.
 (pdftex.def)             Requested size: 140.92793pt x 125.82835pt.
- [2 <./figures/week_4_2.png>] [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 160.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 160.
+ [2 <./figures/week_4_2.png>] [3] [4] [5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 273.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 273.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/CSC412/.texpadtmp/CSC412.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 160.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 160.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 273.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 273.
 Package rerunfilecheck Info: File `CSC412.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 21494 strings out of 492616
- 394389 string characters out of 6129482
- 499367 words of memory out of 5000000
- 24945 multiletter control sequences out of 15000+600000
+ 21652 strings out of 492616
+ 397359 string characters out of 6129482
+ 500373 words of memory out of 5000000
+ 25075 multiletter control sequences out of 15000+600000
  13848 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,15n,92p,823b,407s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,17n,92p,823b,773s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/CSC412/.texpadtmp/CSC412.pdf (4 pages, 173368 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/CSC412/.texpadtmp/CSC412.pdf (5 pages, 187730 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 226 PDF objects out of 1000 (max. 8388607)
+ 201 compressed objects within 3 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 122 words of extra memory for PDF output out of 10000 (max. 10000000)
 

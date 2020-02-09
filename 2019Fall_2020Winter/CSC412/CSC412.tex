@@ -46,6 +46,7 @@
     \section{Probabilistic Models}
 	
 	\section{Directed Graphical Models}
+	\subsection{Decision Theory}
 	
 	\section{Exact Inference}
 	\begin{notation}
@@ -155,8 +156,120 @@
 	\end{theorem}
 	
 	\section{Message passing, Hidden Markov Models, and Sampling}
+
+	\subsection{Message Passing (Computing All Marginals)}
 	
-	\section{Sampling and Monte Carlo Methods}
+	\begin{notation}
+		Let $T$ denote the set of edges in a tree. For a node $i$, let $N(i)$ denote the set of its neighbours.
+	\end{notation}
+	
+	The factor of all random variables can be computed following
+	
+	\begin{align}
+		P\left(X_{1: n}\right)
+		=\frac{1}{Z} \underbrace{\left[ \prod_{i=1}^n \phi\left(x_{i}\right)
+		\right]}_\tx{prior factors}
+		\underbrace{\prod_{(i, j) \in T} \phi_{i, j}\left(x_{i}, x_{j}\right)}_\tx{local factors}
+	\end{align}
+	
+	\begin{definition}
+		The \textbf{message} sent from variable $j$ to $i \in N(j)$ is
+		\begin{align}
+			m_{j \rightarrow i}\left(x_{i}\right)
+			=\sum_{x_{j}}
+			\left [
+			\phi_{j}\left(x_{j}\right) \phi_{i j}\left(x_{i}, x_{j}\right)
+			\prod_{k \in N(j) \neq i} m_{k \rightarrow j}\left(x_{j}\right)
+			\right ]
+		\end{align}
+	\end{definition}
+	
+	\begin{algorithm}[Belief Propagation Algorithm]
+		Given a tree, inference on an arbitrary node $p(x_i)$ can be computed following:
+		\begin{enumerate}
+			\item Choose root $r$ arbitrarily;
+			\item Pass messages from leaves to $r$;
+			\item Pass messages from $r$ to leaves;
+			\item Compute inference
+			\begin{align}
+				p\left(x_{i}\right) \propto \phi_{i}\left(x_{i}\right) \prod_{j \in N(i)} m_{j \rightarrow i}\left(x_{i}\right)
+			\end{align}
+		\end{enumerate}
+	\end{algorithm}
+	
+	\subsection{Markov Chains}
+	\par Using chain rule of probability:
+	\begin{align}
+		p\left(x_{1: T}\right)=\prod_{t=1}^{T} p\left(x_{t} | x_{t-1}, \ldots, x_{1}\right)
+	\end{align}
+	
+	\begin{definition}
+		A Markov chain is said to be \textbf{first-order} if 
+		\begin{align}
+			p\left(x_{t} | x_{1: t-1}\right)=p\left(x_{t} | x_{t-1}\right)
+		\end{align}
+	\end{definition}
+	
+	\paragraph{Simplification} Therefore, for all first-order Markov chains, the full joint distribution can be reduced to
+	\begin{align}
+		p\left(x_{1: T}\right)=\prod_{t=1}^{T} p\left(x_{t} | x_{t-1}\right)
+	\end{align}
+	
+	\begin{definition}
+		A Markov chain is at $m$-order if
+		\begin{align}
+			p\left(x_{t} | x_{1: t-1}\right)=p\left(x_{t} | x_{t-m: t-1}\right)
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}
+		A Markov chain is said to be \textbf{homogenous} (i.e., stationary) if
+		\begin{align}
+			p\left(x_{t} | x_{t-1}\right)=p\left(x_{t+k} | x_{t-1+k}\right) \quad \forall t, k
+		\end{align}
+	\end{definition}
+	
+	\paragraph{Parameterization} Assume the random variable $X_t$ takes $k$ states, further suppose the chain is time homogenous. Then characterizing the transition probability
+	\begin{align}
+		p(x_t | x_{t-1}, x_{t-2}, \cdots, x_{t-m})
+	\end{align}
+	requires $(k-1) k^m$ parameters.
+	
+	\subsection{Hidden Markov Models}
+		\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em}}
+		\tikzset{edge/.style = {->,> = latex'}}
+		% vertices
+		\node[vertex] (x1) at  (0,0) {$x_1$};
+		\node[vertex] (z1) at  (0,2) {$z_1$};
+		
+		\node[vertex] (x2) at  (3,0) {$x_2$};
+		\node[vertex] (z2) at  (3,2) {$z_2$};
+
+		\node[vertex] (x3) at  (6,0) {$x_3$};
+		\node[vertex] (z3) at  (6,2) {$z_3$};
+		
+		\node[vertex] (z4) at  (9,2) {$z_{t \geq 4}$};
+		%edges
+		% Iter 1
+		\draw[edge] (z1) to (x1);
+		\draw[edge] (z1) to (z2);
+		\draw[edge] (z2) to (x2);
+		\draw[edge] (z2) to (z3);
+		\draw[edge] (z3) to (x3);
+		\draw[edge] (z3) to (z4);
+		\end{tikzpicture}
+		\caption{Hidden Markov Model}
+	\end{figure}
+	
+	\paragraph{Parameterization} Assuming the HMM is \ul{homogenous}, then the set of parameters $\Phi$ consists of
+	\begin{enumerate}[(i)]
+		\item 
+	\end{enumerate}
+	
+%	\section{Sampling and Monte Carlo Methods}
 \end{document}
 
 

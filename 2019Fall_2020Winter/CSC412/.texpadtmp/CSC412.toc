@@ -2,10 +2,16 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}% 
 \contentsline {section}{\numberline {2}Probabilistic Models}{2}{section.2}% 
 \contentsline {section}{\numberline {3}Directed Graphical Models}{2}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Decision Theory}{2}{subsection.3.1}% 
 \contentsline {section}{\numberline {4}Exact Inference}{2}{section.4}% 
 \contentsline {subsection}{\numberline {4.1}Variable Elimination}{2}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}Intermediate Factors}{2}{subsection.4.2}% 
 \contentsline {subsection}{\numberline {4.3}Sum-Product Inference}{3}{subsection.4.3}% 
 \contentsline {subsection}{\numberline {4.4}Complexity of Variable Elimination Ordering}{3}{subsection.4.4}% 
 \contentsline {section}{\numberline {5}Message passing, Hidden Markov Models, and Sampling}{4}{section.5}% 
-\contentsline {section}{\numberline {6}Sampling and Monte Carlo Methods}{4}{section.6}% 
+\contentsline {subsection}{\numberline {5.1}Message Passing (Computing All Marginals)}{4}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Markov Chains}{4}{subsection.5.2}% 
+\contentsline {paragraph}{Simplification}{4}{section*.3}% 
+\contentsline {paragraph}{Parameterization}{5}{section*.4}% 
+\contentsline {subsection}{\numberline {5.3}Hidden Markov Models}{5}{subsection.5.3}% 
+\contentsline {paragraph}{Parameterization}{5}{section*.6}% 
