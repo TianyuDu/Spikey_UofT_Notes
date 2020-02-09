@@ -23,3 +23,4 @@
 \contentsline {section}{\numberline {4}Communication}{10}{section.4}% 
 \contentsline {subsection}{\numberline {4.1}Cheap Talk}{10}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}Verifiable Talk}{10}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}Extensive Form Games with Incomplete Information}{10}{section.5}% 

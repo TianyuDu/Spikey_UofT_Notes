@@ -26,7 +26,7 @@
 \counterwithin{figure}{section}
 
 \pagestyle{fancy}
-\lhead{Topics in Economics of Information}
+%\lhead{Topics in Economics of Information}
 
 \usepackage[
     type={CC},
@@ -500,6 +500,66 @@
    	\subsection{Verifiable Talk}
    	\begin{definition}
    		A communication is a \textbf{verifiable talk} if the sender has a full-proof evidence and may choose to show it.
+   	\end{definition}
+   	
+   	\section{Extensive Form Games with Incomplete Information}
+   	\begin{definition}
+   		A \textbf{terminal history} is a set of action tuples $h=(a_1, \cdots, a_t)$ such that the game ends after the last action is taken.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		A \textbf{sub-history} is a proper subset of a terminal history.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		An \textbf{extensive-form game} consists of
+   		\begin{enumerate}[(i)]
+   			\item A set of players $N = \{1, \cdots, I\}$;
+   			\item A set of histories $H = T \cup S$ where $T$ denotes terminal histories and $S$ is the set of sub-histories;
+   			\item A player correspondence $P: S \rightrightarrows N$;
+   			\item Actions $A_i(h)$ for each $i \in P(h)$ for every $h \in S$;
+   			\item Payoff functions $u_i:T \to \R$ for defined for every player $i$ on every terminal history $z \in T$;
+   		\end{enumerate}
+   	\end{definition}
+   	
+   	\begin{definition}
+   		A \textbf{strategy} $\sigma_i$ for player $i$ is a function defined on 
+   		\begin{align}
+   			\{h\ s.t.\ i \in P(h)\}
+   		\end{align}
+   		maps from $h$ to $\Delta A_i(h)$.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		A \textbf{strategy profile} is a set of strategies $\sigma = (\sigma_i)_{i \in N}$. Each $\sigma$ uniquely determines the terminal history and the outcome.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		A \textbf{Nash equilibrium} is a profile of strategies $\left(\sigma_{1}, \ldots, \sigma_{n}\right)$ such that each player's strategy is a best response to the other strategies.
+   	\end{definition}
+   	
+   	\begin{definition}
+   		A \textbf{subgame perfect Nash equilibrium} (SPNE) is a profile of strategies $\left(\sigma_{1}, \ldots, \sigma_{n}\right)$ such that each player's strategy is a best response to the other strategies in each subgame.
+   	\end{definition}
+
+   	\begin{definition}
+   		A \textbf{weak perfect Bayesian equilibrium} (wPBE) is a profile of strategies $\left(\sigma_{1}, \ldots, \sigma_{n}\right)$ and beliefs $\left(P_1, \ldots, P_n\right)$ such that
+   		\begin{enumerate}[(i)]
+   			\item Each player's strategy is a best response to other strategies given the beliefs;
+   			\item Beliefs are updated using Bayes formula, whenever possible.
+   		\end{enumerate}
+   	\end{definition}
+   	
+   	\begin{remark}
+   		This definition does not put restriction when Bayes formula is not applicable, such as histories not attainable with current strategy profile.
+   	\end{remark}
+   	
+   	\begin{definition}
+   		A wPBE is \textbf{separating} (informative) if different types play different strategies. In such equilibria, private information is going to be revealed.
+   	\end{definition}
+   	
+   	   	\begin{definition}
+   		A wPBE is \textbf{pooling} if different types play the same strategy. In such equilibria, private information is not going to be revealed.
    	\end{definition}
 \end{document}
 
