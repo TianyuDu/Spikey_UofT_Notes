@@ -139,7 +139,7 @@
    		\end{align}
    	\end{definition}
    	\begin{definition}
-   		The set of states where $E \subseteq \Omega^F$ is known given $F$ is 
+   		The set of states in which agent $i$ knows $E \subseteq \Omega^F$ given $F$ is 
    		\begin{align}
    			K_i(E|F) &:= \left\{
    			\omega \in \Omega^F: T_i^F(\omega) \subseteq E
@@ -518,6 +518,10 @@
    		A communication is a \textbf{cheap talk} if messages have no cost, no payoff consequences at all.
    	\end{definition}
    	
+   	\begin{definition}
+   		A \textbf{strategy of communication} of player $i$'s maps observed states of world to a space of messages.
+   	\end{definition}
+   	
    	
    	\subsection{Verifiable Talk}
    	\begin{definition}
@@ -573,7 +577,7 @@
    	\end{definition}
    	
    	\begin{remark}
-   		This definition does not put restriction when Bayes formula is not applicable, such as histories not attainable with current strategy profile.
+   		This definition does not put restriction when Bayes formula is not applicable (e.g., off-path histories), such as histories not attainable with current strategy profile.
    	\end{remark}
    	
    	\begin{definition}
