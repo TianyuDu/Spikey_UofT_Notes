@@ -103,6 +103,28 @@
    		\end{align}
    	\end{definition}
    	
+   	\begin{theorem}
+   		Every agent knows their own information structure, that is,
+   		\begin{align}
+   			K_i (T_i(\omega)) = T_i(\omega)\quad \forall \omega \in \Omega
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{theorem}
+   		Every agent knows the existence of the world,
+   		\begin{align}
+   			K_i(\Omega) = \Omega
+   		\end{align}
+   	\end{theorem}
+   	
+   	\begin{definition}
+   		Agent $i$ has \textbf{better information} than agent $j$ if
+   		\begin{align}
+   			\forall \omega \in \Omega,\ T_i(\omega) \subseteq T_j(\omega)
+   		\end{align}
+   		That is, agent $i$'s information structure is a finer partition of $\Omega$.
+   	\end{definition}
+   	
    	\subsection{Learning}
    	\begin{definition}
    		Given a piece of information $F \subseteq \Omega$ characterizing that $\omega^* \in F$, suppose $F$ is known by all agents,
