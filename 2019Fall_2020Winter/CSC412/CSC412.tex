@@ -25,8 +25,8 @@
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
 
-\pagestyle{fancy}
-\lhead{Topics in Economics of Information}
+%\pagestyle{fancy}
+%\lhead{Topics in Economics of Information}
 
 \usepackage[
     type={CC},
@@ -47,6 +47,66 @@
 	
 	\section{Directed Graphical Models}
 	\subsection{Decision Theory}
+	
+	\subsection{Latent Variables}
+	\paragraph{Complete data case} Let $\mc{D} = \{x\upi, y\upi\}_{i=1}^N$ denote the dataset, then
+	\begin{align}
+		\ell(\theta ; \mathcal{D})=\sum_{i=1}^N \log p\left(x\upi, y\upi | \theta\right)
+	\end{align}
+	\paragraph{Partially observed dataset} Let
+	\begin{align}
+		\mc{D}^c &= \{(x\upi, y\upi): i \in \mc{C}\} \subseteq \mc{D}
+	\end{align}
+	denote the part of dataset with observed labels, and let
+	\begin{align}
+		\mc{D}^m &= \{(x\upi): i \in \mc{M}\} \subseteq \mc{D}
+	\end{align}
+	denote the set of observations without labels. Note that $\mc{C} \cup \mc{M} = \{1, 2, \cdots, N\}$. \\
+	Then the log likelihood is
+	\begin{align}
+		\ell(\theta ; \mathcal{D})
+		&= \sum_{c \in \mc{C}} \log p\left(x^{c}, y^{c} | \theta\right)
+		+ \sum_{m \in \mc{M}} \log p\left(x^{m} | \theta\right) \\
+		&=\sum_{c \in \mc{C}} \log p\left(x^{c}, y^{c} | \theta\right)
+		+ \sum_{m \in \mc{M}} \log \sum_{y} p\left(x^{m}, y | \theta\right)
+	\end{align}
+	\paragraph{Inference with Latent Variables} Let $z$ denote the latent variable, then
+	\begin{align}
+		p(y | x)=\sum_{z} p(y | x, z) p(z)
+	\end{align}
+	
+	\subsection{Mixture Models}
+	
+	\paragraph{Inference using mixture models} Let $\Theta = \{\theta_z\} \cup \{ \theta_1, \theta_2, \cdots, \theta_K \}$. Where $\theta_z$ quantifies the distribution of $z$, and $\theta_k$ for each $k \in \{1,2,\cdots,K\}$ denote the set of parameters describing $p(x|z=k)$.
+	\begin{align}
+		p(x | \Theta) &= \sum_{k=1}^K p(x, z=k|\Theta) \\
+		&= \sum_{k=1}^K p(z=k|\Theta) p(x|z=k, \Theta) \\
+		&= \sum_{k=1}^{K} p\left(z=k | \theta_{z}\right) p\left(x | z=k, \theta_{k}\right)
+	\end{align}
+	
+	\paragraph{Posterior probabilities / responsibilities}
+	\begin{align}
+		p\left(z=k | x, \theta_{z}\right)
+		&= \frac{p\left(x |z=k, \theta_k \right) p\left(z=k | \theta_{z}\right)
+		}{p(x|\Theta)} \\
+		&=\frac{p\left(x |z=k, \theta_k \right) p\left(z=k | \theta_{z}\right)
+		}{\sum_{j} p(x, z = j | \Theta )} \\
+		&=\frac{p\left(x |z=k, \theta_k \right) p\left(z=k | \theta_{z}\right)
+		}{\sum_{j} p\left(z=j | \theta_{z}\right) p \left(x |z=j, \theta_{j}\right)}
+	\end{align}
+	
+	\paragraph{Gaussian mixture models}
+	\begin{align}
+		p(x | \theta)&=\sum_{k} \alpha_{k} \mathcal{N}\left(x | \mu_{k}, \Sigma_{k}\right) \\
+		\left.\log \left(x_{1}, x_{2}, \ldots, x_{N}\right) | \theta\right)&=\sum_{n} \log \sum_{k} \alpha_{k} \mathcal{N}(x^{(n)} | \mu_{k}, \Sigma_{k}) \\
+		p(z=k | x, \theta)&=\frac{\alpha_{k} \mathcal{N}\left(x | \mu_{k}, \Sigma_{k}\right)}{\sum_{j} \alpha_{j} \mathcal{N}\left(x | \mu_{j}, \Sigma_{j}\right)}
+	\end{align}
+	
+	\paragraph{Mixtures of experts}
+	\begin{align}
+		p(y | x, \theta) &= \sum_{k=1}^{K} p\left(z=k | x, \theta_{z}\right) p\left(y | z=k, x, \theta_{K}\right) \\
+		&=\sum_{k=1}^K \alpha_{k}\left(x | \theta_{z}\right) p_{k}\left(y | x, \theta_{k}\right)
+	\end{align}
 	
 	\section{Exact Inference}
 	\begin{notation}
@@ -264,13 +324,113 @@
 		\caption{Hidden Markov Model}
 	\end{figure}
 	
-	\paragraph{Parameterization} Assuming the HMM is \ul{homogenous}, then the set of parameters $\Phi$ consists of
+	\paragraph{Joint distribution} Following the conventional expansion
+	\begin{align}
+		p(x_{1:T}, z_{1:T}) = p(z_1) \prod_{t=2}^T p(z_t|z_{t-1}) \prod_{t=1}^T p(x_t|z_t)
+	\end{align}
+	
+	\paragraph{Parameterization} Assuming the HMM is \ul{homogenous} with order 1, then the set of parameters $\Phi$ consists of
 	\begin{enumerate}[(i)]
-		\item 
+		\item Initial distribution of $p(z_1)$: $k-1$ parameters;
+		\item Transition distribution of $p(z_{t+1}|z_t)$: $(k-1)k$ parameters;
+		\item Emission distribution of $p(x_t|z_t)$: $(k-1)k$ parameters.
 	\end{enumerate}
+	
+	\subsection{Forward-backward Algorithm}
+	\paragraph{Smoothing} compute posterior over \ul{past} hidden state
+		\begin{align}
+			p(z_\tau|x_{1:t})\ s.t.\ 1 < \tau < t
+		\end{align}
+	\paragraph{Filtering} compute posterior over \ul{current} hidden state
+		\begin{align}
+			p(z_t|x_{1:t})
+		\end{align}
+	\paragraph{Prediction} compute posterior over \ul{future} hidden state
+		\begin{align}
+			p(z_\tau|x_{1:t})\ s.t.\ \tau > t
+		\end{align}
+	
+	\subsection{Procedure of Smoothing (Forward-backward Algorithm)}
+	\begin{align}
+		p(z_t | x_{1:T})
+		&\propto p(x_{1:T}, z_t) \\
+		&= p(z_t, x_{1:t}) p(x_{t+1:T}|z_t, x_{1:t}) \\
+		&= p(z_t, x_{1:t}) p(x_{t+1:T}|z_t) \\
+		&= p(z_t | x_{1:t}) p(x_{1:t}) p(x_{t+1:T}|z_t) \\
+		&\propto  p(z_t | x_{1:t}) p(x_{t+1:T}|z_t)
+	\end{align}
+	
+	\paragraph{Forward filtering (encoding)}
+	Define
+	\begin{align}
+		\alpha_t(z_t) := p(z_t|x_{1:t})
+	\end{align}
+	Then
+	\begin{align}
+		\red{p(z_t | x_{1:t})}
+		&\propto p(z_t, x_{1:t}) \\
+		&= \sum_{z_{t-1}=1}^k p(z_{t-1}, z_t, x_{1:t}) \\
+		&= \sum_{z_{t-1}=1}^k p(x_t|z_{t-1}, z_t, x_{1:t-1}) p(z_t | z_{t-1}, x_{1:t-1}) p(z_{t-1}, x_{1:t-1}) \\
+		&= \sum_{z_{t-1}=1}^k p(x_t|z_t) p(z_t | z_{t-1}) p(z_{t-1}, x_{1:t-1}) \\
+		&= p(x_t|z_t) \sum_{z_{t-1}=1}^k p(z_t | z_{t-1}) p(z_{t-1}, x_{1:t-1}) \\
+	\end{align}
+	Therefore, we have the forward recursion:
+	\begin{align}
+		\alpha_t(z_t) &= p(x_t|z_t) \sum_{z_{t-1}=1}^k p(z_t | z_{t-1}) \alpha_{t-1}(z_{t-1}) \\
+		\alpha_1(z_1) &= p(x_1, z_1)
+	\end{align}
+	
+	\paragraph{Backward filtering (decoding)}
+	Define
+	\begin{align}
+		\beta_t(z_t) = p(x_{t+1:T}|z_t)
+	\end{align}
+	Then,
+	\begin{align}
+		p(x_{t+1:T}|z_t)
+		&= \sum_{z_{k+1}=1}^k p(x_{t+1:T}, z_{t+1}|z_t) \\
+		&= \sum_{z_{k+1}=1}^k p(x_{t+1}, x_{t+2:T}, z_{t+1}|z_t) \\
+		&= \sum_{z_{k+1}=1}^k p(x_{t+2:T}, z_{t+1}|z_t, x_{t+1}) p(x_{t+1}|z_t) \\
+		&= \sum_{z_{k+1}=1}^k p(x_{t+2:T}, z_{t+1}|z_t, x_{t+1}) p(x_{t+1}|z_t) \\
+		&= \sum_{z_{k+1}=1}^k p(x_{t+2:T}, z_{t+1}|z_t) p(x_{t+1}|z_t) \\
+		&= \sum_{z_{k+1}=1}^k p(x_{t+2:T}|z_t, z_{t+1}) p(z_{t+1}|z_t) p(x_{t+1}|z_t) \\
+		&= \sum_{z_{k+1}=1}^k p(x_{t+2:T}|z_{t+1}) p(z_{t+1}|z_t) p(x_{t+1}|z_t) \\
+		&= \sum_{z_{k+1}=1}^k \beta_{t+1}(z_{t+1}) p(z_{t+1}|z_t) p(x_{t+1}|z_t)
+	\end{align}
+
+	\subsection{Sampling}
+	\paragraph{Problem 1} Generate samples
+	\begin{align}
+		\{x^{(r)}\}_{r=1}^R \sim p(x)
+	\end{align}
+	
+	\paragraph{Problem 2} Estimate expectations of functions $f(x)$ taking random variable $x \sim p(x)$.
+	\begin{align}
+		\expe_{x \sim p(x)} f(x) &= \int f(x) p(x)\ dx \\
+		&\approx \hat{E} = \frac{1}{N} \sum_{i=1}^N f(x\upi)
+	\end{align}
+	
+	\paragraph{Ancestral sampling} sampling in a topological order. At each step, sample from any conditional distribution that you haven't visited yet, whose parents have all been sampled. This procedure will always start with the nodes that have no parents (i.e., a root).
+	
+	\paragraph{Generating marginal samples} for nodes $Y \subseteq X$:
+	\begin{enumerate}[(i)]
+		\item Construct $p(X) = \prod_{x_i \in X} p(x_i|\tx{parent}[x_i])$;
+		\item Sample $(x_1, x_2, \cdots, x_N) \sim p(X)$;
+		\item Ignore $x_i \notin Y$.
+	\end{enumerate}
+	
+	\paragraph{Generating conditional samples} for nodes $Y \subseteq Xt$ conditioned on $Z \subseteq X$:
 	
 %	\section{Sampling and Monte Carlo Methods}
 \end{document}
+
+
+
+
+
+
+
+
 
 
 

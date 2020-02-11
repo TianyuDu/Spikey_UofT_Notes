@@ -3,15 +3,38 @@
 \contentsline {section}{\numberline {2}Probabilistic Models}{2}{section.2}% 
 \contentsline {section}{\numberline {3}Directed Graphical Models}{2}{section.3}% 
 \contentsline {subsection}{\numberline {3.1}Decision Theory}{2}{subsection.3.1}% 
-\contentsline {section}{\numberline {4}Exact Inference}{2}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Variable Elimination}{2}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Intermediate Factors}{2}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Sum-Product Inference}{3}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}Complexity of Variable Elimination Ordering}{3}{subsection.4.4}% 
-\contentsline {section}{\numberline {5}Message passing, Hidden Markov Models, and Sampling}{4}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Message Passing (Computing All Marginals)}{4}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Markov Chains}{4}{subsection.5.2}% 
-\contentsline {paragraph}{Simplification}{4}{section*.3}% 
-\contentsline {paragraph}{Parameterization}{5}{section*.4}% 
-\contentsline {subsection}{\numberline {5.3}Hidden Markov Models}{5}{subsection.5.3}% 
-\contentsline {paragraph}{Parameterization}{5}{section*.6}% 
+\contentsline {subsection}{\numberline {3.2}Latent Variables}{2}{subsection.3.2}% 
+\contentsline {paragraph}{Complete data case}{2}{section*.2}% 
+\contentsline {paragraph}{Partially observed dataset}{2}{section*.3}% 
+\contentsline {paragraph}{Inference with Latent Variables}{2}{section*.4}% 
+\contentsline {subsection}{\numberline {3.3}Mixture Models}{2}{subsection.3.3}% 
+\contentsline {paragraph}{Inference using mixture models}{2}{section*.5}% 
+\contentsline {paragraph}{Posterior probabilities / responsibilities}{3}{section*.6}% 
+\contentsline {paragraph}{Gaussian mixture models}{3}{section*.7}% 
+\contentsline {paragraph}{Mixtures of experts}{3}{section*.8}% 
+\contentsline {section}{\numberline {4}Exact Inference}{3}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Variable Elimination}{4}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Intermediate Factors}{4}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Sum-Product Inference}{4}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Complexity of Variable Elimination Ordering}{5}{subsection.4.4}% 
+\contentsline {section}{\numberline {5}Message passing, Hidden Markov Models, and Sampling}{5}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Message Passing (Computing All Marginals)}{5}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Markov Chains}{6}{subsection.5.2}% 
+\contentsline {paragraph}{Simplification}{6}{section*.10}% 
+\contentsline {paragraph}{Parameterization}{6}{section*.11}% 
+\contentsline {subsection}{\numberline {5.3}Hidden Markov Models}{6}{subsection.5.3}% 
+\contentsline {paragraph}{Joint distribution}{6}{section*.13}% 
+\contentsline {paragraph}{Parameterization}{7}{section*.14}% 
+\contentsline {subsection}{\numberline {5.4}Forward-backward Algorithm}{7}{subsection.5.4}% 
+\contentsline {paragraph}{Smoothing}{7}{section*.15}% 
+\contentsline {paragraph}{Filtering}{7}{section*.16}% 
+\contentsline {paragraph}{Prediction}{7}{section*.17}% 
+\contentsline {subsection}{\numberline {5.5}Procedure of Smoothing (Forward-backward Algorithm)}{7}{subsection.5.5}% 
+\contentsline {paragraph}{Forward filtering (encoding)}{7}{section*.18}% 
+\contentsline {paragraph}{Backward filtering (decoding)}{8}{section*.19}% 
+\contentsline {subsection}{\numberline {5.6}Sampling}{9}{subsection.5.6}% 
+\contentsline {paragraph}{Problem 1}{9}{section*.20}% 
+\contentsline {paragraph}{Problem 2}{9}{section*.21}% 
+\contentsline {paragraph}{Ancestral sampling}{9}{section*.22}% 
+\contentsline {paragraph}{Generating marginal samples}{9}{section*.23}% 
+\contentsline {paragraph}{Generating conditional samples}{9}{section*.24}% 
