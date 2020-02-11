@@ -421,6 +421,41 @@
 	
 	\paragraph{Generating conditional samples} for nodes $Y \subseteq Xt$ conditioned on $Z \subseteq X$:
 	
+	\begin{definition}
+		The \textbf{simple Monte Carlo} estimator $\hat{\Phi}$ is defined as
+		\begin{align}
+			\frac{1}{R} \sum_{r=1}^{R} f\left(x^{(r)}\right)=\hat{E} \approx E=\underset{x \sim p(x)}{\mathbb{E}}[f(x)]
+		\end{align}
+	\end{definition}
+	
+	\begin{proposition}
+		If the sample $\{x^{(r)}\}_{r=1}^R$ are generated from $p(x)$, then $\hat{E}$ is an unbiased estimator of $E$.
+	\end{proposition}
+	
+	\begin{proof}
+		\begin{align}
+			\mathbb{E}[\hat{E}]_{x \sim p\left(\left\{x^{(i)}\right\}_{r=1}^{R}\right)}
+			&= \mathbb{E}\left[\frac{1}{R} \sum_{r=1}^{R} f\left(x^{(r)}\right)\right] \\
+			&= \frac{1}{R} \sum_{r=1}^R \expect{f(x^{(r)})} \\
+			&= \frac{1}{R} \sum_{r=1}^{R} \expe_{x \sim p(x)}[f(x)] \\
+			&= \frac{R}{R} \expe_{x \sim p(x)}[f(x)] \\
+			&= E
+		\end{align}
+	\end{proof}
+	
+	\begin{proposition}
+		As the number of samples of $R$ increases, the variance of $\hat{E}$ will decrease proportional to $\frac{1}{R}$.
+	\end{proposition}
+	
+	\begin{proof}
+		\begin{align}
+			Var[\hat{E}] &= Var[\frac{1}{R} \sum_{r=1}^R f(x^{(r)})] \\
+			&= \frac{1}{R^2} Var[\sum_{r=1}^R f(x^{(r)})] \\
+			&= \frac{1}{R^2} \sum_{r=1}^R Var[f(x^{(r)})] \\
+			&= \frac{1}{R^2} R Var[f(x)] \\
+			&= \frac{1}{R} Var[f(x)]
+		\end{align}
+	\end{proof}
 %	\section{Sampling and Monte Carlo Methods}
 \end{document}
 

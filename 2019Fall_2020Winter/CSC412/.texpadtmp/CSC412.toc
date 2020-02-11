@@ -37,4 +37,4 @@
 \contentsline {paragraph}{Problem 2}{9}{section*.21}% 
 \contentsline {paragraph}{Ancestral sampling}{9}{section*.22}% 
 \contentsline {paragraph}{Generating marginal samples}{9}{section*.23}% 
-\contentsline {paragraph}{Generating conditional samples}{9}{section*.24}% 
+\contentsline {paragraph}{Generating conditional samples}{10}{section*.24}% 
