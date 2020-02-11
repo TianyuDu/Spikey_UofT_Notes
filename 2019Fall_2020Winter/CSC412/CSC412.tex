@@ -45,7 +45,32 @@
     
     \section{Probabilistic Models}
 	
+	\begin{definition}
+		Given an i.i.d. dataset $\mc{D}$, the log-likelihood of $\theta$ is defined as
+		\begin{align}
+			\ell(\theta;\mc{D}) = \sum_{i=1}^N \log p(x\upi|\theta)
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{statistic} is a deterministic function of a set of random variables.
+	\end{definition}
+	
+	\begin{definition}
+		$T(X)$ is a \textbf{sufficient statistic} for random variable $X$ if
+		\begin{align}
+			T(x^{(1)}) = T(x^{(2)}) \implies L(\theta; x^{(1)}) = L(\theta; x^{(2)})\quad \forall \theta
+		\end{align}
+		equivalently,
+		\begin{align}
+			P(\theta|T(X)) = P(\theta|X)
+		\end{align}
+	\end{definition}
+	
 	\section{Directed Graphical Models}
+	
+	
+	
 	\subsection{Decision Theory}
 	
 	\subsection{Latent Variables}
