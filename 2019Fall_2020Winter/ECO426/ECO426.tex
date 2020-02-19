@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass{article}
 \usepackage{spikey}
 \usepackage{amsmath}
 \usepackage{mathrsfs}
@@ -32,14 +32,22 @@
 \begin{document}
 	\maketitle
 	\tableofcontents
-	\chapter{Private Value Auctions}
-	\section{Standard Auctions}
+	
+	\newpage
+	
+	\section{Private Value Auctions}
+	\subsection{Standard Auctions}
 	\begin{definition}
 		An \textbf{auction} is an \emph{informational environment} consisting of
 		\begin{enumerate}[(i)]
-			\item a valuation structure for the bidders;
-			\item a distribution of information available to the bidders.
+			\item \textbf{Bidding format rules}: the form of the bids, which can be price only, multi-attribute, price and quantity, or quantity only;
+			\item \textbf{Bidding process rules}: Closing/timing rules, available information, rules for bid improvements/counter-bids, closing conditions;
+			\item \textbf{Price and allocation rules}: final prices, quantities, winners.
 		\end{enumerate}
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{market mechanism} uses prices to determine allocations.
 	\end{definition}
 	
 	\begin{assumption}
@@ -98,7 +106,7 @@
 		Hence, bidding $v_i$ weakly dominates bidding any value below it. \\
 		\textbf{Part 2}: for $z_i > v_i$, the following cases are possible:
 		\begin{enumerate}[(i)]
-			\item \todo{}
+			\item \todo{d}
 		\end{enumerate}
 		Therefore, bidding $v_i$ weakly dominates bidding any other values.
 	\end{proof}

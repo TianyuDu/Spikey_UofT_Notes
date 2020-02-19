@@ -25,6 +25,8 @@
 \counterwithin{equation}{section}
 \counterwithin{figure}{section}
 
+\newcommand{\ttilde}[1]{\tilde{\tilde{#1}}}
+
 \pagestyle{fancy}
 \lhead{APM462: Nonlinear Optimization}
 
@@ -961,7 +963,7 @@
 		\begin{enumerate}[(i)]
 			\item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
 			\item $\mu_j g_j(x_0) = 0$;
-			\item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is \ul{positive semidefinite} on the tangent space to \ul{activate constraints} at $x_0$.
+			\item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is \ul{positive semidefinite} on the tangent space to \ul{active constraints} at $x_0$.
 		\end{enumerate}
 	\end{theorem}
 	\begin{proof}
@@ -1774,7 +1776,7 @@
 		Then $g(x) \equiv 0$ on $[a, b]$.
 	\end{lemma}
 	
-	\begin{proof}\renewcommand{\qedsymbol}{$\contradiction$}
+	\begin{proof}
 		Suppose, for contradiction, $g(\eta) \neq 0$ for some $\eta \in [0, 1]$. \\
 		WLOG, assume $g(\eta) > 0$. \\
 		Note that if $\eta$ is at either endpoint, by continuity of $g$, one may choose another $\eta' \in V_\varepsilon(\eta)$ such that $\eta' \in (a, b)$. Therefore, we may assume $\eta \in (a, b)$ without loss of generality. \\
@@ -2576,7 +2578,7 @@
         \begin{enumerate}[(i)]
             \item $\nabla f(x_0) + \sum_{i=1}^k \lambda_i \nabla h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla g_j(x_0) = 0$;
             \item $\mu_j g_j(x_0) = 0$;
-            \item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is \ul{positive semidefinite} on the tangent space to \ul{activate constraints} at $x_0$.
+            \item $\nabla^2 f(x_0) + \sum_{i=1}^k \lambda_i \nabla^2 h_i(x_0) + \sum_{j=1}^\ell \mu_j \nabla^2 g_j(x_0)$ is \ul{positive semidefinite} on the tangent space to \ul{active constraints} at $x_0$.
         \end{enumerate}
     \end{theorem}
 

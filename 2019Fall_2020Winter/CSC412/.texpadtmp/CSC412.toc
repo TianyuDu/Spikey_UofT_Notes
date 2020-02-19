@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {3.2}Latent Variables}{2}{subsection.3.2}% 
 \contentsline {paragraph}{Complete data case}{2}{section*.2}% 
 \contentsline {paragraph}{Partially observed dataset}{2}{section*.3}% 
-\contentsline {paragraph}{Inference with Latent Variables}{3}{section*.4}% 
+\contentsline {paragraph}{Inference with Latent Variables}{2}{section*.4}% 
 \contentsline {subsection}{\numberline {3.3}Mixture Models}{3}{subsection.3.3}% 
 \contentsline {paragraph}{Inference using mixture models}{3}{section*.5}% 
 \contentsline {paragraph}{Posterior probabilities / responsibilities}{3}{section*.6}% 
