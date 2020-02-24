@@ -181,8 +181,90 @@
 	\end{proof}
 	
 	\section{First Price Private Value Auction}
-	\paragraph{Problem Setup} Let $N$ denote the set of bidders, $|N| = n$. For each bidder $i \in N$, his valuation of the auctioned item $v_i$ follows some distribution $F$. Further assume that 
-	\paragraph{Probability of Winning} Let $W(b, v_i)$ denote the event that player $i$, who has valuation $v_i$, wins by bidding $b \in \R_+$.
+	\begin{remark}
+		For every continuous distribution $F$, the probability for a tie to happen is zero. Therefore, we ignore the tie for now.
+	\end{remark}
+	
+	\paragraph{Problem Setup} Let $N$ denote the set of bidders such that $|N| = n$. For each bidder $i \in N$, his valuation of the auctioned item $V_i$ follows some distribution $F$. Further assume that $V_i \perp V_j$ for every $i \neq j$. \\
+	Let $W(b, v_i)$ denote the event that player $i$, who has valuation $v_i$, wins by bidding $b \in \R_+$, define 
+	\begin{align}
+		W(b, v_i) \iff b > \max_{j \neq i} b_j
+	\end{align}
+	The payoff (utility) of bidder $i$, who has valuation $v_i$, is
+	\begin{align}
+		U(b, v_i) = \begin{cases}
+			v_i - b &\tx{ if } W(b, v_i) \\
+			0 &\tx{ otherwise}
+		\end{cases}
+	\end{align}
+	
+	\subsection{Symmetric Equilibrium Behaviour}
+	\par Consider a symmetric environment such that all bidders are using the same \ul{strictly increasing} strategy $s(\cdot)$ such that $s(\cdot)$ is invertible.
+	\paragraph{Equilibrium Strategy} when $F = Unif(0, 1)$.
+	\begin{align}
+		\beta^I(v) = \frac{n-1}{n} v
+	\end{align}
+	
+	\paragraph{Probability of Winning}
+	\begin{align}
+		P(W(b, v_i))
+		&= P(b > \max_{j \neq i} s(v_j)) \\
+		&= P(b > s(\max_{j \neq i} v_j)) \\
+		&= P(\max_{j \neq i} v_j \leq s^{-1}(b))) \\
+		&= F(s^{-1}(b))^{n-1} \\
+		&= F(v_i)^{n-1} \tx{ because } b = s(v_i)
+	\end{align}
+	When $F = Unif(0, 1)$,
+	\begin{align}
+		P(W(b, v_i)) &= v_i^{n-1}
+	\end{align} 
+	
+	\paragraph{Expected Payment from Bidder $i$ with $v_i$ Conditioned on Winning} Suppose bidder $i$ is following strategy $s(\cdot)$. Then,
+	\begin{align}
+		\expect{Payment_i|v_i, W(b, v_i)} = b = s(v_i)
+	\end{align}
+	When $F = Unif(0, 1)$,
+	\begin{align}
+		\expect{Payment_i|v_i, W(b, v_i)} = \frac{n-1}{n} v_i
+	\end{align}
+	
+	\paragraph{Unconditional Payment from Bidder $i$ with $v_i$}
+	\begin{align}
+		\expect{Payment_i|v_i} &= P(W(b, v_i)) \expect{Payment_i|v_i, W(b, v_i)} + P(Loss) \times 0 \\
+		&= P(W(b, v_i)) \expect{Payment_i|v_i, W(b, v_i)} \\
+		&= F(v_i)^{n-1} s(v_i)
+	\end{align}
+	When $F = Unif(0, 1)$,
+	\begin{align}
+		\expect{Payment_i|v_i} &= \frac{n-1}{n}v_i^n
+	\end{align}
+
+	\paragraph{Expected Payoff of Bidder $i$ with $v_i$} \info{Stopped Here}
+	\begin{align}
+		\expect{U|v_i} &= P(W(s(v_i), v_i)) v_i - \expect{Payment_i|v_i} \\
+		&= 
+	\end{align}
+	
+	\paragraph{Unconditional Payment from Bidder $i$} This is the same as the expected revenue from bidder $i$:
+	\begin{align}
+		\expe [Payment_i] &= \int_{\R_+} \expect{Payment_i|v_i} dF \\
+		&= \int_{\R_+} F(v_i)^{n-1} s(v_i) f(v_i)\ dv_i
+	\end{align}
+	When $F = Unif(0, 1)$,
+	\begin{align}
+		\expe [Payment_i] &= \int_0^1 \frac{n-1}{n}v_i^n\ dv_i \\
+		&= \frac{n-1}{n(n+1)}
+	\end{align}
+	
+	\paragraph{Auctioneer's Expected Revenue} Since all bidders are the same,
+	\begin{align}
+		\expect{Revenue} &= n\ \expe [Payment_i] \\
+		&= n\ \int_{\R_+} F(v_i)^{n-1} s(v_i) f_i\ dv_i
+	\end{align}
+	When $F = Unif(0, 1)$,
+	\begin{align}
+		\expect{Revenue} = \frac{n-1}{n+1}
+	\end{align}
 	
 	\section{Second Price Private Value Auction}
 	
