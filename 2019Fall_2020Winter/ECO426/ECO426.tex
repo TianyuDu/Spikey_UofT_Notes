@@ -179,7 +179,70 @@
 			\implies s(v_i) = \expe \left[\max_{j \neq i} v_j \right|\left. \max_{j \neq i} v_j < v_i \right]
 		\end{align}
 	\end{proof}
+	
+	\section{Appendix: Order Statistics}
+	\begin{definition}
+		Let $(X_1, \cdots, X_n)$ be $n$ random variables on the probability space $(\Omega, \mc{F}, P)$, further assume they are iid following distribution function $F(\cdot)$. For each $\omega \in \Omega$, realizations of above random variables can be sorted as
+		\begin{align}
+			X_{(n)}(\omega) \leq X_{(n-1)}(\omega) \leq \cdots \leq X_{(1)}(\omega)
+		\end{align}
+		For each $\omega$, the random variable $X_{n:k}$ is defined such that $X_{n:k}(\omega)$ equals the $k$-th largest value, $X_{(k)}(\omega)$.
+	\end{definition}
+	
+	\paragraph{Distribution function} Let $x \in X(\Omega)$, then 
+	\begin{align}
+		X_{n:k} \leq x
+		&\iff (\tx{no $X_i > x$}) \bigcup \left(\tx{exactly $1$ $X_i > x$}\right) \bigcup  \cdots \bigcup \left(\tx{exactly $k-1$ $X_i > x$}\right) \\
+		&\iff (X_i \leq x\ \forall i) \bigcup \left(\tx{exactly $n-1$ $X_i \leq x$}\right) \bigcup  \cdots \bigcup \left(\tx{exactly $n-k+1$ $X_i \leq x$}\right) \\
+		&\iff \bigcup_{j=n-k+1}^n \left(\tx{exactly $j$ $X_i \leq x$}\right)
+	\end{align}
+	Note that events in the union are mutually exclusive, therefore,
+	\begin{align}
+		F_{n:k}(x) = P(X_{n:k} \leq x)
+		&= \sum_{j=n-k+1}^n P\left(\tx{exactly $j$ $X_i \leq x$}\right) \\
+		&= \red{\sum_{j=n-k+1}^n \binom{n}{j} F(x)^j (1 - F(x))^{n-j}}
+	\end{align}
+	\paragraph{Density function}
+	\begin{align}
+		f_{n:k}(x)
+		&= \frac{d}{dx} F_{n:k}(x) \\
+		&= \frac{d}{dx} \sum_{j=n-k+1}^n \binom{n}{j} F(x)^j (1 - F(x))^{n-j} \\
+		&= \frac{d}{dx} \sum_{j=n-k+1}^n \frac{n!}{j!(n-j)!} F(x)^j (1 - F(x))^{n-j} \\
+		&= \sum_{j=n-k+1}^n \left[
+		\frac{n!}{j!(n-j)!} j F(x)^{j-1} (1 - F(x))^{n-j}
+		- \frac{n!}{j!(n-j)!} (n-j) F(x)^j (1 - F(x))^{n-j-1}
+		\right]f(x)\\
+		&= \sum_{j=n-k+1}^n 
+		\frac{n!}{j!(n-j)!} j F(x)^{j-1} (1 - F(x))^{n-j} f(x)
+		- \sum_{j=n-k+1}^{n-1} 
+		\frac{n!}{j!(n-j)!} (n-j) F(x)^j (1 - F(x))^{n-j-1} f(x)\\
+		&= \sum_{j=n-k+1}^n
+		\frac{n!}{(j-1)!(n-j)!} F(x)^{j-1} (1 - F(x))^{n-j} f(x)
+		- \sum_{j=n-k+1}^{n-1}
+		\frac{n!}{j!(n-j-1)!} F(x)^j (1 - F(x))^{n-j-1} f(x) \\
+		&=\begin{aligned}[t]
+			&\frac{n!}{(n-k)!(k-1)!} F(x)^{n-k} (1 - F(x))^{k-1} f(x) \\
+			&+ \sum_{j=n-k+2}^n
+			\frac{n!}{(j-1)!(n-j)!} F(x)^{j-1} (1 - F(x))^{n-j} f(x) \\
+			&- \sum_{j=n-k+1}^{n-1}
+			\frac{n!}{j!(n-j-1)!} F(x)^j (1 - F(x))^{n-j-1} f(x)
+		\end{aligned} \\
+		&=\begin{aligned}[t]
+			&\frac{n!}{(n-k)!(k-1)!} F(x)^{n-k} (1 - F(x))^{k-1} f(x) \\
+			&+ \sum_{j=n-k+2}^n
+			\frac{n!}{(j-1)!(n-j)!} F(x)^{j-1} (1 - F(x))^{n-j} f(x) \\
+			&- \sum_{i=n-k+2}^{n}
+			\frac{n!}{(i-1)!(n-i)!} F(x)^{i-1} (1 - F(x))^{n-i} f(x) \text{ (substitute $j = i - 1$)}
+		\end{aligned} \\
+		&= \frac{n!}{(n-k)!(k-1)!} F(x)^{n-k} (1 - F(x))^{k-1} f(x) \\
+		&= n \frac{(n-1)!}{(n-k)!(k-1)!} F(x)^{n-k} (1 - F(x))^{k-1} f(x) \\
+		&= \red{
+		n \binom{n-1}{k-1} F(x)^{n-k} (1 - F(x))^{k-1} f(x)
+		}
+	\end{align}
 \end{document}
+
+
 
 
 
