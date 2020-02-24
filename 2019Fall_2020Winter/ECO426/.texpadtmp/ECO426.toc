@@ -1,15 +1,14 @@
 \babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}Auctions}{5}{chapter.1}% 
-\contentsline {subsection}{\numberline {1.0.1}Private Value Auctions}{5}{subsection.1.0.1}% 
-\contentsline {section}{\numberline {1.1}First Price Private Value Auction}{7}{section.1.1}% 
-\contentsline {paragraph}{Problem Setup}{7}{section*.3}% 
-\contentsline {paragraph}{Probability of Winning}{7}{section*.4}% 
-\contentsline {section}{\numberline {1.2}Second Price Private Value Auction}{8}{section.1.2}% 
-\contentsline {section}{\numberline {1.3}The General Case: $k^{th}$ Price Private Value Auction}{8}{section.1.3}% 
-\contentsline {section}{\numberline {1.4}Common Value Auction}{8}{section.1.4}% 
-\contentsline {section}{\numberline {1.5}Combinatorial Auction: The VCG Mechanism}{8}{section.1.5}% 
-\contentsline {chapter}{\numberline {2}Matching Market}{9}{chapter.2}% 
-\contentsline {chapter}{\numberline {3}Appendices}{11}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Appendix A: Order Statistics}{11}{section.3.1}% 
-\contentsline {paragraph}{Distribution Function}{11}{section*.5}% 
-\contentsline {paragraph}{Density Function}{12}{section*.6}% 
+\contentsline {section}{\numberline {1}Auctions}{2}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Private Value Auctions}{2}{subsection.1.1}% 
+\contentsline {section}{\numberline {2}First Price Private Value Auction}{4}{section.2}% 
+\contentsline {paragraph}{Problem Setup}{4}{section*.3}% 
+\contentsline {paragraph}{Probability of Winning}{4}{section*.4}% 
+\contentsline {section}{\numberline {3}Second Price Private Value Auction}{5}{section.3}% 
+\contentsline {section}{\numberline {4}The General Case: $k^{th}$ Price Private Value Auction}{5}{section.4}% 
+\contentsline {section}{\numberline {5}Common Value Auction}{5}{section.5}% 
+\contentsline {section}{\numberline {6}Combinatorial Auction: The VCG Mechanism}{5}{section.6}% 
+\contentsline {section}{\numberline {7}Matching Market}{5}{section.7}% 
+\contentsline {section}{\numberline {8}Appendix A: Order Statistics}{5}{section.8}% 
+\contentsline {paragraph}{Distribution Function}{5}{section*.5}% 
+\contentsline {paragraph}{Density Function}{6}{section*.6}% 
