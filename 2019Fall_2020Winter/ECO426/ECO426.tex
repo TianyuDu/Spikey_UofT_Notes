@@ -35,20 +35,26 @@
 	
 	\newpage
 	
-	\section{Private Value Auctions}
-	\subsection{Standard Auctions}
+	\section{Auctions}
 	\begin{definition}
-		An \textbf{auction} is an \emph{informational environment} consisting of
+		An \textbf{auction} is an \ul{informational environment} consisting of
 		\begin{enumerate}[(i)]
 			\item \textbf{Bidding format rules}: the form of the bids, which can be price only, multi-attribute, price and quantity, or quantity only;
 			\item \textbf{Bidding process rules}: Closing/timing rules, available information, rules for bid improvements/counter-bids, closing conditions;
 			\item \textbf{Price and allocation rules}: final prices, quantities, winners.
 		\end{enumerate}
+		Auctions are commonly referred to as a \ul{market mechanism} as well as a \ul{price discovery mechanism}
 	\end{definition}
 	
 	\begin{definition}
 		A \textbf{market mechanism} uses prices to determine allocations.
 	\end{definition}
+
+	\begin{definition}
+		An auction is a \textbf{private value} auction if agents' valuations do not dependent on other buyers' valuations. Otherwise, the auction is called a \textbf{interdependent / common value} auction.
+	\end{definition}
+	
+	\subsection{Private Value Auctions}
 	
 	\begin{assumption}
 		In this chapter, we shall impose the following assumption on bidders' valuations:
@@ -82,6 +88,10 @@
 	
 	\begin{definition}
 		An equilibrium of auction is \textbf{symmetric} if all bidders are following the same bidding strategy $s$.
+	\end{definition}
+	
+	\begin{definition}
+		A bidder is \textbf{bidding sincerely / truthfully} if he bids his true value. 
 	\end{definition}
 	
 	\begin{proposition}
