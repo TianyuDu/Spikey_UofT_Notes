@@ -9,13 +9,13 @@
 \contentsline {paragraph}{Expected Payment from Bidder $i$ with $v_i$ Conditioned on Winning}{5}{section*.6}% 
 \contentsline {paragraph}{Unconditional Payment from Bidder $i$ with $v_i$}{5}{section*.7}% 
 \contentsline {paragraph}{Expected Payoff of Bidder $i$ with $v_i$}{5}{section*.8}% 
-\contentsline {paragraph}{Unconditional Payment from Bidder $i$}{6}{section*.10}% 
-\contentsline {paragraph}{Auctioneer's Expected Revenue}{6}{section*.11}% 
+\contentsline {paragraph}{Unconditional Payment from Bidder $i$}{6}{section*.9}% 
+\contentsline {paragraph}{Auctioneer's Expected Revenue}{6}{section*.10}% 
 \contentsline {section}{\numberline {3}Second Price Private Value Auction}{6}{section.3}% 
 \contentsline {section}{\numberline {4}The General Case: $k^{th}$ Price Private Value Auction}{6}{section.4}% 
 \contentsline {section}{\numberline {5}Common Value Auction}{6}{section.5}% 
 \contentsline {section}{\numberline {6}Combinatorial Auction: The VCG Mechanism}{6}{section.6}% 
 \contentsline {section}{\numberline {7}Matching Market}{6}{section.7}% 
 \contentsline {section}{\numberline {8}Appendix A: Order Statistics}{6}{section.8}% 
-\contentsline {paragraph}{Distribution Function}{7}{section*.12}% 
-\contentsline {paragraph}{Density Function}{8}{section*.13}% 
+\contentsline {paragraph}{Distribution Function}{7}{section*.11}% 
+\contentsline {paragraph}{Density Function}{8}{section*.12}% 

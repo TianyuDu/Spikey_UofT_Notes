@@ -239,10 +239,16 @@
 		\expect{Payment_i|v_i} &= \frac{n-1}{n}v_i^n
 	\end{align}
 
-	\paragraph{Expected Payoff of Bidder $i$ with $v_i$} \info{Stopped Here}
+	\paragraph{Expected Payoff of Bidder $i$ with $v_i$}
 	\begin{align}
-		\expect{U|v_i} &= P(W(s(v_i), v_i)) v_i - \expect{Payment_i|v_i} \\
-		&= 
+		\expect{U|v_i}
+		&= P(W(s(v_i), v_i)) v_i - \expect{Payment_i|v_i} \\
+		&= F(v_i)^{n-1} v_i - F(v_i)^{n-1}s(v_i) \\
+		&= F(v_i)^{n-1} [v_i - s(v_i)]
+	\end{align}
+	When $F = Unif(0, 1)$,
+	\begin{align}
+		\expect{U|v_i} = \frac{v_i^n}{n}
 	\end{align}
 	
 	\paragraph{Unconditional Payment from Bidder $i$} This is the same as the expected revenue from bidder $i$:
