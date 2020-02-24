@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
 \usepackage{spikey}
 \usepackage{amsmath}
 \usepackage{mathrsfs}
@@ -35,7 +35,7 @@
 	
 	\newpage
 	
-	\section{Auctions}
+	\chapter{Auctions}
 	\begin{definition}
 		An \textbf{auction} is an \ul{informational environment} consisting of
 		\begin{enumerate}[(i)]
@@ -180,7 +180,23 @@
 		\end{align}
 	\end{proof}
 	
-	\section{Appendix: Order Statistics}
+	\section{First Price Private Value Auction}
+	\paragraph{Problem Setup} Let $N$ denote the set of bidders, $|N| = n$. For each bidder $i \in N$, his valuation of the auctioned item $v_i$ follows some distribution $F$. Further assume that 
+	\paragraph{Probability of Winning} Let $W(b, v_i)$ denote the event that player $i$, who has valuation $v_i$, wins by bidding $b \in \R_+$.
+	
+	\section{Second Price Private Value Auction}
+	
+	\section{The General Case: $k^{th}$ Price Private Value Auction}
+	
+	\section{Common Value Auction}
+	
+	\section{Combinatorial Auction: The VCG Mechanism}
+	
+	
+	\chapter{Matching Market}
+	
+	\chapter{Appendices}
+	\section{Appendix A: Order Statistics}
 	\begin{definition}
 		Let $(X_1, \cdots, X_n)$ be $n$ random variables on the probability space $(\Omega, \mc{F}, P)$, further assume they are iid following distribution function $F(\cdot)$. For each $\omega \in \Omega$, realizations of above random variables can be sorted as
 		\begin{align}
@@ -189,7 +205,7 @@
 		For each $\omega$, the random variable $X_{n:k}$ is defined such that $X_{n:k}(\omega)$ equals the $k$-th largest value, $X_{(k)}(\omega)$.
 	\end{definition}
 	
-	\paragraph{Distribution function} Let $x \in X(\Omega)$, then 
+	\paragraph{Distribution Function} Let $x \in X(\Omega)$, then 
 	\begin{align}
 		X_{n:k} \leq x
 		&\iff (\tx{no $X_i > x$}) \bigcup \left(\tx{exactly $1$ $X_i > x$}\right) \bigcup  \cdots \bigcup \left(\tx{exactly $k-1$ $X_i > x$}\right) \\
@@ -202,7 +218,7 @@
 		&= \sum_{j=n-k+1}^n P\left(\tx{exactly $j$ $X_i \leq x$}\right) \\
 		&= \red{\sum_{j=n-k+1}^n \binom{n}{j} F(x)^j (1 - F(x))^{n-j}}
 	\end{align}
-	\paragraph{Density function}
+	\paragraph{Density Function}
 	\begin{align}
 		f_{n:k}(x)
 		&= \frac{d}{dx} F_{n:k}(x) \\
