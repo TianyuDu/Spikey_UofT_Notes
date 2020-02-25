@@ -443,10 +443,10 @@
 	
 	\section{Revenue Equivalence Theorem}
 	\begin{theorem}
-		For an auction with $n$ bidders. Suppose that values are independently and identically distributed and all bidders are risk-neutral. Then any auction such that
+		For an auction with $n$ bidders. Suppose that values are independently and identically distributed and all bidders are risk-neutral. Then any symmetric and increasing equilibrium of any auction such that
 		\begin{enumerate}[(i)]
 			\item The winner is always the bidder with the highest valuation (i.e., standard auction);
-			\item the bidder with the lowest valuation, $v_*$ has zero expected payoff,
+			\item the bidder with the lowest valuation, $v_*$ has the same expected payoff $U_i(v_*)$ for all $i$,
 		\end{enumerate}
 		yields \ul{the same expected revenue} for the seller, and \ul{the same expected price} for any bidder in equilibrium.
 	\end{theorem}
@@ -489,6 +489,77 @@
 	\end{proof}
 	
 	\section{Reserve Price \& Optimal Auctions}
+	\par Let $r$ denote the reserve price, and $b_1, b_2$ denote the highest and second highest bid respectively. Then
+	\begin{align}
+		\text { Seller's revenue }=\left\{\begin{array}{ll}
+		{0} & {\text { if } b_{1}<r} \\
+		{r} & {\text { if } b_{2} \leq r \leq b_{1}} \\
+		{b_{2}} & {\text { if } r<b_{2}}
+		\end{array}\right.
+	\end{align}
+	
+	\begin{definition}
+		An \textbf{optimal auction} is an auction that maximizes the seller's revenue.
+	\end{definition}
+	
+	\begin{theorem}[Myerson (1981), Riley \& Samuelson (1981)]
+		If bidders' valuations are drawn independently from a distribution $F$, then a seller's \ul{optimal auction} is a  second-price auction with reserve price $r$ such that
+		\begin{align}
+			\psi(r) \equiv r - \frac{1 - F(r)}{f(r)} = 0
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		Note that this proof is extremely informal. \\
+		The expected revenue can be written as (as if there is only one bidder):
+		\begin{align}
+			\expect{Revenue}
+			&= P(v \leq r) 0 + P(v > r) r \\
+			&= (1 - F(r)) r
+		\end{align}
+		Taking the first order condition
+		\begin{align}
+			(1 - F(r)) - r f(r) &= 0 \\
+			\implies r - \frac{1 - F(r)}{f(r)} &= 0
+		\end{align}
+	\end{proof}
+	
+	\begin{remark}
+		The theorem is applicable only if the auctioneer knows the exact distribution of bidders' values. In general, the auctioneer may know bidders' values are independently and identically distributed following some distribution, but not necessarily knows the exact form of this distribution.
+	\end{remark}
+	
+	\begin{theorem}[Bulow \& Klemperer, 1996]
+		When valuations are \ul{private} and \ul{independent}, a second-price auction with $n+1$ bidders gives a higher expected revenue than an optimal mechanism with $n$ bidders.
+	\end{theorem}
+	
+	\begin{remark}
+		The auctioneer is better off by bringing one additional bidder than by setting an optimal reserve price following the previous theorem.
+	\end{remark}
+	
+	\begin{definition}
+		A \textbf{Kirkegaard auction} is a two step auction:
+		\begin{enumerate}[(i)]
+			\item Run a second-price auction with $n$ bidders and \ul{optimal reserve price}. If the object isn't sold go to step 2.
+			\item Sell the object for \$0 to $n+1$-th bidder.
+		\end{enumerate}
+		Obviously, this auction with $n+1$ bidders generates the same expected revenue as optimal $n$-auction (by setting the optimal reserve price).
+	\end{definition}
+
+	\begin{definition}
+		An auction is \textbf{constrained optimal} if it maximizes the revenue among all auctions \ul{such that the object sold with certainty}.
+	\end{definition}
+	
+	\begin{proof}[Proof. to Bulow \& Klemperer, 1996]
+		Note that English auction with $n+1$ bidders is constrained optimal, therefore
+		\begin{align}
+			\expect{\tx{Optimal $n$ auction}} &= \expect{\tx{Kirkegaard  $n+1$}} \\
+			&\leq \expect{\tx{English  $n+1$}}
+		\end{align}
+	\end{proof}
+	
+	\begin{corollary}
+		The seller's expected revenue is the same for the English, Dutch, second-price and first-price auctions.
+	\end{corollary}
 	
 	\section{Common Value Auction}
 	

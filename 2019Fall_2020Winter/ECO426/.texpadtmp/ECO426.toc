@@ -19,10 +19,10 @@
 \contentsline {section}{\numberline {6}Dutch/Descending Price Auction: An Extensive Form Game}{9}{section.6}% 
 \contentsline {section}{\numberline {7}Revenue Equivalence Theorem}{10}{section.7}% 
 \contentsline {section}{\numberline {8}Reserve Price \& Optimal Auctions}{11}{section.8}% 
-\contentsline {section}{\numberline {9}Common Value Auction}{11}{section.9}% 
-\contentsline {section}{\numberline {10}Combinatorial Auction: The VCG Mechanism}{11}{section.10}% 
-\contentsline {section}{\numberline {11}Keyword Auctions}{12}{section.11}% 
-\contentsline {section}{\numberline {12}Matching Market}{12}{section.12}% 
-\contentsline {section}{\numberline {13}Appendix A: Order Statistics}{12}{section.13}% 
-\contentsline {paragraph}{Distribution Function}{13}{section*.13}% 
-\contentsline {paragraph}{Density Function}{14}{section*.14}% 
+\contentsline {section}{\numberline {9}Common Value Auction}{12}{section.9}% 
+\contentsline {section}{\numberline {10}Combinatorial Auction: The VCG Mechanism}{12}{section.10}% 
+\contentsline {section}{\numberline {11}Keyword Auctions}{14}{section.11}% 
+\contentsline {section}{\numberline {12}Matching Market}{14}{section.12}% 
+\contentsline {section}{\numberline {13}Appendix A: Order Statistics}{14}{section.13}% 
+\contentsline {paragraph}{Distribution Function}{14}{section*.13}% 
+\contentsline {paragraph}{Density Function}{15}{section*.14}% 
