@@ -38,3 +38,16 @@
 \contentsline {paragraph}{Ancestral sampling}{9}{section*.22}% 
 \contentsline {paragraph}{Generating marginal samples}{9}{section*.23}% 
 \contentsline {paragraph}{Generating conditional samples}{10}{section*.24}% 
+\contentsline {section}{\numberline {6}True Skill}{10}{section.6}% 
+\contentsline {paragraph}{Question 1}{11}{section*.25}% 
+\contentsline {paragraph}{Approximate Inferences}{11}{section*.27}% 
+\contentsline {paragraph}{Intractability}{11}{section*.28}% 
+\contentsline {subsection}{\numberline {6.1}Variational Inferences}{11}{subsection.6.1}% 
+\contentsline {paragraph}{General Idea of Variational Inferences}{11}{section*.29}% 
+\contentsline {paragraph}{Kullback\IeC {\textendash }Leibler Divergence}{12}{section*.30}% 
+\contentsline {paragraph}{Properties of KL divergence}{12}{section*.31}% 
+\contentsline {paragraph}{Re-parameterization Tricks}{12}{section*.32}% 
+\contentsline {paragraph}{Stochastic/Automatic Differentiation Variational Inference}{13}{section*.33}% 
+\contentsline {paragraph}{Reinforce / Score Function Estimation}{13}{section*.34}% 
+\contentsline {paragraph}{Mean-Field Variational Inference}{13}{section*.35}% 
+\contentsline {paragraph}{Jensen's Inequality}{13}{section*.36}% 

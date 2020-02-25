@@ -482,6 +482,196 @@
 		\end{align}
 	\end{proof}
 %	\section{Sampling and Monte Carlo Methods}
+
+	\section{True Skill}
+	\par Let $z_i \in \R$ denote player's skill such that
+	\begin{align}
+		z_i \sim \mc{N}(0, 1)
+	\end{align}
+	And skills of players are independent such that
+	\begin{align}
+		p(z_{1:n}) = \prod_{i=1}^np(z_i)
+	\end{align}
+	Therefore, the joint distribution of skills can be written as a multivariate Gaussian distribution. \\
+	Let $X_j$ player $A$ beats player $B$, then
+	\begin{align}
+		p(\tx{A beat B}|z_A, z_B) = \sigma(z_A - z_B)
+	\end{align}
+	where $\sigma = 1 / (1 + \exp(z))$. \\
+	Then,
+	\begin{align}
+		p(z_1, z_2 | \tx{A beat B}) \propto p(z_1, z_2) p(\tx{A beat B}|z_1, z_2)
+	\end{align}
+	\paragraph{Question 1} What's the chance that player A is better than player B in game $\mc{G}$?
+	\begin{align}
+		p(z_A > z_B|\mc{G}) &= \expe_{p(z_A, z_B|\mc{G})} \id{z_A > z_B} \\
+		&\approx  \frac{1}{K} \sum_{i=1}^K \id{z_A > z_B}\quad z_A, z_B \sim p(z_A, z_B|\tx{data}) 
+	\end{align}
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em}}
+		\tikzset{edge/.style = {->,> = latex'}}
+		\node[vertex] (z1) at  (0,0) {$z_1$};
+		\node[vertex] (x12) at  (1,-1) {$x_{12}$};
+		\node[vertex] (z2) at  (2,0) {$z_2$};
+		\node[vertex] (x23) at  (3,-1) {$x_{23}$};
+		\node[vertex] (z3) at  (4,0) {$z_3$};
+		\node[vertex] (zn) at  (8,0) {$z_N$};
+		
+		\node[vertex] (x1n) at  (1,-3) {$x_{1N}$};
+		
+		\node[vertex] (x3n) at  (7,-3) {$x_{3N}$};
+		
+		\draw[edge] (z1) to (x12);
+		\draw[edge] (z2) to (x12);
+		\draw[edge] (z2) to (x23);
+		\draw[edge] (z3) to (x23);
+		
+		\draw[edge] (z1) to (x1n);
+		\draw[edge] (zn) to (x1n);
+		
+		\draw[edge] (z3) to (x3n);
+		\draw[edge] (zn) to (x3n);
+		\end{tikzpicture}
+		\caption{Structure of Games}
+	\end{figure}
+	
+	\paragraph{Approximate Inferences} We have $p(z), p(x|z)$ and $x$ (data). \\
+	Wish to compute
+	\begin{align}
+		q(z|x) \approx p(z|x)
+	\end{align}
+	
+	\paragraph{Intractability}
+	\begin{align}
+		p(z_1|x) &= \int_\R p(z_1, z_2 | x)\ dz_2 \\
+		&= \frac{
+		\int_\R p(z_1, z_2, x)\ dz_2
+		}{
+		\iint_{\R^2} p(z_1, z_2, x)\ dz_2\ dz_1
+		}
+	\end{align}
+	
+	\subsection{Variational Inferences}
+	\paragraph{General Idea of Variational Inferences}
+	\begin{enumerate}[(i)]
+		\item Parameterize tractable $q_\varphi (z | x)$ using $\varphi$, such as
+		\begin{align}
+			q_\varphi (z | x) = \mc{N}(z | \mu_\varphi, \Sigma_\varphi)
+		\end{align}
+		\item Define \ul{distance} (not necessary distance metric) between $p(z|x)$ and $q(z|x)$.
+		\item Optimize $\varphi$ to minimize distrance.
+	\end{enumerate}
+	
+	\paragraph{Kullback–Leibler Divergence}
+	\begin{definition}
+		Let $q$ and $p$ be density functions of two distributions $Q$ and $P$, then the \textbf{KL divergence} between $Q$ and $P$ is defined as
+		\begin{align}
+			KL(q || p) &:= \expe_{q} \left(\log{\frac{q}{p}} \right) \\
+			&= \int q(z) \left( \log q(z) - \log p(z) \right)\ dz
+		\end{align}
+	\end{definition}
+	\paragraph{Properties of KL divergence}
+	\begin{align}
+		KL(q || p) &\geq 0\ \forall p, q \in \Delta(\mc{X}) \\
+		KL(q || p) &= 0 \iff p = q \\
+		KL(q || p) &\neq KL(p || q) \tx{ in general}
+	\end{align}
+	Define
+	\begin{align}
+		- KL(q_\varphi(z|x) || p(z|x)) 
+		&= - \expe_{q_\varphi(z|x)} \left[
+		\log q_\varphi(z|x) - \log p(z|x)
+		\right] \\
+		&= - \expe_{q_\varphi(z|x)} \left[
+		\log q_\varphi(z|x) - \log \frac{p(z, x)}{p(x)}
+		\right] \\
+		&= - \expe_{q_\varphi(z|x)} \left[
+		\log q_\varphi(z|x) - \log p(z, x) + \log p(x)
+		\right] \\
+		&= - \expe_{q_\varphi(z|x)} \left[
+		\log q_\varphi(z|x) - \log p(z, x) \right]
+		+ \expe_{q_\varphi(z|x)} \left[ \log p(x)
+		\right] \\
+		&= \underbrace{- \expe_{q_\varphi(z|x)} \left[
+		\log q_\varphi(z|x) - \log p(z, x) \right]}_{L(\varphi)}
+		+ \underbrace{\log p(x)}_{\perp \varphi}
+	\end{align}
+	where $L(\varphi)$ is often referred to as the evidence/empirical lower bound (ELBO).
+	
+	\paragraph{Re-parameterization Tricks} Want to compute
+	\begin{align}
+		\nabla_\varphi \expe_{q_\varphi(z)} f(z) &= \nabla_\varphi \int q_\varphi(z) f(z)\ dz \\
+		&= \int \nabla_\varphi q_\varphi(z) f(z)\ dz\ (\dagger)\tx{ assume continuity}
+	\end{align}
+	But $(\dagger)$ is not an expectation, so we cannot use Monte Carlo. \\
+	So we need to re-parameterize such that the expectation does not depend on $\varphi$. \\
+	Find $p(\varepsilon)$ (i.e., re-parameterize using $\varepsilon$) and $T(\varepsilon, \varphi)$ such that
+	\begin{align}
+		t &\sim p(\varepsilon) \\
+		z &= T(t, \varphi)
+	\end{align}
+	then
+	\begin{align}
+		z \sim q_\varphi(z)
+	\end{align}
+	\paragraph{Stochastic/Automatic Differentiation Variational Inference}
+	\begin{align}
+		&\nabla_\varphi \expe_{q_\varphi(z|x)} \left[
+		\log p(x,z) - \log q_\varphi(z|x)
+		\right] \\
+		&= \nabla_\varphi \expe_{p(\varepsilon)} \left[
+		\log p(x,T(\varepsilon , \varphi)) - \log q_\varphi (T(\varepsilon, \varphi)|x)
+		\right] \\
+		&= \expe_{p(\varepsilon)} \nabla_\varphi \left[
+		\log p(x,T(\varepsilon , \varphi)) - \log q_\varphi (T(\varepsilon, \varphi)|x)
+		\right] \\
+		&\approx \frac{1}{K} \sum_{i=1}^K \nabla_\varphi \left[
+		\log p(x,T(\varepsilon , \varphi)) - \log q_\varphi (T(\varepsilon, \varphi)|x)
+		\right]
+	\end{align}
+	
+	\paragraph{Reinforce / Score Function Estimation} Another method to estimate $- \nabla_\varphi \expe_{q_\varphi(z|x)} L(\varphi)$.\\
+	Want
+	\begin{align}
+		&\nabla_\varphi \expe_{q_\varphi(z)} [f(z)] \\
+		&= \nabla_\varphi \int q_\varphi(z) f(z)\ dz \\
+		&= \int \nabla_\varphi q_\varphi(z) f(z)\ dz \\
+		&= \int f(z) \nabla_\varphi q_\varphi(z) \ dz
+	\end{align}
+	Note that
+	\begin{align}
+		\nabla_\varphi \log q_\varphi(z) &= \frac{\nabla_\varphi q_\varphi(z)}{q_\varphi(z)}
+	\end{align}
+	Therefore,
+	\begin{align}
+		&\int f(z) \nabla_\varphi q_\varphi(z) \ dz \\
+		&= \int f(z) q_\varphi(z) \nabla_\varphi \log q_\varphi(z) \ dz \\
+		&= \expe_{q_\varphi(z)}[ f(z) \nabla_\varphi \log q_\varphi(z)]
+	\end{align}
+	
+	\paragraph{Mean-Field Variational Inference}
+	\begin{align}
+		q(z_1, \cdots, z_N|x) = \prod_{i=1}^N q(z_i|x)
+	\end{align}
+
+	\paragraph{Jensen's Inequality}
+	\begin{theorem}
+		If $f$ is convex, then
+		\begin{align}
+			f(\expect{X}) \leq \expect{f(x)}
+		\end{align}
+	\end{theorem}
+	Using Jensen's inequality,
+	\begin{align}
+		\log p_\theta(x) &= \log \int p_\theta(x, z)\ dz \\
+		&= \log \int p_\theta(x,z) \frac{q_\varphi(z|x)}{q_\varphi(z|x)}\ dz \\
+		&= \log \expe_{q_\varphi(z|x)} \int \frac{p_\theta(x,z)}{q_\varphi(z|x)}\ dz \\
+		&\geq \expe_{q_\varphi(z|x)} \int \log \frac{p_\theta(x,z)}{q_\varphi(z|x)}\ dz \\
+		&\equiv ELBO(\theta, \varphi)
+	\end{align}
 \end{document}
 
 
