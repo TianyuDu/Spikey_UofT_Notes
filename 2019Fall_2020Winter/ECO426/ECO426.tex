@@ -343,7 +343,7 @@
 	\begin{proposition}
 		Assume $v_i \overset{i.i.d.}{\sim} Unif(0, 1)$, the following strategy forms a symmetric equilibrium in $k^{th}$ price auction:
 		\begin{align}
-			\beta^{k}(v) = \frac{n-1}{n-k+1}v 
+			\red{\beta^{k}(v) = \frac{n-1}{n-k+1}v}
 		\end{align}
 	\end{proposition}
 	
@@ -384,7 +384,7 @@
 		\begin{proposition}
 			Let $X_i \overset{i.i.d.}{\sim} Unif(0, 1)$ for $i = 1, \cdots n$, then
 			\begin{align}
-				\expect{X_{n:k}} = \frac{n-k+1}{n}
+				\red{\expect{X_{n:k}} = \frac{n-k+1}{n+1}}
 			\end{align}
 		\end{proposition}
 		
@@ -428,10 +428,67 @@
 	\end{align}
 	
 	\section{Dutch/Descending Price Auction: An Extensive Form Game}
+	\begin{definition}
+		The \textbf{Dutch/descending price} auction is a first-price auction:
+		\begin{enumerate}[(i)]
+			\item There is a price clock: displays a price that is decreasing.
+			\item The auction stops as soon as someone accepts the price.
+			\item The first bidder accepts is the winner, and the price paid is exactly the last price displayed.
+		\end{enumerate}
+	\end{definition}
+
+	\begin{remark}
+		Dutch auction and first-price auction are equivalent, bidders use the same strategy, they have the same payoffs, and the auctioneer gets the same revenue.
+	\end{remark}
 	
 	\section{Revenue Equivalence Theorem}
+	\begin{theorem}
+		For an auction with $n$ bidders. Suppose that values are independently and identically distributed and all bidders are risk-neutral. Then any auction such that
+		\begin{enumerate}[(i)]
+			\item The winner is always the bidder with the highest valuation (i.e., standard auction);
+			\item the bidder with the lowest valuation, $v_*$ has zero expected payoff,
+		\end{enumerate}
+		yields \ul{the same expected revenue} for the seller, and \ul{the same expected price} for any bidder in equilibrium.
+	\end{theorem}
 	
-	\section{Reserve Price}
+	\begin{proof}
+		The expected payoff in equilibrium of someone with value $v_i$ is
+		\begin{align}
+			U_i(v_i) &= v_i P_w(v_i) - \expect{Payment_i} \\
+			&= v_i P(v_i \geq v_j\ \forall j \neq i) - \expect{Payment_i}
+		\end{align}
+		Note that $v_i P(v_i \geq v_j\ \forall j \neq i)$ is independent from the auction format. \\
+		Consider the case when the bidder is bidding $\beta(\tilde{v})$ instead of $\beta(v_i)$, that is, bidder $i$ is pretending to have another valuation,
+		\begin{align}
+			U_i(\tilde{v}, v_i) &= v_i P_w(\tilde{v}) - \expect{Payment_i} \\
+			&= v_i P_w(\tilde{v}) - \expect{Payment_i} + \tilde{v}P_w(\tilde{v}) - \tilde{v}P_w(\tilde{v}) \\
+			&= U_i(\tilde{v}) + P_w(\tilde{v})(v_i - \tilde{v})
+		\end{align}
+		Therefore,
+		\begin{align}
+			U_i(v_i) &\geq U_i(\tilde{v}, v_i) \\
+			&= U_i(\tilde{v}) + P_w(\tilde{v})(v_i - \tilde{v}) \\
+			\implies P_w(\tilde{v}) &\leq \frac{U_i(v_i) - U_i(\tilde{v})}{v_i - \tilde{v}}
+		\end{align}
+		Similarly, the same argument holds: someone with value $\tilde{v}$ won't deviate to behave like another $v_i$ value bidder.
+		\begin{align}
+			U_i(\tilde{v}) &\geq U_i(v_i, \tilde{v}) \\
+			&= U_i(v_i) + P_w(v_i) (\tilde{v} - v_i) \\
+			\implies P_w(v_i) &\geq \frac{U_i(v_i)- U_i(\tilde{v})}{v_i - \tilde{v}}
+		\end{align}
+		Hence, by taking the limit $\tilde{v} \to v_i$:
+		\begin{align}
+			\frac{dU_i(v)}{dv} &= P_w(v) \\
+			\implies U_i(v_i) &= U_i(v_*) + \int_{v_*}^{v_i} P_w(v)\ dv 
+		\end{align}
+		Since $U_i(v_i)$ is independent from the auction format as well, therefore, the expected payment from bidder $i$ is independent from the auction format. Hence, the expected revenue of the auctioneer is 
+		\begin{align}
+			n \times \expect{Payment_i}
+		\end{align}
+		which is independent from the auction format as well.
+	\end{proof}
+	
+	\section{Reserve Price \& Optimal Auctions}
 	
 	\section{Common Value Auction}
 	
