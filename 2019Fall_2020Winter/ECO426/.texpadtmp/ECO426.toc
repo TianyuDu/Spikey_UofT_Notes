@@ -1,21 +1,28 @@
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}Auctions}{2}{section.1}% 
-\contentsline {subsection}{\numberline {1.1}Private Value Auctions}{2}{subsection.1.1}% 
-\contentsline {section}{\numberline {2}First Price Private Value Auction}{4}{section.2}% 
-\contentsline {paragraph}{Problem Setup}{4}{section*.3}% 
-\contentsline {subsection}{\numberline {2.1}Symmetric Equilibrium Behaviour}{4}{subsection.2.1}% 
-\contentsline {paragraph}{Equilibrium Strategy}{5}{section*.4}% 
-\contentsline {paragraph}{Probability of Winning}{5}{section*.5}% 
-\contentsline {paragraph}{Expected Payment from Bidder $i$ with $v_i$ Conditioned on Winning}{5}{section*.6}% 
-\contentsline {paragraph}{Unconditional Payment from Bidder $i$ with $v_i$}{5}{section*.7}% 
-\contentsline {paragraph}{Expected Payoff of Bidder $i$ with $v_i$}{5}{section*.8}% 
-\contentsline {paragraph}{Unconditional Payment from Bidder $i$}{6}{section*.9}% 
-\contentsline {paragraph}{Auctioneer's Expected Revenue}{6}{section*.10}% 
-\contentsline {section}{\numberline {3}Second Price Private Value Auction}{6}{section.3}% 
-\contentsline {section}{\numberline {4}The General Case: $k^{th}$ Price Private Value Auction}{6}{section.4}% 
-\contentsline {section}{\numberline {5}Common Value Auction}{6}{section.5}% 
-\contentsline {section}{\numberline {6}Combinatorial Auction: The VCG Mechanism}{6}{section.6}% 
-\contentsline {section}{\numberline {7}Matching Market}{6}{section.7}% 
-\contentsline {section}{\numberline {8}Appendix A: Order Statistics}{6}{section.8}% 
-\contentsline {paragraph}{Distribution Function}{7}{section*.11}% 
-\contentsline {paragraph}{Density Function}{8}{section*.12}% 
+\contentsline {section}{\numberline {1}Preliminary: Auctions}{2}{section.1}% 
+\contentsline {section}{\numberline {2}Ascending Auctions: Extensive Form Games}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Second Price Sealed-Bid Auction with Private Values}{3}{section.3}% 
+\contentsline {section}{\numberline {4}First Price Sealed-Bid Auction with Private Values}{4}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Symmetric Equilibrium Behaviour}{4}{subsection.4.1}% 
+\contentsline {paragraph}{Equilibrium Strategy}{5}{section*.2}% 
+\contentsline {paragraph}{Probability of Winning}{6}{section*.3}% 
+\contentsline {paragraph}{Expected Payment from Bidder $i$ with $v_i$ Conditioned on Winning}{6}{section*.4}% 
+\contentsline {paragraph}{Unconditional Payment from Bidder $i$ with $v_i$}{7}{section*.5}% 
+\contentsline {paragraph}{Expected Payoff of Bidder $i$ with $v_i$}{7}{section*.6}% 
+\contentsline {paragraph}{Unconditional Payment from Bidder $i$}{7}{section*.7}% 
+\contentsline {paragraph}{Auctioneer's Expected Revenue}{7}{section*.8}% 
+\contentsline {section}{\numberline {5}Generalization: $k^{th}$ Price Sealed Bid Private Value Auction}{8}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Uniform Values}{8}{subsection.5.1}% 
+\contentsline {paragraph}{}{8}{section*.9}% 
+\contentsline {paragraph}{Probability of Winning Given $v_i$}{9}{section*.10}% 
+\contentsline {paragraph}{Probability of Payment Given $v_i$ Conditioned on Winning}{9}{section*.11}% 
+\contentsline {section}{\numberline {6}Dutch/Descending Price Auction: An Extensive Form Game}{10}{section.6}% 
+\contentsline {section}{\numberline {7}Revenue Equivalence Theorem}{10}{section.7}% 
+\contentsline {section}{\numberline {8}Reserve Price}{10}{section.8}% 
+\contentsline {section}{\numberline {9}Common Value Auction}{10}{section.9}% 
+\contentsline {section}{\numberline {10}Combinatorial Auction: The VCG Mechanism}{10}{section.10}% 
+\contentsline {section}{\numberline {11}Keyword Auctions}{11}{section.11}% 
+\contentsline {section}{\numberline {12}Matching Market}{11}{section.12}% 
+\contentsline {section}{\numberline {13}Appendix A: Order Statistics}{11}{section.13}% 
+\contentsline {paragraph}{Distribution Function}{12}{section*.13}% 
+\contentsline {paragraph}{Density Function}{13}{section*.14}% 

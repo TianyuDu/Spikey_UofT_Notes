@@ -1,10 +1,15 @@
-\BOOKMARK [1][-]{section.1}{Auctions}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Private Value Auctions}{section.1}% 2
-\BOOKMARK [1][-]{section.2}{First Price Private Value Auction}{}% 3
-\BOOKMARK [2][-]{subsection.2.1}{Symmetric Equilibrium Behaviour}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Second Price Private Value Auction}{}% 5
-\BOOKMARK [1][-]{section.4}{The General Case: kth Price Private Value Auction}{}% 6
-\BOOKMARK [1][-]{section.5}{Common Value Auction}{}% 7
-\BOOKMARK [1][-]{section.6}{Combinatorial Auction: The VCG Mechanism}{}% 8
-\BOOKMARK [1][-]{section.7}{Matching Market}{}% 9
-\BOOKMARK [1][-]{section.8}{Appendix A: Order Statistics}{}% 10
+\BOOKMARK [1][-]{section.1}{Preliminary: Auctions}{}% 1
+\BOOKMARK [1][-]{section.2}{Ascending Auctions: Extensive Form Games}{}% 2
+\BOOKMARK [1][-]{section.3}{Second Price Sealed-Bid Auction with Private Values}{}% 3
+\BOOKMARK [1][-]{section.4}{First Price Sealed-Bid Auction with Private Values}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Symmetric Equilibrium Behaviour}{section.4}% 5
+\BOOKMARK [1][-]{section.5}{Generalization: kth Price Sealed Bid Private Value Auction}{}% 6
+\BOOKMARK [2][-]{subsection.5.1}{Uniform Values}{section.5}% 7
+\BOOKMARK [1][-]{section.6}{Dutch/Descending Price Auction: An Extensive Form Game}{}% 8
+\BOOKMARK [1][-]{section.7}{Revenue Equivalence Theorem}{}% 9
+\BOOKMARK [1][-]{section.8}{Reserve Price}{}% 10
+\BOOKMARK [1][-]{section.9}{Common Value Auction}{}% 11
+\BOOKMARK [1][-]{section.10}{Combinatorial Auction: The VCG Mechanism}{}% 12
+\BOOKMARK [1][-]{section.11}{Keyword Auctions}{}% 13
+\BOOKMARK [1][-]{section.12}{Matching Market}{}% 14
+\BOOKMARK [1][-]{section.13}{Appendix A: Order Statistics}{}% 15

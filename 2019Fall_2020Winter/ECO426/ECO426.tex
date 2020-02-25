@@ -35,7 +35,7 @@
 	
 	\newpage
 	
-	\section{Auctions}
+	\section{Preliminary: Auctions}
 	\begin{definition}
 		An \textbf{auction} is an \ul{informational environment} consisting of
 		\begin{enumerate}[(i)]
@@ -54,10 +54,8 @@
 		An auction is a \textbf{private value} auction if agents' valuations do not dependent on other buyers' valuations. Otherwise, the auction is called a \textbf{interdependent / common value} auction.
 	\end{definition}
 	
-	\subsection{Private Value Auctions}
-	
 	\begin{assumption}
-		In this chapter, we shall impose the following assumption on bidders' valuations:
+		In a \ul{private value auction}, we shall impose the following assumption on bidders' valuations:
 		\begin{enumerate}[(i)]
 			\item Each bidder's valuation is independently and identically distributed on some interval $[0, \omega]$ according to a distribution function $F$:
 			\begin{align}
@@ -93,7 +91,67 @@
 	\begin{definition}
 		A bidder is \textbf{bidding sincerely / truthfully} if he bids his true value. 
 	\end{definition}
+
+	\begin{definition}
+		An asymmetric game where played have private information is said to be \textbf{strategy proof}  if it is a weakly-dominant strategy for every player to reveal his/her private information.
+	\end{definition}
+
+	\begin{definition}
+		An auction selling one item is a \textbf{standard auction} if the bidder with highest value is always the winner. That is, a standard auction maximizes social value.
+	\end{definition}
+
+	\section{Ascending Auctions: Extensive Form Games}
 	
+	\begin{definition}
+		In an \textbf{English outcry auction}, bidders announce the prices,
+		\begin{enumerate}[(i)]
+			\item Bidders announce prices,
+			\item with minimum increment between two bids (i.e., the ticking price).
+			\item The auction ends when there's no further bid or when a time limit is reached.
+			\item The winner is the one bidding the highest price.
+			\item The winner pays his bid.
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{remark}
+		Bidding speed matters in English outcry auctions: two bidders cannot announce the same bid at the same time. 
+	\end{remark}
+	
+	\begin{definition}
+		In an \textbf{English auction / Japanese button auction},
+		\begin{enumerate}[(i)]
+			\item The auctioneer announces prices, the price goes up by the ticking price each round;
+			\item in each round, bidders who feel this price is acceptable remain active, other bidders become inactive;
+			\item bidders cannot be reactivated.
+			\item the auction ends when there's no active bidder.
+			\item the winner is the last bidder becomes inactive, if there's a tie, winner is randomly chosen.
+			\item the price paid is the last announce price (the price corresponds to no active bidder).
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{remark}
+		In an English auction, the winner is the one with \ul{the highest valuation}, but the price is that of \ul{the second highest valuation plus the ticking price}.
+	\end{remark}
+	
+	\begin{remark}
+		In the English auction, the auctioneer learns (at the end) the valuations of all bidders except the valuation of the highest bidder.
+	\end{remark}
+
+	\section{Second Price Sealed-Bid Auction with Private Values}
+	\begin{definition}
+		In the \textbf{Vickrey auction / second price sealed-bid auction},
+		\begin{enumerate}[(i)]
+			\item Buyers submit a sealed-bid;
+			\item The winner is the one with the highest bid,
+			\item the winner pays the 2nd highest bid.
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{remark}
+		The second price sealed-bid auction and an English auction with negligible ticking price generate the same outcome. \\
+		However, second price auction is a strategic for game, but English auction is an extensive form game. They are not exactly identical.
+	\end{remark}
+
 	\begin{proposition}
 		In a symmetric equilibrium of the \ul{second-price} auction, $s(v) = v$ is a weakly dominant strategy.
 	\end{proposition}
@@ -114,19 +172,47 @@
 			\end{enumerate}
 		\end{enumerate}
 		Hence, bidding $v_i$ weakly dominates bidding any value below it. \\
-		\textbf{Part 2}: for $z_i > v_i$, the following cases are possible:
-		\begin{enumerate}[(i)]
-			\item \todo{d}
-		\end{enumerate}
+		\textbf{Part 2}: for $z_i > v_i$, the argument is similar. \\
 		Therefore, bidding $v_i$ weakly dominates bidding any other values.
 	\end{proof}
 	
+	\begin{remark}
+		Refer to the general $k^{th}$ price sealed-bid auction with private values for an alternative proof to this proposition.
+	\end{remark}
+	
+	\section{First Price Sealed-Bid Auction with Private Values}
+	\begin{notation}
+		Let $\beta^K(v)$ denote the symmetric equilibrium strategy in a $k$-th price auction.
+	\end{notation}
+	
+	\begin{remark}
+		For every continuous distribution $F$, the probability for a tie to happen is zero. Therefore, we ignore the tie for now.
+	\end{remark}
+	
+	\begin{definition}[First Price Auction]
+	Let $N$ denote the set of bidders such that $|N| = n$. For each bidder $i \in N$, his valuation of the auctioned item $V_i$ follows some distribution $F$. Further assume that $V_i \perp V_j$ for every $i \neq j$. \\
+	Let $W(b, v_i)$ denote the event that player $i$, who has valuation $v_i$, wins by bidding $b \in \R_+$, define 
+	\begin{align}
+		W(b, v_i) \iff b > \max_{j \neq i} b_j
+	\end{align}
+	The payoff (utility) of bidder $i$, who has valuation $v_i$, is
+	\begin{align}
+		U(b, v_i) = \begin{cases}
+			v_i - b &\tx{ if } W(b, v_i) \\
+			0 &\tx{ otherwise}
+		\end{cases}
+	\end{align}
+	\end{definition}
+	
+	\subsection{Symmetric Equilibrium Behaviour}
+	\par Consider a symmetric environment such that all bidders are using the same \ul{strictly increasing} strategy $s(\cdot)$ such that $s(\cdot)$ is invertible.
+	\paragraph{Equilibrium Strategy}
 	\begin{proposition}
-		In a symmetric equilibrium of the \ul{first-price} auction, equilibrium bidding strategies are given by
+		In a symmetric equilibrium of the first-price auction, equilibrium bidding strategies are given by
 		\begin{align}
 			s(v_i) = \expect{\max_{j \neq i} v_j | v_j \leq v_i}
 		\end{align}
-		which is the \emph{expected second highest valuation conditional on $v_i$ being the highest valuation.}
+		which is the \ul{expected second highest valuation conditional on $v_i$ being the highest valuation.}
 	\end{proposition}
 	
 	\begin{proof}
@@ -179,28 +265,7 @@
 			\implies s(v_i) = \expe \left[\max_{j \neq i} v_j \right|\left. \max_{j \neq i} v_j < v_i \right]
 		\end{align}
 	\end{proof}
-	
-	\section{First Price Private Value Auction}
-	\begin{remark}
-		For every continuous distribution $F$, the probability for a tie to happen is zero. Therefore, we ignore the tie for now.
-	\end{remark}
-	
-	\paragraph{Problem Setup} Let $N$ denote the set of bidders such that $|N| = n$. For each bidder $i \in N$, his valuation of the auctioned item $V_i$ follows some distribution $F$. Further assume that $V_i \perp V_j$ for every $i \neq j$. \\
-	Let $W(b, v_i)$ denote the event that player $i$, who has valuation $v_i$, wins by bidding $b \in \R_+$, define 
-	\begin{align}
-		W(b, v_i) \iff b > \max_{j \neq i} b_j
-	\end{align}
-	The payoff (utility) of bidder $i$, who has valuation $v_i$, is
-	\begin{align}
-		U(b, v_i) = \begin{cases}
-			v_i - b &\tx{ if } W(b, v_i) \\
-			0 &\tx{ otherwise}
-		\end{cases}
-	\end{align}
-	
-	\subsection{Symmetric Equilibrium Behaviour}
-	\par Consider a symmetric environment such that all bidders are using the same \ul{strictly increasing} strategy $s(\cdot)$ such that $s(\cdot)$ is invertible.
-	\paragraph{Equilibrium Strategy} when $F = Unif(0, 1)$.
+	When $F = Unif(0, 1)$.
 	\begin{align}
 		\beta^I(v) = \frac{n-1}{n} v
 	\end{align}
@@ -272,16 +337,190 @@
 		\expect{Revenue} = \frac{n-1}{n+1}
 	\end{align}
 	
-	\section{Second Price Private Value Auction}
+	\section{Generalization: $k^{th}$ Price Sealed Bid Private Value Auction}
+	\subsection{Uniform Values}
+	\paragraph{} In a $k^{th}$ price auction, the bidder with the highest bidding wins, and pays the $k^{th}$ highest bid. Let $n$ denote the number of bidders.
+	\begin{proposition}
+		Assume $v_i \overset{i.i.d.}{\sim} Unif(0, 1)$, the following strategy forms a symmetric equilibrium in $k^{th}$ price auction:
+		\begin{align}
+			\beta^{k}(v) = \frac{n-1}{n-k+1}v 
+		\end{align}
+	\end{proposition}
 	
-	\section{The General Case: $k^{th}$ Price Private Value Auction}
+	\begin{proof}
+		We are going to verify the proposed strategy indeed forms an equilibrium. \\
+		Assume the optimal strategy is linear in $v$, say $\alpha v$ with $\alpha \in [0, 1]$, and all bidders other than $i$ are following this strategy. \\
+		The expected payoff of bidder $i$ with value $v_i$ from bidding $b$ is
+		\begin{align}
+			U(b, v_i) &= \expe P(W(b, v_i)) (v_i - b_{n:k}) \\
+			&= \expe P(b \geq \alpha v_j\ \forall j \neq i) (v_i - b_{n:k}) \\
+			&= \expe P\left(v_j \leq \frac{b}{\alpha}\right)^{n-1} (v_i - b_{n:k}) \\
+			&= \left(\frac{b}{\alpha}\right)^{n-1} v_i  - \left(\frac{b}{\alpha}\right)^{n-1} \expect{b_{n:k}|v_j \leq \frac{b}{\alpha}\ \forall j \neq i} \\
+			&= \left(\frac{b}{\alpha}\right)^{n-1} v_i  - \left(\frac{b}{\alpha}\right)^{n-1} \alpha \expect{v_{n-1:k-1}|v_j \leq \frac{b}{\alpha}\ \forall j \neq i} \\
+			&= \left(\frac{b}{\alpha}\right)^{n-1} v_i  - \left(\frac{b}{\alpha}\right)^{n-1} b \expect{v_{n-1:k-1}|v_j \leq 1\ \forall j \neq i} \\
+			&= \left(\frac{b}{\alpha}\right)^{n-1} v_i  - \left(\frac{b}{\alpha}\right)^{n-1} b \expect{v_{n-1:k-1}} \\
+		\end{align}
+		Note that each individual $v_j \sim Unif(0, 1)$ for every $j$.\\
+		The density function of $v_{n-1:k-1}$ is
+		\begin{align}
+			f_{v_{n-1:k-1}}(x)
+			&= (n-1) \binom{n-2}{k-2} F(x)^{n-k} (1-F(x))^{k-2} f(x) \\
+			&= (n-1) \binom{n-2}{k-2} x^{n-k} (1-x)^{k-2}
+		\end{align}
+		Taking the expectation
+		\begin{align}
+			\expect{v_{n-1:k-1}} &= \int_0^1 x f_{v_{n-1:k-1}}(x)\ dx \\
+			&=  (n-1) \binom{n-2}{k-2} \int_0^1 x^{n-k+1} (1-x)^{k-2}\ dx \\
+			&= (n-1) \binom{n-2}{k-2} \frac{\Gamma (k-1) \Gamma (-k+n+2)}{\Gamma (n+1)} \\
+			&= \frac{-k+n+1}{n}
+		\end{align}
+		Therefore,
+		\begin{align}
+			U(b, v_i) &= \left(\frac{b}{\alpha}\right)^{n-1} \left(
+			v_i - b \frac{-k+n+1}{n}
+			\right)
+		\end{align}
+		
+		\begin{proposition}
+			Let $X_i \overset{i.i.d.}{\sim} Unif(0, 1)$ for $i = 1, \cdots n$, then
+			\begin{align}
+				\expect{X_{n:k}} = \frac{n-k+1}{n}
+			\end{align}
+		\end{proposition}
+		
+		Taking the first order condition,
+		\begin{align}
+			\pd{}{b} U(b, v_i) &= \frac{1}{\alpha^{n-1}}
+			\pd{}{b} \left(
+			b^{n-1} \left(
+			v_i - b \frac{-k+n+1}{n}
+			\right)
+			\right) = 0 \\
+			\implies
+			&(n-1)b^{n-2}
+			\left(
+			v_i - b \frac{-k+n+1}{n}
+			\right)
+			- \frac{-k+n+1}{n} b^{n-1} = 0 \\
+			\implies
+			&(n-1)
+			\left(
+			v_i - b \frac{-k+n+1}{n}
+			\right)
+			- \frac{-k+n+1}{n} b = 0 \\
+			\implies
+			&(n-1)
+			v_i - (n-1) b \frac{-k+n+1}{n}
+			- \frac{-k+n+1}{n} b = 0 \\
+			\implies &(n-1)v_i = (n-k+1)b \\
+			\implies &\beta^K(v_i) = \frac{n-1}{n-k+1}
+		\end{align}
+	\end{proof}
+	
+	\paragraph{Probability of Winning Given $v_i$}
+	\begin{align}
+		P(W(s(v_i), v_i)) &= v_i^{n-1}
+	\end{align}
+	
+	\paragraph{Probability of Payment Given $v_i$ Conditioned on Winning} Given that $v_i$ is the highest value, the payment conditioned on winning is
+	\begin{align}
+		\expect{s(v_{n-1:k-1})|v_j \leq v_i\ \forall j \neq i}
+	\end{align}
+	
+	\section{Dutch/Descending Price Auction: An Extensive Form Game}
+	
+	\section{Revenue Equivalence Theorem}
+	
+	\section{Reserve Price}
 	
 	\section{Common Value Auction}
 	
 	\section{Combinatorial Auction: The VCG Mechanism}
+	\begin{definition}
+		A Vickrey-Clarke-Groves (VCG) auction consists of a set of items to be sold $X$. Each bidder $i \in N$ has a private \textbf{value} for each possible bundle of items:
+		\begin{align}
+			v_i: \mc{P}(X) \to \R
+		\end{align}
+		Each bidder submits a (sealed) \textbf{bidding} for every possible bundle of items:
+		\begin{align}
+			b_i: \mc{P}(X) \to \R
+		\end{align}
+		An \textbf{assignment} characterize the allocation of items to bidders:
+		\begin{align}
+			\mu: N \to \mc{P}(X)
+		\end{align}
+		such that no item is shared between two bidders:
+		\begin{align}
+			\mu(i) \cap \mu(j) = \varnothing\ \forall i \neq j
+		\end{align}
+		The \textbf{outcome} assignment seeks to maximize the \ul{social value}. \\
+		Note that the auctioneer does not know $v_j$'s, this social value is computed based on biddings $b_j$ instead of bidders' actual values.
+		\begin{align}
+			\mu^* = \argmax_{\mu} \sum_{i \in N} b_i(\mu(i))
+		\end{align}
+		The \textbf{price} paid by bidder $i$ is the \ul{externality this bidder imposes on other bidders.}:
+		\begin{align}
+			p_i = \max_\mu \sum_{j \neq i} b_j(\mu(j)) - \sum_{j \neq i}b_j(\mu^*(j))
+		\end{align}
+	\end{definition}
 	
+	\begin{remark}
+		The auctioneer does not have to allocate all items in $X$, that is, $\mu$ is not necessary a partition of $X$. $\bigcup_{i \in N}\mu(i)$ is not necessary $X$.
+	\end{remark}
+	
+	\begin{remark}
+		When $|X| = 1$, VCG mechanism is the second price auction.
+	\end{remark}
+	
+	\begin{proposition}
+		Submitting one's true valuation function (i.e., $b_i = v_i$) is a dominate strategy in the VCG auction, that is, VCG auction is strategy proof.
+	\end{proposition}
+	
+	\begin{proof}
+		Suppose all other bidders are bidding $b_j$. \\
+		Let $\mu^*$ be the allocation when bidder $i$ bid $b_i = v_i$ while all other bidders bid $b_j$:
+		\begin{align}
+			\mu^* = \argmax_\mu v_i(\mu(i)) + \sum_{j\neq i} b_j(\mu(j))\quad (\dagger)
+		\end{align}
+		Then, for bidder $i$, the payoff by bidding $v_i$ is
+		\begin{align}
+			v_i(\mu^*(i)) - \max_\mu \sum_{j \neq i} b_j(\mu(j)) + \sum_{j \neq i}b_j(\mu^*(j))
+		\end{align}
+		Alternatively, bidder $i$ could bid $b_i \neq v_i$, let
+		\begin{align}
+			\hat{\mu} = \argmax_\mu \sum_{i \in N} b_i(\mu_i(i))
+		\end{align}
+		The payoff from bidding $b_i$ instead is
+		\begin{align}
+			v_i(\hat{\mu}(i)) -  \max_\mu \sum_{j \neq i} b_j(\mu(j)) + \sum_{j \neq i}b_j(\hat{\mu}(j))
+		\end{align}
+		Take the difference between two payoffs:
+		\begin{align}
+			&v_i(\mu^*(i)) - \max_\mu \sum_{j \neq i} b_j(\mu(j)) + \sum_{j \neq i}b_j(\mu^*(j))
+			- \left(
+			v_i(\hat{\mu}(i)) -  \max_\mu \sum_{j \neq i} b_j(\mu(j)) + \sum_{j \neq i}b_j(\hat{\mu}(j))
+			\right) \\
+			&= v_i(\mu^*(i)) + \sum_{j \neq i}b_j(\mu^*(j)) - \left(v_i(\hat{\mu}(i)) + \sum_{j \neq i}b_j(\hat{\mu}(j))
+			\right) \\
+			&\geq 0 \tx{ by } (\dagger)
+		\end{align}
+		Therefore, bidding one's own value function is dominant.
+	\end{proof}
+	
+	\begin{proposition}
+		The price paid by any bidder in VCG auctions is non-negative.
+	\end{proposition}
+	
+	\begin{proof}
+		\begin{align}
+			p_i = \max_\mu \sum_{j \neq i} b_j(\mu(j)) - \sum_{j \neq i}b_j(\mu^*(j)) \geq 0
+		\end{align}
+	\end{proof}
+	
+	\section{Keyword Auctions}
 	
 	\section{Matching Market}
+	\info{The second half.}
 
 	\section{Appendix A: Order Statistics}
 	\begin{definition}
