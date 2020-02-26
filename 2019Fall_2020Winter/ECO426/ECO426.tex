@@ -562,6 +562,94 @@
 	\end{corollary}
 	
 	\section{Common Value Auction}
+	\begin{definition}
+		In a \textbf{common value} auction, all bidders' valuation are identical. However, bidders are receive \ul{private signals} $s_i$ provides information on the actual value $v$. Each bidder chooses a strategy $\beta_i(s_i) \in \R_+$ for all possible types of signals could be received. \\
+		Specifically, bidders share a prior belief on the common value $v$ 
+		\begin{align}
+			v \sim p(v)	
+		\end{align}
+		and private signals are from the same distribution depends on the actual value $v$
+		\begin{align}
+			s_i \overset{i.i.d.}{\sim} p(s|v)
+		\end{align}
+	\end{definition}
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw,minimum size=1.5em}}
+		\tikzset{edge/.style = {->,> = latex'}}
+		\node[vertex] (v) at (5, 3) {$v$};
+		\node[vertex] (s1) at (1, 0) {$s_1$};
+		\node[vertex] (s2) at (3, 0) {$s_2$};
+		\node[vertex] (s3) at (5, 0) {$s_3$};
+		\node[vertex] (s4) at (7, 0) {$s_4$};
+		\node[vertex] (s5) at (9, 0) {$s_5$};
+		
+		\draw[edge] (v) to (s1);
+		\draw[edge] (v) to (s2);
+		\draw[edge] (v) to (s3);
+		\draw[edge] (v) to (s4);
+		\draw[edge] (v) to (s5);
+		\end{tikzpicture}
+		\caption{DAG representation of common value auction with 5 bidders}
+	\end{figure}
+
+	\begin{example}
+		Possible types of signals are
+		\begin{align}
+			s_i \overset{i.i.d.}{\sim} F\\ v = \sum_{i=1}^n s_i
+		\end{align}
+		or 
+		\begin{align}
+			s_i &= v + \varepsilon_i \\
+			&\varepsilon_i \overset{i.i.d.}{\sim} Q\ s.t.\ \expect{\varepsilon_i} = 0
+		\end{align}
+	\end{example}
+	\par In most cases, $v$ is positively correlated with the signal $s_i$ received by each bidder. That is,
+	\begin{align}
+		\pd{}{d s_j} \expect{v|s_1, \cdots, s_n} \geq 0\ \forall j \in N
+	\end{align}
+	Hence, we can assume bidding strategy $\beta$ to be an increasing function of signal $s$.
+	
+	\par In a common value auction, all bidders know the underlying random process generating $v$. Given $s_i$, bidder $i$ computes his \textbf{own estimation} of the common value $v$:
+	\begin{align}
+		v_i := \expect{v|s_i} = \iint_{s_{-i}} p(v|s_{-i}) p(s_{-i})
+	\end{align}
+	
+	\paragraph{Formally} let 
+	\begin{align}
+		\Omega_i := \{s_j\ s.t.\ j \neq i| s_j \leq s_i\ \forall j \neq i\} \subseteq \R^{n-1}
+	\end{align}
+	denote the collection of realizations of signal generation such that bidder $i$ wins the auction. \\
+	When bidder $i$ is winning the bid, the expected value is
+	\begin{align}
+		\expe [v|s_j \leq s_i\ \forall j \neq i, s_i]
+		&= \frac{1}{P(\Omega_i)}\iint_{\Omega_i} p(s_{-i}) \expect{v|s_i, s_{-i}}\ ds_{-i} \\
+		&\leq \iint_{\R^{n-1}} p(s_{-i}) \expect{v|s_i, s_{-i}}\ ds_{-i} \\
+		&= \expect{v|s_i} = v_i
+	\end{align}
+	where the last inequality holds because $\expect{v|s_i, s_{-i}}$ is increasing in each $s$. 
+	\begin{definition}
+		\textbf{Winner's curse} winning the object reduces how much you think it is worth.
+		Similarly, for \textbf{loser's curse} losing the auction may increase how much you think it is worth.
+	\end{definition}
+	
+	\begin{proposition}
+		Bidding one's own estimation $\expect{v|s_i}$ is not dominant in common value auction.
+	\end{proposition}
+	
+	\begin{proposition}
+		Symmetric bidding strategies in a second price common value auction are given by
+		\begin{align}
+			\beta^*(s_i) = \expect{v|s_i, s_{-i} = s_i}
+		\end{align}
+		In which the bidder assumes all other bidders are receiving the same signal.
+	\end{proposition}
+	
+	\begin{proof}
+		\todo{.}
+	\end{proof}
 	
 	\section{Combinatorial Auction: The VCG Mechanism}
 	\begin{definition}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  25 FEB 2020 12:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  26 FEB 2020 00:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -892,36 +892,36 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 340.
 
-[7] [8] [9] [10] [11] [12] [13]
+[7] [8] [9] [10] [11] [12]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 651.
-
-Overfull \hbox (23.62569pt too wide) detected at line 712
+ [13] [14] [15]
+Overfull \hbox (23.62569pt too wide) detected at line 800
 []
  []
 
-[14] [15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 713.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 713.
+[16]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 801.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 801.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/ECO426/.texpadtmp/ECO426.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 713.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 713.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 801.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 801.
 Package rerunfilecheck Info: File `ECO426.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 713.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 801.
  ) 
 Here is how much of TeX's memory you used:
- 30914 strings out of 492616
- 587676 string characters out of 6129482
- 744347 words of memory out of 5000000
- 34153 multiletter control sequences out of 15000+600000
+ 31033 strings out of 492616
+ 589694 string characters out of 6129482
+ 739484 words of memory out of 5000000
+ 34250 multiletter control sequences out of 15000+600000
  543951 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,19n,92p,437b,982s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,19n,92p,437b,1035s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/ECO426/.texpadtmp/ECO426.pdf (15 pages, 253985 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/ECO426/.texpadtmp/ECO426.pdf (16 pages, 261623 bytes).
 PDF statistics:
- 522 PDF objects out of 1000 (max. 8388607)
- 465 compressed objects within 5 object streams
- 247 named destinations out of 1000 (max. 500000)
+ 551 PDF objects out of 1000 (max. 8388607)
+ 493 compressed objects within 5 object streams
+ 269 named destinations out of 1000 (max. 500000)
  229 words of extra memory for PDF output out of 10000 (max. 10000000)
 
