@@ -672,6 +672,109 @@
 		&\geq \expe_{q_\varphi(z|x)} \int \log \frac{p_\theta(x,z)}{q_\varphi(z|x)}\ dz \\
 		&\equiv ELBO(\theta, \varphi)
 	\end{align}
+	
+	\section{Markov Chain Monte Carlo}
+	\paragraph{Problem Statement} A target distribution
+	\begin{align}
+		p(x)
+	\end{align}
+	and a function
+	\begin{align}
+		f(x)
+	\end{align}
+	Wish to compute
+	\begin{align}
+		\expe_{x \sim p} [f] \equiv \int f(x) p(x)\ dx
+	\end{align}
+	Note that $\int_{p(x)}$ is rarely analytic, so we have to approximate it.
+	\subsection{Monte Carlo}
+	\paragraph{Sample}
+	\begin{align}
+		\{x_i\}_{i=1}^R \sim p
+	\end{align}
+	\paragraph{Simple MC estimator}
+	\begin{align}
+		\expe_p[f] \approx \hat{f} \equiv \frac{1}{R} \sum_{i=1}^R f(x_i)
+	\end{align}
+	Therefore, Monte Carlo turns estimation problem into a sampling problem. \\
+	Note that MC estimator is unbiased and variance shrinks proportional to $\frac{1}{R}$. \\
+	Further, the variance is independent of dimensionality. \\
+	Note that sampling from high dimensions is still hard. Why? So far, we've assumed 
+	\begin{align}
+		p(x) &= \frac{\tilde{p}(x)}{Z} = \frac{\tilde{p}(x)}{\int d\tilde{p}(x)} \\
+		p(x) &\propto \tilde{p}(x)
+	\end{align}
+	\paragraph{Aside} No that $\tilde{p}$ is the joint distribution of $q(pred; data)$. In this case, $p$ could be the likelihood $q(pred|data) = \frac{q(pred, data)}{\int_{pred}dq(pred, data)}$.\\
+	$Z = p(data)$ is often referred to as the \textbf{evidence}.
+	\paragraph{Why is sampling $x \sim p$ hard?} Want samples from volumes with high $\title{p}(x)$, can't do exactly without enumerating all possible $x$, which is challenging when $x$ is in high dimensional spaces.
+	\paragraph{Lattice (Bad idea!)} Using lattice to sample is a bad idea, if the lattice is too coarse, the estimated distribution is biased. If the lattice is too dense, then we're wasting computational resources. 
+	\paragraph{Uniform Sampling}
+	
+	\paragraph{Importance Weight Sampler} Sampling from $p$ is hard, we sample $x^r$ from a simpler distribution $q$ (e.g., $p \sim \mc{N}$) instead. Weight each sample from $q$ by $w_r = \frac{\tilde{p}(x^r)}{q(x^r)}$. Recall that we know how to evaluate the unnormalized density $\tilde{p}$.
+	
+	\paragraph{Rejection Sampling} Assume
+	\begin{align}
+		\tilde{p}(x) &= p(x) Z_p\ Z_p \in \R \\
+		\tilde{q}(x) &= q(x) Z_q\ Z_q \in \R
+	\end{align}
+	and we can sample from $q$ cheaply. Further, assume
+	\begin{align}
+		\exists\ c\ s.t.\ c \tilde{q}(x) > \tilde{p}(x)\quad \forall x
+	\end{align}
+	\begin{algorithm} (Rejection Sampling)
+		\begin{enumerate}[(i)]
+			\item Sample $x \sim q$;
+			\item Sample $u \sim [0, c \tilde{q}(x)]$;
+			\item Accept if $u < \tilde{p}(x)$ (i.e., append $x$ to the sample list), reject otherwise.
+		\end{enumerate}
+	\end{algorithm}
+	
+	\paragraph{Limitations} The rejection sampling requires $p \approx q$. Otherwise, the $C$ required is large. When $p$ and $q$ are on $D$ dimensions, then $C \in \mc{O}(\exp(\sqrt{D}))$. The acceptance rate is $\frac{1}{C}$ in one dimension, and the rate reduces exponentially in dimension.
+	\begin{align}
+		\expe_p [f] = \int f(x) p(x)\ dx
+	\end{align}
+	Since integral is a linear operator, when integrant is large, the expectation is large as well.
+	
+	\paragraph{Typical set} Because expectation is a linear operator, all samples that contribute significantly to the $\expe$ come from the typical set. \todo{Check the definition of typical set.}
+
+	\paragraph{Markov Chain Monte Carlo (MCMC)} Stochastically explore the typical set. We need a Markov transition distribution, from which we can sample $x_{t+1}$:
+	\begin{align}
+		x_{t+1} \sim T(x'|x_t)
+	\end{align}
+	\begin{proposition} Properties of $T$
+		1) $p$ is invariant under $T$:
+		\begin{align}
+			p(x) = \int T(x|x') p(x')\ dx'
+		\end{align}
+		2) Ergodic: $p^{(t)} \to p(x)$.
+	\end{proposition}
+	
+	\paragraph{Metropolis} Given background distribution $p$, we only observe $\tilde{p}$ but not $p$. Define $T$ as
+	\begin{enumerate}[(i)]
+		\item Proposal distribution $q$
+		\begin{align}
+			x' \sim q(x'|x_t)
+		\end{align}
+		\item Accept $x'$ as $x_{t+1}$? 
+		\begin{align}
+			a := \frac{\tilde{p}(x') q(x_t|x')}{\tilde{p}(x_t) q(x'|x_t)}
+		\end{align}
+		If $a \geq 1$, then accept it. 
+		If $a \in [0, 1)$, accept with probability $a$. 
+		If rejected, $x_{t+1} = x_t$.
+	\end{enumerate}
+	
+	\paragraph{Random Walk Metropolis}
+	\begin{align}
+		q(x'|x_t) = \mc{N} (x'|x_t, \sigma^2)
+	\end{align}
+
+	\paragraph{Hamiltonian Monte Carlo}
+	\begin{align}
+		x &\to (x, v) \\
+		q(x) &\to q(x, v) = q(x) q(v|x) \\
+		H(x, v) &= - \log(q(x, v)) = - \overbrace{\log(q(x))}^{U: PE} - \overbrace{\log(q(v|x))}^{K: KE}
+	\end{align}
 \end{document}
 
 

@@ -51,3 +51,20 @@
 \contentsline {paragraph}{Reinforce / Score Function Estimation}{13}{section*.34}% 
 \contentsline {paragraph}{Mean-Field Variational Inference}{13}{section*.35}% 
 \contentsline {paragraph}{Jensen's Inequality}{13}{section*.36}% 
+\contentsline {section}{\numberline {7}Markov Chain Monte Carlo}{14}{section.7}% 
+\contentsline {paragraph}{Problem Statement}{14}{section*.37}% 
+\contentsline {subsection}{\numberline {7.1}Monte Carlo}{14}{subsection.7.1}% 
+\contentsline {paragraph}{Sample}{14}{section*.38}% 
+\contentsline {paragraph}{Simple MC estimator}{14}{section*.39}% 
+\contentsline {paragraph}{Aside}{15}{section*.40}% 
+\contentsline {paragraph}{Why is sampling $x \sim p$ hard?}{15}{section*.41}% 
+\contentsline {paragraph}{Lattice (Bad idea!)}{15}{section*.42}% 
+\contentsline {paragraph}{Uniform Sampling}{15}{section*.43}% 
+\contentsline {paragraph}{Importance Weight Sampler}{15}{section*.44}% 
+\contentsline {paragraph}{Rejection Sampling}{15}{section*.45}% 
+\contentsline {paragraph}{Limitations}{15}{section*.46}% 
+\contentsline {paragraph}{Typical set}{15}{section*.47}% 
+\contentsline {paragraph}{Markov Chain Monte Carlo (MCMC)}{15}{section*.49}% 
+\contentsline {paragraph}{Metropolis}{16}{section*.50}% 
+\contentsline {paragraph}{Random Walk Metropolis}{16}{section*.51}% 
+\contentsline {paragraph}{Hamiltonian Monte Carlo}{16}{section*.52}% 
