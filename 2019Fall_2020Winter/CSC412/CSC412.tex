@@ -775,6 +775,95 @@
 		q(x) &\to q(x, v) = q(x) q(v|x) \\
 		H(x, v) &= - \log(q(x, v)) = - \overbrace{\log(q(x))}^{U: PE} - \overbrace{\log(q(v|x))}^{K: KE}
 	\end{align}
+	
+	\subsection{Tutorial on Sampling}
+	\paragraph{Problem} Say one wishes to sample 
+	\begin{align}
+		x \sim p(x) = \frac{\tilde{p}(x)}{Z}
+	\end{align}
+	such that
+	\begin{align}
+		\int p(x)\ dx &= 1 \\
+		\int \tilde{p}(x)\ dx &= Z \\
+		\tilde{p}(x), p(x) &\geq 0
+	\end{align}
+
+	\paragraph{Goal} For an arbitrary function $\phi$, we wish to estimate
+	\begin{align}
+		\expe_{x \sim p(x)} \phi(x) = \int p(x) \phi(x)\ dx
+	\end{align}
+	by sampling $x \sim p(x)$.
+
+	\paragraph{Challenge} We only observe the potential $\tilde{p}(x)$ but not the actual probability $p(x)$. In addition, marginalizing the potential (i.e., computing $\int_x \tilde{p}(x)\ dx$) is prohibitive, so that one may \ul{not} reconstruct the probability $p(x)$ directly.
+
+	\paragraph{Cheap Sampling} We may assume sampling from a certain class of distributions to be cheap. For instance, we can sample from a Gaussian distribution cheaply:
+	\begin{align}
+		x \sim \mc{N}(\mu, \sigma^2)
+	\end{align}
+	
+	\paragraph{Idea} For most of sampling techniques covered in this course, we are sampling from an "auxiliary potential", say $\tilde{q}(x)$, from which we can sample with ease. Then, we estimate $p(x)$ via sampling result from $\tilde{q}$ and our knowledge on $\tilde{p}$.
+	
+	\subsubsection{Importance Sampling}
+	\paragraph{Problem} Suppose
+	\begin{align}
+		\tilde{p}(x) &= Z_p p(x) \\
+		\tilde{q}(x) &= Z_q q(x)
+	\end{align}
+	where the normalizing constants are unknown. And we wish to estimate 
+	\begin{align}
+		\expe_{x \sim p(x)} \phi(x)
+	\end{align}
+	for some function $\phi$.
+
+	\paragraph{Solution} We may take $\tilde{q}(x) = \mc{N}(\mu, \sigma^2)$, in this case, $Z_q = 1$.
+	
+	\info{[?] Do we know both $\tilde{q}$ and $Z_q$ or we only know $q$?}
+	\begin{algorithm}[Importance Sampling] \quad
+		\begin{enumerate}[(i)]
+			\item Sample $X^{1:R} \sim Z_q q(x)= \tilde{q}(x)$.
+			\item Estimate expectation under $q$: $\expe_{q}(\phi(x)) \approx \frac{1}{R} \sum_{i=1}^R \phi(x_i)$.
+			\item Weight each sample using \ul{importance weights} $\tilde{w}_i = \frac{\tilde{p}(x_i)}{\tilde{q}(x_i)}$.
+		\end{enumerate}
+	\end{algorithm}
+	
+	\paragraph{Intuition} For one particular sample $x$, if $\tilde{p}(x) > \tilde{q}(x)$, $\tilde{p}$ is \ul{underrepresented while sampling using $\tilde{q}$}, so we assign this sample with larger weight $w$.
+	
+	\paragraph{Estimation} Recall that the ultimate goal of sampling exercises is to estimate $\expe_p \phi(x)$:
+	\begin{align}
+		\expe_p \phi(x) &= \int p(x) \phi(x)\ dx \\
+		&= \int q(x) \frac{p(x)}{q(x)} \phi(x)\ dx \\
+		&= \expe_q \frac{p(x)}{q(x)} \phi(x) \\
+		&\approx \frac{1}{R} \sum_{i=1}^R \underbrace{\frac{p(x_i)}{q(x_i)}}_{(\dagger)} \phi(x_i) \tx{ where } x_i \sim q(x)
+	\end{align}
+	Note that we only have the unnormalized version of $(\dagger)$, therefore,
+	\begin{align}
+		... &= \frac{1}{R} \sum_{i=1}^R \frac{\tilde{p}(x_i)/Z_p}{\tilde{q}(x_i)/Z_q} \phi(x_i) \\
+		&= \frac{Z_q}{Z_p} \frac{1}{R} \sum_{i=1}^R \frac{\tilde{p}(x_i)}{\tilde{q}(x_i)}\phi(x_i) \\
+		&= \frac{Z_q}{Z_p} \frac{1}{R} \sum_{i=1}^R \tilde{w}_i \phi(x_i)\quad (\dagger \dagger)
+	\end{align}
+	\begin{lemma}
+		\begin{align}
+			\sum_{i=1}^R \tilde{w}_i
+			&= \sum_{i=1}^R \frac{\tilde{p}(x_i)}{\tilde{q}(x_i)}
+			= \sum_{i=1}^R \frac{\tilde{p}(x_i) \frac{Z_q}{Z_p}}{\tilde{q}(x_i) \frac{Z_q}{Z_p}} \tx{ where } x_i \sim q(x) \\
+			&= \sum_{i=1}^R \frac{p(x_i) Z_q}{\tilde{q}(x_i) \frac{Z_q}{Z_p}} 
+			= \sum_{i=1}^R \frac{p(x_i) Z_q}{q(x_i) Z_q \frac{Z_q}{Z_p}} \\
+			&= \sum_{i=1}^R \frac{p(x_i)}{q(x_i) \frac{Z_q}{Z_p}}
+			= \frac{Z_p}{Z_q} \sum_{i=1}^R \frac{p(x_i)}{q(x_i)} \\
+			&= R \frac{Z_p}{Z_q} \frac{1}{R} \sum_{i=1}^R \frac{p(x_i)}{q(x_i)} \\
+			&\overset{R \to \infty}{=} R \frac{Z_p}{Z_q} \expe_q \frac{p(x)}{q(x)} \\
+			&= R \frac{Z_p}{Z_q} \int_\R q(x) \frac{p(x)}{q(x)}\ dx
+			= R \frac{Z_p}{Z_q}
+		\end{align}
+		Therefore, 
+		\begin{align}
+			\frac{Z_p}{Z_q} &= \frac{1}{R} \sum_{i=1}^R \tilde{w}_i
+		\end{align}
+	\end{lemma}
+	Hence,
+	\begin{align}
+		\expe_p \phi(x) \approx (\dagger \dagger) = \frac{\sum_{i=1}^R \tilde{w}_i \phi(x_i)}{\sum_{i=1}^R \tilde{w}_i}
+	\end{align}
 \end{document}
 
 

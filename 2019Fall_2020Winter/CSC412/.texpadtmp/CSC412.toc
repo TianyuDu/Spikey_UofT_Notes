@@ -68,3 +68,14 @@
 \contentsline {paragraph}{Metropolis}{16}{section*.50}% 
 \contentsline {paragraph}{Random Walk Metropolis}{16}{section*.51}% 
 \contentsline {paragraph}{Hamiltonian Monte Carlo}{16}{section*.52}% 
+\contentsline {subsection}{\numberline {7.2}Tutorial on Sampling}{16}{subsection.7.2}% 
+\contentsline {paragraph}{Problem}{16}{section*.53}% 
+\contentsline {paragraph}{Goal}{16}{section*.54}% 
+\contentsline {paragraph}{Challenge}{17}{section*.55}% 
+\contentsline {paragraph}{Cheap Sampling}{17}{section*.56}% 
+\contentsline {paragraph}{Idea}{17}{section*.57}% 
+\contentsline {subsubsection}{\numberline {7.2.1}Importance Sampling}{17}{subsubsection.7.2.1}% 
+\contentsline {paragraph}{Problem}{17}{section*.58}% 
+\contentsline {paragraph}{Solution}{17}{section*.59}% 
+\contentsline {paragraph}{Intuition}{17}{section*.61}% 
+\contentsline {paragraph}{Estimation}{17}{section*.62}% 
