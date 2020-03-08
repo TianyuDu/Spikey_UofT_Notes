@@ -18,7 +18,14 @@
 \BOOKMARK [2][-]{subsection.5.6}{Sampling}{section.5}% 18
 \BOOKMARK [1][-]{section.6}{True Skill}{}% 19
 \BOOKMARK [2][-]{subsection.6.1}{Variational Inferences}{section.6}% 20
-\BOOKMARK [1][-]{section.7}{Markov Chain Monte Carlo}{}% 21
-\BOOKMARK [2][-]{subsection.7.1}{Monte Carlo}{section.7}% 22
-\BOOKMARK [2][-]{subsection.7.2}{Tutorial on Sampling}{section.7}% 23
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Importance Sampling}{subsection.7.2}% 24
+\BOOKMARK [2][-]{subsection.6.2}{Kullback\205Leibler Divergence}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.3}{Stochastic Variational Inference}{section.6}% 22
+\BOOKMARK [1][-]{section.7}{Sampling and Monte Carlo Methods}{}% 23
+\BOOKMARK [2][-]{subsection.7.1}{Monte Carlo}{section.7}% 24
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Lattice Discretization \(Bad idea!\)}{subsection.7.1}% 25
+\BOOKMARK [2][-]{subsection.7.2}{Monte Carlo Methods for Sampling}{section.7}% 26
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Uniform Sampling}{subsection.7.2}% 27
+\BOOKMARK [3][-]{subsubsection.7.2.2}{Importance Sampling}{subsection.7.2}% 28
+\BOOKMARK [3][-]{subsubsection.7.2.3}{Rejection Sampling}{subsection.7.2}% 29
+\BOOKMARK [2][-]{subsection.7.3}{Tutorial on Sampling}{section.7}% 30
+\BOOKMARK [3][-]{subsubsection.7.3.1}{Importance Sampling}{subsection.7.3}% 31

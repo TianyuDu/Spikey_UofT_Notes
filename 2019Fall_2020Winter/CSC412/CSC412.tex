@@ -555,17 +555,20 @@
 	\end{align}
 	
 	\subsection{Variational Inferences}
-	\paragraph{General Idea of Variational Inferences}
+	\paragraph{General Idea of Variational / Approximate Inferences}
 	\begin{enumerate}[(i)]
-		\item Parameterize tractable $q_\varphi (z | x)$ using $\varphi$, such as
+		\item Introduce a tractable \textbf{variational family} $q_\varphi (z | x)$ parameterized using $\varphi$, for example:
 		\begin{align}
 			q_\varphi (z | x) = \mc{N}(z | \mu_\varphi, \Sigma_\varphi)
 		\end{align}
-		\item Define \ul{distance} (not necessary distance metric) between $p(z|x)$ and $q(z|x)$.
-		\item Optimize $\varphi$ to minimize distrance.
+		\item Define \ul{distance} (not necessary a metric) between $p(z|x)$ and $q(z|x)$.
+		\item Optimize $\varphi$ to minimize distance, that is,
+		\begin{align}
+			\expe_{z \sim p(z|x)}[f(z)] \approx \expe_{z \sim q(z|x)}[f(z)]
+		\end{align}
 	\end{enumerate}
 	
-	\paragraph{Kullback–Leibler Divergence}
+	\subsection{Kullback–Leibler Divergence}
 	\begin{definition}
 		Let $q$ and $p$ be density functions of two distributions $Q$ and $P$, then the \textbf{KL divergence} between $Q$ and $P$ is defined as
 		\begin{align}
@@ -579,59 +582,105 @@
 		KL(q || p) &= 0 \iff p = q \\
 		KL(q || p) &\neq KL(p || q) \tx{ in general}
 	\end{align}
-	Define
+	\paragraph{Reverse-KL Information Projection} while comparing two distributions, $D_{KL}(q||p) = \expe_q \log \frac{q}{p}$ penalizes (i.e., becomes large) when there are points such that $q \gg p$.
+	
+	\paragraph{Forward-KL Moment Projection} $D_{KL}(p||q)$ penalizes points when $p \gg q$.
+	
+	\subsection{Stochastic Variational Inference}
+	\paragraph{Evidence Lower Bound} Suppose we are trying to approximate $p(z|x)$ using variational family $q_\varphi(z|x)$. Define
 	\begin{align}
-		- KL(q_\varphi(z|x) || p(z|x)) 
-		&= - \expe_{q_\varphi(z|x)} \left[
+		D_{KL}(q_\varphi(z|x) || p(z|x)) 
+		&= \expe_{q_\varphi(z|x)} \left[
 		\log q_\varphi(z|x) - \log p(z|x)
 		\right] \\
-		&= - \expe_{q_\varphi(z|x)} \left[
+		&= \expe_{q_\varphi(z|x)} \left[
 		\log q_\varphi(z|x) - \log \frac{p(z, x)}{p(x)}
 		\right] \\
-		&= - \expe_{q_\varphi(z|x)} \left[
+		&= \expe_{q_\varphi(z|x)} \left[
 		\log q_\varphi(z|x) - \log p(z, x) + \log p(x)
 		\right] \\
-		&= - \expe_{q_\varphi(z|x)} \left[
+		&= \expe_{q_\varphi(z|x)} \left[
 		\log q_\varphi(z|x) - \log p(z, x) \right]
 		+ \expe_{q_\varphi(z|x)} \left[ \log p(x)
 		\right] \\
-		&= \underbrace{- \expe_{q_\varphi(z|x)} \left[
-		\log q_\varphi(z|x) - \log p(z, x) \right]}_{L(\varphi)}
+		&= \underbrace{\expe_{q_\varphi(z|x)} \left[
+		\log q_\varphi(z|x) - \log p(z, x) \right]}_{-\mc{L}(\varphi;x)}
 		+ \underbrace{\log p(x)}_{\perp \varphi}
 	\end{align}
-	where $L(\varphi)$ is often referred to as the evidence/empirical lower bound (ELBO).
+	where $\mc{L}(\varphi; x)$ is often referred to as the evidence/empirical lower bound (ELBO). Therefore,
+	\begin{align}
+		D_{KL}(q_\varphi(z|x) || p(z|x)) &= - \mc{L}(\varphi;x) + \log p(x) \\
+		\implies \mc{L}(\varphi;x) + D_{KL}(q_\varphi(z|x) || p(z|x)) &= \log p(x)\quad (\dagger) \\
+		\implies \mc{L}(\varphi; x) &\leq \log p(x)
+	\end{align}
+	Hence, $\mc{L}(\varphi; x)$ is the lower bound of evidence $x$. \ul{By ($\dagger$), maximizing ELBO and minimizing KL divergence are equivalent.}
 	
-	\paragraph{Re-parameterization Tricks} Want to compute
+	\paragraph{Re-parameterization Tricks} In order to maximize ELBO, we want to compute the gradient of ELBO with respect to $\varphi$:
+	\begin{align}
+		\nabla_\varphi \mc{L}(\varphi; x)
+		&= \nabla_\varphi \expe_{z \sim q_\varphi(z|x)} [
+		\log p(z, x) - \log q_\varphi(z|x)]
+	\end{align}
+	
+	\paragraph{Pathwise Gradient} More generally, let $f$ be an arbitrary function, in our case, $f(z) = \log q_\varphi(z|x) - p(z, x)$. The gradient is
 	\begin{align}
 		\nabla_\varphi \expe_{q_\varphi(z)} f(z) &= \nabla_\varphi \int q_\varphi(z) f(z)\ dz \\
-		&= \int \nabla_\varphi q_\varphi(z) f(z)\ dz\ (\dagger)\tx{ assume continuity}
+		&= \int \nabla_\varphi q_\varphi(z) f(z)\ dz\ (\dagger)\tx{ assuming continuity}
 	\end{align}
 	But $(\dagger)$ is not an expectation, so we cannot use Monte Carlo. \\
-	So we need to re-parameterize such that the expectation does not depend on $\varphi$. \\
-	Find $p(\varepsilon)$ (i.e., re-parameterize using $\varepsilon$) and $T(\varepsilon, \varphi)$ such that
+	We can exchange differential operator and expectation only if the expectation is independent from $\varphi$. \\
+	So we need to factor out the randomness in $f$ from $q_\varphi$, and put it into a parameterless form. That is, we have to
+	\ul{re-parameterize using another random variable $\varepsilon$ such that the expectation does not depend on $\varphi$}. \\
+	Find $p(\varepsilon)$ and $T(\varepsilon, \varphi)$ such that
 	\begin{align}
-		t &\sim p(\varepsilon) \\
-		z &= T(t, \varphi)
+		\begin{cases}
+			\varepsilon \sim p(\varepsilon) \\ 
+			z = T(\varepsilon, \varphi)
+		\end{cases}
+		\implies z \sim q_\varphi(z)
 	\end{align}
-	then
+	
+	\begin{example}
+		For instance, if we are trying to re-parameterize $q_{\varphi\equiv(\mu, \sigma)} = \mc{N}(\mu, \sigma^2)$ using a standard Gaussian noise $\mc{N}(0, 1)$.
+		\begin{align}
+			\varepsilon \sim p(\varepsilon) &= \mc{N}(0, 1) \\
+			z = T(\varepsilon, \varphi) &= \sigma \varepsilon + \mu
+		\end{align}
+		so that $z \sim \mc{N}(\mu, \sigma^2)$.
+	\end{example}
+	
+	Using the re-parameterization trick, the gradient can be computed as
 	\begin{align}
-		z \sim q_\varphi(z)
+		\nabla_\varphi \mc{L}(\varphi; x)
+		&= \nabla_\varphi \expe_{z \sim q_\varphi(z|x)} [\log p(z, x) - \log q_\varphi(z|x)] \\
+		&= \nabla_\varphi \expe_{z \sim q_\varphi(z|x)} [\log p(T(\varepsilon, \varphi), x) - \log q_\varphi(T(\varepsilon, \varphi)|x)] \\
+		&= \nabla_\varphi \expe_{\varepsilon \sim p(\varepsilon)} [\log p(T(\varepsilon, \varphi), x) - \log q_\varphi(T(\varepsilon, \varphi)|x)]
 	\end{align}
-	\paragraph{Stochastic/Automatic Differentiation Variational Inference}
+	where the last step holds because the only source of randomness in the expression comes from $\varepsilon$. Since the expectation is no longer depending on $\varphi$, and we can therefore exchange the order of differentiation and expectation:
 	\begin{align}
-		&\nabla_\varphi \expe_{q_\varphi(z|x)} \left[
-		\log p(x,z) - \log q_\varphi(z|x)
-		\right] \\
-		&= \nabla_\varphi \expe_{p(\varepsilon)} \left[
+		\nabla_\varphi \mc{L}(\varphi; x)
+		&= \expe_{\varepsilon \sim p(\varepsilon)} \nabla_\varphi [\log p(T(\varepsilon, \varphi), x) - \log q_\varphi(T(\varepsilon, \varphi)|x)]
+	\end{align}
+	
+	\paragraph{Stochastic/Automatic Differentiation Variational Inference} As long as we code up
+	\begin{align}
+		T(\epsilon, \varphi), \log p(x|z), \log p(z), \log q_\varphi (z|x)
+	\end{align}
+	We can use automatic differentiation techniques to compute gradient
+	\begin{align}
+		\nabla_\varphi [\log p(T(\varepsilon, \varphi), x) - \log q_\varphi(T(\varepsilon, \varphi)|x)
+	\end{align}
+	Then estimate the expectation of gradient by Monte Carlo:
+	\begin{align}
+		\expe_{p(\varepsilon)} \nabla_\varphi \left[
 		\log p(x,T(\varepsilon , \varphi)) - \log q_\varphi (T(\varepsilon, \varphi)|x)
-		\right] \\
-		&= \expe_{p(\varepsilon)} \nabla_\varphi \left[
-		\log p(x,T(\varepsilon , \varphi)) - \log q_\varphi (T(\varepsilon, \varphi)|x)
-		\right] \\
+		\right] 
 		&\approx \frac{1}{K} \sum_{i=1}^K \nabla_\varphi \left[
 		\log p(x,T(\varepsilon , \varphi)) - \log q_\varphi (T(\varepsilon, \varphi)|x)
 		\right]
 	\end{align}
+	
+	\paragraph{Interpretation of ELBO}
 	
 	\paragraph{Reinforce / Score Function Estimation} Another method to estimate $- \nabla_\varphi \expe_{q_\varphi(z|x)} L(\varphi)$.\\
 	Want
@@ -673,8 +722,8 @@
 		&\equiv ELBO(\theta, \varphi)
 	\end{align}
 	
-	\section{Markov Chain Monte Carlo}
-	\paragraph{Problem Statement} A target distribution
+	\section{Sampling and Monte Carlo Methods}
+	\paragraph{Problem} With a target distribution
 	\begin{align}
 		p(x)
 	\end{align}
@@ -686,17 +735,18 @@
 	\begin{align}
 		\expe_{x \sim p} [f] \equiv \int f(x) p(x)\ dx
 	\end{align}
-	Note that $\int_{p(x)}$ is rarely analytic, so we have to approximate it.
+	Note that $\int_{p(x)}$ is rarely analytic, so we have to approximate it. However, drawing samples from $p(x)$ directly is infeasible since we cannot evaluate $p(x)$. Fortunately, we can evaluate $\tilde{p}(x) = Z p(x)$ without knowing $Z$.
+
 	\subsection{Monte Carlo}
-	\paragraph{Sample}
+	\paragraph{Sampling}
 	\begin{align}
-		\{x_i\}_{i=1}^R \sim p
+		\{x_i\}_{i=1}^R \sim p(x)
 	\end{align}
 	\paragraph{Simple MC estimator}
 	\begin{align}
-		\expe_p[f] \approx \hat{f} \equiv \frac{1}{R} \sum_{i=1}^R f(x_i)
+		\Phi = \expe_{x \sim p(x)}[f] \approx \hat{\Phi} = \frac{1}{R} \sum_{i=1}^R f(x_i)
 	\end{align}
-	Therefore, Monte Carlo turns estimation problem into a sampling problem. \\
+	Therefore, Monte Carlo turns estimation problem into a sampling problem.
 	Note that MC estimator is unbiased and variance shrinks proportional to $\frac{1}{R}$. \\
 	Further, the variance is independent of dimensionality. \\
 	Note that sampling from high dimensions is still hard. Why? So far, we've assumed 
@@ -704,30 +754,61 @@
 		p(x) &= \frac{\tilde{p}(x)}{Z} = \frac{\tilde{p}(x)}{\int d\tilde{p}(x)} \\
 		p(x) &\propto \tilde{p}(x)
 	\end{align}
-	\paragraph{Aside} No that $\tilde{p}$ is the joint distribution of $q(pred; data)$. In this case, $p$ could be the likelihood $q(pred|data) = \frac{q(pred, data)}{\int_{pred}dq(pred, data)}$.\\
-	$Z = p(data)$ is often referred to as the \textbf{evidence}.
-	\paragraph{Why is sampling $x \sim p$ hard?} Want samples from volumes with high $\title{p}(x)$, can't do exactly without enumerating all possible $x$, which is challenging when $x$ is in high dimensional spaces.
-	\paragraph{Lattice (Bad idea!)} Using lattice to sample is a bad idea, if the lattice is too coarse, the estimated distribution is biased. If the lattice is too dense, then we're wasting computational resources. 
-	\paragraph{Uniform Sampling}
+
+	\paragraph{Aside} No that $\tilde{p}$ is the joint distribution of $q(pred; data)$. In this case, $p$ could be the likelihood $q(pred|data) = \frac{q(pred, data)}{\int_{pred}dq(pred, data)}$. $Z = p(data)$ is often referred to as the \textbf{evidence}.
+
+	\paragraph{Why is sampling $x \sim p$ hard?} Firstly, in most cases, we don't know the exact value of $Z$, and computing $Z$ by integrating $\tilde{p}$ requires prohibitive computational power. Event if we know $Z$, we wish so sample from $\mc{X}$ where $p(x)$ is large. But for most distributions, we can't do exactly without enumerating all possible $x$, which is challenging when $x$ is in high dimensional spaces.
 	
+	\paragraph{Easy Distributions?} For some families of distributions like Gaussian distribution, sampling from them can be easy.
+	
+	\subsubsection{Lattice Discretization (Bad idea!)}
+	\begin{algorithm}[Lattice Discretization]\quad
+		\begin{enumerate}[(i)]
+			\item Discretize $\mc{X}$ into finitely many uniformly spaced points $\{x_i\}$. The collection of points form a lattice of $\mc{X}$.
+			\item Evaluate $\tilde{p}(x_i)$ on each point $x_i$.
+			\item Estimate normalizing constant $Z \approx \sum_i \tilde{p}(x_i)$.
+			\item Estimate probability using $p(x) \approx \frac{\tilde{p}(x)}{Z}$. 
+		\end{enumerate}
+	\end{algorithm}
+	
+	\par Using lattice to sample is a bad idea, if the lattice is too coarse, the estimated distribution is biased. If the lattice is too dense, then we're wasting computational resources. Further, the number of points required as well as computational cost grow exponentially as the dimension $\mc{X}$ increases.
+	
+	\subsection{Monte Carlo Methods for Sampling}
+	\subsubsection{Uniform Sampling}
+	\subsubsection{Importance Sampling}
 	\paragraph{Importance Weight Sampler} Sampling from $p$ is hard, we sample $x^r$ from a simpler distribution $q$ (e.g., $p \sim \mc{N}$) instead. Weight each sample from $q$ by $w_r = \frac{\tilde{p}(x^r)}{q(x^r)}$. Recall that we know how to evaluate the unnormalized density $\tilde{p}$.
-	
+	\todo{See more on the next section}
+	\subsubsection{Rejection Sampling}
 	\paragraph{Rejection Sampling} Assume
 	\begin{align}
 		\tilde{p}(x) &= p(x) Z_p\ Z_p \in \R \\
 		\tilde{q}(x) &= q(x) Z_q\ Z_q \in \R
 	\end{align}
-	and we can sample from $q$ cheaply. Further, assume
+	and we can evaluate $\tilde{q}$ cheaply and we can sample from $q$ easily. Further, assume
 	\begin{align}
 		\exists\ c\ s.t.\ c \tilde{q}(x) > \tilde{p}(x)\quad \forall x
 	\end{align}
-	\begin{algorithm} (Rejection Sampling)
+	\begin{algorithm}[Rejection Sampling] \quad
 		\begin{enumerate}[(i)]
-			\item Sample $x \sim q$;
-			\item Sample $u \sim [0, c \tilde{q}(x)]$;
-			\item Accept if $u < \tilde{p}(x)$ (i.e., append $x$ to the sample list), reject otherwise.
+			\item Generate two random numbers $(x, u)$.
+			\begin{enumerate}[(a)]
+				\item Sample $x \sim q$;
+				\item Sample $u \sim Unif[0, c \tilde{q}(x)]$;
+			\end{enumerate}
+			\item Evaluate $\tilde{p}(x)$
+			\begin{enumerate}[(a)]
+				\item if $u > \tilde{p}(x)$, reject this sample;
+				\item Otherwise $x$ is accepted and added to our set of samples $\lbrace x^{(r)} \rbrace$.
+			\end{enumerate}
 		\end{enumerate}
 	\end{algorithm}
+	
+	\paragraph{Intuition} Note that all samples are independently sampled from an identical distribution. Therefore, probability for a particular value of $x$ to be added to the sample is
+	\begin{align}
+		Prob(x) &= q(x) Prob(Accept|x) \\
+		&= q(x) \frac{\tilde{p}(x)}{c \tilde{q}(x)} \\
+		&= \frac{\tilde{p}(x)}{Z_q c} \propto p(x)
+	\end{align}
 	
 	\paragraph{Limitations} The rejection sampling requires $p \approx q$. Otherwise, the $C$ required is large. When $p$ and $q$ are on $D$ dimensions, then $C \in \mc{O}(\exp(\sqrt{D}))$. The acceptance rate is $\frac{1}{C}$ in one dimension, and the rate reduces exponentially in dimension.
 	\begin{align}
