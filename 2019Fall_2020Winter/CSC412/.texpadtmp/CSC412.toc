@@ -1,92 +1,94 @@
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}% 
-\contentsline {section}{\numberline {2}Probabilistic Models}{2}{section.2}% 
-\contentsline {section}{\numberline {3}Directed Graphical Models}{2}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}Decision Theory}{2}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}Latent Variables}{2}{subsection.3.2}% 
-\contentsline {paragraph}{Complete data case}{2}{section*.2}% 
-\contentsline {paragraph}{Partially observed dataset}{2}{section*.3}% 
-\contentsline {paragraph}{Inference with Latent Variables}{2}{section*.4}% 
-\contentsline {subsection}{\numberline {3.3}Mixture Models}{3}{subsection.3.3}% 
-\contentsline {paragraph}{Inference using mixture models}{3}{section*.5}% 
-\contentsline {paragraph}{Posterior probabilities / responsibilities}{3}{section*.6}% 
-\contentsline {paragraph}{Gaussian mixture models}{3}{section*.7}% 
-\contentsline {paragraph}{Mixtures of experts}{3}{section*.8}% 
-\contentsline {section}{\numberline {4}Exact Inference}{3}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Variable Elimination}{4}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Intermediate Factors}{4}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Sum-Product Inference}{5}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}Complexity of Variable Elimination Ordering}{5}{subsection.4.4}% 
-\contentsline {section}{\numberline {5}Message passing, Hidden Markov Models, and Sampling}{5}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Message Passing (Computing All Marginals)}{5}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Markov Chains}{6}{subsection.5.2}% 
-\contentsline {paragraph}{Simplification}{6}{section*.10}% 
-\contentsline {paragraph}{Parameterization}{7}{section*.11}% 
-\contentsline {subsection}{\numberline {5.3}Hidden Markov Models}{7}{subsection.5.3}% 
-\contentsline {paragraph}{Joint distribution}{7}{section*.13}% 
-\contentsline {paragraph}{Parameterization}{7}{section*.14}% 
-\contentsline {subsection}{\numberline {5.4}Forward-backward Algorithm}{7}{subsection.5.4}% 
-\contentsline {paragraph}{Smoothing}{7}{section*.15}% 
-\contentsline {paragraph}{Filtering}{7}{section*.16}% 
-\contentsline {paragraph}{Prediction}{7}{section*.17}% 
-\contentsline {subsection}{\numberline {5.5}Procedure of Smoothing (Forward-backward Algorithm)}{8}{subsection.5.5}% 
-\contentsline {paragraph}{Forward filtering (encoding)}{8}{section*.18}% 
-\contentsline {paragraph}{Backward filtering (decoding)}{8}{section*.19}% 
-\contentsline {subsection}{\numberline {5.6}Sampling}{9}{subsection.5.6}% 
-\contentsline {paragraph}{Problem 1}{9}{section*.20}% 
-\contentsline {paragraph}{Problem 2}{9}{section*.21}% 
-\contentsline {paragraph}{Ancestral sampling}{9}{section*.22}% 
-\contentsline {paragraph}{Generating marginal samples}{9}{section*.23}% 
-\contentsline {paragraph}{Generating conditional samples}{10}{section*.24}% 
-\contentsline {section}{\numberline {6}True Skill}{10}{section.6}% 
-\contentsline {paragraph}{Question 1}{11}{section*.25}% 
-\contentsline {paragraph}{Approximate Inferences}{11}{section*.27}% 
-\contentsline {paragraph}{Intractability}{11}{section*.28}% 
-\contentsline {subsection}{\numberline {6.1}Variational Inferences}{11}{subsection.6.1}% 
-\contentsline {paragraph}{General Idea of Variational / Approximate Inferences}{11}{section*.29}% 
-\contentsline {subsection}{\numberline {6.2}Kullback\IeC {\textendash }Leibler Divergence}{12}{subsection.6.2}% 
-\contentsline {paragraph}{Properties of KL divergence}{12}{section*.30}% 
-\contentsline {paragraph}{Reverse-KL Information Projection}{12}{section*.31}% 
-\contentsline {paragraph}{Forward-KL Moment Projection}{12}{section*.32}% 
-\contentsline {subsection}{\numberline {6.3}Stochastic Variational Inference}{12}{subsection.6.3}% 
-\contentsline {paragraph}{Evidence Lower Bound}{12}{section*.33}% 
-\contentsline {paragraph}{Re-parameterization Tricks}{13}{section*.34}% 
-\contentsline {paragraph}{Pathwise Gradient}{13}{section*.35}% 
-\contentsline {paragraph}{Stochastic/Automatic Differentiation Variational Inference}{14}{section*.36}% 
-\contentsline {paragraph}{Interpretation of ELBO}{14}{section*.37}% 
-\contentsline {paragraph}{Reinforce / Score Function Estimation}{14}{section*.38}% 
-\contentsline {paragraph}{Mean-Field Variational Inference}{14}{section*.39}% 
-\contentsline {paragraph}{Jensen's Inequality}{14}{section*.40}% 
-\contentsline {section}{\numberline {7}Sampling and Monte Carlo Methods}{15}{section.7}% 
-\contentsline {paragraph}{Problem}{15}{section*.41}% 
-\contentsline {subsection}{\numberline {7.1}Monte Carlo}{15}{subsection.7.1}% 
-\contentsline {paragraph}{Sampling}{15}{section*.42}% 
-\contentsline {paragraph}{Simple MC estimator}{15}{section*.43}% 
-\contentsline {paragraph}{Aside}{16}{section*.44}% 
-\contentsline {paragraph}{Why is sampling $x \sim p$ hard?}{16}{section*.45}% 
-\contentsline {paragraph}{Easy Distributions?}{16}{section*.46}% 
-\contentsline {subsubsection}{\numberline {7.1.1}Lattice Discretization (Bad idea!)}{16}{subsubsection.7.1.1}% 
-\contentsline {subsection}{\numberline {7.2}Monte Carlo Methods for Sampling}{16}{subsection.7.2}% 
-\contentsline {subsubsection}{\numberline {7.2.1}Uniform Sampling}{16}{subsubsection.7.2.1}% 
-\contentsline {subsubsection}{\numberline {7.2.2}Importance Sampling}{16}{subsubsection.7.2.2}% 
-\contentsline {paragraph}{Importance Weight Sampler}{16}{section*.47}% 
-\contentsline {subsubsection}{\numberline {7.2.3}Rejection Sampling}{16}{subsubsection.7.2.3}% 
-\contentsline {paragraph}{Rejection Sampling}{16}{section*.49}% 
-\contentsline {paragraph}{Intuition}{17}{section*.50}% 
-\contentsline {paragraph}{Limitations}{17}{section*.51}% 
-\contentsline {paragraph}{Typical set}{17}{section*.52}% 
-\contentsline {paragraph}{Markov Chain Monte Carlo (MCMC)}{17}{section*.54}% 
-\contentsline {paragraph}{Metropolis}{18}{section*.55}% 
-\contentsline {paragraph}{Random Walk Metropolis}{18}{section*.56}% 
-\contentsline {paragraph}{Hamiltonian Monte Carlo}{18}{section*.57}% 
-\contentsline {subsection}{\numberline {7.3}Tutorial on Sampling}{18}{subsection.7.3}% 
-\contentsline {paragraph}{Problem}{18}{section*.58}% 
-\contentsline {paragraph}{Goal}{18}{section*.59}% 
-\contentsline {paragraph}{Challenge}{18}{section*.60}% 
-\contentsline {paragraph}{Cheap Sampling}{19}{section*.61}% 
-\contentsline {paragraph}{Idea}{19}{section*.62}% 
-\contentsline {subsubsection}{\numberline {7.3.1}Importance Sampling}{19}{subsubsection.7.3.1}% 
-\contentsline {paragraph}{Problem}{19}{section*.63}% 
-\contentsline {paragraph}{Solution}{19}{section*.64}% 
-\contentsline {paragraph}{Intuition}{19}{section*.66}% 
-\contentsline {paragraph}{Estimation}{19}{section*.67}% 
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Probabilistic Models}{3}{section.2}% 
+\contentsline {section}{\numberline {3}Directed Graphical Models}{3}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Decision Theory}{3}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Latent Variables}{3}{subsection.3.2}% 
+\contentsline {paragraph}{Complete data case}{3}{section*.2}% 
+\contentsline {paragraph}{Partially observed dataset}{3}{section*.3}% 
+\contentsline {paragraph}{Inference with Latent Variables}{3}{section*.4}% 
+\contentsline {subsection}{\numberline {3.3}Mixture Models}{4}{subsection.3.3}% 
+\contentsline {paragraph}{Inference using mixture models}{4}{section*.5}% 
+\contentsline {paragraph}{Posterior probabilities / responsibilities}{4}{section*.6}% 
+\contentsline {paragraph}{Gaussian mixture models}{4}{section*.7}% 
+\contentsline {paragraph}{Mixtures of experts}{4}{section*.8}% 
+\contentsline {section}{\numberline {4}Exact Inference}{4}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Variable Elimination}{5}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Intermediate Factors}{5}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Sum-Product Inference}{6}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Complexity of Variable Elimination Ordering}{6}{subsection.4.4}% 
+\contentsline {section}{\numberline {5}Message passing, Hidden Markov Models, and Sampling}{6}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Message Passing (Computing All Marginals)}{6}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Markov Chains}{7}{subsection.5.2}% 
+\contentsline {paragraph}{Simplification}{7}{section*.10}% 
+\contentsline {paragraph}{Parameterization}{8}{section*.11}% 
+\contentsline {subsection}{\numberline {5.3}Hidden Markov Models}{8}{subsection.5.3}% 
+\contentsline {paragraph}{Joint distribution}{8}{section*.13}% 
+\contentsline {paragraph}{Parameterization}{8}{section*.14}% 
+\contentsline {subsection}{\numberline {5.4}Forward-backward Algorithm}{8}{subsection.5.4}% 
+\contentsline {paragraph}{Smoothing}{8}{section*.15}% 
+\contentsline {paragraph}{Filtering}{8}{section*.16}% 
+\contentsline {paragraph}{Prediction}{8}{section*.17}% 
+\contentsline {subsection}{\numberline {5.5}Procedure of Smoothing (Forward-backward Algorithm)}{9}{subsection.5.5}% 
+\contentsline {paragraph}{Forward filtering (encoding)}{9}{section*.18}% 
+\contentsline {paragraph}{Backward filtering (decoding)}{9}{section*.19}% 
+\contentsline {subsection}{\numberline {5.6}Sampling}{10}{subsection.5.6}% 
+\contentsline {paragraph}{Problem 1}{10}{section*.20}% 
+\contentsline {paragraph}{Problem 2}{10}{section*.21}% 
+\contentsline {paragraph}{Ancestral sampling}{10}{section*.22}% 
+\contentsline {paragraph}{Generating marginal samples}{10}{section*.23}% 
+\contentsline {paragraph}{Generating conditional samples}{11}{section*.24}% 
+\contentsline {section}{\numberline {6}True Skill}{11}{section.6}% 
+\contentsline {paragraph}{Question 1}{12}{section*.25}% 
+\contentsline {paragraph}{Approximate Inferences}{12}{section*.27}% 
+\contentsline {paragraph}{Intractability}{12}{section*.28}% 
+\contentsline {subsection}{\numberline {6.1}Variational Inferences}{12}{subsection.6.1}% 
+\contentsline {paragraph}{General Idea of Variational / Approximate Inferences}{12}{section*.29}% 
+\contentsline {subsection}{\numberline {6.2}Kullback\IeC {\textendash }Leibler Divergence}{13}{subsection.6.2}% 
+\contentsline {paragraph}{Properties of KL divergence}{13}{section*.30}% 
+\contentsline {paragraph}{Reverse-KL Information Projection}{13}{section*.31}% 
+\contentsline {paragraph}{Forward-KL Moment Projection}{13}{section*.32}% 
+\contentsline {subsection}{\numberline {6.3}Stochastic Variational Inference}{13}{subsection.6.3}% 
+\contentsline {paragraph}{Evidence Lower Bound}{13}{section*.33}% 
+\contentsline {paragraph}{Re-parameterization Tricks}{14}{section*.34}% 
+\contentsline {paragraph}{Pathwise Gradient}{14}{section*.35}% 
+\contentsline {paragraph}{Stochastic/Automatic Differentiation Variational Inference}{15}{section*.36}% 
+\contentsline {paragraph}{Interpretation of ELBO}{15}{section*.37}% 
+\contentsline {paragraph}{Reinforce / Score Function Estimation}{15}{section*.38}% 
+\contentsline {paragraph}{Mean-Field Variational Inference}{15}{section*.39}% 
+\contentsline {paragraph}{Jensen's Inequality}{15}{section*.40}% 
+\contentsline {section}{\numberline {7}Sampling and Monte Carlo Methods}{16}{section.7}% 
+\contentsline {paragraph}{Problem}{16}{section*.41}% 
+\contentsline {subsection}{\numberline {7.1}Monte Carlo}{16}{subsection.7.1}% 
+\contentsline {paragraph}{Sampling}{16}{section*.42}% 
+\contentsline {paragraph}{Simple MC estimator}{16}{section*.43}% 
+\contentsline {paragraph}{Aside}{17}{section*.44}% 
+\contentsline {paragraph}{Why is sampling $x \sim p$ hard?}{17}{section*.45}% 
+\contentsline {paragraph}{Easy Distributions?}{17}{section*.46}% 
+\contentsline {subsubsection}{\numberline {7.1.1}Lattice Discretization (Bad idea!)}{17}{subsubsection.7.1.1}% 
+\contentsline {subsection}{\numberline {7.2}Monte Carlo Methods for Sampling}{17}{subsection.7.2}% 
+\contentsline {subsubsection}{\numberline {7.2.1}Uniform Sampling}{17}{subsubsection.7.2.1}% 
+\contentsline {subsubsection}{\numberline {7.2.2}Importance Sampling}{17}{subsubsection.7.2.2}% 
+\contentsline {paragraph}{Importance Weight Sampler}{17}{section*.47}% 
+\contentsline {subsubsection}{\numberline {7.2.3}Rejection Sampling}{17}{subsubsection.7.2.3}% 
+\contentsline {paragraph}{Rejection Sampling}{17}{section*.49}% 
+\contentsline {paragraph}{Intuition}{18}{section*.50}% 
+\contentsline {paragraph}{Limitations}{18}{section*.51}% 
+\contentsline {paragraph}{Limitations}{18}{section*.52}% 
+\contentsline {subsubsection}{\numberline {7.2.4}Metropolis-Hastings Method}{18}{subsubsection.7.2.4}% 
+\contentsline {paragraph}{Typical set}{18}{section*.53}% 
+\contentsline {paragraph}{Markov Chain Monte Carlo (MCMC)}{18}{section*.55}% 
+\contentsline {paragraph}{Metropolis}{19}{section*.56}% 
+\contentsline {paragraph}{Random Walk Metropolis}{19}{section*.57}% 
+\contentsline {paragraph}{Hamiltonian Monte Carlo}{19}{section*.58}% 
+\contentsline {subsection}{\numberline {7.3}Tutorial on Sampling}{19}{subsection.7.3}% 
+\contentsline {paragraph}{Problem}{19}{section*.59}% 
+\contentsline {paragraph}{Goal}{19}{section*.60}% 
+\contentsline {paragraph}{Challenge}{20}{section*.61}% 
+\contentsline {paragraph}{Cheap Sampling}{20}{section*.62}% 
+\contentsline {paragraph}{Idea}{20}{section*.63}% 
+\contentsline {subsubsection}{\numberline {7.3.1}Importance Sampling}{20}{subsubsection.7.3.1}% 
+\contentsline {paragraph}{Problem}{20}{section*.64}% 
+\contentsline {paragraph}{Solution}{20}{section*.65}% 
+\contentsline {paragraph}{Intuition}{20}{section*.67}% 
+\contentsline {paragraph}{Estimation}{20}{section*.68}% 

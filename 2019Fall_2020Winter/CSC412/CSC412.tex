@@ -810,12 +810,15 @@
 		&= \frac{\tilde{p}(x)}{Z_q c} \propto p(x)
 	\end{align}
 	
+	\paragraph{Limitations} For rejection sampling, if the two distributions $p$ and $q$ are not similar, $c$ have to be large so that $c \tilde{q}$ covers $\tilde{q}$ everywhere in $\mc{X}$. A large value fo $c$ makes acceptance rare.
+	
 	\paragraph{Limitations} The rejection sampling requires $p \approx q$. Otherwise, the $C$ required is large. When $p$ and $q$ are on $D$ dimensions, then $C \in \mc{O}(\exp(\sqrt{D}))$. The acceptance rate is $\frac{1}{C}$ in one dimension, and the rate reduces exponentially in dimension.
 	\begin{align}
 		\expe_p [f] = \int f(x) p(x)\ dx
 	\end{align}
 	Since integral is a linear operator, when integrant is large, the expectation is large as well.
 	
+	\subsubsection{Metropolis-Hastings Method}
 	\paragraph{Typical set} Because expectation is a linear operator, all samples that contribute significantly to the $\expe$ come from the typical set. \todo{Check the definition of typical set.}
 
 	\paragraph{Markov Chain Monte Carlo (MCMC)} Stochastically explore the typical set. We need a Markov transition distribution, from which we can sample $x_{t+1}$:
@@ -832,7 +835,7 @@
 	
 	\paragraph{Metropolis} Given background distribution $p$, we only observe $\tilde{p}$ but not $p$. Define $T$ as
 	\begin{enumerate}[(i)]
-		\item Proposal distribution $q$
+		\item Proposal distribution $q$, which is not necessarily similar to $p$.
 		\begin{align}
 			x' \sim q(x'|x_t)
 		\end{align}
@@ -840,9 +843,10 @@
 		\begin{align}
 			a := \frac{\tilde{p}(x') q(x_t|x')}{\tilde{p}(x_t) q(x'|x_t)}
 		\end{align}
-		If $a \geq 1$, then accept it. 
-		If $a \in [0, 1)$, accept with probability $a$. 
-		If rejected, $x_{t+1} = x_t$.
+		\begin{enumerate}[(a)]
+			\item If $a \geq 1$ accept $x_{t+1} \leftarrow x'$.
+			\item If $a < 1$, accept $x_{t+1} \leftarrow x'$ with probability $a$; otherwise, reject and set $x_{t+1} \leftarrow x_t$.
+		\end{enumerate}
 	\end{enumerate}
 	
 	\paragraph{Random Walk Metropolis}
