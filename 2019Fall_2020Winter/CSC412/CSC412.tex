@@ -613,13 +613,18 @@
 		\implies \mc{L}(\varphi;x) + D_{KL}(q_\varphi(z|x) || p(z|x)) &= \log p(x)\quad (\dagger) \\
 		\implies \mc{L}(\varphi; x) &\leq \log p(x)
 	\end{align}
-	Hence, $\mc{L}(\varphi; x)$ is the lower bound of evidence $x$. \ul{By ($\dagger$), maximizing ELBO and minimizing KL divergence are equivalent.}
+	Hence, $\mc{L}(\varphi; x)$ is called ELBO because it is a lower bound of log-likelihood of the evidence $x$. \ul{By ($\dagger$), maximizing ELBO and minimizing KL divergence are equivalent.}
 	
 	\paragraph{Re-parameterization Tricks} In order to maximize ELBO, we want to compute the gradient of ELBO with respect to $\varphi$:
 	\begin{align}
 		\nabla_\varphi \mc{L}(\varphi; x)
 		&= \nabla_\varphi \expe_{z \sim q_\varphi(z|x)} [
 		\log p(z, x) - \log q_\varphi(z|x)]
+	\end{align}
+	
+	\paragraph{Interpretation of ELBO} ELBO can be further rewritten as
+	\begin{align}
+		.
 	\end{align}
 	
 	\paragraph{Pathwise Gradient} More generally, let $f$ be an arbitrary function, in our case, $f(z) = \log q_\varphi(z|x) - p(z, x)$. The gradient is
