@@ -674,7 +674,7 @@
 			&= \sum_{i \in S} \pi_i \lim_{n \to \infty} p_{ij}\upn \\
 			&= 0 \neq 1
 		\end{align}
-		$\contradiction$
+		$\rightarrow\leftarrow$
 	\end{proof}
 	
 	\begin{lemma}[Vanishing Lemma]
@@ -885,7 +885,189 @@
 	\begin{corollary}[Generalized Version]
 		If $\mc{M}$ is \ul{irreducible} then it has at most one stationary distribution.
 	\end{corollary}
+	\subsection{Periodic Convergence}
+	\begin{theorem}[Periodic Convergence Theorem]
+		Suppose a Markov chain is \ul{irreducible}, with period $b \geq 2$, and has stationary distribution $\pi$, then for all $i, j \in S$,
+		\begin{align}
+			\lim _{n \rightarrow \infty} \frac{1}{b}\left[p_{i j}^{(n)}+\ldots+p_{i j}^{(n+b-1)}\right]=\pi_{j}
+		\end{align}
+		and
+		\begin{align}
+			\lim _{n \rightarrow \infty} \frac{1}{b}\left(\prob{X_{n}=j}+\prob{X_{n+1}=j}+\ldots+\prob{X_{n+b-1}=j}\right)=\pi_{j}
+		\end{align}
+		Moreover,
+		\begin{align}
+			\lim_{n \to \infty} \prob{X_{n}=j \tx{ or } X_{n+1}=j \tx{ or } \cdots \tx{ or }X_{n+b-1}=j}
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		For the last equality, note that since the period is $b$, it must take at least $b$ steps for the chain to return to $j$ from $j$. Therefore, all events in the last equality are disjoint.
+	\end{proof}
+
+	\begin{lemma}[Cesaro Sum]
+		If $\lim_{n \to \infty} x_n = r$, then $\lim_{n \to \infty} \frac{1}{n} \sum_{i=1}^n x_i = r$.
+	\end{lemma}
+
+	\begin{theorem}[Average Probability Convergence]
+		If a Markov chain is \ul{irreducible} with stationary distribution $\pi$, then for all $i, j \in S$,
+		\begin{align}
+			\lim_{n \to \infty} \frac{1}{n} \sum_{\ell=1}^n p_{ij}^{(\ell)} = \pi_j
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		If the chain is aperiodic, apply the Markov chain convergence theorem and Cesaro sum. Otherwise, suppose the chain has period $b \geq 2$, 
+		then by periodic convergence theorem,
+		\begin{align}
+			x_n := \frac{1}{b}\left[p_{i j}^{(n)}+\ldots+p_{i j}^{(n+b-1)}\right] \to \pi_j
+		\end{align}
+		and Cesaro sum,
+		\begin{align}
+			\lim_{n\to\infty} \frac{1}{n} \sum_{\ell=1}^n x_\ell = \pi_j
+		\end{align}
+	\end{proof}
+	
+	\section{Random Walk on Graphs}
+	\begin{definition}
+		A \textbf{graph} consists of a non-empty finite or countable set $V$ of \ul{vertices} and a \ul{symmetric weight function} $w: V \times V \to \R_+$.
+	\end{definition}
+	
+	\begin{definition}
+		A graph is \textbf{unweighted} if for every $w, v \in V$,
+		\begin{enumerate}[(i)]
+			\item $d(w, v) = 1$ if and only if there is an edge between $w$ and $v$;
+			\item and $d(w, v) = 0$ if and only if there is no edge in between.
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{definition}
+		For a vertex $u \in V$, the \textbf{degree} of vertex $u$ is defined as
+		\begin{align}
+			d(u) := \sum_{v \in V} w(u, v)
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}
+		Given a vertex set $V$ with symmetric weights $w$ the \textbf{(simple) random walk on the (undirected) graph} $(V, w)$ is the Markov chain with state space $S=V$ and transition probabilities $p_{u v}=\frac{w(u, v)}{d(u)}$ for all $u, v \in V$.
+	\end{definition}
+	
+	\begin{definition}
+		Consider a random walk on a graph $V$ with degree $d(u)$. Assume 
+		\begin{align}
+			Z = \sum_{u \in V}d(u) = \sum_{u, v \in V} w(u, v)	
+		\end{align}
+		is finite, then
+		\begin{align}
+			\pi_u = \frac{d(u)}{Z}
+		\end{align}
+		is a stationary distribution for this walk.
+	\end{definition}
+	\begin{proof}
+		We are going to show this random walk is reversible with respect to $\pi$. Let $u, v \in V$,
+		\begin{align}
+			\pi_u p_{uv} = \frac{d(u)}{Z} \frac{w(u, v)}{d(u)} = \frac{w(u,v)}{Z} \\
+			\pi_v p_{vu} = \frac{d(v)}{Z} \frac{w(v, u)}{d(v)} = \frac{w(v,u)}{Z}
+		\end{align}
+		These two products are in fact equal because weight is symmetric.
+	\end{proof}
+	
+	\begin{proposition}
+		A random walk on graph is irreducible if and only if the graph is connected.
+	\end{proposition}
+	
+	\begin{proposition}
+		The period of a random walk on graph is either 1 or 2, since $p^{(2)}_{uu} > 0$.
+	\end{proposition}
+	
+	\begin{proposition}
+		A random walk on graph is aperiodic if and only if it's non-bipartite.
+	\end{proposition}
+	
+	\begin{proposition}
+		Any cycle with odd number of vertices is non-bipartite, therefore, aperiodic.
+	\end{proposition}
+	
+	\begin{theorem}[Graph Convergence Theorem]
+		For a random walk on a \ul{connected non-bipartite} graph, if $Z<\infty,$ then 
+		\begin{align}
+			\lim _{n \rightarrow \infty} p_{u v}^{(n)}=\frac{d(v)}{Z} \equiv \pi_v	
+		\end{align}
+		for all $u, v \in V,$ and 
+		\begin{align}
+			\lim _{n \rightarrow \infty} \mathbf{P}\left[X_{n}=v\right]=\frac{d(v)}{Z}
+		\end{align}
+		for any initial probabilities.
+	\end{theorem}
+	\begin{proof}
+		Since the graph is irreducible and aperiodic, further it possesses a stationary distribution. By Markov chain convergence theorem, it converges to its stationary distribution.
+	\end{proof}
+	
+	\begin{theorem}[Graph Average Convergence]
+		For a random walk on any \ul{connected graph} with $Z<\infty$ (whether bipartite or not), for all $u, v \in V$,
+		\begin{align}
+			\lim _{n \rightarrow \infty} \frac{1}{2}\left[p_{u v}^{(n)}+p_{u v}^{(n+1)}\right]=\frac{d(v)}{Z}	
+		\end{align}
+		and
+		\begin{align}
+			\lim _{n \rightarrow \infty} \frac{1}{n} \sum_{\ell=1}^{n} p_{u v}^{(\ell)}=\frac{d(v)}{Z}
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		By periodic convergence theorem.
+	\end{proof}
+	
+	\section{Mean Recurrence Times}
+	\begin{definition}
+		Given a Markov chain with states $S$, the \textbf{mean recurrence time} of a state $i \in S$ is the expected value of the time of returning state $i$ from state $i$. That is,
+		\begin{align}
+			m_i = \expe_i[\inf\{n \geq 1: X_n = i\}] = \expect{\inf\{n \geq 1: X_n = i | X_0 = i\}}
+		\end{align}
+		Let $\tau_i := \inf\{n \geq 1: X_n = i\}$.
+	\end{definition}
+	
+	\begin{remark}
+		Even if state $i$ is recurrent, it is still possible that $m_i = \infty$.
+	\end{remark}
+	
+	\begin{definition}
+		A state is \textbf{positive recurrent} if $m_i < \infty$. It is \textbf{null recurrent} if $m_i = \infty$.
+	\end{definition}
+	
+	\begin{theorem}[Recurrent Time Theorem]
+		For an irreducible Markov chain, either
+		\begin{enumerate}[(i)]
+			\item $m_i < \infty$ for all $i \in S$, and there is a unique stationary distribution $\pi_i = \frac{1}{m_i}$;
+			\item or $m_i = \infty$ for all $i \in S$, and there is no stationary distribution.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proposition}
+		An \ul{irreducible} Markov chain on a \ul{finite} state space $S$ always have $m_i < \infty$ for all $i \in S$, and this chain has stationary distribution $\pi_i = \frac{1}{m_i}$.
+	\end{proposition}
+	
+	\begin{remark}
+		The converse to above proposition is false. There are Markov chains with stationary distribution, but has infinite state space.
+	\end{remark}
+	
+	\begin{proposition}
+		For a symmetric random walk starting from state $i$,
+		\begin{align}
+			\infty = m_i = \expe_i[\tau_i] &= 1 + p \expe_{i+1}[\tau_i] + (1-p) \expe_{i-1} [\tau_i] \\
+			&= 1 + p \expe_{i}[\tau_{i-1}] + (1-p) \expe_{i} [\tau_{i+1}] \\
+			&\implies \expe_{i}[\tau_{i-1}] = \expe_{i} [\tau_{i+1}] = \infty
+		\end{align}
+		Therefore, on average, it takes infinite steps for the simple symmetric walk to progress one step.
+	\end{proposition}
+
+	\section{Sequence Waiting Times}
+	\paragraph{Motivation} Converting the waiting time for a particular pattern in stochastic process $\{X_n\}$ to a Markov chain.
+	\todo{fill this part}
+	
+	\section{Martingales}
 \end{document}
+
 
 
 
