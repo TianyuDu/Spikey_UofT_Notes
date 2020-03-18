@@ -1060,12 +1060,230 @@
 		\end{align}
 		Therefore, on average, it takes infinite steps for the simple symmetric walk to progress one step.
 	\end{proposition}
-
+	
+	\section{Martingales}
+	\begin{assumption}
+		We assume throughout that the random variable of consideration, $X_n$, has finite expectation:
+		\begin{align}
+			\expe |X_n| < \infty
+		\end{align}
+	\end{assumption}
+	
+	\begin{definition}
+		A stochastic process $\{X_n\}_{n=0}^\infty$ is a \textbf{martingale} if for all $n$:
+		\begin{align}
+			\expe [X_{n+1} | X_{0:n}] = X_n
+		\end{align}
+	\end{definition}
+	
+	\begin{proposition}
+		A Markov chain with discrete space $S$ and $X_t = i_t \in S$ is a martingale if
+		\begin{align}
+			\expe [X_{n+1}|X_{0:n}] = \sum_{j \in S} p_{i_{n} j} j = i_n
+		\end{align}
+	\end{proposition}
+	
+	\begin{example}
+		A simple symmetric random walk is a Markov chain martingale.
+	\end{example}
+	
+	\begin{lemma}[Law of Total Expectation]
+		\begin{align}
+			\expect{\expect{X|Y}} = \expect{X}
+		\end{align}
+	\end{lemma}
+	
+	\begin{proposition}[Necessary Condition of a Martingale]
+		Let $\{X_n\}_{n=0}^\infty$ be a martingale stochastic process, then
+		\begin{align}
+			\expect{X_{n+1}} = \expect{\expect{X_{n+1}|X_{0:n}}} = \expect{X_n}
+		\end{align}
+		By induction,
+		\begin{align}
+			\expect{X_n} = \expect{X_0}\quad \forall n \in \N
+		\end{align}
+	\end{proposition}
+	
+	\section{Stopping Times}
+	\begin{definition}
+		A non-negative-inter-valued random variable $T$ is a \textbf{stopping time} for $\{X_n\}$ if for every $n$, the event $\{T=n\}$ is determined only by $X_{0:n}$. That is, whether the stopping time $T$ is reached at step $n$ is determined completely by the history up to time $n$.
+	\end{definition}
+	
+	\paragraph{Motivation} Given a stopping time random variable $T$, whether
+	\begin{align}
+		\expect{X_T} = \expect{X_0}
+	\end{align}
+	
+	\begin{lemma}[Optional Stopping Lemma]
+		If $\{X_n\}$ is a martingale, and $T$ is a \ul{bounded} stopping time:
+		\begin{align}
+			\exists M < \infty\ s.t.\ P(T \leq M) = 1
+		\end{align}
+		then
+		\begin{align}
+			\expect{X_T} = \expect{X_0}
+		\end{align}
+	\end{lemma}
+	
+	\begin{proof}
+		\begin{align}
+			\expect{X_T} - \expect{X_0}
+			&= \expect{X_T - X_0} \\
+			&= \expect{\sum_{t=1}^T X_t - X_{t-1}} \\
+			&= \expect{\sum_{t=1}^M (X_t - X_{t-1}) \id{t \leq T}} \\
+			&= \expect{\sum_{t=1}^M (X_t - X_{t-1}) (1 - \id{t > T})} \\
+			&= \sum_{t=1}^M \expect{(X_t - X_{t-1}) (1 - \id{t > T})} \label{key}\\
+			&= \sum_{t=1}^M \expect{\expect{(X_t - X_{t-1}) (1 - \id{T \leq t-1})|X_{0:t-1}}} \\
+			&= \sum_{t=1}^M \expect{(1 - \id{T \leq t-1}) \expect{(X_t - X_{t-1})|X_{0:t-1}}} \\
+			&= \sum_{t=1}^M \expect{(1 - \id{T \leq t-1}) (\expect{X_t|X_{0:t-1}} - X_{t-1})} \\
+			&= \sum_{t=1}^M \expect{(1 - \id{T \leq t-1}) (0)} \\
+			&= 0
+		\end{align}
+	\end{proof}
+	
+	\begin{remark}
+		If $M = \infty$, we may not exchange the summation and expectation at step (\ref{key}).
+	\end{remark}
+	
+	\begin{theorem}[Optional Stopping Theorem]
+		If $\{X_n\}_{n=0}^\infty$ is martingale with stopping time $T$ such that
+		\begin{align}
+			&P(T < \infty) = 1 \label{ost:con1}\\
+			&\expect{X_T} < \infty \label{ost:con2}\\
+			&\lim_{n \to \infty} \expect{X_n \id{T > n}} = 0 \label{ost:con3}
+		\end{align}
+		Then
+		\begin{align}
+			\expect{X_T} = \expect{X_0}
+		\end{align}
+	\end{theorem}
+	
+	\begin{proof}
+		For each $m \in \N$, define another random variable $S_m = \min(T, m)$. So that $S_m$ is a bounded stopping time. And by the optimal stopping lemma,
+		\begin{align}
+			\expect{X_{S_m}} = \expect{X_T}
+		\end{align}
+		Moreover,
+		\begin{align}
+			&X_{S_m} = S_{\min(T,m)} = \id{T > m} X_m + (1 - \id{T > m}) X_T \\
+			&\implies X_T = X_{S_m} + \id{T > m} S_T - \id{T > m} S_m \\
+			&\implies \expect{X_T} = \expect{X_{S_m}} + \expect{\id{T > m} S_T} - \expect{\id{T > m} S_m} \\
+			&\implies \expect{X_T} = \expect{X_0} + \expect{\id{T > m} S_T} - \expect{\id{T > m} S_m}
+		\end{align}
+		By (\ref{ost:con1}) and (\ref{ost:con2}), as $m \to \infty$, $\expect{\id{T > m} S_T}$ approaches zero. \\
+		By (\ref{ost:con3}), as $m \to \infty$, $\expect{\id{T > m} S_m} \to 0$. Therefore,
+		\begin{align}
+			\lim_{m \to \infty} \expect{X_T} = \expect{X_0}
+		\end{align}
+		However, $\expect{X_T} \perp m$, it must be $\expect{X_T} = \expect{X_0}$.
+	\end{proof}
+	
+	\begin{corollary}[Optional Stopping Corollary]
+		If $\{X_n\}_{n=0}^\infty$ is martingale with stopping time $T$ such that
+		\begin{align}
+			&\exists M < \infty\ s.t.\ P(|X_n|\id{n < T} \leq M) = 1\ \forall n \in \N \\
+			&P(T < \infty) = 1
+		\end{align}
+	\end{corollary}
+	
+	\section{Wald's Theorem}
+	\begin{theorem}[Wald's Theorem]
+		Consider a stochastic process $X_n := a + Z_1 + \cdots + Z_n$ where $Z_i \overset{i.i.d.}{\sim} f_Z$ with finite mean $m$. Let $T$ be a stopping time for $\{X_n\}$ such that $\expect{T} < \infty$. Then,
+		\begin{align}
+			\expect{X_T} = a + m \expect{T}
+		\end{align}
+	\end{theorem}
+	
 	\section{Sequence Waiting Times}
 	\paragraph{Motivation} Converting the waiting time for a particular pattern in stochastic process $\{X_n\}$ to a Markov chain.
 	\todo{fill this part}
 	
-	\section{Martingales}
+	\section{Martingale Convergence Theorem}
+	\begin{theorem}[Martingale Convergence Theorem]
+		Any martingale $\{X_n\}_{n=0}^\infty$ which is either
+		\begin{enumerate}[(i)]
+			\item bounded below
+			\item \ul{or} bounded above
+		\end{enumerate}
+		converges to some random variable $X$ with probability 1.
+	\end{theorem}
+	
+	\begin{proof}
+		Omitted.
+	\end{proof}
+	
+	\section{Branching Processes}
+	\paragraph{Definition} A branching process consists of a \textbf{offspring distribution} $\mu \in \Delta(\Z_+)$. Let $X_0 = a$ and 
+	\begin{align}
+		&X_{n+1} = Z_{n, 1} + Z_{n, 2} + \cdots + Z_{n, X_n} \\
+		&\tx{where } Z_{n, j} \overset{i.i.d.}{\sim} \mu
+	\end{align}
+	The stochastic process $\{X_n\}_{n=0}^\infty$ is called a \textbf{branching process}. Note that a branching process is in fact a Markov chain with
+	\begin{align}
+		p_{00} = 1,\ p_{0j} = 0\ \forall j \geq 1
+	\end{align}
+	In general, the transition probability can be written using the convolution of offspring distributions
+	\begin{align}
+		\forall i, j \geq 1,\ p_{ij} = \underbrace{(\mu * \mu * \cdots * \mu)}_{\times i}(j)
+	\end{align}
+	Define $m := \expect{\mu}$ to be the \textbf{reproductive number}. Assume $0 < m < \infty$. Then, by induction
+	\begin{align}
+		\expect{X_{n+1}|X_0, \cdots, X_n} = m X_n
+	\end{align}
+	By applying law of total expectation and induction,
+	\begin{align}
+		\expect{X_n} = m^n \expect{X_0}
+	\end{align}
+	\begin{proposition}
+		When $m < 1$, with probability 1 $X_n \to 0$.
+	\end{proposition}
+	
+	\begin{proposition}
+		Assuming $\mu(0) > 0$, when $m > 1$, both $P(X_n \to \infty) > 0$ and $P(X_n \to 0) > 0$.
+	\end{proposition}
+	
+	\begin{definition}
+		A branching process is \textbf{degenerate} if $\mu(1) = 1$. That is, $X_n = X_0 = a$ w.p. 1 for all $n \in \N$.
+	\end{definition}
+	
+	\begin{proposition}
+		When $m=1$, the branching process is a non-negative martingale. Therefore, the martingale branching process converges to some random variable $X$ w.p. 1. If the branching process is non-degenerate, then it converges to $X \equiv 0$ w.p. 1.
+	\end{proposition}
+	
+	\begin{proposition}
+		Given $\mu(0) > 0$, then for $m \leq 1$, $X_n \to 0$ w.p. 1.
+	\end{proposition}
+	
+	\section{Discrete Stock Options}
+	\begin{definition}
+		A (European call) \textbf{stock option} is the option to buy one share of the stock for some fixed strike price $K$ at some fixed future strike date (time) $S>0$. Hence, at time $S$, the option worth $\max(0, X_S - K)$.
+	\end{definition}
+	
+	\begin{definition}
+		The \textbf{fair price} of an option is the price such that no profitable arbitrage is possible.
+	\end{definition}
+	
+	\begin{definition}
+		Let $V$ denote the set of possible values $X_S$ could take, then the \textbf{martingale probability} is defined as $p_M \in \Delta(V)$ such that
+		\begin{align}
+			\expe_{X_S \sim p_M}[X_S] = X_0
+		\end{align}
+		That is, $p_M$ is the transition probability from $X_0$ to $X_S$ that makes $\{X_n\}_{n=0}^\infty$ a martingale.
+	\end{definition}
+
+	\begin{theorem}[Martingale Pricing Principle]
+		The fair price of an option is equal to its expected value under the martingale probability. That is,
+		\begin{align}
+			p^* = \expe_{X_S \sim p_M}[\max\{0, X_S - K\}]
+		\end{align}
+	\end{theorem}
+	
+	\begin{proposition}
+		Suppose a stock price at time 0 equals $X_{0}=a,$ and at time $S>0$ equals either $X_{S}=d$ (down) or $X_{S}=u$ (up), where $d<a<u$ Then if $d<K<u,$ then at time $0,$ the fair (no-arbitrage) price of an option to buy the stock at time $S$ for $K$ is equal to 
+		\begin{align}
+			\frac{(a-d)(u-K)}{u-d}
+		\end{align}
+	\end{proposition}
 \end{document}
 
 

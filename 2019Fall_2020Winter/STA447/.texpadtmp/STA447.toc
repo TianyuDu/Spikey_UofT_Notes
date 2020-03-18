@@ -11,6 +11,13 @@
 \contentsline {subsection}{\numberline {2.4}Periodic Convergence}{16}{subsection.2.4}% 
 \contentsline {section}{\numberline {3}Random Walk on Graphs}{17}{section.3}% 
 \contentsline {section}{\numberline {4}Mean Recurrence Times}{18}{section.4}% 
-\contentsline {section}{\numberline {5}Sequence Waiting Times}{19}{section.5}% 
-\contentsline {paragraph}{Motivation}{19}{section*.2}% 
-\contentsline {section}{\numberline {6}Martingales}{19}{section.6}% 
+\contentsline {section}{\numberline {5}Martingales}{19}{section.5}% 
+\contentsline {section}{\numberline {6}Stopping Times}{20}{section.6}% 
+\contentsline {paragraph}{Motivation}{20}{section*.2}% 
+\contentsline {section}{\numberline {7}Wald's Theorem}{21}{section.7}% 
+\contentsline {section}{\numberline {8}Sequence Waiting Times}{21}{section.8}% 
+\contentsline {paragraph}{Motivation}{21}{section*.3}% 
+\contentsline {section}{\numberline {9}Martingale Convergence Theorem}{22}{section.9}% 
+\contentsline {section}{\numberline {10}Branching Processes}{22}{section.10}% 
+\contentsline {paragraph}{Definition}{22}{section*.5}% 
+\contentsline {section}{\numberline {11}Discrete Stock Options}{23}{section.11}% 
