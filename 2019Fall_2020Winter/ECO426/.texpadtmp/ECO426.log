@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  31 MAR 2020 18:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  31 MAR 2020 23:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -901,62 +901,61 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 757.
- [15] [16]
+ [15] [16] [17]
 
-./ECO426.tex:894: Package inputenc Error: Unicode character  (U+000B)
+./ECO426.tex:945: Package inputenc Error: Unicode character  (U+000B)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.894 ...\item Each doctor accepts the proposal/o
+l.945 ...\item Each doctor accepts the proposal/o
                                                   er from their most preferr...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-[17]
 
-./ECO426.tex:901: Package inputenc Error: Unicode character  (U+000B)
+./ECO426.tex:952: Package inputenc Error: Unicode character  (U+000B)
 (inputenc)                not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.901 			Each doctor accepts the proposal/o
+l.952 			Each doctor accepts the proposal/o
                                             er from their most preferred acc...
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
-
-Overfull \hbox (23.62569pt too wide) detected at line 976
+[18]
+Overfull \hbox (23.62569pt too wide) detected at line 1027
 []
  []
 
-[18] [19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 977.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 977.
+[19] [20]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1028.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1028.
  (/Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/ECO426/.texpadtmp/ECO426.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 977.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 977.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1028.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1028.
 Package rerunfilecheck Info: File `ECO426.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 977.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1028.
  ) 
 Here is how much of TeX's memory you used:
- 31080 strings out of 492616
- 590289 string characters out of 6129482
- 745359 words of memory out of 5000000
+ 31090 strings out of 492616
+ 590406 string characters out of 6129482
+ 741359 words of memory out of 5000000
  34261 multiletter control sequences out of 15000+600000
  543951 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,19n,92p,437b,1035s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/ECO426/.texpadtmp/ECO426.pdf (19 pages, 272776 bytes).
+Output written on /Users/tianyudu/Documents/UToronto/Note_Sharing/Spikey_UofT_Notes/2019Fall_2020Winter/ECO426/.texpadtmp/ECO426.pdf (20 pages, 274813 bytes).
 PDF statistics:
- 610 PDF objects out of 1000 (max. 8388607)
- 548 compressed objects within 6 object streams
- 302 named destinations out of 1000 (max. 500000)
+ 624 PDF objects out of 1000 (max. 8388607)
+ 561 compressed objects within 6 object streams
+ 312 named destinations out of 1000 (max. 500000)
  245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

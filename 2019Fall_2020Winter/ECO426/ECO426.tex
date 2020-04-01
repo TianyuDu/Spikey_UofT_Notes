@@ -809,7 +809,58 @@
 			\end{itemize}
 			\item Step $k \geq 2$, each man whose offer has been rejected in the previous step proposes to his most preferred woman among the acceptable women he has not yet proposed to (if there is no such woman he remains single).
 		\end{itemize}
+		The algorithm stops when no rejection happens, and women are matched with their on-hold men.
 	\end{algorithm}
+	
+	\begin{theorem}[David Gale \& Lloyd Shapley, 1962]
+		For any set of preferences, there always exists at least one stable matching.
+	\end{theorem}
+	
+%	\begin{proposition}
+%		Let $\mu_M$ denote the man-proposing DA matching.
+%		Each man prefers $\mu_M$ to any other stable matching.
+%		Each woman prefers any stable matching to $\mu_M$.
+%		Therefore, $\mu_M$ is the man-optimal matching.
+%	\end{proposition}
+%
+%	\begin{proposition}
+%		Let $\mu_W$ denote the woman-proposing DA matching.
+%		Each woman prefers $\mu_W$ to any other stable matching.
+%		Each man prefers any stable matching to $\mu_W$.
+%		Therefore, $\mu_W$ is the woman-optimal matching.
+%	\end{proposition}
+	
+	\begin{theorem}
+		The Deferred Acceptance algorithm (DA) produces a stable matching that is
+		\begin{itemize}
+			\item The \ul{most preferred} stable matching for the \ul{proposing} side;
+			\item The \ul{least preferred} stable matching for the \ul{receiving} side.
+		\end{itemize}
+	\end{theorem}
+	
+	\begin{proposition}
+		A pair of man $m$ and women $m$ is \textbf{achievable} if there exists a \textbf{stable matching} $\mu$ such that $\mu(m) = w$.
+	\end{proposition}
+	
+	\begin{proposition}
+		Under man-proposing DA, no man can be rejected by an achievable woman.
+	\end{proposition}
+	
+	\begin{proposition}
+		Let $\mu$ and $\mu'$ be two stable matchings. Suppose all men weakly prefer $\mu$ to $\mu'$. Then all women must weakly prefer $\mu'$ to $\mu$.
+	\end{proposition}
+	
+	\begin{theorem}
+		A matching mechanism that uses the Deferred Acceptance algorithm is strategyproof for the \ul{proposing} side.
+	\end{theorem}
+	
+	\begin{theorem}
+		There is no matching mechanism that satisfies, for any matching problem, the following two properties at the same time:
+		\begin{enumerate}[(a)]
+			\item The matching is \ul{stable} with respect to the submitted preference lists;
+			\item The mechanism is \ul{strategyproof} for \ul{all} individuals.
+		\end{enumerate}
+	\end{theorem}
 	
 	\section{Two side: Many-to-One Matching: Medical Matching}
 	\begin{definition}[Medical Matching]
