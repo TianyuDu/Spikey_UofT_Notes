@@ -735,8 +735,184 @@
 	
 	\section{Keyword Auctions}
 	
-	\section{Matching Market}
-	\info{The second half.}
+	\section{Two side, One-to-One Matching: Marriage Market}
+	\begin{definition}[Marriage Market]
+		Suppose there are a finite set of \textbf{women}: $W = \{w_1, w_2, \cdots\}$, and a finite set of \textbf{men}: $M = \{m_1, m_2, \cdots\}$. Each man $m \in M$ has a \ul{strict} preference relation $P_m$ over the women and the option of remaining single, that is, $P_m$ is defined over $W \cup \{m\}$. Similarly, each $w \in W$ has a preference relation $p_w$ over $M \cup \{w\}$.
+	\end{definition}
+	
+	\begin{notation}
+		The strict preference $P_v$ is often written as $\succ_v$. And the weak preference (i.e., preferred or indifferent to) is often written as $R_v$ or $\succsim_v$.
+	\end{notation}
+	
+	\begin{definition}
+		A man $m \in M$ is \textbf{unacceptable} for woman $w$ if and only if
+		\begin{align}
+			w P_w m
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}
+		A (one-to-one) \textbf{matching} is a mapping $\mu: W \cup M \to W \cup M$ such that
+		\begin{itemize}
+			\item $\forall m \in M,\ \mu(m) \in W \cup \{m\}$;
+			\item $\forall w \in W,\ \mu(w) \in M \cup \{w\}$;
+			\item $\mu(w) = m \iff \mu(m) = w$.
+		\end{itemize}
+	\end{definition}
+	
+	\begin{remark}
+		Someone $v \in M \cup W$ is \textbf{unmatched} if $\mu(v) = v$.
+	\end{remark}
+	
+	\begin{remark}
+		There's no price in a matching problem, so we can't really talk about equilibrium.
+	\end{remark}
+	
+	\begin{definition}
+		A matching $\mu$ is \textbf{individually rational} if for each $v \in M \cup W$,
+		\begin{align}
+			\mu(v) \succsim_v v
+		\end{align}
+	\end{definition}
+	
+	\begin{definition}
+		A pair $(m, w)$ \textbf{blocks} a matching $\mu$ if
+		\begin{itemize}
+			\item $\mu(m) \neq w$;
+			\item $w \succsim_m \mu(m)$;
+			\item $m \succsim_w \mu(w)$.
+		\end{itemize}
+	\end{definition}
+	
+	\begin{definition}
+		A matching $\mu$ is \textbf{stable} if
+		\begin{itemize}
+			\item it is individually rational;
+			\item and there is no $(m, w)$ pair blocks $\mu$.
+		\end{itemize}
+	\end{definition}
+	
+	\begin{theorem}[David Gale \& Lloyd Shapley, 1962]
+		For any set of preferences, there always exists at least one stable matching.
+	\end{theorem}
+	
+	\begin{algorithm}[Deferred Acceptance Algorithm] Man-proposing version:
+		\begin{itemize}
+			\item Step 1
+			\begin{itemize}
+				\item Each man proposes to his most preferred, acceptable woman (if a man finds no women acceptable he remains single);
+				\item Each woman who received at least one offer (proposed):
+				\begin{itemize}
+					\item temporarily holds the offer from the most preferred man among those who made an offer to her and are acceptable,
+					\item rejects all other offers.
+				\end{itemize}
+			\end{itemize}
+			\item Step $k \geq 2$, each man whose offer has been rejected in the previous step proposes to his most preferred woman among the acceptable women he has not yet proposed to (if there is no such woman he remains single).
+		\end{itemize}
+	\end{algorithm}
+	
+	\section{Two side: Many-to-One Matching: Medical Matching}
+	\begin{definition}[Medical Matching]
+		The agents in this problem consist of a finite set of \textbf{doctors}(residents) and a finite set of \textbf{hospitals}:
+	\begin{align}
+		D &= \{d_1, d_2, \cdots \} \\
+		H &= \{h_1, h_2, \cdots \}
+	\end{align}
+	For each $h \in H$, there is a \textbf{capacity} $q_h$ denotes the maximum number of residents $h$ can hire. And each $h \in H$ has a \ul{strict} preference over the set of doctors, $P_h^\sharp$. Note that $P_h^\sharp$ is only defined on sets with sizes up to $q_h$. \\
+	For each $d \in D$, $d$ has a strict preference, $P_d$, over hospitals.
+	\end{definition}
+	
+	\begin{definition}
+		A preference relation $P_h^\sharp$ over $\mc{P}(D)$ is \textbf{responsive} if there exists another preference relation $P_h$ over $D$ such that: for every $S \subseteq D$ such that $|S| < q_h$, and any $d, d' \notin S$,
+		\begin{align}
+			S \cup \{d\} P_h^\sharp S \cup \{d'\} \iff d P_h d'
+		\end{align}
+		and
+		\begin{align}
+			S \cup \{d\} P_h^\sharp S \iff d \tx{ is acceptable to } h
+		\end{align}
+	\end{definition}
+
+	\begin{definition}
+		A \textbf{matching} is a function $\mu: U \cup D \to H \cup D$ such that
+		\begin{itemize}
+			\item $\forall d \in D,\ \mu(d) \in H \cup \{d\}$;
+			\item $\forall h \in H$,
+			\begin{itemize}
+				\item $\abs{\mu(h)} \leq q_h$ (within capacity);
+				\item $\mu(h) \subseteq D$ (only matched to doctors).
+			\end{itemize}
+			\item $\mu(d) = h \iff d \in \mu(h)$.
+		\end{itemize}
+	\end{definition}
+	
+	\begin{definition}
+		A matching $\mu$ is \textbf{individually rational} if
+		\begin{itemize}
+			\item For each doctor $d \in D$, $\mu(d) \succsim_d d$.
+			\item For each hospital $h \in H$, $\forall d \in \mu(h)$, $d \succsim_h \varnothing$.
+		\end{itemize}
+	\end{definition}
+	
+	\begin{definition}
+		A pair $(d, h)$ \textbf{blocks} a matching $\mu$ if
+		\begin{itemize}
+			\item $d \notin \mu(h)$;
+			\item $h P_d \mu(d)$;
+			\item $d P_h d'$ for some $d' \in \mu(h)$.
+		\end{itemize}
+		Equivalently, with responsive preference:
+		\begin{align}
+			\mu(h) \cup \{d\} \backslash \{d'\} P_h^\sharp \mu(h)
+		\end{align}
+		That is, hospital $h$ would like to replace $d'$ with $d$.
+	\end{definition}
+	
+	\begin{definition}
+		A matching $\mu$ is \textbf{non-wasteful} if
+		\begin{align}
+			h P_d \mu(d) \implies \abs{\mu(h)} = q_h \lor \varnothing P_h d
+		\end{align}
+		If d prefers a hospital to her match then that hospital has filled its capacity (or d is not acceptable to h).
+	\end{definition}
+	
+	\begin{definition}
+		A matching $\mu$ is \textbf{stable} if
+		\begin{itemize}
+			\item it is individually rational;
+			\item there is no blocking pair;
+			\item it is non-wasteful.
+		\end{itemize}
+	\end{definition}
+	
+	\begin{algorithm}[Deferred Acceptance Algorithm for Many-to-One Matchings]
+		Hospital-proposing version:
+		\begin{itemize}
+			\item Step 1
+			\begin{itemize}
+				\item Each hospital proposes to its most preferred \ul{set of doctors};
+				\item Each doctor accepts the proposal/oer from their most preferred acceptable hospital, and rejects all other others.
+			\end{itemize}
+			\item Step $k \geq 2$, each hospital that had one or more rejections at the previous step proposes to its most preferred \ul{set of doctors} such that
+			\begin{itemize}
+				\item The set must contain all doctors that have accepted the hospital's offer at the previous step;
+				\item Any additional doctor in the set must be a doctor to whom the hospital has not proposed to before.
+			\end{itemize}
+			Each doctor accepts the proposal/oer from their most preferred acceptable hospital, and rejects all other others.
+		\end{itemize}
+		The algorithm stops when \ul{no more offers are rejected}.
+	\end{algorithm}
+	
+	\begin{proposition}
+		Doctor proposing DA yields the doctor-optimal matching, Hospital proposing DA yields the hospital-optimal matching.
+	\end{proposition}
+	
+	\begin{proposition}
+		The doctor-proposing DA is strategyproof for doctors (but not for hospitals).
+		However, the hospital proposing DA is \ul{not} strategyproof for hospitals.
+	\end{proposition}
+	
+	\section{Kidney Exchange}
 
 	\section{Appendix A: Order Statistics}
 	\begin{definition}

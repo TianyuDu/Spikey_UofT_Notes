@@ -23,7 +23,9 @@
 \contentsline {paragraph}{Formally}{13}{section*.13}% 
 \contentsline {section}{\numberline {10}Combinatorial Auction: The VCG Mechanism}{14}{section.10}% 
 \contentsline {section}{\numberline {11}Keyword Auctions}{15}{section.11}% 
-\contentsline {section}{\numberline {12}Matching Market}{15}{section.12}% 
-\contentsline {section}{\numberline {13}Appendix A: Order Statistics}{15}{section.13}% 
-\contentsline {paragraph}{Distribution Function}{15}{section*.16}% 
-\contentsline {paragraph}{Density Function}{16}{section*.17}% 
+\contentsline {section}{\numberline {12}Two side, One-to-One Matching: Marriage Market}{15}{section.12}% 
+\contentsline {section}{\numberline {13}Two side: Many-to-One Matching: Medical Matching}{16}{section.13}% 
+\contentsline {section}{\numberline {14}Kidney Exchange}{18}{section.14}% 
+\contentsline {section}{\numberline {15}Appendix A: Order Statistics}{18}{section.15}% 
+\contentsline {paragraph}{Distribution Function}{18}{section*.15}% 
+\contentsline {paragraph}{Density Function}{19}{section*.16}% 
